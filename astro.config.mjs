@@ -20,6 +20,25 @@ export default defineConfig({
       favicon: '/favicon.ico',
       customCss: ['./src/styles/sigil.css'],
       head: [
+        // Google tag (gtag.js). Same measurement ID as the marketing site on
+        // usesigil.app: the _ga cookie is written on the registrable domain, so
+        // a visitor moving between the two keeps one session and one client ID.
+        {
+          tag: 'script',
+          attrs: {
+            async: true,
+            src: 'https://www.googletagmanager.com/gtag/js?id=G-HQF86KJRT5',
+          },
+        },
+        {
+          tag: 'script',
+          content: [
+            'window.dataLayer = window.dataLayer || [];',
+            'function gtag(){dataLayer.push(arguments);}',
+            "gtag('js', new Date());",
+            "gtag('config', 'G-HQF86KJRT5');",
+          ].join('\n'),
+        },
         {
           tag: 'meta',
           attrs: { name: 'theme-color', content: '#E8005A' },
