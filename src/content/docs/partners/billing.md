@@ -60,11 +60,16 @@ somebody joining or leaving mid-period.
 ## When a client's billing lapses
 
 Partner-billed clients depend on the partner subscription rather than their own.
-If the partner subscription becomes past due or is cancelled, signatures stop
-across every managed client at once.
+If the partner subscription goes past due, signatures eventually stop across every
+managed client at once rather than at one of them.
 
-That is worth knowing before it happens, because the failure mode is broad rather
-than isolated.
+There is a dunning window before that happens, and partway through it the
+clients' own administrators are warned directly. Both the window and the point at
+which clients are told are set by Tophhie Cloud rather than being fixed.
+
+That last part is worth knowing before it happens. Your clients find out about a
+billing problem on your account, which is a conversation better had in advance
+than in response.
 
 ## Releasing a client
 

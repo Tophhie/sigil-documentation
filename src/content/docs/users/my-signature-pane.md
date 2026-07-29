@@ -13,12 +13,35 @@ automatic path cannot do its job.
 
 ## What it does
 
-It applies your signature immediately and shows you what was applied.
+It applies your signature immediately and shows you a preview of what was
+applied.
 
 If it could not, it says why, in language you can act on rather than an error
 code.
 
 It offers a download of your signature as a self-contained file.
+
+## What it tells you when something is wrong
+
+The pane distinguishes between problems worth retrying and problems that retrying
+cannot fix.
+
+Where a retry might work, the Apply and Download buttons stay where they are and
+the explanation sits above them. A failed sign-in, a connection that dropped, or
+Outlook declining the signature all fall into this group.
+
+Where nothing can be applied to this mailbox at all, the buttons are removed and
+only the explanation remains. That covers a mailbox with no signature configured,
+an organisation that has not finished setting Sigil up, a subscription that is not
+active, and a version of Outlook too old to support the add-in. Offering a button
+that could only fail would waste your time and tell you nothing.
+
+Each of these names who can fix it, which is usually your IT team rather than
+you.
+
+Opening the pane does not front an error on its own. If something is merely
+transient, you find out when you press a button rather than the moment the pane
+loads.
 
 ## Why it exists
 

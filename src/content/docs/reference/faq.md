@@ -50,6 +50,21 @@ Seconds. Publishing increments the template version, which invalidates every
 cached signature for it. Nothing is redeployed and nobody restarts Outlook. See
 [limits and timings](/reference/limits/).
 
+## Can we try a new signature on some people before everyone?
+
+Yes. A staged publish goes to 10% of mailboxes and steps up to 25%, 50% and then
+everyone as the add-in reports that the new version is applying. The version
+everyone else receives does not change until it promotes, so abandoning it takes
+effect at once and republishes nothing. See
+[staged rollouts](/signatures/staged-rollouts/).
+
+## What happens if a staged rollout goes wrong overnight?
+
+It withdraws itself. An evaluation runs every 15 minutes, and a version failing
+to apply materially more often than the one it would replace is pulled without
+anyone being asked. The mailboxes in the slice go back to the signature everyone
+else has been on throughout.
+
 ## Can different departments have different signatures?
 
 Yes, using [assignment rules](/targeting/assignment-rules/) that match on a

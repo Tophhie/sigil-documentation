@@ -23,12 +23,23 @@ restriction.
 In the Microsoft 365 admin centre:
 
 1. Go to Settings, then Integrated apps.
-2. Choose Upload custom apps.
-3. Provide the Sigil manifest. The exact URL for your tenant is shown on the
-   [Getting started checklist](/admin/getting-started-checklist/) in the portal.
+2. Choose Upload custom apps, and select Office Add-in.
+3. Provide the manifest URL:
+
+   ```
+   https://static.usesigil.app/manifest.xml
+   ```
+
 4. Choose who gets it. Start with a pilot group rather than the whole
    organisation.
 5. Accept the permissions request and finish the deployment.
+
+The same URL is shown with a copy button on the
+[Getting started checklist](/admin/getting-started-checklist/) in the portal.
+
+It is the same manifest for every organisation. The add-in is multi-tenant and
+works out which organisation somebody belongs to from their sign-in, so there is
+nothing tenant-specific to generate and nothing to keep secret.
 
 ## Wait for propagation
 

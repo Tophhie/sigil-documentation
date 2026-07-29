@@ -46,6 +46,14 @@ Every publish archives the body it replaced. Sigil keeps the last ten published
 bodies per template, each template with its own independent history, and any of
 them can be restored in one click. See [versions and rollback](/signatures/versions/).
 
+## Rollout
+
+A publish that goes to part of the organisation first. The template keeps serving
+the current body to everyone outside the slice, and the new one spreads through
+10%, 25%, 50% and then everyone as the add-in reports that it is applying. If it
+applies worse than the version it would replace, it is withdrawn automatically.
+See [staged rollouts](/signatures/staged-rollouts/).
+
 ## Assignment rule
 
 An ordered list of predicates that refines which template a person gets. Each

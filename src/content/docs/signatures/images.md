@@ -27,6 +27,15 @@ organisation and is available to any template in your library.
 Uploads are recorded in the [change log](/monitoring/change-log/) along with who
 uploaded them.
 
+## Seeing what you have
+
+The Images view shows a thumbnail of every uploaded image alongside its name and
+the `cid:` reference to use in a template. Selecting a thumbnail opens the image
+at full size with its file size.
+
+The file size is the number to look at. It is the one property of an image that
+affects every message anyone sends, and it is invisible from the file name.
+
 ## Referencing an image
 
 In the [HTML editor](/signatures/html-editor/), reference an uploaded image by

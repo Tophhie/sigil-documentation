@@ -25,7 +25,7 @@ when nobody has ever received a signature.
 
 This is the one that matters and the one that is easiest to get wrong, so it
 carries the full instructions: the Microsoft 365 Integrated apps steps and the
-exact manifest URL for your tenant.
+manifest URL, with a button to copy it.
 
 It completes only when the Worker has actually seen a signature request arrive
 from your organisation. Uploading the manifest does not tick it. Somebody

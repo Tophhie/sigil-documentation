@@ -53,6 +53,20 @@ the alternative is discovering it as a broken signature in the field. See
 A [designer](/signatures/designer/) template is also validated on publish. If a
 block is misconfigured, the error names the block and the problem.
 
+## Publishing to part of the organisation first
+
+Next to Publish is Staged publish, which sends the new body to 10% of mailboxes
+and leaves everyone else on the current version. It steps up to 25%, 50% and then
+everyone as the add-in reports that the new version is applying, and rolls itself
+back if it starts failing more often than the version it would replace.
+
+The live template does not change until the rollout promotes, so abandoning one
+is instant and republishes nothing.
+
+Use it for a change large enough that discovering a problem at 100% would be
+expensive. A rebrand qualifies. A corrected phone number does not. See
+[staged rollouts](/signatures/staged-rollouts/).
+
 ## What else lands in seconds
 
 Banners and footers are part of the same cache key as the template, so both take
@@ -61,6 +75,7 @@ effect immediately:
 | Change | Time to reach users |
 | --- | --- |
 | Template publish | Seconds |
+| Staged publish | Seconds, for the mailboxes in the slice only |
 | Image upload or replacement | Seconds |
 | Banner window opening or closing | Immediately |
 | Footer edit | Seconds |
@@ -78,3 +93,7 @@ template, and restoring publishes the old body as a new version, so the version
 you rolled back from stays recoverable too.
 
 See [versions and rollback](/signatures/versions/).
+
+A [staged rollout](/signatures/staged-rollouts/) avoids needing this in the first
+place for the changes where it would hurt most, because the version everyone is
+on never changes until the new one has been shown to apply.

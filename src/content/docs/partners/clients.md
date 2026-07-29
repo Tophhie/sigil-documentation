@@ -60,6 +60,18 @@ its billing becomes its own responsibility again.
 Do this when a relationship ends, so the client is not left unable to administer
 their own signatures and you are not left paying for them.
 
+## A client can end it too
+
+A managed client's own administrator can remove your access without asking you.
+
+That is deliberate rather than an oversight. The client is the data controller,
+and a controller has to be able to end a processor relationship it no longer
+wants. Needing the processor's cooperation to do so would not be much of a right.
+
+When it happens, the tenant returns to direct billing with a grace period to add
+a card, and the action is recorded in the partner audit trail. Their seats stop
+counting toward your subscription from that point.
+
 ## Your own tenant
 
 Your MSP's own signatures live in a normal tenant, separate from the partner

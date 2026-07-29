@@ -45,7 +45,9 @@ a report is taken from the verified token rather than from the payload.
 | `PUT /api/admin/templates/:id` | Admin token | Publish a new version |
 | `PATCH /api/admin/templates/:id` | Admin token | Rename |
 | `POST /api/admin/templates/:id/duplicate` | Admin token | Copy a template |
-| `DELETE /api/admin/templates/:id` | Admin token | Delete, blocked while assigned |
+| `DELETE /api/admin/templates/:id` | Admin token | Delete, blocked while assigned. `?purge=true` skips Recently deleted |
+| `GET /api/admin/templates/deleted` | Admin token | Recently deleted templates and the retention window |
+| `POST /api/admin/templates/:id/restore` | Admin token | Bring one back from Recently deleted |
 | `GET /api/admin/templates/:id/versions` | Admin token | Rollback history |
 | `POST /api/admin/templates/:id/rollback` | Admin token | Restore a version |
 | `PUT /api/admin/templates/:id/draft` | Admin token | Save a working copy |
@@ -61,6 +63,20 @@ Shortcuts acting on the active new-message template exist at
 `GET/PUT /api/admin/template`, `GET /api/admin/versions` and
 `POST /api/admin/rollback`.
 
+## Staged rollout endpoints
+
+| Route | Auth | Purpose |
+| --- | --- | --- |
+| `PUT /api/admin/templates/:id` with a `rollout` block | Admin token | Publish as a staged rollout rather than to everyone |
+| `GET /api/admin/templates/:id/rollout` | Admin token | State, both versions' apply results, and the next decision |
+| `POST /api/admin/templates/:id/rollout/promote` | Admin token | Publish to everyone now |
+| `POST /api/admin/templates/:id/rollout/rollback` | Admin token | Abandon the rollout |
+
+A staged publish writes the body to the rollout rather than to the template, so
+the live signature is unchanged until it promotes. Every gate has a default,
+which makes `"rollout": true` a complete request. See
+[staged rollouts](/signatures/staged-rollouts/).
+
 ## Configuration endpoints
 
 | Route | Auth | Purpose |
@@ -69,7 +85,9 @@ Shortcuts acting on the active new-message template exist at
 | `GET/PUT /api/admin/rules` | Admin token | Assignment rules, replaced as one ordered list |
 | `GET/POST /api/admin/banners`, `PUT/DELETE /api/admin/banners/:id` | Admin token | Campaign banners |
 | `GET/POST /api/admin/footers`, `PUT/DELETE /api/admin/footers/:id` | Admin token | Compliance footers |
-| `GET /api/admin/assets`, `PUT /api/admin/asset/:name` | Admin token | Inline images |
+| `GET /api/admin/assets` | Admin token | The image list |
+| `GET /api/admin/asset/:name` | Admin token | One image, base64 encoded, for the portal's preview |
+| `PUT /api/admin/asset/:name`, `DELETE /api/admin/asset/:name` | Admin token | Upload or remove an image |
 | `PUT /api/admin/templates/:id/tracking` | Admin token | Toggle link tracking for a template |
 | `POST /api/admin/test-email` | Admin token | Send a rendered signature to a verified inbox |
 
@@ -78,6 +96,7 @@ Shortcuts acting on the active new-message template exist at
 | Route | Auth | Purpose |
 | --- | --- | --- |
 | `GET /api/admin/activity` | Admin token | Per-mailbox rollup, recent feed, adoption |
+| `GET /api/admin/activity/events` | Admin token | The event search, filtered by mailbox, source or outcome |
 | `GET /api/admin/audit` | Admin token | Directory attribute coverage |
 | `GET /api/admin/log` | Admin token | The change log |
 | `GET /api/admin/links` | Admin token | Click totals per tracked link |
@@ -86,13 +105,49 @@ Shortcuts acting on the active new-message template exist at
 
 | Route | Auth | Purpose |
 | --- | --- | --- |
+| `GET /api/admin/me` | Admin token | Who the caller is, their role, and their organisation's state |
 | `GET/PUT /api/admin/users`, `DELETE /api/admin/users/:email` | Admin token, Admin role | Manage users and roles |
+| `GET /api/admin/users/search` | Admin token | Directory lookup, for pickers such as download and test email |
 | `GET /api/admin/onboarding` | Admin token, Admin role | Getting started checklist state |
 | `POST /api/admin/onboarding/dismiss` | Admin token, Admin role | Dismiss the checklist |
+| `POST /api/admin/dpa/accept` | Admin token, Admin role | Record acceptance of the data processing agreement |
 | `GET /api/admin/billing` | Admin token, Admin role | Subscription status, seats, card, invoice |
 | `POST /api/admin/billing/checkout` | Admin token, Admin role | A hosted Stripe card-capture URL |
 | `POST /api/admin/billing/portal` | Admin token, Admin role | A hosted Stripe management URL |
+| `POST /api/admin/billing/cancel`, `…/reactivate` | Admin token, Admin role | Cancel the subscription, or resume a cancelled one |
 | `PUT /api/admin/billing/profile` | Admin token, Admin role | Save the billing profile |
+
+A partner's own administrator cannot accept a managed client's DPA on their
+behalf. That request is refused, because the client is the data controller. See
+[compliance](/security/compliance/).
+
+## Partner endpoints
+
+Present only for partner staff, and scoped to the partner rather than to a
+tenant. They live under `/api/admin/partner`.
+
+| Route | Purpose |
+| --- | --- |
+| `GET /clients` | The managed client list |
+| `GET /billing`, `POST /billing/checkout`, `POST /billing/portal`, `POST /billing/sync` | The consolidated subscription |
+| `GET /usage`, `GET /usage/export` | Per-client seat counts, and the CSV for rebilling |
+| `GET/PUT /staff`, `DELETE /staff/:email` | Partner staff and their roles |
+| `GET /invites`, `GET /transfers` | Outstanding client invitations and transfer requests |
+| `GET /events` | The partner-level audit trail |
+| `POST /agreement/accept` | Record acceptance of the partner agreement |
+
+Working inside a client uses the ordinary tenant endpoints above, with the
+client's context established by the partner relationship. See
+[the partner programme](/partners/overview/).
+
+The client's own half of that relationship lives under `/api/admin/managed` and
+is reachable by an Admin of the managed tenant, not by their partner.
+
+| Route | Purpose |
+| --- | --- |
+| `GET /status` | Who manages this organisation, and any pending request to |
+| `POST /transfer/:id/approve`, `…/decline` | Answer a request to take the organisation over |
+| `POST /partner/revoke` | End the partner relationship |
 
 ## Public endpoints
 

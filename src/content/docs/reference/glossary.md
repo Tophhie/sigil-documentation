@@ -31,6 +31,10 @@ a partner.
 **Draft**
 A template's unpublished working copy. One per template.
 
+**Failure rate**
+The share of attempts to apply a given version that Outlook did not accept. The
+number a staged rollout compares between the new version and the current one.
+
 **Footer**
 A legal or compliance block appended below every signature at render time. See
 [footers](/targeting/footers/).
@@ -65,6 +69,11 @@ A token such as `{{jobTitle}}` replaced with directory data at render time. See
 
 **Platform console**
 Tophhie Cloud's cross-tenant operator view.
+
+**Rollout**
+A publish served to a percentage of mailboxes first, promoted or withdrawn on the
+evidence of the add-in's apply results. See
+[staged rollouts](/signatures/staged-rollouts/).
 
 **Role**
 Two meanings, distinguished by context. A signature role is the slot a template

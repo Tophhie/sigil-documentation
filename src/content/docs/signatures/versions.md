@@ -2,7 +2,7 @@
 title: Versions and rollback
 description: Restore a previous version of any template, and recover a template you deleted.
 sidebar:
-  order: 7
+  order: 8
 ---
 
 Every publish archives the body it replaced. Sigil keeps the last ten published
@@ -21,6 +21,21 @@ it is a forward action rather than a rewind, so the version you rolled back
 Restored versions reach users in seconds, exactly like any other publish.
 
 Rollbacks are recorded in the [change log](/monitoring/change-log/).
+
+## Rollbacks and staged rollouts
+
+Restoring a version is the recovery path for something that is already live for
+everyone. It is a real publish, and it takes a moment to notice the problem and a
+moment more to put it right.
+
+A [staged rollout](/signatures/staged-rollouts/) is the path that avoids reaching
+that point. Because the live body never changes until the new version has
+proved itself, abandoning one republishes nothing and archives nothing. The two
+are worth keeping straight: one undoes a publish, the other declines to complete
+it.
+
+A rollout that promotes behaves like an ordinary publish here. The outgoing body
+is archived and can be restored in the usual way.
 
 ## Ten versions per template
 

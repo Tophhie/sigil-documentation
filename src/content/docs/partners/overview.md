@@ -84,8 +84,26 @@ every client.
 You then rebill through your own arrangement, using the per-client usage export.
 See [partner billing](/partners/billing/).
 
+## The partner agreement
+
+The partner agreement is published at `portal.usesigil.app/partner-agreement`.
+Acceptance is recorded against the partner, with the accepted version tracked, so
+what was agreed and when is a record rather than an assertion.
+
+It is separate from the [data processing agreement](/security/compliance/) a
+client accepts. A partner cannot accept a client's DPA on their behalf, because
+the client is the data controller and the agreement is theirs to make.
+
 ## Getting set up
 
-Partner onboarding is handled by Tophhie Cloud rather than being self-serve,
-because it establishes a commercial relationship rather than just a tenant.
-Contact them through `portal.usesigil.app/support` to start.
+Partner onboarding is not self-serve, because it establishes a commercial
+relationship rather than just a tenant. Contact Tophhie Cloud through
+`portal.usesigil.app/support` to start.
+
+What you get back is a single link. Following it walks through the programme
+terms offered to you, then sends you to Microsoft admin consent for your own
+organisation. Granting it provisions your tenant, creates the partner record on
+those terms, and makes the administrator who consented the partner Owner. There
+is no further step at either end.
+
+The link is single-use and expires.

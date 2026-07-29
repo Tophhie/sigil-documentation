@@ -12,6 +12,7 @@ Roles are assigned per organisation from [users and roles](/admin/users-and-role
 | Area | Admin | Editor | Marketing |
 | --- | --- | --- | --- |
 | Templates, drafts, versions | Yes | Yes | No |
+| Staged rollouts, including promote and roll back | Yes | Yes | No |
 | Images | Yes | Yes | No |
 | Import and export | Yes | Yes | No |
 | Preview and download | Yes | Yes | No |

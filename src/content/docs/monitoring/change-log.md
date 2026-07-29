@@ -23,8 +23,19 @@ who changed it and in what order.
 | Permanently deleting a template | Yes |
 | Assigning a template to a role | Yes |
 | Uploading an image | Yes |
+| Every stage of a staged rollout | Yes |
 
 Each entry carries who performed the action and when.
+
+## Staged rollout entries
+
+A [staged rollout](/signatures/staged-rollouts/) writes an entry for each
+transition: who started it, what each 15 minute evaluation decided, and how it
+ended.
+
+Decisions taken automatically carry their reason, so a rollback records the
+failure rates that caused it rather than only the fact that it happened. Reading
+those entries in order tells you the whole story of a rollout after it is over.
 
 ## Append-only
 

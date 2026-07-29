@@ -68,6 +68,12 @@ Authoring covers the template library, a drag-and-drop
 live, [version history and rollback](/signatures/versions/), and
 [import and export](/signatures/import-export/) as portable JSON.
 
+A publish can also be [staged](/signatures/staged-rollouts/), going to 10% of
+mailboxes and spreading only as the add-in reports that the new version is
+applying. Because Sigil measures whether a signature was applied rather than only
+served, a rollout that starts failing more often than the version it would
+replace withdraws itself.
+
 Targeting decides who gets what.
 [Assignment rules](/targeting/assignment-rules/) pick a template by directory
 attribute or Entra group membership. [Banners](/targeting/banners/) inject a

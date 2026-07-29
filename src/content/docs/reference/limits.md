@@ -35,6 +35,8 @@ See [Outlook constraints](/signatures/outlook-constraints/).
 | Change | Time |
 | --- | --- |
 | Template publish | Seconds |
+| Staged publish, for the mailboxes in the slice | Seconds |
+| Promoting or abandoning a staged rollout | Seconds |
 | Version restore | Seconds |
 | Image upload or replacement | Seconds |
 | Footer edit | Seconds |
@@ -46,6 +48,21 @@ See [Outlook constraints](/signatures/outlook-constraints/).
 
 Assignment rules are slower than template edits because evaluating a rule needs
 directory data, so the per-mailbox result is cached for ten minutes.
+
+## Staged rollout defaults
+
+| Item | Value |
+| --- | --- |
+| Percentage steps | 10, 25, 50, then everyone |
+| Rollouts per template | One at a time |
+| Evaluation frequency | Every 15 minutes |
+| Apply outcomes needed before any decision | 20 on the new version |
+| Soak per step | 60 minutes |
+| Failure rate that can trigger a rollback | Above 10% |
+| Margin over the current version needed to call it a regression | 5 percentage points |
+
+Both conditions on the last two rows must hold before a rollout is pulled. See
+[staged rollouts](/signatures/staged-rollouts/).
 
 ## Trial and billing
 

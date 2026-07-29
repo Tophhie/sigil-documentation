@@ -86,6 +86,16 @@ A mailbox with only manual applications is a mailbox where automatic activation
 is not working. That is worth investigating even though the person does have a
 signature, because they are doing work the product is supposed to do for them.
 
+## What the outcomes are used for besides reporting
+
+Apply outcomes are also the input to
+[staged rollouts](/signatures/staged-rollouts/). Each outcome names the version
+it applied, so a rollout can count the new version's results and the current
+version's separately and compare them.
+
+A rollout with no telemetry behind it would have nothing to go on but the clock,
+which is a schedule rather than a safety measure.
+
 ## What is stored
 
 Metadata only. No tokens and no rendered HTML are recorded, so the telemetry

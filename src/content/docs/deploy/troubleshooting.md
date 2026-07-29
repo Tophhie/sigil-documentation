@@ -66,6 +66,17 @@ recorded failure.
 Check the assignment in Integrated apps. A pilot deployment that was never
 widened is a common cause of a clean split between two groups of people.
 
+## Some people have a different signature from everyone else
+
+Check whether a [staged rollout](/signatures/staged-rollouts/) is running. A
+rollout deliberately serves the new version to a slice of mailboxes and leaves
+everyone else on the previous one, so a report of "my signature does not match my
+colleague's" during a rollout is the feature working rather than a fault.
+
+The template editor shows a panel while one is in flight, with the percentage
+currently covered. Promote it to put everyone on the same version, or roll it
+back to do the same in the other direction.
+
 ## One person has no signature
 
 Ask them to open the "My signature" pane from the compose ribbon. It applies the
@@ -99,6 +110,10 @@ template edits which land in seconds.
 Template edits are live within seconds, so a stale signature usually means the
 change was saved as a draft rather than published. Check the template's draft
 state in the editor. See [drafts and publishing](/signatures/publishing/).
+
+A [staged rollout](/signatures/staged-rollouts/) produces the same symptom for
+most of the organisation, and legitimately so: the live template does not change
+until the rollout promotes.
 
 ### Broken images
 
