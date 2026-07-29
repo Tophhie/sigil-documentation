@@ -1,40 +1,93 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: Sigil documentation
+description: Centrally managed email signatures for Microsoft 365 and Outlook. Design once, personalise from the directory, apply automatically on every compose.
+template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  tagline: Centrally managed email signatures for Microsoft 365. One template, every mailbox, personalised from your directory and applied automatically as people write.
   image:
-    file: ../../assets/houston.webp
+    file: ../../assets/sigil-mark.png
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: What Sigil is
+      link: /start/what-is-sigil/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
+    - text: Set it up
+      link: /start/quickstart/
+      icon: rocket
       variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-## Next steps
+## Find your way around
 
-<CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+<CardGrid>
+	<Card title="New to Sigil" icon="open-book">
+		Start with [what Sigil is](/start/what-is-sigil/) for the shape of the
+		product, then [how it works](/start/how-it-works/) for the mechanism behind
+		it.
 	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
+	<Card title="Setting it up" icon="rocket">
+		The [quickstart](/start/quickstart/) takes an organisation from nothing to a
+		working signature. Budget an afternoon, plus propagation time for the
+		add-in.
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	<Card title="Designing signatures" icon="pencil">
+		[Templates](/signatures/templates/) covers the library and how a signature
+		is chosen. [Placeholders](/signatures/placeholders/) lists everything you
+		can merge in from the directory.
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	<Card title="Running it day to day" icon="approve-check">
+		[Activity](/monitoring/activity/) answers the question client-side signature
+		tools usually cannot: is this actually reaching people?
 	</Card>
 </CardGrid>
+
+## Common tasks
+
+<CardGrid>
+	<LinkCard
+		title="Connect your organisation"
+		description="Grant admin consent and provision your tenant."
+		href="/deploy/connect-your-organisation/"
+	/>
+	<LinkCard
+		title="Deploy the Outlook add-in"
+		description="Upload the manifest through Integrated apps and pilot it."
+		href="/deploy/deploy-the-add-in/"
+	/>
+	<LinkCard
+		title="Give people different signatures"
+		description="Assignment rules by department, office, domain or Entra group."
+		href="/targeting/assignment-rules/"
+	/>
+	<LinkCard
+		title="Run a campaign banner"
+		description="A time-boxed image above or below every signature."
+		href="/targeting/banners/"
+	/>
+	<LinkCard
+		title="Add a legal disclaimer"
+		description="Compliance footers appended at render time, per email domain."
+		href="/targeting/footers/"
+	/>
+	<LinkCard
+		title="Work out why a signature is missing"
+		description="The troubleshooting path, from tenant state down to one mailbox."
+		href="/deploy/troubleshooting/"
+	/>
+</CardGrid>
+
+## The short version
+
+Sigil is built by Tophhie Cloud for organisations on Microsoft 365. An
+administrator designs one or more signature templates in the web portal. An
+Outlook add-in, deployed centrally, fires whenever someone starts a message,
+asks the Sigil API for that person's signature, and applies it. The API
+personalises the template from Microsoft Graph, so every signature carries the
+right name, title, phone number and address without anyone typing them.
+
+Changes to a template, an image, a banner or a footer reach users within seconds.
+Nothing is redeployed and nobody is asked to do anything.
+
+Pricing is £0.70 per licensed mailbox per month with a 14 day free trial. Shared
+and resource mailboxes are free. Every feature is included at that price.

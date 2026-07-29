@@ -1,7 +1,10 @@
 {
 	"$schema": "./node_modules/wrangler/config-schema.json",
 	"compatibility_date": "2026-07-29",
-	"compatibility_flags": ["global_fetch_strictly_public"],
+	// nodejs_compat: Starlight's code-block highlighting pulls in postcss, which
+	// imports node:path/url/fs. Without the flag the dev runtime 500s on every
+	// route.
+	"compatibility_flags": ["global_fetch_strictly_public", "nodejs_compat"],
 	"name": "sigil-documentation",
 	"main": "@astrojs/cloudflare/entrypoints/server",
 	"assets": {
@@ -10,5 +13,11 @@
 	},
 	"observability": {
 		"enabled": true
-	}
+	},
+	"routes": [
+		{
+			"pattern": "docs.usesigil.app",
+			"custom_domain": true
+		}
+	]
 }

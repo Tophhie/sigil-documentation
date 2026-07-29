@@ -1,0 +1,127 @@
+---
+title: Frequently asked questions
+description: Short answers to the questions that come up most often when evaluating or running Sigil.
+sidebar:
+  order: 5
+---
+
+## Does Sigil work with Google Workspace?
+
+No. Sigil is built on Outlook add-ins and Microsoft Entra, so it requires
+Microsoft 365 with Exchange Online.
+
+## Does Sigil see the emails people send?
+
+No. Sigil writes into the compose window and does not sit in your mail flow. It
+has no access to message bodies, subjects or recipients. See
+[data and privacy](/security/data-and-privacy/).
+
+## Can Sigil change anything in our directory?
+
+No. It requests read-only Graph permissions and no write permission of any kind.
+See [permissions](/deploy/permissions/).
+
+## Do users see their own signature as they write?
+
+Yes. The signature is applied in the compose window, so the sender sees exactly
+what the recipient will get. This differs from server-side products that stamp
+signatures in transit, where the sender never sees their own.
+
+## Can people delete or edit the signature after it is applied?
+
+The signature is placed in the compose window, so a determined person can edit it
+in that message like any other content. What they cannot do is change what appears
+next time, because the template is served fresh on every compose.
+
+## Do users need to install anything?
+
+No. An administrator deploys the add-in centrally through Integrated apps.
+Individual installation does not work for automatic signatures, because
+event-based add-ins only auto-launch when an administrator deploys them.
+
+## How long does deployment take?
+
+6 to 72 hours to propagate after you upload the manifest. Nothing speeds it up.
+See [deploy the add-in](/deploy/deploy-the-add-in/).
+
+## How quickly does a template change reach people?
+
+Seconds. Publishing increments the template version, which invalidates every
+cached signature for it. Nothing is redeployed and nobody restarts Outlook. See
+[limits and timings](/reference/limits/).
+
+## Can different departments have different signatures?
+
+Yes, using [assignment rules](/targeting/assignment-rules/) that match on a
+directory attribute or Entra group membership.
+
+## Can we have a shorter signature on replies?
+
+Yes. Assign a separate template to the reply role. The add-in detects replies and
+forwards and requests the reply signature. Without one, replies get the
+new-message template.
+
+## What happens with shared mailboxes?
+
+They get their own signature, rendered when somebody switches the sending
+account. They are unlicensed, so they are free.
+
+## Can Sigil tell us if it is actually working?
+
+Yes, and this is one of the things it does that most client-side signature tools
+cannot. [Activity](/monitoring/activity/) records every request and every apply
+outcome per mailbox, and lists mailboxes that have never had a signature applied.
+
+## Does link tracking identify individual recipients?
+
+No. Click counts only. No IP address, no recipient identity, no cookie, no pixel.
+Links containing a per-person placeholder are never rewritten. See
+[link clicks](/monitoring/link-clicks/).
+
+## Why does the signature not appear the very first time someone uses it?
+
+The automatic path runs in a part of Outlook with no user interface, so it can
+only sign somebody in silently. On a first use, or after an expired session or an
+MFA prompt, that can fail and the add-in stops quietly rather than interrupting
+somebody mid-message. Opening the "My signature" pane once completes the sign-in,
+and it works automatically from then on.
+
+## Why is there no manual button on mobile?
+
+Outlook mobile activates add-ins in read mode only. Event-based activation is one
+of a small number of documented exceptions; a compose task pane is not. Signatures
+still apply automatically on mobile.
+
+## Can we use SVG logos?
+
+No. Outlook does not render SVG. Use PNG or JPG. See
+[Outlook constraints](/signatures/outlook-constraints/).
+
+## What happens if we stop paying?
+
+Signatures stop being served. The add-in receives a 402 and applies nothing.
+Nothing is deleted, and restoring an active subscription restores signatures. See
+[billing](/admin/billing/).
+
+## What happens at the end of the trial?
+
+Stripe converts it. With a card on file it charges the card. With no card on file
+it cancels the subscription, so an organisation that never adds a card stops
+rather than being billed unexpectedly.
+
+## Can we get our data out?
+
+Templates export as portable JSON bundles including images. Everything held about
+a single mailbox can be exported for a subject access request. See
+[import and export](/signatures/import-export/) and
+[compliance](/security/compliance/).
+
+## Can a managed service provider run this for us?
+
+Yes. See [the partner programme](/partners/overview/).
+
+## Can we run Sigil alongside our existing signature product?
+
+Not usefully. A server-side product that stamps signatures in mail flow will add
+its own on top of Sigil's, producing two signatures per message. Switch a pilot
+group over rather than running both. See [planning a rollout](/start/rollout/).

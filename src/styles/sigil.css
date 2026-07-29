@@ -1,0 +1,117 @@
+/*
+ * Sigil documentation theme.
+ *
+ * The palette is taken from the Tophhie Cloud design system that the Sigil
+ * portal and the Outlook task pane are both built on, so the docs sit next to
+ * the product rather than beside it. Brand pink is #E8005A; the dark surfaces
+ * are the design system's #121212 / #1C1C1E pair.
+ */
+
+:root {
+	/* Brand pink, tinted and shaded for Starlight's accent slots. */
+	--sl-color-accent-low: #ffd6e5;
+	--sl-color-accent: #b3004a;
+	--sl-color-accent-high: #4d0020;
+
+	--sigil-pink: #e8005a;
+	--sigil-pink-light: #ff2e7a;
+	--sigil-pink-dim: #b3004a;
+	--sigil-purple: #8b0060;
+}
+
+:root[data-theme='dark'] {
+	--sl-color-accent-low: #40001c;
+	--sl-color-accent: #d1004f;
+	--sl-color-accent-high: #ffc2d8;
+
+	/* The design system's neutral surfaces, not Starlight's blue-grey ones. */
+	--sl-color-black: #121212;
+	--sl-color-gray-6: #171717;
+	--sl-color-gray-5: #1c1c1e;
+	--sl-color-gray-4: #2a2a2c;
+	--sl-color-gray-3: #4a4a4d;
+	--sl-color-gray-2: #a8a8ad;
+	--sl-color-gray-1: #ededef;
+	--sl-color-white: #ffffff;
+
+	--sl-color-bg: #121212;
+	--sl-color-bg-nav: rgba(20, 20, 22, 0.92);
+	--sl-color-bg-sidebar: #171717;
+	--sl-color-hairline-shade: rgba(255, 255, 255, 0.08);
+}
+
+/* The mark is a rounded-square app icon, so it wants a little breathing room
+   and its own corner radius rather than sitting square against the wordmark. */
+.site-title img {
+	border-radius: 6px;
+}
+
+/* Starlight sets the site title in the body font at a fairly light weight; the
+   product wordmark is heavier than that everywhere else it appears. */
+.site-title span {
+	font-weight: 650;
+	letter-spacing: -0.01em;
+}
+
+/* Sidebar current page marker in brand pink rather than the default blue. */
+.sidebar-content a[aria-current='page'] {
+	color: var(--sl-color-text-invert);
+	background-color: var(--sl-color-accent);
+}
+
+/* Tables carry a lot of the reference content here (placeholders, roles,
+   endpoints), so give them room and a readable header row. */
+.sl-markdown-content table {
+	display: block;
+	overflow-x: auto;
+	font-size: var(--sl-text-sm);
+}
+
+.sl-markdown-content th {
+	white-space: nowrap;
+}
+
+.sl-markdown-content :is(td, th) code {
+	white-space: nowrap;
+}
+
+/* Placeholder tokens read better in a slightly tighter inline code style, and
+   there are hundreds of them across the signature docs. */
+.sl-markdown-content :not(pre) > code {
+	font-size: 0.9em;
+}
+
+/* Splash page hero. The mark is an app icon rather than an illustration, so at
+   Starlight's default hero size it dominates the page; cap it and let the
+   headline lead. */
+.hero > img,
+.hero > .hero-html {
+	filter: drop-shadow(0 12px 40px rgba(232, 0, 90, 0.35));
+	max-width: 220px;
+	margin-inline: auto;
+}
+
+@media (min-width: 50rem) {
+	.hero > img,
+	.hero > .hero-html {
+		max-width: 260px;
+	}
+}
+
+.hero h1 {
+	background: linear-gradient(
+		100deg,
+		var(--sl-color-white) 0%,
+		var(--sigil-pink-light) 70%
+	);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+
+:root[data-theme='light'] .hero h1 {
+	background: linear-gradient(100deg, #1a1a1a 0%, var(--sigil-pink-dim) 70%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
