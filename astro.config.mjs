@@ -74,5 +74,9 @@ export default defineConfig({
     }),
   ],
 
-  adapter: cloudflare(),
+  // Every page here is prerendered, so images are optimised at build time and
+  // emitted as static assets. The adapter's default routes them through the
+  // runtime `/_image` endpoint backed by a Cloudflare Images binding, which
+  // this Worker has no need for.
+  adapter: cloudflare({ imageService: 'compile' }),
 });
