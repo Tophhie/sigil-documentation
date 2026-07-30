@@ -130,6 +130,7 @@ tenant. They live under `/api/admin/partner`.
 | --- | --- |
 | `GET /clients` | The managed client list |
 | `GET /billing`, `POST /billing/checkout`, `POST /billing/portal`, `POST /billing/sync` | The consolidated subscription |
+| `PUT /billing/profile` | Save the partner's own invoice details |
 | `GET /usage`, `GET /usage/export` | Per-client seat counts, and the CSV for rebilling |
 | `GET/PUT /staff`, `DELETE /staff/:email` | Partner staff and their roles |
 | `GET /invites`, `GET /transfers` | Outstanding client invitations and transfer requests |

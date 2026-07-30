@@ -47,6 +47,10 @@ mailbox before it is printed into a signature.
 Licence and account state, used to count billable seats and to exclude guests and
 disabled accounts.
 
+The profile photo, but only for organisations whose template contains a Photo
+block. `User.Read.All` already covers it, so adding one needs no new consent. See
+[per-user images](/signatures/per-user-images/).
+
 These are the same attributes every colleague can already see in the address
 book. What Sigil adds is that they can only be read with a valid, verified Entra
 token.

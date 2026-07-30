@@ -14,9 +14,19 @@ Each managed client's billable seats are counted the same way as for a direct
 tenant: licensed member mailboxes, with shared and resource mailboxes free and
 guests and disabled accounts excluded.
 
-Those counts are summed across your whole client base and pushed to a single
-per-seat Stripe subscription belonging to the partner. A daily job keeps the
-quantity in step, and quantity changes do not trigger a mid-cycle invoice.
+Those counts are summed across your whole client base and reported once a day as
+usage against a single metered subscription belonging to the partner. You are
+invoiced monthly in arrears for what the period actually recorded.
+
+That is a different model from a direct tenant, which carries a licensed seat
+quantity that prorates when it changes. A partner has no quantity, so there is no
+proration and no mid-cycle invoice. Clients joining and leaving during a month
+show up in the month's usage rather than as adjustments.
+
+A client whose Microsoft 365 consent has lapsed cannot be counted. It is reported
+separately rather than aborting the aggregate, so one broken client does not stop
+the other nineteen being billed. Those exceptions are worth chasing, since an
+uncountable client is also one whose signatures may have stopped.
 
 Your own tenant, the one holding your own signatures, is handled separately from
 your clients' as part of the partner arrangement.
@@ -25,6 +35,29 @@ your clients' as part of the partner arrangement.
 
 A partner discount is applied to the aggregate subscription as a whole-percent
 reduction off list.
+
+Sigil pushes the current percentage to the subscription whenever it is set,
+rather than only when the number changes. A discount that failed to attach the
+first time is therefore corrected by setting it again.
+
+## Your invoice details
+
+A partner has its own billing profile, separate from the one on its home tenant:
+company name, billing email, billing address, and a VAT or tax identifier.
+
+That separation exists because a partner is billed as its own customer. In
+practice most MSPs want invoices reaching a generic accounts mailbox rather than
+whichever engineer set the account up, and want their registered company name and
+VAT number on the invoice regardless of what their own tenant record says.
+
+The details are held in Sigil and pushed to your Stripe customer record when you
+save them. If the push fails, you are told so explicitly rather than being shown
+a success message while invoices continue to carry the old details. Save again to
+retry.
+
+The tax identifier type is derived from the country you set, so get the country
+right first if both are changing. The same rules apply as for a direct tenant's
+[billing profile](/admin/billing-profile/).
 
 ## What clients see
 

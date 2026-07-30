@@ -94,10 +94,17 @@ them may mean changing AD rather than Entra.
 | --- | --- |
 | `{{anyPhone}}` | The person has any phone number at all |
 | `{{anyAddress}}` | The person has any address component at all |
+| `{{hasPhoto}}` | The mailbox has a Microsoft 365 profile photo |
 
 These exist for conditional sections rather than for printing. Attaching a whole
 contact row to `{{#anyPhone}}` lets the entire row disappear for people with no
 phone number, instead of leaving an empty label or a stray separator behind.
+
+`hasPhoto` is resolved only when a template actually contains a Photo block,
+because answering it costs a call to Microsoft Graph. A Photo block in the
+[designer](/signatures/designer/) carries the condition on its own, so this is
+mainly useful for hiding something that sits alongside a photo. See
+[per-user images](/signatures/per-user-images/).
 
 ## Conditional sections
 

@@ -21,18 +21,65 @@ A design is a tree of blocks on a canvas.
 
 | Block | What it does |
 | --- | --- |
-| Row | A multi-column layout row. Compiles to a nested table |
+| Columns | A multi-column layout row. Compiles to a nested table |
 | Text | A run of text, with placeholders and inline formatting |
 | Image | A logo, headshot or badge, attached inline |
 | Button | A styled call-to-action link |
-| Social | A row of social icons |
+| Social icons | A row of linked icons |
+| QR code | A scannable link, or the sender's own contact card |
+| Photo | The sender's own Microsoft 365 profile photo |
 | Divider | A horizontal rule |
 | Spacer | Vertical space |
-| Raw HTML | An escape hatch for markup the blocks do not cover |
+| HTML | An escape hatch for markup the blocks do not cover |
 
 Rows are how you get side-by-side layouts, such as a logo on the left and contact
 details on the right. Columns can be sized as a percentage of the row or at a
 fixed pixel width, and columns you do not size share what is left.
+
+The QR code and Photo blocks behave differently from the rest, because the image
+each one produces depends on who is sending. See
+[per-user images](/signatures/per-user-images/).
+
+## Block styling
+
+Every block, and every column, can carry a background colour and a border.
+
+The border is uniform on all four sides, with a width, a style of solid, dashed
+or dotted, and a colour. There is deliberately no corner radius and no per-side
+control. Classic Outlook renders a rounded table cell as square anyway, and
+per-side borders produce more misaligned signatures than good ones.
+
+A background plus a border on a column is what a card or a coloured sidebar
+stripe is made of. Backgrounds default to transparent, which is the right default
+for email.
+
+Buttons are the exception. A button's background colour is the button's own fill
+rather than the cell behind it, because a button already is a coloured box.
+
+## Vertical alignment
+
+Blocks and columns can both be aligned vertically, but they answer different
+questions and it is easy to reach for the wrong one.
+
+Column alignment is the one you usually want. When one column is taller than
+another, setting the shorter column's vertical alignment to middle is what puts
+contact details level with the photo beside them.
+
+Block alignment only does something when the block has room to move within its
+own cell, which means setting a minimum height as well. A block normally sits in
+a cell exactly as tall as its content, so alignment alone has nothing to work
+with. The designer says so rather than letting you set a value that does nothing.
+
+## Text formatting
+
+Selecting a text block brings up a formatting toolbar inside the block itself, so
+the controls sit where you are already looking rather than at the top of the
+stage. It covers bold, italic, underline, colour, links and inserting a field.
+
+Text blocks can be sized in points as well as pixels. Points are what people
+authoring in Word and Outlook think in; pixels are what the web thinks in.
+Fractional sizes are accepted, which matters when you are matching an existing
+signature.
 
 ## Canvas settings
 
@@ -53,6 +100,11 @@ Text blocks accept the same [placeholders](/signatures/placeholders/) as a
 hand-written template. Insert them from the field menu rather than typing them,
 so the token always matches something that actually renders.
 
+The field menu is grouped and filterable. Each row shows the field's label with
+its `{{token}}` underneath, so a long field name never competes with its token
+for width. Typing in the filter narrows the list; choosing a row inserts that
+field at the cursor.
+
 The designer fetches its field list from the API, which means the picker cannot
 drift from what the renderer knows how to resolve.
 
@@ -65,10 +117,13 @@ This is how you avoid the classic problems: a phone row that leaves a dangling
 label for people with no phone number, or an address block that collapses to a
 line of commas.
 
-Two derived fields help here. `anyPhone` is true when the person has any phone
-number at all, and `anyAddress` when they have any address component. Attaching a
-whole row to one of those lets the entire row disappear rather than each field
-inside it.
+Three derived fields help here. `anyPhone` is true when the person has any phone
+number at all, `anyAddress` when they have any address component, and `hasPhoto`
+when their mailbox has a Microsoft 365 profile photo. Attaching a whole row to one
+of those lets the entire row disappear rather than each field inside it.
+
+A Photo block carries the `hasPhoto` condition automatically, so you do not need
+to set it yourself.
 
 ## Publishing
 
@@ -86,11 +141,15 @@ character limit.
 A designer template can be ejected to HTML. This converts it to a hand-authored
 template containing the compiled markup, and it is one-way.
 
-Eject when you need something the blocks cannot express and the Raw HTML block is
-not enough. After ejecting, the template is edited in the
+Eject when you need something the blocks cannot express and the HTML block is not
+enough. After ejecting, the template is edited in the
 [HTML editor](/signatures/html-editor/) from then on.
 
 HTML cannot be imported back into the designer.
+
+Do not eject a template that uses a QR code or a Photo block. Those images are
+generated from the design document, and ejecting discards it. See
+[per-user images](/signatures/per-user-images/#designer-only).
 
 ## When to use the designer, and when not to
 

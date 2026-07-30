@@ -18,6 +18,16 @@ Every attribute that maps to a [placeholder](/signatures/placeholders/): the
 identity fields, the phone numbers, job title and department, the address
 components, the manager fields, and all fifteen extension attributes.
 
+The manager fields cover all four placeholders, not just the manager's name. A
+manager's job title, email address and phone number are each scored separately,
+so a template that prints a manager's contact details can be checked properly
+before it is published.
+
+Manager details are a navigation property in Microsoft Graph rather than a plain
+attribute, so the audit asks for them explicitly. That makes it slower on a large
+directory than the seat count or the adoption report, neither of which reads
+manager at all.
+
 The extension attributes are the ones most worth checking. They have no enforced
 meaning, so whether they are populated at all is entirely up to how your
 organisation uses them.

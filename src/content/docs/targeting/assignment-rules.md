@@ -59,6 +59,29 @@ fires.
 When a signature is wrong for a group of people, the ordering is the first thing
 to check.
 
+## Changing the order
+
+Drag a rule by the handle at the left of its row. The order on screen is the
+evaluation order, so what you see is what the server will check.
+
+The handle is also a button. Focus it and use the arrow keys to move the rule up
+or down without a pointer, or use Move up and Move down in the row's own menu.
+Both do exactly what dragging does.
+
+## Editing and saving
+
+The rules list is a working copy. Adding, editing, reordering and removing all
+happen locally, and the whole list is saved in one action.
+
+An unsaved changes marker appears as soon as you touch anything, and nothing
+reaches users until you save. That means you can reorganise the whole list, or
+back out of a change you did not mean to make, without anybody receiving a
+half-finished arrangement.
+
+Select a rule to edit it in place. Its condition and its template assignments are
+both editable, so correcting a rule does not mean deleting it and building a
+replacement.
+
 ## The fallback
 
 Anyone no rule matches gets the template assigned to the `new` and `reply`

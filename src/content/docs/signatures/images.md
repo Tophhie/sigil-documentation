@@ -9,6 +9,10 @@ Images in a Sigil signature are attached to the message inline rather than loade
 from a web server. The add-in attaches each one and the template references it by
 name.
 
+Two kinds of image are not uploaded at all. A QR code and a sender's own profile
+photo are generated per person when the signature is served, and neither appears
+in the image library. See [per-user images](/signatures/per-user-images/).
+
 ## Why not a hosted image
 
 Outlook blocks external images by default. A signature using

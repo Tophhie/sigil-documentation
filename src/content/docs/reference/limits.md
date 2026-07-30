@@ -19,6 +19,23 @@ blocked in the portal.
 
 See [Outlook constraints](/signatures/outlook-constraints/).
 
+## Designer limits
+
+| Limit | Value |
+| --- | --- |
+| Blocks per design | 200 |
+| Columns per row | 6 |
+| Nested rows | 4 deep |
+| Canvas width | 100 to 900 pixels |
+| Text size | 6 to 72, in pixels or points |
+| QR code size | 60 to 400 pixels |
+| Profile photo size | 16 to 400 pixels |
+| Border width | 1 to 20 pixels |
+| Block minimum height | 1 to 600 pixels |
+
+A design that breaks one of these is rejected at publish with a message naming
+the block at fault. See [the designer](/signatures/designer/).
+
 ## Retention
 
 | Data | Retention |
@@ -43,6 +60,7 @@ See [Outlook constraints](/signatures/outlook-constraints/).
 | Banner window opening or closing | Immediately |
 | Assignment rules change | Up to 10 minutes |
 | Directory attribute change in Entra | Within the cache lifetime, without a republish |
+| Microsoft 365 profile photo added or changed | Up to a day |
 | Add-in manifest change | Requires redeploy, plus 6 to 72 hours propagation and fresh consent |
 | Initial add-in deployment | 6 to 72 hours propagation |
 

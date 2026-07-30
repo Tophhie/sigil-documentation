@@ -122,6 +122,26 @@ an external URL is suppressed by Outlook's default image blocking and renders as
 a broken image. SVG is not supported at all. See
 [images](/signatures/images/).
 
+### A missing profile photo
+
+A Photo block hides itself for anybody whose mailbox has no photo, so the usual
+answer is that the person has not set one. Photos are also cached for a day, so a
+photo added this morning may not appear until tomorrow.
+
+If nobody in the organisation gets one, the photo read is being refused rather
+than each mailbox lacking a picture. Check what was consented to under
+[permissions](/deploy/permissions/).
+
+### A missing QR code
+
+A contact-card code is left out when the person's directory record is too long to
+fit in a readable code, which is rare but not impossible. The rest of the
+signature is served normally.
+
+Codes that scan for some readers and not others are usually a contrast problem.
+The light colour has to be pale and opaque. See
+[per-user images](/signatures/per-user-images/).
+
 ## Mobile-specific behaviour
 
 Three things on mobile are documented Outlook behaviour rather than faults:

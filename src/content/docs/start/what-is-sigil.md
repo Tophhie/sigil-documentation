@@ -68,6 +68,10 @@ Authoring covers the template library, a drag-and-drop
 live, [version history and rollback](/signatures/versions/), and
 [import and export](/signatures/import-export/) as portable JSON.
 
+A designed signature can also carry images that differ for each sender: a QR code
+holding that person's own contact card, and their Microsoft 365 profile photo.
+See [per-user images](/signatures/per-user-images/).
+
 A publish can also be [staged](/signatures/staged-rollouts/), going to 10% of
 mailboxes and spreading only as the add-in reports that the new version is
 applying. Because Sigil measures whether a signature was applied rather than only

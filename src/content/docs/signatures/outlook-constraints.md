@@ -2,7 +2,7 @@
 title: Outlook constraints
 description: The limits Outlook imposes on signature HTML, why each exists, and how to design within them.
 sidebar:
-  order: 10
+  order: 11
 ---
 
 Outlook sets the rules for what a signature can contain. These are not Sigil's
@@ -54,6 +54,16 @@ Use nested tables with explicit widths. Put styles inline on elements rather tha
 in a `<style>` block. Use pixel values rather than relative units. The
 [designer](/signatures/designer/) compiles to exactly this shape, which is one of
 the reasons to use it.
+
+## Rounded corners are square
+
+Word's rendering engine ignores `border-radius`. A rounded button renders as a
+rectangle in classic Outlook, and a circular profile photo renders as a square.
+
+Both are still worth using if the majority of your recipients are elsewhere,
+since a square version of either is a reasonable fallback rather than a broken
+one. The [designer](/signatures/designer/) says so at the point you choose it,
+so nobody discovers it from a recipient.
 
 ## Mobile visibility on replies
 
