@@ -58,12 +58,15 @@ Click totals appear in the Link clicks view.
 
 ## Who can manage banners
 
-The Marketing [role](/admin/users-and-roles/) reaches campaign banners and link
-click analytics and nothing else. That is usually the right level for a marketing
-team: they can run campaigns without being able to change the signature templates
-or reach billing.
+Admins and the Marketing [role](/admin/users-and-roles/), and nobody else.
 
-Admins and Editors can also manage banners as part of their wider access.
+Marketing reaches campaign banners and link click analytics and nothing else,
+which is usually the right level for a marketing team: they can run campaigns
+without being able to change the signature templates or reach billing.
+
+The Editor role does not reach banners. Editors own the template a banner is
+attached to, but a campaign is a separate thing with its own schedule and its own
+owner, so the two are granted separately.
 
 ## Practical notes
 

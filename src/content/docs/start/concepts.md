@@ -97,9 +97,10 @@ and therefore free. Guests and disabled accounts are excluded. See
 ## Portal role
 
 A permission level inside the portal, stored per tenant and assigned by an
-administrator. The three roles are Admin, Editor and Marketing. The Entra token
-establishes who you are and which organisation you belong to; the portal role
-decides what you can do. See [users and roles](/admin/users-and-roles/).
+administrator. The six roles are Admin, Editor, Marketing, Viewer, Compliance and
+Billing. The Entra token establishes who you are and which organisation you
+belong to; the portal role decides what you can do. See
+[users and roles](/admin/users-and-roles/).
 
 ## Partner
 

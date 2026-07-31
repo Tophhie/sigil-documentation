@@ -22,12 +22,18 @@ without opening each one in turn.
 You cannot grant admin consent inside somebody else's Entra tenant. Only an
 administrator of that tenant can, so onboarding is an invite flow.
 
-Add the client with their name, primary domain and the client administrator's
-email address. Sigil issues a single-use, expiring invitation.
+Add the client with their name and, if you have it, the client administrator's
+email address. Sigil issues a single-use invitation that expires after 14 days.
+
+Give an address and Sigil emails the invitation for you. Leave it out and you get
+the link back to pass on through your own channels, which is often what an MSP
+wants when the introduction is already in a thread of its own.
 
 The client administrator follows it, grants admin consent for their own tenant,
 and the tenant provisions itself as it would for any direct customer, except that
 it is linked to your partner record and billed to you rather than to them.
+
+A pending invitation can be revoked before it is used.
 
 ## Working inside a client
 
@@ -52,10 +58,27 @@ Because that changes who is billed and who can administer the tenant, it needs
 the tenant's own administrator to approve the request rather than happening on
 your say-so.
 
+Name the organisation by its primary domain or by its Entra tenant id. Either
+works, and the tenant id is the way round a client who has since changed the
+domain on their Sigil account.
+
+Their administrators are emailed the request and approve or decline it in their
+own portal. The request expires after 14 days if nobody answers, and an
+organisation can only have one pending at a time.
+
+Nothing moves until it is approved. A transfer request is a request, not a claim.
+
 ## Releasing a client
 
 Releasing removes the partner link. The tenant reverts to a direct tenant, and
 its billing becomes its own responsibility again.
+
+Your staff lose access to that client immediately. Their signatures keep working,
+and they get the same grace period a client-initiated departure gets, so somebody
+who did not choose this has time to add a card before anything stops.
+
+Their administrators are emailed, so a release is never something a client
+discovers by noticing. Owners and Admins can release; a Technician cannot.
 
 Do this when a relationship ends, so the client is not left unable to administer
 their own signatures and you are not left paying for them.
@@ -85,3 +108,8 @@ released, staff granted access, discounts changed.
 Changes you make inside a client are recorded in that client's own
 [change log](/monitoring/change-log/), so the client can see what was changed and
 when.
+
+A client's administrators are also emailed directly for the three events they
+must not learn about only by noticing: a transfer request, a release, and their
+provider's billing failing. See
+[emails Sigil sends](/admin/emails-sigil-sends/).

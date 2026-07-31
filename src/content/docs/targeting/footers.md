@@ -68,12 +68,13 @@ so changing any one of them takes effect without touching the others.
 
 ## Who can manage footers
 
-Footers are managed by Admins. The Editor role covers templates and images but
-not footers, and the Marketing role reaches neither. See
-[users and roles](/admin/users-and-roles/).
+Admins and the Compliance [role](/admin/users-and-roles/). The Editor role covers
+templates and images but not footers, and the Marketing role reaches neither.
 
 That split is deliberate: a compliance footer is usually owned by legal or IT
-rather than by whoever is editing the signature design.
+rather than by whoever is editing the signature design. The Compliance role
+exists precisely so the footer's owner can maintain it without also being given
+the template library, the campaign banners or the bill.
 
 ## Checking a footer
 

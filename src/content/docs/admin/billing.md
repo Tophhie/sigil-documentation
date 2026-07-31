@@ -102,4 +102,10 @@ The Billing view reflects that rather than offering you a card to add. See
 
 ## Who can see billing
 
-Admins only. Editors and the Marketing role do not reach it.
+Admins and the Billing role. Editors, Marketing, Viewers and Compliance do not
+reach it.
+
+The Billing role exists so the person who pays for Sigil does not also have to be
+given the signature templates. It reaches the subscription, the billing profile
+and the user list, and nothing else. See
+[users and roles](/admin/users-and-roles/).

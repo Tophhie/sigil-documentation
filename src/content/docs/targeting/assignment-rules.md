@@ -82,6 +82,19 @@ Select a rule to edit it in place. Its condition and its template assignments ar
 both editable, so correcting a rule does not mean deleting it and building a
 replacement.
 
+## Who can change them
+
+Admins only. No other [role](/admin/users-and-roles/) reaches assignment rules,
+including Editor.
+
+Rules are the only part of Sigil held that tightly. An Editor changing a template
+changes what one group of people send; a rule changing which template a group
+resolves to reaches the whole organisation at once, and the two are not the same
+risk.
+
+The same capability covers the org-wide `new` and `reply` role assignments, for
+the same reason.
+
 ## The fallback
 
 Anyone no rule matches gets the template assigned to the `new` and `reply`

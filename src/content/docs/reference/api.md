@@ -129,13 +129,22 @@ tenant. They live under `/api/admin/partner`.
 | Route | Purpose |
 | --- | --- |
 | `GET /clients` | The managed client list |
+| `POST /clients/:tenantId/release` | Release a client back to direct billing |
+| `GET /invites` | Outstanding client invitations |
+| `POST /invites` | Issue one, returning the consent link and optionally mailing it |
+| `DELETE /invites/:token` | Revoke a pending invitation |
+| `GET /transfers` | Outstanding requests to take over an existing tenant |
+| `POST /transfers` | Ask to take one over, by domain or Entra tenant id |
 | `GET /billing`, `POST /billing/checkout`, `POST /billing/portal`, `POST /billing/sync` | The consolidated subscription |
 | `PUT /billing/profile` | Save the partner's own invoice details |
 | `GET /usage`, `GET /usage/export` | Per-client seat counts, and the CSV for rebilling |
 | `GET/PUT /staff`, `DELETE /staff/:email` | Partner staff and their roles |
-| `GET /invites`, `GET /transfers` | Outstanding client invitations and transfer requests |
 | `GET /events` | The partner-level audit trail |
 | `POST /agreement/accept` | Record acceptance of the partner agreement |
+
+Inviting a client, requesting a transfer and releasing a client are all refused
+until the partner agreement has been accepted, so a partner cannot take a client
+on before agreeing the terms they are taking them on under.
 
 Working inside a client uses the ordinary tenant endpoints above, with the
 client's context established by the partner relationship. See

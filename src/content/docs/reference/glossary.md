@@ -77,8 +77,8 @@ evidence of the add-in's apply results. See
 
 **Role**
 Two meanings, distinguished by context. A signature role is the slot a template
-fills: `new` or `reply`. A portal role is a permission level: Admin, Editor or
-Marketing.
+fills: `new` or `reply`. A portal role is a permission level: Admin, Editor,
+Marketing, Viewer, Compliance or Billing.
 
 **Seat**
 A billable licensed member mailbox. Shared and resource mailboxes are free.

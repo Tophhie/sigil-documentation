@@ -70,4 +70,5 @@ retained indefinitely and exportable. See [compliance](/security/compliance/).
 
 ## Who can see it
 
-Admins and Editors. The Marketing role does not reach it.
+Admins, Editors, Viewers and the Compliance role, which all hold monitoring. The
+Marketing and Billing roles do not reach it.

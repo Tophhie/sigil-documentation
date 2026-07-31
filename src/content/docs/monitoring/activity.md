@@ -109,6 +109,14 @@ Nothing is pruned. The history is kept indefinitely.
 
 See [data and privacy](/security/data-and-privacy/) for the full picture.
 
+## Who can see it
+
+Admins, Editors, Viewers and the Compliance role, which all hold monitoring. The
+Marketing and Billing roles do not reach it.
+
+Viewer exists largely for this view: a service desk needs to answer "is this
+person's signature working" without being able to change a template.
+
 ## Related views
 
 [Attribute coverage](/monitoring/attribute-coverage/) answers a different

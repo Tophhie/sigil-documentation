@@ -81,5 +81,6 @@ The two numbers answer different questions and are expected to differ.
 
 ## Who can run it
 
-Admins and Editors. The Marketing role does not reach it. See
+Admins, Editors, Viewers and the Compliance role, which all hold monitoring. The
+Marketing and Billing roles do not reach it. See
 [users and roles](/admin/users-and-roles/).

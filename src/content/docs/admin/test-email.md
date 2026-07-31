@@ -55,4 +55,8 @@ Banner windows take effect immediately in both directions, so this costs nothing
 
 ## Who can send them
 
-Admins and Editors. The Marketing role does not reach test emails.
+Admins and Editors, who hold the same capability that covers the template
+library. No other [role](/admin/users-and-roles/) reaches test emails.
+
+The recipient defaults to your own address, so sending one to yourself takes no
+more than choosing whose signature to render.

@@ -64,8 +64,9 @@ is more informative than looking at an absolute number.
 
 ## Who can see them
 
-The Marketing [role](/admin/users-and-roles/) reaches banners and link click
-analytics. Admins see them too. Editors do not.
+Admins, the Marketing [role](/admin/users-and-roles/) and the Viewer role.
+Marketing reaches banners and link click analytics; Viewer reads them without
+being able to change anything. Editors do not reach link clicks.
 
 ## Turning tracking off
 

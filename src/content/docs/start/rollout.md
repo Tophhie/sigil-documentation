@@ -97,11 +97,17 @@ Once the rollout is stable, decide who owns what:
 | --- | --- | --- |
 | Templates, images, versions | IT or internal comms | Editor |
 | Campaign banners and link analytics | Marketing | Marketing |
-| Footers, users, billing | IT | Admin |
+| The legal disclaimer footer | Legal | Compliance |
+| Checking that signatures are landing | Service desk | Viewer |
+| The subscription and who has access | Finance or the account owner | Billing |
+| Assignment rules, and everything above | IT | Admin |
 
-Invite them under [users and roles](/admin/users-and-roles/). The Marketing role
-reaches banners and link clicks only, which is usually exactly what a marketing
-team needs and nothing more.
+Invite them under [users and roles](/admin/users-and-roles/). Each role is narrow
+on purpose: Marketing reaches banners and link clicks only, Compliance reaches
+the footer, Viewer reads and changes nothing.
+
+Assignment rules are the one thing only an Admin can change, because a rule
+decides who receives which signature and so reaches the whole organisation.
 
 Add a card in [Billing](/admin/billing/) before the trial ends. With no card on
 file the subscription cancels at trial end, and once the trial ends without an

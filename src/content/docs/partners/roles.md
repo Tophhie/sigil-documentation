@@ -12,10 +12,22 @@ tenant. Each is given a partner role that applies across the client base.
 
 | Role | Grants |
 | --- | --- |
-| Owner | Everything, including partner billing, staff management and releasing clients |
-| Admin | Full configuration on every managed client, but not partner billing or staff management |
-| Technician | Template, banner, footer and rules work on assigned clients. No client lifecycle, no billing |
-| Billing | Partner billing and per-client usage reports only. No client configuration |
+| Owner | Everything: the client lifecycle, partner billing and staff management |
+| Admin | The client lifecycle and full configuration inside a client, but not partner billing or staff management |
+| Technician | Signature work inside a client. No client lifecycle, no client user management, no billing |
+| Billing | Partner billing and per-client usage reports only. No access inside a client at all |
+
+The client lifecycle means adding a client, inviting one, asking to take over an
+existing tenant, and releasing one. Owner and Admin both hold it.
+
+Owner and Admin reach the same things inside a client. Where they differ is at
+partner level: only an Owner touches the partner subscription or the staff list.
+
+A Technician reaches templates, rules, banners, footers, link analytics and
+monitoring inside a client, but not that client's own users and roles.
+
+No partner role reaches a managed client's billing, because a managed client has
+no subscription of its own. The money is handled at partner level.
 
 The split follows the shape most MSP programmes use, which means it usually maps
 onto how an MSP is already organised: an owner or two, service desk technicians
@@ -37,6 +49,10 @@ every client at once, with nothing to clean up in each client's tenant.
 
 Staff can be scoped to a subset of clients rather than all of them, which is the
 usual arrangement for technicians on a large client base.
+
+Scoping is set per person rather than per role, so any staff member can be
+narrowed this way. Somebody with no scope set reaches every client of the
+partner; somebody scoped reaches only the clients listed against them.
 
 ## Managing staff
 

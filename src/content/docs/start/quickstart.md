@@ -85,8 +85,9 @@ tenant state down to a single mailbox.
 ## 6. Invite colleagues and add a card
 
 Under Users and roles, invite the people who need portal access and give each a
-role. Marketing usually needs the Marketing role, which reaches banners and link
-analytics only. See [users and roles](/admin/users-and-roles/).
+role. There are six, and most people need a narrow one: Marketing reaches banners
+and link analytics, Compliance reaches the legal footer, Viewer reads without
+changing anything. See [users and roles](/admin/users-and-roles/).
 
 Under Billing, add a card through Stripe Checkout. At the end of the trial Stripe
 either charges the card or, if there is no card on file, cancels the
