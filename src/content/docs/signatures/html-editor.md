@@ -73,12 +73,15 @@ Each template holds one unpublished working copy. You can save, close the portal
 and come back to it without anything reaching users. See
 [drafts and publishing](/signatures/publishing/).
 
-## If the editor does not load
+## How it loads
 
-The editor loads from a CDN. If that CDN is unreachable, it degrades to a plain
-text area underneath rather than to a blank card. The text area stays synced with
-the editor, so you lose syntax highlighting and autocomplete but keep the ability
-to work.
+The editor is bundled into the portal itself rather than fetched from a content
+delivery network at the moment you open it. There is no second load that can
+fail on its own: if the portal loads, the editor loads with it.
+
+An earlier version of the portal did pull the editor from a CDN and kept a plain
+text area as a fallback for when that failed. Neither the CDN fetch nor the
+fallback exists any more.
 
 ## Desktop only
 

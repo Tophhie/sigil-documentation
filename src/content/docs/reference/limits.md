@@ -27,14 +27,26 @@ See [Outlook constraints](/signatures/outlook-constraints/).
 | Columns per row | 6 |
 | Nested rows | 4 deep |
 | Canvas width | 100 to 900 pixels |
+| Column width | 1 to 100 per cent, or 1 to 900 pixels |
 | Text size | 6 to 72, in pixels or points |
+| Line height | 6 to 120 |
+| Image width and height | 1 to 1000 pixels |
 | QR code size | 60 to 400 pixels |
 | Profile photo size | 16 to 400 pixels |
+| Social icon size | 8 to 128 pixels |
+| Button corner radius | 0 to 40 pixels |
+| Divider thickness | 1 to 20 pixels |
+| Divider width | 1 to 100 per cent |
+| Spacer height | 1 to 200 pixels |
 | Border width | 1 to 20 pixels |
 | Block minimum height | 1 to 600 pixels |
 
 A design that breaks one of these is rejected at publish with a message naming
 the block at fault. See [the designer](/signatures/designer/).
+
+These are ceilings rather than recommendations. A signature is read in a preview
+pane a few hundred pixels wide, so the useful range for most of them sits well
+below the maximum.
 
 ## Retention
 

@@ -13,13 +13,48 @@ when nobody has ever received a signature.
 
 ## The steps
 
-| Step | Completes when |
-| --- | --- |
-| Add a card | A payment method exists in Stripe |
-| Publish a signature | The active template is no longer the seeded starter |
-| Deploy the add-in | Sigil has seen a real signature request from your tenant |
-| Invite colleagues | At least one other person has been given a role |
-| Send a test email | A test email has been sent |
+| Step | Completes when | Required |
+| --- | --- | --- |
+| Connect Microsoft 365 | Sigil's application can read your directory | Yes |
+| Add a payment method | A card is on file in Stripe | Yes |
+| Add your billing details | A company name and a complete billing address are saved | Yes |
+| Accept the Data Processing Agreement | Acceptance is recorded against your organisation | No |
+| Customise your signature | The active template is no longer the seeded starter | Yes |
+| Deploy the Outlook add-in | Sigil has seen a real signature request from your tenant | Yes |
+| Invite your team | At least one other person has been given a role | No |
+| Send a test email | A test email has been sent | No |
+
+## Required and optional steps
+
+The required steps are the ones without which signatures do not reach anybody.
+The panel stays open until all of them are done.
+
+The optional steps are prompts rather than gates. They matter, but an
+organisation whose signatures are working correctly should not be nagged by a
+permanently open checklist because of them.
+
+The data processing agreement is deliberately in the optional group for that
+reason. It is how you evidence Article 28, so it belongs on the list, but an
+unsigned document holding the checklist open for a tenant whose signatures work
+would be the wrong trade. See [compliance](/security/compliance/).
+
+An organisation exempted from invoicing by arrangement has both billing steps
+satisfied automatically and never has to add a card. Being managed by a partner
+is a separate thing from being exempt, so a managed client can still see the two
+billing steps listed as outstanding even though its provider is the one invoiced.
+Nothing stops working as a result, and the client is not charged. See
+[partner billing](/partners/billing/).
+
+## Connecting Microsoft 365
+
+This is the first step in every sense. Without admin consent, Sigil cannot read
+your directory, so there is nothing to personalise a signature with and no users
+to pull in.
+
+It completes when Sigil's application registration can actually read your
+directory, which means it also un-ticks itself if that consent is later revoked.
+A Microsoft 365 administrator grants it once. See
+[connect your organisation](/deploy/connect-your-organisation/).
 
 ## The add-in step
 

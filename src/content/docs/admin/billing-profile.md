@@ -33,6 +33,18 @@ is derived from the country you set, so a United Kingdom address produces a UK
 VAT registration and an EU address an EU one. Getting the country right matters
 for this reason.
 
+A country outside the UK and the EU has no matching type, so an identifier
+entered against one is kept in Sigil and shown on your profile, but is not
+registered with Stripe and will not appear on the invoice. Sigil holds it rather
+than rejecting it, because the alternative is refusing a number that is perfectly
+valid in its own jurisdiction. If you need a tax identifier printed on invoices
+from a country in this position, raise it with support rather than assuming the
+saved value has reached Stripe.
+
+Registering the identifier is deliberately the last thing done when you save, so
+a tax number Stripe will not accept cannot stop the rest of the profile being
+written.
+
 ## Where it is stored
 
 The profile is held in Sigil and pushed to your Stripe customer record whenever
