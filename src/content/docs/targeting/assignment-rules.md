@@ -21,9 +21,16 @@ forwards.
 
 ## Matching on a directory attribute
 
-Common attributes to match on are department, office location and email domain.
+Ten attributes can be matched on: department, job title, company, employee type,
+office location, city, county or state, country, email address and email domain.
 A rule matches when the person's value for that attribute is one of the values
-you list, so a single rule can cover several departments.
+you list, so a single rule can cover several departments. Values are matched
+without regard to case.
+
+This is a shorter list than the [placeholders](/signatures/placeholders/) a
+template can print. In particular the extension attributes are not on it, so a
+rule cannot target the slot your organisation uses for something of its own. An
+Entra group is the way to express that.
 
 Email domain matching uses the address the message is being sent from rather than
 the mailbox's primary address. That is what lets one person carry a different
@@ -51,6 +58,12 @@ admin consent along with everything else. See
 ## Order matters
 
 Rules are evaluated in order and the first match wins.
+
+The two roles are resolved independently, which is worth knowing before you leave
+one of them blank. A rule that matches somebody but names only a new-message
+template settles their new messages and lets the search carry on down the list
+for their reply template. So a broad rule setting only a reply signature can sit
+below several narrow ones and still apply to all of them.
 
 Put narrow rules above broad ones. A rule matching everyone in the United Kingdom
 placed above a rule matching the Manchester office means the Manchester rule never

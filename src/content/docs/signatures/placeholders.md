@@ -68,7 +68,11 @@ your own directory is populated before you build a layout around it.
 | `{{managerEmail}}` | The manager's mail address |
 | `{{managerPhone}}` | The manager's phone number |
 
-Manager details are pulled with Graph's `$expand=manager` on the compose path.
+Manager is a navigation property rather than a plain attribute, so Graph only
+returns it when it is expanded explicitly. Sigil does that on the compose path
+and in [attribute coverage](/monitoring/attribute-coverage/), and leaves it off
+everywhere else that does not read manager at all.
+
 People with no manager set in the directory resolve these as empty, so wrap them
 in a conditional section.
 

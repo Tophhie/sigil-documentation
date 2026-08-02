@@ -81,9 +81,18 @@ Set meaningful alt text. Some recipients will see only that.
 Test it before the window opens by setting a short window now, sending a
 [test email](/admin/test-email/), and then setting the real window.
 
-Only one banner window should be open at a time unless you specifically intend
-otherwise. Overlapping windows make it hard to reason about what any given person
-receives.
+## Overlapping windows
+
+A signature carries at most one banner. Two campaigns cannot stack on the same
+message.
+
+When more than one window is open, the one that started most recently wins. A new
+campaign therefore takes over from a running one for as long as it lasts, and the
+older banner reappears if its own window is still open when the newer one closes.
+
+That is a deliberate behaviour rather than a tie-break to rely on. Overlapping
+windows still make it harder to say what any given person received on any given
+day, which matters when somebody asks later.
 
 ## Ending a campaign
 

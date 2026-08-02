@@ -35,8 +35,9 @@ Role: job title, department, company name, employee id, employee type.
 
 Location: street address, city, state, postal code, country, office location.
 
-Manager: pulled with Graph's `$expand=manager` on the compose path, for the
-manager placeholders.
+Manager: expanded explicitly, because Graph treats it as a navigation property
+rather than an attribute. Read on the compose path for the manager placeholders,
+and by [attribute coverage](/monitoring/attribute-coverage/) so it can be scored.
 
 On-premises extension attributes 1 to 15, which Graph only returns when
 explicitly selected.

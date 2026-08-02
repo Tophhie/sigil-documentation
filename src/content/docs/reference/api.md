@@ -106,16 +106,21 @@ which makes `"rollout": true` a complete request. See
 | Route | Auth | Purpose |
 | --- | --- | --- |
 | `GET /api/admin/me` | Admin token | Who the caller is, their role, and their organisation's state |
-| `GET/PUT /api/admin/users`, `DELETE /api/admin/users/:email` | Admin token, Admin role | Manage users and roles |
+| `GET/PUT /api/admin/users`, `DELETE /api/admin/users/:email` | Admin token, users capability | Manage users and roles |
 | `GET /api/admin/users/search` | Admin token | Directory lookup, for pickers such as download and test email |
 | `GET /api/admin/onboarding` | Admin token, Admin role | Getting started checklist state |
 | `POST /api/admin/onboarding/dismiss` | Admin token, Admin role | Dismiss the checklist |
 | `POST /api/admin/dpa/accept` | Admin token, Admin role | Record acceptance of the data processing agreement |
-| `GET /api/admin/billing` | Admin token, Admin role | Subscription status, seats, card, invoice |
-| `POST /api/admin/billing/checkout` | Admin token, Admin role | A hosted Stripe card-capture URL |
-| `POST /api/admin/billing/portal` | Admin token, Admin role | A hosted Stripe management URL |
-| `POST /api/admin/billing/cancel`, `…/reactivate` | Admin token, Admin role | Cancel the subscription, or resume a cancelled one |
-| `PUT /api/admin/billing/profile` | Admin token, Admin role | Save the billing profile |
+| `GET /api/admin/billing` | Admin token, billing capability | Subscription status, seats, card, invoice |
+| `POST /api/admin/billing/checkout` | Admin token, billing capability | A hosted Stripe card-capture URL |
+| `POST /api/admin/billing/portal` | Admin token, billing capability | A hosted Stripe management URL |
+| `POST /api/admin/billing/cancel`, `…/reactivate` | Admin token, billing capability | Cancel the subscription, or resume a cancelled one |
+| `PUT /api/admin/billing/profile` | Admin token, billing capability | Save the billing profile |
+
+Most of these guards name a capability rather than a role, so the Billing role
+reaches the subscription and the user list alongside an Admin. The three that
+name the Admin role are genuinely Admin-only. See
+[roles and capabilities](/reference/roles-and-capabilities/).
 
 A partner's own administrator cannot accept a managed client's DPA on their
 behalf. That request is refused, because the client is the data controller. See

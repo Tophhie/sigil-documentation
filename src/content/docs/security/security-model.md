@@ -25,13 +25,17 @@ the security comes from the token rather than from anything hidden.
 Every call to the API carries an Entra access token, and the Worker checks it
 before doing anything:
 
-The cryptographic signature, against the calling tenant's published keys.
+The home tenant claim, which both resolves the request to a tenant and selects
+what the rest of the checks are made against.
 
-The issuer, pinned to the expected Entra v2 issuer.
+The cryptographic signature, against the signing keys that tenant publishes.
 
-The audience, pinned to Sigil's application id.
+The issuer, pinned to that tenant's own Entra v2 issuer. A token whose issuer and
+tenant claim disagree is rejected, so naming a different tenant does not let a
+token be verified against keys it was not signed with.
 
-The home tenant claim, which is what resolves the request to a tenant.
+The audience, pinned to Sigil's application id. This one is fixed rather than
+per-tenant: every token for this API, from any organisation, carries it.
 
 The delegated scope. The add-in's token carries `access_as_user`, the portal's
 carries `portal_admin`, and the presence of `portal_admin` is what distinguishes

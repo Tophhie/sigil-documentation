@@ -75,10 +75,25 @@ Every record carries a tenant id, storage keys are prefixed by tenant, and cache
 keys are tenant-salted. A query cannot reach another organisation's data, and the
 signature endpoint refuses a tenant it does not recognise.
 
+## Getting your data out
+
+Two exports exist, and they answer different questions.
+
+A whole-organisation export is a single JSON file holding everything Sigil stores
+for you: your organisation record and subscription, your portal users, every
+template with its body and design document, templates still in Recently deleted,
+the role pointers, assignment rules, banners, footers, the change log and your
+images. Ask support for it. It is the artifact for a due diligence request or for
+leaving, and it is worth taking before a deprovision rather than after.
+
+The change log is capped at its most recent 5,000 entries, so an organisation
+with years of history gets a recent window rather than the lot. Everything else
+is complete.
+
 ## Subject access requests
 
-Sigil can export everything held about a single mailbox, which is what a subject
-access request needs. Request it through support.
+Sigil can also export everything held about a single mailbox, which is what a
+subject access request needs. Request it through support.
 
 Erasure of a single mailbox is deliberately not offered. Removing one person's
 records from an append-only audit trail would compromise the trail itself, so the
