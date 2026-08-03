@@ -45,8 +45,9 @@ explicitly selected.
 Proxy addresses, used to verify that a sending alias genuinely belongs to the
 mailbox before it is printed into a signature.
 
-Licence and account state, used to count billable seats and to exclude guests and
-disabled accounts.
+Licence and account state, including how each account was created, used to count
+billable seats and to exclude disabled accounts and accounts invited in from
+outside your organisation.
 
 The profile photo, but only for organisations whose template contains a Photo
 block. `User.Read.All` already covers it, so adding one needs no new consent. See

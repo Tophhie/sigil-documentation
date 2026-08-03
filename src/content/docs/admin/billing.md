@@ -19,10 +19,23 @@ A seat is a licensed member mailbox.
 | --- | --- |
 | Licensed member mailbox | Yes |
 | Shared or resource mailbox | No, unlicensed and therefore free |
-| Guest account | No |
+| Account invited in from outside | No |
 | Disabled account | No |
 
 Shared mailboxes still get signatures. They just do not cost anything.
+
+An account that was invited into your organisation stays outside the seat count
+even if it was later converted to a member account and given a licensed mailbox
+on one of your own domains. Microsoft Graph records how an account was created
+and never rewrites it, so a long-term contractor who first arrived as a guest is
+still recognisable as an invited account years later. The account type on its own
+is not a reliable test, because an administrator can change it, and a B2B invitee
+can be made a member from the start.
+
+The exclusion is about counting, not about serving. If such a mailbox composes a
+message it is still given its signature. It simply does not appear on the
+invoice, in [attribute coverage](/monitoring/attribute-coverage/), or in the
+directory picker used by test emails and downloads.
 
 Note that [attribute coverage](/monitoring/attribute-coverage/) counts shared
 mailboxes, because they still need a signature. Its total will not match your
@@ -73,6 +86,39 @@ invoice.
 
 The per-seat price is shown for reference. The authoritative rate is the one held
 in Stripe.
+
+Where a discount has been agreed, the estimate line shows it too.
+
+## Discounts
+
+A discount is agreed with Sigil rather than entered in the portal. There is no
+coupon field. Once it is in place, the Billing view shows it on the estimate line
+as a percentage off the per-seat price, and the estimated monthly figure above it
+already has the reduction applied.
+
+A discount either runs open-ended or for an agreed number of months, up to five
+years. Where there is an end date, the Billing view prints it next to the
+percentage, so the date the price changes is visible well before it arrives.
+
+The same reduction is attached to the Stripe subscription, so the invoice and the
+estimate agree rather than being two separate numbers that have to be reconciled.
+
+When an agreed term runs out, the discount stops applying and invoices return to
+full price. Nothing is charged retrospectively, and nothing needs cancelling. The
+portal stops showing the discount on the day it lapses rather than whenever Sigil
+next tidies its own records, so the estimate never advertises a reduction that is
+no longer reaching the invoice.
+
+A term is counted in whole months from the day the discount is attached. That is
+how Stripe counts a repeating discount, so a discount cannot be set to run until
+a particular calendar date. Two consequences are worth knowing:
+
+A discount attached during the trial starts counting from then, so a 14 day trial
+uses part of the first month before anything is charged.
+
+Cancelling and later reactivating does not restart the term. Only the months
+still outstanding carry onto the new subscription, rounded up to the next whole
+month.
 
 ## Billing profile
 

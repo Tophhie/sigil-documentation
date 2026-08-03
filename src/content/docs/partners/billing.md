@@ -11,8 +11,9 @@ have no subscription of their own.
 ## How it works
 
 Each managed client's billable seats are counted the same way as for a direct
-tenant: licensed member mailboxes, with shared and resource mailboxes free and
-guests and disabled accounts excluded.
+tenant: licensed member mailboxes, with shared and resource mailboxes free, and
+disabled accounts and accounts invited in from outside the client's organisation
+excluded. See [what counts as a seat](/admin/billing/#what-counts-as-a-seat).
 
 Those counts are summed across your whole client base and reported once a day as
 usage against a single metered subscription belonging to the partner. You are
@@ -39,6 +40,10 @@ reduction off list.
 Sigil pushes the current percentage to the subscription whenever it is set,
 rather than only when the number changes. A discount that failed to attach the
 first time is therefore corrected by setting it again.
+
+A partner margin runs open-ended. The fixed-term discounts a direct tenant can be
+given do not apply to the aggregate subscription, so a margin stays in force
+until it is changed.
 
 ## Your invoice details
 

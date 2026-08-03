@@ -51,6 +51,12 @@ After a rollout, this list is where the remaining work is. Look for patterns: on
 department, one office, one client platform. Those point at a deployment gap
 rather than at individual problems.
 
+It uses the same definition of your organisation as
+[attribute coverage](/monitoring/attribute-coverage/): mailboxes belonging to
+your own people, with accounts invited in from outside left out. Those accounts
+compose through their own organisation's tooling, so listing them would fill the
+list with people no deployment of yours will ever reach.
+
 The directory cross-reference is best-effort. If Graph is briefly unavailable the
 rest of the telemetry still renders without it.
 

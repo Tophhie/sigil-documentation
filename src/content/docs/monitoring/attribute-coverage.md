@@ -69,6 +69,22 @@ synced from on-premises Active Directory. If your users are synced, populating
 them means changing AD and letting the change flow through, rather than editing
 in Entra.
 
+## Who is counted
+
+Everyone with a mailbox in your organisation, shared and resource mailboxes
+included.
+
+Accounts invited in from outside are the one exclusion. They have no mailbox
+here, never compose through the add-in, and their attributes are set by their own
+organisation, so counting them would inflate every missing figure on the report.
+That covers guests and B2B invitees who were later converted to member accounts,
+because how an account was created is what Sigil tests rather than what type it
+is now.
+
+The report says how many accounts were excluded on that basis rather than
+dropping them silently. If the total looks lower than you expected, that number
+is the first thing to read.
+
 ## Why the count differs from your seat count
 
 Attribute coverage counts shared mailboxes, because a shared mailbox still needs

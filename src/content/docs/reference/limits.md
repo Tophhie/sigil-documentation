@@ -105,7 +105,8 @@ Both conditions on the last two rows must hold before a rollout is pulled. See
 | Price | £0.70 per licensed mailbox per month |
 | Billing period | Monthly |
 | Billable seat | A licensed member mailbox |
-| Free | Shared and resource mailboxes, guests, disabled accounts |
+| Free | Shared and resource mailboxes, accounts invited in from outside, disabled accounts |
+| Longest agreed discount term | 60 months, or open-ended |
 | Seat sync | Daily, with no mid-cycle proration |
 
 Once a trial ends without an active subscription, signatures stop being served.

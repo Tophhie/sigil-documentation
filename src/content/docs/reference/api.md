@@ -55,13 +55,18 @@ a report is taken from the verified token rather than from the payload.
 | `POST /api/admin/templates/:id/publish-draft` | Admin token | Promote the working copy |
 | `GET /api/admin/templates/:id/export` | Admin token | Portable JSON, images included |
 | `POST /api/admin/templates/import` | Admin token | Import a bundle as a new entry |
-| `PUT /api/admin/roles` | Admin token | Assign templates to the `new` and `reply` roles |
+| `PUT /api/admin/roles` | Admin token, rules capability | Assign templates to the `new` and `reply` roles |
 | `POST /api/admin/preview` | Admin token | Render with sample data |
 | `GET /api/admin/download?email=&type=` | Admin token | A mailbox's live signature as a standalone file |
 
 Shortcuts acting on the active new-message template exist at
 `GET/PUT /api/admin/template`, `GET /api/admin/versions` and
 `POST /api/admin/rollback`.
+
+Every route above except `PUT /api/admin/roles` needs the templates capability,
+which the Editor role holds alongside an Admin. Pointing a role at a different
+template is guarded by the rules capability instead, which no role but Admin
+holds. See [roles and capabilities](/reference/roles-and-capabilities/).
 
 ## Staged rollout endpoints
 
@@ -74,7 +79,8 @@ Shortcuts acting on the active new-message template exist at
 
 A staged publish writes the body to the rollout rather than to the template, so
 the live signature is unchanged until it promotes. Every gate has a default,
-which makes `"rollout": true` a complete request. See
+which makes `"rollout": true` a complete request. These routes sit behind the
+templates capability, the same as an ordinary publish. See
 [staged rollouts](/signatures/staged-rollouts/).
 
 ## Configuration endpoints
@@ -82,24 +88,32 @@ which makes `"rollout": true` a complete request. See
 | Route | Auth | Purpose |
 | --- | --- | --- |
 | `GET /api/admin/fields` | Admin token | The placeholder list the editors offer |
-| `GET/PUT /api/admin/rules` | Admin token | Assignment rules, replaced as one ordered list |
-| `GET/POST /api/admin/banners`, `PUT/DELETE /api/admin/banners/:id` | Admin token | Campaign banners |
-| `GET/POST /api/admin/footers`, `PUT/DELETE /api/admin/footers/:id` | Admin token | Compliance footers |
-| `GET /api/admin/assets` | Admin token | The image list |
-| `GET /api/admin/asset/:name` | Admin token | One image, base64 encoded, for the portal's preview |
-| `PUT /api/admin/asset/:name`, `DELETE /api/admin/asset/:name` | Admin token | Upload or remove an image |
-| `PUT /api/admin/templates/:id/tracking` | Admin token | Toggle link tracking for a template |
-| `POST /api/admin/test-email` | Admin token | Send a rendered signature to a verified inbox |
+| `GET/PUT /api/admin/rules` | Admin token, rules capability | Assignment rules, replaced as one ordered list |
+| `GET/POST /api/admin/banners`, `PUT/DELETE /api/admin/banners/:id` | Admin token, banners capability | Campaign banners |
+| `GET/POST /api/admin/footers`, `PUT/DELETE /api/admin/footers/:id` | Admin token, footers capability | Compliance footers |
+| `GET /api/admin/assets` | Admin token, templates capability | The image list |
+| `GET /api/admin/asset/:name` | Admin token, templates capability | One image, base64 encoded, for the portal's preview |
+| `PUT /api/admin/asset/:name`, `DELETE /api/admin/asset/:name` | Admin token, templates capability | Upload or remove an image |
+| `PUT /api/admin/templates/:id/tracking` | Admin token, templates capability | Toggle link tracking for a template |
+| `POST /api/admin/test-email` | Admin token, templates capability | Send a rendered signature to a verified inbox |
+
+The placeholder list is the one route here with no capability of its own. It
+describes what a template could reference rather than exposing any of your data,
+and both editors need it before anything else loads.
 
 ## Monitoring endpoints
 
 | Route | Auth | Purpose |
 | --- | --- | --- |
-| `GET /api/admin/activity` | Admin token | Per-mailbox rollup, recent feed, adoption |
-| `GET /api/admin/activity/events` | Admin token | The event search, filtered by mailbox, source or outcome |
-| `GET /api/admin/audit` | Admin token | Directory attribute coverage |
-| `GET /api/admin/log` | Admin token | The change log |
-| `GET /api/admin/links` | Admin token | Click totals per tracked link |
+| `GET /api/admin/activity` | Admin token, monitoring capability | Per-mailbox rollup, recent feed, adoption |
+| `GET /api/admin/activity/events` | Admin token, monitoring capability | The event search, filtered by mailbox, source or outcome |
+| `GET /api/admin/audit` | Admin token, monitoring capability | Directory attribute coverage, and how many external accounts were excluded |
+| `GET /api/admin/log` | Admin token, monitoring capability | The change log |
+| `GET /api/admin/links` | Admin token, analytics capability | Click totals per tracked link |
+
+Click totals sit behind analytics rather than monitoring, which is what lets the
+Marketing role read its own campaign numbers without reaching the activity
+telemetry.
 
 ## Organisation endpoints
 

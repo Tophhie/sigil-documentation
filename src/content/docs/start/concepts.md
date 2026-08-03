@@ -91,8 +91,8 @@ placeholder are never rewritten. See [link clicks](/monitoring/link-clicks/).
 ## Seat
 
 A billable licensed member mailbox. Shared and resource mailboxes are unlicensed
-and therefore free. Guests and disabled accounts are excluded. See
-[billing](/admin/billing/).
+and therefore free. Accounts invited in from outside the organisation are
+excluded, as are disabled ones. See [billing](/admin/billing/).
 
 ## Portal role
 

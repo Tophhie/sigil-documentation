@@ -81,7 +81,8 @@ fills: `new` or `reply`. A portal role is a permission level: Admin, Editor,
 Marketing, Viewer, Compliance or Billing.
 
 **Seat**
-A billable licensed member mailbox. Shared and resource mailboxes are free.
+A billable licensed member mailbox. Shared and resource mailboxes are free, as
+are accounts invited in from outside the organisation.
 
 **Template**
 A signature design containing HTML and placeholders. Library-managed and
