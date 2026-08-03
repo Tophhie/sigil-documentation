@@ -10,9 +10,11 @@ sidebar:
 Sigil keeps two separate append-only records.
 
 The [change log](/monitoring/change-log/) covers what administrators in your
-organisation did: publishes, rollbacks, creates, renames, duplicates, deletes,
-restores, permanent deletions, role assignments and image uploads, each with who
-and when. You can read it in the portal.
+organisation did. It is not confined to templates: publishes and rollbacks, the
+whole template lifecycle from create to permanent deletion, assignment rules,
+banners, footers, link tracking, image uploads and deletions, test emails, and
+changes to who has access and at what role, each with who and when. You can read
+it in the portal.
 
 The operator audit log covers what Tophhie Cloud staff did. It is retained
 indefinitely and can be exported.
@@ -33,6 +35,10 @@ available erasure path is a full tenant purge.
 The DPA is published at `portal.usesigil.app/dpa`. Acceptance can be recorded
 against your organisation, with the accepted version tracked, so there is a record
 of what was agreed and when rather than an assertion that something was.
+
+Accepting it in the portal also writes an entry to your own
+[change log](/monitoring/change-log/), deliberately, so you can evidence your
+acceptance from your own records rather than asking Tophhie Cloud for it.
 
 ## Published legal documents
 
@@ -71,7 +77,13 @@ Every operator action is written to the audit log.
 
 A daily scan reconciles every tenant against Graph and billing and reports
 anything needing attention: directory access that has lapsed, past-due billing,
-trials ending within seven days, unfinished provisioning, and seat drift.
+trials ending within seven days, unfinished provisioning, seat drift, and a
+suspended tenant whose subscription is still charging.
+
+The last of those is a safeguard rather than a health check. Suspending a tenant
+does not stop its subscription, so a suspension left in place would keep billing
+for a service nobody can use. The scan surfaces it so an operator either restores
+the tenant or cancels the subscription.
 
 Lapsed directory access is the one worth knowing about as a customer, because it
 breaks signatures quietly. The template is still there; there is simply no data to

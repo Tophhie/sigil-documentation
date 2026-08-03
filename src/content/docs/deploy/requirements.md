@@ -61,6 +61,17 @@ fetches from `portal.usesigil.app` and is itself served from
 `static.usesigil.app`. The link domain answers `/r/` redirects and returns 404
 for every other path, so it carries no API or portal surface.
 
+Two hosts Sigil does not own are also involved, and neither is specific to Sigil:
+
+| Host | Purpose | If it is blocked |
+| --- | --- | --- |
+| `appsforoffice.microsoft.com` | Office.js, which Microsoft requires every Office add-in to load from here | The add-in does not run at all |
+| `unpkg.com` | The icons in the "My signature" pane | The pane works, without its glyphs |
+
+Office.js is loaded by both the automatic path and the pane, so blocking it stops
+signatures rather than degrading them. If you already permit Office add-ins, it is
+allowed, because no add-in works without it.
+
 ## Template constraints
 
 Outlook itself sets limits on what a signature can contain. Design within them

@@ -30,11 +30,14 @@ See [Outlook constraints](/signatures/outlook-constraints/).
 | Column width | 1 to 100 per cent, or 1 to 900 pixels |
 | Text size | 6 to 72, in pixels or points |
 | Line height | 6 to 120 |
+| Block padding, per side | 0 to 200 pixels |
 | Image width and height | 1 to 1000 pixels |
 | QR code size | 60 to 400 pixels |
 | Profile photo size | 16 to 400 pixels |
 | Social icon size | 8 to 128 pixels |
+| Gap between social icons | 0 to 60 pixels |
 | Button corner radius | 0 to 40 pixels |
+| Button padding, horizontal and vertical | 0 to 60 pixels |
 | Divider thickness | 1 to 20 pixels |
 | Divider width | 1 to 100 per cent |
 | Spacer height | 1 to 200 pixels |

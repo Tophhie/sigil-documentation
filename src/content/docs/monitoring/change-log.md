@@ -11,10 +11,14 @@ who changed it and in what order.
 
 ## What is recorded
 
+The log is not limited to templates. Everything an administrator can change from
+the portal is recorded.
+
 | Action | Recorded |
 | --- | --- |
 | Publishing a template | Yes |
 | Restoring a version | Yes |
+| Saving or discarding a draft | Yes |
 | Creating a template | Yes |
 | Renaming a template | Yes |
 | Duplicating a template | Yes |
@@ -22,20 +26,42 @@ who changed it and in what order.
 | Restoring from Recently deleted | Yes |
 | Permanently deleting a template | Yes |
 | Assigning a template to a role | Yes |
+| Changing assignment rules | Yes |
+| Creating, editing or removing a banner | Yes |
+| Creating, editing or removing a footer | Yes |
+| Turning link tracking on or off | Yes |
 | Uploading an image | Yes |
+| Deleting an image | Yes |
+| Sending a test email | Yes |
+| Changing who has access, and at what role | Yes |
 | Every stage of a staged rollout | Yes |
 
 Each entry carries who performed the action and when.
 
+## How much you can see at once
+
+The portal shows the most recent 100 entries, paged. That is a display limit
+rather than a retention one: nothing is pruned, and a
+[tenant export](/security/data-and-privacy/) carries the most recent 5,000.
+
+For a busy tenant that means the portal answers what changed lately, and the
+export is where you go for anything older.
+
 ## Staged rollout entries
 
 A [staged rollout](/signatures/staged-rollouts/) writes an entry for each
-transition: who started it, what each 15 minute evaluation decided, and how it
-ended.
+transition: starting it, each step up, and how it ended.
 
-Decisions taken automatically carry their reason, so a rollback records the
-failure rates that caused it rather than only the fact that it happened. Reading
-those entries in order tells you the whole story of a rollout after it is over.
+The actor tells you who decided. A rollout that an administrator promoted or
+abandoned carries their address; one the 15 minute evaluation decided for itself
+is recorded against the system. That distinction is usually the first thing you
+want to know about a rollout that ended overnight.
+
+Automatic decisions also store the reason that triggered them. The portal lists
+the action and the actor rather than the reason, so the full detail is read from
+the API or a [tenant export](/security/data-and-privacy/). While a rollout is
+still running, the panel in the template editor is the better place to look: it
+shows both versions' failure rates and when the next check falls.
 
 ## Append-only
 
