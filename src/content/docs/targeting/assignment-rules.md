@@ -95,6 +95,60 @@ Select a rule to edit it in place. Its condition and its template assignments ar
 both editable, so correcting a rule does not mean deleting it and building a
 replacement.
 
+## Testing a rule against one mailbox
+
+Test a user, at the top of the rules page, dry-runs the rules against one of your
+mailboxes and reports what that person gets. Enter their address and run the
+simulation.
+
+The panel names the template for new messages and the template for replies, and
+says what decided each one: the rule that matched, with its position in the list,
+or the organisation default where nothing matched. It also shows the mailbox's
+own value for every attribute your rules test, and how many Entra groups the
+mailbox is in.
+
+Every rule in the list below then carries its own verdict from that walk.
+
+| Verdict | What it means |
+| --- | --- |
+| Applied to new messages, to replies, or to both | The rule matched and settled that role |
+| Matched, but a rule above decided first | The rule matched, and changed nothing, because every role it names was already settled higher up |
+| No match, followed by the mailbox's value | An attribute rule that was tested and missed, quoting the value it was tested against |
+| Not a member | A group rule the mailbox is not in |
+
+The second of those is the reason the feature exists. A rule that matches but
+decides nothing looks entirely healthy in the list, and the only way to spot it
+otherwise is to read every rule above it against a mental picture of that
+person's directory record.
+
+## What the simulation does and does not do
+
+It runs against the saved rules. If you have unsaved edits, the simulation is
+blocked until you save them. The rules the server holds are the ones your users
+are being served, and a result taken against a list that exists only on your
+screen would describe nobody. Editing the list also clears a result already on
+screen, for the same reason.
+
+It reads the directory and group membership fresh, rather than from the ten
+minute resolution cache, so it answers for the rules as they stand now rather
+than for what that mailbox was last served. Nothing is written back to the cache,
+nothing is sent, and no signature changes. It is not recorded in the
+[change log](/monitoring/change-log/) either, because nothing changed.
+
+Give it an alias and it evaluates the rules on that alias, exactly as a real send
+from that address would, while reading group membership from the mailbox behind
+it. The panel says which address it routed on when the two differ.
+
+If group membership cannot be read, usually because the `GroupMember.Read.All`
+permission has not been granted, the simulation says so and carries on. Every
+group rule counts as no match, which is what would happen on a real send too, and
+the attribute rules still answer.
+
+Where a rule points at a template that no longer exists, the simulation reports
+that the organisation default was served in its place. That should be rare, since
+deleting a template a rule uses is blocked, but it is reported rather than
+silently resolved.
+
 ## Who can change them
 
 Admins only. No other [role](/admin/users-and-roles/) reaches assignment rules,
@@ -106,7 +160,8 @@ resolves to reaches the whole organisation at once, and the two are not the same
 risk.
 
 The same capability covers the org-wide `new` and `reply` role assignments, for
-the same reason.
+the same reason. It also covers the simulator, which reads one person's
+directory attributes back to you.
 
 ## The fallback
 
@@ -150,9 +205,15 @@ rule condition describes the sender rather than the recipients.
 
 ## Checking a rule works
 
-Use the download action on the Templates view to render the live signature for a
-specific mailbox. That resolves the rules exactly as a real request would, so it
-tells you what that person actually gets rather than what you expect them to get.
+Simulating a mailbox answers the routing question: which rule fires, and so which
+template that person resolves to. It is the quicker of the two checks and the
+only one that explains itself.
 
-Remember the ten minute window: immediately after a rules change, a download may
-still reflect the previous resolution.
+To see the finished signature rather than the decision behind it, use the
+download action on the Templates view to render the live signature for a specific
+mailbox. That runs the whole path, placeholders and images included, so it shows
+what the add-in will actually produce.
+
+The two can disagree for up to ten minutes after a rules change. The simulation
+is the one that is right: a download answers from the cached resolution, which is
+the previous one until the window passes.

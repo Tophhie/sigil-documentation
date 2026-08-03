@@ -100,10 +100,19 @@ so it disappears cleanly.
 
 ### The wrong template
 
-Check your [assignment rules](/targeting/assignment-rules/). Rules are evaluated
-in order and the first match wins, so a broad rule placed above a narrow one will
-shadow it. Rules changes take up to ten minutes to reach everyone, unlike
-template edits which land in seconds.
+Run Test a user on the rules page against the affected mailbox. It replays the
+same walk the compose path runs and reports which rule decided that person's
+signature, so it answers the question directly rather than leaving you to read
+the list against your idea of their directory record. See
+[simulating a mailbox](/targeting/assignment-rules/#testing-a-rule-against-one-mailbox).
+
+The usual answer is ordering. Rules are evaluated in order and the first match
+wins, so a broad rule placed above a narrow one will shadow it, and the
+simulation marks the shadowed rule as having matched too late to decide anything.
+
+Rules changes take up to ten minutes to reach everyone, unlike template edits
+which land in seconds. If the simulation shows the right rule but the mailbox is
+still sending the old signature, that window is the likeliest reason.
 
 ### An old version of the template
 

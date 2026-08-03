@@ -16,7 +16,7 @@ a description of it.
 | Capability | Covers | Admin | Editor | Marketing | Viewer | Compliance | Billing |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Templates and signatures | Library, editor, drafts, versions, staged rollouts, images, import and export, preview, download, test email | Yes | Yes | No | No | No | No |
-| Assignment rules | Which template each group or person gets, and the org-wide role assignments | Yes | No | No | No | No | No |
+| Assignment rules | Which template each group or person gets, the org-wide role assignments, and simulating a mailbox against the rules | Yes | No | No | No | No | No |
 | Campaign banners | Scheduled promotional banners | Yes | No | Yes | No | No | No |
 | Compliance footers | Legal and disclaimer footers | Yes | No | No | No | Yes | No |
 | Link click analytics | Click tracking and its reports | Yes | No | Yes | Yes | No | No |

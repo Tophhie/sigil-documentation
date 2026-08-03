@@ -70,6 +70,14 @@ else has been on throughout.
 Yes, using [assignment rules](/targeting/assignment-rules/) that match on a
 directory attribute or Entra group membership.
 
+## Can we check which rule applies to somebody before we rely on it?
+
+Yes. Test a user on the rules page dry-runs the saved rules against one mailbox
+and reports which rule decided their signature, which rules missed and why, and
+which matched but were beaten to it by a rule above. It reads the directory live,
+changes nothing and sends nothing. See
+[simulating a mailbox](/targeting/assignment-rules/#testing-a-rule-against-one-mailbox).
+
 ## Can we have a shorter signature on replies?
 
 Yes. Assign a separate template to the reply role. The add-in detects replies and

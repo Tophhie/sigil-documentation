@@ -89,6 +89,7 @@ templates capability, the same as an ordinary publish. See
 | --- | --- | --- |
 | `GET /api/admin/fields` | Admin token | The placeholder list the editors offer |
 | `GET/PUT /api/admin/rules` | Admin token, rules capability | Assignment rules, replaced as one ordered list |
+| `POST /api/admin/rules/simulate` | Admin token, rules capability | Dry-run the saved rules against one mailbox |
 | `GET/POST /api/admin/banners`, `PUT/DELETE /api/admin/banners/:id` | Admin token, banners capability | Campaign banners |
 | `GET/POST /api/admin/footers`, `PUT/DELETE /api/admin/footers/:id` | Admin token, footers capability | Compliance footers |
 | `GET /api/admin/assets` | Admin token, templates capability | The image list |
@@ -100,6 +101,15 @@ templates capability, the same as an ordinary publish. See
 The placeholder list is the one route here with no capability of its own. It
 describes what a template could reference rather than exposing any of your data,
 and both editors need it before anything else loads.
+
+The simulation takes its `email` in the body rather than the query string,
+because it names a person and query strings end up in logs. It replies with the
+mailbox it resolved, the template each role lands on and what decided it, and a
+per-rule trace saying whether each rule matched, what the mailbox's value for the
+tested attribute was, and which roles that rule actually settled. It reads the
+directory live rather than from the ten minute resolution cache, writes nothing
+back, and records no change log entry. An address that is not a mailbox in the
+tenant answers 404. See [assignment rules](/targeting/assignment-rules/#testing-a-rule-against-one-mailbox).
 
 ## Monitoring endpoints
 
