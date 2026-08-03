@@ -51,10 +51,14 @@ when the campaign is the point and the signature is context.
 Banner click-throughs are always tracked. Banner links are routed through
 [tracked links](/monitoring/link-clicks/) automatically, and there is no opt-out.
 
-Tracking records counts only. No IP address and no recipient identity is logged,
-so a banner tells you how many people clicked, not who.
+No IP address and no recipient identity is logged, so a banner tells you how
+many people clicked, not who.
 
-Click totals appear in the Link clicks view.
+Totals appear in the Link clicks view, rolled up per banner rather than per URL,
+so a campaign pointing at three destinations reads as one number. Security
+scanners that pre-fetch every link in a message are counted separately and kept
+out of that number, which matters most for a banner because a banner is measured
+on its click rate.
 
 ## Who can manage banners
 

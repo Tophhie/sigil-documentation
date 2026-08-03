@@ -86,7 +86,8 @@ that optional content disappears when the underlying attribute is empty. See
 A redirect under `e-clk.usesigil.app/r/<slug>` that counts clicks without
 recording who clicked. Banner links are always tracked. A template opts in per
 template, which rewrites its static links at render time. Links containing a
-placeholder are never rewritten. See [link clicks](/monitoring/link-clicks/).
+placeholder are never rewritten, and hits from security scanners are counted
+apart from the human ones. See [link clicks](/monitoring/link-clicks/).
 
 ## Seat
 

@@ -87,7 +87,8 @@ time-boxed campaign image above or below every signature.
 Monitoring covers [activity and adoption](/monitoring/activity/), including the
 list of mailboxes that have never applied a signature,
 [attribute coverage](/monitoring/attribute-coverage/) across the directory,
-[link click totals](/monitoring/link-clicks/), and an append-only
+[link click analytics](/monitoring/link-clicks/) with security scanner traffic
+filtered out of the totals, and an append-only
 [change log](/monitoring/change-log/) of what admins did and when.
 
 ## How people experience it

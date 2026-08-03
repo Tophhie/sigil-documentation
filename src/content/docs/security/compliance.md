@@ -99,7 +99,8 @@ administrators a re-consent link.
 | Change log | Indefinite |
 | Operator audit log | Indefinite |
 | Signature telemetry | Indefinite |
-| Link click counts | Indefinite |
+| Daily click totals per tracked link | Indefinite |
+| Per-click records behind the analytics splits | 90 days, then purged by a nightly sweep |
 
 Deprovisioning a tenant purges all of it.
 

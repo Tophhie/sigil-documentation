@@ -35,6 +35,12 @@ A template's unpublished working copy. One per template.
 The share of attempts to apply a given version that Outlook did not accept. The
 number a staged rollout compares between the new version and the current one.
 
+**Filtered click**
+A hit on a tracked link attributed to a security scanner or a link preview
+service rather than to a person. Counted separately and excluded from the
+headline figures, but shown rather than hidden so the filter can be checked. See
+[link clicks](/monitoring/link-clicks/).
+
 **Footer**
 A legal or compliance block appended below every signature at render time. See
 [footers](/targeting/footers/).

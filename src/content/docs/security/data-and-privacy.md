@@ -26,7 +26,8 @@ Configuration: assignment rules, banners, footers, roles and users.
 
 Telemetry metadata about signature requests and apply outcomes.
 
-Tracked link definitions and their click counts.
+Tracked link definitions, their click counts, and 90 days of per-click records
+holding no identifier of any kind.
 
 Billing state, mirrored from Stripe, and your billing profile.
 
@@ -52,12 +53,26 @@ the history is retained indefinitely.
 
 ## Link analytics are aggregate by construction
 
-[Tracked links](/monitoring/link-clicks/) record counts only. No IP address and no
-recipient identity is logged, and there is no cookie or tracking pixel.
+A [tracked link](/monitoring/link-clicks/) click stores the link, the time, and
+three coarse descriptors derived from the request as it arrives: a device class
+of desktop, mobile or tablet, a browser family such as Chrome or Safari with no
+version number, and the host name of the referring page where one is sent.
+
+The underlying user agent string and the full referring URL are discarded at
+that moment and never stored. No IP address is recorded at any point, and there
+is no cookie or tracking pixel.
+
+Those three descriptors are reported only in aggregate, and each is deliberately
+low cardinality. "Mobile, Safari, referred by outlook.office.com" describes a
+population; a full user agent next to a precise timestamp would describe a
+person, which is why the second is never written down.
 
 Links containing a placeholder are never rewritten. That covers Teams deep links
 built from somebody's address and any personal link held in a directory
 attribute, so a per-person link never becomes a per-person record.
+
+Per-click records are deleted after 90 days. Daily click totals per link are
+kept indefinitely, so the counts survive while the detail behind them does not.
 
 The result is that Sigil can tell you a link was clicked 84 times and cannot tell
 you by whom. That is a property of what is stored rather than a policy about who

@@ -59,8 +59,24 @@ below the maximum.
 | Recently deleted templates | 30 days, then purged by a daily sweep |
 | Change log | Indefinite |
 | Signature telemetry | Indefinite |
-| Link click counts | Indefinite |
+| Daily click totals per tracked link | Indefinite |
+| Per-click records behind the analytics splits | 90 days, then purged by a nightly sweep |
 | Operator audit log | Indefinite |
+
+Click totals and the daily chart outlive the per-click records they were built
+from, so they reach back to the day a link was created. The device, client,
+referring page and hour-of-day splits are computed from the per-click records
+and therefore only cover the last 90 days. See
+[link clicks](/monitoring/link-clicks/).
+
+## Link analytics windows
+
+| Item | Value |
+| --- | --- |
+| Windows offered in the portal | 7 days, 30 days, 90 days, 12 months |
+| Shortest and longest window the API accepts | 7 to 365 days, clamped rather than rejected |
+| Trend column on the links table | Last 30 days |
+| Referring hosts shown before the tail is bucketed | 8 |
 
 ## How long changes take to reach users
 

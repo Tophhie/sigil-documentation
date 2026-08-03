@@ -97,8 +97,12 @@ outcome per mailbox, and lists mailboxes that have never had a signature applied
 
 ## Does link tracking identify individual recipients?
 
-No. Click counts only. No IP address, no recipient identity, no cookie, no pixel.
-Links containing a per-person placeholder are never rewritten. See
+No. A click stores the link, the time, a device class, a browser family with no
+version number, and the referring page's host name. No IP address, no recipient
+identity, no cookie, no pixel, and the raw user agent and referring URL are
+discarded rather than stored. Those descriptors are reported only in aggregate.
+Links containing a per-person placeholder are never rewritten, and the per-click
+records are deleted after 90 days. See
 [link clicks](/monitoring/link-clicks/).
 
 ## Why does the signature not appear the very first time someone uses it?

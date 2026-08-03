@@ -119,7 +119,17 @@ tenant answers 404. See [assignment rules](/targeting/assignment-rules/#testing-
 | `GET /api/admin/activity/events` | Admin token, monitoring capability | The event search, filtered by mailbox, source or outcome |
 | `GET /api/admin/audit` | Admin token, monitoring capability | Directory attribute coverage, and how many external accounts were excluded |
 | `GET /api/admin/log` | Admin token, monitoring capability | The change log |
-| `GET /api/admin/links` | Admin token, analytics capability | Click totals per tracked link |
+| `GET /api/admin/links` | Admin token, analytics capability | Click totals per tracked link, with a 30-day trend series on each |
+| `GET /api/admin/links/overview` | Admin token, analytics capability | One window of tenant-wide analytics: daily series, campaign rollup, device, client and referrer splits, hour-of-day grid, and the clicks-per-1,000 rate |
+| `GET /api/admin/links/detail/:slug` | Admin token, analytics capability | The same shape for one link |
+
+Both analytics routes take a `days` query parameter. It is clamped to between 7
+and 365 rather than rejected, and defaults to 30, so a stale bookmark returns a
+chart instead of an error.
+
+A slug belonging to another organisation returns 404 from the detail route.
+Slugs are globally unique, and the redirect being public does not make the
+numbers behind it public.
 
 Click totals sit behind analytics rather than monitoring, which is what lets the
 Marketing role read its own campaign numbers without reaching the activity
