@@ -69,6 +69,16 @@ Payment failures reach a partner through Stripe's own dunning mail, from the
 first failure. That is why the client-facing warning above only starts partway
 into the grace window: by then the partner has already been told several times.
 
+## Mail about you rather than to you
+
+One message goes to Tophhie Cloud support instead of to you. If connecting your
+organisation fails, or finishes with a step outstanding, support is emailed at
+the moment it happens with the attempt reference, your organisation name and
+domain, and which step did not complete. It carries no directory contents and no
+signature content. It exists so that a half-finished setup reaches somebody while
+you are still in front of the portal, rather than being noticed days later. See
+[connect your organisation](/deploy/connect-your-organisation/).
+
 ## What Sigil never sends
 
 No newsletters, no product announcements to end users, and nothing at all to the

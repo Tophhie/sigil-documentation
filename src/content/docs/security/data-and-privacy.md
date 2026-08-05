@@ -31,6 +31,14 @@ holding no identifier of any kind.
 
 Billing state, mirrored from Stripe, and your billing profile.
 
+A record of each attempt to connect an organisation to Sigil. It holds the
+attempt reference, the route the signup came through, your organisation name and
+primary domain as Entra reported them, your Entra tenant id, any error code
+Microsoft or Stripe returned, how long each provisioning step took, and the
+identifier of the underlying request. It holds no credentials and no directory
+contents. This log lives outside your tenant's own data and is read by Tophhie
+Cloud operators rather than shown in your portal.
+
 ## What Sigil does not store
 
 No tokens. No rendered signature HTML in the telemetry. No message content.
@@ -101,6 +109,11 @@ the role pointers, assignment rules, banners, footers, the change log and your
 images. Ask support for it. It is the artifact for a due diligence request or for
 leaving, and it is worth taking before a deprovision rather than after.
 
+It also carries the support notes Tophhie Cloud staff have written against your
+organisation. Those notes are written in the operator console rather than in your
+portal, so you never see them day to day, but they are records about you and the
+export does not hold them back.
+
 The change log is capped at its most recent 5,000 entries, so an organisation
 with years of history gets a recent window rather than the lot. Everything else
 is complete.
@@ -117,7 +130,15 @@ available path is a full tenant purge. See [compliance](/security/compliance/).
 ## Deleting your data
 
 Deprovisioning a tenant cancels billing and purges every record, asset and cached
-entry belonging to it. It is destructive and irreversible.
+entry belonging to it, including the support notes staff have written about it.
+It is destructive and irreversible.
+
+Two things deliberately outlive it. The record of your original attempt to
+connect, described under what Sigil stores, is kept, because it describes an
+onboarding rather than a live organisation, and many of its entries belong to
+attempts that never became tenants at all. If you were a partner's client, the
+partner's own event history keeps its record of your account being linked and
+released, because that history belongs to them.
 
 Withdrawing admin consent stops Sigil reading your directory, which stops
 signatures rendering, but leaves your stored configuration in place. If you want

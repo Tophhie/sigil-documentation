@@ -62,6 +62,7 @@ below the maximum.
 | Daily click totals per tracked link | Indefinite |
 | Per-click records behind the analytics splits | 90 days, then purged by a nightly sweep |
 | Operator audit log | Indefinite |
+| Onboarding attempt records | Indefinite, and kept after a deprovision |
 
 Click totals and the daily chart outlive the per-click records they were built
 from, so they reach back to the day a link was created. The device, client,

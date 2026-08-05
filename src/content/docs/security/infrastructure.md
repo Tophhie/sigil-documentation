@@ -16,7 +16,7 @@ to whoever is composing the message.
 | Cloudflare D1 | Templates, configuration, telemetry and billing state |
 | Cloudflare R2 | Uploaded images |
 | Cloudflare KV | Rendered signature cache and per-mailbox rule resolution |
-| Cloudflare Email Routing | Invitations, test emails and operator notices |
+| Cloudflare Email | Invitations, test emails, operator notices and internal alerts |
 | Stripe | Subscriptions, payment methods and invoices |
 | Microsoft Entra ID | Authentication for both the add-in and the portal |
 | Microsoft Graph | Read-only directory attributes for personalisation |

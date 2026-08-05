@@ -135,7 +135,8 @@ Integrated apps.
 
 If you want your data deleted rather than left dormant, ask support to
 deprovision the tenant. That cancels billing and purges every record, asset and
-cached entry belonging to your organisation.
+cached entry belonging to your organisation, bar the two exceptions set out in
+[data and privacy](/security/data-and-privacy/).
 
 ## Managed by a partner
 

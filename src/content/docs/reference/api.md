@@ -23,6 +23,20 @@ Every token is verified in the Worker: cryptographic signature against the
 calling tenant's published keys, then issuer, audience, home tenant and scope.
 See [the security model](/security/security-model/).
 
+A valid token is not enough on its own. Before any admin route runs, the
+organisation behind the token has to be one Sigil will serve, and a refusal says
+which of three things is wrong:
+
+| Code | Meaning |
+| --- | --- |
+| `not_onboarded` | This Entra tenant has never been connected, or was connected and then purged |
+| `pending_deletion` | The organisation was removed and is inside its deletion grace window |
+| `suspended` | Access is suspended for an account or billing reason |
+
+All three return 403. They are separated because only the first can be resolved
+by the person holding the token, by granting admin consent. See
+[connect your organisation](/deploy/connect-your-organisation/).
+
 ## Signature endpoints
 
 | Route | Auth | Purpose |
@@ -96,7 +110,7 @@ templates capability, the same as an ordinary publish. See
 | `GET /api/admin/asset/:name` | Admin token, templates capability | One image, base64 encoded, for the portal's preview |
 | `PUT /api/admin/asset/:name`, `DELETE /api/admin/asset/:name` | Admin token, templates capability | Upload or remove an image |
 | `PUT /api/admin/templates/:id/tracking` | Admin token, templates capability | Toggle link tracking for a template |
-| `POST /api/admin/test-email` | Admin token, templates capability | Send a rendered signature to a verified inbox |
+| `POST /api/admin/test-email` | Admin token, templates capability | Send a rendered signature to a named inbox |
 
 The placeholder list is the one route here with no capability of its own. It
 describes what a template could reference rather than exposing any of your data,
@@ -141,7 +155,7 @@ telemetry.
 | --- | --- | --- |
 | `GET /api/admin/me` | Admin token | Who the caller is, their role, and their organisation's state |
 | `GET/PUT /api/admin/users`, `DELETE /api/admin/users/:email` | Admin token, users capability | Manage users and roles |
-| `GET /api/admin/users/search` | Admin token | Directory lookup, for pickers such as download and test email |
+| `GET /api/admin/users/search` | Admin token, templates or users capability | Directory lookup, for pickers such as download and test email |
 | `GET /api/admin/onboarding` | Admin token, Admin role | Getting started checklist state |
 | `POST /api/admin/onboarding/dismiss` | Admin token, Admin role | Dismiss the checklist |
 | `POST /api/admin/dpa/accept` | Admin token, Admin role | Record acceptance of the data processing agreement |

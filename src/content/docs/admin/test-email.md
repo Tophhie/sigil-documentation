@@ -1,6 +1,6 @@
 ---
 title: Test emails
-description: Send a rendered signature to a verified inbox to see it in a real mail client.
+description: Send a rendered signature to a real inbox to see how a mail client renders it.
 sidebar:
   order: 5
 ---
@@ -16,16 +16,21 @@ containing the signature exactly as a recipient would receive it, including
 inline images, the current [banner](/targeting/banners/) if a window is open, and
 the applicable [footer](/targeting/footers/).
 
-## Recipients must be verified
+## Where a test can be sent
 
-The recipient has to be a verified destination address.
+The recipient defaults to your own address, and you can name a different one.
 
-This is a platform rule of the mail service Sigil sends through, and it is also
-the guardrail that stops the endpoint being usable to mail anybody other than the
-administrators themselves.
+Addresses that are verified destinations on Sigil's sending domain always arrive.
+Anything else depends on what that domain is currently permitted to send to, and
+a refusal comes back as a send error in the portal rather than disappearing
+quietly. If a test does not arrive and no error was shown, check the junk folder
+before assuming the send failed.
 
-If a test email does not arrive, an unverified recipient is the most likely
-reason.
+Sigil does not restrict the recipient to your own organisation. Whoever sends the
+test decides where it goes, including an outside address. This documentation
+previously said the mail service would only deliver to verified destinations and
+that this confined test emails to your administrators. That was wrong: the
+restriction applies to the address Sigil sends *from*, not the one it sends to.
 
 ## What to check
 
@@ -58,5 +63,7 @@ Banner windows take effect immediately in both directions, so this costs nothing
 Admins and Editors, who hold the same capability that covers the template
 library. No other [role](/admin/users-and-roles/) reaches test emails.
 
-The recipient defaults to your own address, so sending one to yourself takes no
-more than choosing whose signature to render.
+Read that alongside the section above: granting somebody the template capability
+also lets them mail a rendered signature to an address of their choosing, from
+Sigil's sending domain. It is a reason to keep the Editor role to people you
+would trust with the template library anyway.
