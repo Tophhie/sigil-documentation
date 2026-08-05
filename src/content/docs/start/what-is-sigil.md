@@ -105,6 +105,11 @@ The same apply telemetry feeds [cost management](/admin/cost-management/), which
 names the licensed mailboxes that have never used a signature so they can be
 taken off both the service and the bill.
 
+Any of this can be driven from a script rather than the portal. An
+[API key](/admin/api-keys/) is a credential for an organisation rather than a
+person, scoped to the areas you choose and optionally read-only, which is what a
+joiner and leaver runbook or a nightly reporting pull uses.
+
 ## How people experience it
 
 Most people never see Sigil. The add-in fires on new messages, replies and

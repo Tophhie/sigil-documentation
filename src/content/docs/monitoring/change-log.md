@@ -39,9 +39,23 @@ the portal is recorded.
 | Booking, cancelling or firing a scheduled publish | Yes |
 | Excluding a mailbox from Sigil, or putting one back | Yes |
 | Excluding an Entra group, and every later change to who it covers | Yes |
+| Creating or revoking an API key | Yes |
 | Changing an organisation-wide setting | Yes |
 
 Each entry carries who performed the action and when.
+
+## Entries made by an API key
+
+An [API key](/admin/api-keys/) can do anything its access allows, so the log has
+to say when one did.
+
+Those entries are labelled `API key` followed by the key's name. The name is
+chosen by whoever created the key, so it is treated as a label and never as an
+identity: the key's own identifier is stored on the entry separately, which is
+what stops a key named after a colleague reading as that colleague.
+
+Creating and revoking a key are recorded too, against the administrator who did
+it.
 
 ## Exclusion entries
 

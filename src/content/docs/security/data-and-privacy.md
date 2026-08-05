@@ -45,11 +45,18 @@ identifier of the underlying request. It holds no credentials and no directory
 contents. This log lives outside your tenant's own data and is read by Tophhie
 Cloud operators rather than shown in your portal.
 
+Any [API keys](/admin/api-keys/) your administrators have created, held as a
+hash of the secret rather than as the secret, alongside each key's name, access,
+who created it and when it was last used.
+
 ## What Sigil does not store
 
 No tokens. No rendered signature HTML in the telemetry. No message content.
 
-No passwords, because there are none. Authentication is entirely through Entra.
+No passwords, because there are none. People authenticate entirely through
+Entra. The only credential Sigil issues is an API key for a script, and the
+secret behind one is stored as a SHA-256 hash, so it cannot be recovered from
+the database by anybody, Tophhie Cloud included.
 
 ## Telemetry
 
@@ -131,8 +138,9 @@ taking before a deprovision rather than after.
 
 That list is what the file contains rather than a summary of it. A few smaller
 records are not in it: your organisation-wide [settings](/admin/settings/), any
-booked [scheduled publish](/signatures/scheduled-publishing/), and the mailboxes
-and groups you have [excluded](/admin/cost-management/). Each of those is readable
+booked [scheduled publish](/signatures/scheduled-publishing/), the mailboxes and
+groups you have [excluded](/admin/cost-management/), and your
+[API keys](/admin/api-keys/). Each of those is readable
 in the portal, and each is purged on deprovision along with everything else. Ask
 support if you need them in an export for a compliance exercise.
 

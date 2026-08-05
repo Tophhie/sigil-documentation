@@ -138,6 +138,20 @@ See [scheduled publishing](/signatures/scheduled-publishing/).
 See [publish approval](/signatures/approvals/) and
 [the health digest](/monitoring/health-digest/).
 
+## API keys
+
+| Item | Value |
+| --- | --- |
+| Keys per organisation | No limit |
+| Key name | 80 characters |
+| Expiry | Optional, and must be in the future |
+| Times the secret is shown | One, at creation |
+| Requests per key | 600 a minute, then 429 until the rate falls back under it |
+| Resolution of "last used" | One hour |
+| Effect of revoking | Immediate, and irreversible |
+
+See [API keys](/admin/api-keys/).
+
 ## Trial and billing
 
 | Item | Value |

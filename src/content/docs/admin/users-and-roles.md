@@ -102,6 +102,16 @@ That is presentation rather than security. Every route on the server declares th
 capability it requires and checks it independently, so hiding a menu item is not
 what stops somebody reaching it.
 
+## Access that is not a person
+
+A script can be given access without a user account, through an
+[API key](/admin/api-keys/). A key carries capabilities directly and no role,
+belongs to the organisation rather than to whoever created it, and does not
+appear in the user list here.
+
+Only an Admin can create one, and a key can never be granted access its creator
+does not hold.
+
 ## Not Entra app roles
 
 Sigil does not use Entra app roles for authorisation, which means there is no app

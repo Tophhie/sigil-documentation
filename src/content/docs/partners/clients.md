@@ -51,6 +51,12 @@ publish.
 Your access is read-write, so everything you do inside a client is a real change
 to their signatures.
 
+Owners and Admins can also create an [API key](/admin/api-keys/) inside a client,
+which is how work across a client base gets automated. A key belongs to the
+client rather than to you: it appears on their own list, flagged as created by
+their IT provider, and their Admin can revoke it. There is no key that spans
+several clients, so a provider with forty clients manages forty of them.
+
 ## Taking over an existing tenant
 
 A client that already uses Sigil directly can be transferred to your management.

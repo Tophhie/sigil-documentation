@@ -1,14 +1,19 @@
 ---
 title: Security model
-description: How Sigil authenticates every request, why there are no shared secrets, and how tenants are isolated.
+description: How Sigil authenticates every request, what the one credential it issues is, and how tenants are isolated.
 sidebar:
   order: 1
 ---
 
 Sigil's security boundary is the Entra token, verified on every request. There is
-no network gate in front of it and no shared secret behind it.
+no network gate in front of it, and nothing anybody signs in with is a Sigil
+credential.
 
-## Why there is no shared secret
+The one credential Sigil issues is an [API key](/admin/api-keys/), which an
+administrator creates deliberately for a script. It is described below, and no
+part of the product depends on one existing.
+
+## Why the add-in holds no secret
 
 The add-in's JavaScript is served from a public URL. Anything embedded in it
 would be public too.
@@ -50,8 +55,30 @@ their own tenant.
 
 Portal administrators authenticate through an MSAL single-page-app sign-in.
 
-Neither involves a Sigil password. There is no credential for Sigil to store, and
-nothing to breach.
+Neither involves a Sigil password. There is no password for Sigil to store, and
+no sign-in of any kind that does not go through Entra.
+
+## API keys
+
+An [API key](/admin/api-keys/) is the exception to everything above, and is
+scoped tightly enough to stay one.
+
+It is created by an Admin, belongs to one organisation, and carries a set of
+capabilities but no role. Anything guarded by the Admin role is refused to it,
+as are the key management routes themselves, the partner routes and the operator
+console. It cannot reach the signature endpoints at all, because an
+organisation-wide credential able to render any mailbox's signature would be a
+way to read a directory.
+
+The secret is returned once at creation and stored only as a SHA-256 hash, so a
+copy of the database yields no working key. A fast hash is the right choice
+here rather than the slow one a password would need: the value is 256 bits of
+random data rather than something a person chose, so there is nothing to guess.
+
+Revocation is immediate and the row survives it, which keeps the change log's
+attribution resolvable. Expiry is optional and checked on every request. Each
+key is rate limited to 600 requests a minute, because the database is shared
+across organisations and a runaway script should not become everybody's problem.
 
 ## Authorisation
 

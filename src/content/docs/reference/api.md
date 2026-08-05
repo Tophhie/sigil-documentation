@@ -17,11 +17,41 @@ All endpoints live on `portal.usesigil.app`.
 | --- | --- |
 | Add-in token | An Entra access token carrying the `access_as_user` scope |
 | Admin token | An Entra access token carrying the `portal_admin` scope |
+| Tenant API key | A credential an Admin created for a script, presented as `Authorization: Bearer sigil_…` |
 | None | Public, unauthenticated |
 
 Every token is verified on the server: cryptographic signature against the
 calling tenant's published keys, then issuer, audience, home tenant and scope.
 See [the security model](/security/security-model/).
+
+### API keys
+
+An [API key](/admin/api-keys/) is presented on the same `Authorization` header a
+portal token uses, and is told apart by its `sigil_` prefix. An Entra token
+begins `eyJ` and carries three dot-separated segments, so there is no ambiguity
+and no second header for a client to be taught about.
+
+A key carries a set of capabilities and no role, which decides most of what it
+can reach. Four things sit outside that.
+
+| Refused to a key | Response |
+| --- | --- |
+| Anything guarded by the Admin role rather than a capability | 403 |
+| The `/api/admin/api-keys` routes themselves | 403 |
+| Everything under `/api/admin/platform` and `/api/admin/partner` | 403 |
+| A write of any kind, where the key is read-only | 403 |
+
+The signature endpoints are not reachable with a key either. They take a
+per-mailbox add-in token, and an organisation-wide credential able to render any
+mailbox's signature would be a way to enumerate a directory.
+
+`X-Client-Tenant` and `X-Impersonate-Tenant` are ignored under key
+authentication. A key is bound to one tenant when it is issued, and letting a
+header retarget it would make that binding a suggestion.
+
+Requests are limited to 600 a minute per key, and a key over its limit is
+answered 429. The tenant refusals below apply to keys exactly as they apply to
+people.
 
 A valid token is not enough on its own. Before any admin route runs, the
 organisation behind the token has to be one Sigil will serve, and a refusal says
@@ -232,6 +262,15 @@ telemetry.
 | `DELETE /api/admin/exclusions/groups/:id` | Admin token, cost management capability | Stop excluding a group, and report which addresses that released |
 | `POST /api/admin/exclusions/groups/:id/sync` | Admin token, cost management capability | Refresh one group's membership now, rather than waiting for the nightly refresh |
 | `GET /api/admin/groups/search` | Admin token, cost management capability | Group name search for the picker, from two characters |
+| `GET /api/admin/api-keys` | Admin token, Admin role | Every API key for the organisation, revoked ones included |
+| `POST /api/admin/api-keys` | Admin token, Admin role | Mint one. The secret is in this response and in nothing else, ever |
+| `DELETE /api/admin/api-keys/:id` | Admin token, Admin role | Revoke one. The row survives so the change log stays resolvable |
+
+The three key routes are the ones an API key can never call, whatever it holds,
+so a leaked key cannot mint a replacement or revoke the key an administrator is
+about to use to stop it. A key may not be granted capabilities its creator does
+not hold, and an expiry in the past is refused rather than quietly accepted. See
+[API keys](/admin/api-keys/).
 
 Neither digest route stamps the digest schedule, so previewing or test-sending
 cannot delay the real one. The send route answers 503 where mail sending is

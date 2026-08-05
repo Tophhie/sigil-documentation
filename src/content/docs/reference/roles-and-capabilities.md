@@ -56,6 +56,26 @@ The portal hides navigation a role cannot reach. Every server route independentl
 checks the capability it requires, so hiding a menu item is presentation rather
 than the control.
 
+## API keys hold capabilities and no role
+
+An [API key](/admin/api-keys/) is the one principal in Sigil that is not a
+person. It carries a set of capabilities drawn from the same table above, chosen
+when it is created, and it holds no role at all.
+
+That distinction decides what a key cannot reach. Anything guarded by the Admin
+role rather than by a capability is refused to a key however its access is set:
+rejecting a submitted draft, the getting started checklist, accepting the data
+processing agreement, managing keys, and every publish path while
+[publish approval](/signatures/approvals/) is switched on.
+
+A key can never be granted access its creator does not hold, and only an Admin
+can create one. There is deliberately no capability for key management that a
+narrower role could come to hold, because issuing a credential is a question
+about access rather than an area of the product.
+
+A key also carries a read-only flag that is independent of its capabilities.
+With it set, the key can read every area it was given and write to none of them.
+
 ## Partner roles
 
 Partner roles apply across a managed client base. See
@@ -65,6 +85,7 @@ Partner roles apply across a managed client base. See
 | --- | --- | --- | --- | --- |
 | Work inside a managed client at all | Yes | Yes | Yes | No |
 | Exclude a client's mailboxes from Sigil | Yes | Yes | No | No |
+| Create an API key inside a managed client | Yes | Yes | No | No |
 | Add, invite, transfer or release a client | Yes | Yes | No | No |
 | Partner billing and invoice details | Yes | No | No | Yes |
 | Usage and rebilling export | Yes | No | No | Yes |

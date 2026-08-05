@@ -182,6 +182,13 @@ a single mailbox can be exported for a subject access request. See
 [import and export](/signatures/import-export/) and
 [compliance](/security/compliance/).
 
+## Can we script Sigil, or pull its numbers into a dashboard?
+
+Yes. An Admin can create an [API key](/admin/api-keys/), which is a credential
+for a script rather than for a person, with the areas you choose and optionally
+read-only. Every administrative endpoint accepts one. There are no webhooks, so
+anything that needs to know about a change polls for it.
+
 ## Can a managed service provider run this for us?
 
 Yes. See [the partner programme](/partners/overview/).
