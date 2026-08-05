@@ -67,6 +67,12 @@ Before you publish, the editor shows a line diff between what you have written
 and the live version. That is worth reading every time; it catches the edit you
 did not mean to make far more reliably than re-reading the whole template.
 
+The diff is the one thing this editor has that the
+[designer](/signatures/designer/) does not. Everything else about getting a body
+live, drafts, review, scheduling and staged publishing, works the same way in
+both. A diff of a block document would say nothing useful, which is why the
+designer does without it rather than approximating one.
+
 ## Drafts
 
 Each template holds one unpublished working copy. You can save, close the portal,

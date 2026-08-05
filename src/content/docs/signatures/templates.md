@@ -50,7 +50,31 @@ The Templates view lists the library, shows which template is active for new
 messages and which covers replies, and is where you create, assign, duplicate,
 rename, download or delete a template.
 
-Selecting a template opens the Editor for it.
+Selecting a template opens the Editor for it. A designer template opens in the
+[designer](/signatures/designer/) and an HTML one in the
+[HTML editor](/signatures/html-editor/), so the library is the only place that
+shows the whole picture at once.
+
+## Badges in the library
+
+Each entry carries badges for anything true of it that you would otherwise have
+to open it to find out.
+
+| Badge | What it means |
+| --- | --- |
+| Active | Served for new messages |
+| Reply | Served for replies and forwards |
+| Rolling out, with a percentage | A [staged rollout](/signatures/staged-rollouts/) is in flight, so part of the organisation is on a different body |
+| Draft | An unpublished [draft](/signatures/publishing/) is sitting on it. Users still receive the published version |
+| Awaiting review | The draft has been submitted and is waiting on an [approver](/signatures/approvals/) |
+| Scheduled | A [publish is booked](/signatures/scheduled-publishing/) for a future instant |
+
+The rollout badge leads, because a rollout is the only state in which people in
+the same organisation are receiving different signatures.
+
+The Draft badge is a yes or no rather than a preview. The library deliberately
+never loads template bodies, since that would mean pulling a full signature per
+row to answer a question that fits in a badge.
 
 ## Creating a template
 
@@ -107,8 +131,8 @@ done.
 ## Publishing
 
 Editing does not affect anyone until you publish. Each template can hold one
-unpublished [draft](/signatures/publishing/), and the editor shows a line diff
-against the live version before you commit.
+unpublished [draft](/signatures/publishing/), and the HTML editor shows a line
+diff against the live version before you commit.
 
 Publishing increments the template's version, which strands every cached
 signature for it. Changes reach users within seconds, with no redeploy and

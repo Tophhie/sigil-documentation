@@ -21,7 +21,8 @@ that measurement comes from.
 ## Starting one
 
 In the template editor, "Staged publish" sits next to Publish. It takes the same
-body Publish would take.
+body Publish would take. It is in the [designer](/signatures/designer/) as well
+as the [HTML editor](/signatures/html-editor/).
 
 It starts at 10% of mailboxes. Everyone else carries on receiving exactly what
 they receive now.
@@ -113,10 +114,20 @@ While a rollout is running, a panel sits above the editor. It shows the current
 percentage, both versions' apply results side by side, and what the evaluator
 will do at its next pass, in words rather than in numbers you have to interpret.
 
+The panel is in whichever editor the template opens in, which is the one you
+started the rollout from. It refreshes itself about once a minute, so the apply
+counts move continuously even though a decision is only taken every fifteen
+minutes.
+
 A verdict of holding, with a count of apply outcomes against the 20 it needs,
 means nobody in the slice has composed enough messages yet. That is the normal
 state for the first stretch of a rollout, and it lasts longer in a small
 organisation than a large one, because 10% of forty mailboxes is four people.
+
+You do not have to open the template to find out that a rollout is running. The
+Templates view badges anything in flight with its current percentage, which is
+the only place that shows at a glance that part of the organisation is on a
+different signature to the rest.
 
 ## Taking over from it
 

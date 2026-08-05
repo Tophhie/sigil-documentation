@@ -154,6 +154,12 @@ attempts that never became tenants at all. If you were a partner's client, the
 partner's own event history keeps its record of your account being linked and
 released, because that history belongs to them.
 
+Those two are the whole list, and it is enforced rather than promised. Every
+place Sigil stores something against an organisation is either purged or named as
+a deliberate exception, and an automated check refuses any new storage that is
+neither. A list of what to delete that nothing verifies is a list that quietly
+falls behind, which is what makes the check worth more than the intention.
+
 Withdrawing admin consent stops Sigil reading your directory, which stops
 signatures rendering, but leaves your stored configuration in place. If you want
 the data gone rather than dormant, ask for a deprovision.

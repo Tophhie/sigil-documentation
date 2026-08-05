@@ -51,8 +51,8 @@ Drop in [placeholders](/signatures/placeholders/) such as `{{displayName}}` and
 [conditional sections](/signatures/placeholders/#conditional-sections) so a
 missing phone number does not leave a stray separator behind.
 
-Preview with sample data, then publish. The editor shows a line diff against the
-live version before you commit.
+Preview with sample data, then publish. In the HTML editor there is a line diff
+against the live version to read before you commit.
 
 ## 4. Deploy the Outlook add-in
 

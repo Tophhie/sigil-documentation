@@ -63,6 +63,33 @@ the inbox list without being opened.
 A running rollout and a booked publish appear in the digest but do not make it an
 attention-needed one. They are things you set up on purpose.
 
+## Seeing one before it arrives
+
+You do not have to wait a week to find out what the digest says, or whether it
+sends at all.
+
+| Button | What it does |
+| --- | --- |
+| Preview | Renders the digest your organisation would get right now, in the page. Nothing is sent |
+| Send me one | Mails it to you alone, so you can see it land in a real inbox |
+
+Both live in [settings](/admin/settings/), next to the frequency.
+
+Neither moves the schedule. Previewing or testing today does not delay the real
+digest, so there is no cost to pressing either.
+
+Send me one goes to you and to nobody else. It is there to prove the delivery
+path works, and a test that mailed every administrator is a test nobody would
+run.
+
+The preview is the same digest the scheduled send would produce, built by the
+same code rather than a separate rendering of it. A preview that showed something
+subtly different to the real thing would be worse than no preview, because it
+would be believed.
+
+If your organisation is too new to be sent one, the preview still renders and
+tells you it would be held back. See below for when that applies.
+
 ## How often it arrives
 
 | Setting | Behaviour |

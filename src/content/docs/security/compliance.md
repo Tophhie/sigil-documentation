@@ -104,7 +104,13 @@ administrators a re-consent link.
 | Onboarding attempt records | Indefinite, and outside the tenant's own data |
 
 Deprovisioning a tenant purges all of it except the last row, which describes an
-attempt to connect rather than a live organisation. See
+attempt to connect rather than a live organisation. That includes the indefinite
+rows above: telemetry and daily totals are kept for as long as the organisation
+exists and go with it when it does not.
+
+The coverage of that purge is checked automatically rather than maintained by
+hand, so anything Sigil starts storing against an organisation has to be either
+purged or recorded as a deliberate exception. See
 [data and privacy](/security/data-and-privacy/).
 
 ## What Sigil is not

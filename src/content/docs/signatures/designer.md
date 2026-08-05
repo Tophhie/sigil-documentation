@@ -76,6 +76,11 @@ Selecting a text block brings up a formatting toolbar inside the block itself, s
 the controls sit where you are already looking rather than at the top of the
 stage. It covers bold, italic, underline, colour, links and inserting a field.
 
+Adding a link opens a dialog rather than a browser prompt, and the dialog says so
+when nothing is selected. Linking needs selected text to attach itself to, so
+with only a cursor there is nothing to link and the old prompt looked broken
+rather than refused.
+
 Text blocks can be sized in points as well as pixels. Points are what people
 authoring in Word and Outlook think in; pixels are what the web thinks in.
 Fractional sizes are accepted, which matters when you are matching an existing
@@ -114,6 +119,22 @@ field at the cursor.
 The designer fetches its field list from the API, which means the picker cannot
 drift from what the renderer knows how to resolve.
 
+## Placeholders in links
+
+Every link box in the designer accepts placeholders too, and each one carries the
+same field picker as the text toolbar. That covers the link dialog and the link
+on a field chip, an image, a button, a social icon, a QR code and a photo block.
+
+This is what `tel:{{mobilePhone}}`, `mailto:{{mail}}` and a per-person booking
+link are made of. The token is inserted where the cursor is rather than appended,
+so a prefix such as `tel:` stays in front of the field. Clicking the picker
+without putting the cursor in the box appends instead, which is what somebody who
+goes straight to the menu is asking for.
+
+The boxes have always accepted placeholders. Until now the label said so and left
+you to remember the field names, which is exactly the knowledge the picker exists
+to remove.
+
 ## Conditional blocks
 
 Any block can be given a "visible when" field. The block is emitted wrapped in a
@@ -141,6 +162,64 @@ The compiled output carries the same `{{placeholder}}` and `{{#section}}` syntax
 as a hand-written template, and is subject to the same
 [Outlook constraints](/signatures/outlook-constraints/), including the 30,000
 character limit.
+
+## The same publishing controls as the HTML editor
+
+Everything the [HTML editor](/signatures/html-editor/) can do with a body before
+it goes live, the designer can do too.
+
+| Control | What it does |
+| --- | --- |
+| Save draft | Keeps the working copy without changing what anybody receives |
+| Discard | Reverts unsaved edits, or with a draft saved, deletes it and reloads the published design |
+| Submit for review | Puts the draft in the [approvals queue](/signatures/approvals/) |
+| Approve and publish, Send back | The approver's two choices on a submitted draft |
+| Schedule | Books the publish for an instant you choose |
+| Staged | Publishes to 10% of mailboxes first, as a [staged rollout](/signatures/staged-rollouts/) |
+
+This matters most where [publish approval](/signatures/approvals/) is switched on.
+A designer template only ever opens in the designer, so an editor who could not
+publish and had no draft to submit would have had no way forward from this screen
+at all. Submit for review takes the primary position for them, rather than
+sitting next to a Publish button the server would refuse.
+
+The one thing the designer does not have is the line diff. A diff of a block
+document says nothing useful, so the review step here is reading the canvas and
+the preview rather than reading changed lines.
+
+## What the top bar is telling you
+
+The state beside the template name describes what is on the canvas, which is not
+always what users are receiving.
+
+| State | What it means |
+| --- | --- |
+| Published, with the version number | The canvas matches the live signature |
+| Unpublished changes | Edits that are not saved anywhere yet |
+| Draft, saved, not published | A saved draft. Users are still on the published version |
+| Draft, unsaved changes | A saved draft with further edits on top of it |
+| Draft, awaiting review | Submitted, and waiting for an approver |
+
+Opening a saved draft leaves the canvas clean, so a bar that only distinguished
+clean from dirty would read as published while showing something nobody has ever
+received.
+
+## Watching a rollout from the designer
+
+While a [staged rollout](/signatures/staged-rollouts/) is running on the template
+you have open, a strip sits under the top bar showing the percentage, both
+versions' apply failure rates, and what the evaluator will do at its next pass.
+Promote now and Roll back are on the strip.
+
+It refreshes every 60 seconds, so the counts move continuously even though the
+evaluator only takes a decision every fifteen minutes.
+
+A booked publish shows as its own strip, with the option to cancel it, and says
+plainly that it publishes the design captured when it was booked rather than
+what is on the canvas now.
+
+Those strips are read-only status. Anything that takes input, including
+scheduling and sending a draft back, opens a dialog.
 
 ## Ejecting to HTML
 

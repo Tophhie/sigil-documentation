@@ -54,6 +54,7 @@ a report is taken from the verified token rather than from the payload.
 | Route | Auth | Purpose |
 | --- | --- | --- |
 | `GET /api/admin/templates` | Admin token | The library plus current role assignments |
+| `GET /api/admin/rollouts` | Admin token | In-flight rollouts, for the library's badges |
 | `POST /api/admin/templates` | Admin token | Create a template |
 | `GET /api/admin/templates/:id` | Admin token | One template's body |
 | `PUT /api/admin/templates/:id` | Admin token | Publish a new version |
@@ -93,6 +94,10 @@ The approvals queue reports `requireApproval` alongside the pending list so the
 portal can offer the queue without reading settings, which most of the roles that
 submit cannot see.
 
+The library listing carries `hasDraft` per entry, computed as a boolean rather
+than by reading the drafts themselves, so listing the library never loads a
+template body. It is what the Draft badge is drawn from.
+
 ### When publish approval is on
 
 With [publish approval](/signatures/approvals/) switched on for the organisation,
@@ -117,6 +122,12 @@ discarding or submitting a draft, none of which reach a user.
 | `GET /api/admin/templates/:id/rollout` | Admin token | State, both versions' apply results, and the next decision |
 | `POST /api/admin/templates/:id/rollout/promote` | Admin token | Publish to everyone now |
 | `POST /api/admin/templates/:id/rollout/rollback` | Admin token | Abandon the rollout |
+| `GET /api/admin/rollouts` | Admin token | Every rollout currently in flight, as light summaries |
+
+The listing route returns the template id, the percentage, who started it and
+when, and deliberately not the bodies. A rollout carries a whole canary signature
+and its design document, and the library only needs to know which templates are
+mid-rollout and how far along.
 
 A staged publish writes the body to the rollout rather than to the template, so
 the live signature is unchanged until it promotes. Every gate has a default,
@@ -203,6 +214,8 @@ telemetry.
 | `GET/PUT /api/admin/users`, `DELETE /api/admin/users/:email` | Admin token, users capability | Manage users and roles |
 | `GET /api/admin/users/search` | Admin token, templates or users capability | Directory lookup, for pickers such as download and test email |
 | `GET/PUT /api/admin/settings` | Admin token, settings capability | The organisation-wide switches: publish approval and digest frequency |
+| `GET /api/admin/settings/digest/preview` | Admin token, settings capability | The [health digest](/monitoring/health-digest/) as it would be sent now. Sends nothing |
+| `POST /api/admin/settings/digest/send` | Admin token, settings capability | Mail the digest to the calling admin alone |
 | `GET /api/admin/onboarding` | Admin token, Admin role | Getting started checklist state |
 | `POST /api/admin/onboarding/dismiss` | Admin token, Admin role | Dismiss the checklist |
 | `POST /api/admin/dpa/accept` | Admin token, Admin role | Record acceptance of the data processing agreement |
@@ -211,6 +224,12 @@ telemetry.
 | `POST /api/admin/billing/portal` | Admin token, billing capability | A hosted Stripe management URL |
 | `POST /api/admin/billing/cancel`, `…/reactivate` | Admin token, billing capability | Cancel the subscription, or resume a cancelled one |
 | `PUT /api/admin/billing/profile` | Admin token, billing capability | Save the billing profile |
+
+Neither digest route stamps the digest schedule, so previewing or test-sending
+cannot delay the real one. The send route answers 503 where the deployment has no
+mail binding, and 502 with the underlying reason if the send itself fails. That
+failure is surfaced rather than swallowed, since finding out whether the send
+works is the entire point of the route.
 
 Most of these guards name a capability rather than a role, so the Billing role
 reaches the subscription and the user list alongside an Admin. The three that

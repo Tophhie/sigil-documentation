@@ -21,6 +21,16 @@ template is editing the same draft rather than creating a competing one.
 Discarding a draft throws away the working copy and leaves the live version
 exactly as it was.
 
+Both editors work this way. Drafts, review, scheduling and staged publishing are
+the same in the [designer](/signatures/designer/) as in the
+[HTML editor](/signatures/html-editor/), because a designer template only ever
+opens in the designer, so anything only the HTML editor could do would be out of
+reach for it.
+
+The Templates view shows a Draft badge against anything holding one, so you know
+before opening a template that you are about to see something users have not
+received.
+
 ## The diff
 
 Before you publish, the editor shows a line diff between the draft and the live
@@ -29,6 +39,9 @@ version.
 Read it. It is the cheapest check available and it catches the class of mistake
 that is otherwise invisible: the stray character, the tag you closed in the wrong
 place, the paste that brought more than you meant.
+
+The diff is specific to the HTML editor. A designer template has no lines to
+compare, so its review step is the canvas and the preview instead.
 
 ## Publishing
 

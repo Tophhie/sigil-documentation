@@ -14,8 +14,14 @@ publishes it.
 
 ## Booking one
 
-Schedule sits alongside Publish in the editor. You give it a date and a time in a
-time zone you choose, and Sigil converts that to a fixed instant.
+Schedule sits alongside Publish in both editors. You give it a date and a time in
+a time zone you choose, and Sigil converts that to a fixed instant.
+
+The [designer](/signatures/designer/) reads the time in your own time zone rather
+than offering a picker, which is the difference worth knowing if you are booking
+a publish for an office in another country. Book it from the
+[HTML editor](/signatures/html-editor/) if you need to name the zone, or convert
+it yourself.
 
 The same checks a publish runs apply when you book it: the rendered signature has
 to fit inside Outlook's 30,000 character limit, a
@@ -46,7 +52,8 @@ booked. If you want the newer body to go live, book the schedule again.
 
 The editor carries a banner for as long as a schedule is pending, so a hotfix
 published today cannot be quietly undone overnight by a schedule nobody
-remembered.
+remembered. The Templates view shows a Scheduled badge for the same reason,
+which is the version of the warning you see without opening anything.
 
 ## When it fires
 

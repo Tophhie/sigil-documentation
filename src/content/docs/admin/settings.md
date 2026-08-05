@@ -36,6 +36,19 @@ Weekly, monthly and off are the three choices. See
 [the health digest](/monitoring/health-digest/) for what it contains and why it
 defaults to on.
 
+Two buttons sit beside the setting.
+
+Preview renders the digest your organisation would receive right now, inside the
+page, and sends nothing. If your organisation is too new for one to be sent, the
+preview still renders and says why it would be skipped.
+
+Send me one mails it to you and to nobody else. A test that mailed the whole
+leadership team is a button nobody would press.
+
+Neither of them stamps the schedule. Trying the digest cannot push the real one
+out by a week, which is the only reason it is safe to press either without
+thinking about it.
+
 ## Defaults and organisations that never open this page
 
 An organisation that has never touched Settings gets the defaults above, and
@@ -60,4 +73,6 @@ See [roles and capabilities](/reference/roles-and-capabilities/).
 ## What is recorded
 
 Changing either switch writes a [change log](/monitoring/change-log/) entry under
-the Changed settings action, with who changed it and when.
+the Changed settings action, with who changed it and when. Sending yourself a
+digest is recorded there too. Previewing one is not, because nothing left the
+building.

@@ -49,7 +49,13 @@ An editor saves a draft and submits it for review. The template then appears in
 the approvals queue with who submitted it and when.
 
 An admin opens it, reads the [line diff](/signatures/publishing/#the-diff)
-against the live body, and either publishes it or sends it back.
+against the live body, and either publishes it or sends it back. A
+[designer](/signatures/designer/) template has no diff, so there the review is
+the canvas and the preview.
+
+Both editors carry the whole cycle. Approval would otherwise be a trap rather
+than a control for designer templates: they only ever open in the designer, so an
+editor refused a publish with no draft to submit would have had nowhere to go.
 
 Approving is publishing. There is no third state where a draft has been approved
 but is not yet live, because such a body would be a fourth kind of content
