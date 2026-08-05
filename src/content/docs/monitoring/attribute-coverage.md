@@ -81,16 +81,23 @@ in Entra.
 Everyone with a mailbox in your organisation, shared and resource mailboxes
 included.
 
-Accounts invited in from outside are the one exclusion. They have no mailbox
-here, never compose through the add-in, and their attributes are set by their own
-organisation, so counting them would inflate every missing figure on the report.
-That covers guests and B2B invitees who were later converted to member accounts,
-because how an account was created is what Sigil tests rather than what type it
-is now.
+Two groups are left out.
 
-The report says how many accounts were excluded on that basis rather than
-dropping them silently. If the total looks lower than you expected, that number
-is the first thing to read.
+Accounts invited in from outside. They have no mailbox here, never compose
+through the add-in, and their attributes are set by their own organisation, so
+counting them would inflate every missing figure on the report. That covers
+guests and B2B invitees who were later converted to member accounts, because how
+an account was created is what Sigil tests rather than what type it is now.
+
+Mailboxes you have [excluded from Sigil](/admin/cost-management/). They will
+never be sent a signature, so an empty job title on a warehouse account is not a
+data quality problem to fix. Counting them would make the coverage score worse
+the more diligently you used cost management.
+
+The report gives each of those counts rather than dropping the accounts silently,
+and gives them separately rather than as one total, because an account can be
+both. If the number of mailboxes looks lower than you expected, those two figures
+are the first thing to read.
 
 ## Why the count differs from your seat count
 

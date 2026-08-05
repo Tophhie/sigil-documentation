@@ -83,6 +83,13 @@ Ask them to open the "My signature" pane from the compose ribbon. It applies the
 signature on demand and, when it cannot, says why. That message is usually the
 whole diagnosis.
 
+One message is misleading, and it is worth checking first. If the pane says Sigil
+is not set up for the organisation yet, and everybody else has a signature, that
+mailbox has almost certainly been
+[excluded from Sigil](/admin/cost-management/). The add-in cannot tell the two
+apart, because the service refuses both the same way. Look for the address on the
+Cost management list and put it back if it should not be there.
+
 If the pane works but automatic application does not, the add-in is present and
 authenticated, and the problem is with event activation rather than with Sigil.
 An Outlook restart is worth trying, and on classic Outlook for Windows a client

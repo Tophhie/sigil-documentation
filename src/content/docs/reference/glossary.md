@@ -111,9 +111,16 @@ A template body booked to go live at a chosen instant. The body is captured when
 the schedule is made rather than read when it fires. See
 [scheduled publishing](/signatures/scheduled-publishing/).
 
+**Excluded mailbox**
+A mailbox the organisation has switched off in cost management. It receives no
+signature on any path, and it does not count towards the seats. One decision does
+both, and there is no way to have one without the other. See
+[cost management](/admin/cost-management/).
+
 **Seat**
 A billable licensed member mailbox. Shared and resource mailboxes are free, as
-are accounts invited in from outside the organisation.
+are accounts invited in from outside the organisation, disabled accounts, and
+mailboxes the organisation has excluded.
 
 **Template**
 A signature design containing HTML and placeholders. Library-managed and

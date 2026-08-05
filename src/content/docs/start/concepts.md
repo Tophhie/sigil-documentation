@@ -106,6 +106,10 @@ A billable licensed member mailbox. Shared and resource mailboxes are unlicensed
 and therefore free. Accounts invited in from outside the organisation are
 excluded, as are disabled ones. See [billing](/admin/billing/).
 
+An organisation can also exclude a licensed mailbox itself, which takes it off
+the bill and stops its signature at the same time. See
+[cost management](/admin/cost-management/).
+
 ## Portal role
 
 A permission level inside the portal, stored per tenant and assigned by an

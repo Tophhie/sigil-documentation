@@ -57,6 +57,12 @@ your own people, with accounts invited in from outside left out. Those accounts
 compose through their own organisation's tooling, so listing them would fill the
 list with people no deployment of yours will ever reach.
 
+Mailboxes you have [excluded from Sigil](/admin/cost-management/) are left out
+for the same reason. They are deliberately not being sent a signature, so listing
+them as work outstanding would mean the list never emptied. That matters most for
+the [health digest](/monitoring/health-digest/), which reports the same list by
+email and would otherwise chase your administrators about them weekly, for ever.
+
 The directory cross-reference is best-effort. If Graph is briefly unavailable the
 rest of the telemetry still renders without it.
 
@@ -91,6 +97,17 @@ Outcomes record how the signature was applied:
 A mailbox with only manual applications is a mailbox where automatic activation
 is not working. That is worth investigating even though the person does have a
 signature, because they are doing work the product is supposed to do for them.
+
+## Refused requests
+
+A request for a mailbox that has been
+[excluded from Sigil](/admin/cost-management/) is recorded with an outcome of
+`excluded` rather than being dropped. The event search filters on outcome, so
+these can be pulled out on their own.
+
+They are recorded rather than swallowed because an excluded mailbox should not be
+asking for a signature at all. A steady stream of them means the add-in is still
+deployed to somebody who no longer needs it, which is worth knowing.
 
 ## What the outcomes are used for besides reporting
 

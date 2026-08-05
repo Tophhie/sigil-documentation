@@ -21,7 +21,7 @@ Your role decides what you can do.
 | Marketing | Campaign banners and link click analytics only |
 | Viewer | Reads activity, attribute coverage, the change log and link clicks. Changes nothing |
 | Compliance | Compliance footers, plus the same read-only monitoring a Viewer gets |
-| Billing | The subscription, the billing profile, and inviting colleagues |
+| Billing | The subscription, the billing profile, cost management, and inviting colleagues |
 
 Each one is narrow on purpose, so the person who needs one part of Sigil does not
 have to be given all of it.
@@ -42,6 +42,12 @@ usually owned by legal rather than by whoever is editing the design.
 Billing is the account owner who pays for Sigil without editing signatures. It
 carries user management alongside the subscription, because the person holding
 the account is normally the person deciding who has access to it.
+
+It also carries [cost management](/admin/cost-management/), which is the one
+thing a Billing role does that changes what a colleague's mail looks like:
+excluding a mailbox takes it off the bill and stops its signature together. Every
+use of it is written to the [change log](/monitoring/change-log/) for that
+reason.
 
 Only an Admin can create, change or remove another Admin. Somebody with the
 Billing role can manage ordinary colleagues but cannot promote anybody to Admin,

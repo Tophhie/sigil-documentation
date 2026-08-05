@@ -27,6 +27,12 @@ them.
 
 Empty sections are left out rather than printed as zeroes.
 
+Mailboxes you have [excluded from Sigil](/admin/cost-management/) are left out of
+the coverage and directory gap figures entirely. They are deliberately not being
+sent a signature, and a recurring email that chased your administrators about
+them every week would be the fastest way to make the digest into something people
+filter away.
+
 ## Directory gaps are scoped to what you actually use
 
 The gaps section does not report on every attribute a template could reference.

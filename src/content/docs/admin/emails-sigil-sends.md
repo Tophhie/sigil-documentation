@@ -2,7 +2,7 @@
 title: Emails Sigil sends
 description: Every message Sigil sends to administrators and users, what triggers it, and the address it comes from.
 sidebar:
-  order: 7
+  order: 8
 ---
 
 Sigil is not a mailing product, and it sends very little. The list below is all

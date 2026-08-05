@@ -24,13 +24,21 @@ Owner and Admin reach the same things inside a client. Where they differ is at
 partner level: only an Owner touches the partner subscription or the staff list.
 
 A Technician reaches templates, rules, banners, footers, link analytics and
-monitoring inside a client, but not that client's own users and roles, and not
-its [settings](/admin/settings/). Turning a client's publish approval off is
-exactly the kind of change that control exists to prevent, so it sits with the
-roles that also decide who has access.
+monitoring inside a client, but not that client's own users and roles, not its
+[settings](/admin/settings/), and not its
+[cost management](/admin/cost-management/). Turning a client's publish approval
+off is exactly the kind of change that control exists to prevent, and excluding a
+mailbox switches off a colleague's signature, so both sit with the roles that
+also decide who has access.
 
 No partner role reaches a managed client's billing, because a managed client has
 no subscription of its own. The money is handled at partner level.
+
+Cost management is the one deliberate exception, and the reason it is a separate
+permission from billing. A managed client's seats are carried on your
+consolidated bill, so excluding its dormant mailboxes is your decision to take.
+Owner and Admin can do it without ever being shown that client's card, invoices
+or subscription, none of which any partner role reaches.
 
 The split follows the shape most MSP programmes use, which means it usually maps
 onto how an MSP is already organised: an owner or two, service desk technicians

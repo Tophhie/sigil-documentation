@@ -24,6 +24,10 @@ Uploaded images.
 
 Configuration: assignment rules, banners, footers, roles and users.
 
+The addresses of any mailboxes excluded from Sigil, with the note an
+administrator wrote against each and who excluded it. See
+[cost management](/admin/cost-management/).
+
 Telemetry metadata about signature requests and apply outcomes.
 
 Tracked link definitions, their click counts, and 90 days of per-click records
@@ -116,12 +120,19 @@ signature endpoint refuses a tenant it does not recognise.
 
 Two exports exist, and they answer different questions.
 
-A whole-organisation export is a single JSON file holding everything Sigil stores
-for you: your organisation record and subscription, your portal users, every
-template with its body and design document, templates still in Recently deleted,
-the role pointers, assignment rules, banners, footers, the change log and your
-images. Ask support for it. It is the artifact for a due diligence request or for
-leaving, and it is worth taking before a deprovision rather than after.
+A whole-organisation export is a single JSON file holding your organisation record
+and subscription, your portal users, every template with its body and design
+document, templates still in Recently deleted, the role pointers, assignment
+rules, banners, footers, the change log and your images. Ask support for it. It
+is the artifact for a due diligence request or for leaving, and it is worth
+taking before a deprovision rather than after.
+
+That list is what the file contains rather than a summary of it. A few smaller
+records are not in it: your organisation-wide [settings](/admin/settings/), any
+booked [scheduled publish](/signatures/scheduled-publishing/), and the list of
+mailboxes you have [excluded](/admin/cost-management/). Each of those is readable
+in the portal, and each is purged on deprovision along with everything else. Ask
+support if you need them in an export for a compliance exercise.
 
 It also carries the support notes Tophhie Cloud staff have written against your
 organisation. Those notes are written in the operator console rather than in your

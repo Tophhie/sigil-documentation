@@ -23,6 +23,7 @@ a description of it.
 | Monitoring | Activity feed, attribute coverage, change log | Yes | Yes | No | Yes | Yes | No |
 | Users and roles | Invite users and assign roles | Yes | No | No | No | No | Yes |
 | Billing | Plan, seats, subscription and billing profile | Yes | No | No | No | No | Yes |
+| Cost management | Which mailboxes are excluded from Sigil, and the suggestions behind that | Yes | No | No | No | No | Yes |
 | Settings | The organisation-wide switches: publish approval and the health digest | Yes | No | No | No | No | No |
 
 Admin is the only role that holds every capability. Assignment rules and settings
@@ -34,6 +35,14 @@ Where [publish approval](/signatures/approvals/) is switched on, holding the
 templates capability is no longer enough to put a body live. Publishing,
 restoring a version, staging a rollout and scheduling any of it then need the
 Admin role, while everything else an Editor does is unchanged.
+
+Cost management is deliberately its own capability rather than part of billing.
+The two travel together for a tenant, where the Admin and Billing roles hold
+both, but they come apart for a partner: a managed client's dormant mailboxes are
+its provider's to trim, while its card and invoices are not its provider's to
+see. Note that it is also the one capability outside templates that changes what
+a colleague's outgoing mail looks like, which is why every use of it is written to
+the [change log](/monitoring/change-log/).
 
 Only an Admin can create, change or remove another Admin. A Billing role holds
 the users capability and can manage ordinary colleagues, but cannot promote
@@ -55,6 +64,7 @@ Partner roles apply across a managed client base. See
 | Area | Owner | Admin | Technician | Billing |
 | --- | --- | --- | --- | --- |
 | Work inside a managed client at all | Yes | Yes | Yes | No |
+| Exclude a client's mailboxes from Sigil | Yes | Yes | No | No |
 | Add, invite, transfer or release a client | Yes | Yes | No | No |
 | Partner billing and invoice details | Yes | No | No | Yes |
 | Usage and rebilling export | Yes | No | No | Yes |
@@ -62,13 +72,15 @@ Partner roles apply across a managed client base. See
 
 Inside a client, Owner, Admin and Technician reach templates, rules, banners,
 footers, analytics and monitoring. Owner and Admin additionally reach the
-client's own users and roles, and its [settings](/admin/settings/); a Technician
-reaches neither. No partner role reaches a client's billing, because a managed
-client has no subscription of its own.
+client's own users and roles, its [settings](/admin/settings/) and its
+[cost management](/admin/cost-management/); a Technician reaches none of the
+three. No partner role reaches a client's billing, because a managed client has
+no subscription of its own.
 
-A Technician is deliberately kept out of settings. Turning a client's publish
-approval off is exactly the kind of change that control exists to prevent, so it
-belongs with the roles that also decide who has access.
+A Technician is deliberately kept out of settings and cost management. Turning a
+client's publish approval off is exactly the kind of change that control exists
+to prevent, and switching off a mailbox's signature is an account decision rather
+than signature work. Both belong with the roles that also decide who has access.
 
 Any staff member can also be scoped to particular clients, whatever their role.
 Somebody with no scope set reaches every client of the partner; somebody scoped

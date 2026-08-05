@@ -188,7 +188,7 @@ tenant answers 404. See [assignment rules](/targeting/assignment-rules/#testing-
 | --- | --- | --- |
 | `GET /api/admin/activity` | Admin token, monitoring capability | Per-mailbox rollup, recent feed, adoption |
 | `GET /api/admin/activity/events` | Admin token, monitoring capability | The event search, filtered by mailbox, source or outcome |
-| `GET /api/admin/audit` | Admin token, monitoring capability | Directory attribute coverage, and how many external accounts were excluded |
+| `GET /api/admin/audit` | Admin token, monitoring capability | Directory attribute coverage, with the counts of accounts left out as external and as [excluded](/admin/cost-management/) reported separately |
 | `GET /api/admin/log` | Admin token, monitoring capability | The change log |
 | `GET /api/admin/links` | Admin token, analytics capability | Click totals per tracked link, with a 30-day trend series on each |
 | `GET /api/admin/links/overview` | Admin token, analytics capability | One window of tenant-wide analytics: daily series, campaign rollup, device, client and referrer splits, hour-of-day grid, and the clicks-per-1,000 rate |
@@ -224,6 +224,10 @@ telemetry.
 | `POST /api/admin/billing/portal` | Admin token, billing capability | A hosted Stripe management URL |
 | `POST /api/admin/billing/cancel`, `…/reactivate` | Admin token, billing capability | Cancel the subscription, or resume a cancelled one |
 | `PUT /api/admin/billing/profile` | Admin token, billing capability | Save the billing profile |
+| `GET /api/admin/exclusions` | Admin token, cost management capability | The excluded mailboxes, each annotated with whether it still resolves in the directory and whether it was billable |
+| `POST /api/admin/exclusions` | Admin token, cost management capability | Exclude one mailbox or many, with an optional note |
+| `DELETE /api/admin/exclusions/:email` | Admin token, cost management capability | Put one back |
+| `GET /api/admin/exclusions/suggested` | Admin token, cost management capability | Billable mailboxes that have never applied a signature, and what excluding them would save |
 
 Neither digest route stamps the digest schedule, so previewing or test-sending
 cannot delay the real one. The send route answers 503 where the deployment has no
@@ -310,7 +314,13 @@ than by a token, and mirrors subscription state locally.
 | 200 | A signature was rendered and returned |
 | 401 | The token failed verification |
 | 402 | Billing is not active. The add-in applies nothing |
+| 403 | The organisation is not connected, or this mailbox has been [excluded](/admin/cost-management/). The add-in applies nothing |
 | 404 | The mailbox did not resolve in the directory |
 
 A 402 across an entire organisation is almost always a lapsed trial or a past-due
 subscription. See [troubleshooting](/deploy/troubleshooting/).
+
+The two causes of a 403 are distinguishable from the server's own records but not
+by the add-in, which treats both as a reason to apply nothing. An excluded
+mailbox therefore reports the same way in the pane as an unconnected
+organisation.

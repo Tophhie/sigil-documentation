@@ -2,7 +2,7 @@
 title: The Getting started checklist
 description: The onboarding checklist a new administrator lands on, and why each step completes itself.
 sidebar:
-  order: 5
+  order: 6
 ---
 
 A new administrator lands on a checklist rather than an empty portal.

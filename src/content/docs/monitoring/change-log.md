@@ -37,9 +37,24 @@ the portal is recorded.
 | Every stage of a staged rollout | Yes |
 | Submitting a draft for review, and approving or rejecting it | Yes |
 | Booking, cancelling or firing a scheduled publish | Yes |
+| Excluding a mailbox from Sigil, or putting one back | Yes |
 | Changing an organisation-wide setting | Yes |
 
 Each entry carries who performed the action and when.
+
+## Exclusion entries
+
+Excluding a mailbox stops its signature and takes it off the bill, so both
+directions are recorded. See [cost management](/admin/cost-management/).
+
+That is the point of logging them at all. This is the only thing outside template
+editing that changes what a colleague's outgoing mail looks like, so "who
+switched off my signature" has to be answerable.
+
+The entry stores the addresses involved, the note that was written, and whether a
+managed service provider made the change. As with rollout reasons and approval
+details, the portal lists the action and the actor, so those are read from the API
+or a [tenant export](/security/data-and-privacy/).
 
 ## How much you can see at once
 

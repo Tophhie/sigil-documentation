@@ -2,7 +2,7 @@
 title: Settings
 description: The organisation-wide switches, what each one changes, and who can change them.
 sidebar:
-  order: 4
+  order: 5
 ---
 
 Settings holds the choices you make about how your own organisation behaves, as

@@ -17,12 +17,17 @@ A seat is a licensed member mailbox.
 
 | Mailbox type | Billed |
 | --- | --- |
-| Licensed member mailbox | Yes |
+| Licensed member mailbox | Yes, unless you have excluded it |
 | Shared or resource mailbox | No, unlicensed and therefore free |
 | Account invited in from outside | No |
 | Disabled account | No |
+| A mailbox you have excluded | No |
 
 Shared mailboxes still get signatures. They just do not cost anything.
+
+An excluded mailbox is the one case where a mailbox is deliberately taken off
+both the bill and the service at once. See
+[cost management](/admin/cost-management/).
 
 An account that was invited into your organisation stays outside the seat count
 even if it was later converted to a member account and given a licensed mailbox
@@ -44,6 +49,13 @@ seat count, and that is expected.
 A daily job syncs your seat count to the subscription. Quantity changes do not
 trigger a mid-cycle invoice, so drift never produces a surprise charge partway
 through a month.
+
+## Paying for fewer mailboxes
+
+Licensed mailboxes that never send mail from Outlook can be taken off the bill.
+Excluding one stops its signature and removes its seat, and Sigil will point out
+which mailboxes are candidates by naming the ones that have never applied a
+signature. See [cost management](/admin/cost-management/).
 
 ## The trial
 
@@ -153,6 +165,10 @@ Admins and the Billing role. Editors, Marketing, Viewers and Compliance do not
 reach it.
 
 The Billing role exists so the person who pays for Sigil does not also have to be
-given the signature templates. It reaches the subscription, the billing profile
-and the user list, and nothing else. See
-[users and roles](/admin/users-and-roles/).
+given the signature templates. It reaches the subscription, the billing profile,
+[cost management](/admin/cost-management/) and the user list, and nothing else.
+See [users and roles](/admin/users-and-roles/).
+
+Cost management is a separate permission from billing rather than part of it, so
+that a managed service provider can reach it for a client without also reaching
+that client's card and invoices.

@@ -47,7 +47,9 @@ mailbox before it is printed into a signature.
 
 Licence and account state, including how each account was created, used to count
 billable seats and to exclude disabled accounts and accounts invited in from
-outside your organisation.
+outside your organisation. The same reading is what tells you whether excluding a
+given mailbox would save anything, in
+[cost management](/admin/cost-management/).
 
 The profile photo, but only for organisations whose template contains a Photo
 block. `User.Read.All` already covers it, so adding one needs no new consent. See

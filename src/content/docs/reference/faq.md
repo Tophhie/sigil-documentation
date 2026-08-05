@@ -108,6 +108,18 @@ new-message template.
 They get their own signature, rendered when somebody switches the sending
 account. They are unlicensed, so they are free.
 
+## Do we have to pay for people who never send email?
+
+No. A licensed mailbox can be excluded, which stops its signature and takes it
+off your seat count together. Frontline and shop floor staff, kiosk accounts and
+Teams-only users are the usual cases.
+
+Sigil will tell you which mailboxes are candidates rather than leaving you to
+audit 400 licences by hand: it already records whether a signature was ever
+successfully applied, so it can list the billable mailboxes that have never once
+used one. Nothing is excluded until you choose it. See
+[cost management](/admin/cost-management/).
+
 ## Can Sigil tell us if it is actually working?
 
 Yes, and this is one of the things it does that most client-side signature tools

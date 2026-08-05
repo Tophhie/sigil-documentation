@@ -15,6 +15,13 @@ tenant: licensed member mailboxes, with shared and resource mailboxes free, and
 disabled accounts and accounts invited in from outside the client's organisation
 excluded. See [what counts as a seat](/admin/billing/#what-counts-as-a-seat).
 
+Mailboxes excluded through [cost management](/admin/cost-management/) come off
+that count too, and they do so from the day the exclusion is made rather than at
+a period boundary, because the usage is metered daily. Partner Owners and Admins
+can exclude a client's mailboxes themselves, which is the point of it being a
+separate permission from billing: the seats sit on your bill, so trimming them is
+your business, while the client's own card and invoices are not.
+
 Those counts are summed across your whole client base and reported once a day as
 usage against a single metered subscription belonging to the partner. You are
 invoiced monthly in arrears for what the period actually recorded.

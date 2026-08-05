@@ -101,6 +101,10 @@ filtered out of the totals, and an append-only
 Most of that also arrives without anyone opening the portal, as a weekly
 [health digest](/monitoring/health-digest/) to the organisation's administrators.
 
+The same apply telemetry feeds [cost management](/admin/cost-management/), which
+names the licensed mailboxes that have never used a signature so they can be
+taken off both the service and the bill.
+
 ## How people experience it
 
 Most people never see Sigil. The add-in fires on new messages, replies and

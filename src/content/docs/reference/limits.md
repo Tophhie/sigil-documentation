@@ -145,10 +145,12 @@ See [publish approval](/signatures/approvals/) and
 | Trial length | 14 days |
 | Price | £0.70 per licensed mailbox per month |
 | Billing period | Monthly |
-| Billable seat | A licensed member mailbox |
-| Free | Shared and resource mailboxes, accounts invited in from outside, disabled accounts |
+| Billable seat | A licensed member mailbox that has not been excluded |
+| Free | Shared and resource mailboxes, accounts invited in from outside, disabled accounts, excluded mailboxes |
 | Longest agreed discount term | 60 months, or open-ended |
 | Seat sync | Daily, with no mid-cycle proration |
+| Exclusion suggestion window | 90 days without a successful apply |
+| Exclusion note | 200 characters |
 
 Once a trial ends without an active subscription, signatures stop being served.
 See [billing](/admin/billing/).
