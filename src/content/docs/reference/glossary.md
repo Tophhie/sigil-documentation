@@ -24,12 +24,27 @@ A time-boxed campaign image injected above or below the signature. See
 Markup of the form `{{#field}}...{{/field}}` that disappears when the underlying
 attribute is empty.
 
+**Capability**
+The unit of permission each server route actually checks. A portal role is a
+named set of them. See
+[roles and capabilities](/reference/roles-and-capabilities/).
+
+**Contact card**
+A vCard built from the sender's own directory record, offered either as a QR code
+or as a signed download link in the signature. See
+[the contact card link](/signatures/contact-card/).
+
 **Direct tenant**
 A tenant that signed up itself and pays for itself, as opposed to one managed by
 a partner.
 
 **Draft**
 A template's unpublished working copy. One per template.
+
+**Health digest**
+A regular email to a tenant's administrators summarising coverage, apply failures
+and anything waiting on a decision. Weekly by default. See
+[the health digest](/monitoring/health-digest/).
 
 **Failure rate**
 The share of attempts to apply a given version that Outlook did not accept. The
@@ -76,6 +91,11 @@ A token such as `{{jobTitle}}` replaced with directory data at render time. See
 **Platform console**
 Tophhie Cloud's cross-tenant operator view.
 
+**Publish approval**
+An optional per-tenant switch requiring an admin to put any body live. Editors
+submit drafts for review instead. See
+[publish approval](/signatures/approvals/).
+
 **Rollout**
 A publish served to a percentage of mailboxes first, promoted or withdrawn on the
 evidence of the add-in's apply results. See
@@ -85,6 +105,11 @@ evidence of the add-in's apply results. See
 Two meanings, distinguished by context. A signature role is the slot a template
 fills: `new` or `reply`. A portal role is a permission level: Admin, Editor,
 Marketing, Viewer, Compliance or Billing.
+
+**Scheduled publish**
+A template body booked to go live at a chosen instant. The body is captured when
+the schedule is made rather than read when it fires. See
+[scheduled publishing](/signatures/scheduled-publishing/).
 
 **Seat**
 A billable licensed member mailbox. Shared and resource mailboxes are free, as

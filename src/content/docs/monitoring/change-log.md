@@ -35,6 +35,9 @@ the portal is recorded.
 | Sending a test email | Yes |
 | Changing who has access, and at what role | Yes |
 | Every stage of a staged rollout | Yes |
+| Submitting a draft for review, and approving or rejecting it | Yes |
+| Booking, cancelling or firing a scheduled publish | Yes |
+| Changing an organisation-wide setting | Yes |
 
 Each entry carries who performed the action and when.
 
@@ -62,6 +65,28 @@ the action and the actor rather than the reason, so the full detail is read from
 the API or a [tenant export](/security/data-and-privacy/). While a rollout is
 still running, the panel in the template editor is the better place to look: it
 shows both versions' failure rates and when the next check falls.
+
+## Approval entries
+
+Where [publish approval](/signatures/approvals/) is in use, submitting a draft
+and sending one back are each recorded, with the rejection note.
+
+A publish that came from a submitted draft additionally records who submitted it,
+who approved it, and whether those were the same person. Sigil permits an admin
+to approve their own work, so that last flag is what makes the control auditable
+rather than nominal.
+
+As with rollout reasons, the portal lists the action and the actor. The submitter,
+approver and the note are read from the API or a tenant export.
+
+## Scheduled publish entries
+
+A [scheduled publish](/signatures/scheduled-publishing/) writes an entry when it
+is booked, when it is cancelled, and when it fires.
+
+The entry for a schedule firing names the person who booked it rather than the
+system. Somebody decided the publish would happen, and recording it against the
+system would make it look as though it came from nowhere.
 
 ## Append-only
 

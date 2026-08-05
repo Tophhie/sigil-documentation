@@ -33,6 +33,13 @@ an alias rather than the mailbox's primary address. See
 | `{{businessPhone}}` | The first entry in `businessPhones` |
 | `{{mobilePhone}}` | `mobilePhone` |
 | `{{fax}}` | `faxNumber` |
+| `{{contactCardUrl}}` | Not a directory attribute. A signed link to the sender's own downloadable vCard |
+
+`{{contactCardUrl}}` is the one placeholder here that Sigil supplies rather than
+reads from the directory. It is a URL, so its natural use is the target of a
+"Save my contact" button rather than something printed, and it resolves to
+nothing where the feature is unconfigured, so wrap it in a conditional section.
+See [the contact card link](/signatures/contact-card/).
 
 ## Role
 

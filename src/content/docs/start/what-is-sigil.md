@@ -70,13 +70,20 @@ live, [version history and rollback](/signatures/versions/), and
 
 A designed signature can also carry images that differ for each sender: a QR code
 holding that person's own contact card, and their Microsoft 365 profile photo.
-See [per-user images](/signatures/per-user-images/).
+See [per-user images](/signatures/per-user-images/). The same contact card is
+available as a [download link](/signatures/contact-card/) for recipients reading
+on a desktop, where a QR code is no use.
 
 A publish can also be [staged](/signatures/staged-rollouts/), going to 10% of
 mailboxes and spreading only as the add-in reports that the new version is
 applying. Because Sigil measures whether a signature was applied rather than only
 served, a rollout that starts failing more often than the version it would
 replace withdraws itself.
+
+It can equally be [booked for a future instant](/signatures/scheduled-publishing/),
+for a rebrand that has to land at a particular moment, or put behind
+[an approval step](/signatures/approvals/) so that only an admin can put a body
+in front of users.
 
 Targeting decides who gets what.
 [Assignment rules](/targeting/assignment-rules/) pick a template by directory
@@ -90,6 +97,9 @@ list of mailboxes that have never applied a signature,
 [link click analytics](/monitoring/link-clicks/) with security scanner traffic
 filtered out of the totals, and an append-only
 [change log](/monitoring/change-log/) of what admins did and when.
+
+Most of that also arrives without anyone opening the portal, as a weekly
+[health digest](/monitoring/health-digest/) to the organisation's administrators.
 
 ## How people experience it
 

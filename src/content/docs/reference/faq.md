@@ -65,6 +65,25 @@ to apply materially more often than the one it would replace is pulled without
 anyone being asked. The mailboxes in the slice go back to the signature everyone
 else has been on throughout.
 
+## Can we require changes to be approved before they go live?
+
+Yes, and it is off unless you turn it on. With
+[publish approval](/signatures/approvals/) switched on, anyone who can edit still
+edits, but only an admin puts a body in front of users, and that covers restoring
+an old version and staging a rollout as well as the publish button.
+
+An admin can approve their own submission, because a strict two-person rule would
+lock an organisation with one admin out of its own signatures. Sigil records
+whether the submitter and approver were the same person, so the log evidences it
+either way.
+
+## Can we make a signature change go live at a particular time?
+
+Yes. A [scheduled publish](/signatures/scheduled-publishing/) books the change for
+an instant you choose and fires within fifteen minutes after it, never before.
+The body is captured when you book it, so an edit made in between cannot silently
+change what goes live overnight.
+
 ## Can different departments have different signatures?
 
 Yes, using [assignment rules](/targeting/assignment-rules/) that match on a
@@ -94,6 +113,10 @@ account. They are unlicensed, so they are free.
 Yes, and this is one of the things it does that most client-side signature tools
 cannot. [Activity](/monitoring/activity/) records every request and every apply
 outcome per mailbox, and lists mailboxes that have never had a signature applied.
+
+You do not have to go and look, either. A [health digest](/monitoring/health-digest/)
+emails your administrators the coverage figure, any apply failures and anything
+waiting on a decision, weekly by default.
 
 ## Does link tracking identify individual recipients?
 

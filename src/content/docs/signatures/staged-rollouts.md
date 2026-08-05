@@ -2,7 +2,7 @@
 title: Staged rollouts
 description: Publish a template to a slice of your mailboxes first, let the add-in's own apply results decide whether it spreads, and have it roll itself back if they get worse.
 sidebar:
-  order: 8
+  order: 11
 ---
 
 An ordinary publish is instant and total. The moment it lands, every mailbox in
@@ -147,8 +147,20 @@ An ordinary publish while a rollout is in flight cancels it. The measurements
 compared the new version against a body that is no longer live, so they no longer
 describe a choice anyone can make.
 
+A [scheduled publish](/signatures/scheduled-publishing/) firing does the same
+thing for the same reason, and records why.
+
 Promotion is refused in the same situation. If the template was republished
 behind the rollout's back, promoting it would quietly undo that publish.
+
+## Starting one on a schedule
+
+A rollout can be booked rather than started now, which is the difference between
+switching everyone at midnight and beginning the rollout at midnight.
+
+It then behaves exactly as one started by hand: it steps up as apply results come
+in, and pulls itself back if the new body starts failing. See
+[scheduled publishing](/signatures/scheduled-publishing/#scheduling-a-staged-rollout).
 
 ## Keeping the work if you abandon it
 
@@ -182,3 +194,8 @@ rather than only the fact of it.
 
 Admins and Editors. It requires the same permission as publishing. See
 [roles and capabilities](/reference/roles-and-capabilities/).
+
+Where [publish approval](/signatures/approvals/) is switched on, starting and
+promoting a rollout need an admin. Abandoning one does not, and deliberately so:
+whoever spots a problem has to be able to stop it, and stopping a rollout returns
+users to the body that was already approved.

@@ -2,7 +2,7 @@
 title: Emails Sigil sends
 description: Every message Sigil sends to administrators and users, what triggers it, and the address it comes from.
 sidebar:
-  order: 6
+  order: 7
 ---
 
 Sigil is not a mailing product, and it sends very little. The list below is all
@@ -28,8 +28,14 @@ Stripe is what holds the card. See [billing](/admin/billing/).
 | You've been given a role | Somebody is added to Users and roles for the first time. Names the role and what it covers |
 | You've been invited to manage your organisation | An organisation is provisioned for you rather than self-served, so the first administrator has a link to start from |
 | Signature test | You send a [test email](/admin/test-email/). Goes to the address you name, defaulting to your own |
+| Sigil health digest | Weekly by default, to every administrator. Coverage, apply failures and anything waiting on a decision |
 | Action needed: reconnect Sigil | Admin consent has lapsed and signatures have stopped updating. Sent to every administrator |
 | A message from Tophhie Cloud | Support needs to tell your administrators something specific about your organisation |
+
+The [health digest](/monitoring/health-digest/) is the only one of these that
+arrives on a schedule rather than in response to something. It reports rather
+than alerts, so a healthy organisation still gets one, and it carries a link to
+[settings](/admin/settings/) where you can change it to monthly or turn it off.
 
 The reconnect prompt is sent by Tophhie Cloud support rather than fired
 automatically. A nightly scan across the fleet flags organisations whose Graph
@@ -85,9 +91,10 @@ No newsletters, no product announcements to end users, and nothing at all to the
 people whose signatures Sigil renders. Your colleagues get a signature on their
 mail; they do not get mail from Sigil.
 
-There is no digest, no weekly report and no alerting to administrators about
-signature failures. [Activity](/monitoring/activity/) is a view you open rather
-than something that mails you.
+There is no alerting. Nothing is sent early because something broke, there is no
+threshold to configure and nothing pages anybody. The health digest arrives on
+its schedule whatever the numbers say, and [activity](/monitoring/activity/) is a
+view you open rather than something that mails you.
 
 ## Mail flow and anti-phishing
 

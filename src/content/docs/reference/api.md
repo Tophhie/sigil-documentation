@@ -66,7 +66,10 @@ a report is taken from the verified token rather than from the payload.
 | `POST /api/admin/templates/:id/rollback` | Admin token | Restore a version |
 | `PUT /api/admin/templates/:id/draft` | Admin token | Save a working copy |
 | `DELETE /api/admin/templates/:id/draft` | Admin token | Discard a working copy |
-| `POST /api/admin/templates/:id/publish-draft` | Admin token | Promote the working copy |
+| `POST /api/admin/templates/:id/publish-draft` | Admin token | Promote the working copy, which is also the approve action |
+| `POST /api/admin/templates/:id/draft/submit` | Admin token | Put a working copy up for review |
+| `POST /api/admin/templates/:id/draft/reject` | Admin token, Admin role | Send a submitted draft back, with a required note |
+| `GET /api/admin/approvals` | Admin token | The review queue, whether the caller can approve, and whether approval is required |
 | `GET /api/admin/templates/:id/export` | Admin token | Portable JSON, images included |
 | `POST /api/admin/templates/import` | Admin token | Import a bundle as a new entry |
 | `PUT /api/admin/roles` | Admin token, rules capability | Assign templates to the `new` and `reply` roles |
@@ -82,6 +85,30 @@ which the Editor role holds alongside an Admin. Pointing a role at a different
 template is guarded by the rules capability instead, which no role but Admin
 holds. See [roles and capabilities](/reference/roles-and-capabilities/).
 
+Rejecting a submitted draft is the one route here that needs the Admin role on
+top of the capability. Submitting is not, because anyone who can edit a draft can
+ask for it to be looked at.
+
+The approvals queue reports `requireApproval` alongside the pending list so the
+portal can offer the queue without reading settings, which most of the roles that
+submit cannot see.
+
+### When publish approval is on
+
+With [publish approval](/signatures/approvals/) switched on for the organisation,
+every route that puts a body in front of users additionally requires the caller
+to hold the Admin role. A caller who does not is refused with 403 and
+`code: "approval_required"`.
+
+That covers `PUT /api/admin/template`, `PUT /api/admin/templates/:id`,
+`POST /api/admin/rollback`, `POST /api/admin/templates/:id/rollback`,
+`POST /api/admin/templates/:id/publish-draft`,
+`POST /api/admin/templates/:id/rollout/promote` and
+`PUT /api/admin/templates/:id/schedule`.
+
+Abandoning a rollout is deliberately not in that list. Neither is saving,
+discarding or submitting a draft, none of which reach a user.
+
 ## Staged rollout endpoints
 
 | Route | Auth | Purpose |
@@ -96,6 +123,25 @@ the live signature is unchanged until it promotes. Every gate has a default,
 which makes `"rollout": true` a complete request. These routes sit behind the
 templates capability, the same as an ordinary publish. See
 [staged rollouts](/signatures/staged-rollouts/).
+
+## Scheduled publish endpoints
+
+| Route | Auth | Purpose |
+| --- | --- | --- |
+| `PUT /api/admin/templates/:id/schedule` | Admin token | Book a publish for a future instant, replacing any pending one |
+| `GET /api/admin/templates/:id/schedule` | Admin token | The schedule on one template, whatever its state |
+| `GET /api/admin/schedules` | Admin token | Every pending schedule, soonest first |
+| `DELETE /api/admin/templates/:id/schedule` | Admin token | Call off a booked publish |
+
+The booking route takes the same body a publish takes, plus `publishAt` as an
+ISO-8601 instant and an optional `rollout` block. It applies the same length,
+validation and eject checks a publish does, so a schedule that would be rejected
+when it fires is rejected when it is booked.
+
+`publishAt` must be in the future and within 365 days. The body is stored on the
+schedule rather than read from the draft when it fires. All four routes need the
+templates capability. See
+[scheduled publishing](/signatures/scheduled-publishing/).
 
 ## Configuration endpoints
 
@@ -156,6 +202,7 @@ telemetry.
 | `GET /api/admin/me` | Admin token | Who the caller is, their role, and their organisation's state |
 | `GET/PUT /api/admin/users`, `DELETE /api/admin/users/:email` | Admin token, users capability | Manage users and roles |
 | `GET /api/admin/users/search` | Admin token, templates or users capability | Directory lookup, for pickers such as download and test email |
+| `GET/PUT /api/admin/settings` | Admin token, settings capability | The organisation-wide switches: publish approval and digest frequency |
 | `GET /api/admin/onboarding` | Admin token, Admin role | Getting started checklist state |
 | `POST /api/admin/onboarding/dismiss` | Admin token, Admin role | Dismiss the checklist |
 | `POST /api/admin/dpa/accept` | Admin token, Admin role | Record acceptance of the data processing agreement |
@@ -167,7 +214,8 @@ telemetry.
 
 Most of these guards name a capability rather than a role, so the Billing role
 reaches the subscription and the user list alongside an Admin. The three that
-name the Admin role are genuinely Admin-only. See
+name the Admin role are genuinely Admin-only, and the settings capability is
+held by the Admin role alone, so in practice that route is too. See
 [roles and capabilities](/reference/roles-and-capabilities/).
 
 A partner's own administrator cannot accept a managed client's DPA on their
@@ -224,6 +272,14 @@ is reachable by an Admin of the managed tenant, not by their partner.
 | `GET /privacy`, `/terms`, `/support`, `/dpa`, `/partner-agreement` | Published legal and support pages |
 | `GET /health` | Configuration and storage check |
 | `GET /r/:slug` | Tracked link redirect, served on `e-clk.usesigil.app` |
+| `GET /vcf/:token.vcf` | The sender's [contact card](/signatures/contact-card/), as a downloadable vCard |
+
+The contact card route carries no mailbox in its URL. The token is signed, and
+one is only ever minted while rendering that mailbox's own signature, so the
+route cannot be walked to enumerate a directory. An unconfigured deployment, a
+malformed token and a forged one all return 404, so probing it reveals nothing
+about which of the three it hit. It stops answering for a suspended or removed
+organisation.
 
 `POST /api/billing/stripe-webhook` is authenticated by a Stripe signature rather
 than by a token, and mirrors subscription state locally.

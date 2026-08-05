@@ -94,6 +94,12 @@ The background colour, which defaults to transparent. Transparent is the right
 default for email, because a signature sits on whatever background the recipient's
 client uses.
 
+Machine-readable contact details, which is off by default. Switching it on labels
+the signature with schema.org `Person` markup, so a client or a crawler can read
+it as a contact rather than as text. Nothing moves and nothing is added to what
+the recipient sees, because microdata is attributes on the markup that is already
+there. See [the contact card link](/signatures/contact-card/#machine-readable-contact-details).
+
 ## Placeholders in the designer
 
 Text blocks accept the same [placeholders](/signatures/placeholders/) as a

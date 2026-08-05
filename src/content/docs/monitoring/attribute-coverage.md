@@ -18,6 +18,13 @@ Every attribute that maps to a [placeholder](/signatures/placeholders/): the
 identity fields, the phone numbers, job title and department, the address
 components, the manager fields, and all fifteen extension attributes.
 
+Two kinds of placeholder are left out, because neither has a populated or missing
+state to score. The derived helpers `anyPhone`, `anyAddress` and `hasPhoto` are
+computed rather than stored, and `contactCardUrl` is
+[supplied by Sigil](/signatures/contact-card/) rather than read from the
+directory. Auditing either would report a gap in something that was never a
+directory attribute.
+
 The manager fields cover all four placeholders, not just the manager's name. A
 manager's job title, email address and phone number are each scored separately,
 so a template that prints a manager's contact details can be checked properly
@@ -94,6 +101,16 @@ a signature.
 unlicensed and therefore free.
 
 The two numbers answer different questions and are expected to differ.
+
+## Having the gaps come to you
+
+The [health digest](/monitoring/health-digest/) reports the same gaps by email,
+narrowed to the attributes your live templates actually reference and to those
+missing on at least 10% of mailboxes.
+
+That is the shorter question, answered without anybody opening the portal. This
+page is where you go once it has told you there is something to look at, because
+it covers every attribute rather than only the ones in use.
 
 ## Who can run it
 

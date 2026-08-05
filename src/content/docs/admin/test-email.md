@@ -2,7 +2,7 @@
 title: Test emails
 description: Send a rendered signature to a real inbox to see how a mail client renders it.
 sidebar:
-  order: 5
+  order: 6
 ---
 
 Preview shows a signature with sample data inside the portal. A test email shows

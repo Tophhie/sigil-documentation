@@ -40,6 +40,17 @@ draft without changing what anyone receives. Publishing promotes the draft, file
 the outgoing body in version history, and clears the draft. See
 [drafts and publishing](/signatures/publishing/).
 
+A draft can also be submitted for review, and an organisation can require that
+every publish is approved by an admin. See
+[publish approval](/signatures/approvals/).
+
+## Scheduled publish
+
+A publish booked for an instant you choose rather than applied now, for a change
+that has to land at a particular moment. The body is captured when the schedule
+is made, so later edits do not alter what goes live. See
+[scheduled publishing](/signatures/scheduled-publishing/).
+
 ## Version
 
 Every publish archives the body it replaced. Sigil keeps the last ten published

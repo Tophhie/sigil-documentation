@@ -86,6 +86,20 @@ The result is that Sigil can tell you a link was clicked 84 times and cannot tel
 you by whom. That is a property of what is stored rather than a policy about who
 may look.
 
+## The contact card endpoint
+
+Where a template offers a [contact card link](/signatures/contact-card/), that
+link is public, because a recipient clicking it holds no credentials.
+
+The mailbox is not in the URL. It is carried in a signed token, and a token is
+only minted while rendering that mailbox's own signature, so the endpoint cannot
+be walked to enumerate a directory. A card discloses exactly the attributes the
+signature itself prints, to somebody who already has the signature.
+
+Nothing about a fetch is logged as an event. Sigil does not record who downloaded
+a card, or that one was downloaded at all, and the endpoint stops answering
+entirely for a suspended or removed organisation.
+
 ## Where data lives
 
 Sigil runs on Cloudflare's edge network. Templates and configuration are in D1,

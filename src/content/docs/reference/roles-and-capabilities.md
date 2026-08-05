@@ -23,10 +23,17 @@ a description of it.
 | Monitoring | Activity feed, attribute coverage, change log | Yes | Yes | No | Yes | Yes | No |
 | Users and roles | Invite users and assign roles | Yes | No | No | No | No | Yes |
 | Billing | Plan, seats, subscription and billing profile | Yes | No | No | No | No | Yes |
+| Settings | The organisation-wide switches: publish approval and the health digest | Yes | No | No | No | No | No |
 
-Admin is the only role that holds every capability, and assignment rules are the
-only capability no other role holds. Rules decide who receives which signature,
-so changing one has organisation-wide reach that a narrower role should not.
+Admin is the only role that holds every capability. Assignment rules and settings
+are the two capabilities no other role holds. Rules decide who receives which
+signature, and settings decide who may publish at all, so both have
+organisation-wide reach that a narrower role should not.
+
+Where [publish approval](/signatures/approvals/) is switched on, holding the
+templates capability is no longer enough to put a body live. Publishing,
+restoring a version, staging a rollout and scheduling any of it then need the
+Admin role, while everything else an Editor does is unchanged.
 
 Only an Admin can create, change or remove another Admin. A Billing role holds
 the users capability and can manage ordinary colleagues, but cannot promote
@@ -55,8 +62,13 @@ Partner roles apply across a managed client base. See
 
 Inside a client, Owner, Admin and Technician reach templates, rules, banners,
 footers, analytics and monitoring. Owner and Admin additionally reach the
-client's own users and roles; a Technician does not. No partner role reaches a
-client's billing, because a managed client has no subscription of its own.
+client's own users and roles, and its [settings](/admin/settings/); a Technician
+reaches neither. No partner role reaches a client's billing, because a managed
+client has no subscription of its own.
+
+A Technician is deliberately kept out of settings. Turning a client's publish
+approval off is exactly the kind of change that control exists to prevent, so it
+belongs with the roles that also decide who has access.
 
 Any staff member can also be scoped to particular clients, whatever their role.
 Somebody with no scope set reaches every client of the partner; somebody scoped

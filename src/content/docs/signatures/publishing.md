@@ -2,7 +2,7 @@
 title: Drafts and publishing
 description: Edit a template without affecting anyone, review a line diff, then publish and have it reach users in seconds.
 sidebar:
-  order: 7
+  order: 8
 ---
 
 Editing a template does not change what anybody receives. Each template can hold
@@ -53,6 +53,18 @@ the alternative is discovering it as a broken signature in the field. See
 A [designer](/signatures/designer/) template is also validated on publish. If a
 block is misconfigured, the error names the block and the problem.
 
+Where [publish approval](/signatures/approvals/) is switched on, a publish by
+anybody but an admin is refused with a message saying so. Editors save a draft
+and submit it for review instead.
+
+## Publishing later
+
+Next to Publish is Schedule, which books the change for an instant you choose
+rather than applying it now.
+
+The body is captured when you book it, so later edits to the draft do not change
+what goes live. See [scheduled publishing](/signatures/scheduled-publishing/).
+
 ## Publishing to part of the organisation first
 
 Next to Publish is Staged publish, which sends the new body to 10% of mailboxes
@@ -76,6 +88,7 @@ effect immediately:
 | --- | --- |
 | Template publish | Seconds |
 | Staged publish | Seconds, for the mailboxes in the slice only |
+| Scheduled publish | Within 15 minutes after the instant you booked, never before |
 | Image upload or replacement | Seconds |
 | Banner window opening or closing | Immediately |
 | Footer edit | Seconds |

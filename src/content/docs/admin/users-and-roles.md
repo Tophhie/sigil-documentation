@@ -16,7 +16,7 @@ Your role decides what you can do.
 
 | Role | Can do |
 | --- | --- |
-| Admin | Everything, including assignment rules, users, roles and billing |
+| Admin | Everything, including assignment rules, users, roles, billing and the organisation-wide settings |
 | Editor | Templates, drafts, versions, staged rollouts, images, export and import, preview, download, test email, plus activity, attribute coverage and the change log |
 | Marketing | Campaign banners and link click analytics only |
 | Viewer | Reads activity, attribute coverage, the change log and link clicks. Changes nothing |
@@ -46,6 +46,11 @@ the account is normally the person deciding who has access to it.
 Only an Admin can create, change or remove another Admin. Somebody with the
 Billing role can manage ordinary colleagues but cannot promote anybody to Admin,
 including themselves through a second account.
+
+The Admin role is also the only one that reaches [settings](/admin/settings/). If
+[publish approval](/signatures/approvals/) is switched on there, it becomes the
+only role that can put a signature live, and an Editor works through drafts and
+submits them for review.
 
 The full capability grid is in
 [roles and capabilities](/reference/roles-and-capabilities/).

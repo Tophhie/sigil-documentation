@@ -86,6 +86,7 @@ and therefore only cover the last 90 days. See
 | Template publish | Seconds |
 | Staged publish, for the mailboxes in the slice | Seconds |
 | Promoting or abandoning a staged rollout | Seconds |
+| Scheduled publish | Within 15 minutes after its instant, never before |
 | Version restore | Seconds |
 | Image upload or replacement | Seconds |
 | Footer edit | Seconds |
@@ -113,6 +114,29 @@ directory data, so the per-mailbox result is cached for ten minutes.
 
 Both conditions on the last two rows must hold before a rollout is pulled. See
 [staged rollouts](/signatures/staged-rollouts/).
+
+## Scheduled publishing
+
+| Item | Value |
+| --- | --- |
+| Pending schedules per template | One. Booking a second replaces the first |
+| Furthest ahead a publish may be booked | 365 days |
+| How often schedules are checked | Every 15 minutes |
+| Retries after a failed schedule | None. The failure and its reason are kept |
+
+See [scheduled publishing](/signatures/scheduled-publishing/).
+
+## Approval and settings
+
+| Item | Value |
+| --- | --- |
+| Publish approval | Off by default, per organisation |
+| Rejection note | Required, and kept up to 1,000 characters |
+| Approving your own submission | Permitted, and recorded as such |
+| Health digest | Weekly by default. Weekly, monthly or off |
+
+See [publish approval](/signatures/approvals/) and
+[the health digest](/monitoring/health-digest/).
 
 ## Trial and billing
 
