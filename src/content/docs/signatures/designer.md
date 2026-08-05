@@ -6,7 +6,7 @@ sidebar:
 ---
 
 The designer is a visual, block-based editor for building signatures. You
-assemble a design from blocks; when you publish, the Worker validates the design
+assemble a design from blocks; when you publish, the service validates the design
 and compiles it to Outlook-safe nested-table HTML.
 
 That compiled HTML is what gets stored, versioned, rendered and cached. Nothing

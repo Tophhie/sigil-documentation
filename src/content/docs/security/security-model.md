@@ -22,7 +22,7 @@ the security comes from the token rather than from anything hidden.
 
 ## What is verified
 
-Every call to the API carries an Entra access token, and the Worker checks it
+Every call to the API carries an Entra access token, and the server checks it
 before doing anything:
 
 The home tenant claim, which both resolves the request to a tenant and selects

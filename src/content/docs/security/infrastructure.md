@@ -5,14 +5,14 @@ sidebar:
   order: 4
 ---
 
-Sigil runs on Cloudflare Workers. The signature path executes at the edge, close
-to whoever is composing the message.
+Sigil runs on Cloudflare's edge network. The signature path executes close to
+whoever is composing the message.
 
 ## Components
 
 | Component | Used for |
 | --- | --- |
-| Cloudflare Workers | The API, the admin portal and the redirect service |
+| Cloudflare edge compute | The API, the admin portal and the redirect service |
 | Cloudflare D1 | Templates, configuration, telemetry and billing state |
 | Cloudflare R2 | Uploaded images |
 | Cloudflare KV | Rendered signature cache and per-mailbox rule resolution |

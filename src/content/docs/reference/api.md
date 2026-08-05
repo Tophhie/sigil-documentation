@@ -19,7 +19,7 @@ All endpoints live on `portal.usesigil.app`.
 | Admin token | An Entra access token carrying the `portal_admin` scope |
 | None | Public, unauthenticated |
 
-Every token is verified in the Worker: cryptographic signature against the
+Every token is verified on the server: cryptographic signature against the
 calling tenant's published keys, then issuer, audience, home tenant and scope.
 See [the security model](/security/security-model/).
 
@@ -224,14 +224,18 @@ telemetry.
 | `POST /api/admin/billing/portal` | Admin token, billing capability | A hosted Stripe management URL |
 | `POST /api/admin/billing/cancel`, `…/reactivate` | Admin token, billing capability | Cancel the subscription, or resume a cancelled one |
 | `PUT /api/admin/billing/profile` | Admin token, billing capability | Save the billing profile |
-| `GET /api/admin/exclusions` | Admin token, cost management capability | The excluded mailboxes, each annotated with whether it still resolves in the directory and whether it was billable |
+| `GET /api/admin/exclusions` | Admin token, cost management capability | The individually excluded mailboxes, each annotated with whether it still resolves in the directory and whether it was billable, the excluded groups, and the totals across both |
 | `POST /api/admin/exclusions` | Admin token, cost management capability | Exclude one mailbox or many, with an optional note |
 | `DELETE /api/admin/exclusions/:email` | Admin token, cost management capability | Put one back |
 | `GET /api/admin/exclusions/suggested` | Admin token, cost management capability | Billable mailboxes that have never applied a signature, and what excluding them would save |
+| `POST /api/admin/exclusions/groups` | Admin token, cost management capability | Exclude an Entra group's members. The group is confirmed against the directory, and its membership resolved, before the call returns |
+| `DELETE /api/admin/exclusions/groups/:id` | Admin token, cost management capability | Stop excluding a group, and report which addresses that released |
+| `POST /api/admin/exclusions/groups/:id/sync` | Admin token, cost management capability | Refresh one group's membership now, rather than waiting for the nightly refresh |
+| `GET /api/admin/groups/search` | Admin token, cost management capability | Group name search for the picker, from two characters |
 
 Neither digest route stamps the digest schedule, so previewing or test-sending
-cannot delay the real one. The send route answers 503 where the deployment has no
-mail binding, and 502 with the underlying reason if the send itself fails. That
+cannot delay the real one. The send route answers 503 where mail sending is
+unavailable, and 502 with the underlying reason if the send itself fails. That
 failure is surfaced rather than swallowed, since finding out whether the send
 works is the entire point of the route.
 
@@ -299,10 +303,9 @@ is reachable by an Admin of the managed tenant, not by their partner.
 
 The contact card route carries no mailbox in its URL. The token is signed, and
 one is only ever minted while rendering that mailbox's own signature, so the
-route cannot be walked to enumerate a directory. An unconfigured deployment, a
-malformed token and a forged one all return 404, so probing it reveals nothing
-about which of the three it hit. It stops answering for a suspended or removed
-organisation.
+route cannot be walked to enumerate a directory. A malformed token and a forged
+one both return 404, so probing it reveals nothing about which of the two it hit.
+It stops answering for a suspended or removed organisation.
 
 `POST /api/billing/stripe-webhook` is authenticated by a Stripe signature rather
 than by a token, and mirrors subscription state locally.

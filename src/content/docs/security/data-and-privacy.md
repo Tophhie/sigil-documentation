@@ -25,8 +25,10 @@ Uploaded images.
 Configuration: assignment rules, banners, footers, roles and users.
 
 The addresses of any mailboxes excluded from Sigil, with the note an
-administrator wrote against each and who excluded it. See
-[cost management](/admin/cost-management/).
+administrator wrote against each and who excluded it. Where a whole Entra group
+is excluded, that means the group's identity and the addresses of its members,
+which Sigil holds rather than resolves on demand so that a bill never depends on
+a directory call succeeding. See [cost management](/admin/cost-management/).
 
 Telemetry metadata about signature requests and apply outcomes.
 
@@ -129,8 +131,8 @@ taking before a deprovision rather than after.
 
 That list is what the file contains rather than a summary of it. A few smaller
 records are not in it: your organisation-wide [settings](/admin/settings/), any
-booked [scheduled publish](/signatures/scheduled-publishing/), and the list of
-mailboxes you have [excluded](/admin/cost-management/). Each of those is readable
+booked [scheduled publish](/signatures/scheduled-publishing/), and the mailboxes
+and groups you have [excluded](/admin/cost-management/). Each of those is readable
 in the portal, and each is purged on deprovision along with everything else. Ask
 support if you need them in an export for a compliance exercise.
 

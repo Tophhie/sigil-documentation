@@ -62,7 +62,7 @@ This is the one that matters and the one that is easiest to get wrong, so it
 carries the full instructions: the Microsoft 365 Integrated apps steps and the
 manifest URL, with a button to copy it.
 
-It completes only when the Worker has actually seen a signature request arrive
+It completes only when the service has actually seen a signature request arrive
 from your organisation. Uploading the manifest does not tick it. Somebody
 composing a message and getting a signature does.
 

@@ -13,7 +13,7 @@ modify your directory even if it were asked to.
 | --- | --- |
 | `User.Read.All` | Reading the directory attributes that personalise a signature |
 | `Organization.Read.All` | Reading your organisation's name and domain at onboarding |
-| `GroupMember.Read.All` | Evaluating assignment rules that match on Entra group membership |
+| `GroupMember.Read.All` | Assignment rules that match on Entra group membership, and excluding a group's members in cost management |
 
 ## Why User.Read.All rather than something narrower
 
@@ -66,13 +66,24 @@ profile from your registered address. It is not read on the signature path.
 
 ## GroupMember.Read.All
 
-Only needed if you write [assignment rules](/targeting/assignment-rules/) that
-match on Entra group membership. Rules that match on directory attributes do not
-touch it.
+Two features need it, and an organisation that uses neither never exercises it.
+
+[Assignment rules](/targeting/assignment-rules/) that match on Entra group
+membership read the groups a person belongs to. Rules that match on directory
+attributes do not touch it.
+
+[Cost management](/admin/cost-management/) reads the membership of a group you
+have excluded, and searches your groups for the picker. Excluding mailboxes
+individually does not touch it.
 
 It is requested at consent time regardless, because asking for it later would
 mean a second consent round trip at the moment an administrator is trying to
-write a rule.
+write a rule or exclude a group.
+
+One permission covers both directions, which groups a person belongs to and who
+belongs to a given group, so neither feature asks for anything the other did not
+already need. An organisation that consented before this permission was requested
+will find both of them report the problem rather than fail silently.
 
 ## Application permissions, not delegated
 

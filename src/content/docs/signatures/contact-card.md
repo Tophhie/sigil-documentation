@@ -31,7 +31,7 @@ Wrap it in a conditional section:
 {{#contactCardUrl}}<a href="{{contactCardUrl}}">Save my contact</a>{{/contactCardUrl}}
 ```
 
-The section matters. If the feature is not configured on your deployment the
+The section matters. Where no card link can be minted for a mailbox, the
 placeholder resolves to nothing, and the section removes the button rather than
 leaving a link that goes nowhere.
 
@@ -110,13 +110,3 @@ nowhere to hang them inside Outlook's table layout without inventing wrapper
 elements. Emitting them flat would be invalid, and something reading it would
 take the company name as the person's own name, which is worse than emitting
 nothing.
-
-## If the link resolves to nothing
-
-The feature depends on a signing secret being configured on the deployment.
-Without it, no link is minted, `{{contactCardUrl}}` resolves to empty and the
-endpoint refuses every request. The feature is dormant rather than
-half-working, in the same way the billing integration is when its keys are unset.
-
-If your buttons have vanished from a self-hosted deployment, that is the first
-thing to check. On `portal.usesigil.app` it is configured.

@@ -26,8 +26,13 @@ A seat is a licensed member mailbox.
 Shared mailboxes still get signatures. They just do not cost anything.
 
 An excluded mailbox is the one case where a mailbox is deliberately taken off
-both the bill and the service at once. See
+both the bill and the service at once. Mailboxes can be excluded one at a time,
+or by naming an Entra group whose members should all come off. See
 [cost management](/admin/cost-management/).
+
+Where a group is excluded, its membership is re-read each night just before the
+seat count is calculated, so a joiner or a leaver reaches the invoice within a
+day of the change in your directory.
 
 An account that was invited into your organisation stays outside the seat count
 even if it was later converted to a member account and given a licensed mailbox

@@ -33,7 +33,7 @@ The add-in's JavaScript is served from a public URL, so anything hidden inside
 it would be public too. There is no shared secret, and the security boundary is
 the token rather than anything embedded in the client.
 
-Every signature request must carry a valid Entra access token. The Worker checks
+Every signature request must carry a valid Entra access token. The server checks
 the token's cryptographic signature against the calling tenant's published keys,
 then its issuer, its audience, its home tenant claim (`tid`) and its delegated
 scope, before returning anything.
@@ -113,7 +113,7 @@ that is.
 
 ## What it runs on
 
-Sigil runs on Cloudflare Workers. Templates and metadata live in D1, inline
+Sigil runs on Cloudflare's edge network. Templates and metadata live in D1, inline
 images in R2, and rendered signatures in a KV cache. Billing runs on Stripe. Mail
 for invites, test emails and operator notices goes through Cloudflare Email
 Routing.

@@ -120,7 +120,8 @@ both, and there is no way to have one without the other. See
 **Seat**
 A billable licensed member mailbox. Shared and resource mailboxes are free, as
 are accounts invited in from outside the organisation, disabled accounts, and
-mailboxes the organisation has excluded.
+mailboxes the organisation has excluded, whether individually or through an
+excluded Entra group.
 
 **Template**
 A signature design containing HTML and placeholders. Library-managed and

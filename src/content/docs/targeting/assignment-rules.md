@@ -52,7 +52,9 @@ filled in consistently, and adding somebody to a group is a familiar action for
 most IT teams.
 
 Group rules require the `GroupMember.Read.All` permission, which is granted at
-admin consent along with everything else. See
+admin consent along with everything else. The same permission is what lets
+[cost management](/admin/cost-management/) exclude a group's members, so an
+organisation that can write group rules can already do that too. See
 [permissions](/deploy/permissions/).
 
 ## Order matters

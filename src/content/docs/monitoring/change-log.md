@@ -38,6 +38,7 @@ the portal is recorded.
 | Submitting a draft for review, and approving or rejecting it | Yes |
 | Booking, cancelling or firing a scheduled publish | Yes |
 | Excluding a mailbox from Sigil, or putting one back | Yes |
+| Excluding an Entra group, and every later change to who it covers | Yes |
 | Changing an organisation-wide setting | Yes |
 
 Each entry carries who performed the action and when.
@@ -55,6 +56,13 @@ The entry stores the addresses involved, the note that was written, and whether 
 managed service provider made the change. As with rollout reasons and approval
 details, the portal lists the action and the actor, so those are read from the API
 or a [tenant export](/security/data-and-privacy/).
+
+Exclusions that come from an Entra group are logged the same way, and read a
+little differently. Membership tracks, so the set can change with nobody having
+touched Sigil, and the nightly refresh that notices writes the entry itself. The
+actor on those is the system rather than a person, and the group is named on the
+entry. A refresh that changes nothing writes nothing, so the log stays quiet
+until a membership actually moves.
 
 ## How much you can see at once
 

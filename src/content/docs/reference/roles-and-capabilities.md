@@ -23,7 +23,7 @@ a description of it.
 | Monitoring | Activity feed, attribute coverage, change log | Yes | Yes | No | Yes | Yes | No |
 | Users and roles | Invite users and assign roles | Yes | No | No | No | No | Yes |
 | Billing | Plan, seats, subscription and billing profile | Yes | No | No | No | No | Yes |
-| Cost management | Which mailboxes are excluded from Sigil, and the suggestions behind that | Yes | No | No | No | No | Yes |
+| Cost management | Which mailboxes and Entra groups are excluded from Sigil, and the suggestions behind that | Yes | No | No | No | No | Yes |
 | Settings | The organisation-wide switches: publish approval and the health digest | Yes | No | No | No | No | No |
 
 Admin is the only role that holds every capability. Assignment rules and settings

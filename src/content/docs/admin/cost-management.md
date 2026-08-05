@@ -13,6 +13,10 @@ all.
 Cost management lets you exclude those mailboxes. An excluded mailbox receives no
 signature and is not counted towards your seats.
 
+There are two ways to exclude one. You can pick mailboxes individually, or you
+can name an Entra group and exclude whoever is in it. The second one keeps up
+with the group as people join and leave it.
+
 ## One switch, both effects
 
 Excluding a mailbox does two things at once, and there is no way to do one
@@ -97,6 +101,91 @@ free text and is never interpreted. It exists so the list is still legible in si
 months, so "warehouse floor" or "Teams-only licence" is the kind of thing worth
 writing.
 
+## Excluding an Entra group
+
+Ticking 120 boxes is a poor way to manage 120 warehouse staff who are already a
+group in your own directory, and it goes stale the first time somebody is hired.
+
+So you can name a group instead, and its membership is what gets excluded. Search
+for it by name, or paste its object ID if you have arrived from the Entra portal
+with one on the clipboard. Either way Sigil confirms the group exists in your
+directory before saving it, so a mistyped ID is refused there and then rather
+than becoming a group that quietly excludes nobody for ever.
+
+Membership is resolved as soon as you add the group, so you can see who it covers
+without waiting for anything.
+
+Nested groups count. Sigil walks the group's membership transitively, so a group
+of groups excludes the people inside all of them. Members that are not people,
+such as devices and service principals, are ignored because they have no mailbox
+to exclude.
+
+### It tracks
+
+Membership is not a one-off import. Somebody added to the group next month is
+excluded then, with no further action in Sigil, and somebody removed from it gets
+their signature and their seat back. That is the difference between managing a
+group and bulk-ticking its members once.
+
+Sigil refreshes every excluded group once a day, immediately before the daily
+seat sync, so a seat count is never derived from a membership a day older than
+itself. Between those refreshes the group is not watched, which means a new
+joiner keeps their signature and their seat until the following night. That is
+the direction worth being wrong in: nobody unexpectedly loses a signature the
+moment HR edits a group.
+
+If you have just changed the group in Entra and want it applied now, press
+Refresh on the group's row.
+
+### The two lists do not overwrite each other
+
+Mailboxes you picked individually and mailboxes covered by a group are kept
+apart, and one can never undo the other.
+
+Somebody excluded both by hand and by group stays excluded when they leave the
+group, because their individual entry is still there. Removing a group releases
+only the people it was the sole reason for excluding, and the portal says so
+before you confirm it.
+
+The individual list in the portal shows only the mailboxes you picked yourself.
+Group members are not enumerated in it, since one group can cover several hundred
+people and that is not a table anybody reads. Each group's row carries its own
+member count, and the headline figures at the top of the page count both origins
+together, without counting anybody twice.
+
+### When a group cannot be read
+
+A refresh that fails leaves the previous membership exactly as it was, and shows
+the error against the group.
+
+Treating an unreadable group as an empty one would restore signatures to, and
+resume billing for, everybody it covers, on the strength of a failed network
+call. So Sigil holds what it last read instead. The row shows when it was last
+refreshed successfully, which is what tells you whether the count beside it is
+current or stale.
+
+A group that has genuinely been deleted from your directory is treated
+differently, and does release its members. There is no membership left to honour,
+and leaving people excluded by a group that no longer exists would be
+unexplainable to whoever is reading the list.
+
+The most likely cause of a failure is the permission. Reading group membership
+needs `GroupMember.Read.All`, which Sigil requests at admin consent for group
+assignment rules, so almost every organisation already has it. An organisation
+that consented before it was requested will see the group search report that
+plainly rather than return an empty list. See
+[permissions](/deploy/permissions/).
+
+### A renamed group member sorts itself out
+
+Membership is re-read from your directory on every refresh, so if somebody in an
+excluded group changes address, the group picks them up again under the new one
+at the next refresh.
+
+Individual exclusions do not behave this way. See
+[a renamed mailbox stops being excluded](#a-renamed-mailbox-stops-being-excluded)
+below.
+
 ## When each half takes effect
 
 | Effect | When |
@@ -144,9 +233,12 @@ of them points at an add-in still deployed to somebody who no longer needs it.
 
 ## A renamed mailbox stops being excluded
 
-Exclusions are held against the email address, because the address is what the
-rest of Sigil keys on: the compose path, the assignment cache, the activity
-rollup and the coverage audit all use it.
+This applies to mailboxes you excluded individually. Group members are re-read on
+every refresh and are not affected.
+
+An individual exclusion is held against the email address, because the address is
+what the rest of Sigil keys on: the compose path, the assignment cache, the
+activity rollup and the coverage audit all use it.
 
 If a mailbox is renamed, the exclusion no longer matches it. That mailbox starts
 receiving signatures again, and returns to the bill at the next daily seat sync.
@@ -173,6 +265,15 @@ read from the API or from a
 [tenant export](/security/data-and-privacy/#getting-your-data-out), the same as
 rollout reasons and approval details.
 
+Group refreshes are logged the same way, and this matters more than it might
+sound. Because membership tracks, a mailbox can lose its signature without
+anybody having touched Sigil at all: an edit to a group in Entra is enough. Each
+refresh that changes who is excluded therefore writes an entry naming the group,
+so the question resolves to "the Warehouse Staff group, on the 12th" rather than
+to nobody. A nightly refresh that changes nothing writes nothing, and the entries
+it does write are recorded against the system, since no person at your
+organisation did anything that day.
+
 ## Who can use it
 
 The Admin and Billing roles, from Cost management in the portal. Editors,
@@ -190,14 +291,11 @@ invoices or subscription. See
 
 ## What it will not do
 
-There are no exclusion rules. You cannot exclude everybody in a department or
-everybody in a group, and a new starter is never excluded automatically. The list
-is one somebody curated.
-
-That is deliberate for now. A rule that quietly pulled new joiners out of both
-billing and signatures as they were hired would need governance and a preview of
-its own, closer to [assignment rules](/targeting/assignment-rules/) than to a
-list.
+You cannot exclude on a directory attribute. There is no way to say "everybody
+whose department is Warehouse", the way an
+[assignment rule](/targeting/assignment-rules/) can. Groups covered the case that
+actually came up, and an attribute rule wants a preview of its own before it is
+allowed to pull people out of both billing and signatures.
 
 There is no way to switch a signature off while continuing to pay for the
 mailbox, and no way to stop paying while keeping the signature.

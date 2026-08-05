@@ -117,7 +117,11 @@ Teams-only users are the usual cases.
 Sigil will tell you which mailboxes are candidates rather than leaving you to
 audit 400 licences by hand: it already records whether a signature was ever
 successfully applied, so it can list the billable mailboxes that have never once
-used one. Nothing is excluded until you choose it. See
+used one. Nothing is excluded until you choose it.
+
+If those people are already a group in your directory, you can exclude the group
+instead of the mailboxes. Membership keeps up on its own, so a new warehouse
+starter never quietly appears on the bill. See
 [cost management](/admin/cost-management/).
 
 ## Can Sigil tell us if it is actually working?
