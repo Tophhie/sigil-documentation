@@ -20,17 +20,19 @@ the applicable [footer](/targeting/footers/).
 
 The recipient defaults to your own address, and you can name a different one.
 
-Addresses that are verified destinations on Sigil's sending domain always arrive.
-Anything else depends on what that domain is currently permitted to send to, and
-a refusal comes back as a send error in the portal rather than disappearing
-quietly. If a test does not arrive and no error was shown, check the junk folder
-before assuming the send failed.
+Sigil does not restrict where a test goes. Whoever sends it decides, including an
+outside address. The restriction on Sigil's side applies to the address the mail
+is sent from, which is always Sigil's own sending domain, and not to the address
+it is sent to.
 
-Sigil does not restrict the recipient to your own organisation. Whoever sends the
-test decides where it goes, including an outside address. This documentation
-previously said the mail service would only deliver to verified destinations and
-that this confined test emails to your administrators. That was wrong: the
-restriction applies to the address Sigil sends *from*, not the one it sends to.
+What happens after that is the receiving side's decision, as it is for any mail.
+A refusal comes back as a send error in the portal rather than disappearing
+quietly, so if a test does not arrive and no error was shown, check the junk
+folder before assuming the send failed.
+
+This is the reason an [API key](/admin/api-keys/) is refused this endpoint. A
+credential that can mail a rendered signature to any address, unattended, is a
+different thing from an administrator doing it once to check a layout.
 
 ## What to check
 
@@ -50,8 +52,14 @@ A test email renders one mailbox's signature. To check what a specific colleague
 receives, use the download action on the Templates view, which produces the live
 signature for any mailbox you name as a standalone HTML file.
 
-That is the reliable way to verify an [assignment rule](/targeting/assignment-rules/),
-because it resolves the rules exactly as a real request would.
+The download resolves the rules exactly as a real request would, so it tells you
+what that person is being served right now.
+
+To find out why they are being served it, use
+[Test a user](/targeting/assignment-rules/#testing-a-rule-against-one-mailbox) on
+the rules page instead. It reads the directory live rather than from the
+resolution cache and names the rule that decided each role, which is the
+difference between seeing the outcome and understanding it.
 
 ## Testing a banner before it launches
 

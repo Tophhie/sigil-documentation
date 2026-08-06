@@ -31,33 +31,75 @@ portal token uses, and is told apart by its `sigil_` prefix. An Entra token
 begins `eyJ` and carries three dot-separated segments, so there is no ambiguity
 and no second header for a client to be taught about.
 
-A key carries a set of capabilities and no role, which decides most of what it
-can reach. Four things sit outside that.
+A key carries a set of capabilities and no role. What it may reach is decided
+first by an allow-list, and only then by those capabilities.
+
+One list names every operation a key may call. A method and path that does not
+match an entry is refused with 404 and `code: "not_available_to_api_keys"` before
+the route runs, whatever the key holds. 404 rather than 403, because a 403 on a
+route that exists for people confirms which routes are real, and because the
+endpoint genuinely does not exist for keys.
+
+The allow-list narrows and never grants. A request that matches an entry still
+meets the route's own capability guard, so a mismatch here could at worst admit a
+request the route then refuses.
 
 | Refused to a key | Response |
 | --- | --- |
-| Anything guarded by the Admin role rather than a capability | 403 |
-| The `/api/admin/api-keys` routes themselves | 403 |
-| Everything under `/api/admin/platform` and `/api/admin/partner` | 403 |
+| Any method and path outside the allow-list | 404 with `not_available_to_api_keys` |
 | A write of any kind, where the key is read-only | 403 |
+| A capability the key was not granted | 403 |
+| Anything guarded by the Admin role rather than a capability | 403 |
 
-The signature endpoints under `/api/signature` are not reachable with a key
-either. They take a per-mailbox add-in token.
+The Admin-role guards are mostly moot, because those routes are outside the
+allow-list and answer 404 first. The exception is a publish while
+[publish approval](/signatures/approvals/) is switched on: those routes are on
+the allow-list, so a key reaches them and is then refused with 403 and
+`code: "approval_required"`.
 
-Their administrative equivalents are a different matter, and are reachable. Both
-`GET /api/admin/download` and `POST /api/admin/preview` name a mailbox and need
-only the templates capability, so a key holding it can pull any mailbox's
-rendered signature and, through preview, that mailbox's directory attributes. A
-read-only key is refused the preview, which is a POST, and still allowed the
-download. See [API keys](/admin/api-keys/).
+The signature endpoints under `/api/signature` are not reachable with a key.
+They take a per-mailbox add-in token. Their administrative equivalents,
+`GET /api/admin/download` and `POST /api/admin/preview` with an `email`, are
+outside the allow-list for the same reason: both name a mailbox the caller chose
+and return that mailbox's rendered signature, and preview returns its directory
+attributes alongside. `POST /api/admin/rules/simulate` and
+`GET /api/admin/users/search` are out on the same ground.
+
+Also outside it: `POST /api/admin/test-email` and both digest routes, which send
+or compose mail; every billing route that writes to Stripe; `PUT /api/admin/users`
+and `DELETE /api/admin/users/:email`; `PUT /api/admin/settings`, `GET /api/admin/approvals`
+and the draft submit and reject routes; `POST /api/admin/dpa/accept`; everything
+under `/api/admin/managed`, `/api/admin/partner` and `/api/admin/platform`; the
+onboarding routes; and the `/api/admin/api-keys` routes themselves. See
+[API keys](/admin/api-keys/).
+
+A test asserts in both directions against the registered routes: every allow-list
+entry names a path that exists and the capability that route's guard actually
+demands, and any route in neither the allow-list nor the explicit exclusion list
+fails the build. That is what stops the published reference describing a
+permission the server does not enforce, and it is what makes adding a route a
+decision rather than a default.
+
+| Route | Auth | Purpose |
+| --- | --- | --- |
+| `GET /api/admin/api-surface` | Admin token or key | The allow-list as data, with the base URL. What the portal's API reference tab renders |
+| `GET /api/admin/api-reference.json` | Admin token or key | The same thing as an OpenAPI 3.1 document, served as a download |
+
+Both are guarded by authentication alone. A key holds no role and so could never
+pass an Admin-role guard, which would make an admin-gated reference unreachable
+by the credential it documents, and neither route returns tenant data. Each
+operation in the document carries `x-required-capability`. The read-only switch
+cannot be expressed in OpenAPI at all, since security is static per operation, so
+the document says so in its description instead.
 
 `X-Client-Tenant` and `X-Impersonate-Tenant` are ignored under key
 authentication. A key is bound to one tenant when it is issued, and letting a
 header retarget it would make that binding a suggestion.
 
 Requests are limited to 600 a minute per key, and a key over its limit is
-answered 429. The tenant refusals below apply to keys exactly as they apply to
-people.
+answered 429. That check runs before the allow-list, so probing for reachable
+endpoints is bounded by the same limit as real work. The tenant refusals below
+apply to keys exactly as they apply to people.
 
 A valid token is not enough on its own. Before any admin route runs, the
 organisation behind the token has to be one Sigil will serve, and a refusal says

@@ -30,9 +30,17 @@ rather than overwriting an existing template, so there is no way to import over
 something by accident.
 
 If an image name in the bundle collides with one that already exists in the
-target organisation, the import creates a numbered variant and rewrites the
-`cid:` references in the imported template to match. The existing image is left
-alone, and the imported template points at its own copy.
+target organisation, the import creates a numbered variant and repoints the
+imported template at it. The existing image is left alone, and the imported
+template points at its own copy.
+
+That applies to a designer-built template as well as a hand-written one. A design
+holds its images by name inside the document rather than as `cid:` references in
+markup, so those references are remapped in the document itself before it is
+compiled.
+
+[Built-in social icons](/signatures/designer/#social-icons) are not images in the
+library, so they travel with the design and need no remapping at all.
 
 ## What does not travel
 

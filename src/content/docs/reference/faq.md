@@ -186,8 +186,16 @@ a single mailbox can be exported for a subject access request. See
 
 Yes. An Admin can create an [API key](/admin/api-keys/), which is a credential
 for a script rather than for a person, with the areas you choose and optionally
-read-only. Every administrative endpoint accepts one. There are no webhooks, so
-anything that needs to know about a change polls for it.
+read-only.
+
+A key reaches a named list of operations rather than the whole portal API. The
+reporting and cost-management pulls people ask for are all on it. Sending mail,
+moving money, granting access and reading a mailbox you name are not. The portal
+shows the full list beside your keys, and offers it as an OpenAPI document you
+can generate a client from.
+
+There are no webhooks, so anything that needs to know about a change polls for
+it.
 
 ## Can a managed service provider run this for us?
 

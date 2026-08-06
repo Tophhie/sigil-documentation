@@ -64,17 +64,33 @@ An [API key](/admin/api-keys/) is the exception to everything above, and is
 scoped tightly enough to stay one.
 
 It is created by an Admin, belongs to one organisation, and carries a set of
-capabilities but no role. Anything guarded by the Admin role is refused to it,
-as are the key management routes themselves, the partner routes and the operator
-console. The add-in's signature endpoints are refused too, because those take a
-per-mailbox token rather than an organisation-wide one.
+capabilities but no role.
 
-What a key can reach beyond that is decided entirely by the capabilities it
-holds, and the templates capability is broad enough to be worth stating plainly:
-it covers the portal's own per-mailbox download and preview, so a key holding it
-can render any mailbox's signature and read the directory attributes behind it.
-That is the same reach the Editor role has. Grant a key the narrowest set of
-areas its job needs, and see [API keys](/admin/api-keys/).
+What it may reach is an allow-list rather than a set of blocked areas. One list
+names every operation a key can call, and a request outside it is refused before
+the route runs. The reason for that direction is what happens to an endpoint
+added later: under a list of blocked areas it would be reachable by every key
+issued so far, because nobody thought to block it. A build check fails on any
+endpoint that is on neither list, so adding one forces the decision.
+
+The exclusions have a shape. A key is refused anything that acts outside Sigil,
+meaning sending mail, moving money in Stripe or granting portal access; anything
+that overrides a control the organisation set, such as switching publish approval
+off or moving work through the approval queue; and anything that reads a named
+individual's directory record on demand. That last one covers the portal's own
+per-mailbox download and preview, rule simulation and the directory picker, each
+of which answers "tell me about this mailbox" for an address the caller supplies.
+Aggregate reporting that happens to carry mailbox addresses is not refused, since
+that is most of what the credential exists for.
+
+The add-in's signature endpoints are refused too, because those take a
+per-mailbox token rather than an organisation-wide one, as are the key management
+routes, the partner routes and the operator console.
+
+The portal renders the list as a reference beside the keys, generated from the
+list that enforces it, so what a key is documented to reach and what it can reach
+are the same statement. Grant a key the narrowest set of areas its job needs, and
+see [API keys](/admin/api-keys/).
 
 The secret is returned once at creation and stored only as a SHA-256 hash, so a
 copy of the database yields no working key. A fast hash is the right choice

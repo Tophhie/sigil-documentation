@@ -71,66 +71,113 @@ Present the key on the same header the portal uses:
 Authorization: Bearer sigil_…
 ```
 
-Every administrative endpoint accepts either a signed-in administrator's Entra
-token or a key, and Sigil tells the two apart by the prefix. See the
-[API reference](/reference/api/).
+An administrator's browser token goes on that same header, and Sigil tells the
+two apart by the `sigil_` prefix, so there is no second header for a client to be
+taught about. See the [API reference](/reference/api/).
+
+`GET /api/admin/me` is the call to make first. It reports which organisation the
+key belongs to and what it holds, which makes it the smoke test that proves a key
+works before anything depends on it.
 
 A key acts on the organisation it was created in, and only that one. The headers
 a partner uses to work inside a managed client are ignored under key
 authentication, so a key cannot be pointed at a different tenant after the fact.
 
-## What a key cannot do
+## What a key may reach is a named list
+
+Sigil holds one list of the operations a key may call. Anything that is not on it
+is refused before the route runs, whatever the key holds.
+
+The alternative would be to let a key reach everything except a few blocked
+areas, and the reason against it is what happens to the endpoint somebody adds
+next year. Blocking areas would make that endpoint reachable by every key already
+issued, because nobody thought to block it. A named list makes it reachable by
+none until somebody decides otherwise, and Sigil's build fails on any endpoint
+that has not been decided either way.
+
+A call to something not on the list answers 404 rather than 403. The endpoint
+genuinely does not exist for keys, and a 403 would confirm to a leaked key which
+routes are real.
+
+The list narrows and never widens. A request that gets through it still faces the
+same access check a person's request faces, so nothing here can grant a key
+something the endpoint itself would refuse.
+
+## What is left out, and why
+
+The exclusions have a shape rather than being a list of one-offs. A key is
+refused anything that acts on the world outside Sigil, anything that overrides a
+control your organisation put in place, and anything that reads a named
+individual's directory record on demand.
 
 | Refused | Why |
 | --- | --- |
-| Anything that needs the Admin role | A key holds capabilities directly and no role at all |
-| Managing API keys | A leaked key must not be able to mint a replacement, or revoke the key you are about to use to stop it |
-| The add-in's own signature endpoints | Those take a per-mailbox add-in token rather than a key. Read that alongside the section below, which describes what the portal's equivalents do allow |
-| Partner endpoints | They act on the provider rather than on a tenant |
-| The Tophhie Cloud operator console | It is cross-tenant by definition, and no tenant credential should have a route to it |
+| Sending mail: [test email](/admin/test-email/), and sending or previewing the [health digest](/monitoring/health-digest/) | Test email delivers to whatever address the request names. A credential holding it is an outbound mailer that runs unattended |
+| Moving money: checkout, the billing portal, cancelling, reactivating, the billing profile | Reading seat counts into a dashboard is a real request. Cancelling a subscription from a cron job is not |
+| Granting access: inviting a colleague, changing a role, removing someone | Issuing a credential is an access-management act, which is why only an Admin can do it. Granting portal roles is the same act |
+| Overriding a control: changing organisation settings, the approval queue, submitting or rejecting a draft | Settings can switch [publish approval](/signatures/approvals/) off. Approval is a second pair of eyes, and a script signing off on a colleague's work is the thing it exists to prevent |
+| Reading one named person: preview against a real address, the per-mailbox download, [rule simulation](/targeting/assignment-rules/), the directory picker | Each answers "tell me about this mailbox" for an address the caller supplies. A tenant-wide credential that can do that a mailbox at a time is a way to read your directory |
+| Managing keys | A leaked key must not be able to mint a replacement, or revoke the key you are about to use to stop it |
+| Your relationship with an IT provider: accepting or declining a transfer, ending the arrangement | Deciding who processes your data is an administrator's act |
+| The data processing agreement, and the getting started checklist | Both need the Admin role, which a key never holds |
+| Partner endpoints, and the Tophhie Cloud operator console | Neither acts on a single tenant |
 
-The role restriction has one consequence worth planning around. Where
-[publish approval](/signatures/approvals/) is switched on, publishing needs the
-Admin role, so a key cannot publish a signature while it is on however its
-access is set. It can still save a draft and submit it for review.
+The last line about reading one named person is narrower than "reads the
+directory", deliberately. [Activity](/monitoring/activity/) and
+[attribute coverage](/monitoring/attribute-coverage/) do carry mailbox
+addresses, and pulling those on a schedule is much of what the feature is for.
+What a key cannot do is ask about an address it chose.
+
+Every one of these is something a person in the portal can still do. Nothing
+here reduces what your administrators can reach.
+
+Two consequences are worth planning around. A key can save a draft but cannot
+submit it for review, so a draft a script writes waits for somebody to pick it
+up. And where publish approval is switched on, publishing needs the Admin role,
+so a key cannot publish a signature at all while it is on, however its access is
+set.
 
 A suspended organisation, or one inside its deletion grace window, refuses its
 keys exactly as it refuses its people.
 
-## Template access is the broad one
+## Reading the list yourself
 
-Everything outside that table is decided by the areas you ticked, and the areas
-are shaped like parts of the product rather than like verbs. The template area is
-the largest one Sigil has, and three of the things it covers are worth knowing
-about before you grant it to a script.
+The portal shows the whole list on an API reference tab beside your keys, which
+is the authoritative version: it is generated from the same list that enforces
+it, so the documentation and the credential cannot drift apart.
 
-A key holding it can download any mailbox's rendered signature, one address at a
-time. That is the portal's own download, which is the same document the add-in
-serves, reached with a capability rather than with that person's token.
+Each operation is listed with its method, its address, what it does and the area
+it needs. Pick one of your live keys and the page re-renders as that key sees
+it, marking each operation reachable or not. That answers the question people
+actually arrive with, which is never "what does the API offer" but "why is my
+script getting a refusal".
 
-It can preview a template against a real address. That returns the directory
-attributes Sigil holds for the mailbox alongside the HTML, which is there so an
-author can see why a signature came out sparse. Under a key it is a way to read
-names, titles, phone numbers and managers a mailbox at a time.
+The same page offers an OpenAPI 3.1 document to download, which imports into
+Postman and generates a client. A key can fetch that document itself, so a build
+job can regenerate its client without anybody signing in.
 
-It can send a [test email](/admin/test-email/) carrying a rendered signature to
-any address, from Sigil's sending domain.
+One thing the document cannot express is the read-only switch. OpenAPI describes
+what an endpoint needs rather than what a particular credential was issued with,
+so the document says in its description that a read-only key refuses every write
+below rather than pretending to model it.
 
-None of this is unique to keys. The Editor role holds the same capability and can
-do the same three things by hand, which is the reason that role is worth keeping
-to people you would trust with the signature library anyway. What changes with a
-key is that it happens unattended and at whatever rate a script runs at.
+## Choosing what to grant
 
-Two things help, and it is worth doing both.
+The areas are shaped like parts of the product rather than like verbs, so a
+couple of them are broader than their name suggests.
 
-Grant the narrowest set of areas the job needs. A reporting pull wants monitoring,
-analytics and cost management, and a joiner and leaver runbook wants cost
-management alone. None of those four reach any of the above.
+Grant the narrowest set the job needs. A reporting pull wants monitoring,
+analytics and cost management. A joiner and leaver runbook wants cost management
+alone, and nothing else at all.
 
-Leave read-only switched on where the job only reads. Preview and test email are
-both writes as far as HTTP is concerned, even though neither changes anything
-stored, so a read-only key is refused both. The download is a plain read and
-stays available, so read-only narrows this rather than closing it.
+The template area is the largest one Sigil has, and it covers publishing. A key
+holding it can put a new signature in front of everyone in your organisation
+unless publish approval is on, so it belongs on a key that authors signatures
+and not on one that reads numbers.
+
+Leave read-only switched on where the job only reads. It is checked separately
+from the areas, so a key can hold the template area and still be unable to change
+a single template.
 
 ## Rate limiting
 

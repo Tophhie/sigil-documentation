@@ -25,7 +25,7 @@ A design is a tree of blocks on a canvas.
 | Text | A run of text, with placeholders and inline formatting |
 | Image | A logo, headshot or badge, attached inline |
 | Button | A styled call-to-action link |
-| Social icons | A row of linked icons |
+| Social icons | A row of linked icons, drawn from a built-in set or from your own uploads |
 | QR code | A scannable link, or the sender's own contact card |
 | Photo | The sender's own Microsoft 365 profile photo |
 | Divider | A horizontal rule |
@@ -39,6 +39,57 @@ fixed pixel width, and columns you do not size share what is left.
 The QR code and Photo blocks behave differently from the rest, because the image
 each one produces depends on who is sending. See
 [per-user images](/signatures/per-user-images/).
+
+## Social icons
+
+A social icons block ships with 27 built-in marks, so a row of logos needs no
+upload and no hunting for artwork.
+
+| Group | Marks |
+| --- | --- |
+| Social networks | LinkedIn, X, Facebook, Instagram, YouTube, TikTok, WhatsApp, Threads, Bluesky, Mastodon, Pinterest, Snapchat, Reddit, Discord, Telegram, Twitch, Vimeo, GitHub, Behance, Dribbble, Medium, Substack, Spotify, Xing |
+| Contact | Website, Email, Phone |
+
+Every mark is drawn on the same grid, which is what makes a row of them line up.
+Sourcing twenty logos from the web and cropping them yourself rarely does.
+
+Choosing a mark fills in its label and the start of its link for you, so an
+a LinkedIn icon arrives already pointing at the right kind of address. Both are
+yours to change, and the link can carry
+[placeholders](/signatures/placeholders/) so each person's icon points at their
+own profile.
+
+Each icon is either a built-in mark or an image you uploaded, never both. Anything
+the set does not cover is still an upload, exactly as before.
+
+### Styling the row
+
+The look is set once for the whole block rather than per icon, because a row
+where one logo sits on a circle and the next is a bare glyph reads as a mistake.
+
+| Setting | Options |
+| --- | --- |
+| Icon style | Just the mark, on a circle, on a rounded square, or on a square |
+| Colour | Each network's own brand colour, or one colour for the whole row |
+| Mark colour | The mark knocked out of the backdrop, where there is one. White by default |
+
+Size and the gap between icons are set on the block as usual. Nothing here fixes
+the artwork at a size or a colour beforehand, so changing any of it costs
+nothing.
+
+### What the marks cost you
+
+Built-in marks are drawn when a message is signed rather than stored, so they
+take no space in your [image library](/signatures/images/) and there is nothing
+to clean up when you change the row.
+
+They are attached to the message like any other signature image, at roughly
+2.5KB for a typical icon, which is the same trade every inline image makes. See
+[images](/signatures/images/#why-not-a-hosted-image).
+
+The marks are the trademarks of the networks they belong to. They are there so a
+signature can link to a profile on that network, which is what those brands'
+guidelines allow, and not for any other use.
 
 ## Block styling
 

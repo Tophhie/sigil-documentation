@@ -62,11 +62,19 @@ An [API key](/admin/api-keys/) is the one principal in Sigil that is not a
 person. It carries a set of capabilities drawn from the same table above, chosen
 when it is created, and it holds no role at all.
 
-That distinction decides what a key cannot reach. Anything guarded by the Admin
-role rather than by a capability is refused to a key however its access is set:
-rejecting a submitted draft, the getting started checklist, accepting the data
-processing agreement, managing keys, and every publish path while
+That distinction decides part of what a key cannot reach. Anything guarded by the
+Admin role rather than by a capability is refused to a key however its access is
+set: rejecting a submitted draft, the getting started checklist, accepting the
+data processing agreement, managing keys, and every publish path while
 [publish approval](/signatures/approvals/) is switched on.
+
+A second limit sits on top of the capabilities, and it has no equivalent for a
+person. A key may only call operations on an allow-list, so holding a capability
+is necessary rather than sufficient. The template capability, for instance,
+reaches most of the signature library under a key but not the per-mailbox
+download, the preview against a real address or the test email, all of which a
+person holding the same capability can still use. See
+[API keys](/admin/api-keys/) for the whole list and the reasoning behind it.
 
 A key can never be granted access its creator does not hold, and only an Admin
 can create one. There is deliberately no capability for key management that a

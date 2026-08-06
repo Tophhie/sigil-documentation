@@ -36,6 +36,7 @@ See [Outlook constraints](/signatures/outlook-constraints/).
 | Profile photo size | 16 to 400 pixels |
 | Social icon size | 8 to 128 pixels |
 | Gap between social icons | 0 to 60 pixels |
+| Built-in social marks | 27, being 24 networks plus website, email and phone |
 | Button corner radius | 0 to 40 pixels |
 | Button padding, horizontal and vertical | 0 to 60 pixels |
 | Divider thickness | 1 to 20 pixels |
@@ -149,6 +150,7 @@ See [publish approval](/signatures/approvals/) and
 | Requests per key | 600 a minute, then 429 until the rate falls back under it |
 | Resolution of "last used" | One hour |
 | Effect of revoking | Immediate, and irreversible |
+| Endpoints reachable | Only those on the allow-list shown in the portal. Anything else answers 404 |
 
 See [API keys](/admin/api-keys/).
 

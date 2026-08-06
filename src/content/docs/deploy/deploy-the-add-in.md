@@ -109,6 +109,15 @@ takes its own copy at that moment. Updating remains an explicit administrator
 action, either through the admin centre or with `Set-OrganizationAddIn`, which
 accepts a file path or a URL.
 
+A Marketplace listing is the one path that would spare you that, and Sigil is not
+published there yet, so every organisation running Sigil today has uploaded it as
+a custom app. Plan on being told when a new manifest is worth taking, rather than
+on receiving one.
+
+The manifest itself changes rarely. It names the add-in, the events it listens
+for and where its files live, and none of those move when Sigil's own features
+change. Most releases reach you without a manifest at all.
+
 ## Removing the add-in
 
 Remove it from Integrated apps in the same place you uploaded it. Signatures stop

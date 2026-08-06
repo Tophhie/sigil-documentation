@@ -39,6 +39,17 @@ that could only fail would waste your time and tell you nothing.
 Each of these names who can fix it, which is usually your IT team rather than
 you.
 
+One of those messages is worth reading loosely. If the pane says Sigil is not set
+up for your organisation, that can also mean your own mailbox has been
+[excluded](/admin/cost-management/) from Sigil deliberately, which is a normal
+thing for an organisation to do for a shared or unattended mailbox. The add-in
+cannot tell the two apart, because Sigil declines both the same way. Your IT team
+can see which it is.
+
+The pane also keeps a subscription problem separate from a connection problem. A
+lapsed subscription says so rather than reading as a network fault you could fix
+by trying again.
+
 Opening the pane does not front an error on its own. If something is merely
 transient, you find out when you press a button rather than the moment the pane
 loads.
