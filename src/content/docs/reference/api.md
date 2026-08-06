@@ -41,9 +41,15 @@ can reach. Four things sit outside that.
 | Everything under `/api/admin/platform` and `/api/admin/partner` | 403 |
 | A write of any kind, where the key is read-only | 403 |
 
-The signature endpoints are not reachable with a key either. They take a
-per-mailbox add-in token, and an organisation-wide credential able to render any
-mailbox's signature would be a way to enumerate a directory.
+The signature endpoints under `/api/signature` are not reachable with a key
+either. They take a per-mailbox add-in token.
+
+Their administrative equivalents are a different matter, and are reachable. Both
+`GET /api/admin/download` and `POST /api/admin/preview` name a mailbox and need
+only the templates capability, so a key holding it can pull any mailbox's
+rendered signature and, through preview, that mailbox's directory attributes. A
+read-only key is refused the preview, which is a POST, and still allowed the
+download. See [API keys](/admin/api-keys/).
 
 `X-Client-Tenant` and `X-Impersonate-Tenant` are ignored under key
 authentication. A key is bound to one tenant when it is issued, and letting a
@@ -104,7 +110,7 @@ a report is taken from the verified token rather than from the payload.
 | `GET /api/admin/templates/:id/export` | Admin token | Portable JSON, images included |
 | `POST /api/admin/templates/import` | Admin token | Import a bundle as a new entry |
 | `PUT /api/admin/roles` | Admin token, rules capability | Assign templates to the `new` and `reply` roles |
-| `POST /api/admin/preview` | Admin token | Render with sample data |
+| `POST /api/admin/preview` | Admin token | Render with sample data, or against a named mailbox, in which case the response carries that mailbox's directory attributes alongside the HTML |
 | `GET /api/admin/download?email=&type=` | Admin token | A mailbox's live signature as a standalone file |
 
 Shortcuts acting on the active new-message template exist at

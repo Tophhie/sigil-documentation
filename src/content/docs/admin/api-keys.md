@@ -34,8 +34,8 @@ billing manager issue themselves a key that edits signatures.
 | Field | Meaning |
 | --- | --- |
 | Name | Up to 80 characters, so you can recognise the key later. It is a label and never an identity |
-| Expires | Optional. A key with no expiry date works until it is revoked |
-| Access | The areas the key may reach, from the same list of capabilities a role is built from |
+| Expires | Optional, and must be a date in the future. A key with no expiry date works until it is revoked |
+| Access | The areas the key may reach, from the same list of capabilities a role is built from. At least one is required |
 | Read-only | On by default. The key can read the areas you ticked and change nothing |
 
 Read-only is a separate switch rather than one of the areas because capabilities
@@ -85,7 +85,7 @@ authentication, so a key cannot be pointed at a different tenant after the fact.
 | --- | --- |
 | Anything that needs the Admin role | A key holds capabilities directly and no role at all |
 | Managing API keys | A leaked key must not be able to mint a replacement, or revoke the key you are about to use to stop it |
-| Fetching a mailbox's rendered signature | That path takes a per-mailbox add-in token. An organisation-wide credential that could fetch anybody's signature would be a way to walk your directory |
+| The add-in's own signature endpoints | Those take a per-mailbox add-in token rather than a key. Read that alongside the section below, which describes what the portal's equivalents do allow |
 | Partner endpoints | They act on the provider rather than on a tenant |
 | The Tophhie Cloud operator console | It is cross-tenant by definition, and no tenant credential should have a route to it |
 
@@ -96,6 +96,41 @@ access is set. It can still save a draft and submit it for review.
 
 A suspended organisation, or one inside its deletion grace window, refuses its
 keys exactly as it refuses its people.
+
+## Template access is the broad one
+
+Everything outside that table is decided by the areas you ticked, and the areas
+are shaped like parts of the product rather than like verbs. The template area is
+the largest one Sigil has, and three of the things it covers are worth knowing
+about before you grant it to a script.
+
+A key holding it can download any mailbox's rendered signature, one address at a
+time. That is the portal's own download, which is the same document the add-in
+serves, reached with a capability rather than with that person's token.
+
+It can preview a template against a real address. That returns the directory
+attributes Sigil holds for the mailbox alongside the HTML, which is there so an
+author can see why a signature came out sparse. Under a key it is a way to read
+names, titles, phone numbers and managers a mailbox at a time.
+
+It can send a [test email](/admin/test-email/) carrying a rendered signature to
+any address, from Sigil's sending domain.
+
+None of this is unique to keys. The Editor role holds the same capability and can
+do the same three things by hand, which is the reason that role is worth keeping
+to people you would trust with the signature library anyway. What changes with a
+key is that it happens unattended and at whatever rate a script runs at.
+
+Two things help, and it is worth doing both.
+
+Grant the narrowest set of areas the job needs. A reporting pull wants monitoring,
+analytics and cost management, and a joiner and leaver runbook wants cost
+management alone. None of those four reach any of the above.
+
+Leave read-only switched on where the job only reads. Preview and test email are
+both writes as far as HTTP is concerned, even though neither changes anything
+stored, so a read-only key is refused both. The download is a plain read and
+stays available, so read-only narrows this rather than closing it.
 
 ## Rate limiting
 

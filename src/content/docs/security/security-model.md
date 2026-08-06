@@ -66,9 +66,15 @@ scoped tightly enough to stay one.
 It is created by an Admin, belongs to one organisation, and carries a set of
 capabilities but no role. Anything guarded by the Admin role is refused to it,
 as are the key management routes themselves, the partner routes and the operator
-console. It cannot reach the signature endpoints at all, because an
-organisation-wide credential able to render any mailbox's signature would be a
-way to read a directory.
+console. The add-in's signature endpoints are refused too, because those take a
+per-mailbox token rather than an organisation-wide one.
+
+What a key can reach beyond that is decided entirely by the capabilities it
+holds, and the templates capability is broad enough to be worth stating plainly:
+it covers the portal's own per-mailbox download and preview, so a key holding it
+can render any mailbox's signature and read the directory attributes behind it.
+That is the same reach the Editor role has. Grant a key the narrowest set of
+areas its job needs, and see [API keys](/admin/api-keys/).
 
 The secret is returned once at creation and stored only as a SHA-256 hash, so a
 copy of the database yields no working key. A fast hash is the right choice
