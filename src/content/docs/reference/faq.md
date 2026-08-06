@@ -21,6 +21,22 @@ has no access to message bodies, subjects or recipients. See
 No. It requests read-only Graph permissions and no write permission of any kind.
 See [permissions](/deploy/permissions/).
 
+That holds for [profile fields](/admin/profile-fields/) too. What a colleague
+types on their own profile page is stored by Sigil and never written back to
+Entra, which is why those fields exist for the things the directory is the wrong
+home for rather than duplicating the things it already holds.
+
+## Can people keep their own signature details up to date?
+
+Yes, for the fields you decide on. You define custom fields such as pronouns, a
+booking link or a direct line, and colleagues fill in their own at
+`portal.usesigil.app/me`. They cannot change anything that comes from your
+directory, which stays your IT team's to maintain.
+
+It is off until you switch it on, and what people enter appears in their
+signature on their next message. See
+[profile fields](/admin/profile-fields/).
+
 ## Do users see their own signature as they write?
 
 Yes. The signature is applied in the compose window, so the sender sees exactly

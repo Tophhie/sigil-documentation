@@ -168,7 +168,9 @@ for width. Typing in the filter narrows the list; choosing a row inserts that
 field at the cursor.
 
 The designer fetches its field list from the API, which means the picker cannot
-drift from what the renderer knows how to resolve.
+drift from what the renderer knows how to resolve. Any
+[profile fields](/admin/profile-fields/) your organisation has defined arrive
+that way too, under a "User profile" heading after the directory groups.
 
 ## Placeholders in links
 
@@ -177,7 +179,7 @@ same field picker as the text toolbar. That covers the link dialog and the link
 on a field chip, an image, a button, a social icon, a QR code and a photo block.
 
 This is what `tel:{{mobilePhone}}`, `mailto:{{mail}}` and a per-person booking
-link are made of. The token is inserted where the cursor is rather than appended,
+link such as `{{custom.booking}}` are made of. The token is inserted where the cursor is rather than appended,
 so a prefix such as `tel:` stays in front of the field. Clicking the picker
 without putting the cursor in the box appends instead, which is what somebody who
 goes straight to the menu is asking for.

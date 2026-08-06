@@ -89,6 +89,14 @@ A valid sign-in from a connected organisation, with no role assigned, is
 authenticated but authorised for nothing. They are told to request access from an
 administrator.
 
+One page is the exception, and it is deliberate. Where
+[profile editing](/admin/settings/) is switched on, anybody in the organisation
+can open `portal.usesigil.app/me` and fill in their own signature details without
+holding a role. That page consults no role and grants none, so signing in there
+opens nothing else in the portal, and it can never turn the first colleague who
+tries it into an administrator. See
+[profile fields](/admin/profile-fields/).
+
 A sign-in from an organisation that has never granted consent gets a prompt to
 connect their organisation instead. That is the self-serve onboarding path in
 [connect your organisation](/deploy/connect-your-organisation/).

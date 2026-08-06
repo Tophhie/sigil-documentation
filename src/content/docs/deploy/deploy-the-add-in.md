@@ -85,6 +85,7 @@ it.
 | --- | --- |
 | Signature templates, images, banners, footers | No. Published from the portal, live in seconds |
 | Add-in code and icons | No. Outlook re-fetches, though it caches icons so allow a restart |
+| New buttons inside the pane, such as "Edit my details" | No. The pane is add-in code |
 | Hostnames, support URL, permissions, events, requirement set | Yes, and admin consent again |
 
 The practical version: your day-to-day work as an administrator never requires a

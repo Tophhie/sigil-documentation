@@ -92,6 +92,15 @@ signature is rendered. Placeholders can be wrapped in conditional sections so
 that optional content disappears when the underlying attribute is empty. See
 [placeholders](/signatures/placeholders/).
 
+## Profile field
+
+A custom field an organisation defines and its own staff fill in, used in a
+template as `{{custom.pronouns}}` and behaving like any other placeholder. It is
+the one group of values that does not come from the directory, for the things
+that do not belong there: pronouns, a personal booking link, a direct line.
+Nothing in it is read from or written back to Entra. See
+[profile fields](/admin/profile-fields/).
+
 ## Tracked link
 
 A redirect under `e-clk.usesigil.app/r/<slug>` that counts clicks without

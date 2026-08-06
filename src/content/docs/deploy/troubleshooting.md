@@ -179,6 +179,14 @@ signature was set. That is Outlook's behaviour, not a signature failure.
 If other event-based add-ins are deployed in your tenant, they run sequentially
 rather than in parallel, which can make signature application feel slower.
 
+The pane's "Edit my details" button is missing for most organisations, and that
+is the normal state. It appears only where
+[profile editing](/admin/settings/) is switched on and at least one
+[profile field](/admin/profile-fields/) is available to fill in, and it stays
+hidden for a mailbox that has been [excluded](/admin/cost-management/) from
+Sigil. The add-in asks the server rather than deciding for itself, so a button
+that leads nowhere is not a state it can reach.
+
 ## Still stuck
 
 Collect the affected email address, the Outlook client and platform, and whether

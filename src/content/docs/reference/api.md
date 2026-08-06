@@ -65,6 +65,14 @@ and return that mailbox's rendered signature, and preview returns its directory
 attributes alongside. `POST /api/admin/rules/simulate` and
 `GET /api/admin/users/search` are out on the same ground.
 
+`GET /api/admin/profile-values` and `PUT /api/admin/profile-values/:email` are
+out for the same reason. Those return and write what a named colleague entered
+about themselves, which is the same per-individual read, and arguably more
+personal for having been typed by the person rather than held by the directory.
+The field definitions are a different matter and are reachable: defining the
+same six fields when a provider stands up a new client is exactly the
+configuration work a key exists for.
+
 Also outside it: `POST /api/admin/test-email` and both digest routes, which send
 or compose mail; every billing route that writes to Stripe; `PUT /api/admin/users`
 and `DELETE /api/admin/users/:email`; `PUT /api/admin/settings`, `GET /api/admin/approvals`
@@ -122,10 +130,47 @@ by the person holding the token, by granting admin consent. See
 | `GET /api/signature?email=&type=` | Add-in token | The rendered signature plus its inline images. `email` defaults to the caller; `type` is `new` or `reply` |
 | `GET /api/signature/download?email=&type=` | Add-in token | The signature as a standalone HTML file with images inlined as `data:` URIs |
 | `POST /api/signature/report` | Add-in token | The add-in's apply outcome for one attempt |
+| `GET /api/signature/profile?email=` | Add-in token | Whether this mailbox has anything to fill in on the profile page, and where that page is |
 
 The `email` parameter may name any mailbox in the calling tenant, which is what
 allows a shared mailbox or an alias to render its own signature. The identity on
 a report is taken from the verified token rather than from the payload.
+
+`GET /api/signature/profile` is what decides whether the add-in offers its "Edit
+my details" button. It answers `editable: true` only when the organisation has
+switched [profile editing](/admin/settings/) on and has at least one field
+available, and it applies the same organisation, subscription and exclusion
+checks the compose path does, because a button leading to a refusal is worse than
+no button. It is deliberately separate from `GET /api/signature`, which runs on
+every compose and is usually answered from cache; the pane asks this one once
+when it opens.
+
+## User profile endpoints
+
+These sit under `/api/me` rather than `/api/admin`, and it is not tidiness. The
+admin router promotes the first person to sign in to full administrator, so
+hanging a route every employee can reach off that middleware would make the first
+colleague to open their own profile page an administrator.
+
+| Route | Auth | Purpose |
+| --- | --- | --- |
+| `GET /api/me/profile` | Portal token, no role | The available fields, this person's values, and their directory attributes read-only |
+| `PUT /api/me/profile` | Portal token, no role | Save this person's own values |
+| `GET /api/me/signature?type=` | Portal token, no role | This person's own signature, as a standalone HTML document |
+
+No role is required and none is consulted. Every route here acts on the mailbox
+in the verified token, and there is no `email` parameter, because there is no
+shared-mailbox case for editing your own details.
+
+The middleware applies the same gates the compose path does. An organisation that
+is not active, a lapsed subscription, an
+[excluded mailbox](/admin/cost-management/) or profile editing switched off each
+refuse, the last of them with `code: "portal_off"` so the page can explain rather
+than show an error.
+
+Saving validates every value against its field definition and answers 400 with
+the field-by-field reasons, rather than accepting something a signature cannot
+safely carry. Saves are rate limited per mailbox.
 
 ## Template endpoints
 
@@ -236,7 +281,11 @@ templates capability. See
 
 | Route | Auth | Purpose |
 | --- | --- | --- |
-| `GET /api/admin/fields` | Admin token | The placeholder list the editors offer |
+| `GET /api/admin/fields` | Admin token | The placeholder list the editors offer, including this organisation's own [profile fields](/admin/profile-fields/) under a "User profile" group |
+| `GET /api/admin/profile-fields` | Admin token, settings capability | The custom fields this organisation's staff fill in about themselves |
+| `POST /api/admin/profile-fields` | Admin token, settings capability | Define a field. The key becomes `{{custom.<key>}}` and cannot be changed afterwards |
+| `PUT /api/admin/profile-fields/:key` | Admin token, settings capability | Change a field's label, help, type or availability. `enabled: false` hides it and keeps everyone's values |
+| `DELETE /api/admin/profile-fields/:key` | Admin token, settings capability | Delete a field and every value stored against it. Irreversible |
 | `GET/PUT /api/admin/rules` | Admin token, rules capability | Assignment rules, replaced as one ordered list |
 | `POST /api/admin/rules/simulate` | Admin token, rules capability | Dry-run the saved rules against one mailbox |
 | `GET/POST /api/admin/banners`, `PUT/DELETE /api/admin/banners/:id` | Admin token, banners capability | Campaign banners |
@@ -291,7 +340,9 @@ telemetry.
 | `GET /api/admin/me` | Admin token | Who the caller is, their role, and their organisation's state |
 | `GET/PUT /api/admin/users`, `DELETE /api/admin/users/:email` | Admin token, users capability | Manage users and roles |
 | `GET /api/admin/users/search` | Admin token, templates or users capability | Directory lookup, for pickers such as download and test email |
-| `GET/PUT /api/admin/settings` | Admin token, settings capability | The organisation-wide switches: publish approval and digest frequency |
+| `GET/PUT /api/admin/settings` | Admin token, settings capability | The organisation-wide switches: publish approval, profile editing and digest frequency |
+| `GET /api/admin/profile-values` | Admin token, users capability | Every mailbox with stored [profile values](/admin/profile-fields/), each with its completion count |
+| `PUT /api/admin/profile-values/:email` | Admin token, users capability | Edit a colleague's values on their behalf. Recorded in the change log |
 | `GET /api/admin/settings/digest/preview` | Admin token, settings capability | The [health digest](/monitoring/health-digest/) as it would be sent now. Sends nothing |
 | `POST /api/admin/settings/digest/send` | Admin token, settings capability | Mail the digest to the calling admin alone |
 | `GET /api/admin/onboarding` | Admin token, Admin role | Getting started checklist state |

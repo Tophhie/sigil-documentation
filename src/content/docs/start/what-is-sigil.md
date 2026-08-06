@@ -85,6 +85,12 @@ for a rebrand that has to land at a particular moment, or put behind
 [an approval step](/signatures/approvals/) so that only an admin can put a body
 in front of users.
 
+Where the directory is the wrong home for something,
+[profile fields](/admin/profile-fields/) fill the gap. An organisation defines
+custom fields such as pronouns or a personal booking link, and colleagues fill in
+their own at a page of their own. Nothing there is read from or written back to
+Entra.
+
 Targeting decides who gets what.
 [Assignment rules](/targeting/assignment-rules/) pick a template by directory
 attribute or Entra group membership. [Banners](/targeting/banners/) inject a

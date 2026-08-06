@@ -96,6 +96,17 @@ A token such as `{{jobTitle}}` replaced with directory data at render time. See
 **Platform console**
 Tophhie Cloud's cross-tenant operator view.
 
+**Profile field**
+A custom field an organisation defines and its own staff fill in, reached in a
+template as `{{custom.<key>}}`. The only placeholder group that does not come
+from the directory, and the only one a colleague rather than an administrator
+enters. See [profile fields](/admin/profile-fields/).
+
+**Profile page**
+The page at `portal.usesigil.app/me` where anybody in an organisation fills in
+their own profile fields. Needs no portal role and grants none. See
+[filling in your own details](/users/your-details/).
+
 **Publish approval**
 An optional per-tenant switch requiring an admin to put any body live. Editors
 submit drafts for review instead. See

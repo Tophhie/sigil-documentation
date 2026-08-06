@@ -2,7 +2,7 @@
 title: API keys
 description: Credentials for scripts rather than people, so a runbook or a reporting job can reach Sigil without anybody signing in.
 sidebar:
-  order: 5
+  order: 6
 ---
 
 Everything else in Sigil is done by a person holding an Entra token in a browser.
@@ -116,7 +116,7 @@ individual's directory record on demand.
 | Moving money: checkout, the billing portal, cancelling, reactivating, the billing profile | Reading seat counts into a dashboard is a real request. Cancelling a subscription from a cron job is not |
 | Granting access: inviting a colleague, changing a role, removing someone | Issuing a credential is an access-management act, which is why only an Admin can do it. Granting portal roles is the same act |
 | Overriding a control: changing organisation settings, the approval queue, submitting or rejecting a draft | Settings can switch [publish approval](/signatures/approvals/) off. Approval is a second pair of eyes, and a script signing off on a colleague's work is the thing it exists to prevent |
-| Reading one named person: preview against a real address, the per-mailbox download, [rule simulation](/targeting/assignment-rules/), the directory picker | Each answers "tell me about this mailbox" for an address the caller supplies. A tenant-wide credential that can do that a mailbox at a time is a way to read your directory |
+| Reading one named person: preview against a real address, the per-mailbox download, [rule simulation](/targeting/assignment-rules/), the directory picker, and what colleagues entered in their [profile fields](/admin/profile-fields/) | Each answers "tell me about this mailbox" for an address the caller supplies. A tenant-wide credential that can do that a mailbox at a time is a way to read your directory |
 | Managing keys | A leaked key must not be able to mint a replacement, or revoke the key you are about to use to stop it |
 | Your relationship with an IT provider: accepting or declining a transfer, ending the arrangement | Deciding who processes your data is an administrator's act |
 | The data processing agreement, and the getting started checklist | Both need the Admin role, which a key never holds |
@@ -127,6 +127,13 @@ directory", deliberately. [Activity](/monitoring/activity/) and
 [attribute coverage](/monitoring/attribute-coverage/) do carry mailbox
 addresses, and pulling those on a schedule is much of what the feature is for.
 What a key cannot do is ask about an address it chose.
+
+Profile fields split along the same line, and the split is worth knowing if you
+automate anything. Defining which fields exist is reachable, because standing a
+new client up with the same six fields every time is exactly the configuration
+work a key is for. Reading or writing what a named colleague typed into one is
+not, and if anything that is more personal than a directory attribute rather than
+less, since the person entered it themselves.
 
 Every one of these is something a person in the portal can still do. Nothing
 here reduces what your administrators can reach.

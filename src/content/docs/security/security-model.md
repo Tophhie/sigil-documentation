@@ -155,6 +155,16 @@ value containing markup cannot break the signature or inject anything.
 Any placeholder left unresolved is stripped, so a literal `{{jobTitle}}` can never
 reach a recipient.
 
+[Profile fields](/admin/profile-fields/) are checked a second time, on the way
+in. They are the only values a signature carries that a colleague typed rather
+than an administrator configured or the directory supplied, and escaping alone
+does not cover every case: a link target that is entirely one placeholder cannot
+be checked at render time, because at that point the value is not yet known. So a
+field declared as a web address accepts only ordinary `http` and `https` links,
+and refuses anything else when it is saved. The same check applies when an
+administrator edits somebody else's values, since it protects the recipient
+rather than policing the author.
+
 ## The link domain
 
 Tracked links are served from `e-clk.usesigil.app`, which answers `/r/` redirects

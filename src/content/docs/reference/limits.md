@@ -93,6 +93,7 @@ and therefore only cover the last 90 days. See
 | Footer edit | Seconds |
 | Banner window opening or closing | Immediately |
 | Assignment rules change | Up to 10 minutes |
+| Profile field value saved, by anybody in the organisation | Next compose |
 | Directory attribute change in Entra | Within the cache lifetime, without a republish |
 | Microsoft 365 profile photo added or changed | Up to a day |
 | Add-in manifest change | Requires redeploy, plus 6 to 72 hours propagation and fresh consent |
@@ -134,10 +135,30 @@ See [scheduled publishing](/signatures/scheduled-publishing/).
 | Publish approval | Off by default, per organisation |
 | Rejection note | Required, and kept up to 1,000 characters |
 | Approving your own submission | Permitted, and recorded as such |
+| Profile editing | Off by default, per organisation |
 | Health digest | Weekly by default. Weekly, monthly or off |
 
 See [publish approval](/signatures/approvals/) and
 [the health digest](/monitoring/health-digest/).
+
+## Profile fields
+
+| Item | Value |
+| --- | --- |
+| Fields per organisation | 24 |
+| Field key | Starts with a lower-case letter, then letters and numbers, up to 32 characters |
+| Field label | 60 characters |
+| Help text | 200 characters |
+| Types | Text, choice, URL, email, phone |
+| Options on a choice field | 1 to 24, each up to 100 characters |
+| Maximum length of a value | 500, and never above the field's own maximum |
+| Default maximum length | 200 characters |
+| Whole profile per mailbox | 8 KB |
+| Renaming a field key | Not offered. Delete and re-add |
+| Saves per mailbox | Rate limited, well above normal use |
+
+A required field is advisory. One nobody filled in renders empty rather than
+failing a compose. See [profile fields](/admin/profile-fields/).
 
 ## API keys
 

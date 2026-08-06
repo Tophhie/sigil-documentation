@@ -21,6 +21,10 @@ code.
 
 It offers a download of your signature as a self-contained file.
 
+Where your organisation has switched it on, it also offers "Edit my details",
+which opens the page where you fill in your own signature details. See
+[filling in your own details](/users/your-details/).
+
 ## What it tells you when something is wrong
 
 The pane distinguishes between problems worth retrying and problems that retrying

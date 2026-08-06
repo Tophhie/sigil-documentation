@@ -24,6 +24,10 @@ The list comes from the API rather than being hard-coded in the editor, so it
 cannot drift from what the renderer actually knows how to resolve. If a
 placeholder appears in the picker, it renders.
 
+That includes any [profile fields](/admin/profile-fields/) your organisation has
+defined, which appear as `{{custom.<key>}}` under a "User profile" heading after
+the directory groups.
+
 See [placeholders](/signatures/placeholders/) for the full set and what each one
 maps to.
 

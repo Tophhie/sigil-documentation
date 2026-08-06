@@ -40,14 +40,31 @@ Billing state, mirrored from Stripe, and your billing profile.
 A record of each attempt to connect an organisation to Sigil. It holds the
 attempt reference, the route the signup came through, your organisation name and
 primary domain as Entra reported them, your Entra tenant id, any error code
-Microsoft or Stripe returned, how long each provisioning step took, and the
-identifier of the underlying request. It holds no credentials and no directory
+Microsoft or Stripe returned, how long each provisioning step took, the
+identifier of the underlying request, and, where the signup began from an
+invitation, which invitation it was. It holds no credentials and no directory
 contents. This log lives outside your tenant's own data and is read by Tophhie
 Cloud operators rather than shown in your portal.
+
+Where an invitation link was used, Sigil also counts how many times its landing
+page was rendered and when it was first and last opened. That is timestamps and a
+count. No address, no IP and no user agent is stored against it, and there is no
+cookie or pixel, so it records that a link was opened rather than who opened it.
 
 Any [API keys](/admin/api-keys/) your administrators have created, held as a
 hash of the secret rather than as the secret, alongside each key's name, access,
 who created it and when it was last used.
+
+Where your organisation uses [profile fields](/admin/profile-fields/), the field
+definitions and the values your colleagues entered against them, one record per
+mailbox, with when it was last saved and by whom.
+
+That last one is worth naming separately, because it is the only thing Sigil
+stores that a member of staff typed about themselves rather than an
+administrator configured or the directory supplied. It holds whatever your
+organisation chose to ask for, so its contents are your organisation's decision
+rather than Sigil's. Nothing in it is read from or written back to Entra, and it
+is purged with everything else on deprovision.
 
 ## What Sigil does not store
 
@@ -139,8 +156,10 @@ taking before a deprovision rather than after.
 That list is what the file contains rather than a summary of it. A few smaller
 records are not in it: your organisation-wide [settings](/admin/settings/), any
 booked [scheduled publish](/signatures/scheduled-publishing/), the mailboxes and
-groups you have [excluded](/admin/cost-management/), and your
-[API keys](/admin/api-keys/). Each of those is readable
+groups you have [excluded](/admin/cost-management/), your
+[API keys](/admin/api-keys/), and your
+[profile fields](/admin/profile-fields/) with the values people entered in them.
+Each of those is readable
 in the portal, and each is purged on deprovision along with everything else. Ask
 support if you need them in an export for a compliance exercise.
 

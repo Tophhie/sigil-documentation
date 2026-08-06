@@ -40,9 +40,31 @@ the portal is recorded.
 | Excluding a mailbox from Sigil, or putting one back | Yes |
 | Excluding an Entra group, and every later change to who it covers | Yes |
 | Creating or revoking an API key | Yes |
+| Adding, changing, hiding or deleting a profile field | Yes |
+| An administrator editing a colleague's profile values | Yes |
+| A person editing their own profile values | No |
 | Changing an organisation-wide setting | Yes |
 
 Each entry carries who performed the action and when.
+
+## Profile field entries
+
+Defining which [profile fields](/admin/profile-fields/) exist is an
+administrative act and is recorded, with the field's key and what changed about
+it. Switching profile editing on or off is recorded as a settings change,
+alongside the other organisation-wide switches.
+
+An administrator editing somebody else's values is recorded as well. That entry
+carries the mailbox and which fields changed, and never the values themselves,
+because a change log is not a place to duplicate a colleague's personal details.
+As with rollout reasons and approval details, the portal lists the action and the
+actor, so the mailbox and the field list are read from the API.
+
+A person editing their own values is deliberately not recorded here. This log is
+an administrator's record of what changed about the organisation's signatures,
+and a hundred colleagues updating their own mobile numbers would drown it. The
+profile carries who last saved it and when, which is what the Profile fields page
+shows.
 
 ## Entries made by an API key
 

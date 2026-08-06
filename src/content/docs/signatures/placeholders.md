@@ -99,6 +99,34 @@ explicitly selected, which Sigil does. And they are writable for cloud-only user
 but read-only for users synced from on-premises Active Directory, so populating
 them may mean changing AD rather than Entra.
 
+## User profile fields
+
+| Placeholder | Source |
+| --- | --- |
+| `{{custom.<key>}}` | A field your organisation defined, filled in by the person themselves |
+
+These are the one group here that does not come from the directory at all. An
+administrator defines which fields exist, and each colleague fills in their own
+values at `portal.usesigil.app/me`. Pronouns, a personal booking link and a
+direct line are the usual cases: things nobody wants an administrator
+maintaining on 200 people's behalf.
+
+The `custom.` prefix is reserved, so a built-in placeholder added to Sigil later
+can never collide with a key your organisation is already using, and anybody
+reading your template can tell a directory value from something a colleague
+typed.
+
+They appear in the field picker in both editors under a "User profile" heading,
+after the directory groups. The group is last because it is the only one whose
+contents differ between two organisations looking at the same picker.
+
+Somebody who has not filled in a field renders as empty, exactly like a sparse
+directory attribute, so wrap these in a conditional section. Nothing here is
+read from or written back to Entra.
+
+See [profile fields](/admin/profile-fields/) for defining them, and
+[filling in your own details](/users/your-details/) for the page people use.
+
 ## Derived helpers
 
 | Placeholder | True when |
@@ -135,6 +163,12 @@ behaviour is available on any block through its "visible when" field.
 
 Values are HTML-escaped when they are substituted, so a directory value
 containing `<` or `&` cannot break the markup or inject anything.
+
+User profile fields get a second layer, because they are the only values here a
+colleague types rather than an administrator controls. What each field accepts is
+checked when it is saved rather than when it is rendered, which is why a field
+holding a web address refuses anything that is not an ordinary `http` or `https`
+link.
 
 Any placeholder left unresolved is stripped. A literal `{{jobTitle}}` can never
 reach a recipient, even if you mistype it.

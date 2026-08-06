@@ -21,10 +21,10 @@ a description of it.
 | Compliance footers | Legal and disclaimer footers | Yes | No | No | No | Yes | No |
 | Link click analytics | Click tracking and its reports | Yes | No | Yes | Yes | No | No |
 | Monitoring | Activity feed, attribute coverage, change log | Yes | Yes | No | Yes | Yes | No |
-| Users and roles | Invite users and assign roles | Yes | No | No | No | No | Yes |
+| Users and roles | Invite users and assign roles, and see or edit what colleagues entered in their own [profile fields](/admin/profile-fields/) | Yes | No | No | No | No | Yes |
 | Billing | Plan, seats, subscription and billing profile | Yes | No | No | No | No | Yes |
 | Cost management | Which mailboxes and Entra groups are excluded from Sigil, and the suggestions behind that | Yes | No | No | No | No | Yes |
-| Settings | The organisation-wide switches: publish approval and the health digest | Yes | No | No | No | No | No |
+| Settings | The organisation-wide switches (publish approval, profile editing and the health digest), and which [profile fields](/admin/profile-fields/) exist | Yes | No | No | No | No | No |
 
 Admin is the only role that holds every capability. Assignment rules and settings
 are the two capabilities no other role holds. Rules decide who receives which
@@ -52,6 +52,14 @@ A valid sign-in with no role assigned is authenticated but authorised for
 nothing, and is told to request access. A sign-in from an organisation that never
 granted consent is prompted to connect it instead.
 
+There is one page no role is needed for. Where an organisation has switched
+[profile editing](/admin/settings/) on, anybody in it can open
+`portal.usesigil.app/me` and fill in their own signature details. That page
+consults no role and grants none: it acts only on the mailbox in the token that
+opened it, and somebody with no role who signs in there still reaches nothing
+else in the portal. It is deliberately kept clear of the path that promotes the
+first administrator, so opening it can never make an ordinary colleague one.
+
 The portal hides navigation a role cannot reach. Every server route independently
 checks the capability it requires, so hiding a menu item is presentation rather
 than the control.
@@ -73,7 +81,9 @@ person. A key may only call operations on an allow-list, so holding a capability
 is necessary rather than sufficient. The template capability, for instance,
 reaches most of the signature library under a key but not the per-mailbox
 download, the preview against a real address or the test email, all of which a
-person holding the same capability can still use. See
+person holding the same capability can still use. The same split runs through
+profile fields: a key holding settings can define the fields, while reading or
+writing what a named colleague entered in one is refused. See
 [API keys](/admin/api-keys/) for the whole list and the reasoning behind it.
 
 A key can never be granted access its creator does not hold, and only an Admin

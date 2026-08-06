@@ -18,12 +18,17 @@ Every attribute that maps to a [placeholder](/signatures/placeholders/): the
 identity fields, the phone numbers, job title and department, the address
 components, the manager fields, and all fifteen extension attributes.
 
-Two kinds of placeholder are left out, because neither has a populated or missing
-state to score. The derived helpers `anyPhone`, `anyAddress` and `hasPhoto` are
-computed rather than stored, and `contactCardUrl` is
+Three kinds of placeholder are left out, because none has a populated or missing
+state in the directory to score. The derived helpers `anyPhone`, `anyAddress` and
+`hasPhoto` are computed rather than stored. `contactCardUrl` is
 [supplied by Sigil](/signatures/contact-card/) rather than read from the
-directory. Auditing either would report a gap in something that was never a
+directory. And [profile fields](/admin/profile-fields/), the `{{custom.…}}`
+placeholders your colleagues fill in themselves, were never in Entra at all.
+Auditing any of them would report a permanent gap in something that was never a
 directory attribute.
+
+How many people have filled in each profile field is reported on the Profile
+fields page instead, where the number means what it says.
 
 The manager fields cover all four placeholders, not just the manager's name. A
 manager's job title, email address and phone number are each scored separately,

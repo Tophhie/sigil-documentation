@@ -2,17 +2,18 @@
 title: Settings
 description: The organisation-wide switches, what each one changes, and who can change them.
 sidebar:
-  order: 6
+  order: 7
 ---
 
 Settings holds the choices you make about how your own organisation behaves, as
 opposed to the things Sigil sets for you.
 
-There are two.
+There are three.
 
 | Setting | Default | What it changes |
 | --- | --- | --- |
 | Require approval to publish | Off | Publishing, restoring a version, staging a rollout and scheduling any of it need an admin |
+| Profile editing | Off | Whether colleagues can fill in their own custom signature details |
 | Health digest | Weekly | How often Sigil emails your admins a summary of signature health |
 
 ## Require approval to publish
@@ -26,6 +27,23 @@ drafts are already in flight behind a review nobody asked for.
 
 See [publish approval](/signatures/approvals/) for the review cycle, what is
 gated and what deliberately is not.
+
+## Profile editing
+
+With this on, anybody in your organisation can open `portal.usesigil.app/me` and
+fill in the custom fields you have defined, such as pronouns or a personal
+booking link. Nothing on that page is read from or written back to Microsoft 365.
+
+It is off by default, unlike the digest, because it changes what non-administrative
+staff can do in a product nobody has told them about yet.
+
+Turning it off later stops people editing. What they have already entered keeps
+appearing in their signatures, because a decision about who may edit should not
+quietly blank a line out of everybody's mail. Deleting the field is how you
+remove the values.
+
+Which fields exist is a separate page. See
+[profile fields](/admin/profile-fields/).
 
 ## Health digest
 
@@ -72,7 +90,7 @@ See [roles and capabilities](/reference/roles-and-capabilities/).
 
 ## What is recorded
 
-Changing either switch writes a [change log](/monitoring/change-log/) entry under
-the Changed settings action, with who changed it and when. Sending yourself a
-digest is recorded there too. Previewing one is not, because nothing left the
+Changing any of the three writes a [change log](/monitoring/change-log/) entry
+under the Changed settings action, with who changed it and when. Sending yourself
+a digest is recorded there too. Previewing one is not, because nothing left the
 building.
