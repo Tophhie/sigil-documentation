@@ -135,6 +135,13 @@ work a key is for. Reading or writing what a named colleague typed into one is
 not, and if anything that is more personal than a directory attribute rather than
 less, since the person entered it themselves.
 
+One consequence of that is worth spelling out, because the portal does not. Staff
+profile details appears in the list of areas you can grant, since the form offers
+whatever you hold yourself. Every operation it covers is off the allow-list, so a
+key granted it can reach nothing through it. Granting it is harmless and also
+pointless. The area a script wants for profile fields is settings, which is what
+defining them needs.
+
 Every one of these is something a person in the portal can still do. Nothing
 here reduces what your administrators can reach.
 

@@ -149,19 +149,22 @@ Two exports exist, and they answer different questions.
 A whole-organisation export is a single JSON file holding your organisation record
 and subscription, your portal users, every template with its body and design
 document, templates still in Recently deleted, the role pointers, assignment
-rules, banners, footers, the change log and your images. Ask support for it. It
-is the artifact for a due diligence request or for leaving, and it is worth
-taking before a deprovision rather than after.
+rules, banners, footers, your [profile fields](/admin/profile-fields/) with the
+values people entered in them, the change log and your images. Ask support for
+it. It is the artifact for a due diligence request or for leaving, and it is
+worth taking before a deprovision rather than after.
 
 That list is what the file contains rather than a summary of it. A few smaller
 records are not in it: your organisation-wide [settings](/admin/settings/), any
 booked [scheduled publish](/signatures/scheduled-publishing/), the mailboxes and
-groups you have [excluded](/admin/cost-management/), your
-[API keys](/admin/api-keys/), and your
-[profile fields](/admin/profile-fields/) with the values people entered in them.
-Each of those is readable
+groups you have [excluded](/admin/cost-management/), and your
+[API keys](/admin/api-keys/). Each of those is readable
 in the portal, and each is purged on deprovision along with everything else. Ask
 support if you need them in an export for a compliance exercise.
+
+The file carries a schema version, which is what tells two exports apart when the
+contents differ. Version 3 is the current one, and it is where the profile fields
+and their values arrived.
 
 It also carries the support notes Tophhie Cloud staff have written against your
 organisation. Those notes are written in the operator console rather than in your
@@ -174,8 +177,15 @@ is complete.
 
 ## Subject access requests
 
-Sigil can also export everything held about a single mailbox, which is what a
-subject access request needs. Request it through support.
+Sigil can also export what is held against a single mailbox, which is what a
+subject access request usually starts from. It carries that mailbox's signature
+events and its activity rollup: every request made for it, when, from which
+Outlook client, and whether a signature came back. Request it through support.
+
+What that file does not carry is anything the person entered in their
+[profile fields](/admin/profile-fields/), which lives in the whole-organisation
+export instead. If a request needs both, say so when you ask, because two
+different exports answer it.
 
 Erasure of a single mailbox is deliberately not offered. Removing one person's
 records from an append-only audit trail would compromise the trail itself, so the

@@ -132,11 +132,11 @@ You can edit somebody else's values from here. It exists for the support case,
 where a colleague is on leave and their number is wrong, and for pre-filling
 before you ask anyone to visit the page.
 
-Reading or editing this tab needs the users capability, which is a different
-capability from the one that defines the fields. Deciding which fields exist is
-an organisation-wide choice about how you work. Reading what a named colleague
-typed about themselves is reaching into a person's own data, and it sits with
-the capability that already means that.
+Reading or editing this tab needs the staff profile details capability, which is
+a different capability from the one that defines the fields. Deciding which
+fields exist is an organisation-wide choice about how you work. Reading what a
+named colleague typed about themselves is reaching into a person's own data, and
+the two are not the same permission.
 
 ## Who can do what
 
@@ -144,16 +144,21 @@ the capability that already means that.
 | --- | --- | --- |
 | Define, change, hide or delete fields | Settings | Admin |
 | Switch profile editing on or off | Settings | Admin |
-| See and edit what colleagues entered | Users | Admin, Billing |
+| See and edit what colleagues entered | Staff profile details | Admin |
 | Fill in your own details | None | Everybody |
 
-The Billing role reaching the values follows from what that capability already
-means. It is the role that manages who has portal access, and the same
-capability covers reaching into a named colleague's standing in the
-organisation.
+Staff profile details is its own capability rather than part of users and roles,
+and the Billing role is the reason. That role manages who has portal access, so
+it holds the users capability, and it is otherwise kept clear of anything that
+changes what a colleague's mail looks like. Editing somebody's pronouns and
+personal booking link does exactly that, which is why the Billing role does not
+reach this tab.
 
 In a [partner-managed](/partners/overview/) organisation, a partner Owner or
-Admin holds both capabilities. A partner Technician holds neither.
+Admin holds both capabilities. A partner Technician holds this one and not
+settings, so they can correct what your staff entered without having any say over
+which fields you ask for. That is the support call an IT provider actually gets,
+and it is the case the split was built around.
 
 Filling in your own profile requires no role at all, and no role is consulted.
 Signing in to that page grants nothing else: someone with no portal role who
@@ -227,7 +232,13 @@ That report measures how populated your Microsoft 365 directory is, and a field
 that was never in the directory would show as a permanent gap in it. Completion
 is reported on this page instead.
 
-Profile field definitions and values are not currently included in the
-whole-organisation export. They are readable in this page, and they are purged
-on deprovision along with everything else. See
+Profile field definitions and the values people entered against them are included
+in the whole-organisation export. They belong there more clearly than most of it
+does: they are personal data your colleagues wrote about themselves, so an export
+without them would be wrong about what your organisation holds rather than merely
+thinner. See
 [data and privacy](/security/data-and-privacy/#getting-your-data-out).
+
+They are not in the per-mailbox export a subject access request uses, which
+carries that mailbox's signature history rather than its stored values. Ask
+support if you need one person's values on their own.

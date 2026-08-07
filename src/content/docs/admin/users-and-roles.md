@@ -49,6 +49,12 @@ excluding a mailbox takes it off the bill and stops its signature together. Ever
 use of it is written to the [change log](/monitoring/change-log/) for that
 reason.
 
+What managing users does not extend to is reading what colleagues entered in
+their own [profile fields](/admin/profile-fields/). That sits behind a separate
+capability the Billing role does not hold, because somebody's pronouns and
+personal booking link are not part of running the account, and editing them puts
+words in a colleague's signature.
+
 Only an Admin can create, change or remove another Admin. Somebody with the
 Billing role can manage ordinary colleagues but cannot promote anybody to Admin,
 including themselves through a second account.

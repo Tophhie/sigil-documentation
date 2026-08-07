@@ -21,15 +21,28 @@ a description of it.
 | Compliance footers | Legal and disclaimer footers | Yes | No | No | No | Yes | No |
 | Link click analytics | Click tracking and its reports | Yes | No | Yes | Yes | No | No |
 | Monitoring | Activity feed, attribute coverage, change log | Yes | Yes | No | Yes | Yes | No |
-| Users and roles | Invite users and assign roles, and see or edit what colleagues entered in their own [profile fields](/admin/profile-fields/) | Yes | No | No | No | No | Yes |
+| Users and roles | Invite users and assign roles | Yes | No | No | No | No | Yes |
 | Billing | Plan, seats, subscription and billing profile | Yes | No | No | No | No | Yes |
 | Cost management | Which mailboxes and Entra groups are excluded from Sigil, and the suggestions behind that | Yes | No | No | No | No | Yes |
 | Settings | The organisation-wide switches (publish approval, profile editing and the health digest), and which [profile fields](/admin/profile-fields/) exist | Yes | No | No | No | No | No |
+| Staff profile details | See and correct what a named colleague entered in their own [profile fields](/admin/profile-fields/) | Yes | No | No | No | No | No |
 
-Admin is the only role that holds every capability. Assignment rules and settings
-are the two capabilities no other role holds. Rules decide who receives which
-signature, and settings decide who may publish at all, so both have
-organisation-wide reach that a narrower role should not.
+Admin is the only role that holds every capability. Assignment rules, settings
+and staff profile details are the three capabilities no other role holds. Rules
+decide who receives which signature, and settings decide who may publish at all,
+so both have organisation-wide reach that a narrower role should not.
+
+Staff profile details is separate from users and roles for a different reason,
+and the Billing role is that reason. Billing holds the users capability, because
+the person paying for Sigil is usually the person deciding who has access to it,
+and it is otherwise kept clear of anything that changes what a colleague's
+outgoing mail says. Editing somebody's pronouns or their personal booking link is
+squarely the second thing, so putting it under the users capability would have
+handed it to a role built to avoid exactly that. Hence a capability of its own.
+
+Defining which fields exist stays under settings, and the two come apart in
+practice: somebody can be trusted to correct a wrong number without also deciding
+what the organisation asks its staff for.
 
 Where [publish approval](/signatures/approvals/) is switched on, holding the
 templates capability is no longer enough to put a body live. Publishing,
@@ -83,7 +96,10 @@ reaches most of the signature library under a key but not the per-mailbox
 download, the preview against a real address or the test email, all of which a
 person holding the same capability can still use. The same split runs through
 profile fields: a key holding settings can define the fields, while reading or
-writing what a named colleague entered in one is refused. See
+writing what a named colleague entered in one is refused. Staff profile details
+is offered when you create a key, because the portal offers whatever the
+administrator holds, but every operation it covers is off the allow-list, so a
+key granted it reaches nothing through it. See
 [API keys](/admin/api-keys/) for the whole list and the reasoning behind it.
 
 A key can never be granted access its creator does not hold, and only an Admin
@@ -110,16 +126,26 @@ Partner roles apply across a managed client base. See
 | Manage partner staff | Yes | No | No | No |
 
 Inside a client, Owner, Admin and Technician reach templates, rules, banners,
-footers, analytics and monitoring. Owner and Admin additionally reach the
+footers, analytics, monitoring and what the client's staff entered in their
+[profile fields](/admin/profile-fields/). Owner and Admin additionally reach the
 client's own users and roles, its [settings](/admin/settings/) and its
 [cost management](/admin/cost-management/); a Technician reaches none of the
 three. No partner role reaches a client's billing, because a managed client has
-no subscription of its own.
+no subscription of its own. Partner Billing staff reach nothing at all inside a
+client, staff profile details included.
 
 A Technician is deliberately kept out of settings and cost management. Turning a
 client's publish approval off is exactly the kind of change that control exists
 to prevent, and switching off a mailbox's signature is an account decision rather
 than signature work. Both belong with the roles that also decide who has access.
+
+Staff profile details is the one that goes the other way, and it is why the
+capability exists at all. Correcting a client's wrong number while somebody is on
+leave is a service desk call rather than an account decision, so a Technician can
+do it. Deciding which fields the client is asked for sits under settings, so a
+Technician cannot. That asymmetry is visible in the portal: a Technician opening
+Profile fields gets the half showing what people entered and not the half
+defining the fields.
 
 Any staff member can also be scoped to particular clients, whatever their role.
 Somebody with no scope set reaches every client of the partner; somebody scoped

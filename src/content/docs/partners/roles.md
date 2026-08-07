@@ -14,7 +14,7 @@ tenant. Each is given a partner role that applies across the client base.
 | --- | --- |
 | Owner | Everything: the client lifecycle, partner billing and staff management |
 | Admin | The client lifecycle and full configuration inside a client, but not partner billing or staff management |
-| Technician | Signature work inside a client. No client lifecycle, no client user management, no billing |
+| Technician | Signature work inside a client, and correcting what its staff entered about themselves. No client lifecycle, no client user management, no billing |
 | Billing | Partner billing and per-client usage reports only. No access inside a client at all |
 
 The client lifecycle means adding a client, inviting one, asking to take over an
@@ -30,6 +30,13 @@ monitoring inside a client, but not that client's own users and roles, not its
 off is exactly the kind of change that control exists to prevent, and excluding a
 mailbox switches off a colleague's signature, so both sit with the roles that
 also decide who has access.
+
+A Technician can also see and correct what a client's staff entered in their own
+[profile fields](/admin/profile-fields/). "She is on leave and her number is
+wrong" is a service desk call rather than an account decision, and it would be a
+strange programme that routed it to the partner Owner. Defining which fields a
+client asks for is settings work, so a Technician does not get that half: they
+arrive on the page able to fix a value and not to change the form.
 
 No partner role reaches a managed client's billing, because a managed client has
 no subscription of its own. The money is handled at partner level.

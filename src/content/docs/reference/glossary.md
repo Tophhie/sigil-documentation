@@ -139,6 +139,13 @@ are accounts invited in from outside the organisation, disabled accounts, and
 mailboxes the organisation has excluded, whether individually or through an
 excluded Entra group.
 
+**Staff profile details**
+The capability covering what a named colleague entered in their own profile
+fields. Held by Admin and by partner Owner, Admin and Technician staff, and
+deliberately not by the Billing role. Separate from the capability that defines
+which fields exist. See
+[roles and capabilities](/reference/roles-and-capabilities/).
+
 **Template**
 A signature design containing HTML and placeholders. Library-managed and
 versioned.

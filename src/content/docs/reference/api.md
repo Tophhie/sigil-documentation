@@ -341,8 +341,8 @@ telemetry.
 | `GET/PUT /api/admin/users`, `DELETE /api/admin/users/:email` | Admin token, users capability | Manage users and roles |
 | `GET /api/admin/users/search` | Admin token, templates or users capability | Directory lookup, for pickers such as download and test email |
 | `GET/PUT /api/admin/settings` | Admin token, settings capability | The organisation-wide switches: publish approval, profile editing and digest frequency |
-| `GET /api/admin/profile-values` | Admin token, users capability | Every mailbox with stored [profile values](/admin/profile-fields/), each with its completion count |
-| `PUT /api/admin/profile-values/:email` | Admin token, users capability | Edit a colleague's values on their behalf. Recorded in the change log |
+| `GET /api/admin/profile-values` | Admin token, staff profile details capability | Every mailbox with stored [profile values](/admin/profile-fields/), each with its completion count, and the enabled field definitions to label them with |
+| `PUT /api/admin/profile-values/:email` | Admin token, staff profile details capability | Edit a colleague's values on their behalf. Validated exactly as the colleague's own save is, and recorded in the change log |
 | `GET /api/admin/settings/digest/preview` | Admin token, settings capability | The [health digest](/monitoring/health-digest/) as it would be sent now. Sends nothing |
 | `POST /api/admin/settings/digest/send` | Admin token, settings capability | Mail the digest to the calling admin alone |
 | `GET /api/admin/onboarding` | Admin token, Admin role | Getting started checklist state |
