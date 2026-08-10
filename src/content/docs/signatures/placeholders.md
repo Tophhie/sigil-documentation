@@ -156,8 +156,34 @@ Wrap optional content so it disappears when the underlying attribute is empty:
 Here the department and its separator only appear when there is a job title to
 attach them to, and the whole thing disappears for someone with neither.
 
-Sections nest freely. In the [designer](/signatures/designer/), the same
-behaviour is available on any block through its "visible when" field.
+Sections nest freely, and nesting is how you combine conditions. The example
+above shows content that appears only when both attributes are present.
+
+In the [designer](/signatures/designer/), the same behaviour is available on any
+block through its "visible when" field.
+
+### Sections that open on either of two fields
+
+You may see a section written with a vertical bar in it, which opens when any one
+of the fields it names has a value:
+
+```html
+{{#custom.linkedin|custom.github}}<tr>…</tr>{{/custom.linkedin|custom.github}}
+```
+
+This form is written by the [designer](/signatures/designer/) rather than by you,
+and you will only meet it if you open a designer template in the HTML editor. It
+exists for the one thing nesting cannot express: a container that has to
+disappear when none of several independent things inside it survive, which is
+what a row of social icons each hanging off a different attribute needs. Nesting
+can only say "and".
+
+The syntax stays this small on purpose. There is no negation, no grouping and no
+precedence to get wrong. There is no reason to write one by hand.
+
+A section like this counts as using every field it names, so all of them appear
+in [attribute coverage](/monitoring/attribute-coverage/) and in the
+[health digest](/monitoring/health-digest/).
 
 ## What the renderer guarantees
 
@@ -166,9 +192,13 @@ containing `<` or `&` cannot break the markup or inject anything.
 
 User profile fields get a second layer, because they are the only values here a
 colleague types rather than an administrator controls. What each field accepts is
-checked when it is saved rather than when it is rendered, which is why a field
-holding a web address refuses anything that is not an ordinary `http` or `https`
-link.
+checked when it is saved rather than when it is rendered.
+
+Part of that check applies to every field regardless of its type: a value that
+looks like a link has to be an ordinary `http` or `https` one. A link target that
+is entirely one placeholder cannot be checked at render time, since Sigil cannot
+know the value in advance, so a text field is held to the same rule as a URL
+field. See [profile fields](/admin/profile-fields/#one-check-applies-to-every-type).
 
 Any placeholder left unresolved is stripped. A literal `{{jobTitle}}` can never
 reach a recipient, even if you mistype it.

@@ -63,6 +63,12 @@ beginning `https://`. A field offering a list of choices takes one of those
 choices. That is your organisation's decision about the field, not Sigil being
 particular.
 
+If your organisation changes a field after you filled it in, you keep what you
+chose. An option that has since been taken off the list still shows as your
+answer rather than the field going blank, and you pick again from the new list
+whenever you next save. The exception is a field whose type has changed
+altogether, where an answer that no longer fits the new kind of field is removed.
+
 Leaving a field empty is fine. Your signature closes up around anything you have
 not filled in, so an empty field leaves no gap, no stray comma and no empty
 label.

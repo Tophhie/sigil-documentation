@@ -62,6 +62,26 @@ own profile.
 Each icon is either a built-in mark or an image you uploaded, never both. Anything
 the set does not cover is still an upload, exactly as before.
 
+### Ordering the icons
+
+Icons render in the order they are listed, and each one has a pair of buttons for
+moving it earlier or later in the row. They are buttons rather than a drag,
+because the list lives in the inspector panel rather than on the canvas.
+
+### Icons that appear only for some people
+
+Each icon carries its own "visible when", the same as any block, so a row can
+hold one icon per attribute and show each person only the ones they have. Point
+the link at a placeholder and the icon reaches that person's own profile.
+
+When every icon in the row is conditional and nobody in a particular message has
+any of them, the whole row disappears rather than leaving its padding, background
+and border wrapped around nothing. You do not have to set that up. Sigil works
+out the condition for the row from the conditions on the icons inside it.
+
+An icon with no condition means the row always has something to show, so the row
+is never hidden.
+
 ### Styling the row
 
 The look is set once for the whole block rather than per icon, because a row

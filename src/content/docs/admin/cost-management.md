@@ -31,6 +31,24 @@ The pairing is deliberate. A mailbox still served but no longer billed would be 
 way of taking the product for free, and a mailbox no longer served but still
 billed is the complaint the feature exists to answer.
 
+### Aliases are covered
+
+You exclude a mailbox by its primary address, which is the one the directory
+picker offers and the one a group's membership resolves to. A message can be sent
+from any of that mailbox's other addresses, though, and Sigil checks the mailbox
+behind the sending address as well as the address itself.
+
+So sending from an alias of an excluded mailbox gets no signature either. Without
+that, an alias would be served a full signature while the seat count, which works
+from the directory, had already stopped billing for it, which is exactly the
+served-but-not-billed state the pairing above exists to make unreachable.
+
+This costs nothing for an organisation that excludes nothing, and the lookup only
+happens once the cheaper checks have already said there is something to look for.
+If your directory cannot be reached at that moment, Sigil serves the signature
+rather than withholding it, since a directory outage should not start removing
+signatures from people nobody excluded.
+
 ## What excluding actually saves
 
 Only licensed, enabled member mailboxes are billed in the first place, so
@@ -158,6 +176,16 @@ together, without counting anybody twice.
 A refresh that fails leaves the previous membership exactly as it was, and shows
 the error against the group.
 
+If the very first read fails, there is no previous membership to keep. The group
+is still added, carrying its error, so you have a row you can see and retry
+rather than nothing at all. Nobody is excluded by it until a read succeeds.
+
+The portal is careful to say which of two things happened, because they look
+identical from the dialog and mean opposite things. "It currently covers no
+mailboxes" means the group is empty. "Its membership could not be read" means
+your directory refused the question, almost always for want of the permission
+below.
+
 Treating an unreadable group as an empty one would restore signatures to, and
 resume billing for, everybody it covers, on the strength of a failed network
 call. So Sigil holds what it last read instead. The row shows when it was last
@@ -242,11 +270,21 @@ activity rollup and the coverage audit all use it.
 
 If a mailbox is renamed, the exclusion no longer matches it. That mailbox starts
 receiving signatures again, and returns to the bill at the next daily seat sync.
+Sending from the old address as an alias is still covered, because
+[aliases are checked](#aliases-are-covered), but a rename that leaves no alias
+behind is not.
 
 The portal flags this rather than leaving it to be found on an invoice. Any row
 whose address no longer resolves in your directory is marked as not in the
 directory, and the number of them appears as its own headline figure. Re-exclude
 the mailbox under its new address to put it back.
+
+That figure covers two situations, and only one of them costs anything.
+
+| Why the row no longer resolves | What it costs |
+| --- | --- |
+| The mailbox was renamed | It is billed again, under its new address |
+| The mailbox was deleted | Nothing. A deleted mailbox is not in the directory the seat count comes from, so it is not billed either way. The row is merely stale |
 
 Nothing repairs these automatically.
 

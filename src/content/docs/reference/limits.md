@@ -169,6 +169,7 @@ failing a compose. See [profile fields](/admin/profile-fields/).
 | Expiry | Optional, and must be in the future |
 | Times the secret is shown | One, at creation |
 | Requests per key | 600 a minute, then 429 until the rate falls back under it |
+| Requests presenting a key, per calling address | 2,000 a minute, counting invalid keys as well as valid ones |
 | Resolution of "last used" | One hour |
 | Effect of revoking | Immediate, and irreversible |
 | Endpoints reachable | Only those on the allow-list shown in the portal. Anything else answers 404 |

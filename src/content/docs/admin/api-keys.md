@@ -46,6 +46,15 @@ switch it would have to be handed write access to data it will never write.
 You can only grant a key access you hold yourself. The portal offers what you
 hold, and the server refuses anything beyond it, so the two cannot disagree.
 
+An area Sigil does not recognise is refused outright rather than quietly dropped.
+Issuing a key that does less than was asked for would turn into somebody
+debugging a 403 against a request that looked like it had worked.
+
+An area that Sigil retires later is treated the other way round. A key still
+naming it keeps working and simply no longer holds it, because reading an
+existing key is reading a record of what was granted rather than a request for
+something new.
+
 ## The secret is shown once
 
 Creating a key returns the secret once, in a panel on the page. Sigil stores a
@@ -112,7 +121,7 @@ individual's directory record on demand.
 
 | Refused | Why |
 | --- | --- |
-| Sending mail: [test email](/admin/test-email/), and sending or previewing the [health digest](/monitoring/health-digest/) | Test email delivers to whatever address the request names. A credential holding it is an outbound mailer that runs unattended |
+| Sending mail: [test email](/admin/test-email/), and sending or previewing the [health digest](/monitoring/health-digest/) | A credential that can post a rendered signature to any colleague's inbox, unattended, is an outbound mailer rather than a way of checking a layout |
 | Moving money: checkout, the billing portal, cancelling, reactivating, the billing profile | Reading seat counts into a dashboard is a real request. Cancelling a subscription from a cron job is not |
 | Granting access: inviting a colleague, changing a role, removing someone | Issuing a credential is an access-management act, which is why only an Admin can do it. Granting portal roles is the same act |
 | Overriding a control: changing organisation settings, the approval queue, submitting or rejecting a draft | Settings can switch [publish approval](/signatures/approvals/) off. Approval is a second pair of eyes, and a script signing off on a colleague's work is the thing it exists to prevent |
@@ -195,13 +204,28 @@ a single template.
 
 ## Rate limiting
 
-A key is limited to 600 requests a minute. Beyond that Sigil answers 429 until
-the rate falls back under the limit.
+There are two limits, and normal use meets neither.
 
-The limit is per key rather than per address, so a script running on a fleet of
+| Limit | Counted per | Ceiling |
+| --- | --- | --- |
+| Requests made with a valid key | Key | 600 a minute |
+| Requests presenting a key at all, valid or not | Calling address | 2,000 a minute |
+
+Beyond either, Sigil answers 429 until the rate falls back under the limit.
+
+The first is per key rather than per address, so a script running on a fleet of
 build agents is still one client. It sits far above any plausible runbook or
 reporting pull, and exists because the database is shared across every
 organisation, which makes a retry loop somebody else's problem as well as yours.
+
+The second is deliberately looser, and is a load guard rather than a security
+control. A key can only be counted against the first limit once Sigil knows
+which key it is, so a loop presenting invalid secrets would otherwise cost a
+database lookup each time and be bounded by nothing. It is not there to make
+guessing harder, since there is nothing in a 256-bit random secret to guess. Its
+ceiling is set well above the per-key limit so that an organisation running
+several keys from one outbound address, a build runner or a scheduler on your own
+network, meets the limit that was meant for it rather than this one.
 
 ## Revoking
 

@@ -90,7 +90,7 @@ per tenant in Sigil, decides what you can do.
 | --- | --- |
 | You have a role in a connected tenant | You get the portal, scoped to that role |
 | You sign in with no role assigned | You are told to request access from an administrator |
-| Your organisation never granted consent | You get a Connect your organisation button, which starts consent |
+| Your organisation never granted consent | You get a second step offering to approve Sigil, which starts consent |
 | Your organisation was removed and is awaiting deletion | You are told to contact support, because only an operator can restore it |
 | Your organisation is suspended | You are told access is suspended |
 
@@ -98,6 +98,18 @@ Reaching the portal before anyone has granted consent is the ordinary order of
 events for an administrator who was forwarded a link, so that case offers the
 consent step rather than an error. The other three cannot be resolved by the
 person reading them, and say so instead of offering a button that would not work.
+
+That step is presented as step two of two, with your sign-in ticked off above it
+and the account you signed in with named, because the alternative reads as the
+sign-in screen appearing a second time and the natural conclusion is that
+signing in failed. It also names your domain, so you can see which organisation
+is about to be connected.
+
+If you are not the administrator who can approve it, the same screen offers to
+copy the consent link so you can send it to somebody who is. That is the
+commonest dead end here, and it is worth using rather than pressing the approve
+button and reading back an AADSTS code. The copied link deliberately carries no
+account details, since the point is for a different person to open it.
 
 ## If consent does not complete
 

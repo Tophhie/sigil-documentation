@@ -68,16 +68,49 @@ stops a bad value reaching a recipient's inbox.
 Choice is a rejection rather than a suggestion. A value that is not on your list
 is refused on save.
 
-URL is the one worth understanding. A designer link target that is entirely one
-placeholder cannot be checked when the signature is rendered, because at that
-point Sigil cannot know what the value will be. So restricting what the input
-accepts is the only defence there is against something like a `javascript:`
-link, and it is applied on save so the person is told rather than discovering
-later that their link does nothing.
+### One check applies to every type
+
+Whatever the type, a value that looks like a link is restricted to ordinary
+`http` and `https` addresses. Something like a `javascript:` link is refused from
+a text field just as firmly as from a URL one.
+
+That is deliberately not a rule of the URL type, because a type is a statement
+about what a field is for and three ordinary things get around it. You can change
+a field's type after values were stored. A stored value carries through every
+later save untouched. And a design can use any placeholder as a whole link
+target, including one from a text field.
+
+A link target that is entirely one placeholder cannot be checked when the
+signature is rendered, because at that point Sigil cannot know what the value
+will be, so checking on the way in is the only defence there is. Applying it on
+save also means the person is told at the time rather than discovering later that
+their link does nothing.
 
 The same validation applies when an administrator edits somebody else's values.
 An administrator is not trusted more than the person here, because the check is
 protecting the recipient rather than policing the author.
+
+### Changing a field's type
+
+Nothing revalidates what is already stored, so changing a field's type, or the
+options on a choice field, sweeps out the values the new rules would refuse. The
+portal reports how many it removed.
+
+Removed rather than hidden. A value nobody could enter today is not one a
+signature should still be able to print.
+
+Shortening the maximum length deliberately does not sweep anything. An
+over-long stored value is untidy rather than unsafe, and quietly deleting what
+somebody typed is the worse of the two outcomes.
+
+### Retiring an option
+
+If you remove an option from a choice field while people still have it stored,
+they keep it. Their profile page and the administrator's view of their values
+both show what is there rather than blanking the field.
+
+Nobody loses their answer to a change they had no part in. They pick again from
+the new list the next time they save.
 
 ## Using them in a template
 

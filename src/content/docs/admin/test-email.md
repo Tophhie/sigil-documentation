@@ -18,21 +18,41 @@ the applicable [footer](/targeting/footers/).
 
 ## Where a test can be sent
 
-The recipient defaults to your own address, and you can name a different one.
+The recipient defaults to your own address, and you can name a different one, as
+long as it is a mailbox in your own directory.
 
-Sigil does not restrict where a test goes. Whoever sends it decides, including an
-outside address. The restriction on Sigil's side applies to the address the mail
-is sent from, which is always Sigil's own sending domain, and not to the address
-it is sent to.
+| Recipient | Result |
+| --- | --- |
+| Your own signed-in address | Sent |
+| Any mailbox in your Microsoft 365 directory | Sent |
+| Anything else | Refused, with a message saying why |
 
-What happens after that is the receiving side's decision, as it is for any mail.
-A refusal comes back as a send error in the portal rather than disappearing
-quietly, so if a test does not arrive and no error was shown, check the junk
-folder before assuming the send failed.
+That covers what the feature is for, which is seeing a signature land in a real
+inbox, usually your own or the colleague you are setting up. It leaves no route
+to an address outside your organisation.
 
-This is the reason an [API key](/admin/api-keys/) is refused this endpoint. A
-credential that can mail a rendered signature to any address, unattended, is a
-different thing from an administrator doing it once to check a layout.
+The check is Sigil's own rather than something the mail platform does. The
+platform restricts the address mail is sent from, which is always Sigil's own
+sending domain, and places no restriction at all on where it goes. Without a
+check in front of it, the template capability would carry with it a scriptable
+outbound mailer, sending from Sigil's domain to any address in the world.
+
+A partner Technician running a test passes too. Their address is not in the
+client's directory, but it is the address of the person doing the work.
+
+This page previously said Sigil placed no restriction on where a test could go.
+That was true until August 2026 and is not any more.
+
+Once a message is accepted, what happens next is the receiving side's decision,
+as it is for any mail. A refusal comes back as a send error in the portal rather
+than disappearing quietly, so if a test does not arrive and no error was shown,
+check the junk folder before assuming the send failed.
+
+The check does not make the endpoint safe for an [API key](/admin/api-keys/),
+which is still refused it. A credential that can mail a rendered signature
+unattended, to anybody in your organisation, is a different thing from an
+administrator doing it once to check a layout. See
+[what a key is left out of](/admin/api-keys/#what-is-left-out-and-why).
 
 ## What to check
 
@@ -72,6 +92,6 @@ Admins and Editors, who hold the same capability that covers the template
 library. No other [role](/admin/users-and-roles/) reaches test emails.
 
 Read that alongside the section above: granting somebody the template capability
-also lets them mail a rendered signature to an address of their choosing, from
+also lets them mail a rendered signature to any colleague in your directory, from
 Sigil's sending domain. It is a reason to keep the Editor role to people you
 would trust with the template library anyway.
