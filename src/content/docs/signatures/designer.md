@@ -53,8 +53,8 @@ upload and no hunting for artwork.
 Every mark is drawn on the same grid, which is what makes a row of them line up.
 Sourcing twenty logos from the web and cropping them yourself rarely does.
 
-Choosing a mark fills in its label and the start of its link for you, so an
-a LinkedIn icon arrives already pointing at the right kind of address. Both are
+Choosing a mark fills in its label and the start of its link for you, so a
+LinkedIn icon arrives already pointing at the right kind of address. Both are
 yours to change, and the link can carry
 [placeholders](/signatures/placeholders/) so each person's icon points at their
 own profile.

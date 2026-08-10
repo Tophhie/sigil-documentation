@@ -9,7 +9,7 @@ Your organisation manages email signatures centrally with Sigil. Somebody in IT
 or marketing designs the signature; your own details are filled in from the
 company directory.
 
-You do not need to set anything up.
+You do not need to install or configure anything.
 
 ## What you will notice
 
@@ -18,7 +18,7 @@ Very little, which is the intention.
 When you start a new message, reply or forward, your signature appears at the
 bottom. It carries your name, job title, phone number and anything else your
 organisation has chosen to include, taken from the company directory rather than
-typed by you.
+typed into each message by you.
 
 If you send from more than one address, the signature follows the address you are
 sending from.
@@ -41,6 +41,19 @@ directory, not from Sigil. A wrong job title is a directory record to be
 corrected, and the signature will follow within minutes once it is.
 
 Ask whoever maintains your organisation's directory, usually IT or HR.
+
+## Details you fill in yourself
+
+Some organisations add a few fields the directory has no place for: pronouns, a
+link to your own booking page, the days you work. Where yours has, those are
+yours to fill in rather than IT's to maintain.
+
+The page is at `portal.usesigil.app/me`, and the "My signature" pane offers an
+"Edit my details" button that opens it. What you save appears in your next
+email. See [filling in your own details](/users/your-details/).
+
+Not every organisation switches this on, and there is nothing missing if yours
+has not. Everything in your signature then comes from the directory.
 
 ## If the signature is missing
 

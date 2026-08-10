@@ -9,9 +9,12 @@ Images in a Sigil signature are attached to the message inline rather than loade
 from a web server. The add-in attaches each one and the template references it by
 name.
 
-Two kinds of image are not uploaded at all. A QR code and a sender's own profile
-photo are generated per person when the signature is served, and neither appears
-in the image library. See [per-user images](/signatures/per-user-images/).
+Not every image in a signature is an upload. A QR code and a sender's own profile
+photo are generated per person when the signature is served, and the designer's
+social icons are drawn on request from artwork Sigil ships. None of the three
+appears in the image library and none of them counts against it. See
+[per-user images](/signatures/per-user-images/) and
+[social icons](/signatures/designer/#social-icons).
 
 ## Why not a hosted image
 

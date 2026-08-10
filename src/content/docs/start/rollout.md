@@ -44,6 +44,12 @@ now than after rollout.
 Fix the directory gaps you find, or design around them with
 [conditional sections](/signatures/placeholders/#conditional-sections).
 
+Some things the audit cannot help with, because the directory has no field for
+them at all. Pronouns, a personal booking link, the days somebody works.
+[Profile fields](/admin/profile-fields/) put those in the hands of the people
+they describe, which is worth deciding on now rather than after everyone has
+seen their signature for the first time.
+
 ## Phase 2: pilot
 
 Deploy the manifest through Integrated apps, targeting a small group. Ten to
