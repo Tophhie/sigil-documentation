@@ -102,11 +102,12 @@ administrators a re-consent link.
 | Daily click totals per tracked link | Indefinite |
 | Per-click records behind the analytics splits | 90 days, then purged by a nightly sweep |
 | Onboarding attempt records | Indefinite, and outside the tenant's own data |
+| Sign-up diagnostics held on those records | 90 days, then cleared while the attempt stays |
 
-Deprovisioning a tenant purges all of it except the last row, which describes an
-attempt to connect rather than a live organisation. That includes the indefinite
-rows above: telemetry and daily totals are kept for as long as the organisation
-exists and go with it when it does not.
+Deprovisioning a tenant purges all of it except the last two rows, which describe
+an attempt to connect rather than a live organisation. That includes the
+indefinite rows above: telemetry and daily totals are kept for as long as the
+organisation exists and go with it when it does not.
 
 The coverage of that purge is checked automatically rather than maintained by
 hand, so anything Sigil starts storing against an organisation has to be either

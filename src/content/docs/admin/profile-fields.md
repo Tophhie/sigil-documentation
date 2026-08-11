@@ -144,6 +144,11 @@ stored keep appearing in signatures, because a decision about who may edit
 should not quietly remove a line from everybody's mail. An administrator who
 genuinely wants the values gone deletes the field.
 
+The same page has an Open user portal button, which opens the staff page in a new
+tab as your own colleagues will see it. It is worth looking at before you tell
+anyone the page exists, because the wording and the order of the fields are
+yours rather than Sigil's.
+
 ## Hiding a field against deleting one
 
 These are the reversible and irreversible halves of "remove this field".

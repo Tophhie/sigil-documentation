@@ -132,9 +132,12 @@ If the directory could not be read on the day a digest was built, the digest is
 still sent but omits the coverage section rather than reporting 0%, which would
 be alarming and wrong.
 
-Digests are sent in batches, so on a busy day an organisation may receive one a
-little later than usual. Nothing is skipped: the ones waiting longest are first
-in line on the next run.
+Every organisation due a digest is sent one on the same run. Sigil used to work
+through the list in batches, so a busy day could push a digest to the following
+morning; it no longer does, and no organisation waits its turn behind another.
+
+A digest is not sent to an organisation that is suspended or awaiting deletion.
+Neither wants a weekly report on signatures it is not receiving.
 
 ## Where the numbers come from
 

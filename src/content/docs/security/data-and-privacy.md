@@ -46,6 +46,23 @@ invitation, which invitation it was. It holds no credentials and no directory
 contents. This log lives outside your tenant's own data and is read by Tophhie
 Cloud operators rather than shown in your portal.
 
+Against that record Sigil also keeps a short-lived description of what the
+sign-up request itself looked like: the browser's user agent string, the network
+and the country it arrived from, an automated-traffic score, and which of those
+signals decided the request came from a crawler rather than from a person. Where
+you were already signed in to the portal when you started, it keeps the address
+the portal passed to Microsoft so you would not be asked to choose an account
+again. That address is what gives support somebody to contact when a sign-up
+fails before it has named an organisation, and nothing is authorised on the
+strength of it.
+
+No IP address is recorded at any point. These details exist to tell a real
+administrator apart from the mail security scanners and crawlers that follow a
+public sign-up link, and to diagnose a sign-up that did not finish, so they are
+deleted after 90 days while the attempt, its outcome and its timeline are kept
+for good. They cover Sigil's own sign-up flow and nothing else. Nothing of the
+kind is recorded about the people in your organisation.
+
 Where an invitation link was used, Sigil also counts how many times its landing
 page was rendered and when it was first and last opened. That is timestamps and a
 count. No address, no IP and no user agent is stored against it, and there is no
@@ -209,6 +226,18 @@ place Sigil stores something against an organisation is either purged or named a
 a deliberate exception, and an automated check refuses any new storage that is
 neither. A list of what to delete that nothing verifies is a list that quietly
 falls behind, which is what makes the check worth more than the intention.
+
+The purge runs in phases and keeps track of how far it reached. Billing stops
+first, then stored images and cached entries go, then the records themselves, and
+a phase that fails takes up again from where it stopped rather than starting the
+whole thing over. That ordering is deliberate: a purge that halted after
+cancelling a subscription leaves nobody being charged, whereas one that deleted
+the records first would leave a live subscription that nothing could be traced
+back to.
+
+Where a deprovision is scheduled rather than immediate, the purge checks that the
+deletion is still scheduled before it destroys anything. An organisation restored
+during its grace window is safe even if a purge had already been queued for it.
 
 Withdrawing admin consent stops Sigil reading your directory, which stops
 signatures rendering, but leaves your stored configuration in place. If you want

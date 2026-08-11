@@ -38,7 +38,7 @@ The consent callback sets your tenant up before you have signed in:
 
 It creates the tenant record, keyed by your Entra tenant id.
 
-It creates a trial subscription with real seats from day one. Nothing is charged
+It starts a trial subscription with real seats from day one. Nothing is charged
 until the trial ends.
 
 It pre-fills your billing profile from your organisation's registered address in
@@ -47,10 +47,17 @@ Entra, so the invoice details are mostly right before you look at them.
 It seeds a starter signature: a polished, editable design rather than a blank
 page or a bare default.
 
+The subscription is the one step that does not finish before you are sent to the
+portal. It is several calls to Stripe, and the only part of provisioning that
+depends on a service outside Sigil, so it runs as a job of its own and completes
+moments after you arrive. Nothing you can see is waiting on it, and a Stripe
+failure that clears in a minute is retried without anybody having to notice.
+
 Only the tenant record is essential. The other steps can fail on their own
 without stopping the rest, which is why an organisation occasionally lands in the
 portal with a working template library and no billing set up. Sigil records which
-step failed and emails Tophhie Cloud support at the moment it happens, so this is
+step failed and emails Tophhie Cloud support at the moment it happens, once the
+retries are exhausted rather than at the first sign of trouble, so this is
 normally fixed before you notice it. If something looks half-configured on your
 first day, that is worth mentioning rather than working around.
 

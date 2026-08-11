@@ -55,6 +55,14 @@ A daily job syncs your seat count to the subscription. Quantity changes do not
 trigger a mid-cycle invoice, so drift never produces a surprise charge partway
 through a month.
 
+Your organisation is counted on its own rather than as one pass through a list of
+every customer, so nobody else's directory problem reaches your invoice. A count
+that could not be completed is not sent to Stripe at all: if Microsoft Graph
+fails partway through reading your directory, Sigil retries and leaves the
+previous quantity standing until a full read succeeds. A short read and a
+complete one look identical once they are reduced to a number, which is why an
+incomplete one is reported rather than billed.
+
 ## Paying for fewer mailboxes
 
 Licensed mailboxes that never send mail from Outlook can be taken off the bill.

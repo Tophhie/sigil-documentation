@@ -80,7 +80,8 @@ and border wrapped around nothing. You do not have to set that up. Sigil works
 out the condition for the row from the conditions on the icons inside it.
 
 An icon with no condition means the row always has something to show, so the row
-is never hidden.
+is never hidden. Text blocks collapse the same way and for the same reason. See
+[blocks that empty themselves](#blocks-that-empty-themselves).
 
 ### Styling the row
 
@@ -224,6 +225,36 @@ of those lets the entire row disappear rather than each field inside it.
 
 A Photo block carries the `hasPhoto` condition automatically, so you do not need
 to set it yourself.
+
+### Conditions on a single field
+
+Selecting a field chip inside a text block gives that chip its own visibility
+list, separate from the block it sits in. The chip is shown only when every field
+you tick has a value, so one line can carry a job title, a department and a
+qualification and print only the parts a given person actually has.
+
+Plain text you typed cannot be made conditional on its own. It belongs to the
+block, so a label that should come and go with a field belongs in the same block
+as that field, with the condition on the block.
+
+### Blocks that empty themselves
+
+A block whose contents have all disappeared used to leave its own shape behind:
+the padding, the background, the border, and for a text block the height of a
+line. In a signature that reads as an unexplained gap, and it only ever showed up
+for the people whose directory record was sparse.
+
+Sigil now works the condition out for you. When everything a block can print is
+conditional and none of it applies to a particular person, the block goes with
+its contents. That covers a text block whose field chips are all conditional, and
+a social row whose icons all are. Anything unconditional anywhere in the block
+means it always has something to show, so it is never hidden.
+
+Line breaks and spacing do not count as something to show. A text block of
+conditional chips separated by breaks still collapses, because a block left
+standing for the sake of its own line breaks is exactly the blank line this
+removes. A block that holds nothing but line breaks is left alone: that is
+deliberate vertical space, and no condition of Sigil's belongs on it.
 
 ## Publishing
 
