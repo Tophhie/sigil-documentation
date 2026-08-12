@@ -165,6 +165,39 @@ and refuses anything else when it is saved. The same check applies when an
 administrator edits somebody else's values, since it protects the recipient
 rather than policing the author.
 
+## Browser response headers
+
+Sigil's responses carry a baseline set of browser security headers, and the set
+covers the portal's own pages as well as the API. That distinction is the one
+worth checking in any product of this shape: the pages an administrator actually
+browses are served differently from the API they call, so a header applied to
+only one of them protects the half nobody was attacking.
+
+| Header | What it does |
+| --- | --- |
+| `Strict-Transport-Security` | Six months, including subdomains. A browser that has loaded `usesigil.app` once will not try plain HTTP for it again |
+| `X-Content-Type-Options` | Stops a browser guessing a response is a different type from the one it was sent as |
+| `X-Frame-Options` and a `frame-ancestors` policy | The portal cannot be framed by another site. Both are sent, because browsers do not all honour the same one |
+| `Referrer-Policy` | A tracked link's destination sees that the click came from Sigil, never the full path of the redirector |
+
+HSTS preloading is deliberately left off. Preloading needs a year-long maximum
+age, and browsers honour a preload entry long after the header itself is
+withdrawn, which makes it far harder to undo than to switch on.
+
+Two headers are switched off on purpose rather than by omission, because their
+usual settings break something people rely on. Isolating the browsing context
+would sever the popup window that Entra re-authentication uses, which is the
+check that gates destructive operator actions. Restricting cross-origin resource
+loads would put the add-in's own call to the signature endpoint at risk, and that
+call is cross-origin by design. Both choices are held in place by tests, so a
+library upgrade that quietly reinstates a default fails a build rather than
+somebody's Outlook.
+
+The framing policy is what the content security policy currently governs. A
+policy over script and style sources is a larger piece of work that needs the
+portal, the sign-in flow and the drag-and-drop designer audited first, since a
+wrong one fails silently in whichever browser nobody happens to be watching.
+
 ## The link domain
 
 Tracked links are served from `e-clk.usesigil.app`, which answers `/r/` redirects

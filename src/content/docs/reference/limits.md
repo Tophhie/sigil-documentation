@@ -65,12 +65,25 @@ below the maximum.
 | Operator audit log | Indefinite |
 | Onboarding attempt records | Indefinite, and kept after a deprovision |
 | Sign-up diagnostics held on those records | 90 days, then cleared while the attempt stays |
+| Sign-ins from an organisation that never connected | 90 days from the last sighting, then removed in full |
 
 Click totals and the daily chart outlive the per-click records they were built
 from, so they reach back to the day a link was created. The device, client,
 referring page and hour-of-day splits are computed from the per-click records
 and therefore only cover the last 90 days. See
 [link clicks](/monitoring/link-clicks/).
+
+## How much of the change log you can read at once
+
+| Item | Value |
+| --- | --- |
+| Entries on the portal's Template changes card | Most recent 100, paged |
+| Entries in a tenant export | Most recent 5,000 |
+
+Both are display limits rather than retention ones. The card also narrows to the
+changes that alter what a signature looks like, so role changes, exclusions, API
+keys and settings are recorded without appearing on it. See the
+[change log](/monitoring/change-log/).
 
 ## Link analytics windows
 
@@ -95,7 +108,7 @@ and therefore only cover the last 90 days. See
 | Banner window opening or closing | Immediately |
 | Assignment rules change | Up to 10 minutes |
 | Profile field value saved, by anybody in the organisation | Next compose |
-| Directory attribute change in Entra | Within the cache lifetime, without a republish |
+| Directory attribute change in Entra | Up to an hour, without a republish |
 | Microsoft 365 profile photo added or changed | Up to a day |
 | Add-in manifest change | Requires redeploy, plus 6 to 72 hours propagation and fresh consent |
 | Initial add-in deployment | 6 to 72 hours propagation |

@@ -36,6 +36,12 @@ Adoption statistics across the whole tenant.
 
 The never-applied list, described below.
 
+A Template changes card, which is where the
+[change log](/monitoring/change-log/) is read in the portal. It lists the changes
+that alter what goes out on somebody's mail and leaves out the administrative
+churn around them, so that a card sitting under an adoption report answers the
+question the report raises: what changed, and when, that might explain this.
+
 ## The never-applied list
 
 This is the most useful thing in the view. It cross-references your directory

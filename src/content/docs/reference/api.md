@@ -316,7 +316,7 @@ tenant answers 404. See [assignment rules](/targeting/assignment-rules/#testing-
 | `GET /api/admin/activity` | Admin token, monitoring capability | Per-mailbox rollup, recent feed, adoption |
 | `GET /api/admin/activity/events` | Admin token, monitoring capability | The event search, filtered by mailbox, source or outcome |
 | `GET /api/admin/audit` | Admin token, monitoring capability | Directory attribute coverage, with the counts of accounts left out as external and as [excluded](/admin/cost-management/) reported separately |
-| `GET /api/admin/log` | Admin token, monitoring capability | The change log |
+| `GET /api/admin/log` | Admin token, monitoring capability | The change log. Add `?scope=template` for only the changes that alter what a signature looks like, which is what the portal's own card requests |
 | `GET /api/admin/links` | Admin token, analytics capability | Click totals per tracked link, with a 30-day trend series on each |
 | `GET /api/admin/links/overview` | Admin token, analytics capability | One window of tenant-wide analytics: daily series, campaign rollup, device, client and referrer splits, hour-of-day grid, and the clicks-per-1,000 rate |
 | `GET /api/admin/links/detail/:slug` | Admin token, analytics capability | The same shape for one link |

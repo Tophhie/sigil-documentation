@@ -12,6 +12,13 @@ token made the request. These are the attributes that can appear in a signature,
 plus licence and account state for seat counting. The full list is in
 [permissions](/deploy/permissions/).
 
+Those attributes are read when a signature is rendered and are never written down
+as a record of their own. What holds them afterwards is the rendered signature
+itself, cached for at most an hour, so an hour after somebody last composed a
+message there is nothing of their directory record left inside Sigil. That is
+also what lets a corrected job title reach Outlook with nobody republishing
+anything.
+
 Recipient content is never read. Sigil writes into the compose window and does
 not sit in your mail flow, so it has no access to message bodies, subjects or
 recipients of the mail people send.
@@ -67,6 +74,19 @@ Where an invitation link was used, Sigil also counts how many times its landing
 page was rendered and when it was first and last opened. That is timestamps and a
 count. No address, no IP and no user agent is stored against it, and there is no
 cookie or pixel, so it records that a link was opened rather than who opened it.
+
+A record of anyone who signed in to the portal from an organisation that has not
+connected to Sigil. Signing in and granting admin consent are separate acts, and
+somebody who signs in, meets the "connect your organisation" gate and closes the
+tab has done only the first. Sigil keeps their address, the domain half of it,
+when they were first and last seen, and how many times, so that a person who
+tried to get started and stopped can be offered help rather than forgotten. The
+address comes from their verified token rather than from anything in the URL. No
+IP address and no user agent is stored, and a sighting is recorded at most once
+an hour per person, so a portal left open all day counts once. These records are
+read by Tophhie Cloud operators and are not shown in your portal. They are
+deleted 90 days after the last sighting, and they are deleted with the
+organisation if it later connects and is then deprovisioned.
 
 Any [API keys](/admin/api-keys/) your administrators have created, held as a
 hash of the secret rather than as the secret, alongside each key's name, access,
@@ -195,14 +215,41 @@ is complete.
 ## Subject access requests
 
 Sigil can also export what is held against a single mailbox, which is what a
-subject access request usually starts from. It carries that mailbox's signature
-events and its activity rollup: every request made for it, when, from which
-Outlook client, and whether a signature came back. Request it through support.
+subject access request usually starts from. Request it through support, which
+runs it against one address in your organisation.
 
-What that file does not carry is anything the person entered in their
-[profile fields](/admin/profile-fields/), which lives in the whole-organisation
-export instead. If a request needs both, say so when you ask, because two
-different exports answer it.
+The file carries seven kinds of record:
+
+That mailbox's signature events and its activity rollup: every request made for
+it, when, from which Outlook client, and whether a signature came back.
+
+Whatever the person entered in their
+[profile fields](/admin/profile-fields/), which is the only part of the file they
+wrote themselves.
+
+Their portal role, if they have one, with when it was granted and by whom.
+
+Whether their mailbox is [excluded from Sigil](/admin/cost-management/), together
+with the note an administrator wrote against it, since that note is prose written
+about them.
+
+Each excluded Entra group that covers them, one entry per group. This is the only
+part of the file that can legitimately hold several rows for one address.
+
+Where the person is a partner's own staff scoped to your organisation rather than
+one of your mailboxes, the record of that scoping.
+
+Any record of them signing in before your organisation connected, described
+above. That one is worth expecting, because it predates your tenant and is the
+record its subject is least likely to know exists.
+
+The file deliberately leaves out the authorship stamps that sit on templates,
+banners, links, rules, settings and the change log. Those say that an
+administrator did something, rather than holding anything about the person as a
+subject, and sweeping them in would turn a subject access request into a second
+copy of your whole audit trail. Your billing contact address is left out for the
+opposite reason: there is one per organisation and it describes the company, so
+returning it would disclose your organisation's details rather than that person's.
 
 Erasure of a single mailbox is deliberately not offered. Removing one person's
 records from an append-only audit trail would compromise the trail itself, so the

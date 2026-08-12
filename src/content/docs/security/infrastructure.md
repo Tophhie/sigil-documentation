@@ -44,8 +44,13 @@ email address. The banner and footer in force are part of that key.
 
 Publishing a template increments its version, which strands every cached entry
 for it at once. That is why edits reach users in seconds without an explicit
-purge. A time-to-live exists on top, so directory changes are picked up without a
-republish.
+purge.
+
+A one hour lifetime sits on top of that, which is how a change to somebody's job
+title in Entra reaches Outlook without anyone republishing. It also bounds how
+long any directory data exists inside Sigil at all: the attributes are read when
+a signature is rendered and are never stored as a record of their own, so an hour
+after the last render there is nothing left of them.
 
 Per-mailbox assignment rule resolution is cached separately for ten minutes,
 keyed by a rules version that changes whenever the rules are edited.

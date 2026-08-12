@@ -5,6 +5,19 @@ sidebar:
   order: 3
 ---
 
+## Who you are contracting with
+
+Sigil is a product of Tophhie Cloud Ltd, a company registered in England and
+Wales under number 17393069, whose registered office is at 21 Manor Way, Hoyland,
+Barnsley, England, S74 9QX.
+
+Tophhie Cloud is the brand. The company is the party your organisation contracts
+with, which is why every published agreement names it in full at the top rather
+than leaving it to the branding. If you are reconciling the company against
+another record, it is the same identity that appears on the Companies House
+register, on the Microsoft Publisher Attestation, and on the invoices Stripe
+issues.
+
 ## Audit trails
 
 Sigil keeps two separate append-only records.
@@ -13,8 +26,9 @@ The [change log](/monitoring/change-log/) covers what administrators in your
 organisation did. It is not confined to templates: publishes and rollbacks, the
 whole template lifecycle from create to permanent deletion, assignment rules,
 banners, footers, link tracking, image uploads and deletions, test emails, and
-changes to who has access and at what role, each with who and when. You can read
-it in the portal.
+changes to who has access and at what role, each with who and when. The portal
+shows the template-affecting part of it on the Activity view, and the rest is
+read from the API or a tenant export.
 
 The operator audit log covers what Tophhie Cloud staff did. It is retained
 indefinitely and can be exported.
@@ -26,9 +40,52 @@ Neither is pruned and neither can be edited.
 Sigil can export everything held about a single mailbox, which is what a subject
 access request under GDPR or similar regimes needs. Request it through support.
 
+One file answers the request. It carries that mailbox's signature telemetry, the
+values the person entered in your profile fields, their portal role, any
+exclusion covering them and the note written against it, and the record of them
+signing in before your organisation connected. The full list, and what is
+deliberately left out of it, is in
+[data and privacy](/security/data-and-privacy/#subject-access-requests).
+
 Erasure of an individual mailbox is deliberately not offered. Removing one
 person's entries from an append-only audit trail would undermine the trail, so the
 available erasure path is a full tenant purge.
+
+## Controller, processor, and lawful basis
+
+For your directory data, your signature content and your usage telemetry, your
+organisation is the controller and Tophhie Cloud is the processor. Sigil acts on
+your documented instructions, on the terms of the DPA below. Deciding the lawful
+basis for that processing is your organisation's job, not Sigil's.
+
+Tophhie Cloud is the controller for a narrower set of records it holds in its own
+right, and the published privacy policy states the basis for each: your tenant,
+subscription and billing records, on the contract with you and on the tax and
+accounting law that governs the financial part of it; portal access records, on
+that same contract and on the legitimate interest in keeping the portal secure
+and giving your administrators an audit trail; and the sign-up diagnostics, on the
+legitimate interest in telling a real administrator apart from the crawlers that
+follow a public sign-up link.
+
+## Individual rights
+
+The privacy policy sets out the rights a person in the UK or the EEA has over
+their data: to be informed, of access, to rectification, to erasure, to
+restriction, to portability, and to object. It names the Information
+Commissioner's Office as the UK supervisory authority for a complaint, and the
+authority for the person's own country in the EEA.
+
+Requests about your directory data, signature content and telemetry go to your
+own administrators, because your organisation controls that data. Tophhie Cloud
+assists as processor and can locate an individual's records by their email
+address. Requests about the records Tophhie Cloud controls go to
+`privacy@usesigil.app`, and are answered within one month.
+
+Sigil makes no decision about a person by automated means. It does not profile
+individuals, score them, or decide anything about them without a human, so the
+right not to be subject to a solely automated decision has nothing to bite on
+here. That is worth stating plainly in a review, because a product that reads a
+directory and renders per-person output invites the question.
 
 ## Data processing agreement
 
@@ -94,6 +151,7 @@ administrators a re-consent link.
 
 | Data | Retention |
 | --- | --- |
+| Directory attributes read from Microsoft Graph | Never stored as a record of their own. Held inside a rendered signature for at most an hour |
 | Template version history | Last 10 published bodies per template |
 | Deleted templates | 30 days in Recently deleted, then purged by a daily sweep |
 | Change log | Indefinite |
@@ -103,11 +161,15 @@ administrators a re-consent link.
 | Per-click records behind the analytics splits | 90 days, then purged by a nightly sweep |
 | Onboarding attempt records | Indefinite, and outside the tenant's own data |
 | Sign-up diagnostics held on those records | 90 days, then cleared while the attempt stays |
+| Sign-ins from an organisation that never connected | 90 days from the last sighting, then removed in full |
 
-Deprovisioning a tenant purges all of it except the last two rows, which describe
-an attempt to connect rather than a live organisation. That includes the
-indefinite rows above: telemetry and daily totals are kept for as long as the
-organisation exists and go with it when it does not.
+Deprovisioning a tenant purges all of it except the onboarding attempt records
+and the diagnostics on them, which describe an attempt to connect rather than a
+live organisation. That includes the indefinite rows above: telemetry and daily
+totals are kept for as long as the organisation exists and go with it when it
+does not. A sign-in recorded before an organisation connected is purged with that
+organisation too, since the whole record is personal data rather than an account
+history.
 
 The coverage of that purge is checked automatically rather than maintained by
 hand, so anything Sigil starts storing against an organisation has to be either

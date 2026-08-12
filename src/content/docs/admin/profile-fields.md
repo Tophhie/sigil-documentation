@@ -277,6 +277,6 @@ without them would be wrong about what your organisation holds rather than merel
 thinner. See
 [data and privacy](/security/data-and-privacy/#getting-your-data-out).
 
-They are not in the per-mailbox export a subject access request uses, which
-carries that mailbox's signature history rather than its stored values. Ask
-support if you need one person's values on their own.
+One person's values are also in the per-mailbox export a subject access request
+uses, so a request about a colleague is answered by one file rather than two. See
+[data and privacy](/security/data-and-privacy/#subject-access-requests).
