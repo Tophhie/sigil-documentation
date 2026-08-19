@@ -41,6 +41,24 @@ It is the same manifest for every organisation. The add-in is multi-tenant and
 works out which organisation somebody belongs to from their sign-in, so there is
 nothing tenant-specific to generate and nothing to keep secret.
 
+### The publisher name does not match the company
+
+Integrated apps shows the add-in as "Sigil by Tophhie Cloud", published by
+"Chris Greenacre". Everything else you will have read names Tophhie Cloud Ltd,
+including the privacy policy, the terms, the data processing agreement and your
+invoices.
+
+Both are Sigil. The manifest carries a provider name from before the company was
+incorporated, and it has not been corrected yet. It is worth knowing before the
+difference is spotted halfway through a security review, because a publisher name
+that disagrees with the contracting entity is a reasonable thing to stop on.
+
+The correction is a manifest change, which costs a redeploy and fresh consent for
+every organisation that has already deployed it. That is why it is being held for
+a release that needs one anyway rather than spent on its own. See
+[what needs a redeploy](#what-needs-a-redeploy-and-what-does-not) and
+[compliance](/security/compliance/) for the company details in full.
+
 ## Wait for propagation
 
 Allow 6 to 72 hours before treating a missing add-in as a fault. Nothing you do

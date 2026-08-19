@@ -114,6 +114,33 @@ in Stripe.
 
 Where a discount has been agreed, the estimate line shows it too.
 
+### The arrangement it names
+
+The view leads with the commercial arrangement your organisation is actually on,
+rather than leaving you to infer it from whether a card is present.
+
+| Shown as | What it means |
+| --- | --- |
+| Trial | Free until the trial ends, then billed per seat |
+| Per-seat | Billed monthly for the seats in use |
+| Billed via partner | Your provider is invoiced for your seats and you are not billed directly |
+| Comped | Free by arrangement. No card or subscription is required |
+| NFR | Not for resale: free internal use while you are an active partner |
+| Internal | Tophhie Cloud's own organisation |
+
+The last three mean nobody is invoiced, and the view says so with a "Not billed"
+badge and drops the subscription panel and the billing details form entirely.
+There is nothing to fix, so offering a card to add would only invite somebody to
+try. Those organisations also see both billing steps on the
+[Getting started checklist](/admin/getting-started-checklist/) marked optional.
+
+Billed via partner is not the same as being free. Somebody is invoiced for those
+seats, it is your provider rather than you, and the view names them and the seat
+count they are carrying on your behalf.
+
+The arrangement is worked out from your account rather than stored as a label of
+its own, so it cannot fall out of step with what actually gets charged.
+
 ## Discounts
 
 A discount is agreed with Sigil rather than entered in the portal. There is no

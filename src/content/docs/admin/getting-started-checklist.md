@@ -16,8 +16,8 @@ when nobody has ever received a signature.
 | Step | Completes when | Required |
 | --- | --- | --- |
 | Connect Microsoft 365 | Sigil's application can read your directory | Yes |
-| Add a payment method | A card is on file in Stripe | Yes |
-| Add your billing details | A company name and a complete billing address are saved | Yes |
+| Add a payment method | A card is on file in Stripe | Yes, unless nobody invoices you |
+| Add your billing details | A company name and a complete billing address are saved | Yes, unless nobody invoices you |
 | Accept the Data Processing Agreement | Acceptance is recorded against your organisation | No |
 | Customise your signature | The active template is no longer the seeded starter | Yes |
 | Deploy the Outlook add-in | Sigil has seen a real signature request from your tenant | Yes |
@@ -38,12 +38,18 @@ reason. It is how you evidence Article 28, so it belongs on the list, but an
 unsigned document holding the checklist open for a tenant whose signatures work
 would be the wrong trade. See [compliance](/security/compliance/).
 
-An organisation exempted from invoicing by arrangement has both billing steps
-satisfied automatically and never has to add a card. Being managed by a partner
-is a separate thing from being exempt, so a managed client can still see the two
-billing steps listed as outstanding even though its provider is the one invoiced.
-Nothing stops working as a result, and the client is not charged. See
-[partner billing](/partners/billing/).
+An organisation nobody invoices moves both billing steps into the optional group
+rather than ticking them off. They keep their Optional badge and stay listed as
+not done, because no card was added and no billing details were saved, but they
+stop holding the panel open and stop counting toward the progress line. That is
+the honest reading: the steps were not completed, they were excused. See
+[what the Billing view shows](/admin/billing/#what-the-billing-view-shows) for
+which arrangements those are.
+
+Being managed by a partner is a separate thing from being excused. A managed
+client can still see the two billing steps listed as outstanding and required,
+even though its provider is the one invoiced. Nothing stops working as a result,
+and the client is not charged. See [partner billing](/partners/billing/).
 
 ## Connecting Microsoft 365
 

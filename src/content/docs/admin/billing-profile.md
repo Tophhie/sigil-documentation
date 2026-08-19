@@ -56,10 +56,17 @@ without anybody re-entering them.
 
 ## Who can edit it
 
-Admins, from the Billing view.
+Admins and the Billing [role](/admin/users-and-roles/), from the Billing view. It
+sits behind the billing capability like the rest of that view, so the person who
+owns the finance relationship can correct the details on an invoice without also
+being handed the signature library.
+
+Editors, Marketing, Viewers and the Compliance role do not reach it.
 
 If your organisation is managed by a partner, the partner maintains the billing
-relationship instead. See [partner billing](/partners/billing/).
+relationship instead. No partner role reaches a client's billing, because a
+managed client has no subscription of its own. See
+[partner billing](/partners/billing/).
 
 ## Changing it later
 
