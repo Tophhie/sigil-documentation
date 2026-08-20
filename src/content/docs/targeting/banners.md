@@ -14,12 +14,22 @@ window and forget about it.
 
 ## Creating a banner
 
-Create a banner in the Banners view. It needs an image, a destination link, a
-position relative to the signature, and a window.
+Create a banner in the Banners view. It needs a campaign name, an image, a
+position relative to the signature, and a window. A click-through link and alt
+text are offered alongside them and neither is required.
 
 The image follows the same rules as any [signature image](/signatures/images/):
 PNG or JPG, no SVG, sized sensibly since it is attached to every message anyone
-sends while the window is open.
+sends while the window is open. It is chosen from the images already uploaded, so
+upload it under Images first if it is not there yet.
+
+The campaign name is how the banner is listed and how its clicks are reported, so
+it is worth naming for the campaign rather than for the file.
+
+A banner with no link is a picture rather than a call to action, which is the
+right shape for an announcement nobody is meant to click. Leaving alt text blank
+falls back to the campaign name, so a recipient reading with images switched off
+sees something rather than nothing.
 
 ## Scheduling
 
@@ -48,8 +58,9 @@ when the campaign is the point and the signature is context.
 
 ## Click tracking
 
-Banner click-throughs are always tracked. Banner links are routed through
-[tracked links](/monitoring/link-clicks/) automatically, and there is no opt-out.
+Where a banner carries a link, its click-throughs are always tracked. Banner
+links are routed through [tracked links](/monitoring/link-clicks/) automatically,
+and there is no opt-out.
 
 No IP address and no recipient identity is logged, so a banner tells you how
 many people clicked, not who.
@@ -80,7 +91,8 @@ is open, so a 500KB image is a real cost at organisational volume.
 Set an explicit pixel width on the image, and design it to sit comfortably at the
 width of a signature rather than at the full width of an email client.
 
-Set meaningful alt text. Some recipients will see only that.
+Set meaningful alt text. Some recipients will see only that, and the campaign
+name it falls back to was written for your banner list rather than for them.
 
 Test it before the window opens by setting a short window now, sending a
 [test email](/admin/test-email/), and then setting the real window.

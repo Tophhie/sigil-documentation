@@ -27,9 +27,38 @@ default.
 
 ## Writing a footer
 
-Footer HTML supports the same [placeholders](/signatures/placeholders/) and
-conditional sections as a template, so a footer can include the company name or
-the office address without being written per office.
+Footers are written in a small formatting editor rather than by hand. The toolbar
+carries bold, italic and underline, four text sizes, a text colour, and a link you
+can add and take off again. Beside them is a control that strips the formatting
+from whatever you have selected, which is the quickest way out of styling you did
+not mean to inherit.
+
+Pasting brings in plain text only. Formatting from Word or from another email is
+discarded on the way in, deliberately, because that markup is the usual reason a
+block of legal text renders differently in one client from another.
+
+A link has to be a full address beginning `http://` or `https://`. A bare domain
+is refused as you enter it rather than saved and found broken later.
+
+### Placeholders
+
+Beneath the editor is a placeholders panel. Open it and click one to insert it at
+the cursor, which saves remembering how a field name is spelled.
+
+Footers support the same [placeholders](/signatures/placeholders/) and conditional
+sections as a template, so a footer can name the company or the office address
+without being written per office. The yes or no fields insert as a conditional
+pair ready for you to fill, since there is nothing useful to print from one on its
+own.
+
+### Editing the HTML directly
+
+The HTML button swaps the editor for the markup behind it, and swaps back.
+Whatever you do in one view is waiting in the other, so a footer can be laid out
+with the toolbar and then have one attribute corrected by hand.
+
+That is also where conditional sections are written. They are markup rather than
+formatting, so the toolbar has nothing to offer them.
 
 ```html
 <p style="font-size:11px;color:#666;">

@@ -74,21 +74,32 @@ rest of the telemetry still renders without it.
 
 ## What the numbers will not tell you
 
-Some failures cannot be reported, because a report has to carry a verified
-identity and these happen before any token exists:
+A report has to carry a verified identity, so anything that fails before a token
+is in hand cannot be reported at all. Four reasons land there.
+
+`no-item`, meaning there was no message being composed to put a signature on.
 
 `unsupported`, meaning an Outlook client too old to support nested app
-authentication.
+authentication, or one that does not offer the API that sets a signature.
 
 `sign-in-required`, meaning silent authentication failed inside the event runtime,
 which is the normal first-run case.
 
-Neither can be beaconed. They appear as a mailbox's absence from the telemetry
-rather than as a recorded failure, which is another reason the never-applied list
-matters more than a failure count.
+`sign-in-failed`, meaning the sign-in prompt itself was cancelled or did not
+complete.
+
+None of the four can be beaconed. They appear as a mailbox's absence from the
+telemetry rather than as a recorded failure, which is another reason the
+never-applied list matters more than a failure count.
+
+The last of them is the one to hold on to when reading adoption numbers. Somebody
+who dismisses the sign-in prompt leaves no trace whatsoever, so a low failure
+count is not evidence that everybody is being reached.
 
 `sign-in-required` self-heals once the person opens the "My signature" pane and
 signs in. See [troubleshooting](/deploy/troubleshooting/).
+
+From the token onwards, every outcome is reported, whether it succeeded or not.
 
 ## Automatic and manual
 
