@@ -52,6 +52,18 @@ These are ceilings rather than recommendations. A signature is read in a preview
 pane a few hundred pixels wide, so the useful range for most of them sits well
 below the maximum.
 
+## Assignment rules
+
+| Item | Value |
+| --- | --- |
+| Rules per organisation | 100 |
+| Attributes a rule can match on | 10 |
+| Values in one attribute rule | No limit, comma separated |
+| How a group is named | Its Entra object id, typed or pasted, not checked when saved |
+| Roles a rule must set | At least one of new messages and replies |
+
+See [assignment rules](/targeting/assignment-rules/).
+
 ## Retention
 
 | Data | Retention |

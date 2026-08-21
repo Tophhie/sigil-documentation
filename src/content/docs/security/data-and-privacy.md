@@ -129,15 +129,16 @@ the history is retained indefinitely.
 ## Link analytics are aggregate by construction
 
 A [tracked link](/monitoring/link-clicks/) click stores the link, the time, and
-three coarse descriptors derived from the request as it arrives: a device class
+four coarse descriptors derived from the request as it arrives: a device class
 of desktop, mobile or tablet, a browser family such as Chrome or Safari with no
-version number, and the host name of the referring page where one is sent.
+version number, the host name of the referring page where one is sent, and
+whether the request looked automated rather than human.
 
 The underlying user agent string and the full referring URL are discarded at
 that moment and never stored. No IP address is recorded at any point, and there
 is no cookie or tracking pixel.
 
-Those three descriptors are reported only in aggregate, and each is deliberately
+Those descriptors are reported only in aggregate, and each is deliberately
 low cardinality. "Mobile, Safari, referred by outlook.office.com" describes a
 population; a full user agent next to a precise timestamp would describe a
 person, which is why the second is never written down.

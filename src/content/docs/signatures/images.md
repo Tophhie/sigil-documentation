@@ -34,6 +34,28 @@ organisation and is available to any template in your library.
 Uploads are recorded in the [change log](/monitoring/change-log/) along with who
 uploaded them.
 
+## The name an image ends up with
+
+The name is also the `cid:` reference a template uses, so it has to survive being
+written into HTML. Sigil normalises it on upload rather than refusing the file:
+spaces become dashes, characters outside letters, digits, dots, dashes and
+underscores are dropped, and leading and trailing separators are trimmed. A file
+called `Acme Logo (final).png` is stored as `Acme-Logo-final.png`. The Images
+view shows the name that was actually used, which is the one to reference.
+
+Uploading a file whose own name is already in the library replaces that image in
+place. That is how a logo is updated: every template referencing it picks up the
+new bytes on the next compose, with nothing to republish.
+
+Replacement needs the file name to arrive as the stored one, though. Where
+normalisation had to change the name and the result is already taken, Sigil
+stores a numbered variant rather than overwriting. Landing on an existing name
+after being rewritten is a coincidence rather than an intention, and overwriting
+the logo every live signature references would be an expensive way to discover
+that. The practical consequence is that a logo you want to replace should be
+re-uploaded under exactly the name shown in the Images view, so `Acme-Logo.png`
+rather than the `Acme Logo.png` still sitting on your desktop.
+
 ## Seeing what you have
 
 The Images view shows a thumbnail of every uploaded image alongside its name and
@@ -99,6 +121,20 @@ appears in clients that suppress images entirely.
 Keep it descriptive rather than decorative: `alt="Acme"` on a company logo, and
 an empty `alt=""` on a purely decorative divider so that assistive technology
 skips it.
+
+## Deleting an image
+
+Deleting is blocked while anything still references the image. The refusal names
+what is holding it: each template whose live body uses it, each template whose
+unpublished draft uses it, and each banner that is the image.
+
+Drafts count deliberately. A draft referencing a deleted image renders nothing
+the moment somebody publishes it, and the person publishing would have no reason
+to connect the two.
+
+Detach it from everything the message lists, then delete. Deletions are recorded
+in the [change log](/monitoring/change-log/), and the previous file is not
+retained, so keep your source files.
 
 ## Images and export
 

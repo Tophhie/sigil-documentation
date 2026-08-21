@@ -14,14 +14,17 @@ publishes it.
 
 ## Booking one
 
-Schedule sits alongside Publish in both editors. You give it a date and a time in
-a time zone you choose, and Sigil converts that to a fixed instant.
+Schedule sits alongside Publish in both editors. You give it a date and a time,
+and Sigil converts that to a fixed instant.
 
-The [designer](/signatures/designer/) reads the time in your own time zone rather
-than offering a picker, which is the difference worth knowing if you are booking
-a publish for an office in another country. Book it from the
-[HTML editor](/signatures/html-editor/) if you need to name the zone, or convert
-it yourself.
+Both editors read that time in your own browser's time zone. There is no zone
+picker, unlike a [banner](/targeting/banners/) window, because a publish is a
+single instant rather than a period that has to survive a daylight saving change
+in the middle of it. If you are booking a publish for an office in another
+country, convert the time yourself before you type it. The
+[HTML editor](/signatures/html-editor/) names the zone it read underneath the
+field, so you can check which one that was; the
+[designer](/signatures/designer/) says only that it read your own.
 
 The same checks a publish runs apply when you book it: the rendered signature has
 to fit inside Outlook's 30,000 character limit, a

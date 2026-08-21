@@ -46,6 +46,19 @@ your directory that has one.
 
 A group rule matches when the person is a member of the named Entra group.
 
+The group is named by its object id rather than picked from a list. Copy the
+object id from the group's own page in the Microsoft Entra admin centre and paste
+it into the rule. There is no search-by-name on this form, which is the one place
+rules and [cost management](/admin/cost-management/#excluding-an-entra-group)
+differ on the same idea: the exclusion picker searches your directory by name,
+the rule form does not.
+
+The id is not checked against your directory when you save. A rule carrying an id
+that does not exist, or one from a different tenant, is stored happily and simply
+never matches anybody. Nothing warns you, so paste rather than retype, and use
+the simulator below to confirm the rule fires for somebody you know is in the
+group.
+
 Groups are often the more maintainable option. Membership is managed where your
 organisation already manages access, rather than depending on an attribute being
 filled in consistently, and adding somebody to a group is a familiar action for
@@ -164,6 +177,15 @@ risk.
 The same capability covers the org-wide `new` and `reply` role assignments, for
 the same reason. It also covers the simulator, which reads one person's
 directory attributes back to you.
+
+## How many rules
+
+A list holds up to 100 rules. Saving a longer one is refused.
+
+That is well beyond what most organisations need. A list approaching it usually
+means several rules are saying the same thing in different words, or that an
+Entra group would express in one rule what a dozen attribute rules are
+expressing between them.
 
 ## The fallback
 

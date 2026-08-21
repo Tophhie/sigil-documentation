@@ -43,7 +43,7 @@ than by policy.
 
 ## What is recorded
 
-Five things per click, and no more.
+Six things per click, and no more.
 
 | Field | Value |
 | --- | --- |
@@ -52,10 +52,11 @@ Five things per click, and no more.
 | Device class | Desktop, mobile or tablet |
 | Client family | Edge, Firefox, Outlook, Chrome, Safari or Other, with no version number |
 | Referring host | The host name of the referring page, never its path or query string |
+| Automated or human | The verdict described below, kept so a filtered hit can be shown separately rather than dropped |
 
 The request's user agent and referring URL are read once, turned into those
-three descriptors, and then discarded. Neither is written to storage, passed on
-or logged anywhere.
+descriptors, and then discarded. Neither is written to storage, passed on or
+logged anywhere.
 
 The distinction matters more than it looks. A full user agent string carries a
 build number, and a build number next to a precise timestamp is a usable
