@@ -78,11 +78,19 @@ row to answer a question that fits in a badge.
 
 ## Creating a template
 
-New templates start empty and can be authored in either editor:
+Creating one asks for a name and which editor to build it in. The choice is made
+at that point and is stored against the template, so the library always opens it
+in the editor it was authored in.
+
+Neither editor starts you on a blank page. A designer template is seeded with the
+same ready-made design new organisations get, and an HTML template is seeded with
+the equivalent markup. Both are meant to be edited or cleared rather than kept,
+and they are there so the first thing you see is a working signature to change
+instead of an empty canvas.
 
 The [drag-and-drop designer](/signatures/designer/) edits a block tree and
 compiles to email-safe HTML when you publish. It suits people who do not want to
-write markup.
+write markup. It is the recommended choice and the one the dialog offers first.
 
 The [HTML editor](/signatures/html-editor/) edits that markup directly, with
 placeholder autocomplete. It suits hand-authored templates and exact control,

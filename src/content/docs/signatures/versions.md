@@ -70,9 +70,13 @@ the rule back at it if that is what you want.
 
 Version history covers template bodies. Other objects have their own lifecycle:
 
-Images are replaced in place. Uploading over an existing name replaces it, and
-the upload is recorded in the change log, but the previous file is not retained.
-Keep your source files.
+Images are replaced in place, and the previous file is not retained. Replacement
+needs the uploaded file to arrive under exactly the stored name, so a logo you
+want to update should be re-uploaded as `Acme-Logo.png` rather than as the
+`Acme Logo.png` still sitting on your desktop. Where the name had to be
+normalised, Sigil stores a numbered variant instead of overwriting. See
+[images](/signatures/images/#the-name-an-image-ends-up-with). The upload is
+recorded in the change log either way. Keep your source files.
 
 Banners and footers are edited in place with no version history. They are small
 and quick to reconstruct, and the change log records that they were edited.

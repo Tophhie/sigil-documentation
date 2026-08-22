@@ -68,9 +68,15 @@ every client at once, with nothing to clean up in each client's tenant.
 Staff can be scoped to a subset of clients rather than all of them, which is the
 usual arrangement for technicians on a large client base.
 
-Scoping is set per person rather than per role, so any staff member can be
-narrowed this way. Somebody with no scope set reaches every client of the
-partner; somebody scoped reaches only the clients listed against them.
+Scoping is set per person rather than per role. Somebody with no scope set
+reaches every client of the partner; somebody scoped reaches only the clients
+listed against them.
+
+It applies to the three roles that reach clients at all, so an Owner, an Admin or
+a Technician can each be narrowed. The Billing role cannot, because it has no
+access inside any client to narrow. A scope list against a Billing user would
+read as though it granted something, so the console does not offer one and a
+scope sent for that role is discarded rather than stored.
 
 ## Managing staff
 

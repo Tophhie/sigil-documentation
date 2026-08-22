@@ -109,10 +109,18 @@ Alongside the Graph permissions, Sigil's own API exposes two delegated scopes:
 | Scope | Used by |
 | --- | --- |
 | `access_as_user` | The Outlook add-in |
-| `portal_admin` | The admin portal and the designer |
+| `portal_admin` | The admin portal, the designer, and the page where colleagues [fill in their own details](/users/your-details/) |
 
-The presence of `portal_admin` in a token is what distinguishes an administrator
-token from an add-in token, so an add-in token can never reach an admin endpoint.
+The presence of `portal_admin` in a token is what tells a browser sign-in from an
+add-in one, so an add-in token can never reach an admin endpoint.
+
+The name is narrower than the scope is. Anybody signing in through a browser gets
+it, including a colleague who holds no role and only ever opens their own profile
+page. That is deliberate: minting a second scope for the profile portal would put
+every organisation that has already consented through a fresh consent round for no
+security gain, because what a token can actually reach comes from the roles held
+in Sigil rather than from the scope. A token with no role behind it reaches that
+person's own details and nothing else.
 
 ## Reviewing what was granted
 

@@ -42,10 +42,16 @@ token be verified against keys it was not signed with.
 The audience, pinned to Sigil's application id. This one is fixed rather than
 per-tenant: every token for this API, from any organisation, carries it.
 
-The delegated scope. The add-in's token carries `access_as_user`, the portal's
-carries `portal_admin`, and the presence of `portal_admin` is what distinguishes
-an administrator token from an add-in token. An add-in token cannot reach an
-admin endpoint.
+The delegated scope. The add-in's token carries `access_as_user` and a browser
+sign-in carries `portal_admin`, which is what separates the two. An add-in token
+cannot reach an admin endpoint.
+
+`portal_admin` is not itself a grant of administrative access, despite the name.
+It is also what a colleague holds when they sign in to
+[fill in their own details](/users/your-details/), and it authorises nothing on
+its own. Capabilities come from the roles held in Sigil, so a token carrying this
+scope with no role behind it reaches that person's own profile and nothing
+further. See [permissions](/deploy/permissions/#two-delegated-scopes).
 
 ## Authentication paths
 
