@@ -213,6 +213,20 @@ can generate a client from.
 There are no webhooks, so anything that needs to know about a change polls for
 it.
 
+## Is there an uptime commitment?
+
+Not on a direct subscription. The terms of use aim at a reliable service without
+guaranteeing uninterrupted availability, and the support page states an aim of a
+response within one business day.
+
+There is one for managed service providers. The partner agreement commits to
+99.9% monthly uptime backed by service credits, and to a four business hour
+response on escalations, because a provider is asked for those commitments by its
+own clients. See [support and service level](/partners/service-level/).
+
+Either way, an outage affects signature management rather than mail flow. Sigil
+never gates the sending of email.
+
 ## Can a managed service provider run this for us?
 
 Yes. See [the partner programme](/partners/overview/).

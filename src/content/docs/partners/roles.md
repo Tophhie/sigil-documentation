@@ -12,7 +12,7 @@ tenant. Each is given a partner role that applies across the client base.
 
 | Role | Grants |
 | --- | --- |
-| Owner | Everything: the client lifecycle, partner billing and staff management |
+| Owner | Everything: the client lifecycle, partner billing, staff management and accepting the partner agreement |
 | Admin | The client lifecycle and full configuration inside a client, but not partner billing or staff management |
 | Technician | Signature work inside a client, and correcting what its staff entered about themselves. No client lifecycle, no client user management, no billing |
 | Billing | Partner billing and per-client usage reports only. No access inside a client at all |
@@ -21,7 +21,11 @@ The client lifecycle means adding a client, inviting one, asking to take over an
 existing tenant, and releasing one. Owner and Admin both hold it.
 
 Owner and Admin reach the same things inside a client. Where they differ is at
-partner level: only an Owner touches the partner subscription or the staff list.
+partner level: only an Owner touches the partner subscription or the staff list,
+and only an Owner can accept the
+[partner agreement](/partners/service-level/#accepting-the-agreement). Accepting
+it commits the MSP commercially and under data protection law, which is not a
+signature a service desk shift should be able to give.
 
 A Technician reaches templates, rules, banners, footers, link analytics and
 monitoring inside a client, but not that client's own users and roles, not its

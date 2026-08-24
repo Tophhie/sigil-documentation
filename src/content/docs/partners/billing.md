@@ -26,6 +26,11 @@ Those counts are summed across your whole client base and reported once a day as
 usage against a single metered subscription belonging to the partner. You are
 invoiced monthly in arrears for what the period actually recorded.
 
+There is no minimum volume and no minimum spend on the partner arrangement, so a
+month in which you manage no billable mailboxes costs nothing. That is a
+commitment in the [partner agreement](/partners/service-level/#no-minimums)
+rather than a current concession.
+
 That is a different model from a direct tenant, which carries a licensed seat
 quantity that prorates when it changes. A partner has no quantity, so there is no
 proration and no mid-cycle invoice. Clients joining and leaving during a month

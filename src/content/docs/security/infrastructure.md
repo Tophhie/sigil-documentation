@@ -66,6 +66,25 @@ is briefly unavailable, the rest of the telemetry still renders.
 
 The add-in's outcome beacon is time-boxed and never holds a compose window open.
 
+An interruption to Sigil affects signature management rather than mail flow.
+Sigil never gates the sending of email, so an outage costs you the portal and the
+application of signatures, not your users' ability to send.
+
+## Availability commitment
+
+There are two answers, depending on how you buy Sigil.
+
+Bought directly, there is no contractual uptime figure. The terms of use aim at a
+reliable service without guaranteeing uninterrupted availability, and the support
+page states an aim of a response within one business day.
+
+Bought through a managed service provider, the partner agreement commits to
+99.9% monthly uptime with a service credit table behind it, and a four
+business hour response target on escalations. That commitment runs between
+Tophhie Cloud and the provider, so what reaches you is whatever your provider has
+agreed with you on the back of it. See
+[support and service level](/partners/service-level/).
+
 ## Health
 
 `portal.usesigil.app/health` reports configuration and storage state. It is a

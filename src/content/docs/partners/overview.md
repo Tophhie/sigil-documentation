@@ -90,6 +90,12 @@ The partner agreement is published at `portal.usesigil.app/partner-agreement`.
 Acceptance is recorded against the partner, with the accepted version tracked, so
 what was agreed and when is a record rather than an assertion.
 
+It covers how client data is handled, the uptime Sigil commits to and the credits
+if that commitment is missed, who answers a client's support questions, and
+billing. Only a partner Owner can accept it, and accepting is what unblocks
+taking a client on. See
+[support and service level](/partners/service-level/).
+
 It is separate from the [data processing agreement](/security/compliance/) a
 client accepts. A partner cannot accept a client's DPA on their behalf, because
 the client is the data controller and the agreement is theirs to make.
