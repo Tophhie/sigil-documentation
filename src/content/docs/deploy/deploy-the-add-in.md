@@ -41,22 +41,22 @@ It is the same manifest for every organisation. The add-in is multi-tenant and
 works out which organisation somebody belongs to from their sign-in, so there is
 nothing tenant-specific to generate and nothing to keep secret.
 
-### The publisher name does not match the company
+### The publisher name
 
 Integrated apps shows the add-in as "Sigil by Tophhie Cloud", published by
-"Chris Greenacre". Everything else you will have read names Tophhie Cloud Ltd,
-including the privacy policy, the terms, the data processing agreement and your
-invoices.
+Tophhie Cloud Ltd. That matches the privacy policy, the terms, the data
+processing agreement and your invoices, so a security review comparing the
+publisher against the contracting entity finds the same company on both.
 
-Both are Sigil. The manifest carries a provider name from before the company was
-incorporated, and it has not been corrected yet. It is worth knowing before the
-difference is spotted halfway through a security review, because a publisher name
-that disagrees with the contracting entity is a reasonable thing to stop on.
+It has not always. Until August 2026 the manifest named the sole trader Sigil
+traded as before the company was incorporated, and a review that stopped on the
+difference was stopping on something real. The correction is in the manifest now.
 
-The correction is a manifest change, which costs a redeploy and fresh consent for
-every organisation that has already deployed it. That is why it is being held for
-a release that needs one anyway rather than spent on its own. See
-[what needs a redeploy](#what-needs-a-redeploy-and-what-does-not) and
+It reaches an organisation that had already deployed the add-in only when an
+administrator updates the custom app, because
+[a URL upload is not self-updating](#uploading-by-url-does-not-make-it-self-updating).
+If yours still shows the old name, that is what it is telling you, and the update
+carries a fresh consent prompt like any other manifest change. See
 [compliance](/security/compliance/) for the company details in full.
 
 ## Wait for propagation

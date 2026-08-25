@@ -198,6 +198,19 @@ a single mailbox can be exported for a subject access request. See
 [import and export](/signatures/import-export/) and
 [compliance](/security/compliance/).
 
+## Where is our data held, and who else processes it?
+
+In the United Kingdom or the European Economic Area at rest. Three
+sub-processors are involved: Microsoft for identity and directory data,
+Cloudflare for hosting and storage, and Stripe for billing. The data processing
+agreement names all three and commits to 30 days' notice before that list
+changes, with a right to object and leave.
+
+Your directory is the one to be clear about. It stays in your own Microsoft
+tenant, in the region you chose when you bought Microsoft 365, and Sigil reads it
+there rather than copying it somewhere else. See
+[sub-processors](/security/compliance/#sub-processors-and-where-data-is-stored).
+
 ## Can we script Sigil, or pull its numbers into a dashboard?
 
 Yes. An Admin can create an [API key](/admin/api-keys/), which is a credential

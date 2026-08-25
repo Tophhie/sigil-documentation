@@ -174,6 +174,11 @@ Sigil runs on Cloudflare's edge network. Templates and configuration are in D1,
 images in R2, and rendered signatures in a KV cache. Billing is handled by Stripe.
 See [infrastructure](/security/infrastructure/).
 
+Data at rest sits in the United Kingdom or the European Economic Area. For the
+full list of who processes what, where each one holds it, and the notice you get
+before that list changes, see
+[sub-processors](/security/compliance/#sub-processors-and-where-data-is-stored).
+
 ## Tenant isolation
 
 Every record carries a tenant id, storage keys are prefixed by tenant, and cache

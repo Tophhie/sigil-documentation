@@ -105,12 +105,17 @@ effect immediately:
 | Image upload or replacement | Seconds |
 | Banner window opening or closing | Immediately |
 | Footer edit | Seconds |
-| Assignment rules change | Up to 10 minutes |
+| Assignment rules change | Next compose |
+| Directory attribute change affecting which rule matches | Up to 10 minutes |
 | Add-in manifest change | Requires redeploy and re-consent |
 
-Assignment rules are the exception because evaluating one needs directory data,
-so the per-mailbox resolution is cached for ten minutes and keyed by a rules
-version that changes whenever you edit them.
+Assignment rules look like an exception and are not quite one. Evaluating a rule
+needs directory data, so the decision reached for each mailbox is cached, but the
+cache key carries a version that changes whenever you save the rule list. Saving
+strands every cached decision at once, so the edit reaches each person the next
+time they compose. The ten minute lifetime on those entries is for the change
+Sigil never sees, which is somebody moving department or joining a group in
+Entra.
 
 ## If you publish something wrong
 

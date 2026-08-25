@@ -196,12 +196,20 @@ to end up with no signature because no rule covered them.
 
 ## How quickly changes take effect
 
-Rules changes reach everyone within ten minutes.
+Rules changes land on the next message anybody composes.
 
-That is slower than a template edit, which lands in seconds, and the reason is
-that evaluating a rule requires directory data. The per-mailbox result is cached
-for ten minutes, keyed by a version that changes whenever you edit the rules, so
-an edit invalidates the cache and the resolution is recomputed.
+Evaluating a rule needs directory data, which would put a lookup on the path of
+every compose, so the decision each rule list reaches for a given mailbox is
+cached. What makes an edit land is the shape of that cache rather than its
+lifetime: the stored decision is filed under a version number that changes every
+time you save the rule list, so saving strands every cached decision in the
+organisation at once and the next compose works the routing out again.
+
+The ten minute lifetime on those entries covers the change the version number
+cannot see. Nothing happens in Sigil when somebody moves department or joins a
+group, so a cached decision has to age out on its own before the new attribute
+can route them somewhere else. That is the delay to expect after a change made
+in Entra, not after a change made here.
 
 An edit to a template that a rule points at still lands in seconds. It is only
 the routing decision that is cached.
@@ -238,6 +246,8 @@ download action on the Templates view to render the live signature for a specifi
 mailbox. That runs the whole path, placeholders and images included, so it shows
 what the add-in will actually produce.
 
-The two can disagree for up to ten minutes after a rules change. The simulation
-is the one that is right: a download answers from the cached resolution, which is
-the previous one until the window passes.
+The two agree as soon as you save a rule list, because saving strands the cached
+decisions the download reads from. They can disagree for up to ten minutes after
+a change made in Entra: the simulation reads the directory live, while a download
+answers from a decision that was cached before the person moved. The simulation
+is the one that is right in that window.

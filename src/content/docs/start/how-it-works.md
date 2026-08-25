@@ -73,10 +73,13 @@ That is why a template edit reaches users within seconds without an explicit
 purge. Banners and footers are part of the same cache key, so opening or closing
 a campaign window takes effect immediately.
 
-Assignment rules work slightly differently. Evaluating a rule needs directory
-data, so the per-mailbox resolution is cached for ten minutes, keyed by a rules
-version that changes on every edit. A rules change therefore reaches everyone
-within ten minutes, while an edit to a template still lands in seconds.
+Assignment rules work the same way with a second cache in front of them.
+Evaluating a rule needs directory data, so the routing decision reached for each
+mailbox is cached too, keyed by a rules version that changes on every edit.
+Saving a rule list strands all of those at once, so a rules change also lands on
+the next compose. The ten minute lifetime on those entries exists for the change
+no version number can see, which is somebody moving department or joining a group
+in Entra.
 
 ## The sending address, not the mailbox
 

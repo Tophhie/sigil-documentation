@@ -52,8 +52,11 @@ long any directory data exists inside Sigil at all: the attributes are read when
 a signature is rendered and are never stored as a record of their own, so an hour
 after the last render there is nothing left of them.
 
-Per-mailbox assignment rule resolution is cached separately for ten minutes,
-keyed by a rules version that changes whenever the rules are edited.
+The routing decision behind assignment rules is cached separately, keyed by a
+rules version that changes whenever the rules are edited, so an edit strands
+every cached decision at once. A ten minute lifetime sits on those entries as
+well, which is what bounds how long a directory attribute can go on routing
+somebody to a template they should no longer be getting.
 
 ## Reliability characteristics
 

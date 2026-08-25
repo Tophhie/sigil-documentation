@@ -29,6 +29,11 @@ Fields the directory has no value for are left out of the card entirely rather
 than written empty, so a person with no fax number does not import as a contact
 with a blank fax field.
 
+The card is built from the directory alone. Details staff
+[enter themselves](/admin/profile-fields/) are not on it, so a code and the
+signature printed beside it can legitimately carry different things. See
+[what the card contains](/signatures/contact-card/#what-the-card-contains).
+
 A link code is the same image for everyone unless the URL contains a
 placeholder. `https://example.com/book/{{extensionAttribute3}}` gives each
 person their own booking link; a plain URL does not, and Sigil recognises the

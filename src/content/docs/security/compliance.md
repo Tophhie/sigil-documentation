@@ -97,6 +97,34 @@ Accepting it in the portal also writes an entry to your own
 [change log](/monitoring/change-log/), deliberately, so you can evidence your
 acceptance from your own records rather than asking Tophhie Cloud for it.
 
+## Sub-processors and where data is stored
+
+Three companies process data on Sigil's behalf, and the data processing
+agreement names all three rather than reserving the right to add more quietly.
+
+| Sub-processor | What it does | Where |
+| --- | --- | --- |
+| Microsoft | Identity through Entra ID, and directory data through Graph | Your own tenant's region |
+| Cloudflare | Application hosting, storage and caching | Global edge, with data at rest in the UK or EU |
+| Stripe | Subscription billing and card processing | UK, EU and US |
+
+Your directory data and the content you author are stored in the United Kingdom
+or the European Economic Area. Where one of those sub-processors moves personal
+data outside the UK or EEA, the transfer runs on an adequacy decision or on the
+UK Addendum to the EU Standard Contractual Clauses, which the agreement
+incorporates.
+
+Microsoft appearing on that list is worth reading carefully, because it is not
+Sigil choosing a supplier. Your directory already lives in your own Microsoft
+tenant, in whichever region you chose when you bought Microsoft 365, and Sigil
+reads it there. Nothing about connecting Sigil moves it.
+
+Adding or replacing a sub-processor carries 30 days' notice. If you object on
+data protection grounds inside that window, you can end the affected part of the
+service without penalty and get a pro-rata refund of anything prepaid. That is a
+term of the agreement rather than a courtesy, which is the point of writing it
+down.
+
 ## Published legal documents
 
 | Document | Where |

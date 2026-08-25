@@ -54,6 +54,14 @@ person with no fax number has no fax line.
 This is exactly the set the QR code carries, which is the point: one function
 builds both.
 
+It is the directory record and only the directory record. The details staff
+[fill in themselves](/admin/profile-fields/) do not appear on the card, even
+though they can appear in the signature above it, because vCard has no field to
+put a pronoun or a booking link in that a contacts app would do anything useful
+with. If one of those details is something you want a recipient to keep, put it
+in the signature body where they can read it, rather than expecting the saved
+contact to carry it.
+
 ## Who can fetch a card
 
 The link is public, because a recipient clicking it holds no Sigil credentials.

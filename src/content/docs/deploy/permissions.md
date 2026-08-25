@@ -15,6 +15,23 @@ modify your directory even if it were asked to.
 | `Organization.Read.All` | Reading your organisation's name and domain at onboarding |
 | `GroupMember.Read.All` | Assignment rules that match on Entra group membership, and excluding a group's members in cost management |
 
+## Consent covers all three, or none of them
+
+The consent screen is not a pick list. Sigil asks Microsoft for everything its
+application registration declares rather than naming permissions one at a time,
+so an administrator granting consent grants all three together and cannot approve
+two of them.
+
+That is why the table above is short, and why it stays short. A permission added
+to the registration would widen what every consent screen after it asks for, so
+the list is treated as something to keep small rather than something to extend
+when a feature would find it convenient.
+
+It also explains a difference you may see between two organisations. Consent
+records what was declared on the day it was granted, so an organisation that
+connected before `GroupMember.Read.All` was requested still holds the narrower
+grant, and keeps it until somebody consents again.
+
 ## Why User.Read.All rather than something narrower
 
 `User.ReadBasic.All` is the obvious narrower option, and it does not work.

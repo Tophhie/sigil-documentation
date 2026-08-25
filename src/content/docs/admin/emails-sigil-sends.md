@@ -55,6 +55,7 @@ announcement.
 
 | Message | Sent when |
 | --- | --- |
+| Your provider has invited you to set up Sigil email signatures | An MSP is onboarding you for the first time. Carries the link that starts admin consent, and expires after 14 days |
 | Your provider has asked to manage your account | An MSP requests a transfer of your existing tenant. Approve or decline it yourself in the portal |
 | Your provider has released your account | Your MSP has ended the relationship. Billing returns to you |
 | Action needed: your email signatures are at risk | Your MSP's payment has been failing long enough that your signatures have a stop date |
@@ -68,6 +69,14 @@ the date and who to chase.
 An organisation managed by a partner can legitimately have no administrators of
 its own, in which case there is nobody to tell and nothing is sent. The partner is
 the one who has to act in that case anyway.
+
+The invitation is the exception to everything else on this page, because it
+arrives before your organisation exists in Sigil at all. It is sent only if your
+provider gives Sigil an address to send it to; a provider who would rather hand
+the link over themselves leaves that field empty and nothing is sent. Either way
+the link is the same one, it is single use, and it asks for a Global
+Administrator, so it is worth confirming with your provider that they sent it
+before anybody follows it.
 
 ## To a partner's own staff
 

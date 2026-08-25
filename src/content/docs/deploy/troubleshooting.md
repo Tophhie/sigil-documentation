@@ -117,9 +117,12 @@ The usual answer is ordering. Rules are evaluated in order and the first match
 wins, so a broad rule placed above a narrow one will shadow it, and the
 simulation marks the shadowed rule as having matched too late to decide anything.
 
-Rules changes take up to ten minutes to reach everyone, unlike template edits
-which land in seconds. If the simulation shows the right rule but the mailbox is
-still sending the old signature, that window is the likeliest reason.
+Saving a rule list reaches everyone on their next compose, so a rules edit you
+have just made is rarely the explanation. What does lag is a change made in
+Entra: the decision reached for each mailbox is cached for ten minutes, and
+nothing tells Sigil that somebody has moved department. If the simulation shows
+the right rule but the mailbox is still sending the old signature shortly after a
+directory change, that window is the likeliest reason.
 
 ### An old version of the template
 

@@ -118,15 +118,19 @@ keys and settings are recorded without appearing on it. See the
 | Image upload or replacement | Seconds |
 | Footer edit | Seconds |
 | Banner window opening or closing | Immediately |
-| Assignment rules change | Up to 10 minutes |
+| Assignment rules change | Next compose |
+| Directory change affecting which rule matches | Up to 10 minutes |
 | Profile field value saved, by anybody in the organisation | Next compose |
 | Directory attribute change in Entra | Up to an hour, without a republish |
 | Microsoft 365 profile photo added or changed | Up to a day |
 | Add-in manifest change | Requires redeploy, plus 6 to 72 hours propagation and fresh consent |
 | Initial add-in deployment | 6 to 72 hours propagation |
 
-Assignment rules are slower than template edits because evaluating a rule needs
-directory data, so the per-mailbox result is cached for ten minutes.
+The two rules rows are different events. Saving a rule list changes the version
+its cached decisions are filed under, so the edit lands on the next compose. A
+change made in Entra changes nothing in Sigil, so a cached decision has to reach
+the end of its ten minute life before the new department or group can route
+somebody differently.
 
 ## Staged rollout defaults
 

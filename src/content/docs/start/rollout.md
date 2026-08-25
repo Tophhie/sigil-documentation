@@ -74,8 +74,8 @@ These are template edits and land within seconds.
 
 Targeting issues, such as one department needing different contact details or a
 subsidiary needing its own branding. That is what
-[assignment rules](/targeting/assignment-rules/) are for. Rules changes reach
-everyone within ten minutes.
+[assignment rules](/targeting/assignment-rules/) are for. Rules changes land on
+the next message anybody composes.
 
 Add a [compliance footer](/targeting/footers/) at this stage if legal needs one.
 It applies below every signature at render time, so it does not need to be worked
