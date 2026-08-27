@@ -27,7 +27,9 @@ JSON file.
 
 Import from the Templates view. An import always creates a new library entry
 rather than overwriting an existing template, so there is no way to import over
-something by accident.
+something by accident. If the bundle's name is already taken, the new entry gets
+a numbered suffix rather than the import being refused, which is worth knowing
+before you import the same bundle twice and wonder which one is live.
 
 If an image name in the bundle collides with one that already exists in the
 target organisation, the import creates a numbered variant and repoints the
@@ -55,6 +57,13 @@ identity and belong to the organisation rather than to any one template.
 separate objects applied at render time.
 
 Version history. The imported template starts fresh.
+
+[Link tracking](/monitoring/link-clicks/). The bundle records whether the
+original had it switched on, but nothing reads that back on import, so the new
+template arrives with tracking off whatever the original did. Switch it on again
+in the target organisation if you want it. The links themselves are counted per
+organisation anyway, so an imported template could not have inherited the
+original's figures even if the switch had travelled.
 
 Set those up in the target organisation after importing.
 

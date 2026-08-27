@@ -300,6 +300,16 @@ The placeholder list is the one route here with no capability of its own. It
 describes what a template could reference rather than exposing any of your data,
 and both editors need it before anything else loads.
 
+A profile field's `type` is one of `text`, `choice`, `url`, `email` or `phone`.
+The portal labels `url` as "Link", so that is the one name that differs between
+the screen and the request. `options` is required for `choice`, between 1 and 24
+distinct entries, and ignored for every other type. `maxLength` defaults to 200
+and must be between 1 and 500; it is enforced on every type, not just `text`,
+even though the portal only offers the control on text fields. Changing the type
+of a field that already holds values deletes the values the new type would
+refuse, and the response says how many went. See
+[profile fields](/admin/profile-fields/#types-and-why-they-are-the-validation).
+
 The simulation takes its `email` in the body rather than the query string,
 because it names a person and query strings end up in logs. It replies with the
 mailbox it resolved, the template each role lands on and what decided it, and a

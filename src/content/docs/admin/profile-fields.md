@@ -57,13 +57,18 @@ The type is not decoration. These are the first values Sigil interpolates into a
 signature that an administrator did not control, so what a field accepts is what
 stops a bad value reaching a recipient's inbox.
 
-| Type | Accepts |
-| --- | --- |
-| Text | Anything, up to the field's maximum length |
-| Choice | One of the options you listed, and nothing else |
-| URL | A full web address beginning `http://` or `https://` |
-| Email | An address of the usual shape |
-| Phone | Digits and the punctuation phone numbers are written with |
+| Type | Accepts | Over the API |
+| --- | --- | --- |
+| Text | Anything, up to the field's maximum length | `text` |
+| Choice | One of the options you listed, and nothing else | `choice` |
+| Link | A full web address beginning `http://` or `https://` | `url` |
+| Email address | An address of the usual shape | `email` |
+| Phone number | Digits and the punctuation phone numbers are written with | `phone` |
+
+The third column only matters if you are creating fields through the
+[API](/reference/api/), where the type is sent as one of those five strings.
+The one to watch is Link, which is `url` on the wire, because it is the single
+place the name on screen and the name in the request do not match.
 
 Choice is a rejection rather than a suggestion. A value that is not on your list
 is refused on save.
@@ -72,9 +77,9 @@ is refused on save.
 
 Whatever the type, a value that looks like a link is restricted to ordinary
 `http` and `https` addresses. Something like a `javascript:` link is refused from
-a text field just as firmly as from a URL one.
+a text field just as firmly as from a Link one.
 
-That is deliberately not a rule of the URL type, because a type is a statement
+That is deliberately not a rule of the Link type, because a type is a statement
 about what a field is for and three ordinary things get around it. You can change
 a field's type after values were stored. A stored value carries through every
 later save untouched. And a design can use any placeholder as a whole link

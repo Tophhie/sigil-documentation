@@ -197,7 +197,7 @@ checked when it is saved rather than when it is rendered.
 Part of that check applies to every field regardless of its type: a value that
 looks like a link has to be an ordinary `http` or `https` one. A link target that
 is entirely one placeholder cannot be checked at render time, since Sigil cannot
-know the value in advance, so a text field is held to the same rule as a URL
+know the value in advance, so a text field is held to the same rule as a Link
 field. See [profile fields](/admin/profile-fields/#one-check-applies-to-every-type).
 
 Any placeholder left unresolved is stripped. A literal `{{jobTitle}}` can never

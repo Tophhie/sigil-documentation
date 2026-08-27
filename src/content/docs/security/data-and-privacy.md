@@ -292,6 +292,13 @@ Where a deprovision is scheduled rather than immediate, the purge checks that th
 deletion is still scheduled before it destroys anything. An organisation restored
 during its grace window is safe even if a purge had already been queued for it.
 
+Everything above describes the live systems. Backups are the one place a purge
+does not reach: a backup holding your data is overwritten on its normal cycle
+within 90 days and stays covered by the data processing agreement until it is. If
+you are giving somebody a date by which the data is gone, that is the date to
+give. See
+[deletion on termination](/security/compliance/#deletion-on-termination-and-what-backups-mean-for-it).
+
 Withdrawing admin consent stops Sigil reading your directory, which stops
 signatures rendering, but leaves your stored configuration in place. If you want
 the data gone rather than dormant, ask for a deprovision.

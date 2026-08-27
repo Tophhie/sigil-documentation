@@ -211,6 +211,28 @@ tenant, in the region you chose when you bought Microsoft 365, and Sigil reads i
 there rather than copying it somewhere else. See
 [sub-processors](/security/compliance/#sub-processors-and-where-data-is-stored).
 
+## What happens if there is a data breach?
+
+You are told within 48 hours of Tophhie Cloud becoming aware of one, and the
+notice describes the nature of the breach, roughly how many people and records
+are involved, the likely consequences and what is being done. Where the whole
+picture is not known yet, it is sent in phases rather than held back.
+
+Deciding whether to notify a regulator or the people affected stays with your
+organisation, because you are the controller. The 48 hours is shorter than the 72
+you get for that decision on purpose, since your clock only starts when you are
+told. See
+[if there is a personal data breach](/security/compliance/#if-there-is-a-personal-data-breach).
+
+## Can we audit Sigil, or send a security questionnaire?
+
+One reasonable security questionnaire in any twelve-month period is committed to
+in the data processing agreement, along with the information needed to
+demonstrate Article 28 compliance. Where that is not enough to satisfy a
+supervisory authority, there is a right to audit on 30 days' notice, once a year,
+during business hours, and without access to any other customer's data. See
+[auditing Sigil](/security/compliance/#auditing-sigil).
+
 ## Can we script Sigil, or pull its numbers into a dashboard?
 
 Yes. An Admin can create an [API key](/admin/api-keys/), which is a credential

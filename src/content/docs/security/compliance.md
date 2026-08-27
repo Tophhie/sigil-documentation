@@ -97,6 +97,34 @@ Accepting it in the portal also writes an entry to your own
 [change log](/monitoring/change-log/), deliberately, so you can evidence your
 acceptance from your own records rather than asking Tophhie Cloud for it.
 
+## What the agreement commits Tophhie Cloud to
+
+Some of the processor obligations in the agreement are worth reading on their
+own, because nothing you can see in the portal evidences them.
+
+Sigil processes your data only on your documented instructions, and the agreement
+defines what those are rather than leaving it vague: the agreement itself, the
+terms of use, and the configuration you make in the portal. Nothing you have not
+asked for is a lawful instruction. If law compels processing beyond that, you are
+told before it happens unless the law forbids the telling. An instruction that
+Tophhie Cloud believes breaks data protection law is raised with you rather than
+carried out quietly.
+
+Staff authorised to handle your data are under a duty of confidentiality that
+outlasts their engagement, and access is limited to the people who need it to run
+or support the service. See [operator access](#vendor-operator-access) for the
+controls behind that second half.
+
+The Article 32 security measures are documented across this section of the site
+rather than listed in one place: [tenant
+isolation](/security/security-model/#tenant-isolation),
+[authentication through Entra ID](/security/security-model/#authentication-paths)
+with roles you set, [read-only Graph permissions](/deploy/permissions/) your own
+administrator grants and can revoke, the
+[change log](/monitoring/change-log/), and the separation of operator access from
+customer access. The one measure not covered elsewhere is encryption: data is
+encrypted in transit with TLS, and encrypted at rest where it is stored.
+
 ## Sub-processors and where data is stored
 
 Three companies process data on Sigil's behalf, and the data processing
@@ -124,6 +152,48 @@ data protection grounds inside that window, you can end the affected part of the
 service without penalty and get a pro-rata refund of anything prepaid. That is a
 term of the agreement rather than a courtesy, which is the point of writing it
 down.
+
+## If there is a personal data breach
+
+The agreement commits Tophhie Cloud to telling you about a personal data breach
+affecting your data without undue delay, and in any event within 48 hours of
+becoming aware of it.
+
+The notice has to say what happened rather than that something happened. It
+describes the nature of the breach, the categories and approximate number of
+people and records involved, the likely consequences, and what has been done or
+is proposed about it. Where all of that is not known at once, it is sent in
+phases rather than held back until the picture is complete, because a controller
+deciding whether to notify anybody needs the first facts early.
+
+Forty-eight hours is deliberately shorter than the seventy-two your organisation
+has to notify its own supervisory authority, and the reason is arithmetic. Your
+clock starts when you are told, so a processor that took the full seventy-two
+would leave you none. Sigil is a processor here and the obligation to notify a
+regulator or the people affected stays with your organisation, which is the
+reason the notice is written to be usable as the basis for that decision.
+
+## Auditing Sigil
+
+Most compliance reviews are answered on paper, and the agreement says so rather
+than treating a questionnaire as a favour. Tophhie Cloud will make available the
+information reasonably necessary to demonstrate compliance with Article 28, and
+will complete one reasonable security questionnaire in any twelve-month period.
+
+Where that is genuinely not enough to satisfy a supervisory authority, you have a
+right to audit. It runs on 30 days' notice, no more than once a year unless a
+breach or a regulator requires otherwise, during business hours, subject to
+confidentiality, and without access to any other customer's data. That last
+condition cuts both ways and is the point of stating it: the same term protects
+your organisation from somebody else's audit.
+
+If you are working through a procurement review, most of what a questionnaire
+asks for is already written down. This page and
+[data and privacy](/security/data-and-privacy/) cover the processing, the
+[security model](/security/security-model/) covers the controls, and the
+[published agreements](#published-legal-documents) carry the commitments
+themselves. Ask support for the questionnaire route when you need something
+answered on your own form rather than found on a page.
 
 ## Published legal documents
 
@@ -203,6 +273,31 @@ The coverage of that purge is checked automatically rather than maintained by
 hand, so anything Sigil starts storing against an organisation has to be either
 purged or recorded as a deliberate exception. See
 [data and privacy](/security/data-and-privacy/).
+
+## Deletion on termination, and what backups mean for it
+
+You can export your templates, images and activity data yourself at any time from
+the portal, and nothing about ending the service is a precondition for getting
+them.
+
+On termination, or on your written request at any point, your organisation's data
+is deleted within 30 days, except where law requires it to be kept. The purge
+itself is described in
+[data and privacy](/security/data-and-privacy/#deleting-your-data), which is
+about the live systems: the records, the stored images and the cached entries all
+go when it runs.
+
+Backups are the part that a purge cannot reach, and the agreement says so rather
+than letting "everything is deleted" imply otherwise. A backup holding your data
+is overwritten on its normal cycle, within 90 days, and stays covered by the data
+processing agreement until it is. So the honest answer to "when is it all gone"
+is that the live systems are cleared on the purge and the last copy expires
+inside 90 days, not that both happen at once.
+
+This matters for one kind of request in particular. If you are answering an
+erasure request by deprovisioning, the date you can commit to is the backup
+expiry rather than the purge, and it is better to say so than to discover the
+distinction afterwards.
 
 ## What Sigil is not
 
