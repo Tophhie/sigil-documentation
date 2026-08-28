@@ -61,22 +61,28 @@ fetches from `portal.usesigil.app` and is itself served from
 `static.usesigil.app`. The link domain answers `/r/` redirects and returns 404
 for every other path, so it carries no API or portal surface.
 
-Three hosts Sigil does not own are also involved, and none is specific to Sigil:
+Four hosts Sigil does not own are also involved, and none is specific to Sigil:
 
 | Host | Purpose | If it is blocked |
 | --- | --- | --- |
 | `appsforoffice.microsoft.com` | Office.js, which Microsoft requires every Office add-in to load from here | The add-in does not run at all |
 | `unpkg.com` | The icons in the "My signature" pane | The pane works, without its glyphs |
-| `fonts.googleapis.com` | The typefaces the "My signature" pane is set in | The pane works, in the reader's default fonts |
+| `fonts.googleapis.com` | The stylesheet naming the typefaces the pane and the admin portal are set in | Both work, in the reader's default fonts |
+| `fonts.gstatic.com` | The font files that stylesheet points at | Both work, in the reader's default fonts |
 
 Office.js is loaded by both the automatic path and the pane, so blocking it stops
 signatures rather than degrading them. If you already permit Office add-ins, it is
 allowed, because no add-in works without it.
 
-The other two are cosmetic and are only reached by the pane, never by the
-automatic path. An organisation that blocks general-purpose content delivery
-networks loses some polish in the pane and no function anywhere, and nobody's
-signature is affected.
+The other three are cosmetic. None of them is reached by the automatic path, which
+is why an organisation that blocks general-purpose content delivery networks loses
+some polish and no function anywhere, and nobody's signature is affected.
+
+The two font hosts go together, and allowing only the first achieves nothing:
+`fonts.googleapis.com` returns a stylesheet that names the font files, and those
+files come from `fonts.gstatic.com`. They are also reached by the admin portal in
+a browser, not just by the pane in Outlook, so an administrator who blocks them
+will see the portal in fallback fonts as well.
 
 ## Template constraints
 

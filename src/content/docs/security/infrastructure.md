@@ -37,6 +37,39 @@ redeploy and fresh admin consent.
 The link domain answers `/r/` redirects and returns 404 for everything else, so
 the surface that recipients touch carries no portal or API.
 
+## Code and fonts loaded from other hosts
+
+The components above are the services Sigil runs on. Three further hosts are
+reached by the browser or the Outlook client rather than by Sigil's servers, and
+they are worth stating plainly because one of them puts third-party code inside
+your users' Outlook.
+
+| Host | What it serves | Reached by |
+| --- | --- | --- |
+| `appsforoffice.microsoft.com` | Office.js | The add-in, on every path |
+| `unpkg.com` | The icon set the "My signature" pane draws its glyphs from, at a pinned version | The pane only |
+| `fonts.googleapis.com` and `fonts.gstatic.com` | The typefaces the pane and the admin portal are set in | The pane and the portal |
+
+Office.js is not optional and not a choice Sigil made. Microsoft requires every
+Office add-in to load it from that host, and an add-in that bundled its own copy
+would not run.
+
+The other two are cosmetic, and the add-in is built so that losing them costs
+appearance rather than function. The icon script is called through an optional
+reference, so a blocked or unreachable `unpkg.com` leaves the buttons without
+glyphs and every one of them still works. Missing fonts fall back to the
+reader's defaults.
+
+None of these hosts is sent anything of yours. They answer requests for a script,
+a stylesheet and font files, and what they learn is what any web request
+discloses: the address it came from and the page that made it. Signature content,
+directory attributes and tokens never travel to them, and the automatic signature
+path reaches none of them except Office.js.
+
+The network view of the same list, written for an administrator configuring an
+outbound filter, is on
+[requirements](/deploy/requirements/).
+
 ## Caching
 
 Rendered signatures are cached in KV, keyed by template id, template version and
