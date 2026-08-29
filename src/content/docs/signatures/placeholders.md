@@ -83,6 +83,52 @@ everywhere else that does not read manager at all.
 People with no manager set in the directory resolve these as empty, so wrap them
 in a conditional section.
 
+## Sender
+
+| Placeholder | Resolves to |
+| --- | --- |
+| `{{sender.displayName}}` | The display name of whoever pressed Send |
+| `{{sender.firstName}}` | Their first name |
+| `{{sender.lastName}}` | Their last name |
+
+Every other placeholder on this page describes the mailbox a message goes out
+from. For `sales@`, `{{displayName}}` is "Sales", which is correct for the
+address and wrong for the person who wrote the message. These three are that
+person.
+
+They differ from the mailbox's own fields only when a message is sent from a
+shared or delegated mailbox. On an ordinary send they resolve to the mailbox's
+own names, which is what lets one template carry both cases:
+
+```html
+Kind regards, {{sender.firstName}} {{sender.lastName}}{{#onBehalfOf}} on behalf of {{displayName}}{{/onBehalfOf}}
+```
+
+Sent from `sales@` by Jane Doe, that renders "Kind regards, Jane Doe on behalf of
+Sales". Sent from Jane's own mailbox, the same line renders "Kind regards, Jane
+Doe" and the clause closes. You do not need a second template for the shared
+mailbox, which is the reason the fallback works this way rather than resolving to
+nothing.
+
+Two behaviours are worth knowing before you build a signature around it.
+
+Once somebody else is sending, their own values are printed as they stand. A
+delegate with no first name in the directory prints nothing there rather than
+borrowing the shared mailbox's name, which would read as that person being called
+"Sales".
+
+Sending from an alias of your own mailbox is not a delegation. If your account is
+`jane.doe@` and you send from `jane@`, the two addresses differ but the person
+does not. The sender is compared against every address the mailbox owns, not just
+the one in the From field, so your own alias never opens an "on behalf of"
+clause.
+
+These fields are filled in only where Sigil knows who is composing, which is the
+add-in's request at compose time. A signature downloaded from the Templates view,
+a [test email](/admin/test-email/) and a preview all render the mailbox sending
+for itself unless you tell the preview otherwise. See
+[previewing a shared mailbox send](/signatures/templates/#previewing-a-shared-mailbox-send).
+
 ## Extension attributes
 
 | Placeholder | Directory source |
@@ -134,6 +180,7 @@ See [profile fields](/admin/profile-fields/) for defining them, and
 | `{{anyPhone}}` | The person has any phone number at all |
 | `{{anyAddress}}` | The person has any address component at all |
 | `{{hasPhoto}}` | The mailbox has a Microsoft 365 profile photo |
+| `{{onBehalfOf}}` | Somebody is sending on the mailbox's behalf, rather than the mailbox sending for itself |
 
 These exist for conditional sections rather than for printing. Attaching a whole
 contact row to `{{#anyPhone}}` lets the entire row disappear for people with no
@@ -144,6 +191,11 @@ because answering it costs a call to Microsoft Graph. A Photo block in the
 [designer](/signatures/designer/) carries the condition on its own, so this is
 mainly useful for hiding something that sits alongside a photo. See
 [per-user images](/signatures/per-user-images/).
+
+`onBehalfOf` is the switch behind the "on behalf of" clause above. It is the only
+derived helper that can be true for one person sending from a mailbox and false
+for another, which is why it exists rather than leaving you to compare a name
+against an address.
 
 ## Conditional sections
 

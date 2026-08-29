@@ -73,6 +73,13 @@ That is why a template edit reaches users within seconds without an explicit
 purge. Banners and footers are part of the same cache key, so opening or closing
 a campaign window takes effect immediately.
 
+A template that names the person sending, rather than only the mailbox, cannot be
+cached per mailbox alone: the first person to send from `sales@` would otherwise
+hand their own name to everybody who sent from it next. Sigil detects that case
+from the template itself, and from the compliance footer, and adds the sender to
+the cache key for it. Templates that do not mention the sender keep the key they
+had, so nothing here costs anything to an organisation not using the feature.
+
 Assignment rules work the same way with a second cache in front of them.
 Evaluating a rule needs directory data, so the routing decision reached for each
 mailbox is cached too, keyed by a rules version that changes on every edit.
@@ -97,6 +104,20 @@ is resolved through a `proxyAddresses` directory filter, and the sending address
 is printed only after it has been verified against the mailbox's own
 `proxyAddresses`. An unrecognised address falls back to the primary and can never
 be injected into a signature.
+
+### Two identities, not one
+
+The compose request carries both the mailbox and the person. The From address
+says which mailbox the message leaves from, and the add-in's token says who is
+signed in. On an ordinary send they name the same account. On a shared or
+delegated mailbox they do not, and that gap is what the
+[sender placeholders](/signatures/placeholders/#sender) render out of.
+
+Sigil takes the person from the verified token rather than from anything the
+request asks for, so a signature cannot be made to claim somebody else wrote it.
+Sending from an alias of your own mailbox is not treated as a delegation, because
+the comparison is against every address the mailbox owns rather than against the
+one in the From field alone.
 
 ## Multi-tenancy
 

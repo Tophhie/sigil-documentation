@@ -136,6 +136,13 @@ The `email` parameter may name any mailbox in the calling tenant, which is what
 allows a shared mailbox or an alias to render its own signature. The identity on
 a report is taken from the verified token rather than from the payload.
 
+That request carries two identities rather than one, and the difference matters.
+`email` is the mailbox the message leaves from, and the token names the person
+holding it. A template using the
+[sender placeholders](/signatures/placeholders/#sender) renders out of the gap
+between them, so passing the signed-in user's own address as `email` would turn
+every shared-mailbox signature into a personal one.
+
 `GET /api/signature/profile` is what decides whether the add-in offers its "Edit
 my details" button. It answers `editable: true` only when the organisation has
 switched [profile editing](/admin/settings/) on and has at least one field
@@ -197,7 +204,7 @@ safely carry. Saves are rate limited per mailbox.
 | `GET /api/admin/templates/:id/export` | Admin token | Portable JSON, images included |
 | `POST /api/admin/templates/import` | Admin token | Import a bundle as a new entry |
 | `PUT /api/admin/roles` | Admin token, rules capability | Assign templates to the `new` and `reply` roles |
-| `POST /api/admin/preview` | Admin token | Render with sample data, or against a named mailbox, in which case the response carries that mailbox's directory attributes alongside the HTML |
+| `POST /api/admin/preview` | Admin token | Render with sample data, or against a named mailbox, in which case the response carries that mailbox's directory attributes alongside the HTML. An optional `sender` renders the [shared mailbox case](/signatures/placeholders/#sender) |
 | `GET /api/admin/download?email=&type=` | Admin token | A mailbox's live signature as a standalone file |
 
 Shortcuts acting on the active new-message template exist at

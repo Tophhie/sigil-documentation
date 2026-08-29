@@ -123,9 +123,31 @@ Preview renders the template with sample data so you can see the shape of it
 without publishing. It is the fastest way to check that a conditional section
 collapses the way you expect.
 
+The address box above the preview swaps the sample data for a real mailbox.
+Start typing a name and it completes from your directory. Clear it to go back to
+sample data.
+
 To see a real person's real signature, use the download option on the Templates
 view, which produces the live signature for a chosen mailbox as a standalone HTML
 file. To see it in a real mail client, send a [test email](/admin/test-email/).
+
+### Previewing a shared mailbox send
+
+A second address box sits beside the first, labelled "sent by". It renders the
+template as if that person had sent from the mailbox named in the first box,
+which is how you check a signature using the
+[sender placeholders](/signatures/placeholders/#sender). Leaving it blank gives
+you the ordinary send, where the mailbox is sending for itself. Both editors
+have it.
+
+Put `sales@` in the first box and a colleague's address in the second, and the
+preview shows what a delegate's message from the shared mailbox will actually
+say, including whether the `{{#onBehalfOf}}` clause opens.
+
+Naming somebody who is not a delegate does nothing visible. The preview applies
+the same test a real send does, so it cannot show you an output no message could
+produce. Somebody previewing themselves against their own mailbox, or against one
+of their own aliases, gets the ordinary send.
 
 ## The starter template
 

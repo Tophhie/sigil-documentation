@@ -79,6 +79,17 @@ Two things on mobile are normal rather than faults: on a reply, the signature is
 not visible until you expand the compose window to full screen, and a message
 started from the iOS Share sheet does not get a signature.
 
+## Sending from a shared mailbox
+
+Switch the From field to a shared mailbox and you get that mailbox's signature
+rather than your own, which is the point of having one. Your organisation can
+also have it name you, so a message from `sales@` signs off "Jane Doe on behalf
+of Sales" rather than just "Sales".
+
+Whether it does is up to whoever writes the templates. If yours does not name
+you and you think it should, that is a request for the person who looks after
+signatures rather than something you can change from Outlook.
+
 ## Things that look wrong but are not
 
 A new message you have not typed anything into will not be saved as a draft, even

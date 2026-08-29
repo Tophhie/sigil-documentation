@@ -18,14 +18,16 @@ Every attribute that maps to a [placeholder](/signatures/placeholders/): the
 identity fields, the phone numbers, job title and department, the address
 components, the manager fields, and all fifteen extension attributes.
 
-Three kinds of placeholder are left out, because none has a populated or missing
-state in the directory to score. The derived helpers `anyPhone`, `anyAddress` and
-`hasPhoto` are computed rather than stored. `contactCardUrl` is
+Four kinds of placeholder are left out, because none has a populated or missing
+state in the directory to score. The derived helpers `anyPhone`, `anyAddress`,
+`hasPhoto` and `onBehalfOf` are computed rather than stored. `contactCardUrl` is
 [supplied by Sigil](/signatures/contact-card/) rather than read from the
-directory. And [profile fields](/admin/profile-fields/), the `{{custom.…}}`
-placeholders your colleagues fill in themselves, were never in Entra at all.
-Auditing any of them would report a permanent gap in something that was never a
-directory attribute.
+directory. The [sender fields](/signatures/placeholders/#sender) describe whoever
+is composing rather than the mailbox being audited, so a gap in one is a gap in
+somebody else's record. And [profile fields](/admin/profile-fields/), the
+`{{custom.…}}` placeholders your colleagues fill in themselves, were never in
+Entra at all. Auditing any of them would report a permanent gap in something that
+was never this mailbox's attribute to hold.
 
 How many people have filled in each profile field is reported on the Profile
 fields page instead, where the number means what it says.

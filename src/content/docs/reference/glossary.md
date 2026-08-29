@@ -139,6 +139,13 @@ are accounts invited in from outside the organisation, disabled accounts, and
 mailboxes the organisation has excluded, whether individually or through an
 excluded Entra group.
 
+**Sender**
+Whoever pressed Send, as opposed to the mailbox a message goes out from. The two
+are the same account on an ordinary send and differ on a shared or delegated
+mailbox, which is the case the `{{sender.…}}` placeholders and the
+`{{onBehalfOf}}` condition exist for. See
+[placeholders](/signatures/placeholders/#sender).
+
 **Staff profile details**
 The capability covering what a named colleague entered in their own profile
 fields. Held by Admin and by partner Owner, Admin and Technician staff, and

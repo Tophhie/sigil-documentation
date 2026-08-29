@@ -193,6 +193,12 @@ drift from what the renderer knows how to resolve. Any
 [profile fields](/admin/profile-fields/) your organisation has defined arrive
 that way too, under a "User profile" heading after the directory groups.
 
+The menu includes a Sender group, which is the person composing rather than the
+mailbox. Those fields look identical to the mailbox's own on an ordinary send, so
+the preview pane's second address box exists to show you the case where they
+differ. See [previewing](/signatures/templates/#previewing) and the
+[sender placeholders](/signatures/placeholders/#sender).
+
 ## Placeholders in links
 
 Every link box in the designer accepts placeholders too, and each one carries the
