@@ -2,7 +2,7 @@
 title: Publish approval
 description: An optional review step that stops anyone but an admin putting a signature live, without stopping them working on one.
 sidebar:
-  order: 9
+  order: 10
 ---
 
 By default, anybody holding the templates capability can publish. That suits most

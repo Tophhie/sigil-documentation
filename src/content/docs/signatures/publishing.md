@@ -2,7 +2,7 @@
 title: Drafts and publishing
 description: Edit a template without affecting anyone, review a line diff, then publish and have it reach users in seconds.
 sidebar:
-  order: 8
+  order: 9
 ---
 
 Editing a template does not change what anybody receives. Each template can hold

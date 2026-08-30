@@ -2,7 +2,7 @@
 title: Per-user images
 description: QR codes and Microsoft 365 profile photos, generated for each sender at the moment their signature is served.
 sidebar:
-  order: 6
+  order: 7
 ---
 
 Most images in a signature are the same for everybody. A logo is one file in the

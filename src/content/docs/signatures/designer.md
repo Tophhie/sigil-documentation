@@ -196,8 +196,10 @@ that way too, under a "User profile" heading after the directory groups.
 The menu includes a Sender group, which is the person composing rather than the
 mailbox. Those fields look identical to the mailbox's own on an ordinary send, so
 the preview pane's second address box exists to show you the case where they
-differ. See [previewing](/signatures/templates/#previewing) and the
-[sender placeholders](/signatures/placeholders/#sender).
+differ. See [previewing](/signatures/templates/#previewing), the
+[sender placeholders](/signatures/placeholders/#sender), and
+[lines that appear only on a shared mailbox send](#lines-that-appear-only-on-a-shared-mailbox-send)
+for hiding content behind that case rather than printing it.
 
 ## Placeholders in links
 
@@ -224,10 +226,17 @@ This is how you avoid the classic problems: a phone row that leaves a dangling
 label for people with no phone number, or an address block that collapses to a
 line of commas.
 
-Three derived fields help here. `anyPhone` is true when the person has any phone
-number at all, `anyAddress` when they have any address component, and `hasPhoto`
-when their mailbox has a Microsoft 365 profile photo. Attaching a whole row to one
-of those lets the entire row disappear rather than each field inside it.
+Four derived conditions help here. `anyPhone` is true when the person has any
+phone number at all, `anyAddress` when they have any address component, and
+`hasPhoto` when their mailbox has a Microsoft 365 profile photo. Attaching a whole
+row to one of those lets the entire row disappear rather than each field inside
+it. The fourth is
+[sent on behalf of the mailbox](#lines-that-appear-only-on-a-shared-mailbox-send),
+which is about who is sending rather than about what the directory holds.
+
+None of the four appears in the field menu, because none of them prints anything.
+They are offered in the visibility controls only, at the end of the same list the
+directory fields are in.
 
 A Photo block carries the `hasPhoto` condition automatically, so you do not need
 to set it yourself.
@@ -242,6 +251,56 @@ qualification and print only the parts a given person actually has.
 Plain text you typed cannot be made conditional on its own. It belongs to the
 block, so a label that should come and go with a field belongs in the same block
 as that field, with the condition on the block.
+
+### Lines that appear only on a shared mailbox send
+
+A signature can carry a line that shows up only when somebody is sending from a
+shared or delegated mailbox, so `sales@` reads "Jane Doe on behalf of Sales"
+while the same design from Jane's own mailbox does not. The condition is called
+"Sent on behalf of the mailbox", and it is set exactly like any other visibility
+condition.
+
+| What you want to hide | Where the setting is |
+| --- | --- |
+| A whole block, including a row and everything in it | Select the block, open Visibility, and set Show when |
+| One field chip inside a line of text | Select the chip, open Visibility, and tick it in the list |
+| A single social icon | Select the social block and set Show when on that icon |
+
+A block carrying a condition shows an "if Sent on behalf of the mailbox" badge on
+the canvas, so a line that is invisible for most people is not invisible to you
+while you are working.
+
+The two Show when menus append "has a value" to every entry they list, so this
+one reads "Sent on behalf of the mailbox has a value". That is the wording every
+entry gets rather than a claim about a directory attribute. There is no such
+attribute; Sigil works the answer out for each message.
+
+Condition the line on that entry rather than on one of the Sender fields. The
+Sender fields fall back to the mailbox's own names when nobody else is sending,
+so they almost always have a value, and a chip conditioned on "Sender first name"
+would show on every send. See
+[sending on behalf of a mailbox](/signatures/sending-on-behalf/).
+
+A text block whose chips are all conditional on it collapses on its own, so you
+do not have to set the same condition on the block as well. See
+[blocks that empty themselves](#blocks-that-empty-themselves).
+
+Two limits are worth knowing before you build around it.
+
+The condition cannot be inverted. There is no way to show a line only when
+somebody is *not* sending on behalf of the mailbox. Usually you do not need one,
+because the Sender fields already read correctly both ways. When you genuinely
+need different content for a shared mailbox, give it its own template with an
+[assignment rule](/targeting/assignment-rules/), which matches the mailbox.
+
+A line behind this condition disappears when the directory cannot be reached at
+the moment of composing. Sigil falls back to the signature the mailbox would have
+had anyway rather than printing a half-filled clause.
+
+To check it, use the second address box in the designer's live preview, labelled
+"Sent by". Name the shared mailbox in the first box and a colleague in the
+second, and the conditional lines appear. Leaving it blank gives you the ordinary
+send, which is what everybody who is not a delegate will see.
 
 ### Blocks that empty themselves
 

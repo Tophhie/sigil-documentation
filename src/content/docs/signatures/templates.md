@@ -138,7 +138,8 @@ template as if that person had sent from the mailbox named in the first box,
 which is how you check a signature using the
 [sender placeholders](/signatures/placeholders/#sender). Leaving it blank gives
 you the ordinary send, where the mailbox is sending for itself. Both editors
-have it.
+have it. See
+[sending on behalf of a mailbox](/signatures/sending-on-behalf/).
 
 Put `sales@` in the first box and a colleague's address in the second, and the
 preview shows what a delegate's message from the shared mailbox will actually

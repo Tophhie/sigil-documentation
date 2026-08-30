@@ -2,7 +2,7 @@
 title: Staged rollouts
 description: Publish a template to a slice of your mailboxes first, let the add-in's own apply results decide whether it spreads, and have it roll itself back if they get worse.
 sidebar:
-  order: 11
+  order: 12
 ---
 
 An ordinary publish is instant and total. The moment it lands, every mailbox in

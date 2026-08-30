@@ -128,7 +128,8 @@ A template can also name the person behind the send. The
 [sender placeholders](/signatures/placeholders/#sender) resolve to whoever
 pressed Send rather than to the mailbox, so `sales@` can sign off "Jane Doe on
 behalf of Sales" while the same template still reads "Jane Doe" from Jane's own
-mailbox. One template covers both, and nothing about the add-in changes.
+mailbox. One template covers both, and nothing about the add-in changes. See
+[sending on behalf of a mailbox](/signatures/sending-on-behalf/).
 
 ## Do we have to pay for people who never send email?
 

@@ -117,7 +117,8 @@ Sigil takes the person from the verified token rather than from anything the
 request asks for, so a signature cannot be made to claim somebody else wrote it.
 Sending from an alias of your own mailbox is not treated as a delegation, because
 the comparison is against every address the mailbox owns rather than against the
-one in the From field alone.
+one in the From field alone. See
+[sending on behalf of a mailbox](/signatures/sending-on-behalf/).
 
 ## Multi-tenancy
 

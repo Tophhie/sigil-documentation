@@ -144,7 +144,7 @@ Whoever pressed Send, as opposed to the mailbox a message goes out from. The two
 are the same account on an ordinary send and differ on a shared or delegated
 mailbox, which is the case the `{{sender.…}}` placeholders and the
 `{{onBehalfOf}}` condition exist for. See
-[placeholders](/signatures/placeholders/#sender).
+[sending on behalf of a mailbox](/signatures/sending-on-behalf/).
 
 **Staff profile details**
 The capability covering what a named colleague entered in their own profile

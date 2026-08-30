@@ -68,7 +68,8 @@ Preview renders the template with sample data, which is the fastest way to check
 that a conditional section collapses the way you intended. The two address boxes
 above it swap the sample data for a real mailbox, and render as if a chosen
 colleague had sent from it. See
-[previewing](/signatures/templates/#previewing).
+[previewing](/signatures/templates/#previewing) and
+[sending on behalf of a mailbox](/signatures/sending-on-behalf/).
 
 Before you publish, the editor shows a line diff between what you have written
 and the live version. That is worth reading every time; it catches the edit you

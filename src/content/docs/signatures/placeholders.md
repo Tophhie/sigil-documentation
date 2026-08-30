@@ -98,36 +98,14 @@ person.
 
 They differ from the mailbox's own fields only when a message is sent from a
 shared or delegated mailbox. On an ordinary send they resolve to the mailbox's
-own names, which is what lets one template carry both cases:
+own names, which is what lets one template carry both cases rather than needing a
+second one for the shared mailbox.
 
-```html
-Kind regards, {{sender.firstName}} {{sender.lastName}}{{#onBehalfOf}} on behalf of {{displayName}}{{/onBehalfOf}}
-```
-
-Sent from `sales@` by Jane Doe, that renders "Kind regards, Jane Doe on behalf of
-Sales". Sent from Jane's own mailbox, the same line renders "Kind regards, Jane
-Doe" and the clause closes. You do not need a second template for the shared
-mailbox, which is the reason the fallback works this way rather than resolving to
-nothing.
-
-Two behaviours are worth knowing before you build a signature around it.
-
-Once somebody else is sending, their own values are printed as they stand. A
-delegate with no first name in the directory prints nothing there rather than
-borrowing the shared mailbox's name, which would read as that person being called
-"Sales".
-
-Sending from an alias of your own mailbox is not a delegation. If your account is
-`jane.doe@` and you send from `jane@`, the two addresses differ but the person
-does not. The sender is compared against every address the mailbox owns, not just
-the one in the From field, so your own alias never opens an "on behalf of"
-clause.
-
-These fields are filled in only where Sigil knows who is composing, which is the
-add-in's request at compose time. A signature downloaded from the Templates view,
-a [test email](/admin/test-email/) and a preview all render the mailbox sending
-for itself unless you tell the preview otherwise. See
-[previewing a shared mailbox send](/signatures/templates/#previewing-a-shared-mailbox-send).
+Pair them with the `{{onBehalfOf}}` condition below to add an "on behalf of"
+clause that appears only when there is somebody to name. See
+[sending on behalf of a mailbox](/signatures/sending-on-behalf/) for the whole
+picture, including what a delegate with a sparse directory record gets and which
+surfaces fill these fields at all.
 
 ## Extension attributes
 
@@ -192,10 +170,11 @@ because answering it costs a call to Microsoft Graph. A Photo block in the
 mainly useful for hiding something that sits alongside a photo. See
 [per-user images](/signatures/per-user-images/).
 
-`onBehalfOf` is the switch behind the "on behalf of" clause above. It is the only
+`onBehalfOf` is the switch behind an "on behalf of" clause. It is the only
 derived helper that can be true for one person sending from a mailbox and false
 for another, which is why it exists rather than leaving you to compare a name
-against an address.
+against an address. See
+[sending on behalf of a mailbox](/signatures/sending-on-behalf/).
 
 ## Conditional sections
 

@@ -2,7 +2,7 @@
 title: Outlook constraints
 description: The limits Outlook imposes on signature HTML, why each exists, and how to design within them.
 sidebar:
-  order: 14
+  order: 15
 ---
 
 Outlook sets the rules for what a signature can contain. These are not Sigil's

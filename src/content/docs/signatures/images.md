@@ -2,7 +2,7 @@
 title: Images
 description: Upload logos and other images, reference them from a template, and understand why they are attached rather than hosted.
 sidebar:
-  order: 5
+  order: 6
 ---
 
 Images in a Sigil signature are attached to the message inline rather than loaded

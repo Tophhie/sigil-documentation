@@ -2,7 +2,7 @@
 title: Contact card link
 description: A "save my contact" link in the signature that downloads the sender's own vCard, and the schema.org markup that goes with it.
 sidebar:
-  order: 7
+  order: 8
 ---
 
 The [QR code block](/signatures/per-user-images/#qr-codes) has been able to carry

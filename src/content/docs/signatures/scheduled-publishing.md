@@ -2,7 +2,7 @@
 title: Scheduled publishing
 description: Book a template to go live at a chosen instant, so a rebrand lands at midnight without anybody staying up for it.
 sidebar:
-  order: 10
+  order: 11
 ---
 
 Banners have always been time-boxed, but publishing a template has always meant

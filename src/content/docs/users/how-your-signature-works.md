@@ -88,7 +88,9 @@ of Sales" rather than just "Sales".
 
 Whether it does is up to whoever writes the templates. If yours does not name
 you and you think it should, that is a request for the person who looks after
-signatures rather than something you can change from Outlook.
+signatures rather than something you can change from Outlook. See
+[sending on behalf of a mailbox](/signatures/sending-on-behalf/) for what they
+would have to set up.
 
 ## Things that look wrong but are not
 
