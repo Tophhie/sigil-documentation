@@ -5,17 +5,27 @@ sidebar:
   order: 2
 ---
 
-The Clients view is the partner workbench. One row per managed client, with the
-information you need to decide where to spend your day.
+The Clients view is the partner workbench. One row per managed client, and the
+way into any of them.
 
 ## What the client list shows
 
-Each row carries the client's name, seat count, subscription and billing state,
-signature health (whether the tenant has a published template and whether the
-add-in is reporting in), last activity, and any open exceptions.
+Each row carries the client's name and primary domain, the seat count last
+recorded for them, whether they have a published template, and how many users
+their tenant holds. A client whose tenant has been suspended is badged as such.
+Alongside each row are Manage, which opens the client, and a menu holding
+Release.
 
-The intent is that the list answers "which client needs me today" on its own,
-without opening each one in turn.
+The seat figure is the last one the daily count recorded rather than a live
+number, so a client added today shows no seats until the next count runs.
+
+The list is deliberately narrow. It tells you whether a client is set up and how
+large they are, and nothing about their billing state, add-in activity or open
+exceptions. A client whose signatures have stopped for some reason other than
+never being published looks the same here as one that is fine, so a problem of
+that kind shows in the client's own [attribute
+coverage](/monitoring/attribute-coverage/) and [activity](/monitoring/activity/)
+views rather than on this list.
 
 ## Adding a client
 

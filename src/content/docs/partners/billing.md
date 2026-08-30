@@ -96,16 +96,64 @@ arrangement uses.
 Sigil does not produce client-facing invoices on your behalf. The commercial
 relationship with the client is yours.
 
+## What your invoice shows
+
+The metered line on a partner invoice is a single figure: the seat count the
+period billed on. That is enough to charge against and not enough to explain,
+so Sigil writes the per-client split into the invoice's own footer.
+
+The footer lists each client and its seats, largest first, then the total and
+the number of clients it covers, then a link back to the usage report with that
+invoice's period already selected. If there are more clients than the footer has
+room for, the ones that do not fit collapse into a single counted line reading
+how many were left and how many seats they hold, so the figures on the invoice
+always add up to the total you were charged.
+
+The breakdown is taken from the last day the period recorded, and the footer
+names that date. Usage is metered on the final figure reported in a period
+rather than on an average or a sum, so that day is the one the invoice is
+actually made of. Any other day would print a breakdown that reads as
+authoritative and does not reconcile.
+
+Two cases produce no footer at all. A period holding no recorded usage, which
+happens to a partner provisioned partway through a cycle, leaves the invoice
+alone rather than printing a breakdown that cannot be true. So does a failure
+while writing it: the annotation is cosmetic and is never allowed to interfere
+with the invoice or with billing, so the invoice issues as normal with the
+metered line and no footer.
+
+Per-client detail on the invoice stops at the footer. Sigil does not split the
+aggregate into a line per client or a subscription per client, because usage is
+metered against the partner as one customer with no per-client dimension, and
+giving each client a subscription of its own would replace your single monthly
+invoice with one per client. The CSV export is the rebilling input, and it is
+finer grained than any invoice line would be.
+
 ## Reconciling
 
-Two habits make month end easier.
+The usage report offers your billed periods as buttons, one per recent invoice,
+newest first. Each shows the month it covers and what it came to. Picking one
+sets the report to exactly the window that invoice billed.
+
+Those windows are read from the invoices themselves rather than counted back a
+month at a time, because month lengths and the anchoring of your own billing
+cycle both move the boundaries. A reconciliation window that is a day out is
+worse than no shortcut at all, since it disagrees with the invoice it is meant
+to explain without saying so.
+
+The buttons are a convenience rather than the report. If they cannot be read
+they simply do not appear, and the date fields still work as they always have.
+
+Two further habits make month end easier.
 
 Export usage for the closed period rather than the current one, so the numbers
 are settled rather than moving.
 
-Check the client list for seat drift before exporting. The Clients view surfaces
-clients whose counted seats differ from what is being billed, which is usually
-somebody joining or leaving mid-period.
+Check the client list before exporting. It shows the seat count last recorded
+for each client, so a figure that looks wrong for the size of the client is
+worth chasing before the numbers reach your own billing run. Nothing on that
+view compares the count to what you were invoiced, which is what the period
+buttons are for.
 
 ## When a client's billing lapses
 

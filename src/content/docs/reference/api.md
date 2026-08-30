@@ -62,7 +62,9 @@ They take a per-mailbox add-in token. Their administrative equivalents,
 `GET /api/admin/download` and `POST /api/admin/preview` with an `email`, are
 outside the allow-list for the same reason: both name a mailbox the caller chose
 and return that mailbox's rendered signature, and preview returns its directory
-attributes alongside. `POST /api/admin/rules/simulate` and
+attributes alongside. Preview takes a second address as well, the `sender`
+behind a [shared mailbox send](/signatures/placeholders/#sender), resolved
+against the directory the same way, so one call can read two people's records. `POST /api/admin/rules/simulate` and
 `GET /api/admin/users/search` are out on the same ground.
 
 `GET /api/admin/profile-values` and `PUT /api/admin/profile-values/:email` are
@@ -421,6 +423,7 @@ tenant. They live under `/api/admin/partner`.
 | `GET /billing`, `POST /billing/checkout`, `POST /billing/portal`, `POST /billing/sync` | The consolidated subscription |
 | `PUT /billing/profile` | Save the partner's own invoice details |
 | `GET /usage`, `GET /usage/export` | Per-client seat counts, and the CSV for rebilling |
+| `GET /usage/periods` | The periods already invoiced, as reconciliation windows for the report. Empty rather than an error when the invoices cannot be read |
 | `GET/PUT /staff`, `DELETE /staff/:email` | Partner staff and their roles |
 | `GET /events` | The partner-level audit trail |
 | `POST /agreement/accept` | Record acceptance of the partner agreement |
