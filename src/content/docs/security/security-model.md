@@ -220,4 +220,9 @@ impersonation session that expires on the server after 30 minutes. Destructive
 operator actions require a fresh interactive re-authentication in the moment, and
 every operator action is written to an audit log retained indefinitely.
 
+Anything done to your organisation is also written to your own
+[change log](/monitoring/change-log/), badged as support. The read-only session
+above is one of the things recorded there, so being viewed is visible to you and
+not only to Tophhie Cloud.
+
 See [compliance](/security/compliance/).

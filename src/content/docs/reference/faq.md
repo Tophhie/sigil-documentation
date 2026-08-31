@@ -240,6 +240,19 @@ supervisory authority, there is a right to audit on 30 days' notice, once a year
 during business hours, and without access to any other customer's data. See
 [auditing Sigil](/security/compliance/#auditing-sigil).
 
+## Can we see when Tophhie Cloud support does something to our organisation?
+
+Yes, in your own [change log](/monitoring/change-log/). Support actions appear on
+the Admin and support activity card of the Activity view, badged as support and
+attributed to the individual operator's address rather than to "support" in
+general.
+
+That covers being looked at as well as being changed. A read-only support session
+is recorded as "Viewed your portal", so the answer to "has anyone at Sigil been in
+our tenant" comes from your records rather than from asking. See
+[actions taken by Tophhie Cloud
+support](/monitoring/change-log/#actions-taken-by-tophhie-cloud-support).
+
 ## Can we script Sigil, or pull its numbers into a dashboard?
 
 Yes. An Admin can create an [API key](/admin/api-keys/), which is a credential

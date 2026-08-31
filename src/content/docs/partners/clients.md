@@ -99,6 +99,14 @@ discovers by noticing. Owners and Admins can release; a Technician cannot.
 Do this when a relationship ends, so the client is not left unable to administer
 their own signatures and you are not left paying for them.
 
+Tophhie Cloud can also release a client on the same terms, one at a time. That
+exists for the case where you cannot: a partner whose staff are locked out cannot
+release anybody, and their clients would otherwise be stranded under a
+partnership that is ending. The client sees no difference either way, because it
+is the same release, with the same return to direct billing, the same grace
+period and the same email to their administrators. See
+[leaving the programme](/partners/leaving-the-programme/).
+
 ## A client can end it too
 
 A managed client's own administrator can remove your access without asking you.

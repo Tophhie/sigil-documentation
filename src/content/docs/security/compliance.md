@@ -22,16 +22,25 @@ issues.
 
 Sigil keeps two separate append-only records.
 
-The [change log](/monitoring/change-log/) covers what administrators in your
-organisation did. It is not confined to templates: publishes and rollbacks, the
-whole template lifecycle from create to permanent deletion, assignment rules,
-banners, footers, link tracking, image uploads and deletions, test emails, and
-changes to who has access and at what role, each with who and when. The portal
-shows the template-affecting part of it on the Activity view, and the rest is
-read from the API or a tenant export.
+The [change log](/monitoring/change-log/) covers what was done to your
+organisation. It is not confined to templates: publishes and rollbacks, the whole
+template lifecycle from create to permanent deletion, assignment rules, banners,
+footers, link tracking, image uploads and deletions, test emails, and changes to
+who has access and at what role, each with who and when. The Activity view shows
+all of it across two cards, template changes on one and everything else on the
+other.
 
-The operator audit log covers what Tophhie Cloud staff did. It is retained
-indefinitely and can be exported.
+It also covers what Tophhie Cloud staff did on your organisation. Those entries
+are badged as support against the operator's own address, so the log answers
+whether Sigil touched your data without your having to ask. See [actions taken by
+Tophhie Cloud
+support](/monitoring/change-log/#actions-taken-by-tophhie-cloud-support).
+
+The operator audit log is the second record. It spans every organisation rather
+than one, which is why it is Tophhie Cloud's copy rather than yours, and it is
+retained indefinitely and can be exported. Keeping both is deliberate: your copy
+is deleted with your data, and a record of an operator action that a purge
+destroys would evidence nothing about that purge.
 
 Neither is pruned and neither can be edited.
 
@@ -226,7 +235,11 @@ Destructive actions require a fresh interactive re-authentication in the moment.
 The operator list cannot lock itself out: the last operator cannot be removed or
 demoted.
 
-Every operator action is written to the audit log.
+Every operator action is written to the audit log, and every action taken on your
+organisation is written to your own [change log](/monitoring/change-log/) as
+well. Segregating operator access from customer access is only half a control if
+the customer cannot see when it was used, so the visible half is what makes the
+separation checkable from your side rather than assertable from Tophhie Cloud's.
 
 ## Proactive monitoring
 

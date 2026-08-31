@@ -80,10 +80,19 @@ before anybody follows it.
 
 ## To a partner's own staff
 
-Sigil sends partner staff nothing. An MSP joining the partner programme is given
-a signup link to follow rather than being mailed one, and after that partner
-staff learn about their client base from the console rather than from their
-inbox.
+Sigil sends partner staff almost nothing. An MSP joining the partner programme is
+given a signup link to follow rather than being mailed one, and after that
+partner staff learn about their client base from the console rather than from
+their inbox.
+
+| Message | Sent when |
+| --- | --- |
+| Your Sigil partnership is at risk | The partnership has gone six consecutive months without an active client. Written to the partner's Owners, and it starts the 30 days the agreement gives them to respond |
+
+That one exists because the partner agreement promises it. Removal for going six
+months without a client cannot happen until the notice has been sent and the 30
+days have run, so it is a required step rather than a warning somebody chose to
+send. See [leaving the programme](/partners/leaving-the-programme/).
 
 Payment failures reach a partner through Stripe's own dunning mail, from the
 first failure. That is why the client-facing warning above only starts partway

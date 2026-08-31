@@ -15,6 +15,10 @@ the [terms of use](/security/compliance/#published-legal-documents) make no
 availability commitment, and the published support page states an aim rather than
 a target you can hold anyone to.
 
+The phrase "active partner" is doing real work in that sentence. Both
+commitments end if the partnership does, which is what
+[leaving the programme](/partners/leaving-the-programme/) covers.
+
 ## Who answers a client's question
 
 Support is split, and the split follows what each side sells.

@@ -1,6 +1,6 @@
 ---
 title: Change log
-description: An append-only record of what administrators changed, who changed it, and when.
+description: An append-only record of what changed about your organisation, who changed it, and when, including anything Tophhie Cloud support did.
 sidebar:
   order: 4
 ---
@@ -12,7 +12,8 @@ who changed it and in what order.
 ## What is recorded
 
 The log is not limited to templates. Everything an administrator can change from
-the portal is recorded.
+the portal is recorded, and so is everything Tophhie Cloud support does to your
+organisation.
 
 | Action | Recorded |
 | --- | --- |
@@ -44,6 +45,7 @@ the portal is recorded.
 | An administrator editing a colleague's profile values | Yes |
 | A person editing their own profile values | No |
 | Changing an organisation-wide setting | Yes |
+| Anything Tophhie Cloud support did on your organisation | Yes |
 
 Each entry carries who performed the action and when.
 
@@ -79,6 +81,58 @@ what stops a key named after a colleague reading as that colleague.
 Creating and revoking a key are recorded too, against the administrator who did
 it.
 
+## Actions taken by Tophhie Cloud support
+
+Anything a Tophhie Cloud operator does to your organisation is written to your
+own change log, badged "Sigil support" against the operator's own email address.
+
+This answers a question your own records could not answer before. The data
+processing agreement promises an append-only change log of administrative actions
+visible to you in the portal, and promises that operator access is separated from
+customer access with operator actions logged. The first half was always true. The
+second was true only from Tophhie Cloud's side: operator actions were recorded
+against Tophhie Cloud's own tenant, so a customer could not see that their portal
+had been viewed, their data exported, or their seat count corrected.
+
+The badge is what tells you it was support rather than one of your own people.
+The action alone cannot, because accepting the
+[data processing agreement](/security/compliance/#data-processing-agreement) in
+the portal is recorded the same way with your own administrator as the actor. Two
+things that look alike in a log need something other than the log's own wording
+to separate them.
+
+Entries read in plain language rather than as internal lever names:
+
+| What you see | What happened |
+| --- | --- |
+| Viewed your portal (read-only support session) | An operator opened a read-only view of your tenant |
+| Exported your organisation's data | A tenant export was taken |
+| Exported one mailbox's data for a subject access request | A per-mailbox export was taken. See [subject access requests](/security/compliance/#subject-access-requests) |
+| Set up your organisation | Your tenant was provisioned |
+| Changed your organisation's settings | An organisation-wide setting was changed |
+| Changed a user's role, or Removed a user | Portal access was changed |
+| Refreshed your organisation name from Microsoft | The name shown in the portal was re-read from your directory |
+| Re-linked your billing, or Updated your invoice details | A billing record was repaired or corrected |
+| Corrected your billed seat count | A seat count was adjusted. See [billing](/admin/billing/) |
+| Changed your discount, or Extended your trial | A commercial arrangement was changed |
+| Cancelled your subscription, or Reactivated your subscription | Your subscription state was changed |
+| Re-sent the Microsoft consent prompt | A re-consent link was sent to your administrators |
+| Sent your admins a message | Support emailed your administrators |
+| Recorded your data processing agreement | Acceptance was recorded on your behalf |
+| Repaired a setup step | An unfinished onboarding step was completed |
+| Scheduled your organisation for deletion, or Cancelled the scheduled deletion | A deprovision was booked or called off |
+
+An action with no wording of its own falls back to its internal name. That is
+worse to read than a label and much better than a hidden row, which is the trade
+being made: an unfamiliar word still tells you Tophhie Cloud touched your
+organisation and when.
+
+These entries are also kept separately in Tophhie Cloud's own operator audit log,
+and the two copies are not redundant. Your copy is yours and is deleted with your
+data when your organisation is. The operator copy has to outlive that, because a
+record of a deletion that is destroyed by the deletion it describes would
+evidence nothing.
+
 ## Exclusion entries
 
 Excluding a mailbox stops its signature and takes it off the bill, so both
@@ -100,37 +154,49 @@ actor on those is the system rather than a person, and the group is named on the
 entry. A refresh that changes nothing writes nothing, so the log stays quiet
 until a membership actually moves.
 
-## What the portal shows, and what it holds back
+## How the portal splits it
 
-The log is read in the portal from the Template changes card on the
-[Activity view](/monitoring/activity/), and that card shows a deliberate subset:
-the actions that change what goes out on somebody's mail.
+The log is read in the portal from two cards on the
+[Activity view](/monitoring/activity/), and the split is by subject rather than
+by importance.
 
-That is the whole of the template lifecycle, publishes and rollbacks, drafts,
-image uploads and deletions, banners, footers, assignment rules, link tracking,
-approvals, scheduled publishes and staged rollouts. Assignment rules and banners
-are in because they decide which template a mailbox gets and what is injected
-into it.
+Template changes carries the actions that alter what goes out on somebody's mail:
+the whole template lifecycle, publishes and rollbacks, drafts, image uploads and
+deletions, banners, footers, assignment rules, link tracking, approvals,
+scheduled publishes and staged rollouts. Assignment rules and banners are in
+because they decide which template a mailbox gets and what is injected into it.
 
-Everything else is still recorded and is left out of that card, because a heading
-promising template changes should not answer with a role change. Role and user
-changes, mailbox and group exclusions, API keys, profile field definitions,
-settings and test emails are read from the API or from a
-[tenant export](/security/data-and-privacy/) instead. Sending a test email is the
-clearest case of the line being drawn correctly: it is worth recording, and it
-changes nothing about anyone's signature.
+Admin and support activity carries everything else. Role and user changes,
+mailbox and group exclusions, API keys, profile field definitions, settings, test
+emails, and anything Tophhie Cloud support did on your organisation. Sending a
+test email is the clearest case of the line being drawn correctly: it is worth
+recording, it belongs on this side, and it changes nothing about anyone's
+signature.
+
+The reason for two cards rather than one is that a heading promising template
+changes should not answer with a role change. Both halves are on screen, which
+was not always true: the second half was recorded from the beginning and shown
+nowhere, so reading it once meant going to the API or a
+[tenant export](/security/data-and-privacy/).
 
 Every kind of entry is filed on one side or the other, so a new one cannot end up
-unclassified and quietly stop appearing on the card without anybody noticing.
+unclassified and quietly stop appearing without anybody noticing.
 
 ## How much you can see at once
 
-The card shows the most recent 100 entries, paged. That is a display limit rather
-than a retention one: nothing is pruned, and a
+Each card shows the most recent 100 entries, paged. That is a display limit
+rather than a retention one: nothing is pruned, and a
 [tenant export](/security/data-and-privacy/) carries the most recent 5,000.
 
-For a busy tenant that means the portal answers what changed lately, and the
-export is where you go for anything older.
+The two cards are filtered before that limit rather than after it, so a busy week
+of role changes cannot push template changes off the other card. For a busy
+tenant it means the portal answers what changed lately, and the export is where
+you go for anything older.
+
+Some detail is still recorded without being shown. Rollout reasons, approval
+notes, the addresses on an exclusion and the fields an administrator changed on
+somebody's profile are all stored and exported, and the cards list the action and
+the actor. Those are read from the API or a tenant export.
 
 ## Staged rollout entries
 
@@ -197,9 +263,11 @@ from before that point.
 The [Activity view](/monitoring/activity/) records what users received rather
 than what administrators did.
 
-Operator actions taken by Tophhie Cloud staff, such as suspending a tenant or
-correcting a seat count, are recorded in a separate operator audit log that is
-retained indefinitely and exportable. See [compliance](/security/compliance/).
+Operator actions taken by Tophhie Cloud staff appear in this log, as described
+above, and are additionally kept in an operator audit log that spans every
+organisation. That one is retained indefinitely and exportable, and it is what
+Tophhie Cloud reads rather than what you read. See
+[compliance](/security/compliance/).
 
 ## Who can see it
 

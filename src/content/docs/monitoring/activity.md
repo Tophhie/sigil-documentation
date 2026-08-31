@@ -42,6 +42,14 @@ that alter what goes out on somebody's mail and leaves out the administrative
 churn around them, so that a card sitting under an adoption report answers the
 question the report raises: what changed, and when, that might explain this.
 
+An Admin and support activity card, which carries the other half of the same log:
+role and user changes, settings, exclusions, API keys and profile field
+definitions, plus anything Tophhie Cloud support did on your organisation. Those
+support entries are badged "Sigil support" against the operator's own address, so
+a change your own people did not make does not read as though one of them did.
+See [actions taken by Tophhie Cloud
+support](/monitoring/change-log/#actions-taken-by-tophhie-cloud-support).
+
 ## The never-applied list
 
 This is the most useful thing in the view. It cross-references your directory
