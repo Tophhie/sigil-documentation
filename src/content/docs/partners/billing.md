@@ -169,6 +169,46 @@ That last part is worth knowing before it happens. Your clients find out about a
 billing problem on your account, which is a conversation better had in advance
 than in response.
 
+## When the grace period runs out
+
+Signatures stop for every client you manage. They do not stay stopped
+indefinitely, because clause 7.2 of the agreement reserves the right to return
+any of those clients to billing in their own name so their service can resume
+without waiting for you.
+
+A client returned that way keeps its tenant, templates, brand assets and people,
+and gets the same window to add a payment method that any direct customer gets.
+What ends is your access to it.
+
+This is a decision taken client by client rather than a job that sweeps through
+your book of business, so a partner who is a day late does not lose everyone.
+Tophhie Cloud is not obliged to return any particular client or to do it at any
+particular time, and will tell you which clients have been returned.
+
+Bringing the account up to date before a client has been returned restores
+everything, with nothing lost. That is the part that rewards acting early: the
+window between the grace period ending and a client being handed back is the last
+point at which paying fixes it outright.
+
+Once a client has been returned, the route back is a transfer request that the
+client itself approves. Tophhie Cloud can also relink an organisation by hand,
+and will do that only at the organisation's own request, which an operator has to
+confirm they hold before the link is made. A company is not moved between billing
+arrangements twice on a provider's say-so.
+
+## If you become insolvent
+
+Clause 7.3 covers administration, liquidation, an arrangement with creditors,
+ceasing to trade, or anything materially equivalent in any jurisdiction. In those
+circumstances your partner account may be suspended and every client you manage
+returned to billing in their own name straight away, without the grace period in
+7.1.
+
+You, or whoever is then acting for you, are told, and so are each client's
+administrators. The clause is not a judgement about your business. Those
+organisations' signatures depend on a billing relationship that has stopped
+working, and they are not party to it.
+
 ## Releasing a client
 
 Releasing a client removes the partner link and their seats stop counting toward

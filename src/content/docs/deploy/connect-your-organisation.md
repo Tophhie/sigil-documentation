@@ -136,6 +136,28 @@ find your organisation is not connected yet. This is the case the support alert
 above exists for. If your first sign-in looks wrong in any way, contact support
 rather than granting consent again.
 
+## Signing up through an invitation
+
+Where you arrived from an invitation rather than signing up directly, either from
+an IT provider taking your organisation on or from a partner invitation to your
+own firm, one extra check runs before the invitation is honoured.
+
+Microsoft's consent redirect names the tenant it came back for, and nothing about
+that name is signed, so Sigil asks Microsoft whether that organisation really has
+granted consent before acting on an invitation for it. Without the check, holding
+an invitation and knowing a tenant id, which is public, would be enough to claim
+an organisation that had never heard of the invitation.
+
+If the answer is definite that no consent exists, your organisation is still
+connected, as an ordinary direct customer. What is withheld is the invitation:
+the provider link or partner status is not applied, and the invitation is left
+unused so it can be sent again once consent is in place.
+
+If Microsoft cannot answer, through an outage, a timeout or the moments while
+consent is still propagating, the invitation is honoured as normal. An unanswered
+check is not treated as evidence against an organisation, because the cost of
+getting that wrong falls on a real customer at the worst possible moment.
+
 ## Consent has lapsed
 
 Consent can be revoked, either deliberately or as a side effect of tidying up

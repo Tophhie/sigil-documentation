@@ -73,6 +73,37 @@ read them, and a heavy footer costs size on every message.
 Style footer text down: a smaller size and a lower contrast grey is conventional
 and keeps the signature itself readable.
 
+## What the markup may contain
+
+Footer HTML is cleaned when it is saved, whichever view you wrote it in. What
+survives is everything a footer legitimately needs: inline formatting, links,
+images, tables, inline styles and the conditional sections above.
+
+What is taken out is the markup that can run code or pull in another document.
+Scripts, frames, embedded objects, forms and their fields, and media elements are
+removed along with their contents. Event handler attributes such as `onerror` and
+`onload` are stripped from whatever they were attached to. A link or image
+address is kept only if it uses `http`, `https`, `mailto`, `tel`, `cid`, or a
+`data:` address holding an ordinary raster image, and the address is normalised
+before that check so a scheme cannot hide behind an entity or a stray control
+character. A `style` attribute that tries to navigate or execute goes the same
+way.
+
+Nothing about this is aimed at how a footer renders in Outlook, which strips most
+of it anyway. It is about who can write one. The
+[Compliance role](/admin/users-and-roles/) and an MSP Technician can both edit
+footers without being able to touch users, settings or billing, and stored markup
+is loaded back into the editor when another administrator opens it. Without the
+clean-up, a footer would be a way to run code in the session of an administrator
+who has all three.
+
+The same clean-up runs a second time when stored markup is loaded back into the
+editor, so a footer written before the rule existed is handled on the way in as
+well as on the way out.
+
+If you paste in markup and find part of it missing when you reopen the footer,
+this is why. What is stored is what was kept.
+
 ## What a footer counts against
 
 The 30,000 character limit applies to the whole rendered signature, which includes

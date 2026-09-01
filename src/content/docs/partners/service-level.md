@@ -96,21 +96,7 @@ is made.
 
 ## Accepting the agreement
 
-Acceptance is recorded against the partner, with the accepted version, so what
-was agreed and when is a record rather than an assertion.
-
-Only a partner Owner can accept. It is a commercial and data protection
-commitment made on behalf of the MSP, which is not something a technician should
-be able to sign on a service desk shift.
-
-Acceptance gates client work, not sign-in. A partner who has not accepted can
-sign in and read the console, but inviting a client, requesting a transfer of an
-existing tenant and releasing a client are all refused until they have. The
-sub-processor chain has to be agreed before another organisation's data is handed
-over.
-
-When the substance of the agreement changes, the version in force moves and every
-partner is asked to accept the new version. Until they do, the same three actions
-are refused again. Signing in, reading the console and the clients you already
-manage are unaffected, so a version bump does not interrupt a client's
-signatures.
+Both commitments on this page take effect when a partner Owner accepts the
+agreement, and a partner who has not accepted cannot take a client on at all. The
+mechanics, along with the data processing agreement the same acceptance covers,
+are in [the partner agreement](/partners/agreement/#accepting-it).

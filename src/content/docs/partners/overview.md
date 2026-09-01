@@ -92,14 +92,22 @@ what was agreed and when is a record rather than an assertion.
 
 It covers how client data is handled, the uptime Sigil commits to and the credits
 if that commitment is missed, who answers a client's support questions, billing,
-and the two grounds on which Tophhie Cloud reserves removal from the programme.
-Only a partner Owner can accept it, and accepting is what unblocks taking a
-client on. See [support and service level](/partners/service-level/) and
+what happens to your clients if your own payments fail, use of the Sigil name,
+confidentiality, liability, and the grounds on which a partnership can end. Only
+a partner Owner can accept it, and accepting is what unblocks taking a client on.
+See [the partner agreement](/partners/agreement/), [support and service
+level](/partners/service-level/) and
 [leaving the programme](/partners/leaving-the-programme/).
 
-It is separate from the [data processing agreement](/security/compliance/) a
-client accepts. A partner cannot accept a client's DPA on their behalf, because
-the client is the data controller and the agreement is theirs to make.
+Accepting it also accepts the [data processing
+agreement](/security/compliance/), read with your client as the controller, you
+as its processor and Tophhie Cloud as your sub-processor. That is the Article 28
+contract behind everything you do for a client, and the version recorded against
+you names both documents.
+
+It remains separate from the DPA a client accepts for itself. A partner cannot
+accept a client's DPA on their behalf, because the client is the data controller
+and that agreement is theirs to make.
 
 ## Getting set up
 
@@ -113,4 +121,7 @@ organisation. Granting it provisions your tenant, creates the partner record on
 those terms, and makes the administrator who consented the partner Owner. There
 is no further step at either end.
 
-The link is single-use and expires.
+The link is single-use and expires. It is also honoured only for an organisation
+Microsoft confirms has granted consent, so a link followed for a tenant that has
+not consented provisions an ordinary customer rather than a partner, and leaves
+the link unused so it can be sent again.

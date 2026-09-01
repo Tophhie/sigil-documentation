@@ -45,6 +45,20 @@ it is linked to your partner record and billed to you rather than to them.
 
 A pending invitation can be revoked before it is used.
 
+An invitation is only honoured for an organisation that has genuinely granted
+consent. Microsoft's consent redirect names the tenant it came back for, and that
+name alone is not proof of anything, so Sigil checks the named tenant against
+Microsoft directly before attaching it to you. Where the check comes back
+definite that the organisation has not granted consent, the tenant is provisioned
+as an ordinary direct customer, the partner link is withheld, and your invitation
+is left unused so it can be sent again.
+
+The check only refuses on a definite answer. A Microsoft outage, a timeout or a
+slow moment during consent all count as no answer rather than as evidence against
+the client, and the onboarding goes ahead with the partner link attached. That
+asymmetry is deliberate: a real client should never lose a signup to a check that
+could not reach Microsoft.
+
 ## Working inside a client
 
 Open a client and choose Manage. The portal switches into that client's context.
@@ -83,6 +97,20 @@ own portal. The request expires after 14 days if nobody answers, and an
 organisation can only have one pending at a time.
 
 Nothing moves until it is approved. A transfer request is a request, not a claim.
+
+### Taking back a client you previously managed
+
+An organisation that has already left your management, whether you released it,
+handed it back, or it removed your access itself, is treated differently from a
+new one. Relinking it hands your staff back access to their directory and moves
+their bill, and the organisation is not asked at the point the link is made.
+
+So the ordinary route back is the transfer request above, which the client
+approves for itself. Tophhie Cloud can also relink by hand, but only at the
+organisation's own request, and an operator has to confirm they hold that request
+before the link is made. Clause 7.2 of the [partner
+agreement](/partners/agreement/) commits to that in writing, and the console
+enforces it rather than leaving it to memory.
 
 ## Releasing a client
 

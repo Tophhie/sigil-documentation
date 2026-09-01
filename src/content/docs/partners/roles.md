@@ -23,7 +23,7 @@ existing tenant, and releasing one. Owner and Admin both hold it.
 Owner and Admin reach the same things inside a client. Where they differ is at
 partner level: only an Owner touches the partner subscription or the staff list,
 and only an Owner can accept the
-[partner agreement](/partners/service-level/#accepting-the-agreement). Accepting
+[partner agreement](/partners/agreement/#accepting-it). Accepting
 it commits the MSP commercially and under data protection law, which is not a
 signature a service desk shift should be able to give.
 

@@ -171,6 +171,19 @@ and refuses anything else when it is saved. The same check applies when an
 administrator edits somebody else's values, since it protects the recipient
 rather than policing the author.
 
+[Footer markup](/targeting/footers/#what-the-markup-may-contain) is cleaned on
+the way in for a related reason. A footer is rich text an administrator writes,
+it is stored as written, and it is loaded back into an editor when a colleague
+opens it, so script-capable markup in a footer would run in that colleague's
+session rather than in a recipient's mail client. Because the Compliance role and
+an MSP Technician can edit footers without reaching users, settings or billing,
+leaving it uncleaned would turn the narrowest role in the product into a route to
+the widest. Scripts, frames, forms, embedded objects, event handler attributes
+and executable URL schemes are removed when the footer is saved, and the markup
+is parsed by a real HTML parser rather than matched with a pattern. The editor
+cleans stored markup again before showing it, so a footer saved before the rule
+existed is covered too.
+
 ## Browser response headers
 
 Sigil's responses carry a baseline set of browser security headers, and the set

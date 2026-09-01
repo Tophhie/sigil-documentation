@@ -1,13 +1,15 @@
 ---
 title: Leaving the programme
-description: "How a partnership ends from either side: leaving voluntarily, the two grounds on which Tophhie Cloud reserves removal, and what a removal actually changes."
+description: "How a partnership ends from either side: leaving voluntarily, the two grounds on which Tophhie Cloud reserves removal, the no-fault route on 90 days' notice, and what any of them changes."
 sidebar:
-  order: 6
+  order: 7
 ---
 
 A partnership can end from either side, and the partner agreement covers both
 directions rather than only the one that suits Tophhie Cloud. You can leave
-whenever you like. Removal is reserved on two grounds, and both are written down.
+whenever you like. Removal for cause is reserved on two grounds, and both are
+written down. There is also a no-fault route that needs no reason and cannot take
+effect for three months.
 
 The word to hold on to throughout is downgrade rather than deletion. Whichever
 way the arrangement ends, your organisation stays a Sigil customer and keeps
@@ -118,10 +120,41 @@ If the notice reaches nobody, no clock starts. The 30 days exist so you had the
 chance to answer, and running them against a partner who was never told would be
 the wrong kind of record.
 
+## Ending a partnership with no reason given
+
+Clause 10 is separate from the two grounds above and works differently. Tophhie
+Cloud can close the partner programme altogether (10.1), or end one partnership
+on its own without giving a reason (10.2). Either takes at least 90 days' written
+notice.
+
+Nothing changes during those 90 days. You keep the partner console, the margin
+agreed with you, the availability commitment, and every client you manage. The
+time is there for settling where each client goes: back to billing in their own
+name, which you or the client can do at any point, or to whatever you agree
+between you. Any client you still manage when the notice period ends moves to
+direct billing with the standard window to add a payment method, with nothing of
+theirs deleted.
+
+At the end of the notice, what happens to your own organisation is what the rest
+of this page describes: you become a regular Sigil customer and your internal-use
+tenant moves onto standard billing. Closing the programme does not end your own
+use of Sigil, which carries on under the terms of use.
+
+This is the gentler of the two routes, and where both are open Tophhie Cloud
+would expect to take it. Removal under clause 9 is for a reason that has to be
+capable of being given, and it can take effect at once; this needs no reason and
+cannot take effect for three months.
+
+You are under no equivalent constraint. Clause 8 lets you leave whenever you
+like, with no notice period and no reason. The asymmetry is deliberate, and the
+agreement says why: you have clients depending on the arrangement and Tophhie
+Cloud does not, so the side that needs time to unwind it is yours.
+
 ## What removal changes
 
 Removal ends the partner agreement and returns your organisation to being an
-ordinary Sigil customer.
+ordinary Sigil customer. The same table describes the end of a clause 10 notice
+period, which lands in the same place by a different route.
 
 | What ends | What happens |
 | --- | --- |
@@ -166,7 +199,7 @@ about.
 
 [Support and service level](/partners/service-level/) covers what the agreement
 commits to while you are an active partner, and
-[accepting the agreement](/partners/service-level/#accepting-the-agreement)
+[accepting the agreement](/partners/agreement/#accepting-it)
 covers what happens when its substance changes.
 
 [Managing clients](/partners/clients/) covers releasing a client, which is the

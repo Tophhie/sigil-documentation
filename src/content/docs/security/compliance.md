@@ -182,6 +182,14 @@ would leave you none. Sigil is a processor here and the obligation to notify a
 regulator or the people affected stays with your organisation, which is the
 reason the notice is written to be usable as the basis for that decision.
 
+Where your organisation is managed by an IT provider in the [partner
+programme](/partners/agreement/#breach-notification-reaches-you-sooner), the same
+arithmetic is applied once more. The provider is told what is known within 24
+hours and given the full particulars within 48, because the chain has one more
+link in it and your 72 hours have to survive the extra hop. Where the provider
+asks for it, or cannot be reached, Tophhie Cloud notifies your own administrators
+directly rather than letting the notice stall with them.
+
 ## Auditing Sigil
 
 Most compliance reviews are answered on paper, and the agreement says so rather
