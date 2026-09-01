@@ -186,11 +186,21 @@ still apply automatically on mobile.
 No. Outlook does not render SVG. Use PNG or JPG. See
 [Outlook constraints](/signatures/outlook-constraints/).
 
+## Can we stop signatures without cancelling?
+
+Yes. Delivery can be paused for the whole organisation, which stops what
+mailboxes receive and leaves the portal working, so templates can still be
+edited, previewed and tested. It changes nothing about seats or the
+subscription. See [pausing delivery](/signatures/pausing-delivery/).
+
 ## What happens if we stop paying?
 
 Signatures stop being served. The add-in receives a 402 and applies nothing.
-Nothing is deleted, and restoring an active subscription restores signatures. See
-[billing](/admin/billing/).
+Nothing is deleted, and restoring an active subscription restores signatures.
+
+A failed payment is not immediate. Stripe retries the card for about three weeks
+and signatures carry on, with 21 days from the first failure before they stop.
+See [billing](/admin/billing/).
 
 ## What happens at the end of the trial?
 
@@ -285,6 +295,15 @@ never gates the sending of email.
 ## Can a managed service provider run this for us?
 
 Yes. See [the partner programme](/partners/overview/).
+
+## Where do we go for help?
+
+Help in the portal sidebar. It links to this documentation, gives the support
+address and what to put in the message, and starts an email with your
+organisation name and Microsoft 365 tenant id already filled in. If a provider
+manages Sigil for you, it names them and points you at them first, since they are
+the ones configuring your signatures. The same details are on
+`portal.usesigil.app/support` for anyone not signed in.
 
 ## Can we run Sigil alongside our existing signature product?
 

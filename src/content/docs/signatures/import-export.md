@@ -2,7 +2,7 @@
 title: Import and export
 description: Move a template between organisations as a portable JSON bundle, and download a standalone copy of a signature.
 sidebar:
-  order: 14
+  order: 15
 ---
 
 A template can be exported as a portable JSON bundle and imported into another

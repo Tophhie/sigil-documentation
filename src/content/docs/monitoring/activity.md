@@ -125,14 +125,22 @@ signature, because they are doing work the product is supposed to do for them.
 
 ## Refused requests
 
-A request for a mailbox that has been
-[excluded from Sigil](/admin/cost-management/) is recorded with an outcome of
-`excluded` rather than being dropped. The event search filters on outcome, so
-these can be pulled out on their own.
+Two refusals are deliberate rather than faults, and both are recorded rather than
+dropped:
 
-They are recorded rather than swallowed because an excluded mailbox should not be
-asking for a signature at all. A steady stream of them means the add-in is still
-deployed to somebody who no longer needs it, which is worth knowing.
+| Outcome | Meaning |
+| --- | --- |
+| `excluded` | The mailbox has been [excluded from Sigil](/admin/cost-management/) |
+| `paused` | [Delivery is paused](/signatures/pausing-delivery/) for the whole organisation |
+
+The event search has a filter for each, so either can be pulled out on its own.
+
+They are recorded rather than swallowed because both answer the question somebody
+is actually asking. An excluded mailbox should not be requesting a signature at
+all, so a steady stream of them means the add-in is still deployed to somebody
+who no longer needs it. A run of `paused` entries means the opposite of a fault:
+the add-in is deployed, reaching the service and being answered, and the only
+thing between those people and a signature is a switch in the portal.
 
 ## What the outcomes are used for besides reporting
 

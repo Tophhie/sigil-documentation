@@ -50,6 +50,12 @@ them at all. Pronouns, a personal booking link, the days somebody works.
 they describe, which is worth deciding on now rather than after everyone has
 seen their signature for the first time.
 
+If the add-in is going to reach anybody before the template is ready, pause
+delivery first. Paused, mailboxes receive nothing while everything in the portal
+carries on working, so you can deploy and test the add-in without anyone getting
+a half-finished signature. See
+[pausing delivery](/signatures/pausing-delivery/).
+
 ## Phase 2: pilot
 
 Deploy the manifest through Integrated apps, targeting a small group. Ten to
@@ -127,3 +133,8 @@ so a server-side stamp on top of it produces two signatures on every message.
 
 Turn the old product off for the pilot group at the same time as you deploy Sigil
 to them, rather than sequencing the two.
+
+If the two cannot be switched over in the same moment, deploy the add-in with
+[delivery paused](/signatures/pausing-delivery/) and resume at the instant the
+old product stops. That turns a cutover that depends on propagation timing, which
+you do not control, into one that depends on a button, which you do.

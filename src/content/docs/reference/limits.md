@@ -118,6 +118,7 @@ keys and settings are recorded without appearing on it. See the
 | Image upload or replacement | Seconds |
 | Footer edit | Seconds |
 | Banner window opening or closing | Immediately |
+| Pausing or resuming delivery | Next compose |
 | Assignment rules change | Next compose |
 | Directory change affecting which rule matches | Up to 10 minutes |
 | Profile field value saved, by anybody in the organisation | Next compose |
@@ -216,12 +217,15 @@ See [API keys](/admin/api-keys/).
 | Billable seat | A licensed member mailbox that has not been excluded |
 | Free | Shared and resource mailboxes, accounts invited in from outside, disabled accounts, excluded mailboxes |
 | Longest agreed discount term | 60 months, or open-ended |
+| After a failed payment, before signatures stop | 21 days from the first failure |
 | Seat sync | Daily, with no mid-cycle proration |
 | Exclusion suggestion window | 90 days without a successful apply |
 | Exclusion note | 200 characters |
 
 Once a trial ends without an active subscription, signatures stop being served.
-See [billing](/admin/billing/).
+A failed payment on a live subscription is bounded rather than immediate: Stripe
+retries the card over roughly three weeks, and signatures stop 21 days after the
+first failure if the invoice is still unpaid. See [billing](/admin/billing/).
 
 ## Client support
 

@@ -27,6 +27,7 @@ organisation.
 | Restoring from Recently deleted | Yes |
 | Permanently deleting a template | Yes |
 | Assigning a template to a role | Yes |
+| [Pausing or resuming delivery](/signatures/pausing-delivery/) | Yes |
 | Changing assignment rules | Yes |
 | Creating, editing or removing a banner | Yes |
 | Creating, editing or removing a footer | Yes |
@@ -167,8 +168,9 @@ scheduled publishes and staged rollouts. Assignment rules and banners are in
 because they decide which template a mailbox gets and what is injected into it.
 
 Admin and support activity carries everything else. Role and user changes,
-mailbox and group exclusions, API keys, profile field definitions, settings, test
-emails, and anything Tophhie Cloud support did on your organisation. Sending a
+pausing and resuming delivery, mailbox and group exclusions, API keys, profile
+field definitions, settings, test emails, and anything Tophhie Cloud support did
+on your organisation. Sending a
 test email is the clearest case of the line being drawn correctly: it is worth
 recording, it belongs on this side, and it changes nothing about anyone's
 signature.

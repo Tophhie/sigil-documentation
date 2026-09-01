@@ -10,14 +10,28 @@ turn out to be one of four things, and the order below finds them fastest.
 
 ## Nobody in the organisation has a signature
 
+### Is delivery paused?
+
+Open the Templates page and look at the In use card. If it says Paused, that is
+your answer: somebody switched delivery off for the whole organisation and it is
+still off. Resume it there.
+
+This is worth checking first because it is silent. Nobody is warned that their
+signature has stopped, everything in the portal keeps working, and the add-in is
+behaving exactly as it was told to. See
+[pausing delivery](/signatures/pausing-delivery/).
+
 ### Is the trial still running, and is there a card on file?
 
 Billing hard-gates the signature path. Once a trial ends with no active
 subscription, the add-in receives a 402 and applies nothing. This is the most
 common cause of a sudden organisation-wide stop.
 
-Check the Billing view. If the subscription is past due or cancelled, that is
-your answer. See [billing](/admin/billing/).
+Check the Billing view. If the subscription is cancelled, that is your answer. A
+past due subscription does not stop signatures straight away: there is a 21 day
+window while the card is retried, and they stop at the end of it. So a past due
+status explains an organisation-wide stop only once that window has run. See
+[billing](/admin/billing/).
 
 ### Has admin consent lapsed?
 
@@ -193,5 +207,17 @@ that leads nowhere is not a state it can reach.
 ## Still stuck
 
 Collect the affected email address, the Outlook client and platform, and whether
-the "My signature" pane works. Those three facts narrow almost everything. The
-support page at `portal.usesigil.app/support` has current contact details.
+the "My signature" pane works. Those three facts narrow almost everything.
+
+Help in the portal's sidebar is the shortest route from there. It carries a link
+to this documentation, the support address, and the response commitment, and it
+starts an email for you with your organisation name and Microsoft 365 tenant id
+already in it. Those two are the details support otherwise has to ask for, and
+each round trip costs another day.
+
+If an IT provider manages Sigil for your organisation, Help names them and points
+you at them first. They configure your signatures, so they can usually resolve it
+faster, and Tophhie Cloud stays listed underneath if you cannot reach them.
+
+The public support page at `portal.usesigil.app/support` says the same things for
+anyone who is not signed in.

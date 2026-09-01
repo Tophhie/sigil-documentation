@@ -16,7 +16,7 @@ a description of it.
 | Capability | Covers | Admin | Editor | Marketing | Viewer | Compliance | Billing |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Templates and signatures | Library, editor, drafts, versions, staged rollouts, images, import and export, preview, download, test email | Yes | Yes | No | No | No | No |
-| Assignment rules | Which template each group or person gets, the org-wide role assignments, and simulating a mailbox against the rules | Yes | No | No | No | No | No |
+| Assignment rules | Which template each group or person gets, the org-wide role assignments, [pausing delivery](/signatures/pausing-delivery/), and simulating a mailbox against the rules | Yes | No | No | No | No | No |
 | Campaign banners | Scheduled promotional banners | Yes | No | Yes | No | No | No |
 | Compliance footers | Legal and disclaimer footers | Yes | No | No | No | Yes | No |
 | Link click analytics | Click tracking and its reports | Yes | No | Yes | Yes | No | No |
@@ -29,8 +29,9 @@ a description of it.
 
 Admin is the only role that holds every capability. Assignment rules, settings
 and staff profile details are the three capabilities no other role holds. Rules
-decide who receives which signature, and settings decide who may publish at all,
-so both have organisation-wide reach that a narrower role should not.
+decide who receives which signature, and whether anybody receives one at all, and
+settings decide who may publish, so both have organisation-wide reach that a
+narrower role should not.
 
 Staff profile details is separate from users and roles for a different reason,
 and the Billing role is that reason. Billing holds the users capability, because

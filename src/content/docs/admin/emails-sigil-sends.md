@@ -19,7 +19,8 @@ comes from any other address is not.
 
 Payment failure notices are the one thing that reaches you from elsewhere. They
 come from Stripe to your billing contact, under Stripe's own sender, because
-Stripe is what holds the card. See [billing](/admin/billing/).
+Stripe is what holds the card. See [billing](/admin/billing/). Partners get one
+from Sigil as well, from the address above, and the two say the same thing.
 
 ## To your administrators and users
 
@@ -87,16 +88,26 @@ their inbox.
 
 | Message | Sent when |
 | --- | --- |
+| Action needed: your Sigil payment failed | A payment on the partner subscription has failed. Names the date signatures stop across every managed client if it stays unpaid |
 | Your Sigil partnership is at risk | The partnership has gone six consecutive months without an active client. Written to the partner's Owners, and it starts the 30 days the agreement gives them to respond |
 
-That one exists because the partner agreement promises it. Removal for going six
-months without a client cannot happen until the notice has been sent and the 30
-days have run, so it is a required step rather than a warning somebody chose to
-send. See [leaving the programme](/partners/leaving-the-programme/).
+The partnership-at-risk notice exists because the partner agreement promises it.
+Removal for going six months without a client cannot happen until the notice has
+been sent and the 30 days have run, so it is a required step rather than a
+warning somebody chose to send. See
+[leaving the programme](/partners/leaving-the-programme/).
 
-Payment failures reach a partner through Stripe's own dunning mail, from the
-first failure. That is why the client-facing warning above only starts partway
-into the grace window: by then the partner has already been told several times.
+The payment failure notice goes to the billing email on the partner's invoice
+details, if one is set, and to every Owner and Billing member of partner staff.
+It is sent once when the failure starts rather than on each retry, so a card that
+declines three times produces one message and one stop date.
+
+Stripe sends its own dunning mail as well, from the first failure. Sigil's notice
+exists because that one depends on the Stripe customer record carrying an
+address, and an MSP whose record had none used to learn about a failed invoice
+from their own clients. Between them it is why the client-facing warning above
+only starts partway into the grace window: by then the partner has already been
+told several times. See [partner billing](/partners/billing/).
 
 ## Mail about you rather than to you
 

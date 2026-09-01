@@ -335,8 +335,14 @@ whose department is Warehouse", the way an
 actually came up, and an attribute rule wants a preview of its own before it is
 allowed to pull people out of both billing and signatures.
 
-There is no way to switch a signature off while continuing to pay for the
-mailbox, and no way to stop paying while keeping the signature.
+For one mailbox, there is no way to switch its signature off while continuing to
+pay for it, and no way to stop paying while keeping its signature. The two halves
+of an exclusion move together.
+
+Organisation-wide, the first of those is a separate control:
+[pausing delivery](/signatures/pausing-delivery/) stops everybody receiving a
+signature and changes nothing about the bill. It is a rollout tool rather than a
+cost one, so a pause left on for a month still costs a month.
 
 Excluding a mailbox has nothing to do with portal access. Who can sign in to the
 portal, and at what role, is [users and roles](/admin/users-and-roles/).

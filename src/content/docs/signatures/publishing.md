@@ -70,6 +70,17 @@ Where [publish approval](/signatures/approvals/) is switched on, a publish by
 anybody but an admin is refused with a message saying so. Editors save a draft
 and submit it for review instead.
 
+## Publishing to nobody at all
+
+Delivery can be switched off for the whole organisation, which stops what
+mailboxes receive and leaves everything on this page working. You can keep
+editing, previewing, testing and publishing while it is paused, and nothing you
+publish reaches anybody until you resume.
+
+That is the state to be in while you are still setting Sigil up, or while an old
+signature product is still stamping mail. See
+[pausing delivery](/signatures/pausing-delivery/).
+
 ## Publishing later
 
 Next to Publish is Schedule, which books the change for an instant you choose

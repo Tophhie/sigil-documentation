@@ -84,12 +84,23 @@ adds a card simply stops rather than being billed by surprise.
 ## What happens if billing lapses
 
 Once a trial ends without an active subscription, signatures stop. The add-in
-receives a 402 and applies nothing.
+receives a 402 and applies nothing. A cancelled subscription stops them the same
+way.
 
-The same applies to a subscription that becomes past due or is cancelled.
+A failed payment does not stop them immediately. Stripe retries a declined card
+over about three weeks, and signatures carry on throughout, so a card that
+expired over a weekend is invisible to everybody except whoever reads the
+notices. Sigil allows 21 days from the first failure, measured from the failure
+itself rather than from each retry, and signatures stop at the end of that window
+if the invoice is still unpaid.
+
+Paying inside the window ends it. Nothing has to be reprovisioned and nothing was
+lost, because nothing had stopped yet.
 
 This is the first thing to check when an entire organisation loses its signatures
-at once. See [troubleshooting](/deploy/troubleshooting/).
+at once, along with whether
+[delivery has been paused](/signatures/pausing-delivery/). See
+[troubleshooting](/deploy/troubleshooting/).
 
 Nothing is deleted when billing lapses. Templates, images, rules, banners and
 footers all remain. Restoring an active subscription restores signatures.

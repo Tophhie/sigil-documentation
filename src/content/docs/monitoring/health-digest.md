@@ -27,6 +27,23 @@ them.
 
 Empty sections are left out rather than printed as zeroes.
 
+## While delivery is paused
+
+If [delivery is paused](/signatures/pausing-delivery/), the digest says so before
+anything else, and the subject line leads with it rather than with a coverage
+figure. Every number below that line means something different when nobody is
+being served, and an administrator who reads the coverage first has already been
+misled by the time they reach the explanation.
+
+The list of mailboxes that have never had a signature applied is left out for the
+same reason. Under a pause it is the whole organisation, and it describes a
+decision an administrator made rather than anything to fix.
+
+Everything else still appears, and still counts as needing attention: a failing
+apply, a banner about to close and a draft waiting on an approver are all things
+worth fixing before delivery resumes, which is exactly when a pause is in
+force.
+
 Mailboxes you have [excluded from Sigil](/admin/cost-management/) are left out of
 the coverage and directory gap figures entirely. They are deliberately not being
 sent a signature, and a recurring email that chased your administrators about

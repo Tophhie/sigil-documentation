@@ -30,9 +30,18 @@ Support is split, and the split follows what each side sells.
 | General product queries you would rather not answer yourself | Tophhie Cloud, at lower priority | None |
 
 First-line support is the part of the service you sell, so your clients should
-come to you for it. That is also why the agreement does not stop you passing a
-general product question on: it is handled, just behind anything that affects
-whether the service is up.
+come to you for it. The product says so too: Help in a managed client's portal
+names you as the people to ask, above the Tophhie Cloud address rather than
+instead of it, so a client who cannot reach you is not left at a dead end.
+
+It names you and stops there. Sigil holds no support address for a partner, and
+guessing one from your domain would send a client's problem into a mailbox that
+may not exist, so the dialog tells them to contact you however they normally do.
+Whatever route you have given your clients is the one they will use.
+
+That is also why the agreement does not stop you passing a general product
+question on: it is handled, just behind anything that affects whether the service
+is up.
 
 Business hours are Monday to Friday, 9am to 5pm UK time, excluding public
 holidays in England and Wales. A response means an acknowledgement and an initial

@@ -129,8 +129,8 @@ by the person holding the token, by granting admin consent. See
 
 | Route | Auth | Purpose |
 | --- | --- | --- |
-| `GET /api/signature?email=&type=` | Add-in token | The rendered signature plus its inline images. `email` defaults to the caller; `type` is `new` or `reply` |
-| `GET /api/signature/download?email=&type=` | Add-in token | The signature as a standalone HTML file with images inlined as `data:` URIs |
+| `GET /api/signature?email=&type=` | Add-in token | The rendered signature plus its inline images. `email` defaults to the caller; `type` is `new` or `reply`. 403 while [delivery is paused](/signatures/pausing-delivery/) |
+| `GET /api/signature/download?email=&type=` | Add-in token | The signature as a standalone HTML file with images inlined as `data:` URIs. Also refused while delivery is paused |
 | `POST /api/signature/report` | Add-in token | The add-in's apply outcome for one attempt |
 | `GET /api/signature/profile?email=` | Add-in token | Whether this mailbox has anything to fill in on the profile page, and where that page is |
 
@@ -185,7 +185,7 @@ safely carry. Saves are rate limited per mailbox.
 
 | Route | Auth | Purpose |
 | --- | --- | --- |
-| `GET /api/admin/templates` | Admin token | The library plus current role assignments |
+| `GET /api/admin/templates` | Admin token | The library, the current role assignments, and `signaturesPaused` |
 | `GET /api/admin/rollouts` | Admin token | In-flight rollouts, for the library's badges |
 | `POST /api/admin/templates` | Admin token | Create a template |
 | `GET /api/admin/templates/:id` | Admin token | One template's body |
@@ -206,6 +206,7 @@ safely carry. Saves are rate limited per mailbox.
 | `GET /api/admin/templates/:id/export` | Admin token | Portable JSON, images included |
 | `POST /api/admin/templates/import` | Admin token | Import a bundle as a new entry |
 | `PUT /api/admin/roles` | Admin token, rules capability | Assign templates to the `new` and `reply` roles |
+| `PUT /api/admin/signature-delivery` | Admin token, rules capability | Pause or resume delivery for the whole organisation. Takes `{ "paused": true }` or `false` |
 | `POST /api/admin/preview` | Admin token | Render with sample data, or against a named mailbox, in which case the response carries that mailbox's directory attributes alongside the HTML. An optional `sender` renders the [shared mailbox case](/signatures/placeholders/#sender) |
 | `GET /api/admin/download?email=&type=` | Admin token | A mailbox's live signature as a standalone file |
 
@@ -213,10 +214,18 @@ Shortcuts acting on the active new-message template exist at
 `GET/PUT /api/admin/template`, `GET /api/admin/versions` and
 `POST /api/admin/rollback`.
 
-Every route above except `PUT /api/admin/roles` needs the templates capability,
-which the Editor role holds alongside an Admin. Pointing a role at a different
-template is guarded by the rules capability instead, which no role but Admin
-holds. See [roles and capabilities](/reference/roles-and-capabilities/).
+Every route above except `PUT /api/admin/roles` and
+`PUT /api/admin/signature-delivery` needs the templates capability, which the
+Editor role holds alongside an Admin. Pointing a role at a different template and
+pausing delivery are guarded by the rules capability instead, which no role but
+Admin holds. See [roles and capabilities](/reference/roles-and-capabilities/).
+
+Those two sit together on purpose. One decides which signature a mailbox gets,
+the other whether it gets one at all, and they are the same decision from two
+ends. Setting `paused` to the value already in force is accepted and changes
+nothing, so a script can assert the state it wants without checking first and
+without filling the change log with repeats. See
+[pausing delivery](/signatures/pausing-delivery/).
 
 Rejecting a submitted draft is the one route here that needs the Admin role on
 top of the capability. Submitting is not, because anyone who can edit a draft can

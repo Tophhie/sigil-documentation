@@ -59,6 +59,12 @@ the client, and the onboarding goes ahead with the partner link attached. That
 asymmetry is deliberate: a real client should never lose a signup to a check that
 could not reach Microsoft.
 
+The same fallback covers a link that fails for any other reason. A client whose
+partner link could not be completed is provisioned as an ordinary direct customer
+on a full trial rather than being left with no billing arrangement at all, and
+Tophhie Cloud can move it onto your account afterwards. It is the safe way round:
+the client's signatures work either way, and only who pays is left to settle.
+
 ## Working inside a client
 
 Open a client and choose Manage. The portal switches into that client's context.
@@ -71,6 +77,12 @@ A persistent banner shows which client you are editing, with a one-click exit
 back to the partner console. That banner matters more than it sounds; the views
 are identical, so the banner is what tells you whose signatures you are about to
 publish.
+
+The context follows you into the drag-and-drop designer, which is a page of its
+own rather than part of the portal, and it survives a reload and the browser's
+back button. The designer names the organisation you are working in along its top
+bar, in the same colours as the banner, so opening a template never leaves you
+guessing whose it is.
 
 Your access is read-write, so everything you do inside a client is a real change
 to their signatures.
@@ -97,6 +109,14 @@ own portal. The request expires after 14 days if nobody answers, and an
 organisation can only have one pending at a time.
 
 Nothing moves until it is approved. A transfer request is a request, not a claim.
+
+Approving it stops the organisation's own subscription before its seats move onto
+your bill, so nobody pays twice for the same month. If that step fails, the
+transfer does not go through: the organisation is told plainly that it is still
+billed in its own name and to ask Tophhie Cloud to finish the link. That is
+deliberate. A tenant that moved onto partner billing while its own subscription
+was still running would be invoiced twice with no way to unpick it, so a failure
+leaves it where it started rather than half moved.
 
 ### Taking back a client you previously managed
 

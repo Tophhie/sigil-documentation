@@ -2,7 +2,7 @@
 title: Versions and rollback
 description: Restore a previous version of any template, and recover a template you deleted.
 sidebar:
-  order: 13
+  order: 14
 ---
 
 Every publish archives the body it replaced. Sigil keeps the last ten published

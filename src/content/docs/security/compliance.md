@@ -256,10 +256,12 @@ anything needing attention: directory access that has lapsed, past-due billing,
 trials ending within seven days, unfinished provisioning, seat drift, and a
 suspended tenant whose subscription is still charging.
 
-The last of those is a safeguard rather than a health check. Suspending a tenant
-does not stop its subscription, so a suspension left in place would keep billing
-for a service nobody can use. The scan surfaces it so an operator either restores
-the tenant or cancels the subscription.
+The last of those is a safeguard rather than a health check. Suspending an
+organisation sets its billed seats to zero, so it stops accruing charges, but it
+does not cancel the subscription, which stays open so the suspension can be
+lifted without reprovisioning anything. The scan surfaces the open subscription
+so an operator either restores the organisation or closes it properly, rather
+than leaving one standing indefinitely against a tenant nobody can use.
 
 Lapsed directory access is the one worth knowing about as a customer, because it
 breaks signatures quietly. The template is still there; there is simply no data to

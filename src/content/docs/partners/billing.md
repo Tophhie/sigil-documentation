@@ -41,6 +41,13 @@ separately rather than aborting the aggregate, so one broken client does not sto
 the other nineteen being billed. Those exceptions are worth chasing, since an
 uncountable client is also one whose signatures may have stopped.
 
+A suspended client counts as zero seats from the day it is suspended. Its
+signatures have stopped, so billing you for its mailboxes would be charging for
+nothing. It stays on the client list and in the invoice footer at zero rather
+than disappearing, so the line you are used to seeing is still there and visibly
+at nought, which is easier to reconcile than a client that silently vanished from
+one period to the next.
+
 Your own tenant, the one holding your own signatures, is handled separately from
 your clients' as part of the partner arrangement.
 
@@ -165,9 +172,21 @@ There is a dunning window before that happens, and partway through it the
 clients' own administrators are warned directly. Both the window and the point at
 which clients are told are set by Tophhie Cloud rather than being fixed.
 
-That last part is worth knowing before it happens. Your clients find out about a
-billing problem on your account, which is a conversation better had in advance
-than in response.
+You hear first. The moment a payment fails, Sigil emails your own billing
+contacts: the billing email on your [invoice details](#your-invoice-details) if
+you have set one, and every Owner and Billing member of your partner staff. The
+message names the date signatures stop across your client base if the invoice is
+still unpaid by then. That is separate from Stripe's own dunning mail, which also
+goes out from the first failure and which the Sigil notice exists to back up, for
+the account whose Stripe contact address was never filled in.
+
+A repeated failure on the same unpaid invoice does not send another one, and does
+not move the date. The clock runs from the first failure, so retrying a card that
+declines again neither buys time nor costs any.
+
+That your clients are told directly is worth knowing before it happens. They find
+out about a billing problem on your account, which is a conversation better had
+in advance than in response.
 
 ## When the grace period runs out
 

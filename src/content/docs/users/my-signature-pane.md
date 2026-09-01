@@ -44,11 +44,15 @@ Each of these names who can fix it, which is usually your IT team rather than
 you.
 
 One of those messages is worth reading loosely. If the pane says Sigil is not set
-up for your organisation, that can also mean your own mailbox has been
-[excluded](/admin/cost-management/) from Sigil deliberately, which is a normal
-thing for an organisation to do for a shared or unattended mailbox. The add-in
-cannot tell the two apart, because Sigil declines both the same way. Your IT team
-can see which it is.
+up for your organisation, it can mean two other things as well. Your own mailbox
+may have been [excluded](/admin/cost-management/) from Sigil deliberately, which
+is a normal thing for an organisation to do for a shared or unattended mailbox.
+Or your organisation may have
+[paused delivery](/signatures/pausing-delivery/) for everybody, which is what IT
+does while a signature is still being set up.
+
+The add-in cannot tell the three apart, because Sigil declines them all the same
+way. Your IT team can see which it is.
 
 The pane also keeps a subscription problem separate from a connection problem. A
 lapsed subscription says so rather than reading as a network fault you could fix

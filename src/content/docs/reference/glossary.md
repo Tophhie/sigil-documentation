@@ -107,6 +107,11 @@ The page at `portal.usesigil.app/me` where anybody in an organisation fills in
 their own profile fields. Needs no portal role and grants none. See
 [filling in your own details](/users/your-details/).
 
+**Paused delivery**
+An organisation-wide switch that stops mailboxes receiving a signature while
+leaving every admin surface working. It changes nothing about seats or the
+subscription. See [pausing delivery](/signatures/pausing-delivery/).
+
 **Publish approval**
 An optional per-tenant switch requiring an admin to put any body live. Editors
 submit drafts for review instead. See
