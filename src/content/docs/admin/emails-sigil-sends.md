@@ -5,8 +5,7 @@ sidebar:
   order: 10
 ---
 
-Sigil is not a mailing product, and it sends very little. The list below is all
-of it, which is worth having in front of you when somebody forwards you a message
+Sigil is not a mailing product, and it sends very little. The list below covers the automated messages Sigil sends, which is worth having in front of you when somebody forwards you a message
 asking whether it is genuine.
 
 ## Where they come from
