@@ -11,7 +11,7 @@ asking whether it is genuine.
 
 ## Where they come from
 
-Every message Sigil sends comes from `signatures@usesigil.app`, with the display
+Automated messages sent by Sigil come from `signatures@usesigil.app`, with the display
 name "Sigil by Tophhie Cloud".
 
 Nothing else sends on Sigil's behalf. A message that claims to be from Sigil and
@@ -51,8 +51,6 @@ mailed, so a transient Graph outage does not become a fleet-wide alarm.
 The role email goes out only when somebody is added, not when an existing user's
 role is changed. Changing a role takes effect on their next request and needs no
 announcement.
-
-Tophhie Cloud may contact organisation administrators about their account, onboarding, configuration, support requests, billing, security or other matters directly related to their use of Sigil. These messages are service communications, not marketing emails.
 
 ## If your organisation is managed by a partner
 
@@ -146,3 +144,6 @@ and go to the portal.
 None of these messages ever ask for a password, and Sigil has no password to ask
 for. Portal sign-in is your Microsoft work account. See
 [the security model](/security/security-model/).
+
+## Support and onboarding
+Tophhie Cloud may contact organisation administrators about their account, onboarding, configuration, support requests, billing, security or other matters directly related to their use of Sigil. These messages are service communications, not marketing emails.
