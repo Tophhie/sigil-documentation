@@ -52,6 +52,8 @@ The role email goes out only when somebody is added, not when an existing user's
 role is changed. Changing a role takes effect on their next request and needs no
 announcement.
 
+Tophhie Cloud may contact organisation administrators about their account, onboarding, configuration, support requests, billing, security or other matters directly related to their use of Sigil. These messages are service communications, not marketing emails.
+
 ## If your organisation is managed by a partner
 
 | Message | Sent when |
