@@ -49,6 +49,30 @@ tenant. If that step is still open, the deployment has not reached anyone yet.
 If you deployed it in the last three days, this is probably just propagation.
 Allow 6 to 72 hours.
 
+### Is something on your network eating the request?
+
+An outbound filter that inspects traffic to `portal.usesigil.app` can stop
+signatures without anything in the portal looking wrong. Activity shows the
+symptom: outcomes reported with a reason and no matching served request, because
+the add-in got far enough to describe the failure but its request for a signature
+never arrived.
+
+Two reasons separate the cases, and the difference is worth reading before you
+open a ticket with anyone. `server-error` means Sigil answered and the answer was
+unexpected; the status it answered with is recorded alongside it. `unreachable`
+means the request produced no answer at all, which is what a dropped connection
+looks like and also what a filter or firewall blocking the request looks like
+from inside Outlook.
+
+A run of `unreachable` confined to one office, one VPN or one network is a
+filtering problem rather than a Sigil problem. Where the host is blocked
+outright, nothing is reported at all and the mailboxes surface on the
+never-applied list instead, so both symptoms point at the same check: whether
+`portal.usesigil.app` is reachable from that network. The request carries
+nothing in its URL beyond the host, so there is no address or parameter in it for
+a content rule to object to. See
+[domains Sigil uses](/deploy/requirements/#domains-sigil-uses).
+
 ## Some people have a signature and others do not
 
 ### Check the never-applied list
@@ -133,10 +157,13 @@ simulation marks the shadowed rule as having matched too late to decide anything
 
 Saving a rule list reaches everyone on their next compose, so a rules edit you
 have just made is rarely the explanation. What does lag is a change made in
-Entra: the decision reached for each mailbox is cached for ten minutes, and
-nothing tells Sigil that somebody has moved department. If the simulation shows
-the right rule but the mailbox is still sending the old signature shortly after a
-directory change, that window is the likeliest reason.
+Entra: the decision reached for each mailbox stays fresh for ten minutes, and
+nothing tells Sigil that somebody has moved department. The re-check runs in the
+background after a message has gone, so the first compose past that window sends
+under the old decision and the next one follows the directory. If the simulation
+shows the right rule but the mailbox is still sending the old signature shortly
+after a directory change, that is the likeliest reason, and one more message
+settles it.
 
 ### An old version of the template
 

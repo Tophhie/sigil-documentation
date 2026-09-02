@@ -14,10 +14,11 @@ plus licence and account state for seat counting. The full list is in
 
 Those attributes are read when a signature is rendered and are never written down
 as a record of their own. What holds them afterwards is the rendered signature
-itself, cached for at most an hour, so an hour after somebody last composed a
-message there is nothing of their directory record left inside Sigil. That is
-also what lets a corrected job title reach Outlook with nobody republishing
-anything.
+itself, cached for at most an hour, plus a fifteen minute cache of the directory
+lookup that fed it, which exists so that somebody writing several messages is not
+looked up over and over. An hour after somebody last composed a message there is
+nothing of their directory record left inside Sigil. That is also what lets a
+corrected job title reach Outlook with nobody republishing anything.
 
 Recipient content is never read. Sigil writes into the compose window and does
 not sit in your mail flow, so it has no access to message bodies, subjects or

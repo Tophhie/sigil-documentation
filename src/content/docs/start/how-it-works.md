@@ -55,8 +55,8 @@ template for new messages and a template for replies. Anyone that no rule matche
 gets the organisation-wide defaults.
 
 The compose type decides which of the two roles is used. The add-in calls
-`getComposeTypeAsync`, and a reply or forward is fetched as `type=reply`. When no
-reply template is configured, the new-message template is served instead.
+`getComposeTypeAsync`, and a reply or forward asks for the reply signature. When
+no reply template is configured, the new-message template is served instead.
 
 The [banner](/targeting/banners/) is whichever campaign window is currently open.
 The [footer](/targeting/footers/) is the one matching the sending email domain,
@@ -84,9 +84,13 @@ Assignment rules work the same way with a second cache in front of them.
 Evaluating a rule needs directory data, so the routing decision reached for each
 mailbox is cached too, keyed by a rules version that changes on every edit.
 Saving a rule list strands all of those at once, so a rules change also lands on
-the next compose. The ten minute lifetime on those entries exists for the change
-no version number can see, which is somebody moving department or joining a group
-in Entra.
+the next compose. The ten minute freshness window on those entries exists for the
+change no version number can see, which is somebody moving department or joining
+a group in Entra. Past that window the decision is still used and the directory
+is re-read afterwards rather than mid-compose, so the change lands on the
+following message. Re-reading the directory while somebody waits is the slowest
+thing the serving path can do, and it would be paid by whoever happened to compose
+first.
 
 ## The sending address, not the mailbox
 

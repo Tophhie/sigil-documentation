@@ -79,6 +79,29 @@ role they have been given. Changing an existing user's role sends nothing, since
 it takes effect on their next request. See
 [emails Sigil sends](/admin/emails-sigil-sends/).
 
+### Addresses that cannot be invited
+
+Access is granted by matching a sign-in to the address you invited, so an address
+no sign-in will ever present is an invitation nobody can accept. Sigil checks
+before creating the user rather than leaving you to discover it, and the refusal
+names the problem:
+
+| Address | Why it is refused |
+| --- | --- |
+| Not in your Microsoft 365 directory | Only members of your own organisation can produce a sign-in for it |
+| A guest account | A guest signs in to their own organisation, not yours |
+| A mailbox with sign-in disabled | Shared, room and equipment mailboxes have nobody to sign in as |
+| An alias | Sign-in presents the primary address instead, so the invitation could never be matched. The message names the address to use instead |
+
+The same check runs again whenever anybody is promoted to Admin, including a
+user created before the check existed. An Admin who cannot sign in is worse than
+a dead invitation, because the guard below counts them as an Admin while there is
+nobody there.
+
+An alias is the one refusal that can look wrong, since Sigil resolves aliases
+elsewhere on purpose: a message sent from one gets that alias's signature. That
+is a different question from who signed in, and the two do not have to agree.
+
 ## Changing or removing access
 
 Change a role from the same view. The change applies on their next request.
@@ -86,6 +109,30 @@ Change a role from the same view. The change applies on their next request.
 Removing somebody removes their access entirely. They can still sign in, because
 signing in is an Entra matter, but they are told to request access and can reach
 nothing.
+
+Nobody can change their own role or remove their own access, which is what stops
+an accidental self-demotion.
+
+## Your organisation always keeps an Admin
+
+The last remaining Admin can be neither demoted nor removed. Whichever of the two
+you attempt, Sigil refuses it and tells you to grant somebody else the role
+first.
+
+This holds even when two people are tidying up at once, because the rule is part
+of the change rather than a check made beforehand. Two administrators each
+removing the other, or an offboarding script running while somebody works down
+the list by hand, cannot between them leave the organisation with none.
+
+Granting Admin is never refused on these grounds, whatever the current count.
+That direction is the way back, and an organisation cannot be locked out of
+regaining an administrator.
+
+If your organisation does end up with nobody holding the role, by whatever route,
+Tophhie Cloud support can grant it back. Reach them from Help in the portal's
+sidebar. An organisation managed by a partner is a normal exception rather than a
+fault: its partner administers it through the partner relationship, and it may
+hold no Admin of its own at all.
 
 ## What somebody without a role sees
 

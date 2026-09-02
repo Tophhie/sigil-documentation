@@ -129,7 +129,8 @@ by the person holding the token, by granting admin consent. See
 
 | Route | Auth | Purpose |
 | --- | --- | --- |
-| `GET /api/signature?email=&type=` | Add-in token | The rendered signature plus its inline images. `email` defaults to the caller; `type` is `new` or `reply`. 403 while [delivery is paused](/signatures/pausing-delivery/) |
+| `POST /api/signature` | Add-in token | The rendered signature plus its inline images. `email` defaults to the caller; `type` is `new` or `reply`. 403 while [delivery is paused](/signatures/pausing-delivery/) |
+| `GET /api/signature?email=&type=` | Add-in token | The same answer, for add-in versions that predate the POST form |
 | `GET /api/signature/download?email=&type=` | Add-in token | The signature as a standalone HTML file with images inlined as `data:` URIs. Also refused while delivery is paused |
 | `POST /api/signature/report` | Add-in token | The add-in's apply outcome for one attempt |
 | `GET /api/signature/profile?email=` | Add-in token | Whether this mailbox has anything to fill in on the profile page, and where that page is |
@@ -137,6 +138,16 @@ by the person holding the token, by granting admin consent. See
 The `email` parameter may name any mailbox in the calling tenant, which is what
 allows a shared mailbox or an alias to render its own signature. The identity on
 a report is taken from the verified token rather than from the payload.
+
+The compose request takes its inputs in a JSON body for the same reason the rules
+simulation does: they name a person, and query strings end up in logs. It also
+stops the request looking like something to block. An address in a URL is the
+shape a data-loss-prevention proxy is configured to catch, and one customer's
+egress filter was killing every signature request on that basis while leaving the
+add-in's other calls to the same host alone. The URL now carries nothing but the
+host. The GET form is kept because add-ins update on their own schedule and an
+older one has to keep working; both go through the same handler, the same token
+check and the same gates.
 
 That request carries two identities rather than one, and the difference matters.
 `email` is the mailbox the message leaves from, and the token names the person

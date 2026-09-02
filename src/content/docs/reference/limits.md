@@ -120,7 +120,7 @@ keys and settings are recorded without appearing on it. See the
 | Banner window opening or closing | Immediately |
 | Pausing or resuming delivery | Next compose |
 | Assignment rules change | Next compose |
-| Directory change affecting which rule matches | Up to 10 minutes |
+| Directory change affecting which rule matches | Ten minutes, then one further compose |
 | Profile field value saved, by anybody in the organisation | Next compose |
 | Directory attribute change in Entra | Up to an hour, without a republish |
 | Microsoft 365 profile photo added or changed | Up to a day |
@@ -130,8 +130,10 @@ keys and settings are recorded without appearing on it. See the
 The two rules rows are different events. Saving a rule list changes the version
 its cached decisions are filed under, so the edit lands on the next compose. A
 change made in Entra changes nothing in Sigil, so a cached decision has to reach
-the end of its ten minute life before the new department or group can route
-somebody differently.
+the end of its ten minute freshness window before the new department or group can
+route somebody differently. The re-check then happens in the background rather
+than while a message is being written, so the first compose after the window
+still uses the old decision and the one after it follows the directory.
 
 ## Staged rollout defaults
 

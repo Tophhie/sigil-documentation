@@ -34,6 +34,11 @@ That split is deliberate. A signature mixing the shared mailbox's address with
 the delegate's own phone number would be worse than one that mixed nothing, so
 only the names cross over.
 
+Signing in is always the person's own act. The add-in authenticates as whoever is
+signed in to Outlook, never as the mailbox they are sending from, so a shared
+mailbox needs no sign-in and no licence of its own to get a signature. Nothing
+has to be done to `sales@` for a delegate's message to be signed.
+
 ## The sender placeholders
 
 Three placeholders describe the person rather than the mailbox:

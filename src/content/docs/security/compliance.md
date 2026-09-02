@@ -272,7 +272,7 @@ administrators a re-consent link.
 
 | Data | Retention |
 | --- | --- |
-| Directory attributes read from Microsoft Graph | Never stored as a record of their own. Held inside a rendered signature for at most an hour |
+| Directory attributes read from Microsoft Graph | Never stored as a record of their own. Held inside a rendered signature for at most an hour, and in a lookup cache for fifteen minutes |
 | Template version history | Last 10 published bodies per template |
 | Deleted templates | 30 days in Recently deleted, then purged by a daily sweep |
 | Change log | Indefinite |

@@ -73,7 +73,10 @@ outbound filter, is on
 ## Caching
 
 Rendered signatures are cached in KV, keyed by template id, template version and
-email address. The banner and footer in force are part of that key.
+email address. The banner and footer in force are part of that key, and so is a
+counter that moves whenever an image is uploaded or replaced, which is what keeps
+a swapped logo instant now that the cached entry holds the image bytes alongside
+the HTML.
 
 Publishing a template increments its version, which strands every cached entry
 for it at once. That is why edits reach users in seconds without an explicit
@@ -85,11 +88,18 @@ long any directory data exists inside Sigil at all: the attributes are read when
 a signature is rendered and are never stored as a record of their own, so an hour
 after the last render there is nothing left of them.
 
+The answer to a single directory lookup is held for fifteen minutes, so that a
+person composing several messages is not looked up in Graph each time. It sits
+inside the hour above and changes nothing about how long directory data survives.
+A deprovisioned organisation has it cleared with everything else.
+
 The routing decision behind assignment rules is cached separately, keyed by a
 rules version that changes whenever the rules are edited, so an edit strands
-every cached decision at once. A ten minute lifetime sits on those entries as
-well, which is what bounds how long a directory attribute can go on routing
-somebody to a template they should no longer be getting.
+every cached decision at once. A ten minute freshness window sits on those
+entries as well, after which the decision is re-checked against the directory in
+the background rather than while somebody is composing. That is what bounds how
+long a directory attribute can go on routing somebody to a template they should
+no longer be getting: ten minutes, and then one further message.
 
 ## Reliability characteristics
 

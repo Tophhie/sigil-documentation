@@ -58,6 +58,12 @@ The pane also keeps a subscription problem separate from a connection problem. A
 lapsed subscription says so rather than reading as a network fault you could fix
 by trying again.
 
+It draws one more line for the same reason. A connection that could not reach
+Sigil at all asks you to check your connection, while Sigil answering with a
+problem of its own says so and suggests trying again in a moment. The second is
+not something your connection can fix, and if it persists your IT team has
+something concrete to report.
+
 Opening the pane does not front an error on its own. If something is merely
 transient, you find out when you press a button rather than the moment the pane
 loads.

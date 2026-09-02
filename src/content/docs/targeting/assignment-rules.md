@@ -205,11 +205,14 @@ lifetime: the stored decision is filed under a version number that changes every
 time you save the rule list, so saving strands every cached decision in the
 organisation at once and the next compose works the routing out again.
 
-The ten minute lifetime on those entries covers the change the version number
-cannot see. Nothing happens in Sigil when somebody moves department or joins a
-group, so a cached decision has to age out on its own before the new attribute
-can route them somewhere else. That is the delay to expect after a change made
-in Entra, not after a change made here.
+The ten minute freshness window on those entries covers the change the version
+number cannot see. Nothing happens in Sigil when somebody moves department or
+joins a group, so a cached decision has to reach the end of that window before
+the new attribute can route them somewhere else. Past it, the decision is
+re-checked against the directory after the message has gone rather than while it
+is being written, so the first message is sent under the old routing and the next
+one follows Entra. That is the delay to expect after a change made in Entra, not
+after a change made here.
 
 An edit to a template that a rule points at still lands in seconds. It is only
 the routing decision that is cached.
@@ -250,4 +253,6 @@ The two agree as soon as you save a rule list, because saving strands the cached
 decisions the download reads from. They can disagree for up to ten minutes after
 a change made in Entra: the simulation reads the directory live, while a download
 answers from a decision that was cached before the person moved. The simulation
-is the one that is right in that window.
+is the one that is right in that window. A download is not a compose, so it works
+a stale decision out again there and then rather than deferring it. The extra
+message only applies to what people are actually sending.

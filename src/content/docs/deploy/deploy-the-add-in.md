@@ -102,13 +102,19 @@ it.
 | Change | Manifest redeploy needed? |
 | --- | --- |
 | Signature templates, images, banners, footers | No. Published from the portal, live in seconds |
-| Add-in code and icons | No. Outlook re-fetches, though it caches icons so allow a restart |
+| Add-in code and icons | No. Outlook picks up new code within a compose or two, and caches icons, so allow a restart |
 | New buttons inside the pane, such as "Edit my details" | No. The pane is add-in code |
 | Hostnames, support URL, permissions, events, requirement set | Yes, and admin consent again |
 
 The practical version: your day-to-day work as an administrator never requires a
 redeploy. Only a change to the add-in's declared shape does, and those are made
 by Tophhie Cloud rather than by you.
+
+New add-in code arrives without anybody being kept waiting for it. Outlook uses
+the copy it already has and fetches the newer one in the background, so a client
+holding an older copy writes one more message with it and has the new code from
+then on. The alternative would put a download in front of every message somebody
+starts, which is a worse trade than one message written with the previous code.
 
 ## When a manifest change does happen
 

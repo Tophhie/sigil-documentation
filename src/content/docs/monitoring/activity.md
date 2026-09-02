@@ -123,6 +123,31 @@ A mailbox with only manual applications is a mailbox where automatic activation
 is not working. That is worth investigating even though the person does have a
 signature, because they are doing work the product is supposed to do for them.
 
+## When the service could not be reached
+
+Two reported reasons look alike and mean different things, and telling them apart
+is what stops a network problem being filed as a Sigil outage.
+
+| Reason | Meaning |
+| --- | --- |
+| `server-error` | Sigil answered, and the answer was not one the add-in expected |
+| `unreachable` | The request produced no answer at all: a dropped connection, a timeout, or something on the network blocking it |
+
+A `server-error` also carries the HTTP status behind it, recorded on the event
+rather than printed on the badge. It is the half that tells support what
+happened, and it comes back with the event through the API and in a mailbox's
+[data export](/security/data-and-privacy/).
+
+The distinction is worth holding on to. A recorded 500 is Sigil answering badly
+and worth raising with support. `unreachable` is Sigil not being reached at all,
+which points at the network between Outlook and `portal.usesigil.app` rather than
+at the service. See
+[troubleshooting](/deploy/troubleshooting/#is-something-on-your-network-eating-the-request).
+
+A refusal Sigil makes deliberately is never either of these. An organisation that
+has not finished setting up, an excluded mailbox and a lapsed subscription each
+report their own reason.
+
 ## Refused requests
 
 Two refusals are deliberate rather than faults, and both are recorded rather than
