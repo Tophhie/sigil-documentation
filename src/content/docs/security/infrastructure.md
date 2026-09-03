@@ -60,8 +60,8 @@ glyphs and every one of them still works.
 
 The typefaces the pane and the admin portal are set in are deliberately not on
 this list. They are served from Sigil's own hosts rather than from Google Fonts,
-so opening the pane or the portal discloses nothing — not even an IP address —
-to a font provider.
+so opening the pane or the portal discloses nothing to a font provider, not
+even an IP address.
 
 Neither host is sent anything of yours. They answer requests for a script, and
 what they learn is what any web request discloses: the address it came from and

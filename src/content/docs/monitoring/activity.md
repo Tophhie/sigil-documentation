@@ -45,8 +45,8 @@ question the report raises: what changed, and when, that might explain this.
 An Admin and support activity card, which carries the other half of the same log:
 role and user changes, settings, exclusions, API keys and profile field
 definitions, plus anything Tophhie Cloud support did on your organisation. Those
-support entries are badged "Sigil support" against the operator's own address, so
-a change your own people did not make does not read as though one of them did.
+support entries read "Sigil operator" and carry a "Sigil support" badge, so a
+change your own people did not make does not read as though one of them did.
 See [actions taken by Tophhie Cloud
 support](/monitoring/change-log/#actions-taken-by-tophhie-cloud-support).
 

@@ -45,6 +45,17 @@ Registering the identifier is deliberately the last thing done when you save, so
 a tax number Stripe will not accept cannot stop the rest of the profile being
 written.
 
+## When it counts as complete
+
+The profile is complete once it carries a legal name and a full postal address:
+address line, town or city, postcode and country. The billing email and the tax
+identifier are not part of that test, because an invoice can be issued without
+either and cannot be addressed without a name and a place to send it.
+
+Until it is complete, the [getting started
+checklist](/admin/getting-started-checklist/) shows the billing details step as
+outstanding. An organisation nobody invoices is not asked for any of it.
+
 ## Where it is stored
 
 The profile is held in Sigil and pushed to your Stripe customer record whenever
@@ -53,6 +64,24 @@ you save it, and again at provisioning.
 Holding it locally means it stays editable and fast to read even if Stripe is
 briefly unavailable. Pushing it means your invoices carry the current details
 without anybody re-entering them.
+
+If a save reaches Sigil but the push to Stripe fails, you are told so rather than
+being shown a success message while invoices carry the old details. Save again to
+retry.
+
+## Edits made in Stripe come back
+
+The Stripe customer portal, linked from the Billing view, lets you change the
+same details there: name, email, address and tax identifier. Those edits are
+mirrored back into Sigil.
+
+This matters for more than tidiness. Without it, the profile here would keep
+showing the old details, and the next save from here would push them back over
+the correction made in Stripe.
+
+The one exception is a tax identifier for a country Sigil never registers one
+for. Stripe holding none there says nothing about the value kept here, so the
+local one is left alone rather than being cleared.
 
 ## Who can edit it
 
@@ -67,6 +96,10 @@ If your organisation is managed by a partner, the partner maintains the billing
 relationship instead. No partner role reaches a client's billing, because a
 managed client has no subscription of its own. See
 [partner billing](/partners/billing/).
+
+If your organisation is itself a Sigil partner, this one profile addresses both
+your partner invoices and, after the partnership ends, your own. See
+[your invoice details](/partners/billing/#your-invoice-details).
 
 ## Changing it later
 

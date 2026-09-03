@@ -111,7 +111,9 @@ may be white, off-white or dark. A logo on a transparent background adapts. A
 logo with a baked-in white rectangle looks like a white rectangle in dark mode.
 
 Where a logo needs to work on both, a version with sufficient contrast against
-both is safer than relying on transparency alone.
+both is safer than relying on transparency alone. There is no dark variant slot
+on an image, and no client recolours one, so the single file has to work
+everywhere. See [dark mode](/signatures/dark-mode/).
 
 ## Alt text
 

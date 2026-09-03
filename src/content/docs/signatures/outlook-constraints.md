@@ -2,7 +2,7 @@
 title: Outlook constraints
 description: The limits Outlook imposes on signature HTML, why each exists, and how to design within them.
 sidebar:
-  order: 16
+  order: 17
 ---
 
 Outlook sets the rules for what a signature can contain. These are not Sigil's
@@ -83,6 +83,15 @@ sheet, so a message begun that way gets no automatic signature.
 
 Only one event-based add-in runs at a time. If your organisation has several
 deployed, they run sequentially.
+
+## Dark mode
+
+Every client built on Outlook on the web recolours the text and background
+colours a signature sets, and never touches its images. Light text over a dark
+picture therefore disappears, and a faint grey disclaimer becomes hard to read.
+
+Nothing in the signature can prevent it, so the fix is a colour choice or a
+change of layout. See [dark mode](/signatures/dark-mode/).
 
 ## Testing your design
 

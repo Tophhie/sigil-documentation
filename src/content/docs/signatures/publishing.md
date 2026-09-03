@@ -132,8 +132,8 @@ checks for that in the background rather than while a message is being written:
 the first compose after the window still uses the previous decision and triggers
 the re-check, and the one after that follows the directory. In practice a person
 who moved department this morning sends at most one more email under their old
-team's signature — the trade that keeps composing fast, since re-reading the
-directory mid-compose is the slowest thing the serving path can do.
+team's signature. That is the trade that keeps composing fast, since re-reading
+the directory mid-compose is the slowest thing the serving path can do.
 
 ## If you publish something wrong
 

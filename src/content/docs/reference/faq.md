@@ -186,6 +186,18 @@ still apply automatically on mobile.
 No. Outlook does not render SVG. Use PNG or JPG. See
 [Outlook constraints](/signatures/outlook-constraints/).
 
+## Why has part of our signature vanished for some recipients?
+
+Almost always dark mode. Clients built on Outlook on the web recolour the text
+and background colours in a signature and leave its images alone, so light text
+laid over a dark picture turns dark against a picture that stays dark, and a
+faint grey disclaimer becomes hard to read.
+
+Nothing in a signature can prevent it. The fix is to give the strip a real
+background colour, or to move the picture beside the text. The designer has a
+preview toggle and flags the blocks at risk. See
+[dark mode](/signatures/dark-mode/).
+
 ## Can we stop signatures without cancelling?
 
 Yes. Delivery can be paused for the whole organisation, which stops what

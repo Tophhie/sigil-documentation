@@ -186,7 +186,8 @@ month.
 ## Billing profile
 
 The company details that appear on the invoice are held separately and pushed to
-Stripe whenever you save them. See [billing profile](/admin/billing-profile/).
+Stripe whenever you save them, and an edit made in the Stripe customer portal is
+mirrored back here. See [billing profile](/admin/billing-profile/).
 
 ## Cancelling
 

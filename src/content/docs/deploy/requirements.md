@@ -77,8 +77,8 @@ organisation that blocks general-purpose content delivery networks loses some
 polish and no function anywhere, and nobody's signature is affected.
 
 The typefaces the pane and the admin portal are set in are served from Sigil's
-own hosts — `static.usesigil.app` for the pane and `portal.usesigil.app` for the
-portal — so no font host needs allowing, and neither `fonts.googleapis.com` nor
+own hosts, `static.usesigil.app` for the pane and `portal.usesigil.app` for the
+portal. No font host needs allowing, and neither `fonts.googleapis.com` nor
 `fonts.gstatic.com` is contacted. If an older allow-list still names them, the
 entries can be removed.
 

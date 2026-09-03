@@ -85,20 +85,32 @@ in a conditional section.
 
 ## Sender
 
-| Placeholder | Resolves to |
-| --- | --- |
-| `{{sender.displayName}}` | The display name of whoever pressed Send |
-| `{{sender.firstName}}` | Their first name |
-| `{{sender.lastName}}` | Their last name |
-
 Every other placeholder on this page describes the mailbox a message goes out
 from. For `sales@`, `{{displayName}}` is "Sales", which is correct for the
-address and wrong for the person who wrote the message. These three are that
-person.
+address and wrong for the person who wrote the message. The sender placeholders
+are that person.
 
-They differ from the mailbox's own fields only when a message is sent from a
-shared or delegated mailbox. On an ordinary send they resolve to the mailbox's
-own names, which is what lets one template carry both cases rather than needing a
+Each is an ordinary field name with `sender.` in front of it.
+
+| Placeholder | Resolves to |
+| --- | --- |
+| `{{sender.displayName}}`, `{{sender.firstName}}`, `{{sender.lastName}}` | Their names |
+| `{{sender.jobTitle}}`, `{{sender.department}}` | Their role |
+| `{{sender.employeeId}}`, `{{sender.employeeType}}` | Their employee number and employee type |
+| `{{sender.email}}`, `{{sender.businessPhone}}`, `{{sender.mobilePhone}}` | How to reach them directly. The address is their primary one |
+| `{{sender.extensionAttribute1}}` through `{{sender.extensionAttribute15}}` | Their own [extension attributes](#extension-attributes), which a regulated organisation typically uses for a personal licence or reference number |
+
+Not everything the mailbox offers is available here, and the omissions are
+deliberate. The address lines, the office and the company name describe a site or
+a brand rather than a person, so the mailbox's own are the ones to print. The
+manager's details, the profile photo and the
+[contact card link](/signatures/contact-card/) are left out for the same reason.
+A signature mixing the shared mailbox's brand with the delegate's postal address
+would be worse than one that mixed nothing.
+
+Sender fields differ from the mailbox's own only when a message is sent from a
+shared or delegated mailbox. On an ordinary send they resolve to the mailbox's own
+values, which is what lets one template carry both cases rather than needing a
 second one for the shared mailbox.
 
 Pair them with the `{{onBehalfOf}}` condition below to add an "on behalf of"

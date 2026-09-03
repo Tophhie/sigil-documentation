@@ -238,6 +238,13 @@ Read-only impersonation is a session that expires on the server after 30 minutes
 so a replayed request stops working once the window elapses rather than relying on
 the interface to stop offering it.
 
+Read-only is enforced by the server rather than by the interface: while such a
+session is in force, every request that would change something is refused. The
+single exception is rendering a signature preview, which is a read that has to
+send the template in the body of the request rather than in its address. Without
+it an operator looking at a reported rendering fault would see an empty preview
+pane, which is the one thing they opened the session for.
+
 Destructive actions require a fresh interactive re-authentication in the moment.
 
 The operator list cannot lock itself out: the last operator cannot be removed or

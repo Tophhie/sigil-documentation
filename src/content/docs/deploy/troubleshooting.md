@@ -143,6 +143,16 @@ gap is, then either populate the directory or wrap the affected part of the
 template in a [conditional section](/signatures/placeholders/#conditional-sections)
 so it disappears cleanly.
 
+### Text missing only for some recipients
+
+If a line is there for most people and gone for a few, ask whether those few read
+their mail in dark mode. Clients built on Outlook on the web recolour a
+signature's text and background colours and leave its images alone, so light text
+over a dark picture disappears entirely and a faint grey line becomes hard to
+read. It is a rendering behaviour rather than a fault in the template, and the
+same signature looks correct on your own screen. See
+[dark mode](/signatures/dark-mode/).
+
 ### The wrong template
 
 Run Test a user on the rules page against the affected mailbox. It replays the

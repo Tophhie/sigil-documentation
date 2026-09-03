@@ -66,22 +66,39 @@ until it is changed.
 
 ## Your invoice details
 
-A partner has its own billing profile, separate from the one on its home tenant:
-company name, billing email, billing address, and a VAT or tax identifier.
+Your partner invoices are addressed from your own organisation's
+[billing profile](/admin/billing-profile/): company name, billing email, billing
+address, and a VAT or tax identifier. It is the same record your own tenant's
+Billing view holds, not a second one kept alongside it.
 
-That separation exists because a partner is billed as its own customer. In
-practice most MSPs want invoices reaching a generic accounts mailbox rather than
-whichever engineer set the account up, and want their registered company name and
-VAT number on the invoice regardless of what their own tenant record says.
+One record, because a legal name, a registered address and a VAT number are facts
+about an organisation rather than about which agreement an invoice is issued
+under. Your own tenant is not invoiced while the partnership is running, so you
+are never billed under both at once, and two independently editable copies only
+ever drifted apart.
 
-The details are held in Sigil and pushed to your Stripe customer record when you
-save them. If the push fails, you are told so explicitly rather than being shown
-a success message while invoices continue to carry the old details. Save again to
-retry.
+It can be edited from your Partner billing page or from your own tenant's Billing
+view, and either way it is pushed to both Stripe customers, so the two can never
+disagree about who you are. Operators can also correct it on your behalf, which is
+what unsticks an invoice that has nowhere to go.
+
+The details are held in Sigil and pushed to Stripe when you save them. If the push
+fails, you are told so explicitly rather than being shown a success message while
+invoices continue to carry the old details. Save again to retry.
+
+Until the profile carries a legal name and a full postal address, the Clients page
+prompts for it. That prompt appears once your partner agreement is accepted, since
+that is when billing starts to exist, and only to the Owner and Billing
+[roles](/partners/roles/). Nobody else can act on it, so for them it would be
+noise.
 
 The tax identifier type is derived from the country you set, so get the country
 right first if both are changing. The same rules apply as for a direct tenant's
 [billing profile](/admin/billing-profile/).
+
+The profile outlives the partnership. If you
+[leave the programme](/partners/leaving-the-programme/), the same details go on to
+address your organisation's own direct invoices.
 
 ## What clients see
 

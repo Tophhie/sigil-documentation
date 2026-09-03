@@ -85,7 +85,13 @@ it.
 ## Actions taken by Tophhie Cloud support
 
 Anything a Tophhie Cloud operator does to your organisation is written to your
-own change log, badged "Sigil support" against the operator's own email address.
+own change log. The actor reads "Sigil operator" and carries a "Sigil support"
+badge, rather than naming the individual who did it.
+
+The individual is still recorded. Their address is held on the entry and comes
+out in a [tenant export](/security/data-and-privacy/), so an audit can attribute
+the action to a person even though the portal does not put a supplier's staff
+names in front of your administrators.
 
 This answers a question your own records could not answer before. The data
 processing agreement promises an append-only change log of administrative actions

@@ -144,5 +144,19 @@ None of these messages ever ask for a password, and Sigil has no password to ask
 for. Portal sign-in is your Microsoft work account. See
 [the security model](/security/security-model/).
 
-## Support and onboarding
-Tophhie Cloud may contact organisation administrators about their account, onboarding, configuration, support requests, billing, security or other matters directly related to their use of Sigil. These messages are service communications, not marketing emails.
+## Mail from people rather than from the system
+
+Everything above is sent by Sigil itself. Separately from it, Tophhie Cloud may
+write to your administrators about your account: onboarding, configuration, a
+support request you raised, billing, a security matter, or anything else directly
+related to your use of Sigil.
+
+Those are service communications rather than marketing. The published privacy
+policy names administering the service and communicating with administrators
+about their account among the purposes it holds your tenant, subscription and
+billing records for. See [compliance](/security/compliance/#published-legal-documents).
+
+Support itself is reached at `support@usesigil.app`, and the aim is a response
+within one business day, Monday to Friday in UK business hours. Sending your
+organisation name, what you expected, what happened, and the mailbox or template
+involved saves a round trip.

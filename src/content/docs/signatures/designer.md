@@ -183,20 +183,26 @@ Text blocks accept the same [placeholders](/signatures/placeholders/) as a
 hand-written template. Insert them from the field menu rather than typing them,
 so the token always matches something that actually renders.
 
-The field menu is grouped and filterable. Each row shows the field's label with
-its `{{token}}` underneath, so a long field name never competes with its token
-for width. Typing in the filter narrows the list; choosing a row inserts that
-field at the cursor.
+The field menu is segmented, grouped and filterable. Each row shows the field's
+label with its `{{token}}` underneath, so a long field name never competes with
+its token for width. Typing in the filter narrows the list; choosing a row inserts
+that field at the cursor.
 
 The designer fetches its field list from the API, which means the picker cannot
 drift from what the renderer knows how to resolve. Any
 [profile fields](/admin/profile-fields/) your organisation has defined arrive
 that way too, under a "User profile" heading after the directory groups.
 
-The menu includes a Sender group, which is the person composing rather than the
-mailbox. Those fields look identical to the mailbox's own on an ordinary send, so
-the preview pane's second address box exists to show you the case where they
-differ. See [previewing](/signatures/templates/#previewing), the
+The menu has two segments, Mailbox and Sender. Mailbox is the account the message
+goes out from, and Sender is the person composing. Almost every sender field
+shadows a mailbox one, so a single flat list showed each attribute twice and the
+one you wanted was always the other. The segment asks the question that separates
+them: whose value do you mean. Within the Sender segment the rows are
+grouped the same way the mailbox rows are, by the field they shadow.
+
+Sender fields look identical to the mailbox's own on an ordinary send, so the
+preview pane's second address box exists to show you the case where they differ.
+See [previewing](/signatures/templates/#previewing), the
 [sender placeholders](/signatures/placeholders/#sender), and
 [lines that appear only on a shared mailbox send](#lines-that-appear-only-on-a-shared-mailbox-send)
 for hiding content behind that case rather than printing it.
@@ -234,9 +240,10 @@ it. The fourth is
 [sent on behalf of the mailbox](#lines-that-appear-only-on-a-shared-mailbox-send),
 which is about who is sending rather than about what the directory holds.
 
-None of the four appears in the field menu, because none of them prints anything.
-They are offered in the visibility controls only, at the end of the same list the
-directory fields are in.
+None of the four can be inserted, because none of them prints anything. They
+appear only when you are choosing a condition, and they head the list there rather
+than sitting at the bottom of it, since a whole row is more often hung on one of
+them than on a single attribute.
 
 A Photo block carries the `hasPhoto` condition automatically, so you do not need
 to set it yourself.
@@ -244,9 +251,15 @@ to set it yourself.
 ### Conditions on a single field
 
 Selecting a field chip inside a text block gives that chip its own visibility
-list, separate from the block it sits in. The chip is shown only when every field
-you tick has a value, so one line can carry a job title, a department and a
-qualification and print only the parts a given person actually has.
+rules, separate from the block it sits in. A chip can carry several, and they are
+listed with "and" between them because every one of them has to hold. So one line
+can carry a job title, a department and a qualification and print only the parts a
+given person actually has.
+
+A block takes one rule rather than several. That is the shape of what it compiles
+to rather than a preference. Where a whole row needs two conditions, put one on
+the row and the other on the block inside it, which is how nesting combines
+them.
 
 Plain text you typed cannot be made conditional on its own. It belongs to the
 block, so a label that should come and go with a field belongs in the same block
@@ -263,20 +276,22 @@ condition.
 | What you want to hide | Where the setting is |
 | --- | --- |
 | A whole block, including a row and everything in it | Select the block, open Visibility, and set Show when |
-| One field chip inside a line of text | Select the chip, open Visibility, and tick it in the list |
+| One field chip inside a line of text | Select the chip, open Visibility, and add it as a rule |
 | A single social icon | Select the social block and set Show when on that icon |
 
 A block carrying a condition shows an "if Sent on behalf of the mailbox" badge on
 the canvas, so a line that is invisible for most people is not invisible to you
 while you are working.
 
-The two Show when menus append "has a value" to every entry they list, so this
-one reads "Sent on behalf of the mailbox has a value". That is the wording every
-entry gets rather than a claim about a directory attribute. There is no such
-attribute; Sigil works the answer out for each message.
+Show when is the same field menu you insert from, in a mode where a row is picked
+as a rule rather than inserted. A chosen rule reads back as the sentence it is:
+"Mobile has a value" for a directory attribute, and "The message is sent on behalf
+of the mailbox" for this one. The four derived conditions are worded as the fact
+they test rather than as a value, because none of them is a directory attribute
+Sigil could find empty. It works the answer out for each message.
 
 Condition the line on that entry rather than on one of the Sender fields. The
-Sender fields fall back to the mailbox's own names when nobody else is sending,
+Sender fields fall back to the mailbox's own values when nobody else is sending,
 so they almost always have a value, and a chip conditioned on "Sender first name"
 would show on every send. See
 [sending on behalf of a mailbox](/signatures/sending-on-behalf/).
@@ -320,6 +335,19 @@ conditional chips separated by breaks still collapses, because a block left
 standing for the sake of its own line breaks is exactly the blank line this
 removes. A block that holds nothing but line breaks is left alone: that is
 deliberate vertical space, and no condition of Sigil's belongs on it.
+
+## Checking a design in dark mode
+
+The live preview has a Dark mode toggle. It shows the render put through the same
+recolouring a client built on Outlook on the web applies, with images and borders
+left alone, so a strip that loses its text there loses it in a real message too.
+
+The designer also badges any block likely to fail in dark mode, and shows the
+count in the footer beneath the canvas. Those badges are advice and never stop a
+publish, which is why they are worded differently from the ones that do.
+
+See [dark mode](/signatures/dark-mode/) for what the client is doing and how to
+design around it.
 
 ## Publishing
 

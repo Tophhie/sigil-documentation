@@ -28,11 +28,13 @@ The mailbox is the one that decides almost everything:
 | Which template applies | The mailbox. [Assignment rules](/targeting/assignment-rules/) match its own directory record, so a delegate's department cannot route the shared mailbox somewhere else |
 | Every ordinary placeholder | The mailbox. `{{displayName}}` from `sales@` is "Sales" |
 | [Profile fields](/admin/profile-fields/) | The mailbox, so `{{custom.…}}` is whatever was filled in for `sales@` rather than for the delegate |
-| The three sender fields | The person who pressed Send |
+| The sender fields | The person who pressed Send |
 
-That split is deliberate. A signature mixing the shared mailbox's address with
-the delegate's own phone number would be worse than one that mixed nothing, so
-only the names cross over.
+That split is deliberate. The sender fields cover who the person is and how to
+reach them directly. What describes the site or the brand, including the address
+lines, the office and the company name, stays the mailbox's, because a signature
+mixing the shared mailbox's brand with the delegate's postal address would be
+worse than one that mixed nothing.
 
 Signing in is always the person's own act. The add-in authenticates as whoever is
 signed in to Outlook, never as the mailbox they are sending from, so a shared
@@ -41,13 +43,19 @@ has to be done to `sales@` for a delegate's message to be signed.
 
 ## The sender placeholders
 
-Three placeholders describe the person rather than the mailbox:
-`{{sender.displayName}}`, `{{sender.firstName}}` and `{{sender.lastName}}`. They
-are listed with everything else on
+A set of placeholders describes the person rather than the mailbox. Each is an
+ordinary field name with `sender.` in front of it: their names, job title and
+department, their employee number and type, their own email address and phone
+numbers, and their fifteen extension attributes. They are listed in full on
 [placeholders](/signatures/placeholders/#sender).
 
-When nobody else is sending, they resolve to the mailbox's own names. That
-fallback is what lets one line serve a personal mailbox and a shared one:
+The names are what "Jane Doe on behalf of Sales" needs, and are what this started
+as. The rest exists because an organisation whose staff carry a personal licence
+or registration number has to print the sender's, not the mailbox's.
+
+When nobody else is sending, every one of them resolves to the mailbox's own
+value. That fallback is what lets one line serve a personal mailbox and a shared
+one:
 
 ```html
 Kind regards, {{sender.firstName}} {{sender.lastName}}{{#onBehalfOf}} on behalf of {{displayName}}{{/onBehalfOf}}
@@ -64,9 +72,9 @@ exists rather than leaving you to compare a name against an address.
 ## Building it
 
 In the [drag-and-drop designer](/signatures/designer/), you do not type any of
-that. Insert the sender fields from the field menu, and put whole blocks, single
-field chips or individual social icons behind the "Sent on behalf of the mailbox"
-condition. See
+that. The field menu has a Sender segment holding all of them, and whole blocks,
+single field chips or individual social icons can be put behind the "Sent on
+behalf of the mailbox" condition. See
 [lines that appear only on a shared mailbox send](/signatures/designer/#lines-that-appear-only-on-a-shared-mailbox-send).
 
 In the [HTML editor](/signatures/html-editor/), write the tokens and the

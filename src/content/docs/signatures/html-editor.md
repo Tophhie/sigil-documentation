@@ -47,6 +47,13 @@ Use pixel values for widths and font sizes rather than relative units.
 Reference images as `cid:` and let the add-in attach them inline. See
 [images](/signatures/images/).
 
+Set a background colour with `bgcolor` on any strip that carries light text.
+Clients built on Outlook on the web recolour text and backgrounds together in
+dark mode but never touch images, so light text sitting on a picture rather than
+on a colour disappears there. The designer badges this risk automatically and the
+HTML editor does not, so it is worth checking yourself. See
+[dark mode](/signatures/dark-mode/).
+
 The [Outlook constraints](/signatures/outlook-constraints/) page covers the hard
 limits, including the 30,000 character ceiling and the lack of SVG support.
 
