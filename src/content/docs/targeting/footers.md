@@ -40,6 +40,16 @@ block of legal text renders differently in one client from another.
 A link has to be a full address beginning `http://` or `https://`. A bare domain
 is refused as you enter it rather than saved and found broken later.
 
+A footer cannot be saved empty. Deleting everything in a formatting editor rarely
+leaves it truly empty, because the browser keeps a stray line break behind, so
+what counts is whether anything would actually render: text or an image. Markup
+with neither is treated as nothing and refused, rather than saved as a footer
+that appends a blank line to every signature in the organisation.
+
+The domain is checked as you type it. It wants a bare domain such as
+`tophhie.co.uk`, not an address with `https://` or a path on the end, and a
+leading `@` is forgiven since that is how the list prints one back to you.
+
 ### Placeholders
 
 Beneath the editor is a placeholders panel. Open it and click one to insert it at
@@ -110,6 +120,22 @@ The 30,000 character limit applies to the whole rendered signature, which includ
 the footer. A long disclaimer eats into the budget available to the template.
 
 See [Outlook constraints](/signatures/outlook-constraints/).
+
+## Pausing a footer
+
+A footer can be paused from the list rather than deleted. A paused footer stops
+appearing in signatures within seconds, and its wording, domain and history are
+left alone, so taking a disclaimer out of circulation for a month does not mean
+writing it again afterwards.
+
+Editing a paused footer leaves it paused. Fixing a typo in something that was
+deliberately taken out of circulation must not quietly put it back into every
+signature, so the edit changes the wording and nothing else. The dialog says so
+while you are in it, and resuming stays a separate deliberate act from the list.
+
+A newly created footer is live immediately. There is no separate publish step for
+a footer the way there is for a template, which the create button says rather
+than leaving you to find out from the first message that goes out with it.
 
 ## How quickly changes take effect
 

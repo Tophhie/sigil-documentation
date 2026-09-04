@@ -84,15 +84,18 @@ Publishing a template increments its version, which strands every cached entry
 for it at once. That is why edits reach users in seconds without an explicit
 purge.
 
-A one hour lifetime sits on top of that, which is how a change to somebody's job
-title in Entra reaches Outlook without anyone republishing. It also bounds how
-long any directory data exists inside Sigil at all: the attributes are read when
-a signature is rendered and are never stored as a record of their own, so an hour
-after the last render there is nothing left of them.
+A one hour freshness window sits on top of that, which is how a change to
+somebody's job title in Entra reaches Outlook without anyone republishing: a
+cached entry older than the window still serves that compose, then re-renders in
+the background from a fresh directory read, so the change lands on the compose
+after. The entry itself lives a day, which bounds how long any directory data
+exists inside Sigil at all: the attributes are read when a signature is rendered
+and are never stored as a record of their own, so a day after the last render
+there is nothing left of them.
 
 The answer to a single directory lookup is held for fifteen minutes, so that a
 person composing several messages is not looked up in Graph each time. It sits
-inside the hour above and changes nothing about how long directory data survives.
+inside the day above and changes nothing about how long directory data survives.
 A deprovisioned organisation has it cleared with everything else.
 
 The routing decision behind assignment rules is cached separately, keyed by a

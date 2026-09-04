@@ -205,6 +205,26 @@ That your clients are told directly is worth knowing before it happens. They fin
 out about a billing problem on your account, which is a conversation better had
 in advance than in response.
 
+### The console warns you too
+
+A warning sits at the top of every page of the partner console while either of
+the two things that stop your clients is heading that way, so an outstanding
+invoice is not something only the email finds you about.
+
+A failed payment is warned about for as long as the grace period has left, naming
+the day your clients' signatures stop and how many days that is.
+
+Billable seats on the meter with no card on file are warned about as soon as the
+meter has something on it. There is no trial to run out here, because a partner
+is invoiced in arrears: the moment a client's seats are being counted an invoice
+is accruing, and with no card that invoice fails.
+
+The warning goes to partner staff who can act on billing, and can be put off for
+the rest of the browser session. It takes precedence over anything the console
+would otherwise say about your own organisation, because your payment stopping
+every client at once is the larger thing to know. It steps aside while you are
+working inside a managed client, where that client's own state is what matters.
+
 ## When the grace period runs out
 
 Signatures stop for every client you manage. They do not stay stopped

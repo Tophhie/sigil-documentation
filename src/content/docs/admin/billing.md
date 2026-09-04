@@ -105,6 +105,39 @@ at once, along with whether
 Nothing is deleted when billing lapses. Templates, images, rules, banners and
 footers all remain. Restoring an active subscription restores signatures.
 
+### The portal warns before it stops
+
+Two things stop signatures for a money reason, and the portal says so while there
+is still something to do about it. A warning appears at the top of every page to
+anybody who can open Billing.
+
+A trial with no card on file is warned about in its last week, naming the day it
+ends.
+
+A failed payment is warned about for as long as the dunning window has left to
+run, naming the day signatures stop and how many days that is.
+
+The warning can be put off for the rest of the browser session, and comes back on
+the next sign-in. Putting one off does not hide the next: the dismissal is keyed
+to the date being warned about, so an extended trial or a fresh failure is warned
+about again.
+
+### And says so once they have stopped
+
+Once signatures have actually stopped, a notice sits at the top of every page
+that cannot be dismissed, naming which of the reasons applies: a cancelled
+subscription, a trial that ended, dunning that ran out, a suspension, or a
+provider whose own subscription lapsed. Where there is something you can do about
+it, it links to Billing. A partner-managed organisation is told to contact its
+provider instead, because the card is not yours to fix.
+
+The portal also goes read-only at that point. Saving anything is refused rather
+than accepted into an organisation nobody is serving, so a cancelled organisation
+does not spend a fortnight editing templates that reach nobody. Billing itself
+stays open, which is the one thing that has to keep working. So does everything a
+managed service provider does for its clients, since an MSP's own organisation
+lapsing must not stop it running theirs.
+
 ## Adding and managing a card
 
 Both are self-serve from the Billing view.
@@ -191,11 +224,46 @@ mirrored back here. See [billing profile](/admin/billing-profile/).
 
 ## Cancelling
 
-Cancel through the Stripe customer portal, linked from the Billing view.
+Cancel from the Billing view, behind a confirmation that spells out what happens
+next.
 
-Signatures stop when the subscription is no longer active. To remove Sigil
-properly, also withdraw admin consent in Entra and remove the add-in from
-Integrated apps.
+Cancelling does not stop service on the spot. Direct organisations are invoiced
+per seat monthly in advance, so the month you have already paid for runs out
+first: the subscription is scheduled to end at the close of the current period,
+and signatures carry on until then. Cancelling during a trial ends it on the day
+the trial was already due to end, and nothing is charged. No further invoices are
+raised either way.
+
+Until that date the Billing view says the subscription is ending and names the
+day. Changing your mind before it arrives costs nothing: reactivating lifts the
+scheduled end from the same subscription, and it continues as though it had never
+been cancelled.
+
+After it has ended, reactivating is a new subscription rather than a resumed one.
+The first invoice is raised straight away and the seat meter restarts, which the
+confirmation says before anything is charged.
+
+### The card is released when it ends
+
+Once the cancellation completes, the saved card is detached from your record.
+Your customer record and invoice history stay, because finance needs them, but a
+card that nothing is going to be charged to is data with no further use.
+
+The exception is an invoice still open with an amount owed. That card stays as
+the means of settling it, and is released as soon as the invoice clears.
+
+The consequence is worth knowing before you cancel: reactivating later means
+adding a card again. Reactivating with no card on file leaves the first invoice
+unpayable, which the Billing view warns about rather than letting you find out
+from a failed payment.
+
+### Nothing is deleted
+
+Cancelling never schedules deletion. Templates, images, rules, banners, footers
+and settings are all kept, so rejoining later picks up where you left off.
+
+To remove Sigil properly, also withdraw admin consent in Entra and remove the
+add-in from Integrated apps.
 
 If you want your data deleted rather than left dormant, ask support to
 deprovision the tenant. That cancels billing and purges every record, asset and

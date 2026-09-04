@@ -27,10 +27,14 @@ Billing hard-gates the signature path. Once a trial ends with no active
 subscription, the add-in receives a 402 and applies nothing. This is the most
 common cause of a sudden organisation-wide stop.
 
-Check the Billing view. If the subscription is cancelled, that is your answer. A
-past due subscription does not stop signatures straight away: there is a 21 day
-window while the card is retried, and they stop at the end of it. So a past due
-status explains an organisation-wide stop only once that window has run. See
+Check the Billing view. If the subscription is cancelled, that is your answer,
+and the portal will be showing a notice at the top of every page saying so. A
+subscription shown as ending is not the answer: a cancellation that has been
+scheduled leaves signatures running until the day it names.
+
+A past due subscription does not stop signatures straight away either: there is a
+21 day window while the card is retried, and they stop at the end of it. So a past
+due status explains an organisation-wide stop only once that window has run. See
 [billing](/admin/billing/).
 
 ### Has admin consent lapsed?

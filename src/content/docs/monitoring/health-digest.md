@@ -136,9 +136,15 @@ An organisation with no administrators yet, which happens partway through
 onboarding, is not sent one and is not marked as having received one. It gets its
 first digest once somebody is there to read it.
 
-Suspended organisations and those inside a deletion grace window are not sent
-digests either. Neither wants a weekly report about signatures it is not
-receiving.
+Organisations that are not being served are not sent digests either. That covers
+a suspension, a deletion grace window, and every billing reason signatures have
+stopped: a cancelled subscription, a trial that ended without a card, dunning
+that ran out, or a managed client whose provider's own subscription has lapsed.
+None of them wants a weekly report about signatures nobody is receiving.
+
+A cancellation that has only been scheduled is not one of those. Signatures are
+still going out until the day it takes effect, so the digest carries on until
+then and stops with them.
 
 ## When it does not arrive
 
@@ -153,8 +159,10 @@ Every organisation due a digest is sent one on the same run. Sigil used to work
 through the list in batches, so a busy day could push a digest to the following
 morning; it no longer does, and no organisation waits its turn behind another.
 
-A digest is not sent to an organisation that is suspended or awaiting deletion.
-Neither wants a weekly report on signatures it is not receiving.
+A digest is not sent to an organisation whose signatures have stopped, whether
+that is a suspension, a pending deletion or a billing reason. The test is the
+same one the signature path applies, so the digest stops when the signatures do
+rather than on a rule of its own.
 
 ## Where the numbers come from
 

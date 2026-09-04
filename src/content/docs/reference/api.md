@@ -390,7 +390,7 @@ telemetry.
 | `GET /api/admin/billing` | Admin token, billing capability | Subscription status, seats, card, invoice |
 | `POST /api/admin/billing/checkout` | Admin token, billing capability | A hosted Stripe card-capture URL |
 | `POST /api/admin/billing/portal` | Admin token, billing capability | A hosted Stripe management URL |
-| `POST /api/admin/billing/cancel`, `…/reactivate` | Admin token, billing capability | Cancel the subscription, or resume a cancelled one |
+| `POST /api/admin/billing/cancel`, `…/reactivate` | Admin token, billing capability | Schedule the subscription to end at the close of the current period, or resume it: inside that window reactivating lifts the schedule, after it a new subscription is started |
 | `PUT /api/admin/billing/profile` | Admin token, billing capability | Save the billing profile |
 | `GET /api/admin/exclusions` | Admin token, cost management capability | The individually excluded mailboxes, each annotated with whether it still resolves in the directory and whether it was billable, the excluded groups, and the totals across both |
 | `POST /api/admin/exclusions` | Admin token, cost management capability | Exclude one mailbox or many, with an optional note |

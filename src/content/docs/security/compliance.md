@@ -106,6 +106,25 @@ Accepting it in the portal also writes an entry to your own
 [change log](/monitoring/change-log/), deliberately, so you can evidence your
 acceptance from your own records rather than asking Tophhie Cloud for it.
 
+Accepting records who accepted and when, against your organisation, and the
+confirmation says so before you agree rather than after.
+
+### When it needs accepting again
+
+The agreement is versioned. When a revised version is published, an organisation
+whose record still names the earlier one is prompted at the top of every portal
+page until the version on record is the one in force.
+
+The prompt is a prompt rather than a gate. Nothing stops working while it is
+outstanding, and it can be put off for the rest of the browser session, but it
+returns on the next sign-in. Putting off one version's prompt does not suppress
+the next, since the dismissal is keyed to the version being asked about.
+
+Only the people who can act on it see it: an administrator of the organisation
+itself. A managed service provider looking in at a client is not one of them,
+because the client is the controller and only a controller can give Article 28
+instructions. For everybody else, the Billing page still explains who has to act.
+
 ## What the agreement commits Tophhie Cloud to
 
 Some of the processor obligations in the agreement are worth reading on their
@@ -279,7 +298,7 @@ administrators a re-consent link.
 
 | Data | Retention |
 | --- | --- |
-| Directory attributes read from Microsoft Graph | Never stored as a record of their own. Held inside a rendered signature for at most an hour, and in a lookup cache for fifteen minutes |
+| Directory attributes read from Microsoft Graph | Never stored as a record of their own. Held inside a rendered signature for at most a day (refreshed hourly while in use), in a lookup cache for fifteen minutes, and in a photo cache for a day |
 | Template version history | Last 10 published bodies per template |
 | Deleted templates | 30 days in Recently deleted, then purged by a daily sweep |
 | Change log | Indefinite |
