@@ -60,9 +60,18 @@ Sigil pushes the current percentage to the subscription whenever it is set,
 rather than only when the number changes. A discount that failed to attach the
 first time is therefore corrected by setting it again.
 
-A partner margin runs open-ended. The fixed-term discounts a direct tenant can be
-given do not apply to the aggregate subscription, so a margin stays in force
-until it is changed.
+A margin can run open-ended or for an agreed number of months, up to five years.
+Where there is an end date, the Partner billing page prints it beside the
+percentage, so the date your rate changes is visible well before it arrives.
+
+A term is counted in whole months from the day the margin is attached, which is
+how a repeating discount is counted on the subscription itself. A margin cannot
+therefore be set to run until a particular calendar date, and cancelling and
+reprovisioning does not restart the term: only the months still outstanding
+carry over, rounded up to the next whole month.
+
+When the term runs out the margin stops applying and invoices return to list.
+Nothing is charged retrospectively and nothing needs cancelling.
 
 ## Your invoice details
 
@@ -99,6 +108,36 @@ right first if both are changing. The same rules apply as for a direct tenant's
 The profile outlives the partnership. If you
 [leave the programme](/partners/leaving-the-programme/), the same details go on to
 address your organisation's own direct invoices.
+
+## How you pay
+
+By card, or on invoice terms where those have been agreed. Both work exactly as
+they do for a direct organisation, and
+[invoices and credits](/admin/invoices-and-credits/) covers them in full. What
+follows is what differs for a partner.
+
+Your invoices are listed on the Partner billing page, newest first, each linking
+to its own hosted page to view, download or pay it. That list is your partner
+account's, not your own tenant's: your own organisation is not invoiced while
+the partnership is running, so its Billing view has nothing of its own to show.
+
+On invoice terms nothing on the page asks for a card, because none is involved.
+The card panel is replaced by the terms you are on, and the warning about
+metered seats with no card does not appear.
+
+Paying by bank transfer, quote the invoice number as the payment reference. A
+transfer that arrives without one sits on your account and the page says so,
+naming the amount waiting to be matched. Somebody applies it by hand within a
+working day.
+
+Credits and corrections applied to your partner account are listed on the same
+page with the reason each was agreed, including any
+[service credit](/partners/service-level/#claiming-a-credit) for a month that
+fell short of the uptime commitment. A credit comes off a following invoice
+rather than being paid out.
+
+A credit waiting on the account is shown above the invoices as well, so it is
+visible before the invoice that consumes it arrives.
 
 ## What clients see
 
@@ -201,6 +240,11 @@ A repeated failure on the same unpaid invoice does not send another one, and doe
 not move the date. The clock runs from the first failure, so retrying a card that
 declines again neither buys time nor costs any.
 
+On invoice terms the same message is worded for an overdue invoice rather than a
+declined card, and points at the invoice list rather than at a payment method.
+Telling an accounts team their card failed sends them looking for a card that
+does not exist.
+
 That your clients are told directly is worth knowing before it happens. They find
 out about a billing problem on your account, which is a conversation better had
 in advance than in response.
@@ -217,7 +261,8 @@ the day your clients' signatures stop and how many days that is.
 Billable seats on the meter with no card on file are warned about as soon as the
 meter has something on it. There is no trial to run out here, because a partner
 is invoiced in arrears: the moment a client's seats are being counted an invoice
-is accruing, and with no card that invoice fails.
+is accruing, and with no card that invoice fails. That warning does not appear on
+invoice terms, where no card is expected.
 
 The warning goes to partner staff who can act on billing, and can be put off for
 the rest of the browser session. It takes precedence over anything the console

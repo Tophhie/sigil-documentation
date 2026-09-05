@@ -2,7 +2,7 @@
 title: Emails Sigil sends
 description: Every message Sigil sends to administrators and users, what triggers it, and the address it comes from.
 sidebar:
-  order: 10
+  order: 11
 ---
 
 Sigil is not a mailing product, and it sends very little. The list below covers the automated messages Sigil sends, which is worth having in front of you when somebody forwards you a message
@@ -16,10 +16,15 @@ name "Sigil by Tophhie Cloud".
 Nothing else sends on Sigil's behalf. A message that claims to be from Sigil and
 comes from any other address is not.
 
-Payment failure notices are the one thing that reaches you from elsewhere. They
-come from Stripe to your billing contact, under Stripe's own sender, because
-Stripe is what holds the card. See [billing](/admin/billing/). Partners get one
-from Sigil as well, from the address above, and the two say the same thing.
+Stripe sends billing mail of its own as well: the invoice itself, receipts, and
+its own payment failure notices, under Stripe's own sender, because Stripe is
+what raises the invoice and holds the card. See [billing](/admin/billing/).
+
+Sigil sends its own notices about the same events, from the address above, and
+they say the same thing. That duplication is deliberate. The Stripe copy goes to
+the billing contact on the Stripe customer record, which is one address and is
+sometimes never filled in, while Sigil's copy reaches everybody in your
+organisation who can actually act on it.
 
 ## To your administrators and users
 
@@ -31,6 +36,9 @@ from Sigil as well, from the address above, and the two say the same thing.
 | Sigil health digest | Weekly by default, to every administrator. Coverage, apply failures and anything waiting on a decision |
 | Sigil health digest, on request | An administrator presses "Send me one" in [settings](/admin/settings/). Goes to that administrator only |
 | Action needed: reconnect Sigil | Admin consent has lapsed and signatures have stopped updating. Sent to every administrator |
+| Your Sigil trial ends soon | Three days before the trial ends, and again the day before. The wording depends on whether a card is on file |
+| Your Sigil payment failed, or your Sigil invoice is overdue | A payment has failed, or an invoice has gone past its due date. Names the day signatures stop |
+| Your Sigil signatures stop on a named day | About a week before the grace period runs out, if it is still unsettled |
 | A message from Tophhie Cloud | Support needs to tell your administrators something specific about your organisation |
 
 The [health digest](/monitoring/health-digest/) is the only one of these that
@@ -50,6 +58,45 @@ mailed, so a transient Graph outage does not become a fleet-wide alarm.
 The role email goes out only when somebody is added, not when an existing user's
 role is changed. Changing a role takes effect on their next request and needs no
 announcement.
+
+### The billing notices
+
+The three billing messages go to everybody who could do something about them:
+every Admin and every holder of the Billing [role](/admin/users-and-roles/),
+plus the billing email on your [billing profile](/admin/billing-profile/) if you
+have set one. Duplicates are removed, so somebody who is both is mailed once.
+
+Trial reminders go out three days before the trial ends and again the day
+before, in a morning sweep rather than at whatever hour the clock rolls over. A
+message about money leaving an account belongs in the morning post. Each is sent
+once per trial end date, so extending a trial arms both again rather than
+skipping them silently.
+
+What they say depends on how your account is collected. With a card on file it
+is a reminder that billing is about to start. With no card it is the one thing
+left to do before signatures stop. On
+[invoice terms](/admin/invoices-and-credits/#paying-on-invoice-terms) it says the
+first invoice follows, since there is no card to be missing.
+
+The overdue notice is sent as it happens, the moment a healthy subscription
+first goes past due, since there is nothing gained by sitting on it overnight. A
+second message lands about a week before signatures stop, from the morning sweep
+with the trial reminders.
+
+A card that is retried and declines again does not send another and does not
+move the date. The clock runs from the first failure, or on terms from the due
+date, so retrying neither buys time nor costs any.
+
+The second message is also the safety net for a failure the first never saw. A
+subscription can reach a past due state without passing through the moment that
+sends the first notice, and the sweep still reaches those organisations before
+the cliff.
+
+Neither goes to an organisation nobody is charging. A partner-managed client and
+an organisation on a free arrangement are both left alone, because telling
+either that a card is about to be needed would be wrong. So is a suspended
+organisation, and one whose deletion is already scheduled, on the grounds that a
+payment reminder is not their most relevant news.
 
 ## If your organisation is managed by a partner
 
@@ -124,10 +171,16 @@ No newsletters, no product announcements to end users, and nothing at all to the
 people whose signatures Sigil renders. Your colleagues get a signature on their
 mail; they do not get mail from Sigil.
 
-There is no alerting. Nothing is sent early because something broke, there is no
-threshold to configure and nothing pages anybody. The health digest arrives on
-its schedule whatever the numbers say, and [activity](/monitoring/activity/) is a
-view you open rather than something that mails you.
+There is no operational alerting. No threshold is configurable, nothing pages
+anybody, and no message is sent because coverage dropped or an apply failed. The
+health digest arrives on its schedule whatever the numbers say, and
+[activity](/monitoring/activity/) is a view you open rather than something that
+mails you.
+
+The billing notices above are the exception, and are a deliberate one. They are
+not reports on how Sigil is running; they are notice that signatures are going
+to stop on a particular day unless somebody acts, which is the one thing nobody
+should first learn about by noticing.
 
 ## Mail flow and anti-phishing
 

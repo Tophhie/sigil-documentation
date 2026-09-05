@@ -2,7 +2,7 @@
 title: The Getting started checklist
 description: The onboarding checklist a new administrator lands on, and why each step completes itself.
 sidebar:
-  order: 8
+  order: 9
 ---
 
 A new administrator lands on a checklist rather than an empty portal.
@@ -50,6 +50,12 @@ Being managed by a partner is a separate thing from being excused. A managed
 client can still see the two billing steps listed as outstanding and required,
 even though its provider is the one invoiced. Nothing stops working as a result,
 and the client is not charged. See [partner billing](/partners/billing/).
+
+An organisation on [invoice terms](/admin/invoices-and-credits/) sees the same
+thing for the payment step. That step completes when a card is on file, and an
+account paying by invoice never has one, so it stays listed as outstanding.
+Nothing is wrong and nothing is going to stop: the invoice is emailed and paid
+without a card, and the step can be left alone.
 
 ## Connecting Microsoft 365
 

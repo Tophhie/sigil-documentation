@@ -55,8 +55,15 @@ Tophhie Cloud's responsibility, and where a month falls short of that figure you
 are entitled to a service credit.
 
 Uptime is measured over each calendar month, as the proportion of the month in
-which the service was available. The credit is a percentage of your fees for the
-month the shortfall happened in:
+which the service was available. What measures it is an independent external
+monitor rather than Sigil's own reporting: it renders a signature end to end
+every few minutes from more than one region, and counts the month against
+whether a valid signature came out. See
+[infrastructure](/security/infrastructure/#the-status-page), which also covers
+the public status page where the current state and any open incident are
+published.
+
+The credit is a percentage of your fees for the month the shortfall happened in:
 
 | Monthly uptime | Service credit |
 | --- | --- |
@@ -95,6 +102,12 @@ The credit is applied to your next invoice. Credits are not paid out in cash.
 The 30-day window is the part worth diarising. A credit is claimed rather than
 applied automatically, so a month that qualified and went unclaimed stays
 unclaimed once the window closes.
+
+An agreed credit appears on your Partner billing page as a service credit,
+carrying the month it settles and the reason it was agreed, and comes off a
+following invoice. That record is what makes a credit explicable months later,
+when the invoice it reduced is the only thing anybody can still see. See
+[invoices and credits](/admin/invoices-and-credits/#credits-and-corrections).
 
 ## No minimums
 

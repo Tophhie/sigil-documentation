@@ -2,7 +2,7 @@
 title: API keys
 description: Credentials for scripts rather than people, so a runbook or a reporting job can reach Sigil without anybody signing in.
 sidebar:
-  order: 6
+  order: 7
 ---
 
 Everything else in Sigil is done by a person holding an Entra token in a browser.
@@ -122,7 +122,7 @@ individual's directory record on demand.
 | Refused | Why |
 | --- | --- |
 | Sending mail: [test email](/admin/test-email/), and sending or previewing the [health digest](/monitoring/health-digest/) | A credential that can post a rendered signature to any colleague's inbox, unattended, is an outbound mailer rather than a way of checking a layout |
-| Moving money: checkout, the billing portal, cancelling, reactivating, the billing profile | Reading seat counts into a dashboard is a real request. Cancelling a subscription from a cron job is not |
+| Moving money: checkout, the billing portal, cancelling, reactivating, the billing profile, and the [invoice and credit lists](/admin/invoices-and-credits/) | Reading seat counts into a dashboard is a real request. Cancelling a subscription from a cron job is not. An invoice row carries a link that views and pays it, and the credits list carries the commercial reasoning behind a concession, neither of which belongs behind an unattended credential |
 | Granting access: inviting a colleague, changing a role, removing someone | Issuing a credential is an access-management act, which is why only an Admin can do it. Granting portal roles is the same act |
 | Overriding a control: changing organisation settings, the approval queue, submitting or rejecting a draft | Settings can switch [publish approval](/signatures/approvals/) off. Approval is a second pair of eyes, and a script signing off on a colleague's work is the thing it exists to prevent |
 | Reading one named person: preview against a real address, the per-mailbox download, [rule simulation](/targeting/assignment-rules/), the directory picker, and what colleagues entered in their [profile fields](/admin/profile-fields/) | Each answers "tell me about this mailbox" for an address the caller supplies. A tenant-wide credential that can do that a mailbox at a time is a way to read your directory |

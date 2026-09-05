@@ -73,6 +73,12 @@ operators.
 The area of the Microsoft 365 admin centre where an administrator deploys the
 add-in.
 
+**Invoice terms**
+An arrangement under which invoices are emailed and payable within an agreed
+number of days rather than charged to a card. Agreed with Tophhie Cloud rather
+than chosen in the portal. See
+[invoices and credits](/admin/invoices-and-credits/).
+
 **Managed client**
 A tenant linked to a partner, configured and billed through that partner.
 
@@ -143,6 +149,12 @@ A billable licensed member mailbox. Shared and resource mailboxes are free, as
 are accounts invited in from outside the organisation, disabled accounts, and
 mailboxes the organisation has excluded, whether individually or through an
 excluded Entra group.
+
+**Service credit**
+An amount credited to an account because a month fell short of an uptime
+commitment. Recorded with the month it settles, and applied to a following
+invoice rather than paid out. See
+[support and service level](/partners/service-level/).
 
 **Sender**
 Whoever pressed Send, as opposed to the mailbox a message goes out from. The two

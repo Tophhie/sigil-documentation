@@ -2,7 +2,7 @@
 title: Cost management
 description: Exclude mailboxes that do not need a signature, so they stop being served one and stop counting towards your bill.
 sidebar:
-  order: 4
+  order: 5
 ---
 
 Not every licensed mailbox needs a signature. Frontline and shop floor staff,

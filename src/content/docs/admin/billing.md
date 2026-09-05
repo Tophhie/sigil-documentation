@@ -11,6 +11,11 @@ feature included. There is a 14 day free trial.
 Billing runs on Stripe. Your organisation is a Stripe customer with one per-seat
 subscription.
 
+Invoices are charged to a card by default. Where invoice terms have been agreed
+instead, they are emailed and payable within an agreed number of days. Either
+way your invoice history and any credits are listed in the portal. See
+[invoices and credits](/admin/invoices-and-credits/).
+
 ## What counts as a seat
 
 A seat is a licensed member mailbox.
@@ -81,6 +86,10 @@ With a card on file, it charges the card and the subscription becomes active.
 With no card on file, it cancels the subscription. An organisation that never
 adds a card simply stops rather than being billed by surprise.
 
+On [invoice terms](/admin/invoices-and-credits/#paying-on-invoice-terms) it
+converts too, into a first invoice. There is no card for the trial to be
+missing, so nothing is asked for and nothing is cancelled.
+
 ## What happens if billing lapses
 
 Once a trial ends without an active subscription, signatures stop. The add-in
@@ -93,6 +102,10 @@ expired over a weekend is invisible to everybody except whoever reads the
 notices. Sigil allows 21 days from the first failure, measured from the failure
 itself rather than from each retry, and signatures stop at the end of that window
 if the invoice is still unpaid.
+
+On invoice terms the same 21 days apply, counted from the invoice's due date
+rather than from a failed payment, since that is the first moment anything is
+late. Net 30 therefore allows up to 51 days from the invoice being issued.
 
 Paying inside the window ends it. Nothing has to be reprovisioned and nothing was
 lost, because nothing had stopped yet.
@@ -112,10 +125,13 @@ is still something to do about it. A warning appears at the top of every page to
 anybody who can open Billing.
 
 A trial with no card on file is warned about in its last week, naming the day it
-ends.
+ends. An organisation on invoice terms is not, because its trial converts into
+an invoice rather than needing a card, so there is nothing to warn about.
 
 A failed payment is warned about for as long as the dunning window has left to
-run, naming the day signatures stop and how many days that is.
+run, naming the day signatures stop and how many days that is. It reads for both
+arrangements, since settling it means updating the card or paying the open
+invoice depending on which you are on.
 
 The warning can be put off for the rest of the browser session, and comes back on
 the next sign-in. Putting one off does not hide the next: the dismissal is keyed
@@ -145,13 +161,23 @@ Both are self-serve from the Billing view.
 Add a card through Stripe Checkout. The card you add is promoted to the default
 payment method for invoices automatically.
 
-Manage cards and download invoices through the Stripe customer portal, also
-linked from the Billing view.
+Manage cards through the Stripe customer portal, also linked from the Billing
+view.
+
+An organisation on invoice terms has no card, and the Billing view offers none:
+the buttons are not shown rather than shown and refused.
 
 ## What the Billing view shows
 
-Subscription status, seats in use, the card on file, and your most recent
-invoice.
+Subscription status, seats in use, how the account is collected, your invoice
+history, and any credits applied to your account.
+
+Where the card would be, an account on invoice terms reads "Invoice, net 30", or
+whatever term was agreed. A credit waiting on the account is shown there too,
+with a note that it comes off the next invoice.
+
+Invoices and credits each have a list of their own further down the page. See
+[invoices and credits](/admin/invoices-and-credits/).
 
 The per-seat price is shown for reference. The authoritative rate is the one held
 in Stripe.
@@ -256,6 +282,11 @@ The consequence is worth knowing before you cancel: reactivating later means
 adding a card again. Reactivating with no card on file leaves the first invoice
 unpayable, which the Billing view warns about rather than letting you find out
 from a failed payment.
+
+None of this applies on
+[invoice terms](/admin/invoices-and-credits/#paying-on-invoice-terms). There is
+no card to release, and reactivating simply raises the next invoice on the terms
+you already had.
 
 ### Nothing is deleted
 

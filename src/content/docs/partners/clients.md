@@ -19,8 +19,23 @@ Release.
 The seat figure is the last one the daily count recorded rather than a live
 number, so a client added today shows no seats until the next count runs.
 
-The list is deliberately narrow. It tells you whether a client is set up and how
-large they are, and nothing about their billing state, add-in activity or open
+A client that is not being billed to you is badged too, since its seats sit at
+nought on your aggregate whatever the seat figure beside it says. Where that
+arrangement runs to a date, the badge names it: "Free until 14 October", and
+the seats start counting again the day after. An open-ended one reads "Not
+billed" instead.
+
+That date is the one thing worth planning around, which is why it is on the row
+rather than somewhere you would have to go looking. An extended trial for a
+client you are onboarding is the usual reason for one, and the day it lapses is
+the day your invoice grows.
+
+Exemptions are set by Tophhie Cloud rather than in the partner console, so ask
+support for one. They lift by themselves on the date agreed rather than needing
+anybody to remember.
+
+Beyond that the list is deliberately narrow. It tells you whether a client is
+set up and how large they are, and nothing about their add-in activity or open
 exceptions. A client whose signatures have stopped for some reason other than
 never being published looks the same here as one that is fine, so a problem of
 that kind shows in the client's own [attribute

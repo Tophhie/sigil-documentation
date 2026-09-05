@@ -212,13 +212,17 @@ Nothing is deleted, and restoring an active subscription restores signatures.
 
 A failed payment is not immediate. Stripe retries the card for about three weeks
 and signatures carry on, with 21 days from the first failure before they stop.
-See [billing](/admin/billing/).
+On [invoice terms](/admin/invoices-and-credits/) the same 21 days run from the
+invoice's due date. See [billing](/admin/billing/).
 
 ## What happens at the end of the trial?
 
 Stripe converts it. With a card on file it charges the card. With no card on file
 it cancels the subscription, so an organisation that never adds a card stops
 rather than being billed unexpectedly.
+
+On invoice terms it converts into a first invoice. There is no card to be
+missing, so nothing is asked for and nothing is cancelled.
 
 ## Can we get our data out?
 
@@ -303,6 +307,29 @@ own clients. See [support and service level](/partners/service-level/).
 
 Either way, an outage affects signature management rather than mail flow. Sigil
 never gates the sending of email.
+
+## How do we tell whether Sigil is having problems?
+
+`status.usesigil.app` carries the current state of the service and any incident
+that is open. It is hosted away from Sigil, so it is still readable when Sigil
+is not.
+
+Check it before raising a ticket for signatures that have stopped across a whole
+organisation, and check
+[billing](/admin/billing/#what-happens-if-billing-lapses) and
+[pausing delivery](/signatures/pausing-delivery/) too, which stop signatures for
+reasons of their own and would not show as an incident. See
+[the status page](/security/infrastructure/#the-status-page).
+
+## Can we pay by invoice rather than by card?
+
+Yes, by arrangement. Ask support and your account is put on invoice terms: the
+invoice is emailed and payable within an agreed number of days, thirty by
+default, and no card is asked for anywhere.
+
+There is no setting for it in the portal, because extending credit is a
+commercial decision rather than a preference. See
+[invoices and credits](/admin/invoices-and-credits/).
 
 ## Can a managed service provider run this for us?
 

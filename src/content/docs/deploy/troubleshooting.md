@@ -10,6 +10,16 @@ turn out to be one of four things, and the order below finds them fastest.
 
 ## Nobody in the organisation has a signature
 
+### Is Sigil itself up?
+
+Check `status.usesigil.app` before anything else. It carries the current state of
+the service and any open incident, and it is hosted away from Sigil so it is
+readable when Sigil is not. Everything below assumes the service is running. See
+[the status page](/security/infrastructure/#the-status-page).
+
+An interruption to Sigil does not stop anybody sending email. What stops is the
+signature being applied and the portal being reachable.
+
 ### Is delivery paused?
 
 Open the Templates page and look at the In use card. If it says Paused, that is
@@ -36,6 +46,10 @@ A past due subscription does not stop signatures straight away either: there is 
 21 day window while the card is retried, and they stop at the end of it. So a past
 due status explains an organisation-wide stop only once that window has run. See
 [billing](/admin/billing/).
+
+An organisation on [invoice terms](/admin/invoices-and-credits/) has no card, so
+the question is whether an invoice is overdue instead. The invoice list on the
+Billing view says which, and the same 21 days run from its due date.
 
 ### Has admin consent lapsed?
 

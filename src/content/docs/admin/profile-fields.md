@@ -2,7 +2,7 @@
 title: Profile fields
 description: Custom fields your colleagues fill in about themselves, how they reach a signature, and who can see what people entered.
 sidebar:
-  order: 5
+  order: 6
 ---
 
 Every other placeholder Sigil resolves comes from your Microsoft 365 directory.

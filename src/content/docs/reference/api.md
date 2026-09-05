@@ -76,7 +76,9 @@ same six fields when a provider stands up a new client is exactly the
 configuration work a key exists for.
 
 Also outside it: `POST /api/admin/test-email` and both digest routes, which send
-or compose mail; every billing route that writes to Stripe; `PUT /api/admin/users`
+or compose mail; every billing route that writes to Stripe, along with the
+invoice and credit lists, whose rows carry links that pay an invoice and the
+commercial reasoning behind concessions; `PUT /api/admin/users`
 and `DELETE /api/admin/users/:email`; `PUT /api/admin/settings`, `GET /api/admin/approvals`
 and the draft submit and reject routes; `POST /api/admin/dpa/accept`; everything
 under `/api/admin/managed`, `/api/admin/partner` and `/api/admin/platform`; the
@@ -392,6 +394,8 @@ telemetry.
 | `POST /api/admin/billing/portal` | Admin token, billing capability | A hosted Stripe management URL |
 | `POST /api/admin/billing/cancel`, `…/reactivate` | Admin token, billing capability | Schedule the subscription to end at the close of the current period, or resume it: inside that window reactivating lifts the schedule, after it a new subscription is started |
 | `PUT /api/admin/billing/profile` | Admin token, billing capability | Save the billing profile |
+| `GET /api/admin/billing/invoices` | Admin token, billing capability | Invoice history, newest first, each row carrying the hosted page and the PDF. Answers with an empty list and a flag rather than an error when the invoices cannot be read |
+| `GET /api/admin/billing/adjustments` | Admin token, billing capability | Credits and corrections applied to the account, newest first, each with its category and the reason |
 | `GET /api/admin/exclusions` | Admin token, cost management capability | The individually excluded mailboxes, each annotated with whether it still resolves in the directory and whether it was billable, the excluded groups, and the totals across both |
 | `POST /api/admin/exclusions` | Admin token, cost management capability | Exclude one mailbox or many, with an optional note |
 | `DELETE /api/admin/exclusions/:email` | Admin token, cost management capability | Put one back |
@@ -442,6 +446,7 @@ tenant. They live under `/api/admin/partner`.
 | `POST /transfers` | Ask to take one over, by domain or Entra tenant id |
 | `GET /billing`, `POST /billing/checkout`, `POST /billing/portal`, `POST /billing/sync` | The consolidated subscription |
 | `PUT /billing/profile` | Save the partner's own invoice details |
+| `GET /billing/invoices`, `GET /billing/adjustments` | The partner account's invoice history, and the credits applied to it |
 | `GET /usage`, `GET /usage/export` | Per-client seat counts, and the CSV for rebilling |
 | `GET /usage/periods` | The periods already invoiced, as reconciliation windows for the report. Empty rather than an error when the invoices cannot be read |
 | `GET/PUT /staff`, `DELETE /staff/:email` | Partner staff and their roles |

@@ -219,7 +219,12 @@ See [API keys](/admin/api-keys/).
 | Billable seat | A licensed member mailbox that has not been excluded |
 | Free | Shared and resource mailboxes, accounts invited in from outside, disabled accounts, excluded mailboxes |
 | Longest agreed discount term | 60 months, or open-ended |
+| Default invoice terms | 30 days from the invoice date |
+| Longest agreed invoice terms | 90 days |
 | After a failed payment, before signatures stop | 21 days from the first failure |
+| After an invoice goes past its due date, before signatures stop | 21 days from the due date |
+| Invoices listed in the portal | The most recent 24 |
+| Purchase order reference | 140 characters |
 | Seat sync | Daily, with no mid-cycle proration |
 | Exclusion suggestion window | 90 days without a successful apply |
 | Exclusion note | 200 characters |
@@ -228,6 +233,10 @@ Once a trial ends without an active subscription, signatures stop being served.
 A failed payment on a live subscription is bounded rather than immediate: Stripe
 retries the card over roughly three weeks, and signatures stop 21 days after the
 first failure if the invoice is still unpaid. See [billing](/admin/billing/).
+
+On invoice terms the same 21 days are counted from the due date, so net 30
+allows up to 51 days from the invoice being issued. See
+[invoices and credits](/admin/invoices-and-credits/).
 
 ## Client support
 

@@ -136,6 +136,38 @@ Tophhie Cloud and the provider, so what reaches you is whatever your provider ha
 agreed with you on the back of it. See
 [support and service level](/partners/service-level/).
 
+Either way, the current state of the service is published on
+[the status page](#the-status-page).
+
+## The status page
+
+`status.usesigil.app` is the public status page. It carries the current state of
+Sigil and any incident that is open, and it is where to look first when
+signatures have stopped across an organisation for no reason you can find.
+
+It is hosted away from Sigil deliberately. A status page served by the thing it
+reports on is worth nothing during the one event it exists for, so the page is
+run by a third party on infrastructure Sigil does not share.
+
+What sits behind it is an external monitor that renders a signature end to end
+from more than one region, every few minutes, and treats the result as a failure
+unless a valid signature came out. A check that only asked whether the service
+answered would report a service returning errors as healthy.
+
+A failure has to be confirmed from a second region before an incident is opened,
+so one region's network trouble is not reported as an outage of Sigil.
+
+A second monitor checks that the platform underneath is answering at all. The
+two together are what separates a fault at Cloudflare from a fault in Sigil,
+which matters because the [partner service level](/partners/service-level/)
+excludes the first and not the second.
+
+Two things the page does not carry, deliberately. There is no historical uptime
+percentage on it, since a figure published before it has been measured for long
+enough invites more questions than it settles. And the heartbeats behind Sigil's
+own overnight jobs are not on it either: whether a nightly rollup ran is an
+operational matter rather than something to report as an outage.
+
 ## Health
 
 `portal.usesigil.app/health` reports configuration and storage state. It is a

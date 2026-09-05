@@ -57,12 +57,15 @@ use for support.
 The partner console has its own section in the portal, shown when you sign in as
 partner staff:
 
-Clients, which is the workbench. One row per managed client, showing seats,
-billing state, signature health, last activity and any open exceptions. It is
-built to answer "which client needs me today" without drilling into each one.
+Clients, which is the workbench. One row per managed client, showing its name
+and primary domain, the seat count last recorded, whether a template has been
+published, and how many users the tenant holds, with a badge for a client that
+is suspended or not being billed to you. It is the way into any of them. See
+[managing clients](/partners/clients/) for what it does and does not tell you.
 
 Partner billing, covering the consolidated subscription, the current aggregate
-seat count, the card on file and invoice history.
+seat count, how you pay, your invoice history and any credits applied to the
+account.
 
 Usage and rebilling, with per-client seat counts for the current and prior
 periods, exportable for your own billing system.

@@ -6,7 +6,8 @@ sidebar:
 ---
 
 The billing profile holds the company details that address your invoice: legal
-name, billing email, billing address, and a VAT or tax identifier.
+name, billing email, billing address, a VAT or tax identifier, and an optional
+purchase order reference.
 
 ## It is pre-filled
 
@@ -44,6 +45,15 @@ saved value has reached Stripe.
 Registering the identifier is deliberately the last thing done when you save, so
 a tax number Stripe will not accept cannot stop the rest of the profile being
 written.
+
+The purchase order reference is printed on every invoice, in a field of its own
+labelled PO number. It is optional, and free text up to 140 characters, so it
+takes whatever form your own purchase orders use.
+
+Set it if your finance system will not process an invoice that does not carry
+one. Holding it on the profile rather than typing it onto each invoice is what
+stops a monthly invoice being bounced for the want of a reference nobody
+remembered to add. Clearing the field takes the line off future invoices.
 
 ## When it counts as complete
 
