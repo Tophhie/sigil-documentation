@@ -51,11 +51,17 @@ client can still see the two billing steps listed as outstanding and required,
 even though its provider is the one invoiced. Nothing stops working as a result,
 and the client is not charged. See [partner billing](/partners/billing/).
 
-An organisation on [invoice terms](/admin/invoices-and-credits/) sees the same
-thing for the payment step. That step completes when a card is on file, and an
-account paying by invoice never has one, so it stays listed as outstanding.
-Nothing is wrong and nothing is going to stop: the invoice is emailed and paid
-without a card, and the step can be left alone.
+An organisation on [invoice terms](/admin/invoices-and-credits/) is a different
+case again. The payment step asks whether Sigil can collect what you owe rather
+than whether a card exists, so it completes for an account paying by invoice
+without one ever being added. It reads "Payment method" and says that invoices
+are emailed to your billing contact.
+
+Unlike the excused steps above, it stays required and counts toward the progress
+line, because it genuinely is done rather than being set aside.
+
+Cancelling is the exception. The step reopens for both arrangements, because at
+that point it stops asking about payment and starts asking you to reactivate.
 
 ## Connecting Microsoft 365
 
