@@ -396,12 +396,13 @@ telemetry.
 | `PUT /api/admin/billing/profile` | Admin token, billing capability | Save the billing profile |
 | `GET /api/admin/billing/invoices` | Admin token, billing capability | Invoice history, newest first, each row carrying the hosted page and the PDF. Answers with an empty list and a flag rather than an error when the invoices cannot be read |
 | `GET /api/admin/billing/adjustments` | Admin token, billing capability | Credits and corrections applied to the account, newest first, each with its category and the reason |
-| `GET /api/admin/exclusions` | Admin token, cost management capability | The individually excluded mailboxes, each annotated with whether it still resolves in the directory and whether it was billable, the excluded groups, and the totals across both |
-| `POST /api/admin/exclusions` | Admin token, cost management capability | Exclude one mailbox or many, with an optional note |
-| `DELETE /api/admin/exclusions/:email` | Admin token, cost management capability | Put one back |
-| `GET /api/admin/exclusions/suggested` | Admin token, cost management capability | Billable mailboxes that have never applied a signature, and what excluding them would save |
-| `POST /api/admin/exclusions/groups` | Admin token, cost management capability | Exclude an Entra group's members. The group is confirmed against the directory, and its membership resolved, before the call returns |
-| `DELETE /api/admin/exclusions/groups/:id` | Admin token, cost management capability | Stop excluding a group, and report which addresses that released |
+| `GET /api/admin/exclusions` | Admin token, cost management capability | The cost management list and the mode that says how it is read: the individually listed mailboxes, each annotated with whether it still resolves in the directory and whether it was billable, the listed groups, the totals across both, and the seats the list bills |
+| `PUT /api/admin/exclusions/mode` | Admin token, cost management capability | Switch between exclusion mode and inclusion mode. Refused while anything is on the list |
+| `POST /api/admin/exclusions` | Admin token, cost management capability | Put one mailbox or many on the list, with an optional note. In exclusion mode that excludes them, in inclusion mode it includes them |
+| `DELETE /api/admin/exclusions/:email` | Admin token, cost management capability | Take one off the list |
+| `GET /api/admin/exclusions/suggested` | Admin token, cost management capability | Billable mailboxes that have never applied a signature, and what excluding them would save. Refused in inclusion mode, where the question has no counterpart |
+| `POST /api/admin/exclusions/groups` | Admin token, cost management capability | Put an Entra group's members on the list. The group is confirmed against the directory, and its membership resolved, before the call returns |
+| `DELETE /api/admin/exclusions/groups/:id` | Admin token, cost management capability | Take a group off the list, and report which addresses that released |
 | `POST /api/admin/exclusions/groups/:id/sync` | Admin token, cost management capability | Refresh one group's membership now, rather than waiting for the nightly refresh |
 | `GET /api/admin/groups/search` | Admin token, cost management capability | Group name search for the picker, from two characters |
 | `GET /api/admin/api-keys` | Admin token, Admin role | Every API key for the organisation, revoked ones included |

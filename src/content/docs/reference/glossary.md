@@ -144,11 +144,17 @@ signature on any path, and it does not count towards the seats. One decision doe
 both, and there is no way to have one without the other. See
 [cost management](/admin/cost-management/).
 
+**Inclusion mode**
+The setting that turns the cost management list around, so that the mailboxes on
+it are the only ones with Sigil rather than the only ones without. One mode
+applies to the whole organisation, and it can only be changed while the list is
+empty. See [cost management](/admin/cost-management/#which-way-round-the-list-reads).
+
 **Seat**
 A billable licensed member mailbox. Shared and resource mailboxes are free, as
 are accounts invited in from outside the organisation, disabled accounts, and
-mailboxes the organisation has excluded, whether individually or through an
-excluded Entra group.
+mailboxes the organisation has kept out of Sigil in cost management, whether
+individually, through an Entra group, or by never including them.
 
 **Service credit**
 An amount credited to an account because a month fell short of an uptime

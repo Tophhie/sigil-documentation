@@ -17,6 +17,10 @@ the service and any open incident, and it is hosted away from Sigil so it is
 readable when Sigil is not. Everything below assumes the service is running. See
 [the status page](/security/infrastructure/#the-status-page).
 
+If you can still reach the portal, the status pill beside the page title answers
+the same question without leaving it, and the public support page carries the
+same pill for anybody who cannot sign in.
+
 An interruption to Sigil does not stop anybody sending email. What stops is the
 signature being applied and the portal being reachable.
 
@@ -50,6 +54,14 @@ due status explains an organisation-wide stop only once that window has run. See
 An organisation on [invoice terms](/admin/invoices-and-credits/) has no card, so
 the question is whether an invoice is overdue instead. The invoice list on the
 Billing view says which, and the same 21 days run from its due date.
+
+### Is anybody included?
+
+If cost management is in inclusion mode, only the mailboxes on the list receive a
+signature, and an empty list means nobody does. The Cost management page carries
+a warning above its figures for exactly this state, and the seat count on your
+next invoice would be zero. See
+[which way round the list reads](/admin/cost-management/#which-way-round-the-list-reads).
 
 ### Has admin consent lapsed?
 
@@ -145,6 +157,9 @@ mailbox has almost certainly been
 [excluded from Sigil](/admin/cost-management/). The add-in cannot tell the two
 apart, because the service refuses both the same way. Look for the address on the
 Cost management list and put it back if it should not be there.
+
+If your organisation runs cost management the other way round, the same message
+means the mailbox is simply not on the list. Include it.
 
 If the pane works but automatic application does not, the add-in is present and
 authenticated, and the problem is with event activation rather than with Sigil.

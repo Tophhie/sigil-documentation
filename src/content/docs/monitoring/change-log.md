@@ -36,11 +36,14 @@ organisation.
 | Deleting an image | Yes |
 | Sending a test email | Yes |
 | Changing who has access, and at what role | Yes |
+| Re-pointing somebody's access after their address changed | Yes |
 | Every stage of a staged rollout | Yes |
 | Submitting a draft for review, and approving or rejecting it | Yes |
 | Booking, cancelling or firing a scheduled publish | Yes |
 | Excluding a mailbox from Sigil, or putting one back | Yes |
-| Excluding an Entra group, and every later change to who it covers | Yes |
+| Including a mailbox in Sigil, or taking it out | Yes |
+| Listing an Entra group in cost management, and every later change to who it covers | Yes |
+| Changing the cost management mode | Yes |
 | Creating or revoking an API key | Yes |
 | Adding, changing, hiding or deleting a profile field | Yes |
 | An administrator editing a colleague's profile values | Yes |
@@ -140,10 +143,10 @@ data when your organisation is. The operator copy has to outlive that, because a
 record of a deletion that is destroyed by the deletion it describes would
 evidence nothing.
 
-## Exclusion entries
+## Cost management entries
 
-Excluding a mailbox stops its signature and takes it off the bill, so both
-directions are recorded. See [cost management](/admin/cost-management/).
+Keeping a mailbox out of Sigil stops its signature and takes it off the bill, so
+both directions are recorded. See [cost management](/admin/cost-management/).
 
 That is the point of logging them at all. This is the only thing outside template
 editing that changes what a colleague's outgoing mail looks like, so "who
@@ -154,7 +157,13 @@ managed service provider made the change. As with rollout reasons and approval
 details, the portal lists the action and the actor, so those are read from the API
 or a [tenant export](/security/data-and-privacy/).
 
-Exclusions that come from an Entra group are logged the same way, and read a
+The entries name what happened to the person rather than what happened to the
+list, so an organisation in inclusion mode reads entries about mailboxes being
+included, and one in exclusion mode reads entries about mailboxes being excluded.
+Changing the mode itself is a separate entry, since it is the one change that
+moves the bill without naming anybody.
+
+Changes that come from an Entra group are logged the same way, and read a
 little differently. Membership tracks, so the set can change with nobody having
 touched Sigil, and the nightly refresh that notices writes the entry itself. The
 actor on those is the system rather than a person, and the group is named on the

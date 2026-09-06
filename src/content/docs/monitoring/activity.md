@@ -155,7 +155,7 @@ dropped:
 
 | Outcome | Meaning |
 | --- | --- |
-| `excluded` | The mailbox has been [excluded from Sigil](/admin/cost-management/) |
+| `excluded` | The mailbox is [kept out of Sigil](/admin/cost-management/), either by being excluded or by never being included |
 | `paused` | [Delivery is paused](/signatures/pausing-delivery/) for the whole organisation |
 
 The event search has a filter for each, so either can be pulled out on its own.

@@ -144,7 +144,11 @@ used one. Nothing is excluded until you choose it.
 
 If those people are already a group in your directory, you can exclude the group
 instead of the mailboxes. Membership keeps up on its own, so a new warehouse
-starter never quietly appears on the bill. See
+starter never quietly appears on the bill.
+
+Where it is the other way round, and only one team needs Sigil out of several
+hundred licences, the list can be turned around so that it names the mailboxes
+that should have Sigil rather than the ones that should not. See
 [cost management](/admin/cost-management/).
 
 ## Can Sigil tell us if it is actually working?

@@ -32,8 +32,10 @@ Shared mailboxes still get signatures. They just do not cost anything.
 
 An excluded mailbox is the one case where a mailbox is deliberately taken off
 both the bill and the service at once. Mailboxes can be excluded one at a time,
-or by naming an Entra group whose members should all come off. See
-[cost management](/admin/cost-management/).
+or by naming an Entra group whose members should all come off. An organisation
+where only some teams need Sigil can instead turn the list around and name the
+mailboxes that should have it, in which case everybody unnamed is the one off the
+bill. See [cost management](/admin/cost-management/).
 
 Where a group is excluded, its membership is re-read each night just before the
 seat count is calculated, so a joiner or a leaver reaches the invoice within a

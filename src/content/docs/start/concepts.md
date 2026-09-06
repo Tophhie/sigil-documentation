@@ -115,9 +115,10 @@ A billable licensed member mailbox. Shared and resource mailboxes are unlicensed
 and therefore free. Accounts invited in from outside the organisation are
 excluded, as are disabled ones. See [billing](/admin/billing/).
 
-An organisation can also exclude a licensed mailbox itself, which takes it off
-the bill and stops its signature at the same time. See
-[cost management](/admin/cost-management/).
+An organisation can also decide which of its licensed mailboxes have Sigil at
+all, either by excluding the ones that do not need it or by naming the only ones
+that do. Either way the mailboxes left out come off the bill and stop receiving a
+signature at the same time. See [cost management](/admin/cost-management/).
 
 ## Portal role
 

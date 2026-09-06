@@ -45,7 +45,7 @@ you.
 
 One of those messages is worth reading loosely. If the pane says Sigil is not set
 up for your organisation, it can mean two other things as well. Your own mailbox
-may have been [excluded](/admin/cost-management/) from Sigil deliberately, which
+may have been [kept out of Sigil](/admin/cost-management/) deliberately, which
 is a normal thing for an organisation to do for a shared or unattended mailbox.
 Or your organisation may have
 [paused delivery](/signatures/pausing-delivery/) for everybody, which is what IT

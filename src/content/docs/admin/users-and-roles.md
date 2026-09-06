@@ -134,6 +134,45 @@ sidebar. An organisation managed by a partner is a normal exception rather than 
 fault: its partner administers it through the partner relationship, and it may
 hold no Admin of its own at all.
 
+## When somebody's address changes
+
+Access is held against an email address, because that is what an administrator
+types when granting it and what your directory hands over at sign-in. Addresses
+change, though: people marry, a company rebrands, a typo is corrected.
+
+Sigil follows the person rather than the address. Alongside the address it
+records the directory object identifier your organisation's directory issues,
+which does not change when a name does. The next time somebody signs in under a
+new address, the row holding their role is found by that identifier and re-pointed
+at the address they now have. Their portal role, their partner staff access if
+they have any, and everything they entered in their own
+[profile fields](/admin/profile-fields/) all follow.
+
+This happens on sign-in and nowhere else. The identifier is recorded the first
+time a person signs in, so somebody who has been granted a role and has never
+used it does not have one yet, and a rename before that first sign-in still costs
+them their row.
+
+The re-pointing is written to the [change log](/monitoring/change-log/), so a
+role that moves to a different address is visible rather than silent.
+
+Two things deliberately do not move.
+
+Who did what stays as it was recorded. The change log, the person who added a
+colleague, the person who uploaded an image: those name the address somebody
+acted under at the time, and rewriting them would make the record say something
+that did not happen.
+
+Cost management entries do not follow a rename either, and that has a
+consequence worth knowing. See
+[a renamed mailbox stops being excluded](/admin/cost-management/#a-renamed-mailbox-stops-being-excluded).
+
+If two rows end up claiming one person, which happens when somebody was re-added
+by hand under their new address after the rename, Sigil leaves both alone rather
+than guessing which role should survive. Nobody is locked out by that: the
+ordinary lookup on the address they signed in with still answers. Remove the row
+you do not want.
+
 ## What somebody without a role sees
 
 Two situations are handled distinctly.

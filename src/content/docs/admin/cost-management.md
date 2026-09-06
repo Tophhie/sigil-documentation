@@ -1,6 +1,6 @@
 ---
 title: Cost management
-description: Exclude mailboxes that do not need a signature, so they stop being served one and stop counting towards your bill.
+description: Decide which mailboxes have Sigil, so the rest stop being served a signature and stop counting towards your bill.
 sidebar:
   order: 5
 ---
@@ -10,17 +10,23 @@ kiosk accounts, Teams-only users and licensed service accounts all carry a
 licence, all count as seats, and many of them never send an email from Outlook at
 all.
 
-Cost management lets you exclude those mailboxes. An excluded mailbox receives no
-signature and is not counted towards your seats.
+Cost management is where you decide which mailboxes have Sigil. A mailbox kept
+out of Sigil receives no signature and is not counted towards your seats.
 
-There are two ways to exclude one. You can pick mailboxes individually, or you
-can name an Entra group and exclude whoever is in it. The second one keeps up
-with the group as people join and leave it.
+You keep one list, and there are two ways to put a mailbox on it. You can pick
+mailboxes individually, or you can name an Entra group and add whoever is in it.
+The second one keeps up with the group as people join and leave it.
+
+A [mode](#which-way-round-the-list-reads) decides what that list means. In
+exclusion mode, which is the default, the list is the mailboxes that do not have
+Sigil. In inclusion mode it is the only ones that do. Most of this page is
+written in the exclusion-mode direction, because that is what most organisations
+use, and the section on modes says which parts read the other way round.
 
 ## One switch, both effects
 
-Excluding a mailbox does two things at once, and there is no way to do one
-without the other.
+Keeping a mailbox out of Sigil does two things at once, and there is no way to do
+one without the other.
 
 It stops being served a signature on every path: automatic application on
 compose, and the download in the "My signature" pane.
@@ -49,6 +55,92 @@ If your directory cannot be reached at that moment, Sigil serves the signature
 rather than withholding it, since a directory outage should not start removing
 signatures from people nobody excluded.
 
+## Which way round the list reads
+
+Two organisations want opposite things from the same list.
+
+A large estate trimming a few dormant accounts wants "everyone is in unless I say
+otherwise". An organisation where one team of twelve uses Sigil and four hundred
+other licences do not wants the reverse, because keeping that as an exclusion
+list would mean naming four hundred people and chasing every new starter.
+
+So the list has a mode, set on the Cost management page.
+
+| Mode | Your list is | Everyone else is |
+| --- | --- | --- |
+| Exclusion, the default | The mailboxes that do not have Sigil | Served a signature, and billed |
+| Inclusion | The only mailboxes that have Sigil | Not served, and not billed |
+
+### One mode at a time
+
+A list cannot exclude some people and include others. Two lists with opposite
+meanings over the same mailboxes would have no single answer to "is this one
+billed", and that is the question the nightly seat count sends to Stripe.
+
+For the same reason the mode can only be changed while the list is empty. Remove
+every mailbox and every group first, and the button becomes available. Until
+then it is disabled, with the reason beside it rather than left to be guessed at,
+and the API refuses the change and says how much is still listed.
+
+That rule exists so a list written to keep people out is never silently re-read
+as the list of people to keep. Nothing carries over between the modes.
+
+### An empty inclusion list means nobody
+
+Switching to inclusion mode necessarily starts from an empty list, and an empty
+inclusion list means nobody at your organisation is served a signature and your
+seat quantity is zero.
+
+That is a real state rather than an error. The confirmation says so before you
+click it, and the page carries a warning above the figures for as long as it
+lasts. Zero seats reaches your next invoice like any other seat change, so an
+organisation that switches over and then forgets to add anybody has an active
+subscription serving nothing.
+
+The intended sequence is to switch, then add the mailboxes and groups that should
+have Sigil. Switching back to exclusion mode restores everybody at once.
+
+### What reads the other way round
+
+Most of this page holds in both modes, with "excluded" reading as "not on the
+list". Four things genuinely differ.
+
+Shared mailboxes swap sides. In exclusion mode, listing one saves nothing because
+it was never billed, and the picker hides them so nobody believes in a saving
+that is not there. In inclusion mode a shared mailbox nobody lists gets no
+signature at all, so the picker offers them and the row says it is included for
+free.
+
+Aliases work in the same direction as the mailbox they belong to. In inclusion
+mode, sending from an alias of a listed mailbox is served, because Sigil resolves
+the mailbox behind the address before deciding.
+
+There are no [suggestions](#suggested-exclusions) in inclusion mode. "These
+billed mailboxes never use Sigil" has no counterpart when everyone unlisted is
+already unbilled, so the button is not offered rather than returning an empty
+list.
+
+A group that cannot be read still fails closed, and closed means the list stands.
+In exclusion mode that keeps its members switched off. In inclusion mode it keeps
+them switched on and billed, because treating an unreadable group as empty would
+stop the signature and the billing of every mailbox you are paying for, on the
+strength of a failed network call.
+
+### What the figures say
+
+The headline figures on the page are written for the mode you are in.
+
+| Mode | Figures |
+| --- | --- |
+| Exclusion | How many mailboxes are excluded, and how many of those were actually coming off the bill |
+| Inclusion | How many are included, how many seats that bills, and how many mailboxes are kept out |
+
+In inclusion mode the included count and the billed-seat count differ whenever
+the list holds a shared or disabled mailbox, since those are included for free.
+
+The count of mailboxes kept out needs your directory, so if it cannot be read at
+that moment the figure is shown as unavailable rather than as zero.
+
 ## What excluding actually saves
 
 Only licensed, enabled member mailboxes are billed in the first place, so
@@ -70,6 +162,9 @@ The directory picker only suggests enabled mailboxes belonging to your own
 organisation, for the same reason. You can still type any address by hand.
 
 ## Suggested exclusions
+
+This is an exclusion-mode feature. See
+[what reads the other way round](#what-reads-the-other-way-round).
 
 Sigil records, per mailbox, whether a signature was ever successfully applied. So
 it can answer the question directly rather than leaving you to audit 400 licences
@@ -229,7 +324,10 @@ leaver already gets. See [billing](/admin/billing/).
 Putting a mailbox back works the same way in reverse. Signatures resume at once,
 and the seat returns on the next invoice.
 
-## What an excluded person sees
+## What a mailbox kept out of Sigil sees
+
+This is the same whether the mailbox was excluded by name or simply never
+included.
 
 Nothing, on compose. The add-in is refused and applies no signature rather than
 interrupting a message with an error.
@@ -268,9 +366,11 @@ An individual exclusion is held against the email address, because the address i
 what the rest of Sigil keys on: the compose path, the assignment cache, the
 activity rollup and the coverage audit all use it.
 
-If a mailbox is renamed, the exclusion no longer matches it. That mailbox starts
-receiving signatures again, and returns to the bill at the next daily seat sync.
-Sending from the old address as an alias is still covered, because
+If a mailbox is renamed, the entry no longer matches it. In exclusion mode that
+mailbox starts receiving signatures again, and returns to the bill at the next
+daily seat sync. In inclusion mode the opposite happens and it quietly loses its
+signature, which is the more urgent of the two. Sending from the old address as
+an alias is still covered, because
 [aliases are checked](#aliases-are-covered), but a rename that leaves no alias
 behind is not.
 
@@ -281,17 +381,27 @@ the mailbox under its new address to put it back.
 
 That figure covers two situations, and only one of them costs anything.
 
-| Why the row no longer resolves | What it costs |
+| Why the row no longer resolves | What it costs, in exclusion mode |
 | --- | --- |
 | The mailbox was renamed | It is billed again, under its new address |
 | The mailbox was deleted | Nothing. A deleted mailbox is not in the directory the seat count comes from, so it is not billed either way. The row is merely stale |
+
+In inclusion mode a renamed mailbox costs nothing and loses its signature
+instead, and a deleted one is still merely stale.
 
 Nothing repairs these automatically.
 
 ## What is recorded
 
-Every exclusion and every reinstatement is written to the
-[change log](/monitoring/change-log/), naming who did it and when.
+Every change to who has Sigil is written to the
+[change log](/monitoring/change-log/), naming who did it and when. The entries
+record people rather than list rows, so adding somebody to an inclusion list is
+logged as a mailbox being included, and a member leaving a listed group in
+inclusion mode is logged as one being excluded. Reading the log does not require
+knowing which mode the list was in.
+
+Changing the mode is its own entry, because it is the one change that moves the
+bill without naming anybody.
 
 This is the one thing outside signature editing that changes what a colleague's
 outgoing mail looks like, so "who switched off my signature" has to be

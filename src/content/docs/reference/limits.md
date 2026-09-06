@@ -216,8 +216,8 @@ See [API keys](/admin/api-keys/).
 | Trial length | 14 days |
 | Price | £0.70 per licensed mailbox per month |
 | Billing period | Monthly |
-| Billable seat | A licensed member mailbox that has not been excluded |
-| Free | Shared and resource mailboxes, accounts invited in from outside, disabled accounts, excluded mailboxes |
+| Billable seat | A licensed member mailbox that cost management has not kept out of Sigil |
+| Free | Shared and resource mailboxes, accounts invited in from outside, disabled accounts, mailboxes kept out of Sigil |
 | Longest agreed discount term | 60 months, or open-ended |
 | Default invoice terms | 30 days from the invoice date |
 | Longest agreed invoice terms | 90 days |

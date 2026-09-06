@@ -162,6 +162,24 @@ two together are what separates a fault at Cloudflare from a fault in Sigil,
 which matters because the [partner service level](/partners/service-level/)
 excludes the first and not the second.
 
+### The status pill in the portal
+
+You do not have to go and look. Every page of the portal carries a status pill
+beside the page title, and the public support page carries the same one for
+somebody who cannot sign in. It reduces the state of Sigil to one of three
+answers and links to the full page.
+
+The pill claims nothing it cannot stand behind. If the status page cannot be
+read, it shows no colour and no wording beyond "Service status", because a pill
+saying all is well because it could not reach the status page would be worse than
+no pill at all.
+
+Your browser never contacts the status host. The portal reads the page on your
+behalf and caches the answer for a minute, so however many people have the portal
+open it is one read, and no visitor of yours is disclosed to the company hosting
+the status page. The pill refreshes every five minutes while you leave the portal
+open.
+
 Two things the page does not carry, deliberately. There is no historical uptime
 percentage on it, since a figure published before it has been measured for long
 enough invites more questions than it settles. And the heartbeats behind Sigil's
