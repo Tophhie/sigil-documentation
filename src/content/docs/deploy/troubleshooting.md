@@ -10,6 +10,14 @@ turn out to be one of four things, and the order below finds them fastest.
 
 ## Nobody in the organisation has a signature
 
+Several of the causes below reach Activity as the same badge. Paused delivery, an
+organisation still onboarding, a suspended one, and a mailbox the cost management
+list does not cover are all reported by the add-in as `not-activated`, because
+none of them is anything the person composing could act on. The badge tells you
+the refusal was deliberate, not which of them it was. The served request recorded
+beside it names that. See [refused
+requests](/monitoring/activity/#refused-requests).
+
 ### Is Sigil itself up?
 
 Check `status.usesigil.app` before anything else. It carries the current state of

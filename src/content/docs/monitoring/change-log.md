@@ -143,6 +143,12 @@ data when your organisation is. The operator copy has to outlive that, because a
 record of a deletion that is destroyed by the deletion it describes would
 evidence nothing.
 
+They also differ in what they carry. Your copy names every action taken on your
+organisation, when it happened, and what it changed. Tophhie Cloud's copy holds
+the same entries and sometimes an internal note beside a commercial one, the
+kind of note written for our own records rather than about you. Nothing is held
+back from your copy that would change what you can see was done.
+
 ## Cost management entries
 
 Keeping a mailbox out of Sigil stops its signature and takes it off the bill, so

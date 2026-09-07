@@ -86,7 +86,9 @@ Neither editor starts you on a blank page. A designer template is seeded with th
 same ready-made design new organisations get, and an HTML template is seeded with
 the equivalent markup. Both are meant to be edited or cleared rather than kept,
 and they are there so the first thing you see is a working signature to change
-instead of an empty canvas.
+instead of an empty canvas. Both also carry [the same two
+placeholders](#two-things-in-it-are-placeholders) as the seed, so a new template
+needs the same edit before it is published.
 
 The [drag-and-drop designer](/signatures/designer/) edits a block tree and
 compiles to email-safe HTML when you publish. It suits people who do not want to
@@ -127,6 +129,10 @@ The address box above the preview swaps the sample data for a real mailbox.
 Start typing a name and it completes from your directory. Clear it to go back to
 sample data.
 
+The sample person is invented, and so is everything beside them. The telephone
+numbers come from the ranges Ofcom reserves for drama, which connect to nobody,
+so nothing in a preview points at a real mailbox or a real phone.
+
 To see a real person's real signature, use the download option on the Templates
 view, which produces the live signature for a chosen mailbox as a standalone HTML
 file. To see it in a real mail client, send a [test email](/admin/test-email/).
@@ -158,6 +164,26 @@ editable like any other template, and replacing it is expected.
 The Getting started checklist treats "publish a signature" as complete when the
 active template is no longer the seed, so swapping it out is what marks that step
 done.
+
+### Two things in it are placeholders
+
+Everything in the seed that names a person or a mailbox is filled from your own
+directory when it renders. Two things cannot be, because no directory attribute
+holds them, and both sit in the small print at the bottom:
+
+| Placeholder | What it should become |
+| --- | --- |
+| `postmaster@contoso.com` | Wherever you want misdirected mail reported |
+| `contoso.com/email-disclaimer` | Your own legal or disclaimer page, or nothing at all |
+
+They are obviously not yours on purpose. Contoso is a fictitious company, and a
+seeded signature that pointed your recipients somewhere plausible but wrong would
+be worse than one that visibly asks to be edited. Publish the seed unchanged and
+every message you send asks its recipients to report misdirected mail to a
+company nobody at your organisation reads.
+
+Both are ordinary text in the template, so change them in whichever editor you
+are using, or delete the disclaimer block if your organisation does not want one.
 
 ## Publishing
 

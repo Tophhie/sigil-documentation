@@ -144,28 +144,56 @@ which points at the network between Outlook and `portal.usesigil.app` rather tha
 at the service. See
 [troubleshooting](/deploy/troubleshooting/#is-something-on-your-network-eating-the-request).
 
-A refusal Sigil makes deliberately is never either of these. An organisation that
-has not finished setting up, an excluded mailbox and a lapsed subscription each
-report their own reason.
+A refusal Sigil makes deliberately is never either of these. It is recorded as a
+refusal in its own right, described below.
 
 ## Refused requests
 
-Two refusals are deliberate rather than faults, and both are recorded rather than
-dropped:
+Some requests are declined on purpose. They are recorded rather than dropped,
+and the served request says which decision was taken:
 
 | Outcome | Meaning |
 | --- | --- |
 | `excluded` | The mailbox is [kept out of Sigil](/admin/cost-management/), either by being excluded or by never being included |
 | `paused` | [Delivery is paused](/signatures/pausing-delivery/) for the whole organisation |
+| `billing-inactive` | The trial has ended or the subscription is no longer active. See [what happens if billing lapses](/admin/billing/#what-happens-if-billing-lapses) |
+| `not-found` | The address resolved to no mailbox in your directory |
 
-The event search has a filter for each, so either can be pulled out on its own.
+The event search has a filter for each, so any of them can be pulled out on its
+own.
 
-They are recorded rather than swallowed because both answer the question somebody
+They are recorded rather than swallowed because each answers a question somebody
 is actually asking. An excluded mailbox should not be requesting a signature at
 all, so a steady stream of them means the add-in is still deployed to somebody
 who no longer needs it. A run of `paused` entries means the opposite of a fault:
 the add-in is deployed, reaching the service and being answered, and the only
 thing between those people and a signature is a switch in the portal.
+`billing-inactive` is the one to read as urgent, because nobody at the
+organisation is being served while it is appearing.
+
+### What the add-in calls the same refusal
+
+Those outcomes are what the service records against the request it declined. The
+add-in files its own report for the same attempt, and it does not use the same
+words, so a single refusal reaches the feed twice under two different names.
+
+| Reason | Meaning |
+| --- | --- |
+| `not-activated` | The service declined for a reason that is not a billing one |
+| `subscription-inactive` | The trial has lapsed or the subscription was cancelled |
+
+`not-activated` covers several situations at once: an organisation that has not
+finished onboarding, one that is suspended, delivery paused for everybody, and a
+mailbox the cost management list does not cover, whether by being excluded or by
+never being included. The add-in draws no distinction between them because none
+of them is anything the person composing can do about, and a message naming the
+specific one would only invite them to try. The served request beside it carries
+the decision that was actually taken, which is where to look when the badge is
+not enough.
+
+The line the add-in does draw is between the service declining and the service
+failing. Without it, a lapsed subscription would read to somebody as a network
+problem they could fix by retrying.
 
 ## What the outcomes are used for besides reporting
 

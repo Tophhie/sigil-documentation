@@ -39,7 +39,7 @@ billed is the complaint the feature exists to answer.
 
 ### Aliases are covered
 
-You exclude a mailbox by its primary address, which is the one the directory
+The list holds mailboxes by their primary address, which is the one the directory
 picker offers and the one a group's membership resolves to. A message can be sent
 from any of that mailbox's other addresses, though, and Sigil checks the mailbox
 behind the sending address as well as the address itself.
@@ -54,6 +54,32 @@ happens once the cheaper checks have already said there is something to look for
 If your directory cannot be reached at that moment, Sigil serves the signature
 rather than withholding it, since a directory outage should not start removing
 signatures from people nobody excluded.
+
+### You can type an alias
+
+The address box takes any address you type or paste, and that may well be a
+secondary alias rather than a primary. You do not have to look the primary up.
+Sigil resolves the address to the mailbox that owns it and lists the mailbox. The
+confirmation names the primary address it stored and the alias you reached it by,
+so what went on the list is never left to be inferred from what you typed.
+
+That resolution happens when the entry is written rather than every time it is
+read, because the two halves of the switch would otherwise disagree. The
+signature gate resolves a sending address to its mailbox, so a raw alias on the
+list would be matched. The seat count works from the directory, where every
+account is keyed by its primary, so the same raw alias would match nothing at
+all. One address on the list would then stop the signature and leave the bill
+alone, or the reverse, which is the split the pairing above exists to prevent.
+
+The other ways onto the list already yield primary addresses, so this applies
+only to the address box. The picker offers directory accounts, a group's
+membership resolves to the accounts in it, and the suggestions come from the
+directory listing.
+
+If your directory cannot be read at that moment, or no mailbox in it claims the
+address, it goes on the list exactly as you typed it. Refusing the entry instead
+would mean a directory outage, or a mailbox being set up an hour from now,
+standing between an administrator and switching a signature off.
 
 ## Which way round the list reads
 
@@ -213,6 +239,10 @@ Pick the mailbox and add an optional note of up to 200 characters. The note is
 free text and is never interpreted. It exists so the list is still legible in six
 months, so "warehouse floor" or "Teams-only licence" is the kind of thing worth
 writing.
+
+An address typed rather than picked is resolved to the mailbox behind it first,
+so pasting somebody's alias out of a ticket works. See
+[you can type an alias](#you-can-type-an-alias).
 
 ## Excluding an Entra group
 
