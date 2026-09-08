@@ -13,6 +13,11 @@ rather than just "Sales".
 One template covers both cases. You do not need a second template for the shared
 mailbox, and nothing about the add-in changes.
 
+Everything on this page also holds for a Microsoft 365 Group or distribution
+list that people send as. What is particular to groups, including the one way of
+sending that Outlook keeps add-ins out of, is on
+[sending as a Microsoft 365 Group](/signatures/group-mailboxes/).
+
 ## The two identities
 
 Every compose request carries a mailbox and a person. The From address says which
@@ -130,6 +135,7 @@ produce.
 
 ## Cost
 
-Shared mailboxes are unlicensed, so they are free. A colleague sending from one
-is already a billable seat in their own right, and sending on behalf of a mailbox
-does not add another. See [billing](/admin/billing/).
+Shared mailboxes are unlicensed, so they are free, and so are group mailboxes. A
+colleague sending from one is already a billable seat in their own right, and
+sending on behalf of a mailbox does not add another. See
+[billing](/admin/billing/).

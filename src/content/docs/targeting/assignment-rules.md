@@ -21,11 +21,17 @@ forwards.
 
 ## Matching on a directory attribute
 
-Ten attributes can be matched on: department, job title, company, employee type,
-office location, city, county or state, country, email address and email domain.
-A rule matches when the person's value for that attribute is one of the values
-you list, so a single rule can cover several departments. Values are matched
-without regard to case.
+Eleven attributes can be matched on: department, job title, company, employee
+type, office location, city, county or state, country, email address, email
+domain and mailbox kind. A rule matches when the person's value for that
+attribute is one of the values you list, so a single rule can cover several
+departments. Values are matched without regard to case.
+
+Mailbox kind is `user` for a person, a shared mailbox or a resource mailbox, and
+`group` for the mailbox of a Microsoft 365 Group or distribution list. One rule
+with the value `group` gives every group in the organisation a template of its
+own, including groups created later. See
+[sending as a Microsoft 365 Group](/signatures/group-mailboxes/).
 
 This is a shorter list than the [placeholders](/signatures/placeholders/) a
 template can print. In particular the extension attributes are not on it, so a

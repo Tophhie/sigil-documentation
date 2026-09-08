@@ -105,8 +105,8 @@ will find both of them report the problem rather than fail silently.
 ## Application permissions, not delegated
 
 The Graph reads happen with an app-only token, per tenant. That is what allows a
-signature to be rendered for a shared mailbox or an alias, where there is no
-signed-in user to borrow permissions from.
+signature to be rendered for a shared mailbox, a group's mailbox or an alias,
+where there is no signed-in user to borrow permissions from.
 
 The app-only token reads your tenant's directory and nothing else. There is no
 cross-tenant read path: an address outside your organisation simply does not

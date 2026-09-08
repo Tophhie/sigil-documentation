@@ -24,11 +24,13 @@ A seat is a licensed member mailbox.
 | --- | --- |
 | Licensed member mailbox | Yes, unless you have excluded it |
 | Shared or resource mailbox | No, unlicensed and therefore free |
+| Microsoft 365 Group or distribution list | No, it is not a user at all |
 | Account invited in from outside | No |
 | Disabled account | No |
 | A mailbox you have excluded | No |
 
-Shared mailboxes still get signatures. They just do not cost anything.
+Shared mailboxes and group mailboxes still get signatures. They just do not cost
+anything.
 
 An excluded mailbox is the one case where a mailbox is deliberately taken off
 both the bill and the service at once. Mailboxes can be excluded one at a time,

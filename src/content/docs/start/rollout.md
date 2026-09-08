@@ -68,7 +68,8 @@ you are looking for signature requests arriving, apply outcomes succeeding, and
 nobody stuck in the never-applied list.
 
 Ask the pilot group to check replies and forwards as well as new messages, and to
-send at least one message from a shared mailbox if they use one.
+send at least one message from a shared mailbox or a Microsoft 365 Group if they
+use one.
 
 ## Phase 3: refine
 

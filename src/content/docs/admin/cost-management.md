@@ -131,11 +131,12 @@ have Sigil. Switching back to exclusion mode restores everybody at once.
 Most of this page holds in both modes, with "excluded" reading as "not on the
 list". Four things genuinely differ.
 
-Shared mailboxes swap sides. In exclusion mode, listing one saves nothing because
-it was never billed, and the picker hides them so nobody believes in a saving
-that is not there. In inclusion mode a shared mailbox nobody lists gets no
-signature at all, so the picker offers them and the row says it is included for
-free.
+Shared mailboxes swap sides, and so do the mailboxes of
+[Microsoft 365 Groups](/signatures/group-mailboxes/). In exclusion mode, listing
+one saves nothing because it was never billed, and the picker hides them so
+nobody believes in a saving that is not there. In inclusion mode a shared or
+group mailbox nobody lists gets no signature at all, so the picker offers them
+and the row says it is included for free.
 
 Aliases work in the same direction as the mailbox they belong to. In inclusion
 mode, sending from an alias of a listed mailbox is served, because Sigil resolves
