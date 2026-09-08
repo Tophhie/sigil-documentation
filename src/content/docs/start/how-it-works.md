@@ -23,9 +23,38 @@ appearing at the bottom of somebody's email.
    template that applies to them. The result is Outlook-safe HTML with any
    images attached inline.
 5. The add-in applies it with `setSignatureAsync`, attaches the inline images,
-   and suppresses any locally configured signature so only one appears.
+   and suppresses any locally configured signature so only one appears. It does
+   not wait for steps 3 and 4 to start: the copy kept from that mailbox's last
+   message goes in first, and the fresh answer either matches it, replaces it or
+   withdraws it when it arrives.
 6. The add-in reports the outcome back to the API, which is what makes the
    [Activity](/monitoring/activity/) view possible.
+
+## The copy on the device
+
+Steps 3 and 4 are where the time goes, and most of it is session warm-up rather
+than anything Sigil renders: brokering a token, loading the add-in, the first
+round trips. That cannot be made cheaper, but it can be taken off the path the
+person is waiting on, so the add-in starts from the last signature it served that
+mailbox and reconciles afterwards.
+
+| What the fresh answer says | What happens to the message |
+| --- | --- |
+| The same signature | Nothing. No second set of attachments, no flicker |
+| A different signature | The kept images come out and the new signature goes in |
+| The mailbox is excluded, paused, or the subscription has lapsed | The kept copy is taken back out, leaving nothing in its place |
+| No answer at all | The kept copy stands, and the message goes out with it |
+
+The copy is held on the person's own device for 45 days after that address last
+composed, renewed by every message. Where the device has no storage available to
+the add-in, there is no copy and the signature is simply fetched as before.
+
+The trade is worth stating plainly, because it is the one thing an administrator
+will see: the first message somebody composes after a publish can show the old
+signature and then swap to the new one in front of them. What is sent is the new
+one, unless Sigil could not be reached at all, in which case the kept copy is
+what goes out and the table above says so. See
+[why it sometimes changes as you watch](/users/how-your-signature-works/#why-it-sometimes-changes-as-you-watch).
 
 ## What is checked at the API boundary
 

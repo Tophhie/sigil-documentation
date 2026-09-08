@@ -129,6 +129,23 @@ who cannot grant consent tenant-wide. Closing the consent screen without decidin
 records nothing against your organisation, and the link can simply be opened
 again.
 
+One outcome is worth recognising because it looks like a failure and is not.
+Before setting up an organisation it has never seen, Sigil asks Microsoft whether
+Sigil is actually installed in the directory the redirect named. Microsoft's
+redirect is unsigned, and the tenant id in it is public, so without that question
+anybody could have an organisation's record created and its trial started before
+the organisation itself ever arrived.
+
+If Microsoft answers definitely that Sigil is not in that directory, and still
+says so when asked again a couple of seconds later, nothing is created and you
+are returned to the portal with a message saying the consent could not be
+verified yet. Opening the consent link again is the whole remedy. If Microsoft
+cannot answer at all, through an outage or a timeout, provisioning goes ahead as
+normal, because an unanswered question is not evidence against a real customer.
+
+An organisation that is already connected is never refused on this basis, so a
+signature service already in use cannot be affected by it.
+
 A failure on Sigil's side after consent succeeded looks different, because it is
 not something you can act on. You are returned to the portal as though everything
 worked, and depending on how far provisioning got, you either sign in normally or

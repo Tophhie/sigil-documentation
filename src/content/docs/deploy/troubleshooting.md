@@ -299,3 +299,10 @@ faster, and Tophhie Cloud stays listed underneath if you cannot reach them.
 
 The public support page at `portal.usesigil.app/support` says the same things for
 anyone who is not signed in.
+
+Help also carries the feedback board at `feedback.tophhie.cloud`, which is where
+to ask for something Sigil does not do yet. It is one board across Tophhie
+Cloud's products rather than a Sigil-only one, and it is the one thing in the
+dialog that is not routed through your IT provider: a request for a feature is
+about the product rather than about your configuration, and an idea passed on
+second-hand usually does not arrive.

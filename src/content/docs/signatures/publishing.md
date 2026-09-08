@@ -53,6 +53,14 @@ Incrementing the version strands every cached signature for that template at
 once, so the next request renders fresh. Changes reach users within seconds. No
 redeploy, no push, nothing to purge, and nobody has to restart Outlook.
 
+One detail is worth knowing before somebody reports it as a fault. The add-in
+puts the copy it kept from that mailbox's last message in first, so the message
+composed immediately after a publish can show the outgoing signature and then
+replace it with the new one about a second later, in the editor, while the person
+is looking at it. What is sent is the new version, because the check against
+Sigil finishes before the message can leave. See
+[why it sometimes changes as you watch](/users/how-your-signature-works/#why-it-sometimes-changes-as-you-watch).
+
 Publishing is recorded in the [change log](/monitoring/change-log/) with who did
 it and when.
 

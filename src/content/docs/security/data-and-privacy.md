@@ -115,6 +115,31 @@ Entra. The only credential Sigil issues is an API key for a script, and the
 secret behind one is stored as a SHA-256 hash, so it cannot be recovered from
 the database by anybody, Tophhie Cloud included.
 
+## The copy kept on the device
+
+The add-in keeps the last signature each mailbox was served on the device that
+composed the message, so the next message can be signed before the network has
+answered. What is held is the signature itself: the person's own name, job title,
+phone number, photo and anything else the template carries, which is the same
+data Outlook keeps for a signature somebody configured by hand.
+
+It is held under the add-in's own origin, in browser storage on Outlook on the
+web, new Outlook, Mac and mobile, and in the storage Microsoft provides for
+classic Outlook on Windows, which has no browser storage of its own. Each entry
+is keyed by the signed-in person, the sending address and the signature type, so
+a shared mailbox's copy is never served to the wrong person and never mixed with
+their own.
+
+Entries expire 45 days after that address last composed, and every message
+renews the one it used. An entry above 1 MB is not written at all. Where the
+storage is missing or refused, which third-party storage blocking in an embedded
+frame can cause, there is no copy and nothing else changes: the signature is
+fetched as it always was.
+
+Nothing about the copy is sent anywhere. It is written and read on the device,
+and Sigil learns only whether a compose used one, as part of the
+[telemetry](#telemetry) below.
+
 ## Telemetry
 
 The [Activity view](/monitoring/activity/) is built from two kinds of record: a
@@ -123,7 +148,11 @@ add-in after each attempt to apply one.
 
 Both hold metadata only: which mailbox, which template version, which compose
 type, whether it came from cache, the response status, the client platform, and
-the reason on failure.
+the reason on failure. The add-in's report also carries timings: how long the
+attempt took, how that time divided between its steps, how long the Outlook
+runtime took to start, and whether the [kept copy](#the-copy-kept-on-the-device)
+was used, matched, replaced or withdrawn. Those are durations and outcomes, with
+nothing of the message or the signature in them.
 
 Telemetry writes are best-effort and off the critical path, so a storage problem
 loses a record rather than breaking somebody's signature. Nothing is pruned, and

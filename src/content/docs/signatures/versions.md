@@ -9,6 +9,23 @@ Every publish archives the body it replaced. Sigil keeps the last ten published
 bodies of each template, and every template has its own independent history
 rather than sharing one.
 
+## Looking at a version first
+
+The history can only tell you when each version was published and by whom, which
+is rarely what you are actually choosing between. Preview opens the archived
+version rendered as a signature, so you can see it before deciding.
+
+It renders against sample data, the same as the editor's preview with no mailbox
+named, so placeholders show where each person's own details will sit. It does not
+render the version for a named individual.
+
+The archived body is rendered as it was stored rather than validated again. A
+custom field retired since that version was published would otherwise make
+exactly the old versions worth looking at the ones that refuse to open.
+
+Restore is offered from the preview as well as from the list, and goes through
+the same confirmation either way.
+
 ## Restoring a version
 
 Restore from the Versions view, using the signature picker to choose which

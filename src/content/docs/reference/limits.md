@@ -74,6 +74,7 @@ See [assignment rules](/targeting/assignment-rules/).
 | Signature telemetry | Indefinite |
 | Daily click totals per tracked link | Indefinite |
 | Per-click records behind the analytics splits | 90 days, then purged by a nightly sweep |
+| Signature copy kept on a person's device | 45 days from that address's last compose, renewed by each one |
 | Operator audit log | Indefinite |
 | Onboarding attempt records | Indefinite, and kept after a deprovision |
 | Sign-up diagnostics held on those records | 90 days, then cleared while the attempt stays |
@@ -105,6 +106,7 @@ keys and settings are recorded without appearing on it. See the
 | Shortest and longest window the API accepts | 7 to 365 days, clamped rather than rejected |
 | Trend column on the links table | Last 30 days |
 | Referring hosts shown before the tail is bucketed | 8 |
+| Clicks counted from one address on one link | 60 a minute. Above that the recipient is still redirected and only the record is dropped |
 
 ## How long changes take to reach users
 
@@ -123,6 +125,12 @@ keys and settings are recorded without appearing on it. See the
 | Directory change affecting which rule matches | Ten minutes, then one further compose |
 | Profile field value saved, by anybody in the organisation | Next compose |
 | Directory attribute change in Entra | Up to an hour, without a republish |
+
+Those are the times a change takes to reach what a mailbox is served. The first
+message somebody composes after a publish can briefly draw the previous
+signature and then replace it, because the add-in starts from the copy it kept on
+the device. What is sent is the new version either way. See
+[why it sometimes changes as you watch](/users/how-your-signature-works/#why-it-sometimes-changes-as-you-watch).
 | Microsoft 365 profile photo added or changed | Up to a day |
 | Add-in manifest change | Requires redeploy, plus 6 to 72 hours propagation and fresh consent |
 | Initial add-in deployment | 6 to 72 hours propagation |
@@ -192,6 +200,27 @@ See [publish approval](/signatures/approvals/) and
 
 A required field is advisory. One nobody filled in renders empty rather than
 failing a compose. See [profile fields](/admin/profile-fields/).
+
+## Portal actions that cost something
+
+Most of what the portal does is a database read you have already paid for by
+signing in. A few actions cost more than that: they call Microsoft Graph, render
+a signature, or send an email. Those carry a ceiling, counted per administrator
+per organisation rather than per address, so an IT provider working across
+twenty client organisations is twenty separate callers rather than one.
+
+| Item | Value |
+| --- | --- |
+| Actions that render, read the directory or resolve a mailbox | 120 a minute |
+| Actions that send an email | 12 a minute |
+| What counts in the first group | Preview, previewing an archived version, downloading a mailbox's signature, saving somebody else's profile values, simulating assignment rules, syncing an excluded group now |
+| What counts in the second | Test email, and sending the health digest on demand |
+| Over the limit | 429 with a message saying to wait a moment. Nothing is changed or sent |
+| An API key's share | Its own, so a key cannot spend a person's allowance |
+
+The figures are set well above what the portal's own screens can generate by
+being used. Reaching one means a script, a stuck retry, or a page left refreshing
+itself.
 
 ## API keys
 

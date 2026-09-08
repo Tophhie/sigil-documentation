@@ -26,6 +26,32 @@ sending from.
 Replies and forwards may get a shorter signature than new messages, if your
 organisation has set one up.
 
+## Why it sometimes changes as you watch
+
+Your device keeps a copy of the last signature you were served, and Sigil puts
+that copy into the message as soon as it knows which address you are sending
+from. That is why the signature appears almost at once rather than after a pause
+while something loads.
+
+Sigil then checks the copy against the current signature while you are writing.
+Most of the time they match and nothing happens. If somebody has published a
+change since your last message, the signature is replaced with the new one a
+second or so later, in front of you. That is the change arriving rather than a
+fault.
+
+What leaves your mailbox is the current signature, whenever Sigil can be reached
+at all. The check finishes before the message can be sent, so anything you saw
+swap in the editor had already settled by the time you pressed Send.
+
+If Sigil cannot be reached at all, the kept copy stays and your message goes out
+with it, so a brief network problem does not leave you signing off with nothing.
+If your organisation has excluded your mailbox or paused signatures, the kept
+copy is taken back out of the message instead of being left standing.
+
+The copy is your own signature on your own device, which is the same thing
+Outlook keeps for a signature you configured yourself. It is held for 45 days
+after the last message you wrote from that address, and every message renews it.
+
 ## Your own Outlook signature
 
 Sigil suppresses any signature you have configured in Outlook, so you get one

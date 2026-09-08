@@ -67,6 +67,12 @@ behind a [shared mailbox send](/signatures/placeholders/#sender), resolved
 against the directory the same way, so one call can read two people's records. `POST /api/admin/rules/simulate` and
 `GET /api/admin/users/search` are out on the same ground.
 
+Rendering an archived version, at
+`GET /api/admin/templates/:id/versions/:version/preview`, is on the allow-list
+rather than outside it. It takes no address and reads no directory record: it
+renders the stored body against sample data, which answers "what did this version
+look like" without answering anything about a person.
+
 `GET /api/admin/profile-values` and `PUT /api/admin/profile-values/:email` are
 out for the same reason. Those return and write what a named colleague entered
 about themselves, which is the same per-individual read, and arguably more
@@ -209,6 +215,7 @@ safely carry. Saves are rate limited per mailbox.
 | `GET /api/admin/templates/deleted` | Admin token | Recently deleted templates and the retention window |
 | `POST /api/admin/templates/:id/restore` | Admin token | Bring one back from Recently deleted |
 | `GET /api/admin/templates/:id/versions` | Admin token | Rollback history |
+| `GET /api/admin/templates/:id/versions/:version/preview` | Admin token | One archived version rendered against sample data, images inlined, with its length and the Outlook limit |
 | `POST /api/admin/templates/:id/rollback` | Admin token | Restore a version |
 | `PUT /api/admin/templates/:id/draft` | Admin token | Save a working copy |
 | `DELETE /api/admin/templates/:id/draft` | Admin token | Discard a working copy |

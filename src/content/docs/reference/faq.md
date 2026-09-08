@@ -66,6 +66,23 @@ Seconds. Publishing increments the template version, which invalidates every
 cached signature for it. Nothing is redeployed and nobody restarts Outlook. See
 [limits and timings](/reference/limits/).
 
+The first message somebody writes after a publish is the one exception worth
+knowing about, and it is a matter of appearance rather than of delivery. See
+below.
+
+## Why did somebody's signature change while they were writing?
+
+Because that is the new version arriving. The add-in puts the copy it kept from
+that mailbox's last message in straight away, so a signature is there before the
+network has answered, then reconciles it against the current one a second or so
+later. On the first message after a publish, that reconciliation is visible: the
+old signature is replaced with the new one in the editor.
+
+What is sent is the current signature, since the check finishes before the
+message can leave. The exception is a compose where Sigil could not be reached at
+all, which sends the kept copy rather than nothing. See
+[why it sometimes changes as you watch](/users/how-your-signature-works/#why-it-sometimes-changes-as-you-watch).
+
 ## Can we try a new signature on some people before everyone?
 
 Yes. A staged publish goes to 10% of mailboxes and steps up to 25%, 50% and then

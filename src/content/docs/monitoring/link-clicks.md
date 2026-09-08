@@ -96,6 +96,22 @@ copies a real browser's user agent cannot be identified after the fact. Older
 totals are therefore slightly inflated. Only clicks recorded since then get the
 full treatment.
 
+## A ceiling on how often one address can be counted
+
+A tracked link is public by necessity, since the people who follow it are
+recipients rather than signed-in users. That makes the click log something a
+stranger could inflate, so one address following one link is counted at most 60
+times a minute.
+
+Nothing above that ceiling is turned away. The recipient is redirected to the
+destination exactly as before, and only the record is dropped, because a person
+who genuinely clicked twice too fast should not be left staring at a block page
+their mail client cannot get past.
+
+Nobody reaches this in the course of reading an email. It exists so a campaign's
+totals cannot be run up by somebody who received one of your messages, and it
+errs towards counting: if the check itself cannot be made, the click is counted.
+
 ## Reading the numbers
 
 The Link clicks view covers a window you choose: 7 days, 30 days, 90 days or 12

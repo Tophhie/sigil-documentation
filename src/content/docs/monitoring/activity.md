@@ -147,6 +147,14 @@ at the service. See
 A refusal Sigil makes deliberately is never either of these. It is recorded as a
 refusal in its own right, described below.
 
+Neither reason appears when the mailbox still has a usable copy of its last
+signature on the device. Sigil could not be reached, but the person did get a
+signature and the message went out with it, so the attempt is recorded as
+applied. That is why `unreachable` is a thinner signal than it used to be: it now
+means an unreachable service and no kept copy to fall back on, which is a first
+compose, a new device, or a mailbox that has not written anything for 45 days.
+See [why it sometimes changes as you watch](/users/how-your-signature-works/#why-it-sometimes-changes-as-you-watch).
+
 ## Refused requests
 
 Some requests are declined on purpose. They are recorded rather than dropped,
