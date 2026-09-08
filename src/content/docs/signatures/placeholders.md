@@ -172,6 +172,7 @@ See [profile fields](/admin/profile-fields/) for defining them, and
 | `{{hasPhoto}}` | The mailbox has a Microsoft 365 profile photo |
 | `{{onBehalfOf}}` | Somebody is sending on the mailbox's behalf, rather than the mailbox sending for itself |
 | `{{isGroup}}` | The mailbox is a Microsoft 365 Group or distribution list, rather than a person or a shared mailbox |
+| `{{notGroup}}` | The opposite: a person's, shared or resource mailbox. Its own condition because sections cannot be negated |
 
 These exist for conditional sections rather than for printing. Attaching a whole
 contact row to `{{#anyPhone}}` lets the entire row disappear for people with no
