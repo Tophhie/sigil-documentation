@@ -20,8 +20,7 @@ Microsoft 365, not here.
 
 The person switches the From field in Outlook, in a message started from their
 own mailbox. That is the whole gesture, and it is the one Sigil sees. A new
-message, a reply or a forward all work, on Outlook for Windows (new and classic),
-Outlook for Mac and Outlook on the web.
+message, a reply or a forward all work.
 
 For the group's address to appear in that dropdown, an administrator grants the
 permission in the Microsoft 365 admin center or Exchange admin center, under the
