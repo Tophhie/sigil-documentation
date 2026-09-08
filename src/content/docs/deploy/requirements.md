@@ -61,26 +61,26 @@ fetches from `portal.usesigil.app` and is itself served from
 `static.usesigil.app`. The link domain answers `/r/` redirects and returns 404
 for every other path, so it carries no API or portal surface.
 
-Two hosts Sigil does not own are also involved, and neither is specific to Sigil:
+One host Sigil does not own is also involved, and it is not specific to Sigil:
 
 | Host | Purpose | If it is blocked |
 | --- | --- | --- |
 | `appsforoffice.microsoft.com` | Office.js, which Microsoft requires every Office add-in to load from here | The add-in does not run at all |
-| `unpkg.com` | The icons in the "My signature" pane | The pane works, without its glyphs |
 
 Office.js is loaded by both the automatic path and the pane, so blocking it stops
 signatures rather than degrading them. If you already permit Office add-ins, it is
 allowed, because no add-in works without it.
 
-The other is cosmetic. It is not reached by the automatic path, which is why an
-organisation that blocks general-purpose content delivery networks loses some
-polish and no function anywhere, and nobody's signature is affected.
+Nothing else needs allowing. The icons in the "My signature" pane were once
+fetched from `unpkg.com`; they now ship inside the add-in bundle, so an
+organisation that blocks general-purpose content delivery networks loses nothing
+at all.
 
 The typefaces the pane and the admin portal are set in are served from Sigil's
 own hosts, `static.usesigil.app` for the pane and `portal.usesigil.app` for the
 portal. No font host needs allowing, and neither `fonts.googleapis.com` nor
-`fonts.gstatic.com` is contacted. If an older allow-list still names them, the
-entries can be removed.
+`fonts.gstatic.com` is contacted. If an older allow-list still names them, or
+still names `unpkg.com`, those entries can be removed.
 
 ## Template constraints
 
