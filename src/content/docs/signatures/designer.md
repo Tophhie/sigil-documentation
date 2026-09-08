@@ -232,15 +232,18 @@ This is how you avoid the classic problems: a phone row that leaves a dangling
 label for people with no phone number, or an address block that collapses to a
 line of commas.
 
-Four derived conditions help here. `anyPhone` is true when the person has any
+Five derived conditions help here. `anyPhone` is true when the person has any
 phone number at all, `anyAddress` when they have any address component, and
 `hasPhoto` when their mailbox has a Microsoft 365 profile photo. Attaching a whole
 row to one of those lets the entire row disappear rather than each field inside
 it. The fourth is
 [sent on behalf of the mailbox](#lines-that-appear-only-on-a-shared-mailbox-send),
-which is about who is sending rather than about what the directory holds.
+which is about who is sending rather than about what the directory holds. The
+fifth, "sent from a group mailbox", is true when the mailbox is a
+[Microsoft 365 Group or distribution list](/signatures/group-mailboxes/), and is
+for the line that assumes a person, such as a "Chat with me in Teams" link.
 
-None of the four can be inserted, because none of them prints anything. They
+None of the five can be inserted, because none of them prints anything. They
 appear only when you are choosing a condition, and they head the list there rather
 than sitting at the bottom of it, since a whole row is more often hung on one of
 them than on a single attribute.

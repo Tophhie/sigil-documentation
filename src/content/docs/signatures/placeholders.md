@@ -171,6 +171,7 @@ See [profile fields](/admin/profile-fields/) for defining them, and
 | `{{anyAddress}}` | The person has any address component at all |
 | `{{hasPhoto}}` | The mailbox has a Microsoft 365 profile photo |
 | `{{onBehalfOf}}` | Somebody is sending on the mailbox's behalf, rather than the mailbox sending for itself |
+| `{{isGroup}}` | The mailbox is a Microsoft 365 Group or distribution list, rather than a person or a shared mailbox |
 
 These exist for conditional sections rather than for printing. Attaching a whole
 contact row to `{{#anyPhone}}` lets the entire row disappear for people with no

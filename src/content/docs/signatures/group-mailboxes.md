@@ -64,8 +64,12 @@ reach. So when the group's signature renders:
 
 Your existing template is therefore already right for a group in most cases. The
 one thing to look at is any line that assumes a person: a "Chat with me in
-Teams" link, say, which leads nowhere useful from a group's address. If you have
-one, give groups their own template, below.
+Teams" link, say, which leads nowhere useful from a group's address. Two ways to
+handle it. Wrap the line in the `isGroup` condition, inverted, so it disappears
+for a group and stays for everyone else; in the designer that is the "sent from
+a group mailbox" entry in a block's "show when" list. Or give groups their own
+template, below. The condition also works the other way round, for a line only a
+team mailbox should carry.
 
 ## Giving groups their own template
 
