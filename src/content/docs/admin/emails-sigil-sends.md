@@ -40,6 +40,7 @@ organisation who can actually act on it.
 | Your Sigil payment failed, or your Sigil invoice is overdue | A payment has failed, or an invoice has gone past its due date. Names the day signatures stop |
 | Your Sigil signatures stop on a named day | About a week before the grace period runs out, if it is still unsettled |
 | A message from Tophhie Cloud | Support needs to tell your administrators something specific about your organisation |
+| An announcement from Tophhie Cloud | Something applies to every customer rather than to you in particular, such as an add-in manifest worth taking or a change to a published policy |
 
 The [health digest](/monitoring/health-digest/) is the only one of these that
 arrives on a schedule rather than in response to something. It reports rather
@@ -58,6 +59,21 @@ mailed, so a transient Graph outage does not become a fleet-wide alarm.
 The role email goes out only when somebody is added, not when an existing user's
 role is changed. Changing a role takes effect on their next request and needs no
 announcement.
+
+The last two rows are both written by a person at Tophhie Cloud rather than
+fired by an event, and they differ only in how many organisations they were
+aimed at. Both are addressed to every administrator, both come from the address
+above, and both leave an entry in your
+[change log](/monitoring/change-log/#actions-taken-by-tophhie-cloud-support) so
+you can see afterwards that it was sent and when.
+
+An announcement goes to organisations Sigil is actually serving. One whose trial
+lapsed months ago without a card is left out, because a notice about the product
+is not for somebody who is not using it. A wider notice, a change to the data
+processing agreement being the obvious one, goes to every organisation still on
+the platform. Neither is marketing and neither has an unsubscribe link, for the
+reason given below: Sigil sends no marketing at all, so there is nothing to
+unsubscribe from.
 
 ### The billing notices
 
@@ -131,6 +147,12 @@ Sigil sends partner staff almost nothing. An MSP joining the partner programme i
 given a signup link to follow rather than being mailed one, and after that
 partner staff learn about their client base from the console rather than from
 their inbox.
+
+The one addition is the announcement described above, which can be addressed to
+a partner's Owners and Admins as well as to each client's own administrators. It
+exists because a managed client is allowed to have no administrators at all, its
+provider being the one who runs it, so a notice that needs somebody to act would
+otherwise reach nobody for that client.
 
 | Message | Sent when |
 | --- | --- |

@@ -52,6 +52,10 @@ The copy is your own signature on your own device, which is the same thing
 Outlook keeps for a signature you configured yourself. It is held for 45 days
 after the last message you wrote from that address, and every message renews it.
 
+The copy also records who it was fetched for. If you share a computer with a
+colleague, a copy that was fetched for them is discarded rather than put into
+your message, so you wait a moment for your own instead of starting from theirs.
+
 ## Your own Outlook signature
 
 Sigil suppresses any signature you have configured in Outlook, so you get one
@@ -117,6 +121,13 @@ you and you think it should, that is a request for the person who looks after
 signatures rather than something you can change from Outlook. See
 [sending on behalf of a mailbox](/signatures/sending-on-behalf/) for what they
 would have to set up.
+
+If the shared mailbox is open as a separate account rather than as a folder in
+your own, and you get no signature there at all while your own messages are fine,
+that is not something you can fix from Outlook either. Outlook only runs add-ins
+in that kind of window when the add-in has been set up to allow it, and your
+administrator is the one who can update it. Tell them, and point them at
+[where the add-in runs in a shared mailbox](/signatures/sending-on-behalf/#where-the-add-in-runs-in-a-shared-mailbox).
 
 ## Things that look wrong but are not
 

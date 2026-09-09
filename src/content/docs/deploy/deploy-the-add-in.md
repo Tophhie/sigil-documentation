@@ -79,7 +79,10 @@ will between them surface most of what a rollout can surface.
 
 Ask them to check new messages, replies and forwards. If anyone uses a shared
 mailbox, ask them to send from it, because that path goes through
-`OnMessageFromChanged` rather than `OnNewMessageCompose`.
+`OnMessageFromChanged` rather than `OnNewMessageCompose`. Include somebody who
+opens a shared mailbox as an account of its own rather than as a folder if you
+have one, since Outlook treats that as a different case entirely. See
+[where the add-in runs in a shared mailbox](/signatures/sending-on-behalf/#where-the-add-in-runs-in-a-shared-mailbox).
 
 Then look at [Activity](/monitoring/activity/). You want to see signature
 requests arriving and apply outcomes succeeding.
@@ -137,11 +140,53 @@ accepts a file path or a URL.
 A Marketplace listing is the one path that would spare you that, and Sigil is not
 published there yet, so every organisation running Sigil today has uploaded it as
 a custom app. Plan on being told when a new manifest is worth taking, rather than
-on receiving one.
+on receiving one. The portal does the telling, in
+[Activity](/monitoring/activity/), and
+[which manifest version you are on](#which-manifest-version-you-are-on) covers
+what it shows.
 
 The manifest itself changes rarely. It names the add-in, the events it listens
 for and where its files live, and none of those move when Sigil's own features
 change. Most releases reach you without a manifest at all.
+
+## Which manifest version you are on
+
+Because the upload is a copy, an organisation can sit on a manifest from months
+ago without noticing. The add-in's own code is not the problem: everything the
+manifest points at is a fixed URL, so every client runs the current code
+whatever manifest it was installed from. What an old manifest is missing is
+exactly the part only a manifest can declare, such as
+[shared mailbox support](/signatures/sending-on-behalf/#where-the-add-in-runs-in-a-shared-mailbox),
+and the code cannot see that it is missing.
+
+So the add-in reports which manifest it was installed from, on the same beacon
+that reports whether the signature applied, and
+[Activity](/monitoring/activity/) shows you the answer. When any mailbox that
+has composed in the last 30 days is on an older manifest than the one Sigil is
+serving, the view carries an "Add-in update available" notice naming the current
+version, how many mailboxes are behind, and a link to the manifest to re-upload.
+The per-mailbox table has an Add-in column with each mailbox's version in it.
+
+A mailbox reading `pre-1.5` is one whose manifest is older than the stamp
+itself, which arrived in 1.5.0.0. It can also be classic Outlook for Windows on
+a build too old to report the version at all, which is old in its own right.
+Either way it means out of date rather than not known, and it is labelled that
+way rather than left blank, because blank invites the wrong reading.
+
+| Version | What it added |
+| --- | --- |
+| 1.4.0.0 | Shared mailbox support for the clients that require the manifest to declare it, including a mailbox promoted to a full account in new Outlook for Windows |
+| 1.5.0.0 | The version stamp itself, so the portal can tell you when your organisation is behind |
+
+The notice never appears while Sigil cannot read its own served manifest, so it
+will not tell you to update towards a version nobody can name. It also counts
+only mailboxes that have actually composed in the last 30 days, so somebody who
+left in March does not hold your organisation at "behind" for ever.
+
+Updating is the same job as the first upload: point Integrated apps at the same
+manifest URL again, and expect the consent prompt described above. Until you do,
+those mailboxes keep working exactly as they did. They simply do not get
+whatever the newer manifest declares.
 
 ## Removing the add-in
 

@@ -142,6 +142,26 @@ recorded failure.
 Check the assignment in Integrated apps. A pilot deployment that was never
 widened is a common cause of a clean split between two groups of people.
 
+### Is the signature missing only in a shared mailbox?
+
+If somebody's own messages are signed and only their shared mailbox sends are
+not, the question is how their Outlook holds that mailbox. Opened as a folder
+alongside their own, the add-in follows them into it. Added as an account of its
+own, or promoted to a full account in new Outlook for Windows, Outlook only
+loads add-ins whose manifest declares support for shared folders, which Sigil's
+does from version 1.4.0.0.
+
+An organisation still on an older manifest sees no Sigil at all in those compose
+windows, and no amount of waiting or redeploying to the mailbox changes that. The
+Add-in column in [Activity](/monitoring/activity/#which-add-in-version-people-are-on)
+says which manifest your organisation is on. The table of which clients need what
+is on
+[sending on behalf of a mailbox](/signatures/sending-on-behalf/#where-the-add-in-runs-in-a-shared-mailbox).
+
+On Android and iOS a shared mailbox added as its own account gets no signature
+from any add-in, and there is nothing to fix. Microsoft does not support the
+scenario.
+
 ## Some people have a different signature from everyone else
 
 Check whether a [staged rollout](/signatures/staged-rollouts/) is running. A

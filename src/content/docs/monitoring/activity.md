@@ -36,6 +36,9 @@ Adoption statistics across the whole tenant.
 
 The never-applied list, described below.
 
+Which add-in manifest version each mailbox installed, and a notice when any of
+them is behind. Described below.
+
 A Template changes card, which is where the
 [change log](/monitoring/change-log/) is read in the portal. It lists the changes
 that alter what goes out on somebody's mail and leaves out the administrative
@@ -79,6 +82,31 @@ email and would otherwise chase your administrators about them weekly, for ever.
 
 The directory cross-reference is best-effort. If Graph is briefly unavailable the
 rest of the telemetry still renders without it.
+
+## Which add-in version people are on
+
+The add-in's files sit at fixed URLs, so everybody runs the current code. The
+manifest is the part that does not update itself, and an organisation can sit on
+one from months ago without anything looking wrong. What an old manifest lacks
+is the part only a manifest can declare, such as
+[shared mailbox support](/signatures/sending-on-behalf/#where-the-add-in-runs-in-a-shared-mailbox),
+and the running code cannot see that it is missing.
+
+So every apply reports the manifest version behind it, and the per-mailbox table
+carries it in an Add-in column. When any mailbox that has composed in the last 30
+days is on an older manifest than the one Sigil serves, the view opens with an
+"Add-in update available" notice saying how many are behind and linking to the
+manifest to re-upload.
+
+A version of `pre-1.5` means a manifest older than the version stamp itself, or
+a classic Outlook for Windows build too old to report it. Both are out of date,
+which is why it does not read as unknown. A dash means the mailbox has never
+applied a signature, and the never-applied list is the better place to read that.
+
+Re-uploading is an administrator's job in the Microsoft 365 admin centre, and
+nothing in Sigil can do it for you. Until it happens those mailboxes keep working
+as they did. See
+[which manifest version you are on](/deploy/deploy-the-add-in/#which-manifest-version-you-are-on).
 
 ## What the numbers will not tell you
 

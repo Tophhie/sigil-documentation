@@ -11,12 +11,73 @@ actually wrote the message, so what arrives reads "Jane Doe on behalf of Sales"
 rather than just "Sales".
 
 One template covers both cases. You do not need a second template for the shared
-mailbox, and nothing about the add-in changes.
+mailbox.
 
 Everything on this page also holds for a Microsoft 365 Group or distribution
 list that people send as. What is particular to groups, including the one way of
 sending that Outlook keeps add-ins out of, is on
 [sending as a Microsoft 365 Group](/signatures/group-mailboxes/).
+
+## Where the add-in runs in a shared mailbox
+
+Before any of this matters, the add-in has to be running in the window somebody
+is typing in, and whether it is depends on how their Outlook holds the shared
+mailbox rather than on anything set up in Sigil. The rules are Microsoft's and
+they differ by client.
+
+| How the shared mailbox is open | Signature applied |
+| --- | --- |
+| Outlook on the web, in the same tab as the person's own mailbox | Yes |
+| New Outlook for Windows, mapped in automatically and left as a folder | Yes |
+| Classic Outlook for Windows | Yes |
+| Outlook for Mac | Yes, from manifest 1.4.0.0 |
+| Outlook on the web, opened with Open another mailbox in its own tab | Yes, from manifest 1.4.0.0 |
+| New Outlook for Windows, added by the person or promoted to a full account | Yes, from manifest 1.4.0.0 |
+| Outlook for Android and iOS, where the shared mailbox is added as its own account | No |
+
+The last four rows are the ones worth reading twice. Outlook only loads an
+add-in into those windows if the manifest declares support for shared folders,
+and Sigil's manifest declares it from version 1.4.0.0. An organisation still on
+an older manifest gets no Sigil at all in those compose windows, however the
+add-in was deployed and however long it waited. Microsoft now steers
+administrators towards promoting a shared mailbox to a full account in new
+Outlook for Windows, so this is a common way to meet it.
+
+If that describes what you are seeing, the fix is to re-upload the manifest. The
+portal tells you when your organisation is behind: see
+[which manifest version you are on](/deploy/deploy-the-add-in/#which-manifest-version-you-are-on).
+
+Deploy the add-in to the people, never to the shared mailbox. Microsoft's own
+guidance is that administrators should not deploy add-ins to a shared mailbox,
+and an add-in deployed to somebody's own mailbox follows them into every shared
+mailbox they open, subject to the table above. Adding `sales@` itself to the
+deployment group is not a fix for a missing signature, and neither is waiting
+longer.
+
+Mobile is a flat no, and not Sigil's decision. Microsoft does not support
+shared mailbox scenarios for add-ins on Android or iOS at all, so a shared
+mailbox added as its own account on a phone gets no signature from any add-in.
+The person's own account on the same phone is unaffected.
+
+### Who the add-in signs in as inside a promoted mailbox
+
+With the mailbox held as an account of its own, Outlook reports the mailbox's
+address as the signed-in user. Sigil does not take it at face value: it
+authenticates as whoever the client is actually signed in as, which is the
+person, and treats the mailbox as the mailbox. So the split described below
+still holds, and "Jane Doe on behalf of Sales" still renders with Jane's name
+in it.
+
+This matters because a shared mailbox is never meant to be signed into with a
+password, which is Microsoft's position as well as ours. Nothing in Sigil ever
+asks anybody to.
+
+It also settles what happens on a shared computer. The copy of the last
+signature a device keeps records who it was fetched for, not just which address
+it was for, and a copy fetched for somebody else is discarded rather than put
+into the message. So two colleagues taking turns at a reception desk cannot end
+up sending each other's "on behalf of" line: the second one waits for a fresh
+signature instead of starting from the first one's.
 
 ## The two identities
 

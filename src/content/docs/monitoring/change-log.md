@@ -127,7 +127,8 @@ Entries read in plain language rather than as internal lever names:
 | Changed your discount, or Extended your trial | A commercial arrangement was changed |
 | Cancelled your subscription, or Reactivated your subscription | Your subscription state was changed |
 | Re-sent the Microsoft consent prompt | A re-consent link was sent to your administrators |
-| Sent your admins a message | Support emailed your administrators |
+| Sent your admins a message | Support emailed your administrators about your organisation |
+| Sent your admins a platform announcement | Your administrators were included in a notice sent to every customer, such as a manifest update or a change of policy |
 | Recorded your data processing agreement | Acceptance was recorded on your behalf |
 | Repaired a setup step | An unfinished onboarding step was completed |
 | Scheduled your organisation for deletion, or Cancelled the scheduled deletion | A deprovision was booked or called off |
