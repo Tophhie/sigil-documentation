@@ -90,12 +90,14 @@ and therefore only cover the last 90 days. See
 
 | Item | Value |
 | --- | --- |
-| Entries on the portal's Template changes card | Most recent 100, paged |
+| Entries in the portal's Audit log view | Most recent 500 of each half, paged |
+| Entries a single API request returns | Most recent 500 |
 | Entries in a tenant export | Most recent 5,000 |
 
-Both are display limits rather than retention ones. The card also narrows to the
-changes that alter what a signature looks like, so role changes, exclusions, API
-keys and settings are recorded without appearing on it. See the
+All three are display limits rather than retention ones. The two halves are
+fetched separately, so template changes cannot be pushed out of view by a busy
+week of role changes. Narrowing by who or by action then works on what was
+fetched, and does not reach further back. See the
 [change log](/monitoring/change-log/).
 
 ## Link analytics windows

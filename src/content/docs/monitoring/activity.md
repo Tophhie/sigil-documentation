@@ -39,19 +39,14 @@ The never-applied list, described below.
 Which add-in manifest version each mailbox installed, and a notice when any of
 them is behind. Described below.
 
-A Template changes card, which is where the
-[change log](/monitoring/change-log/) is read in the portal. It lists the changes
-that alter what goes out on somebody's mail and leaves out the administrative
-churn around them, so that a card sitting under an adoption report answers the
-question the report raises: what changed, and when, that might explain this.
+What this view does not carry is the [change log](/monitoring/change-log/), which
+has a view of its own beside this one. It used to sit here as two cards at the
+foot of the page. Whether the add-in is reaching people and who changed what are
+different questions, and the second had outgrown the bottom of the first.
 
-An Admin and support activity card, which carries the other half of the same log:
-role and user changes, settings, exclusions, API keys and profile field
-definitions, plus anything Tophhie Cloud support did on your organisation. Those
-support entries read "Sigil operator" and carry a "Sigil support" badge, so a
-change your own people did not make does not read as though one of them did.
-See [actions taken by Tophhie Cloud
-support](/monitoring/change-log/#actions-taken-by-tophhie-cloud-support).
+The two still belong together in an investigation, and usually in that order:
+read here that applies started failing on Tuesday, then read the change log for
+what an administrator did on Monday.
 
 ## The never-applied list
 
@@ -95,8 +90,15 @@ and the running code cannot see that it is missing.
 So every apply reports the manifest version behind it, and the per-mailbox table
 carries it in an Add-in column. When any mailbox that has composed in the last 30
 days is on an older manifest than the one Sigil serves, the view opens with an
-"Add-in update available" notice saying how many are behind and linking to the
-manifest to re-upload.
+"Add-in update available" notice saying how many are behind.
+
+The notice opens the steps rather than only naming the problem. It walks through
+the four things the update needs, with a button through to Integrated apps and
+the manifest link ready to copy, and it says plainly which two steps bite when
+they are done wrong: leaving a gap between the upload and the consent prompt
+blocks users from the add-in in between, and the deployment must stay assigned to
+people rather than to a shared mailbox. See
+[updating the add-in](/deploy/deploy-the-add-in/#updating-the-add-in).
 
 A version of `pre-1.5` means a manifest older than the version stamp itself, or
 a classic Outlook for Windows build too old to report it. Both are out of date,

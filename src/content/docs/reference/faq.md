@@ -289,10 +289,11 @@ during business hours, and without access to any other customer's data. See
 
 ## Can we see when Tophhie Cloud support does something to our organisation?
 
-Yes, in your own [change log](/monitoring/change-log/). Support actions appear on
-the Admin and support activity card of the Activity view, badged as support and
-attributed to the individual operator's address rather than to "support" in
-general.
+Yes, in your own [change log](/monitoring/change-log/). Support actions appear in
+the portal's Audit log view under the organisation, access and support half,
+badged as support and reading "Sigil operator" rather than naming the member of
+staff. The individual is recorded in Tophhie Cloud's own copy, which is what an
+investigation would read.
 
 That covers being looked at as well as being changed. A read-only support session
 is recorded as "Viewed your portal", so the answer to "has anyone at Sigil been in

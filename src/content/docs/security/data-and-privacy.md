@@ -34,6 +34,15 @@ Uploaded images.
 
 Configuration: assignment rules, banners, footers, roles and users.
 
+A name for each address Sigil has seen, so that the portal can show people by
+name rather than by address. It holds the display name, and the given name and
+surname where the directory offers them, beside the address they belong to.
+These come from the name on each person's sign-in token and from the directory
+lookup Sigil already makes, so no permission beyond the ones already granted is
+involved. A name is kept after the person's access is removed, because the
+[change log](/monitoring/change-log/) goes on naming them for years and a name
+that vanished with the role would make the log less readable, not more.
+
 The addresses of any mailboxes excluded from Sigil, with the note an
 administrator wrote against each and who excluded it. Where a whole Entra group
 is excluded, that means the group's identity and the addresses of its members,
@@ -229,17 +238,35 @@ values people entered in them, the change log and your images. Ask support for
 it. It is the artifact for a due diligence request or for leaving, and it is
 worth taking before a deprovision rather than after.
 
-That list is what the file contains rather than a summary of it. A few smaller
-records are not in it: your organisation-wide [settings](/admin/settings/), any
-booked [scheduled publish](/signatures/scheduled-publishing/), the mailboxes and
-groups you have [excluded](/admin/cost-management/), and your
-[API keys](/admin/api-keys/). Each of those is readable
-in the portal, and each is purged on deprovision along with everything else. Ask
-support if you need them in an export for a compliance exercise.
+It also holds your organisation-wide [settings](/admin/settings/), your billing
+profile, the mailboxes and groups you have
+[excluded](/admin/cost-management/) with the mode that says how the list is read,
+and the names Sigil holds beside your addresses.
+
+That list is what the file contains rather than a summary of it. Some records are
+deliberately left out, each for a stated reason. Archived template bodies are
+out because the file would grow without bound and every publish is in the change
+log with its version and author. Per-mailbox delivery telemetry is out because a
+subject access request answers it at the right size, described below. Tracked
+link definitions and click records are out because every destination already sits
+in a template or a banner, and the clicks hold no identity to return. Booked
+[scheduled publishes](/signatures/scheduled-publishing/) and rollouts still in
+flight are out because they are machinery rather than record, and whatever they
+publish lands in the change log. Your [API keys](/admin/api-keys/) are out
+because a document that leaves the platform must not enumerate live credentials.
+Ask support if you need any of them for a compliance exercise.
 
 The file carries a schema version, which is what tells two exports apart when the
-contents differ. Version 3 is the current one, and it is where the profile fields
-and their values arrived.
+contents differ. Version 5 is the current one. Version 3 was where the profile
+fields and their values arrived, 4 added the settings, the billing profile and
+the cost management list, and 5 added the names.
+
+Each of those bumps mattered for the same reason. Two exports that differ in what
+they hold must not look alike, because only the later one is complete, and the
+sections added in 4 and 5 are personal data: the group membership under cost
+management is staff addresses Sigil materialised into its own database, and the
+names are about identifiable people. An export missing either is not merely
+thinner, it is wrong about what your organisation holds.
 
 It also carries the support notes Tophhie Cloud staff have written against your
 organisation. Those notes are written in the operator console rather than in your
@@ -249,6 +276,13 @@ export does not hold them back.
 The change log is capped at its most recent 5,000 entries, so an organisation
 with years of history gets a recent window rather than the lot. Everything else
 is complete.
+
+One thing in the change log is deliberately not what the underlying record says.
+Entries for actions Tophhie Cloud support took on your organisation name "Sigil
+operator" rather than the member of staff who did it, in the export exactly as on
+screen. The individual is held in Tophhie Cloud's own copy, which is the copy an
+investigation would read. See [actions taken by Tophhie Cloud
+support](/monitoring/change-log/#actions-taken-by-tophhie-cloud-support).
 
 ## Subject access requests
 

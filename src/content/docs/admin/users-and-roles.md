@@ -163,6 +163,12 @@ colleague, the person who uploaded an image: those name the address somebody
 acted under at the time, and rewriting them would make the record say something
 that did not happen.
 
+What the portal puts on screen beside those addresses is the person's current
+name, looked up when the record is read rather than stored on it. So a renamed
+person reads under their new name against an old entry, with the old address
+still there. That is the honest presentation of a lookup, and the address is what
+the record actually holds.
+
 Cost management entries do not follow a rename either, and that has a
 consequence worth knowing. See
 [a renamed mailbox stops being excluded](/admin/cost-management/#a-renamed-mailbox-stops-being-excluded).

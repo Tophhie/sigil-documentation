@@ -20,7 +20,7 @@ a description of it.
 | Campaign banners | Scheduled promotional banners | Yes | No | Yes | No | No | No |
 | Compliance footers | Legal and disclaimer footers | Yes | No | No | No | Yes | No |
 | Link click analytics | Click tracking and its reports | Yes | No | Yes | Yes | No | No |
-| Monitoring | Activity feed, attribute coverage, change log | Yes | Yes | No | Yes | Yes | No |
+| Monitoring | Activity feed, attribute coverage, audit log | Yes | Yes | No | Yes | Yes | No |
 | Users and roles | Invite users and assign roles | Yes | No | No | No | No | Yes |
 | Billing | Plan, seats, subscription and billing profile | Yes | No | No | No | No | Yes |
 | Cost management | Which mailboxes and Entra groups have Sigil, which way round that list reads, and the suggestions behind it | Yes | No | No | No | No | Yes |

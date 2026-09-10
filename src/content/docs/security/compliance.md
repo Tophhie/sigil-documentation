@@ -26,14 +26,14 @@ The [change log](/monitoring/change-log/) covers what was done to your
 organisation. It is not confined to templates: publishes and rollbacks, the whole
 template lifecycle from create to permanent deletion, assignment rules, banners,
 footers, link tracking, image uploads and deletions, test emails, and changes to
-who has access and at what role, each with who and when. The Activity view shows
-all of it across two cards, template changes on one and everything else on the
-other.
+who has access and at what role, each with who and when. The portal's Audit log
+view shows all of it, filterable by half, by who and by action, with each entry
+opening into what it changed.
 
 It also covers what Tophhie Cloud staff did on your organisation. Those entries
-are badged as support against the operator's own address, so the log answers
-whether Sigil touched your data without your having to ask. See [actions taken by
-Tophhie Cloud
+are badged as support and read "Sigil operator" rather than naming the member of
+staff, so the log answers whether Sigil touched your data without your having to
+ask. See [actions taken by Tophhie Cloud
 support](/monitoring/change-log/#actions-taken-by-tophhie-cloud-support).
 
 The operator audit log is the second record. It spans every organisation rather

@@ -183,10 +183,38 @@ will not tell you to update towards a version nobody can name. It also counts
 only mailboxes that have actually composed in the last 30 days, so somebody who
 left in March does not hold your organisation at "behind" for ever.
 
-Updating is the same job as the first upload: point Integrated apps at the same
-manifest URL again, and expect the consent prompt described above. Until you do,
-those mailboxes keep working exactly as they did. They simply do not get
-whatever the newer manifest declares.
+Until you update, those mailboxes keep working exactly as they did. They simply
+do not get whatever the newer manifest declares.
+
+## Updating the add-in
+
+Updating is the same job as the first upload and takes about five minutes. The
+notice in [Activity](/monitoring/activity/) opens these steps with the manifest
+link ready to copy, so the version and the URL do not have to be carried between
+two browser tabs by hand.
+
+1. In the Microsoft 365 admin centre go to Settings, then Integrated apps, open
+   Sigil by Tophhie Cloud and choose Update add-in.
+2. Select "Provide link to manifest file", enter the manifest URL, then Validate
+   and Next.
+3. Accept the permissions prompt as soon as it appears.
+4. Leave the deployment assigned to the same users and groups, or to the entire
+   organisation if that is what you chose.
+
+Step 3 is the one that catches people out. Microsoft blocks users from the add-in
+between the upload and the consent, so doing the upload today and the consent
+tomorrow is a day without signatures for everybody. Do both in one sitting.
+
+Step 4 catches out the organisations that have shared mailboxes. The add-in runs
+for the person sending, never for the mailbox, so assigning the deployment to a
+shared mailbox achieves nothing and taking it off the people who send from that
+mailbox stops it working. See [where the add-in runs in a shared
+mailbox](/signatures/sending-on-behalf/#where-the-add-in-runs-in-a-shared-mailbox).
+
+Allow Microsoft's usual 6 to 72 hours for the update to reach clients before
+treating "it has not appeared" as a fault. The Add-in column in
+[Activity](/monitoring/activity/) shows each mailbox's version as it comes
+through, which is how you watch an update land rather than guess at it.
 
 ## Removing the add-in
 
