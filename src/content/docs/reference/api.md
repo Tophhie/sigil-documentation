@@ -139,7 +139,8 @@ by the person holding the token, by granting admin consent. See
 | --- | --- | --- |
 | `POST /api/signature` | Add-in token | The rendered signature plus its inline images. `email` defaults to the caller; `type` is `new` or `reply`. 403 while [delivery is paused](/signatures/pausing-delivery/) |
 | `GET /api/signature?email=&type=` | Add-in token | The same answer, for add-in versions that predate the POST form |
-| `GET /api/signature/download?email=&type=` | Add-in token | The signature as a standalone HTML file with images inlined as `data:` URIs. Also refused while delivery is paused |
+| `POST /api/signature/download` | Add-in token | The signature as a standalone HTML file with images inlined as `data:` URIs. Also refused while delivery is paused |
+| `GET /api/signature/download?email=&type=` | Add-in token | The same answer, for add-in versions that predate the POST form |
 | `POST /api/signature/report` | Add-in token | The add-in's apply outcome for one attempt |
 | `GET /api/signature/profile?email=` | Add-in token | Whether this mailbox has anything to fill in on the profile page, and where that page is |
 
@@ -156,6 +157,11 @@ add-in's other calls to the same host alone. The URL now carries nothing but the
 host. The GET form is kept because add-ins update on their own schedule and an
 older one has to keep working; both go through the same handler, the same token
 check and the same gates.
+
+The download follows the same pattern, and for the same reason. It used to put
+the mailbox address in the query string, which is the one shape that egress
+filter blocks on sight, so the add-in now posts it in a body. The GET form is
+kept for panes built before the change, and answers identically.
 
 That request carries two identities rather than one, and the difference matters.
 `email` is the mailbox the message leaves from, and the token names the person
@@ -321,7 +327,7 @@ templates capability. See
 | --- | --- | --- |
 | `GET /api/admin/fields` | Admin token | The placeholder list the editors offer, including this organisation's own [profile fields](/admin/profile-fields/) under a "User profile" group |
 | `GET /api/admin/profile-fields` | Admin token, settings capability | The custom fields this organisation's staff fill in about themselves |
-| `POST /api/admin/profile-fields` | Admin token, settings capability | Define a field. The key becomes `{{custom.<key>}}` and cannot be changed afterwards |
+| `POST /api/admin/profile-fields` | Admin token, settings capability | Define a field. The key becomes `{{custom.<key>}}`, and `{{sender.custom.<key>}}` for whoever presses Send from a shared mailbox, and cannot be changed afterwards |
 | `PUT /api/admin/profile-fields/:key` | Admin token, settings capability | Change a field's label, help, type or availability. `enabled: false` hides it and keeps everyone's values |
 | `DELETE /api/admin/profile-fields/:key` | Admin token, settings capability | Delete a field and every value stored against it. Irreversible |
 | `GET/PUT /api/admin/rules` | Admin token, rules capability | Assignment rules, replaced as one ordered list |
@@ -390,7 +396,7 @@ telemetry.
 | `GET /api/admin/users/search` | Admin token, templates or users capability | Directory lookup, for pickers such as download and test email |
 | `GET/PUT /api/admin/settings` | Admin token, settings capability | The organisation-wide switches: publish approval, profile editing and digest frequency |
 | `GET /api/admin/profile-values` | Admin token, staff profile details capability | Every mailbox with stored [profile values](/admin/profile-fields/), each with its completion count, and the enabled field definitions to label them with |
-| `PUT /api/admin/profile-values/:email` | Admin token, staff profile details capability | Edit a colleague's values on their behalf. Validated exactly as the colleague's own save is, and recorded in the change log |
+| `PUT /api/admin/profile-values/:email` | Admin token, staff profile details capability | Edit a colleague's values on their behalf, or enter them for a mailbox that has none yet. The address must exist in the directory, and a secondary alias is stored against the mailbox's primary address. Validated exactly as the colleague's own save is, and recorded in the change log |
 | `GET /api/admin/settings/digest/preview` | Admin token, settings capability | The [health digest](/monitoring/health-digest/) as it would be sent now. Sends nothing |
 | `POST /api/admin/settings/digest/send` | Admin token, settings capability | Mail the digest to the calling admin alone |
 | `GET /api/admin/onboarding` | Admin token, Admin role | Getting started checklist state |

@@ -93,7 +93,7 @@ The mailbox is the one that decides almost everything:
 | --- | --- |
 | Which template applies | The mailbox. [Assignment rules](/targeting/assignment-rules/) match its own directory record, so a delegate's department cannot route the shared mailbox somewhere else |
 | Every ordinary placeholder | The mailbox. `{{displayName}}` from `sales@` is "Sales" |
-| [Profile fields](/admin/profile-fields/) | The mailbox, so `{{custom.…}}` is whatever was filled in for `sales@` rather than for the delegate |
+| [Profile fields](/admin/profile-fields/) | Either, and you choose per placeholder. `{{custom.…}}` is whatever was filled in for `sales@`; `{{sender.custom.…}}` is what the delegate filled in for themselves |
 | The sender fields | The person who pressed Send |
 
 That split is deliberate. The sender fields cover who the person is and how to
@@ -118,6 +118,13 @@ numbers, and their fifteen extension attributes. They are listed in full on
 The names are what "Jane Doe on behalf of Sales" needs, and are what this started
 as. The rest exists because an organisation whose staff carry a personal licence
 or registration number has to print the sender's, not the mailbox's.
+
+Your own [profile fields](/admin/profile-fields/) join them. A field you defined
+as `pronouns` is available both as `{{custom.pronouns}}`, the mailbox's answer,
+and as `{{sender.custom.pronouns}}`, the answer given by whoever pressed Send.
+The second is almost always the one a shared mailbox wants: a line that names a
+person should carry that person's pronouns, not an answer filled in against
+`sales@`.
 
 When nobody else is sending, every one of them resolves to the mailbox's own
 value. That fallback is what lets one line serve a personal mailbox and a shared
@@ -171,6 +178,13 @@ delegate with no first name in the directory prints nothing there rather than
 borrowing the shared mailbox's name, which would read as that person being called
 "Sales".
 
+Profile fields follow the same rule, and it is worth stating plainly because
+these are answers people gave rather than attributes an administrator maintains.
+Once a delegate is sending, `{{sender.custom.…}}` prints what that person
+entered and nothing else. A delegate who left the field blank prints nothing,
+rather than falling back to whatever was filled in for the shared mailbox. Sigil
+never attributes one colleague's answer to another.
+
 If the directory is unreachable at the moment of composing, the message gets the
 signature the mailbox would have had anyway, with the clause closed. That is
 deliberate: the alternative is "Kind regards,  on behalf of Sales", and the
@@ -187,7 +201,9 @@ itself unless you tell the preview otherwise.
 Telling the preview otherwise is a second address box, labelled "sent by", in
 both editors. Put `sales@` in the first box and a colleague in the second, and
 you see what a delegate's message will actually say, including whether the
-condition opens. Sample data in the first box works too. See
+condition opens. The named colleague's own [profile field](/admin/profile-fields/)
+answers are loaded too, so `{{sender.custom.…}}` previews as truthfully as their
+name does. Sample data in the first box works too. See
 [previewing a shared mailbox send](/signatures/templates/#previewing-a-shared-mailbox-send).
 
 Naming somebody who is not a delegate does nothing visible. The preview applies

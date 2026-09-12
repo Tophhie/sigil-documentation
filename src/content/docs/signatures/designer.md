@@ -191,7 +191,9 @@ that field at the cursor.
 The designer fetches its field list from the API, which means the picker cannot
 drift from what the renderer knows how to resolve. Any
 [profile fields](/admin/profile-fields/) your organisation has defined arrive
-that way too, under a "User profile" heading after the directory groups.
+that way too, under a "User profile" heading after the directory groups, and
+each one also appears in the Sender segment described below as the answer given
+by whoever pressed Send.
 
 The menu has two segments, Mailbox and Sender. Mailbox is the account the message
 goes out from, and Sender is the person composing. Almost every sender field

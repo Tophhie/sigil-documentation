@@ -137,6 +137,30 @@ The `custom.` prefix is reserved. It means a built-in field added to Sigil later
 can never collide with a key you are already using, and it tells anyone reading
 your template which values came from the directory and which a colleague typed.
 
+### The sender's own answer
+
+Every field you define is offered a second time as `{{sender.custom.<key>}}`,
+filed under the picker's Sender segment beside the other
+[sender placeholders](/signatures/sending-on-behalf/#the-sender-placeholders).
+
+The two differ only when a message goes out from a shared or delegated mailbox.
+`{{custom.pronouns}}` is then the answer filled in against the shared mailbox,
+and `{{sender.custom.pronouns}}` is the answer given by the colleague who
+pressed Send. A line that names a person almost always wants the second:
+
+```html
+{{sender.firstName}} {{sender.lastName}}{{#sender.custom.pronouns}} ({{sender.custom.pronouns}}){{/sender.custom.pronouns}}
+```
+
+On an ordinary send the two forms resolve to the same value, so one template
+still covers both cases. Once somebody else is sending, the sender form prints
+what that person entered and nothing else: a delegate who left the field blank
+prints nothing rather than borrowing the mailbox's answer.
+
+This also covers [group mailboxes](/signatures/group-mailboxes/). A group has
+nobody to fill in a profile, so `{{custom.…}}` is always empty there, while
+`{{sender.custom.…}}` carries the answer of the member who sent the message.
+
 ## Turning profile editing on
 
 The switch is on this page and on [Settings](/admin/settings/). It is off by
@@ -175,6 +199,35 @@ You can edit somebody else's values from here. It exists for the support case,
 where a colleague is on leave and their number is wrong, and for pre-filling
 before you ask anyone to visit the page.
 
+### Entering values for a mailbox that has none
+
+The tab also has an Add a mailbox button, for a mailbox that has never been to
+the profile page at all. Two cases need it.
+
+A shared mailbox is the first, and it is the only way its fields can be filled
+in. Nobody signs in as a shared mailbox, so nobody can open the profile page as
+one. If you want `sales@` to carry an answer of its own, an administrator enters
+it here.
+
+A colleague who has not visited the page yet is the second. A starter whose
+direct line is known before their first day can have it filled in ahead of them,
+and they can change it themselves afterwards.
+
+The address has to be a real mailbox in your Microsoft 365 directory, and Sigil
+checks it rather than taking your word for it. A typo would otherwise create an
+entry that reaches no signature, counts against nothing and sits in your
+completion figures for good. Where your role can search the directory the
+address completes as you type it; where it cannot, type it in full and the
+check still runs on save.
+
+If you enter a secondary alias, the values are stored against the mailbox's
+primary address, which is the one signatures are rendered for. An entry stored
+against an alias would be real, visible in this table, and never reach anybody's
+mail.
+
+Typing the address of somebody already listed edits their entry rather than
+starting a new one.
+
 Reading or editing this tab needs the staff profile details capability, which is
 a different capability from the one that defines the fields. Deciding which
 fields exist is an organisation-wide choice about how you work. Reading what a
@@ -187,7 +240,7 @@ the two are not the same permission.
 | --- | --- | --- |
 | Define, change, hide or delete fields | Settings | Admin |
 | Switch profile editing on or off | Settings | Admin |
-| See and edit what colleagues entered | Staff profile details | Admin |
+| See, edit and pre-fill what colleagues entered | Staff profile details | Admin |
 | Fill in your own details | None | Everybody |
 
 Staff profile details is its own capability rather than part of users and roles,

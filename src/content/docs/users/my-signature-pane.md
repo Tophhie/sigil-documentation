@@ -16,6 +16,13 @@ automatic path cannot do its job.
 It applies your signature immediately and shows you a preview of what was
 applied.
 
+The preview is laid out at the pane's own width, the way a narrow email window
+would lay it out, so text wraps and nothing is shrunk. Only where something in
+the signature cannot wrap, such as a fixed-width table or a banner image, is the
+preview scaled down, and then only enough to show the whole of it rather than
+its left third. A plain text signature is never made smaller than it will
+actually be.
+
 If it could not, it says why, in language you can act on rather than an error
 code.
 

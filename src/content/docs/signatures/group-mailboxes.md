@@ -59,7 +59,12 @@ reach. So when the group's signature renders:
 - the [sender placeholders](/signatures/sending-on-behalf/) work unchanged. The
   person sending is never the group, so `{{#onBehalfOf}}` opens and
   `{{sender.firstName}}` names them. "Kind regards, Jane Doe on behalf of Sales"
-  is what an ordinary template renders from a group, with nothing added.
+  is what an ordinary template renders from a group, with nothing added;
+- any [profile field](/admin/profile-fields/) you have defined reaches the
+  member who sent the message, through `{{sender.custom.<key>}}`. A group has
+  nobody to fill in a profile of its own, so the plain `{{custom.<key>}}` form
+  is always empty for one. If a group's signature should carry the sender's
+  pronouns, that is the placeholder to use.
 
 Your existing template is therefore already right for a group in most cases. The
 one thing to look at is any line that assumes a person: a "Chat with me in

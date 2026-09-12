@@ -26,7 +26,8 @@ placeholder appears in the picker, it renders.
 
 That includes any [profile fields](/admin/profile-fields/) your organisation has
 defined, which appear as `{{custom.<key>}}` under a "User profile" heading after
-the directory groups.
+the directory groups. Each is listed a second time as `{{sender.custom.<key>}}`,
+for the answer given by whoever pressed Send rather than the mailbox's own.
 
 See [placeholders](/signatures/placeholders/) for the full set and what each one
 maps to.

@@ -99,6 +99,7 @@ Each is an ordinary field name with `sender.` in front of it.
 | `{{sender.employeeId}}`, `{{sender.employeeType}}` | Their employee number and employee type |
 | `{{sender.email}}`, `{{sender.businessPhone}}`, `{{sender.mobilePhone}}` | How to reach them directly. The address is their primary one |
 | `{{sender.extensionAttribute1}}` through `{{sender.extensionAttribute15}}` | Their own [extension attributes](#extension-attributes), which a regulated organisation typically uses for a personal licence or reference number |
+| `{{sender.custom.<key>}}` | Their own answer to one of your [user profile fields](#user-profile-fields), such as the pronouns they filled in for themselves |
 
 Not everything the mailbox offers is available here, and the omissions are
 deliberate. The address lines, the office and the company name describe a site or
@@ -107,6 +108,13 @@ manager's details, the profile photo and the
 [contact card link](/signatures/contact-card/) are left out for the same reason.
 A signature mixing the shared mailbox's brand with the delegate's postal address
 would be worse than one that mixed nothing.
+
+Your own [user profile fields](#user-profile-fields) are available here, and are
+the exception to that reasoning rather than a contradiction of it. What somebody
+typed about themselves is the most personal thing a signature carries, so it
+belongs with the person and not with the mailbox they happen to be sending from.
+Every field you define is therefore offered twice: `{{custom.pronouns}}` for the
+mailbox, and `{{sender.custom.pronouns}}` for whoever pressed Send.
 
 Sender fields differ from the mailbox's own only when a message is sent from a
 shared or delegated mailbox. On an ordinary send they resolve to the mailbox's own
@@ -140,6 +148,7 @@ them may mean changing AD rather than Entra.
 | Placeholder | Source |
 | --- | --- |
 | `{{custom.<key>}}` | A field your organisation defined, filled in by the person themselves |
+| `{{sender.custom.<key>}}` | The same field, as filled in by whoever pressed Send |
 
 These are the one group here that does not come from the directory at all. An
 administrator defines which fields exist, and each colleague fills in their own
@@ -155,6 +164,14 @@ typed.
 They appear in the field picker in both editors under a "User profile" heading,
 after the directory groups. The group is last because it is the only one whose
 contents differ between two organisations looking at the same picker.
+
+Each one is listed a second time under [Sender](#sender), as
+`{{sender.custom.<key>}}`. That form prints what the person who pressed Send
+filled in, which matters when the message leaves a
+[shared or delegated mailbox](/signatures/sending-on-behalf/): a line naming
+Jane should carry Jane's pronouns rather than the shared mailbox's. It follows
+the same rule as every other sender placeholder, so on an ordinary send the two
+forms resolve to the same value and one template covers both cases.
 
 Somebody who has not filled in a field renders as empty, exactly like a sparse
 directory attribute, so wrap these in a conditional section. Nothing here is

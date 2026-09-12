@@ -73,11 +73,29 @@ Leaving a field empty is fine. Your signature closes up around anything you have
 not filled in, so an empty field leaves no gap, no stray comma and no empty
 label.
 
+## If you send from a shared mailbox
+
+What you enter here can follow you. Where your organisation's template asks for
+it, a message you send from a shared mailbox such as `sales@` carries your own
+answers rather than anything filled in against that mailbox, in the same way it
+carries your name rather than the mailbox's.
+
+Whether it does is your organisation's decision, taken in the template, so it is
+worth asking your IT team if it matters to you. What will never happen is your
+answer appearing under a colleague's name, or theirs under yours. If you left a
+field empty, a message you send prints nothing there rather than borrowing
+somebody else's answer.
+
+A shared mailbox can have answers of its own, but nobody signs in as one, so
+only an administrator can enter them.
+
 ## Who can see what you enter
 
 Your organisation's administrators can see what everybody has entered, and can
 correct it on your behalf if you ask them to. That is the same access they
-already have to the rest of your signature.
+already have to the rest of your signature. They can also fill your details in
+before you have been to the page at all, which is how a starter's direct line
+can be in place on their first day.
 
 When an administrator edits your details, it is recorded in your organisation's
 change log with their name on it. When you edit your own, it is not: that log is
