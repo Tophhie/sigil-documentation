@@ -96,11 +96,16 @@ The mailbox is the one that decides almost everything:
 | [Profile fields](/admin/profile-fields/) | Either, and you choose per placeholder. `{{custom.…}}` is whatever was filled in for `sales@`; `{{sender.custom.…}}` is what the delegate filled in for themselves |
 | The sender fields | The person who pressed Send |
 
-That split is deliberate. The sender fields cover who the person is and how to
-reach them directly. What describes the site or the brand, including the address
-lines, the office and the company name, stays the mailbox's, because a signature
-mixing the shared mailbox's brand with the delegate's postal address would be
-worse than one that mixed nothing.
+The sender fields cover the person's whole directory record: names, role and
+company, their own email and phones, their address and office, their manager, and
+their extension attributes. Which one fills each slot is the template's choice,
+made placeholder by placeholder, which is what the Mailbox and Sender tabs of the
+designer's field menu are for. Only the profile photo and the contact card link
+have no sender form, because both are worked out once, for the mailbox.
+
+That choice matters most for a generic mailbox. A shared `sales@` with an office
+address of its own can print it, while `admin@` with nothing on record needs the
+sender's, or its messages carry no address at all.
 
 Signing in is always the person's own act. The add-in authenticates as whoever is
 signed in to Outlook, never as the mailbox they are sending from, so a shared
@@ -110,14 +115,20 @@ has to be done to `sales@` for a delegate's message to be signed.
 ## The sender placeholders
 
 A set of placeholders describes the person rather than the mailbox. Each is an
-ordinary field name with `sender.` in front of it: their names, job title and
-department, their employee number and type, their own email address and phone
-numbers, and their fifteen extension attributes. They are listed in full on
+ordinary field name with `sender.` in front of it: their names, role and company,
+their employee number and type, their email address, phone and fax numbers, their
+address and office, their manager, and their fifteen extension attributes. They are listed in full on
 [placeholders](/signatures/placeholders/#sender).
 
 The names are what "Jane Doe on behalf of Sales" needs, and are what this started
-as. The rest exists because an organisation whose staff carry a personal licence
-or registration number has to print the sender's, not the mailbox's.
+as. The rest exists for what a name does not cover. An organisation whose staff carry
+a personal licence or registration number has to print the sender's, and a
+generic shared mailbox with no address or phone of its own has nothing else to
+print.
+
+A label or separator beside a sender field has a rule of its own, and it may still
+test the mailbox's field. See
+[labels on a shared mailbox's signature](/signatures/designer/#labels-on-a-shared-mailboxs-signature).
 
 Your own [profile fields](/admin/profile-fields/) join them. A field you defined
 as `pronouns` is available both as `{{custom.pronouns}}`, the mailbox's answer,

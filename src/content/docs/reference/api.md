@@ -395,6 +395,7 @@ telemetry.
 | Route | Auth | Purpose |
 | --- | --- | --- |
 | `GET /api/admin/me` | Admin token | Who the caller is, their role, and their organisation's state |
+| `GET /api/admin/flags` | Admin token | Which features being rolled out gradually are switched on for this organisation. Reachable with an API key of any scope |
 | `GET/PUT /api/admin/users`, `DELETE /api/admin/users/:email` | Admin token, users capability | Manage users and roles |
 | `GET /api/admin/users/search` | Admin token, templates or users capability | Directory lookup, for pickers such as download and test email |
 | `GET/PUT /api/admin/settings` | Admin token, settings capability | The organisation-wide switches: publish approval, profile editing and digest frequency |

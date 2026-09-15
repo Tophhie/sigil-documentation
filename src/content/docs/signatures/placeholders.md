@@ -95,22 +95,26 @@ Each is an ordinary field name with `sender.` in front of it.
 | Placeholder | Resolves to |
 | --- | --- |
 | `{{sender.displayName}}`, `{{sender.firstName}}`, `{{sender.lastName}}` | Their names |
-| `{{sender.jobTitle}}`, `{{sender.department}}` | Their role |
+| `{{sender.jobTitle}}`, `{{sender.department}}`, `{{sender.companyName}}` | Their role and company |
 | `{{sender.employeeId}}`, `{{sender.employeeType}}` | Their employee number and employee type |
-| `{{sender.email}}`, `{{sender.businessPhone}}`, `{{sender.mobilePhone}}` | How to reach them directly. The address is their primary one |
+| `{{sender.email}}`, `{{sender.businessPhone}}`, `{{sender.mobilePhone}}`, `{{sender.fax}}` | How to reach them directly. The address is their primary one |
+| `{{sender.streetAddress}}`, `{{sender.city}}`, `{{sender.state}}`, `{{sender.postalCode}}`, `{{sender.country}}`, `{{sender.officeLocation}}` | Their address and office |
+| `{{sender.managerName}}`, `{{sender.managerJobTitle}}`, `{{sender.managerEmail}}`, `{{sender.managerPhone}}` | Their manager |
 | `{{sender.extensionAttribute1}}` through `{{sender.extensionAttribute15}}` | Their own [extension attributes](#extension-attributes), which a regulated organisation typically uses for a personal licence or reference number |
 | `{{sender.custom.<key>}}` | Their own answer to one of your [user profile fields](#user-profile-fields), such as the pronouns they filled in for themselves |
 
-Not everything the mailbox offers is available here, and the omissions are
-deliberate. The address lines, the office and the company name describe a site or
-a brand rather than a person, so the mailbox's own are the ones to print. The
-manager's details, the profile photo and the
-[contact card link](/signatures/contact-card/) are left out for the same reason.
-A signature mixing the shared mailbox's brand with the delegate's postal address
-would be worse than one that mixed nothing.
+Two things the mailbox offers have no sender form: the profile photo and the
+[contact card link](/signatures/contact-card/). Both are worked out once, for the
+mailbox, when a signature is served.
 
-Your own [user profile fields](#user-profile-fields) are available here, and are
-the exception to that reasoning rather than a contradiction of it. What somebody
+Everything else is available both ways, and which one fills each slot is your
+choice. A shared mailbox with an office address of its own will usually want
+`{{city}}`. A generic mailbox such as `admin@`, with no address on record, prints
+nothing there, and `{{sender.city}}` is what gives its messages an address at
+all.
+
+Your own [user profile fields](#user-profile-fields) are available here as
+well. What somebody
 typed about themselves is the most personal thing a signature carries, so it
 belongs with the person and not with the mailbox they happen to be sending from.
 Every field you define is therefore offered twice: `{{custom.pronouns}}` for the
@@ -186,6 +190,7 @@ See [profile fields](/admin/profile-fields/) for defining them, and
 | --- | --- |
 | `{{anyPhone}}` | The person has any phone number at all |
 | `{{anyAddress}}` | The person has any address component at all |
+| `{{sender.anyPhone}}`, `{{sender.anyAddress}}` | The same two tests against whoever pressed Send. On an ordinary send they test the mailbox, like every sender field |
 | `{{hasPhoto}}` | The mailbox has a Microsoft 365 profile photo |
 | `{{onBehalfOf}}` | Somebody is sending on the mailbox's behalf, rather than the mailbox sending for itself |
 | `{{isGroup}}` | The mailbox is a Microsoft 365 Group or distribution list, rather than a person or a shared mailbox |
@@ -240,8 +245,10 @@ disappear when none of several independent things inside it survive, which is
 what a row of social icons each hanging off a different attribute needs. Nesting
 can only say "and".
 
-The syntax stays this small on purpose. There is no negation, no grouping and no
-precedence to get wrong. There is no reason to write one by hand.
+There is no negation and no grouping. A section written with `&`, `!` or brackets
+is refused when you save, with a message saying grouped conditions are not
+switched on for your organisation. There is rarely a reason to write the vertical
+bar form by hand, although it is accepted.
 
 A section like this counts as using every field it names, so all of them appear
 in [attribute coverage](/monitoring/attribute-coverage/) and in the

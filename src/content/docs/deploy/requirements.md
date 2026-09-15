@@ -61,15 +61,22 @@ fetches from `portal.usesigil.app` and is itself served from
 `static.usesigil.app`. The link domain answers `/r/` redirects and returns 404
 for every other path, so it carries no API or portal surface.
 
-One host Sigil does not own is also involved, and it is not specific to Sigil:
+Two hosts Sigil does not own are also involved. Both are Microsoft's, and neither
+is specific to Sigil:
 
 | Host | Purpose | If it is blocked |
 | --- | --- | --- |
 | `appsforoffice.microsoft.com` | Office.js, which Microsoft requires every Office add-in to load from here | The add-in does not run at all |
+| `ajax.aspnetcdn.com` | `MicrosoftAjax.js`, part of the Office.js runtime. Outlook for Mac, iOS and Android load it from here, and so can Outlook for Windows | The add-in can fail to start on those clients |
 
 Office.js is loaded by both the automatic path and the pane, so blocking it stops
-signatures rather than degrading them. If you already permit Office add-ins, it is
-allowed, because no add-in works without it.
+signatures rather than degrading them. If you already permit Office add-ins, both are
+allowed, because the Office runtime needs them for any add-in.
+
+Outlook on the web normally takes Microsoft's copy of `MicrosoftAjax.js` from
+`appsforoffice.microsoft.com` instead, which is Microsoft's choice rather than
+Sigil's. So a network that blocks `ajax.aspnetcdn.com` can see the add-in work in
+the browser and fail in the other Outlook clients.
 
 Nothing else needs allowing. The icons in the "My signature" pane were once
 fetched from `unpkg.com`; they now ship inside the add-in bundle, so an

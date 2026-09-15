@@ -247,7 +247,12 @@ last two are a pair: "sent from a group mailbox" is true when the mailbox is a
 person, such as a "Chat with me in Teams" link. They are a pair because a
 condition cannot be negated.
 
-None of the six can be inserted, because none of them prints anything. They
+The Sender tab of the menu has its own versions of the first two, Sender any
+phone and Sender any address. They test the phones and address of whoever
+pressed Send, so a row of the sender's phone numbers can hang on the sender's
+phones rather than on the mailbox's.
+
+None of these can be inserted, because none of them prints anything. They
 appear only when you are choosing a condition, and they head the list there rather
 than sitting at the bottom of it, since a whole row is more often hung on one of
 them than on a single attribute.
@@ -268,9 +273,39 @@ to rather than a preference. Where a whole row needs two conditions, put one on
 the row and the other on the block inside it, which is how nesting combines
 them.
 
-Plain text you typed cannot be made conditional on its own. It belongs to the
-block, so a label that should come and go with a field belongs in the same block
-as that field, with the condition on the block.
+### Conditions on labels and separators
+
+Plain text can carry a rule of its own too. Highlight it and press Rule on the
+text toolbar, then choose the fields it depends on. Every rule you choose must
+hold, and choosing none shows the text always. That is how a label such as "T: "
+or a separator such as " | " goes away with the value it belongs to, rather than
+being left behind with nothing after it.
+
+Text with a rule has a dotted underline on the canvas. Selecting the text block
+lists every such part under Parts of this text in its Visibility settings, each
+with its rule, so you can change or remove one without hunting for it.
+
+The starter design uses these. Its phone labels, the separator between the two
+phone numbers and the comma in the address each show only when the field they
+belong to has a value.
+
+### Labels on a shared mailbox's signature
+
+Those rules test the mailbox's own fields unless they name a Sender field. That
+matters when you move a chip to its Sender twin, for example from Business phone
+to Sender business phone. The chip now prints the delegate's number, but the
+"T: " beside it still hangs on the mailbox's business phone. From a generic
+shared mailbox with no phone of its own, the number prints and its label
+vanishes.
+
+The chip's settings warn when that is the case, counting the rules and links in
+the block that still use the other form of the field, and offer to switch them
+to match. Switching also moves a `tel:` link built from the old field, and the
+block's own Any phone or Any address condition where it has one.
+
+Check the result against a real mailbox rather than the sample person. The sample
+has every field filled in, so a failing rule can never show there. Put a sparse
+shared mailbox in the preview's first address box and a colleague in "Sent by".
 
 ### Lines that appear only on a shared mailbox send
 
@@ -284,6 +319,7 @@ condition.
 | --- | --- |
 | A whole block, including a row and everything in it | Select the block, open Visibility, and set Show when |
 | One field chip inside a line of text | Select the chip, open Visibility, and add it as a rule |
+| A label, separator or other plain text | Highlight it and press Rule on the text toolbar |
 | A single social icon | Select the social block and set Show when on that icon |
 
 A block carrying a condition shows an "if Sent on behalf of the mailbox" badge on
