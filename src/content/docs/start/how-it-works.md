@@ -113,7 +113,7 @@ Assignment rules work the same way with a second cache in front of them.
 Evaluating a rule needs directory data, so the routing decision reached for each
 mailbox is cached too, keyed by a rules version that changes on every edit.
 Saving a rule list strands all of those at once, so a rules change also lands on
-the next compose. The ten minute freshness window on those entries exists for the
+the next compose. The hour-long freshness window on those entries exists for the
 change no version number can see, which is somebody moving department or joining
 a group in Entra. Past that window the decision is still used and the directory
 is re-read afterwards rather than mid-compose, so the change lands on the

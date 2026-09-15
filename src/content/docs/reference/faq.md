@@ -178,6 +178,14 @@ You do not have to go and look, either. A [health digest](/monitoring/health-dig
 emails your administrators the coverage figure, any apply failures and anything
 waiting on a decision, weekly by default.
 
+## Can people check for themselves that their signature is working?
+
+Yes. The page where staff [fill in their own details](/users/your-details/) says
+when Sigil last added their signature to an email and in which Outlook, or why
+the last attempt did not go in. It reads the same record administrators see in
+[Activity](/monitoring/activity/), for that person's own mailbox only. The page
+is available once your organisation has switched profile editing on.
+
 ## Does link tracking identify individual recipients?
 
 No. A click stores the link, the time, a device class, a browser family with no
@@ -244,6 +252,10 @@ rather than being billed unexpectedly.
 
 On invoice terms it converts into a first invoice. There is no card to be
 missing, so nothing is asked for and nothing is cancelled.
+
+Either way it needs your [billing details](/admin/billing-profile/#what-waits-on-it)
+first. A trial that would convert without them is set to end on its trial date
+instead, and nothing is charged.
 
 ## Can we get our data out?
 

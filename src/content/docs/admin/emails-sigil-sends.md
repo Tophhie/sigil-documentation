@@ -36,7 +36,8 @@ organisation who can actually act on it.
 | Sigil health digest | Weekly by default, to every administrator. Coverage, apply failures and anything waiting on a decision |
 | Sigil health digest, on request | An administrator presses "Send me one" in [settings](/admin/settings/). Goes to that administrator only |
 | Action needed: reconnect Sigil | Admin consent has lapsed and signatures have stopped updating. Sent to every administrator |
-| Your Sigil trial ends soon | Three days before the trial ends, and again the day before. The wording depends on whether a card is on file |
+| Your Sigil trial ends soon | Three days before the trial ends, and again the day before. The wording depends on whether a card is on file and whether your billing details are complete. Not sent for a trial already set to end |
+| Add your billing details before your Sigil trial ends | A trial about to convert still has incomplete billing details, so it has been set to end on its trial date. Names the date and what happens either way |
 | Your Sigil payment failed, or your Sigil invoice is overdue | A payment has failed, or an invoice has gone past its due date. Names the day signatures stop |
 | Your Sigil signatures stop on a named day | About a week before the grace period runs out, if it is still unsettled |
 | A message from Tophhie Cloud | Support needs to tell your administrators something specific about your organisation |
@@ -77,7 +78,7 @@ unsubscribe from.
 
 ### The billing notices
 
-The three billing messages go to everybody who could do something about them:
+The four billing messages go to everybody who could do something about them:
 every Admin and every holder of the Billing [role](/admin/users-and-roles/),
 plus the billing email on your [billing profile](/admin/billing-profile/) if you
 have set one. Duplicates are removed, so somebody who is both is mailed once.
@@ -93,6 +94,16 @@ is a reminder that billing is about to start. With no card it is the one thing
 left to do before signatures stop. On
 [invoice terms](/admin/invoices-and-credits/#paying-on-invoice-terms) it says the
 first invoice follows, since there is no card to be missing.
+
+While your billing details are incomplete, a reminder for a trial that would
+convert says the subscription will not start without them. A trial already set to
+end gets no reminder, whether you cancelled it or it was set to end for want of
+the details, since a message saying billing is about to start would be untrue.
+
+The billing details notice is sent once, when that end is set. It says that
+saving the details before the date lets the subscription start as normal, and
+that without them signatures stop on that date, with nothing charged and nothing
+deleted.
 
 The overdue notice is sent as it happens, the moment a healthy subscription
 first goes past due, since there is nothing gained by sitting on it overnight. A

@@ -16,13 +16,18 @@ when nobody has ever received a signature.
 | Step | Completes when | Required |
 | --- | --- | --- |
 | Connect Microsoft 365 | Sigil's application can read your directory | Yes |
+| Add your billing details | Your legal company name, billing email and a full address including the country are saved | Yes, unless nobody invoices you |
 | Add a payment method | A card is on file in Stripe | Yes, unless nobody invoices you |
-| Add your billing details | A company name and a complete billing address are saved | Yes, unless nobody invoices you |
 | Accept the Data Processing Agreement | Acceptance is recorded against your organisation | No |
 | Customise your signature | The active template is no longer the seeded starter | Yes |
 | Deploy the Outlook add-in | Sigil has seen a real signature request from your tenant | Yes |
 | Invite your team | At least one other person has been given a role | No |
 | Send a test email | A test email has been sent | No |
+
+Billing details come before the payment method because that is the order the
+portal accepts them in. Adding a card is refused until the details are complete,
+so a list that asked for the card first would send you straight into a refusal.
+See [what waits on the billing details](/admin/billing-profile/#what-waits-on-it).
 
 ## Required and optional steps
 
@@ -36,7 +41,8 @@ permanently open checklist because of them.
 The data processing agreement is deliberately in the optional group for that
 reason. It is how you evidence Article 28, so it belongs on the list, but an
 unsigned document holding the checklist open for a tenant whose signatures work
-would be the wrong trade. See [compliance](/security/compliance/).
+would be the wrong trade. See [compliance](/security/compliance/). The step's
+button opens the DPA tab of the Billing view, where acceptance is recorded.
 
 An organisation nobody invoices moves both billing steps into the optional group
 rather than ticking them off. They keep their Optional badge and stay listed as
@@ -97,6 +103,11 @@ when you replace it with something of your own.
 That is a deliberate default. Opening a signature product on a blank page makes
 the first hour harder than it needs to be, and a seeded design gives you
 something to edit rather than something to invent.
+
+If you would rather start from your own branding, the New template dialog can
+build the starter from the logo, brand colour, address and social profiles your
+website already publishes. See
+[starting from your website](/signatures/templates/#starting-from-your-website).
 
 ## The panel
 

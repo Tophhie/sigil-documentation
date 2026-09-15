@@ -228,7 +228,7 @@ simulation marks the shadowed rule as having matched too late to decide anything
 
 Saving a rule list reaches everyone on their next compose, so a rules edit you
 have just made is rarely the explanation. What does lag is a change made in
-Entra: the decision reached for each mailbox stays fresh for ten minutes, and
+Entra: the decision reached for each mailbox stays fresh for an hour, and
 nothing tells Sigil that somebody has moved department. The re-check runs in the
 background after a message has gone, so the first compose past that window sends
 under the old decision and the next one follows the directory. If the simulation

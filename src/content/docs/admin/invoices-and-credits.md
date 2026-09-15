@@ -64,6 +64,12 @@ card on file cancels the subscription rather than billing anybody by surprise.
 On terms there is nothing to be missing, so the trial reminder says so rather
 than asking for a card.
 
+The billing details are the one thing a trial on terms does need. The first
+invoice has to be addressed, so a trial whose
+[billing profile](/admin/billing-profile/#what-waits-on-it) is still incomplete
+near its end is set to end on its trial date rather than converting. Terms cannot
+be put in place at all until the profile is complete.
+
 Reactivating a cancelled subscription works the same way. The first invoice is
 emailed straight away on your usual terms instead of being charged to a card.
 

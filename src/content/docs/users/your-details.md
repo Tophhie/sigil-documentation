@@ -34,6 +34,9 @@ wants in them.
 Underneath sits a preview of your actual signature, so you can see the change
 land rather than take it on trust.
 
+The page also tells you when Sigil last added your signature to an email. See
+[whether your signature is working](#whether-your-signature-is-working).
+
 Alongside them, greyed out, are the details Sigil reads from your Microsoft 365
 account. You cannot change those here, and they are shown anyway, because the
 first question this page provokes is "why can't I fix my job title". They are
@@ -42,6 +45,30 @@ directory, and this page edits the rest.
 
 Custom attribute slots are only listed when your organisation has put something
 in them, so an empty panel there is normal.
+
+## Whether your signature is working
+
+The page answers the question that otherwise ends up with your IT team: is my
+signature actually going on my emails?
+
+| What it says | What it means |
+| --- | --- |
+| Added to an email, with when and in which Outlook | The last time Sigil put your signature into a new message, Outlook accepted it. There is nothing to do |
+| Last tried, but it didn't go in | The last attempt failed. The line underneath says why in plain terms, and usually what to do about it |
+| Outlook asked for your signature | A signature was sent, but that version of Outlook did not report back whether it went in. That is normal for older versions |
+| Not added to an email yet | Nothing has asked for your signature so far. It happens by itself the first time you start a new message |
+
+If you have already sent a few messages and the page still says not added yet,
+open the Sigil pane from the ribbon once.
+
+This is the same record your administrators see for your mailbox in
+[Activity](/monitoring/activity/), shown to the person it is about. It holds no
+message content, no recipients and no count of what you sent. It only says when a
+signature last went in, in which Outlook, and whether that worked.
+
+It covers your own mailbox and nothing else. A signature added while you send
+from a shared mailbox is recorded against the shared mailbox, so it does not show
+here.
 
 ## Fixing something you cannot edit here
 

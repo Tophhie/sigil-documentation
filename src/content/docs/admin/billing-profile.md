@@ -44,7 +44,13 @@ saved value has reached Stripe.
 
 Registering the identifier is deliberately the last thing done when you save, so
 a tax number Stripe will not accept cannot stop the rest of the profile being
-written.
+written. You are told when that happens, and the address is saved regardless.
+
+Once a number is registered, the tax authority's answer is shown under the field:
+Verified, with the registered name where the authority gives one, or Not
+recognised by the tax authority. While the answer is awaited the field reads
+Checking, and if the authority cannot be reached it says so and the check is
+tried again. Changing the number clears the old answer.
 
 The purchase order reference is printed on every invoice, in a field of its own
 labelled PO number. It is optional, and free text up to 140 characters, so it
@@ -57,14 +63,53 @@ remembered to add. Clearing the field takes the line off future invoices.
 
 ## When it counts as complete
 
-The profile is complete once it carries a legal name and a full postal address:
-address line, town or city, postcode and country. The billing email and the tax
-identifier are not part of that test, because an invoice can be issued without
-either and cannot be addressed without a name and a place to send it.
+The profile is complete once it carries a legal company name, a billing email and
+a full postal address: address line, town or city, postcode and country. The form
+marks each of those as required. The VAT number is the one field left out,
+because an invoice can be issued without it but cannot be addressed or delivered
+without the rest. The country also decides how tax is charged.
 
 Until it is complete, the [getting started
 checklist](/admin/getting-started-checklist/) shows the billing details step as
-outstanding. An organisation nobody invoices is not asked for any of it.
+outstanding, and a prompt sits at the top of every page in the portal for anybody
+who can open Billing. Its button goes straight to the Billing details tab. The
+prompt can be put off for the rest of the browser session until the trial has
+been set to end for want of the details. From then on it names the date and
+stays. An organisation nobody invoices is not asked for any of it.
+
+## What waits on it
+
+Using Sigil does not wait on the billing details, and neither does the trial.
+What waits on them is money starting to move.
+
+Adding a card is refused until the profile is complete, with a message naming
+what is missing. So is reactivating a cancelled subscription, and so is moving
+your account onto
+[invoice terms](/admin/invoices-and-credits/#paying-on-invoice-terms).
+
+A trial about to convert is the case to watch, because nobody has to press
+anything for it to happen. With a card on file, or on invoice terms, the
+subscription starts by itself when the trial ends. If the details are still
+incomplete in the last day and a half before that, Sigil sets the subscription to
+end on the trial's end date instead. Your billing contacts are
+[emailed](/admin/emails-sigil-sends/#the-billing-notices) the date and what
+happens either way, the Billing view explains it, and the prompt at the top of the
+portal becomes a warning.
+
+Saving complete details before that date lifts it, and the subscription starts as
+normal when the trial ends. It makes no difference where they are saved: in the
+Billing view, in the Stripe customer portal, or by Tophhie Cloud support on your
+behalf. Keep subscription is not offered for this kind of end, because saving the
+details is what lifts it. If Tophhie Cloud extends your trial, the pending end is
+lifted too, and set again if the details are still missing as the new date
+approaches. Sigil never moves the trial date by itself.
+
+If the date passes without them, the trial ends, signatures stop and nothing is
+charged. Nothing is deleted either, and reactivating later asks for the same
+details.
+
+A trial with no card on file is left alone. It was already going to end without
+a charge.
 
 ## Where it is stored
 

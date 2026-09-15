@@ -10,7 +10,7 @@ sidebar:
 | Limit | Value | Imposed by |
 | --- | --- | --- |
 | Rendered signature size | Under 30,000 characters | Outlook |
-| Image formats | PNG and JPG. No SVG | Outlook |
+| Image formats | PNG and JPG. No SVG | Outlook, and enforced at upload |
 | Image delivery | Inline `cid:` attachments, not hosted URLs | Outlook |
 
 The size limit applies to the HTML, including any [footer](/targeting/footers/).
@@ -18,6 +18,21 @@ Attached images do not count toward it. A publish that would exceed it is
 blocked in the portal.
 
 See [Outlook constraints](/signatures/outlook-constraints/).
+
+## Image library
+
+| Limit | Value |
+| --- | --- |
+| Largest single image | 1 MB |
+| Images per organisation | 250 |
+| Library size, all images together | 50 MB |
+| Formats an upload accepts | PNG and JPEG, judged from the file's contents |
+| Largest template import file | 20 MB |
+
+Replacing an image under its existing name does not take another place, and its
+old size is freed. An import that would take the library past either limit is
+refused whole, before any of its images are stored. See
+[images](/signatures/images/#how-much-the-library-holds).
 
 ## Designer limits
 
@@ -71,7 +86,8 @@ See [assignment rules](/targeting/assignment-rules/).
 | Template version history | Last 10 published bodies per template |
 | Recently deleted templates | 30 days, then purged by a daily sweep |
 | Change log | Indefinite |
-| Signature telemetry | Indefinite |
+| Individual signature requests and apply outcomes | 90 days, then purged by a nightly sweep |
+| Per-mailbox activity rollup and daily apply totals | Indefinite |
 | Daily click totals per tracked link | Indefinite |
 | Per-click records behind the analytics splits | 90 days, then purged by a nightly sweep |
 | Signature copy kept on a person's device | 45 days from that address's last compose, renewed by each one |
@@ -109,6 +125,7 @@ fetched, and does not reach further back. See the
 | Trend column on the links table | Last 30 days |
 | Referring hosts shown before the tail is bucketed | 8 |
 | Clicks counted from one address on one link | 60 a minute. Above that the recipient is still redirected and only the record is dropped |
+| Clicks counted on one link, across every address | 600 a minute at each location on Cloudflare's network. Above that the recipient is still redirected and only the record is dropped |
 
 ## How long changes take to reach users
 
@@ -124,7 +141,7 @@ fetched, and does not reach further back. See the
 | Banner window opening or closing | Immediately |
 | Pausing or resuming delivery | Next compose |
 | Assignment rules change | Next compose |
-| Directory change affecting which rule matches | Ten minutes, then one further compose |
+| Directory change affecting which rule matches | Up to an hour, then one further compose |
 | Profile field value saved, by anybody in the organisation | Next compose |
 | Directory attribute change in Entra | Up to an hour, without a republish |
 
@@ -140,7 +157,7 @@ the device. What is sent is the new version either way. See
 The two rules rows are different events. Saving a rule list changes the version
 its cached decisions are filed under, so the edit lands on the next compose. A
 change made in Entra changes nothing in Sigil, so a cached decision has to reach
-the end of its ten minute freshness window before the new department or group can
+the end of its hour-long freshness window before the new department or group can
 route somebody differently. The re-check then happens in the background rather
 than while a message is being written, so the first compose after the window
 still uses the old decision and the one after it follows the directory.
@@ -156,6 +173,7 @@ still uses the old decision and the one after it follows the directory.
 | Soak per step | 60 minutes |
 | Failure rate that can trigger a rollback | Above 10% |
 | Margin over the current version needed to call it a regression | 5 percentage points |
+| Longest wait for enough outcomes at one step | 30 days, then the rollout is cancelled |
 
 Both conditions on the last two rows must hold before a rollout is pulled. See
 [staged rollouts](/signatures/staged-rollouts/).
@@ -215,14 +233,31 @@ twenty client organisations is twenty separate callers rather than one.
 | --- | --- |
 | Actions that render, read the directory or resolve a mailbox | 120 a minute |
 | Actions that send an email | 12 a minute |
-| What counts in the first group | Preview, previewing an archived version, downloading a mailbox's signature, saving somebody else's profile values, simulating assignment rules, syncing an excluded group now |
+| What counts in the first group | Preview, previewing an archived version, downloading a mailbox's signature, saving somebody else's profile values, simulating assignment rules, syncing an excluded group now, uploading an image, importing a template, looking up your website for a new template |
 | What counts in the second | Test email, and sending the health digest on demand |
 | Over the limit | 429 with a message saying to wait a moment. Nothing is changed or sent |
 | An API key's share | Its own, so a key cannot spend a person's allowance |
+| Searching the directory from an address box | 120 a minute from an allowance of its own, so typing into a picker never uses up what previews need |
 
 The figures are set well above what the portal's own screens can generate by
 being used. Reaching one means a script, a stuck retry, or a page left refreshing
 itself.
+
+## The add-in's own requests
+
+| Item | Value |
+| --- | --- |
+| Signature requests per signed-in mailbox | 120 a minute, with downloads counted alongside compose requests |
+| Over that | 429 with `Retry-After: 60`. The add-in applies nothing and does not retry |
+| Apply reports per signed-in mailbox | 120 a minute. Above that a report is accepted and dropped |
+| Largest request body | 16 KB |
+
+The count is kept per mailbox rather than per network address, because a whole
+organisation usually reaches Sigil from behind one address. Two requests a
+second, sustained, is far more than anybody composing mail produces, so reaching
+the limit means a script or a client stuck in a loop. In
+[Activity](/monitoring/activity/) a 429 appears under the `server-error` reason,
+with the status recorded beside it.
 
 ## API keys
 

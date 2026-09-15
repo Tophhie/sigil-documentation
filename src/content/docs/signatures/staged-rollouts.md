@@ -188,6 +188,11 @@ messages. In an organisation of thirty, a 10% slice is three mailboxes, and the
 rollout may sit at the sample gate for a long time. Promote it by hand once you
 have looked at it, or publish normally.
 
+It will not wait for ever. A rollout that has not gathered enough apply outcomes
+after 30 days at one step is cancelled automatically, and the change log records
+how many it reached. The slice goes back to the current version, as it would
+after Roll back, and nothing is republished.
+
 It also assumes the add-in is deployed and reporting. During the initial
 deployment, before propagation has finished, there is nothing to measure. Get to
 a steady state first. See [planning a rollout](/start/rollout/), which covers

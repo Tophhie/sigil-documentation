@@ -94,6 +94,11 @@ On [invoice terms](/admin/invoices-and-credits/#paying-on-invoice-terms) it
 converts too, into a first invoice. There is no card for the trial to be
 missing, so nothing is asked for and nothing is cancelled.
 
+Either conversion needs your [billing details](/admin/billing-profile/#what-waits-on-it)
+to be complete, because the invoice has to be addressed to somebody. A trial that
+would convert without them is set to end on its trial date instead, and nothing
+is charged.
+
 ## What happens if billing lapses
 
 Once a trial ends without an active subscription, signatures stop. The add-in
@@ -136,6 +141,11 @@ A failed payment is warned about for as long as the dunning window has left to
 run, naming the day signatures stop and how many days that is. It reads for both
 arrangements, since settling it means updating the card or paying the open
 invoice depending on which you are on.
+
+Missing billing details get a prompt of their own, described under
+[billing profile](/admin/billing-profile/#when-it-counts-as-complete). It gives
+way to the two warnings above while either is showing, unless the trial has
+already been set to end for want of the details.
 
 The warning can be put off for the rest of the browser session, and comes back on
 the next sign-in. Putting one off does not hide the next: the dismissal is keyed
@@ -180,8 +190,16 @@ Where the card would be, an account on invoice terms reads "Invoice, net 30", or
 whatever term was agreed. A credit waiting on the account is shown there too,
 with a note that it comes off the next invoice.
 
-Invoices and credits each have a list of their own further down the page. See
+The view is split into tabs: Your subscription, Billing details, Documents and
+DPA. The invoice and credit lists are on Documents. See
 [invoices and credits](/admin/invoices-and-credits/).
+
+Billing details and Documents appear only for an organisation billed directly, so
+a free arrangement or a partner-managed client sees neither, and Documents waits
+until billing has been set up. DPA appears on every arrangement. A tab that needs
+something from you, such as incomplete details or an agreement waiting to be
+accepted, carries a ! marker, and a warning on the subscription tab that another
+tab resolves links straight to it.
 
 The per-seat price is shown for reference. The authoritative rate is the one held
 in Stripe.
@@ -269,9 +287,14 @@ day. Changing your mind before it arrives costs nothing: reactivating lifts the
 scheduled end from the same subscription, and it continues as though it had never
 been cancelled.
 
+A trial set to end because its billing details are missing is the exception.
+Keep subscription is not offered for it, because saving the details is what lifts
+it. See [billing profile](/admin/billing-profile/#what-waits-on-it).
+
 After it has ended, reactivating is a new subscription rather than a resumed one.
 The first invoice is raised straight away and the seat meter restarts, which the
-confirmation says before anything is charged.
+confirmation says before anything is charged. Reactivating needs complete billing
+details, in the same way adding a card does.
 
 ### The card is released when it ends
 

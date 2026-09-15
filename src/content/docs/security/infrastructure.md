@@ -103,11 +103,11 @@ A deprovisioned organisation has it cleared with everything else.
 
 The routing decision behind assignment rules is cached separately, keyed by a
 rules version that changes whenever the rules are edited, so an edit strands
-every cached decision at once. A ten minute freshness window sits on those
+every cached decision at once. An hour-long freshness window sits on those
 entries as well, after which the decision is re-checked against the directory in
 the background rather than while somebody is composing. That is what bounds how
 long a directory attribute can go on routing somebody to a template they should
-no longer be getting: ten minutes, and then one further message.
+no longer be getting: an hour, and then one further message.
 
 ## Reliability characteristics
 

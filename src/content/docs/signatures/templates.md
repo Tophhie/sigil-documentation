@@ -78,17 +78,26 @@ row to answer a question that fits in a badge.
 
 ## Creating a template
 
-Creating one asks for a name and which editor to build it in. The choice is made
-at that point and is stored against the template, so the library always opens it
-in the editor it was authored in.
+Creating one asks for a name and where to start from. That choice also decides
+which editor the template belongs to, and it is stored against the template, so
+the library always opens it in the editor it was authored in.
 
-Neither editor starts you on a blank page. A designer template is seeded with the
-same ready-made design new organisations get, and an HTML template is seeded with
-the equivalent markup. Both are meant to be edited or cleared rather than kept,
-and they are there so the first thing you see is a working signature to change
-instead of an empty canvas. Both also carry [the same two
-placeholders](#two-things-in-it-are-placeholders) as the seed, so a new template
-needs the same edit before it is published.
+| Start from | Opens in | What you get |
+| --- | --- | --- |
+| Starter signature | Designer | The same ready-made design new organisations get |
+| Blank canvas | Designer | Nothing at all |
+| From your website | Designer | The starter, with your logo, brand colour, address, social profiles and legal page read off your public website |
+| HTML editor | HTML editor | The default signature's markup |
+
+The starter and the default markup are meant to be edited or cleared rather than
+kept. They are there so the first thing you see is a working signature to change
+instead of an empty canvas. Both carry [the same two
+placeholders](#two-things-in-it-are-placeholders) as the seed, so a template
+started from either needs the same edit before it is published.
+
+A blank canvas left empty is a signature that renders nothing. Occasionally that
+is the point: assigned to a mailbox, it lets the mailbox send without a signature
+while it stays served and on the seat count.
 
 The [drag-and-drop designer](/signatures/designer/) edits a block tree and
 compiles to email-safe HTML when you publish. It suits people who do not want to
@@ -103,6 +112,79 @@ A designer template can be ejected to HTML, which is a one-way move. HTML cannot
 be pulled back into the designer, because visual authoring is the designer's job
 and reverse-engineering arbitrary markup into blocks would produce something
 neither faithful nor editable.
+
+## Starting from your website
+
+Turning the starter into your own signature usually means finding the logo file,
+the brand colour, the registered address and the social profile links, then
+putting each one in by hand. Most organisations already publish all of those on
+their website, in places a browser reads them from. From your website reads them
+from there.
+
+Type the site's address, such as `example.com`, and choose Look up. Sigil fetches
+the page and shows what it found:
+
+| Finding | Where it comes from |
+| --- | --- |
+| Logo | The logo the site declares for itself, or failing that its touch icon or its largest PNG icon. A large page image is used only when the site declares nothing else |
+| Brand colour | The theme colour the site declares for browsers |
+| Address | The postal address in the site's structured data |
+| Social profiles | Links to your profiles on networks the designer has an icon for |
+| Legal page | The first link that reads as a disclaimer page, or failing that a legal, privacy or terms page, in that order |
+
+Nothing has been created at this point. Each finding has a Leave out button, and
+social profiles can be dropped one at a time. Creating the template stores the
+logo in your [image library](/signatures/images/) and opens the result in the
+designer, where it behaves like any other template.
+
+### What changes in the starter
+
+The logo goes at the top, scaled to fit within 180 by 80 pixels with its
+proportions kept, and with your organisation's name as its alt text.
+
+The brand colour replaces the starter's own colour wherever it appears, which
+covers the name, the labels and the links.
+
+The address line becomes your organisation's address as written, rather than
+each person's office from the directory. It also stops disappearing for people
+with no city on record.
+
+A row of social icons is added, one per profile you kept.
+
+Both [placeholders](#two-things-in-it-are-placeholders) are dealt with. The
+`postmaster@` address takes your website's domain, and the legal line points at
+the page that was found. Where no legal page was found, the line is removed
+rather than left pointing at Contoso.
+
+Everything that differs per person, such as names, job titles, phone numbers and
+the Teams link, still comes from your directory, exactly as in the starter.
+
+### What it will not do
+
+It only reads what a site declares. A site that states no theme colour gets no
+colour, because guessing one from the logo's pixels goes wrong on any logo with a
+white background.
+
+A colour too pale to read against white is shown with a warning, and the design
+keeps the starter's text colour. A pale brand colour painted onto somebody's name
+is exactly the result to avoid.
+
+The logo has to be a PNG or JPEG, at least 32 pixels wide and under 1 MB, which
+are the same rules an upload follows. An SVG logo is passed over because Outlook
+does not render one. Where the site offers nothing usable, the template is
+created without a logo and you can add one in the designer.
+
+If your library already holds an image with the same name as the logo, the logo
+is stored under a numbered name such as `logo-2.png`, and the existing image is
+left alone.
+
+Only a public website address is accepted. An IP address, a single-word intranet
+name, or an internal suffix such as `.local` is refused with a message saying it
+does not look like a public website. A site that does not answer, or answers with
+an error, is reported as such.
+
+What was found is kept nowhere except in the template it created. Looking the
+site up again reads it again.
 
 ## Duplicating, renaming and deleting
 

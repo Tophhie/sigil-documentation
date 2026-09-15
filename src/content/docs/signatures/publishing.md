@@ -125,7 +125,7 @@ effect immediately:
 | Banner window opening or closing | Immediately |
 | Footer edit | Seconds |
 | Assignment rules change | Next compose |
-| Directory attribute change affecting which rule matches | Ten minutes, then one further compose |
+| Directory attribute change affecting which rule matches | Up to an hour, then one further compose |
 | Add-in manifest change | Requires redeploy and re-consent |
 
 Assignment rules look like an exception and are not quite one. Evaluating a rule
@@ -134,7 +134,7 @@ cache key carries a version that changes whenever you save the rule list. Saving
 strands every cached decision at once, so the edit reaches each person the next
 time they compose.
 
-The ten minute freshness window on those entries is for the change Sigil never
+The hour-long freshness window on those entries is for the change Sigil never
 sees, which is somebody moving department or joining a group in Entra. Sigil
 checks for that in the background rather than while a message is being written:
 the first compose after the window still uses the previous decision and triggers

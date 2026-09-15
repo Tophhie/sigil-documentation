@@ -303,7 +303,8 @@ administrators a re-consent link.
 | Deleted templates | 30 days in Recently deleted, then purged by a daily sweep |
 | Change log | Indefinite |
 | Operator audit log | Indefinite |
-| Signature telemetry | Indefinite |
+| Individual signature requests and apply outcomes | 90 days, then purged by a nightly sweep |
+| Per-mailbox activity rollup and daily apply totals | Indefinite |
 | Daily click totals per tracked link | Indefinite |
 | Per-click records behind the analytics splits | 90 days, then purged by a nightly sweep |
 | Onboarding attempt records | Indefinite, and outside the tenant's own data |
@@ -312,7 +313,7 @@ administrators a re-consent link.
 
 Deprovisioning a tenant purges all of it except the onboarding attempt records
 and the diagnostics on them, which describe an attempt to connect rather than a
-live organisation. That includes the indefinite rows above: telemetry and daily
+live organisation. That includes the indefinite rows above: activity rollups and daily
 totals are kept for as long as the organisation exists and go with it when it
 does not. A sign-in recorded before an organisation connected is purged with that
 organisation too, since the whole record is personal data rather than an account

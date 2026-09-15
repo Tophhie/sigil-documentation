@@ -42,6 +42,12 @@ Open Templates. You already have a starter template. From here you can either
 build a new one in the [drag-and-drop designer](/signatures/designer/) or edit
 markup directly in the [HTML editor](/signatures/html-editor/).
 
+To skip most of the branding work, create a new template from your website
+instead. Sigil reads your logo, brand colour, address and social profile links
+from your public site, shows you what it found, and builds the starter signature
+with them. See
+[starting from your website](/signatures/templates/#starting-from-your-website).
+
 If you are moving from another product, the usual approach is to recreate your
 existing signature so the switch is invisible to recipients. Both editors can do
 that; the HTML editor gives you exact control.

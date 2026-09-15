@@ -164,8 +164,12 @@ was used, matched, replaced or withdrawn. Those are durations and outcomes, with
 nothing of the message or the signature in them.
 
 Telemetry writes are best-effort and off the critical path, so a storage problem
-loses a record rather than breaking somebody's signature. Nothing is pruned, and
-the history is retained indefinitely.
+loses a record rather than breaking somebody's signature.
+
+Individual requests and outcomes are deleted after 90 days. The per-mailbox
+rollup and the daily totals built from them are kept for as long as your
+organisation uses Sigil, and are purged with everything else if it is
+deprovisioned.
 
 ## Link analytics are aggregate by construction
 
@@ -292,8 +296,10 @@ runs it against one address in your organisation.
 
 The file carries seven kinds of record:
 
-That mailbox's signature events and its activity rollup: every request made for
-it, when, from which Outlook client, and whether a signature came back.
+That mailbox's signature events from the last 90 days and its activity rollup:
+every request made for it in that time, when, from which Outlook client, and
+whether a signature came back, with the rollup's longer-running summary beside
+them.
 
 Whatever the person entered in their
 [profile fields](/admin/profile-fields/), which is the only part of the file they

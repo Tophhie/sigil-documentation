@@ -252,7 +252,12 @@ Every write is best-effort and off the critical path. Logging is deliberately no
 allowed to slow or fail the signature somebody is waiting on, so a storage problem
 loses telemetry rather than breaking signatures.
 
-Nothing is pruned. The history is kept indefinitely.
+Individual requests and outcomes are kept for 90 days and then deleted by a
+nightly sweep, so the recent feed and a single mailbox's event history reach back
+no further than that. The per-mailbox rollup and the adoption totals built from
+those events are kept for as long as your organisation uses Sigil. The
+never-applied list reads the rollup, so a mailbox whose last successful apply was
+more than 90 days ago is not mistaken for one that never had one.
 
 See [data and privacy](/security/data-and-privacy/) for the full picture.
 
@@ -263,6 +268,9 @@ Marketing and Billing roles do not reach it.
 
 Viewer exists largely for this view: a service desk needs to answer "is this
 person's signature working" without being able to change a template.
+
+Each person can also see the latest result for their own mailbox, on the page
+where they [fill in their own details](/users/your-details/#whether-your-signature-is-working).
 
 ## Related views
 

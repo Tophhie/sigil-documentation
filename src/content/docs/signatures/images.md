@@ -34,6 +34,10 @@ organisation and is available to any template in your library.
 Uploads are recorded in the [change log](/monitoring/change-log/) along with who
 uploaded them.
 
+A logo read from your website when you
+[start a template from it](/signatures/templates/#starting-from-your-website) is
+stored here too, in the same way.
+
 ## The name an image ends up with
 
 The name is also the `cid:` reference a template uses, so it has to survive being
@@ -82,7 +86,9 @@ without one, and a logo exported at 2x will render at twice the size you intende
 
 ## Formats
 
-Use PNG or JPG.
+Use PNG or JPG. They are the only formats an upload accepts, and the check reads
+the file itself rather than trusting its extension, so a GIF renamed to `.png` is
+refused.
 
 SVG is not supported. Outlook does not render it, and a signature containing one
 will show nothing where the image should be.
@@ -100,9 +106,26 @@ Export at the size you will display, at roughly twice that in pixels for sharp
 rendering on high-density screens, and compress. A typical signature logo should
 be a handful of kilobytes.
 
+An image larger than 1 MB is refused at upload. That is a ceiling for the unusual
+case, such as a photograph, rather than a size to aim for.
+
 The 30,000 character limit on a rendered signature applies to the HTML rather
 than to the attachments, so images do not count against it. See
 [Outlook constraints](/signatures/outlook-constraints/).
+
+## How much the library holds
+
+An organisation's library holds up to 250 images and 50 MB in total. The Images
+view shows both as meters, which turn amber at 80% and red when the library is
+full. New uploads are then refused until something is deleted.
+
+Uploading under the name of an image already in the library replaces it. The old
+file's size is freed rather than added to, and the replacement does not take up
+another of the 250 places.
+
+Every image in a signature travels inside the cached copy served for every
+mailbox, which is why the library has a ceiling at all. The limits sit far above
+what a real signature uses.
 
 ## Transparency
 

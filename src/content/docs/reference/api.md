@@ -191,6 +191,7 @@ colleague to open their own profile page an administrator.
 | `GET /api/me/profile` | Portal token, no role | The available fields, this person's values, and their directory attributes read-only |
 | `PUT /api/me/profile` | Portal token, no role | Save this person's own values |
 | `GET /api/me/signature?type=` | Portal token, no role | This person's own signature, as a standalone HTML document |
+| `GET /api/me/status` | Portal token, no role | Whether the add-in is working for this person: when a signature last went in and in which Outlook, why the last attempt failed, or that none has been requested yet |
 
 No role is required and none is consulted. Every route here acts on the mailbox
 in the verified token, and there is no `email` parameter, because there is no
@@ -212,7 +213,8 @@ safely carry. Saves are rate limited per mailbox.
 | --- | --- | --- |
 | `GET /api/admin/templates` | Admin token | The library, the current role assignments, and `signaturesPaused` |
 | `GET /api/admin/rollouts` | Admin token | In-flight rollouts, for the library's badges |
-| `POST /api/admin/templates` | Admin token | Create a template |
+| `POST /api/admin/templates` | Admin token | Create a template from the starter design, a blank canvas, the default HTML, or the starter filled in from a confirmed website look-up |
+| `POST /api/admin/brand/probe` | Admin token | Read an organisation's public website for a logo, brand colour, name, address, social profiles and legal page. Stores nothing |
 | `GET /api/admin/templates/:id` | Admin token | One template's body |
 | `PUT /api/admin/templates/:id` | Admin token | Publish a new version |
 | `PATCH /api/admin/templates/:id` | Admin token | Rename |
@@ -335,8 +337,9 @@ templates capability. See
 | `GET/POST /api/admin/banners`, `PUT/DELETE /api/admin/banners/:id` | Admin token, banners capability | Campaign banners |
 | `GET/POST /api/admin/footers`, `PUT/DELETE /api/admin/footers/:id` | Admin token, footers capability | Compliance footers |
 | `GET /api/admin/assets` | Admin token, templates capability | The image list |
+| `GET /api/admin/assets/usage` | Admin token, templates capability | How full the image library is, against its limits |
 | `GET /api/admin/asset/:name` | Admin token, templates capability | One image, base64 encoded, for the portal's preview |
-| `PUT /api/admin/asset/:name`, `DELETE /api/admin/asset/:name` | Admin token, templates capability | Upload or remove an image |
+| `PUT /api/admin/asset/:name`, `DELETE /api/admin/asset/:name` | Admin token, templates capability | Upload or remove an image. An upload must be a PNG or JPEG of up to 1 MB: another type answers 400, a larger file 413, and a full library 409 |
 | `PUT /api/admin/templates/:id/tracking` | Admin token, templates capability | Toggle link tracking for a template |
 | `POST /api/admin/test-email` | Admin token, templates capability | Send a rendered signature to a named inbox |
 
@@ -359,7 +362,7 @@ because it names a person and query strings end up in logs. It replies with the
 mailbox it resolved, the template each role lands on and what decided it, and a
 per-rule trace saying whether each rule matched, what the mailbox's value for the
 tested attribute was, and which roles that rule actually settled. It reads the
-directory live rather than from the ten minute resolution cache, writes nothing
+directory live rather than from the hour-long resolution cache, writes nothing
 back, and records no change log entry. An address that is not a mailbox in the
 tenant answers 404. See [assignment rules](/targeting/assignment-rules/#testing-a-rule-against-one-mailbox).
 
@@ -403,9 +406,9 @@ telemetry.
 | `POST /api/admin/onboarding/dismiss` | Admin token, Admin role | Dismiss the checklist |
 | `POST /api/admin/dpa/accept` | Admin token, Admin role | Record acceptance of the data processing agreement |
 | `GET /api/admin/billing` | Admin token, billing capability | Subscription status, seats, card, invoice |
-| `POST /api/admin/billing/checkout` | Admin token, billing capability | A hosted Stripe card-capture URL |
+| `POST /api/admin/billing/checkout` | Admin token, billing capability | A hosted Stripe card-capture URL. Answers 409, naming the missing fields, until the billing profile is complete |
 | `POST /api/admin/billing/portal` | Admin token, billing capability | A hosted Stripe management URL |
-| `POST /api/admin/billing/cancel`, `…/reactivate` | Admin token, billing capability | Schedule the subscription to end at the close of the current period, or resume it: inside that window reactivating lifts the schedule, after it a new subscription is started |
+| `POST /api/admin/billing/cancel`, `…/reactivate` | Admin token, billing capability | Schedule the subscription to end at the close of the current period, or resume it: inside that window reactivating lifts the schedule, after it a new subscription is started. Reactivating answers 409 until the billing profile is complete |
 | `PUT /api/admin/billing/profile` | Admin token, billing capability | Save the billing profile |
 | `GET /api/admin/billing/invoices` | Admin token, billing capability | Invoice history, newest first, each row carrying the hosted page and the PDF. Answers with an empty list and a flag rather than an error when the invoices cannot be read |
 | `GET /api/admin/billing/adjustments` | Admin token, billing capability | Credits and corrections applied to the account, newest first, each with its category and the reason |
@@ -516,6 +519,8 @@ than by a token, and mirrors subscription state locally.
 | 402 | Billing is not active. The add-in applies nothing |
 | 403 | The organisation is not connected, or this mailbox has been [excluded](/admin/cost-management/). The add-in applies nothing |
 | 404 | The mailbox did not resolve in the directory |
+| 413 | The request body was over 16 KB |
+| 429 | This mailbox has made more than 120 signature requests in the last minute. The answer carries `Retry-After: 60`, and the add-in applies nothing |
 
 A 402 across an entire organisation is almost always a lapsed trial or a past-due
 subscription. See [troubleshooting](/deploy/troubleshooting/).

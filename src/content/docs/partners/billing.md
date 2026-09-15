@@ -100,7 +100,8 @@ The details are held in Sigil and pushed to Stripe when you save them. If the pu
 fails, you are told so explicitly rather than being shown a success message while
 invoices continue to carry the old details. Save again to retry.
 
-Until the profile carries a legal name and a full postal address, the Clients page
+Until the profile carries a legal name, a billing email and a full postal address
+including the country, the Clients page
 prompts for it. That prompt appears once your partner agreement is accepted, since
 that is when billing starts to exist, and only to the Owner and Billing
 [roles](/partners/roles/). Nobody else can act on it, so for them it would be

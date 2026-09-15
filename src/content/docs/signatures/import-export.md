@@ -31,6 +31,12 @@ something by accident. If the bundle's name is already taken, the new entry gets
 a numbered suffix rather than the import being refused, which is worth knowing
 before you import the same bundle twice and wonder which one is live.
 
+Images in a bundle are held to the same rules as an upload: PNG or JPEG, and no
+more than 1 MB each. A bundle file over 20 MB is refused before it is read. An
+import whose images would take your library past its
+[limits](/signatures/images/#how-much-the-library-holds) is refused as a whole,
+so nothing from it is stored.
+
 If an image name in the bundle collides with one that already exists in the
 target organisation, the import creates a numbered variant and repoints the
 imported template at it. The existing image is left alone, and the imported
