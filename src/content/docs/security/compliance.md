@@ -76,6 +76,14 @@ and giving your administrators an audit trail; and the sign-up diagnostics, on t
 legitimate interest in telling a real administrator apart from the crawlers that
 follow a public sign-up link.
 
+Product update emails to administrators and partner staff are Tophhie Cloud's own
+processing too, on the legitimate interest in keeping existing customers informed
+about the service they use. The list of addresses that have opted out of them is
+kept on the legal obligation to honour an objection. Every product update carries
+a link that stops them for the recipient's address, and an administrator can
+switch them off for the whole organisation. See
+[emails Sigil sends](/admin/emails-sigil-sends/#product-updates).
+
 ## Individual rights
 
 The privacy policy sets out the rights a person in the UK or the EEA has over
@@ -165,7 +173,10 @@ agreement names all three rather than reserving the right to add more quietly.
 | Stripe | Subscription billing and card processing | UK, EU and US |
 
 Your directory data and the content you author are stored in the United Kingdom
-or the European Economic Area. Where one of those sub-processors moves personal
+or the European Economic Area. Uploaded images and the nightly database backups
+sit in storage created in Cloudflare's EU jurisdiction, which Cloudflare enforces
+as a limit on where the files may be stored rather than treating as a
+preference. Where one of those sub-processors moves personal
 data outside the UK or EEA, the transfer runs on an adequacy decision or on the
 UK Addendum to the EU Standard Contractual Clauses, which the agreement
 incorporates.
@@ -298,7 +309,7 @@ administrators a re-consent link.
 
 | Data | Retention |
 | --- | --- |
-| Directory attributes read from Microsoft Graph | Never stored as a record of their own. Held inside a rendered signature for at most a day (refreshed hourly while in use), in a lookup cache for fifteen minutes, and in a photo cache for a day |
+| Directory attributes read from Microsoft Graph | Never stored as a record of their own. Held inside a rendered signature for at most a day (refreshed hourly while in use), in a lookup cache for up to seven days after the mailbox last composed (fresh for fifteen minutes, then refreshed in the background), and in a photo cache for a day |
 | Template version history | Last 10 published bodies per template |
 | Deleted templates | 30 days in Recently deleted, then purged by a daily sweep |
 | Change log | Indefinite |
@@ -310,10 +321,12 @@ administrators a re-consent link.
 | Onboarding attempt records | Indefinite, and outside the tenant's own data |
 | Sign-up diagnostics held on those records | 90 days, then cleared while the attempt stays |
 | Sign-ins from an organisation that never connected | 90 days from the last sighting, then removed in full |
+| Addresses opted out of product update emails | Until that person opts back in. Holds the address and the date only |
 
 Deprovisioning a tenant purges all of it except the onboarding attempt records
 and the diagnostics on them, which describe an attempt to connect rather than a
-live organisation. That includes the indefinite rows above: activity rollups and daily
+live organisation, and the product update opt-outs, which belong to a person
+rather than to an organisation. That includes the indefinite rows above: activity rollups and daily
 totals are kept for as long as the organisation exists and go with it when it
 does not. A sign-in recorded before an organisation connected is purged with that
 organisation too, since the whole record is personal data rather than an account

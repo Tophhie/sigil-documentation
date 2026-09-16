@@ -398,7 +398,7 @@ telemetry.
 | `GET /api/admin/flags` | Admin token | Which features being rolled out gradually are switched on for this organisation. Reachable with an API key of any scope |
 | `GET/PUT /api/admin/users`, `DELETE /api/admin/users/:email` | Admin token, users capability | Manage users and roles |
 | `GET /api/admin/users/search` | Admin token, templates or users capability | Directory lookup, for pickers such as download and test email |
-| `GET/PUT /api/admin/settings` | Admin token, settings capability | The organisation-wide switches: publish approval, profile editing and digest frequency |
+| `GET/PUT /api/admin/settings` | Admin token, settings capability | The organisation-wide switches: publish approval, profile editing, product update emails and digest frequency |
 | `GET /api/admin/profile-values` | Admin token, staff profile details capability | Every mailbox with stored [profile values](/admin/profile-fields/), each with its completion count, and the enabled field definitions to label them with |
 | `PUT /api/admin/profile-values/:email` | Admin token, staff profile details capability | Edit a colleague's values on their behalf, or enter them for a mailbox that has none yet. The address must exist in the directory, and a secondary alias is stored against the mailbox's primary address. Validated exactly as the colleague's own save is, and recorded in the change log |
 | `GET /api/admin/settings/digest/preview` | Admin token, settings capability | The [health digest](/monitoring/health-digest/) as it would be sent now. Sends nothing |
@@ -468,6 +468,7 @@ tenant. They live under `/api/admin/partner`.
 | `GET /usage`, `GET /usage/export` | Per-client seat counts, and the CSV for rebilling |
 | `GET /usage/periods` | The periods already invoiced, as reconciliation windows for the report. Empty rather than an error when the invoices cannot be read |
 | `GET/PUT /staff`, `DELETE /staff/:email` | Partner staff and their roles |
+| `GET/PUT /preferences` | Whether the partner's own Owners and Admins receive [product update emails](/admin/emails-sigil-sends/#product-updates). Owners only, like the staff list |
 | `GET /events` | The partner-level audit trail |
 | `POST /agreement/accept` | Record acceptance of the partner agreement |
 
@@ -501,6 +502,7 @@ is reachable by an Admin of the managed tenant, not by their partner.
 | `GET /health` | Configuration and storage check |
 | `GET /r/:slug` | Tracked link redirect, served on `e-clk.usesigil.app` |
 | `GET /vcf/:token.vcf` | The sender's [contact card](/signatures/contact-card/), as a downloadable vCard |
+| `GET/POST /email-preferences/:token` | Where one address stands on [product update emails](/admin/emails-sigil-sends/#product-updates). The GET only shows it; the change is the POST |
 
 The contact card route carries no mailbox in its URL. The token is signed, and
 one is only ever minted while rendering that mailbox's own signature, so the

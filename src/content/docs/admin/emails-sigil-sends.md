@@ -41,7 +41,8 @@ organisation who can actually act on it.
 | Your Sigil payment failed, or your Sigil invoice is overdue | A payment has failed, or an invoice has gone past its due date. Names the day signatures stop |
 | Your Sigil signatures stop on a named day | About a week before the grace period runs out, if it is still unsettled |
 | A message from Tophhie Cloud | Support needs to tell your administrators something specific about your organisation |
-| An announcement from Tophhie Cloud | Something applies to every customer rather than to you in particular, such as an add-in manifest worth taking or a change to a published policy |
+| An announcement from Tophhie Cloud | Something applies to every customer rather than to you in particular, such as an add-in manifest worth taking or a change to a published policy. A service notice, sent whatever your email preferences |
+| A product update from Tophhie Cloud | Occasionally, when enough has changed in the service to be worth a round-up. Nobody has to act on one, so it honours the [product update setting](/admin/settings/#product-update-emails) and each person's own opt-out. See [product updates](#product-updates) |
 
 The [health digest](/monitoring/health-digest/) is the only one of these that
 arrives on a schedule rather than in response to something. It reports rather
@@ -61,20 +62,47 @@ The role email goes out only when somebody is added, not when an existing user's
 role is changed. Changing a role takes effect on their next request and needs no
 announcement.
 
-The last two rows are both written by a person at Tophhie Cloud rather than
-fired by an event, and they differ only in how many organisations they were
-aimed at. Both are addressed to every administrator, both come from the address
-above, and both leave an entry in your
+The last three rows are all written by a person at Tophhie Cloud rather than
+fired by an event. The first is about your organisation in particular; the other
+two go to many organisations at once. All are addressed to administrators, all
+come from the address above, and all leave an entry in your
 [change log](/monitoring/change-log/#actions-taken-by-tophhie-cloud-support) so
-you can see afterwards that it was sent and when.
+you can see afterwards that one was sent and when.
 
 An announcement goes to organisations Sigil is actually serving. One whose trial
 lapsed months ago without a card is left out, because a notice about the product
 is not for somebody who is not using it. A wider notice, a change to the data
 processing agreement being the obvious one, goes to every organisation still on
-the platform. Neither is marketing and neither has an unsubscribe link, for the
-reason given below: Sigil sends no marketing at all, so there is nothing to
-unsubscribe from.
+the platform. An announcement is a service notice and has no unsubscribe link:
+it is how you hear about a manifest you need to take or a policy that has
+changed, which is part of running the service rather than news about it.
+
+### Product updates
+
+A product update is the one message on this page that is news rather than
+service. It tells your administrators what has changed in Sigil and asks nothing
+of them, so it is also the one you can stop. It only goes to organisations Sigil
+is serving, never to one that has left.
+
+There are two ways to stop them, and either is enough:
+
+- An administrator can switch them off for the whole organisation in
+  [settings](/admin/settings/#product-update-emails).
+- Anybody who receives one can follow **Stop product update emails** at the
+  bottom and stop them for their own address. It needs no sign-in, so it still
+  works for somebody who has since lost portal access.
+
+The personal choice wins. Switching the organisation's setting back on does not
+reach an address that opted out, and nobody can opt somebody else back in. The
+link opens a page showing where your address stands, with a button to change
+it. Opening the page changes nothing on its own, because mail security scanners
+open every link in a message and would otherwise opt out everybody behind one.
+Mail clients that show their own unsubscribe option beside the sender use the
+same opt-out.
+
+Opting out applies to that address everywhere it receives product updates,
+whichever organisation or partner it helps run. It never stops the service
+messages in the table above.
 
 ### The billing notices
 
@@ -164,6 +192,11 @@ a partner's Owners and Admins as well as to each client's own administrators. It
 exists because a managed client is allowed to have no administrators at all, its
 provider being the one who runs it, so a notice that needs somebody to act would
 otherwise reach nobody for that client.
+
+A [product update](#product-updates) can reach partner staff the same way. The
+partner has its own switch for it on Partner staff in the console, which covers
+its Owners and Admins and nobody else, and each person can still stop them for
+their own address from the link at the bottom of one.
 
 | Message | Sent when |
 | --- | --- |

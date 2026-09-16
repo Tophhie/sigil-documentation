@@ -169,7 +169,8 @@ Entries read in plain language rather than as internal lever names:
 | Cancelled your subscription, or Reactivated your subscription | Your subscription state was changed |
 | Re-sent the Microsoft consent prompt | A re-consent link was sent to your administrators |
 | Sent your admins a message | Support emailed your administrators about your organisation |
-| Sent your admins a platform announcement | Your administrators were included in a notice sent to every customer, such as a manifest update or a change of policy |
+| Sent your admins a platform announcement | Your administrators were included in a notice sent to many customers at once, such as a manifest update, a change of policy or a [product update](/admin/emails-sigil-sends/#product-updates). Only the admins who still take product updates were mailed one of those |
+| Viewed your organisation's details (AI-assisted support session) | An operator read your organisation's details through an AI assistant connected to the support console. Recorded at most once an hour for each operator, however many times they looked in that hour |
 | Recorded your data processing agreement | Acceptance was recorded on your behalf |
 | Repaired a setup step | An unfinished onboarding step was completed |
 | Scheduled your organisation for deletion, or Cancelled the scheduled deletion | A deprovision was booked or called off |

@@ -183,6 +183,13 @@ signature and the message went out with it, so the attempt is recorded as
 applied. That is why `unreachable` is a thinner signal than it used to be: it now
 means an unreachable service and no kept copy to fall back on, which is a first
 compose, a new device, or a mailbox that has not written anything for 45 days.
+
+How long the add-in waits depends on the same thing. With a kept copy already in
+the message it gives Sigil five seconds, because the copy is already there and
+the wait only checks it. With nothing kept it waits up to fifteen seconds, since
+that request is the whole signature and a slow answer is still better than a
+message sent without one. A request that runs past fifteen seconds is recorded
+as `unreachable`.
 See [why it sometimes changes as you watch](/users/how-your-signature-works/#why-it-sometimes-changes-as-you-watch).
 
 ## Refused requests

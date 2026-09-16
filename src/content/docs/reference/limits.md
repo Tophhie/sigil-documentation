@@ -143,7 +143,7 @@ fetched, and does not reach further back. See the
 | Assignment rules change | Next compose |
 | Directory change affecting which rule matches | Up to an hour, then one further compose |
 | Profile field value saved, by anybody in the organisation | Next compose |
-| Directory attribute change in Entra | Up to an hour, without a republish |
+| Directory attribute change in Entra | Up to an hour, without a republish. After a publish or a quiet spell, up to an hour from that mailbox's first message, then one further compose |
 
 Those are the times a change takes to reach what a mailbox is served. The first
 message somebody composes after a publish can briefly draw the previous
@@ -161,6 +161,15 @@ the end of its hour-long freshness window before the new department or group can
 route somebody differently. The re-check then happens in the background rather
 than while a message is being written, so the first compose after the window
 still uses the old decision and the one after it follows the directory.
+
+A directory attribute change, such as a new job title, usually follows the same
+hour. The longer case is a mailbox whose signature has to be built from scratch,
+which happens after a template publish or when nobody has written from that
+address for a day. To keep that first message quick, Sigil builds it from the
+directory record it kept from that mailbox's last message, which can be up to a
+week old, and reads a fresh one in the background. The signature built that way
+is then used for up to an hour like any other, so the new job title can take an
+hour from that first message, plus one more compose, to appear.
 
 ## Staged rollout defaults
 

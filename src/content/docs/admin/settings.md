@@ -8,12 +8,13 @@ sidebar:
 Settings holds the choices you make about how your own organisation behaves, as
 opposed to the things Sigil sets for you.
 
-There are three.
+There are four.
 
 | Setting | Default | What it changes |
 | --- | --- | --- |
 | Require approval to publish | Off | Publishing, restoring a version, staging a rollout and scheduling any of it need an admin |
 | Profile editing | Off | Whether colleagues can fill in their own custom signature details |
+| Product update emails | On | Whether your admins receive occasional round-ups of what has changed in Sigil |
 | Health digest | Weekly | How often Sigil emails your admins a summary of signature health |
 
 ## Require approval to publish
@@ -44,6 +45,27 @@ remove the values.
 
 Which fields exist is a separate page. See
 [profile fields](/admin/profile-fields/).
+
+## Product update emails
+
+Occasional emails to your admins about what has changed in Sigil: new features,
+improvements and fixes. Nobody has to act on one.
+
+Turning this off stops them for every admin in your organisation at once. It
+changes nothing else Sigil sends. Billing notices, the health digest, a prompt to
+reconnect and any notice your admins need to act on arrive either way, because
+those are part of running the service rather than news about it. See
+[emails Sigil sends](/admin/emails-sigil-sends/#product-updates) for the
+difference.
+
+It is on by default, like the digest. The people it reaches already run Sigil
+for your organisation, the mail is about the service they use, and every copy
+carries its own way out.
+
+That way out is personal. Each product update has a link at the bottom that
+stops them for that one address, with no sign-in, and nobody else can undo it.
+So an admin who wants them can stay on while a colleague who does not opts out,
+and switching this setting back on never overrides somebody who asked to stop.
 
 ## Health digest
 
@@ -90,7 +112,11 @@ See [roles and capabilities](/reference/roles-and-capabilities/).
 
 ## What is recorded
 
-Changing any of the three writes a [change log](/monitoring/change-log/) entry
-under the Changed settings action, with who changed it and when. Sending yourself
-a digest is recorded there too. Previewing one is not, because nothing left the
+Changing any of them writes a [change log](/monitoring/change-log/) entry under
+the Changed settings action, with who changed it and when. Sending yourself a
+digest is recorded there too. Previewing one is not, because nothing left the
 building.
+
+Somebody opting their own address out of product updates is not in your change
+log. It is a choice about their own inbox rather than a change to your
+organisation, and it applies wherever that address receives them.

@@ -14,7 +14,7 @@ whoever is composing the message.
 | --- | --- |
 | Cloudflare edge compute | The API, the admin portal and the redirect service |
 | Cloudflare D1 | Templates, configuration, telemetry and billing state |
-| Cloudflare R2 | Uploaded images |
+| Cloudflare R2 | Uploaded images and nightly database backups, both in Cloudflare's EU jurisdiction |
 | Cloudflare KV | Rendered signature cache and per-mailbox rule resolution |
 | Cloudflare Email | Invitations, test emails, operator notices and internal alerts |
 | Stripe | Subscriptions, payment methods and invoices |
@@ -91,15 +91,17 @@ A one hour freshness window sits on top of that, which is how a change to
 somebody's job title in Entra reaches Outlook without anyone republishing: a
 cached entry older than the window still serves that compose, then re-renders in
 the background from a fresh directory read, so the change lands on the compose
-after. The entry itself lives a day, which bounds how long any directory data
-exists inside Sigil at all: the attributes are read when a signature is rendered
-and are never stored as a record of their own, so a day after the last render
-there is nothing left of them.
+after. The entry itself lives a day. The attributes are read when a signature is
+rendered and are never stored as a record of their own: the rendered signature
+and the directory lookup below are the only places they sit.
 
-The answer to a single directory lookup is held for fifteen minutes, so that a
-person composing several messages is not looked up in Graph each time. It sits
-inside the day above and changes nothing about how long directory data survives.
-A deprovisioned organisation has it cleared with everything else.
+The answer to a directory lookup counts as fresh for fifteen minutes, so that a
+person composing several messages is not looked up in Graph each time. After
+that it still answers straight away while a fresh copy is read in the
+background, and it is kept for up to seven days after the mailbox last composed,
+so the first message of the morning is not held up by a slow Graph call. That
+week, not the day above, is what bounds how long directory data exists inside
+Sigil. A deprovisioned organisation has it cleared with everything else.
 
 The routing decision behind assignment rules is cached separately, keyed by a
 rules version that changes whenever the rules are edited, so an edit strands

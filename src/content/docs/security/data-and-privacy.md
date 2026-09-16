@@ -14,13 +14,16 @@ plus licence and account state for seat counting. The full list is in
 
 Those attributes are read when a signature is rendered and are never written down
 as a record of their own. What holds them afterwards is the rendered signature
-itself, cached for at most a day, plus a fifteen minute cache of the directory
-lookup that fed it, which exists so that somebody writing several messages is not
-looked up over and over. A cached signature older than an hour is re-rendered
-from a fresh directory read the next time it serves, which is what lets a
-corrected job title reach Outlook within about an hour with nobody republishing
-anything. A day after somebody last composed a message there is nothing of their
-directory record left inside Sigil.
+itself, cached for at most a day, and the directory record that fed it, kept for
+up to seven days after that mailbox last composed a message. The record counts as
+fresh for fifteen minutes. After that it still answers straight away while a
+fresh copy is read from Microsoft 365 in the background, so the first message of
+the day is not held up by a directory look-up. A cached signature older than an
+hour is re-rendered from a fresh directory read the next time it serves, which is
+what lets a corrected job title reach Outlook, usually within an hour, with
+nobody republishing anything. The longer case is in
+[limits](/reference/limits/#how-long-changes-take-to-reach-users). A week after somebody last composed a message there is
+nothing of their directory record left inside Sigil.
 
 Recipient content is never read. Sigil writes into the compose window and does
 not sit in your mail flow, so it has no access to message bodies, subjects or
@@ -55,6 +58,13 @@ Tracked link definitions, their click counts, and 90 days of per-click records
 holding no identifier of any kind.
 
 Billing state, mirrored from Stripe, and your billing profile.
+
+Your organisation's choice about [product update emails](/admin/settings/#product-update-emails),
+with the other settings. Separately, a list of the addresses that have opted out
+of product updates, each with the date it opted out and nothing else. That list
+is not held against any organisation, because the choice belongs to the person
+and applies wherever their address receives product updates. An address leaves
+it only when that person opts back in.
 
 A record of each attempt to connect an organisation to Sigil. It holds the
 attempt reference, the route the signup came through, your organisation name and
@@ -219,7 +229,10 @@ Sigil runs on Cloudflare's edge network. Templates and configuration are in D1,
 images in R2, and rendered signatures in a KV cache. Billing is handled by Stripe.
 See [infrastructure](/security/infrastructure/).
 
-Data at rest sits in the United Kingdom or the European Economic Area. For the
+Data at rest sits in the United Kingdom or the European Economic Area. Uploaded
+images and the nightly database backups are held in storage created in
+Cloudflare's EU jurisdiction. That is a restriction Cloudflare enforces on where
+the files may be kept, rather than a preferred location it is free to ignore. For the
 full list of who processes what, where each one holds it, and the notice you get
 before that list changes, see
 [sub-processors](/security/compliance/#sub-processors-and-where-data-is-stored).
@@ -351,6 +364,11 @@ place Sigil stores something against an organisation is either purged or named a
 a deliberate exception, and an automated check refuses any new storage that is
 neither. A list of what to delete that nothing verifies is a list that quietly
 falls behind, which is what makes the check worth more than the intention.
+
+One record sits outside that check because it was never your organisation's: the
+list of addresses opted out of product updates. A purge does not touch it and a
+tenant export does not include it. It belongs to each person, and deleting it
+with an organisation would mean emailing somebody who had asked Sigil to stop.
 
 The purge runs in phases and keeps track of how far it reached. Billing stops
 first, then stored images and cached entries go, then the records themselves, and

@@ -87,6 +87,15 @@ scope sent for that role is discarded rather than stored.
 Owners manage the staff list from Partner staff in the console. Adding somebody
 needs their email address and a role.
 
+The same page holds the partner's product update switch, which only Owners can
+change. With it on, which is the default, the partner's Owners and Admins receive the occasional round-up of
+what has changed in Sigil, and turning it off stops them for all partner staff.
+It does not change what a client's own administrators receive, since they
+decide in their own [settings](/admin/settings/#product-update-emails), and
+anybody can still stop product updates for their own address from the link at
+the bottom of one. See
+[emails Sigil sends](/admin/emails-sigil-sends/#product-updates).
+
 ## Partner staff and their own tenant
 
 Being partner staff and being an administrator of the MSP's own Sigil tenant are
