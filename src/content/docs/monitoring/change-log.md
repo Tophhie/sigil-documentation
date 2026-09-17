@@ -358,8 +358,9 @@ system would make it look as though it came from nowhere.
 
 ## Append-only
 
-Entries are never edited or removed. Nothing prunes the log, so it is kept
-indefinitely.
+Entries are never edited or removed. Nothing prunes the log, so it is kept for
+as long as your organisation uses Sigil. It is deleted with the rest of your data
+when the organisation is deprovisioned.
 
 That makes it usable as an audit trail rather than as a convenience feature. If
 somebody needs to know when a disclaimer changed, or which administrator restored

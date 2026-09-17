@@ -312,11 +312,11 @@ administrators a re-consent link.
 | Directory attributes read from Microsoft Graph | Never stored as a record of their own. Held inside a rendered signature for at most a day (refreshed hourly while in use), in a lookup cache for up to seven days after the mailbox last composed (fresh for fifteen minutes, then refreshed in the background), and in a photo cache for a day |
 | Template version history | Last 10 published bodies per template |
 | Deleted templates | 30 days in Recently deleted, then purged by a daily sweep |
-| Change log | Indefinite |
+| Change log | For as long as your organisation uses Sigil |
 | Operator audit log | Indefinite |
 | Individual signature requests and apply outcomes | 90 days, then purged by a nightly sweep |
-| Per-mailbox activity rollup and daily apply totals | Indefinite |
-| Daily click totals per tracked link | Indefinite |
+| Per-mailbox activity rollup and daily apply totals | For as long as your organisation uses Sigil |
+| Daily click totals per tracked link | For as long as your organisation uses Sigil |
 | Per-click records behind the analytics splits | 90 days, then purged by a nightly sweep |
 | Onboarding attempt records | Indefinite, and outside the tenant's own data |
 | Sign-up diagnostics held on those records | 90 days, then cleared while the attempt stays |
@@ -326,9 +326,10 @@ administrators a re-consent link.
 Deprovisioning a tenant purges all of it except the onboarding attempt records
 and the diagnostics on them, which describe an attempt to connect rather than a
 live organisation, and the product update opt-outs, which belong to a person
-rather than to an organisation. That includes the indefinite rows above: activity rollups and daily
-totals are kept for as long as the organisation exists and go with it when it
-does not. A sign-in recorded before an organisation connected is purged with that
+rather than to an organisation. That includes every row above marked "for as
+long as your organisation uses Sigil": the change log, activity rollups and
+daily totals have no expiry of their own, and go when the organisation does. A
+sign-in recorded before an organisation connected is purged with that
 organisation too, since the whole record is personal data rather than an account
 history.
 

@@ -203,7 +203,8 @@ built from somebody's address and any personal link held in a directory
 attribute, so a per-person link never becomes a per-person record.
 
 Per-click records are deleted after 90 days. Daily click totals per link are
-kept indefinitely, so the counts survive while the detail behind them does not.
+kept for as long as your organisation uses Sigil, so the counts survive while the
+detail behind them does not.
 
 The result is that Sigil can tell you a link was clicked 84 times and cannot tell
 you by whom. That is a property of what is stored rather than a policy about who

@@ -84,6 +84,29 @@ The compiler emits the same reference.
 Always set an explicit `width` in pixels. Outlook does not reliably scale images
 without one, and a logo exported at 2x will render at twice the size you intended.
 
+## Images on a phone screen
+
+A phone can narrow a signature to fit its screen, and an image with a fixed
+`width` and `height` does not always survive that. Outlook for Android shrinks
+the width but keeps the height as set, so a wide logo comes out squashed.
+
+The designer guards against this for you. Image and Photo blocks carry
+`max-width:100%;height:auto` in their inline style beside the `width` and
+`height` attributes, so a client that narrows the picture keeps it in
+proportion. Classic Outlook for Windows ignores that style and sizes the image
+by its attributes, exactly as before. QR code and social icon blocks do not
+carry it.
+
+The designer's HTML is built when you publish, so a design last published on or
+before 15 September 2026 may still have the old markup. Publish it again to pick
+this up.
+
+The HTML editor sends your markup as written, so add the same style yourself:
+
+```html
+<img src="cid:logo.png" width="140" height="40" alt="Acme" style="display:block;border:0;max-width:100%;height:auto;">
+```
+
 ## Formats
 
 Use PNG or JPG. They are the only formats an upload accepts, and the check reads

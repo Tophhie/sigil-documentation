@@ -85,10 +85,10 @@ See [assignment rules](/targeting/assignment-rules/).
 | --- | --- |
 | Template version history | Last 10 published bodies per template |
 | Recently deleted templates | 30 days, then purged by a daily sweep |
-| Change log | Indefinite |
+| Change log | For as long as your organisation uses Sigil |
 | Individual signature requests and apply outcomes | 90 days, then purged by a nightly sweep |
-| Per-mailbox activity rollup and daily apply totals | Indefinite |
-| Daily click totals per tracked link | Indefinite |
+| Per-mailbox activity rollup and daily apply totals | For as long as your organisation uses Sigil |
+| Daily click totals per tracked link | For as long as your organisation uses Sigil |
 | Per-click records behind the analytics splits | 90 days, then purged by a nightly sweep |
 | Signature copy kept on a person's device | 45 days from that address's last compose, renewed by each one |
 | Operator audit log | Indefinite |
