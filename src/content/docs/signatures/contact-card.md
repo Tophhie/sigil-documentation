@@ -79,10 +79,14 @@ A card discloses precisely the attributes the signature already prints, to
 somebody who already has the signature in front of them. It is not a way to learn
 anything the recipient was not already told.
 
-## Cards from a suspended organisation
+## Cards from an organisation Sigil no longer serves
 
-The endpoint stops answering when an organisation is suspended or removed, in the
-same way every other serving path does.
+The endpoint stops answering when an organisation is suspended or removed, and
+when its subscription has lapsed or been cancelled, in the same way every other
+serving path does. A card link in an old message then comes back as not found.
+
+The recipient is told nothing about why. The same answer is given for a link that
+never existed, so a card link reveals nothing about the state of your account.
 
 ## How long a link lasts
 

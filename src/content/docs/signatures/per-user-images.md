@@ -89,9 +89,15 @@ photo. Nobody gets a broken image icon where their face should be.
 
 This is worth knowing before you design around it. If half your organisation has
 no photo, half of them get a signature with a gap where the photo block was, and
-whatever sat beside it moves. Check the proportion in
-[attribute coverage](/monitoring/attribute-coverage/) first, and consider putting
-the photo in its own column so its absence changes the layout predictably.
+whatever sat beside it moves. Find out how many people have one before you rely
+on it, and consider putting the photo in its own column so its absence changes
+the layout predictably.
+
+[Attribute coverage](/monitoring/attribute-coverage/) will not answer that
+question. A photo is not a directory attribute, so the report leaves `hasPhoto`
+out. Downloading the live signature for a few people you know to be missing a
+photo, from the download action in the Templates view, shows you exactly what
+they will get.
 
 ### Aliases
 
@@ -103,9 +109,9 @@ under a brand alias still gets their photo.
 ### Caching
 
 Photos are cached for a day, and so is the knowledge that a mailbox has none.
-Adding a photo in Microsoft 365 therefore takes up to a day to appear in a
-signature, rather than appearing immediately as a directory attribute change
-would.
+Adding or changing a photo in Microsoft 365 therefore takes up to a day to appear
+in a signature. A directory attribute change, such as a new job title, is quicker,
+usually within the hour. See [limits](/reference/limits/) for the exact timings.
 
 ## How they reach the message
 

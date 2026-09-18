@@ -45,10 +45,18 @@ the other decides whether it gets one at all.
 | [Assignment rules](/targeting/assignment-rules/), banners and footers | Unaffected, and still take effect when you resume |
 | Seats and billing | Unaffected |
 
-The last row is the one people expect to work differently. Pausing is a delivery
-control, not a commercial one. Your seat count and your subscription carry on
-exactly as they were, so pausing for a month does not reduce a bill. If the
-reason to stop is cost rather than readiness, [excluding
+"Applies nothing" has one visible exception. The add-in keeps a copy of each
+person's last signature on their device and draws it straight away, before it
+has heard back from Sigil. So the first message somebody writes after you pause
+can show their old signature for a moment, then clear it when the refusal
+arrives. The copy is deleted at the same time, so it happens once per person and
+device. If Sigil cannot be reached at all, the add-in has no refusal to act on
+and the kept copy stays. See [how it works](/start/how-it-works/).
+
+The last row of the table is the one people expect to work differently. Pausing
+is a delivery control, not a commercial one. Your seat count and your
+subscription carry on exactly as they were, so pausing for a month does not
+reduce a bill. If the reason to stop is cost rather than readiness, [excluding
 mailboxes](/admin/cost-management/) is the tool that changes what you pay.
 
 ## Resuming

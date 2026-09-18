@@ -99,7 +99,9 @@ an account was created is what Sigil tests rather than what type it is now.
 Mailboxes you have [excluded from Sigil](/admin/cost-management/). They will
 never be sent a signature, so an empty job title on a warehouse account is not a
 data quality problem to fix. Counting them would make the coverage score worse
-the more diligently you used cost management.
+the more diligently you used cost management. In inclusion mode the same rule
+works the other way round: only the mailboxes on your list are counted, and
+everyone else is left out.
 
 The report gives each of those counts rather than dropping the accounts silently,
 and gives them separately rather than as one total, because an account can be

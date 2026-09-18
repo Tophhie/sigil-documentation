@@ -44,6 +44,11 @@ whichever side of a clock change that falls on.
 The portal shows the window back to you in the zone you chose, rather than
 converting it to yours.
 
+A banner cannot be edited in the portal once it is created. The list offers
+Pause, Resume and Delete, so a wrong window or a wrong image means deleting the
+banner and creating it again. The [admin API](/reference/api/) can change an
+existing banner in place, if you script your campaigns.
+
 Opening or closing a window takes effect immediately. The active banner is part
 of the rendered-signature cache key, so there is nothing to wait for and nothing
 to purge.
@@ -63,7 +68,7 @@ links are routed through [tracked links](/monitoring/link-clicks/) automatically
 and there is no opt-out.
 
 No IP address and no recipient identity is logged, so a banner tells you how
-many people clicked, not who.
+many clicks it drew, not who made them. Somebody who clicks twice counts twice.
 
 Totals appear in the Link clicks view, rolled up per banner rather than per URL,
 so a campaign pointing at three destinations reads as one number. Security
@@ -94,8 +99,10 @@ width of a signature rather than at the full width of an email client.
 Set meaningful alt text. Some recipients will see only that, and the campaign
 name it falls back to was written for your banner list rather than for them.
 
-Test it before the window opens by setting a short window now, sending a
-[test email](/admin/test-email/), and then setting the real window.
+Test it before the real window opens. Create a copy with a short window
+starting now, send yourself a [test email](/admin/test-email/), then delete the
+copy. Pausing the real banner while you do this keeps it from winning over the
+copy if the two windows overlap.
 
 ## Overlapping windows
 
@@ -110,10 +117,22 @@ That is a deliberate behaviour rather than a tie-break to rely on. Overlapping
 windows still make it harder to say what any given person received on any given
 day, which matters when somebody asks later.
 
+The Status column shows which banner is winning at the moment.
+
+| Status | Meaning |
+| --- | --- |
+| Live | This is the banner signatures carry right now |
+| Scheduled | Its window has not opened yet |
+| Superseded | Its window is open, but a newer banner is winning |
+| Ended | Its window has closed |
+| Paused | Switched off by hand, whatever its window says |
+
 ## Ending a campaign
 
 Do nothing. The window closes and the banner disappears from every signature at
 once.
 
-If you need it gone sooner, edit the end of the window to a time in the past, or
-delete the banner. Both take effect immediately.
+If you need it gone sooner, pause it or delete it. Both take effect immediately.
+Pausing keeps the banner in the list and can be undone with
+Resume. If the window is still open when you resume, the banner goes straight
+back on. Deleting cannot be undone.

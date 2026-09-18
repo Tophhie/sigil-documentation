@@ -20,7 +20,7 @@ them.
 | Coverage | What share of your mailboxes have ever applied a signature successfully, and up to five that never have |
 | Apply failures | How many attempts Outlook did not accept, across the organisation |
 | Directory gaps | Attributes your live templates reference that a meaningful share of mailboxes do not have |
-| Banners closing | Any [campaign banner](/targeting/banners/) whose window ends within a week |
+| Banners closing | Any [campaign banner](/targeting/banners/) whose window ends within a week, unless it is paused |
 | Waiting on approval | Drafts submitted for review and not yet decided |
 | Booked publishes | Any [scheduled publish](/signatures/scheduled-publishing/) not yet fired |
 | Running rollouts | Any [staged rollout](/signatures/staged-rollouts/) in flight, and what percentage it is at |

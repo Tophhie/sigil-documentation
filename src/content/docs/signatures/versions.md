@@ -95,8 +95,8 @@ normalised, Sigil stores a numbered variant instead of overwriting. See
 [images](/signatures/images/#the-name-an-image-ends-up-with). The upload is
 recorded in the change log either way. Keep your source files.
 
-Banners and footers are edited in place with no version history. They are small
-and quick to reconstruct, and the change log records that they were edited.
+Banners and footers are changed in place with no version history. They are small
+and quick to reconstruct, and the change log records each change.
 
 Assignment rules are replaced as one ordered list on each save. The change log
 records the edit.
