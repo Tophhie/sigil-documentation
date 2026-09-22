@@ -39,37 +39,48 @@ the surface that recipients touch carries no portal or API.
 
 ## Code loaded from other hosts
 
-The components above are the services Sigil runs on. One further host is reached
-by the Outlook client rather than by Sigil's servers, and it is worth stating
-plainly because it is the only code inside your users' Outlook that Sigil did not
-write.
+The components above are the services Sigil runs on. Two further hosts are
+reached by the Outlook client rather than by Sigil's servers, and they are worth
+stating plainly because they serve the only code inside your users' Outlook that
+Sigil did not write. Both are Microsoft's.
 
 | Host | What it serves | Reached by |
 | --- | --- | --- |
 | `appsforoffice.microsoft.com` | Office.js | The add-in, on every path |
+| `ajax.aspnetcdn.com` | `MicrosoftAjax.js`, part of the same runtime | Microsoft's runtime, on Outlook for Mac, iOS and Android, and sometimes on Windows |
 
 Office.js is not optional and not a choice Sigil made. Microsoft requires every
 Office add-in to load it from that host, and an add-in that bundled its own copy
 would not run.
 
-There is no second entry, and that is deliberate. The icons in the "My signature"
-pane were once drawn by a script fetched from `unpkg.com`, which put a third
-party in a position to run code in the origin that holds the sign-in client and
-the Office.js bridge, in order to draw seven glyphs. Those glyphs are now shape
-data inside the add-in's own bundle, so the pane loads no script but Microsoft's.
-A check on every build fails the release if a third-party script reference
-reappears on either add-in page, which is what keeps this a property of the
-add-in rather than a fact that happens to be true today.
+The second host is one step further removed. Sigil's pages name one script
+origin, and it is the first. Nothing Sigil wrote points at `ajax.aspnetcdn.com`:
+the Office.js runtime fetches `MicrosoftAjax.js` from there itself, always on
+Mac, iOS and Android, and on Windows when the Outlook build asks for it. Outlook
+on the web takes its copy from `appsforoffice.microsoft.com` and never reaches
+the second host at all. See
+[what the add-in needs to reach](/deploy/requirements/) for what a network that
+blocks it would see.
+
+Neither host is a third party, and that is the property worth holding. The icons
+in the "My signature" pane were once drawn by a script fetched from `unpkg.com`,
+which put a third party in a position to run code in the origin that holds the
+sign-in client and the Office.js bridge, in order to draw seven glyphs. Those
+glyphs are now shape data inside the add-in's own bundle, so the pane loads no
+script but Microsoft's. A check on every build fails the release if a
+third-party script reference reappears on either add-in page, which is what
+keeps this a property of the add-in rather than a fact that happens to be true
+today.
 
 The typefaces the pane and the admin portal are set in are deliberately not on
 this list either. They are served from Sigil's own hosts rather than from Google
 Fonts, so opening the pane or the portal discloses nothing to a font provider,
 not even an IP address.
 
-Microsoft is sent nothing of yours. The host answers a request for a script, and
+Microsoft is sent nothing of yours. Each host answers a request for a script, and
 what it learns is what any web request discloses: the address it came from and
 the page that made it. Signature content, directory attributes and tokens never
-travel to it.
+travel to either.
 
 The network view of the same list, written for an administrator configuring an
 outbound filter, is on

@@ -72,7 +72,7 @@ below the maximum.
 | Item | Value |
 | --- | --- |
 | Rules per organisation | 100 |
-| Attributes a rule can match on | 10 |
+| Attributes a rule can match on | 11 |
 | Values in one attribute rule | No limit, comma separated |
 | How a group is named | Its Entra object id, typed or pasted, not checked when saved |
 | Roles a rule must set | At least one of new messages and replies |

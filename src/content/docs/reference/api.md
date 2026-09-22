@@ -334,6 +334,7 @@ templates capability. See
 | `DELETE /api/admin/profile-fields/:key` | Admin token, settings capability | Delete a field and every value stored against it. Irreversible |
 | `GET/PUT /api/admin/rules` | Admin token, rules capability | Assignment rules, replaced as one ordered list |
 | `POST /api/admin/rules/simulate` | Admin token, rules capability | Dry-run the saved rules against one mailbox |
+| `GET /api/admin/rules/groups/search` | Admin token, rules capability | The same group name search, reachable without cost management: how a group name becomes the object id a group rule matches on. Returns an empty list below two characters, and 502 if the directory permission for groups was never granted |
 | `GET/POST /api/admin/banners`, `PUT/DELETE /api/admin/banners/:id` | Admin token, banners capability | Campaign banners |
 | `GET/POST /api/admin/footers`, `PUT/DELETE /api/admin/footers/:id` | Admin token, footers capability | Compliance footers |
 | `GET /api/admin/assets` | Admin token, templates capability | The image list |
@@ -421,7 +422,7 @@ telemetry.
 | `POST /api/admin/exclusions/groups` | Admin token, cost management capability | Put an Entra group's members on the list. The group is confirmed against the directory, and its membership resolved, before the call returns |
 | `DELETE /api/admin/exclusions/groups/:id` | Admin token, cost management capability | Take a group off the list, and report which addresses that released |
 | `POST /api/admin/exclusions/groups/:id/sync` | Admin token, cost management capability | Refresh one group's membership now, rather than waiting for the nightly refresh |
-| `GET /api/admin/groups/search` | Admin token, cost management capability | Group name search for the picker, from two characters |
+| `GET /api/admin/groups/search` | Admin token, cost management capability | Group name search for the cost management picker, from two characters |
 | `GET /api/admin/api-keys` | Admin token, Admin role | Every API key for the organisation, revoked ones included |
 | `POST /api/admin/api-keys` | Admin token, Admin role | Mint one. The secret is in this response and in nothing else, ever |
 | `DELETE /api/admin/api-keys/:id` | Admin token, Admin role | Revoke one. The row survives so the change log stays resolvable |
