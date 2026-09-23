@@ -34,8 +34,14 @@ hostname is baked into the Entra broker redirect URI and into every URL in the
 add-in manifest, which is part of why a hostname change requires a manifest
 redeploy and fresh admin consent.
 
-The link domain answers `/r/` redirects and returns 404 for everything else, so
-the surface that recipients touch carries no portal or API.
+The link domain answers `/r/` redirects and contact card downloads, and returns
+404 for everything else, so the surface that recipients touch carries no portal
+or API.
+
+An organisation holding the [branded link domain](/monitoring/branded-link-domain/)
+add-on has a fourth host, its own, serving its tracked links in place of
+`e-clk.usesigil.app`. It is a hostname on the customer's domain pointed at Sigil
+by a CNAME, and it carries the same redirect-only surface.
 
 ## Code loaded from other hosts
 

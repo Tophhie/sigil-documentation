@@ -8,6 +8,9 @@ sidebar:
 Sigil costs £0.70 per licensed mailbox per month, billed monthly, with every
 feature included. There is a 14 day free trial.
 
+One optional add-on is charged on top of that, per organisation rather than per
+mailbox. See [add-ons](#add-ons).
+
 Billing runs on Stripe. Your organisation is a Stripe customer with one per-seat
 subscription.
 
@@ -201,8 +204,13 @@ something from you, such as incomplete details or an agreement waiting to be
 accepted, carries a ! marker, and a warning on the subscription tab that another
 tab resolves links straight to it.
 
-The per-seat price is shown for reference. The authoritative rate is the one held
-in Stripe.
+An Add-ons card sits below the subscription panel, listing what is available,
+what each costs, whether your organisation has it, and where to set it up. It is
+shown whether or not you hold one, because the page that explains the invoice is
+also where "what else is there" belongs. See [add-ons](#add-ons).
+
+The per-seat price and any add-on price are shown for reference. The
+authoritative rates are the ones held in Stripe.
 
 Where a discount has been agreed, the estimate line shows it too.
 
@@ -233,6 +241,46 @@ count they are carrying on your behalf.
 The arrangement is worked out from your account rather than stored as a label of
 its own, so it cannot fall out of step with what actually gets charged.
 
+## Add-ons
+
+Nearly everything Sigil does is included in the per-seat price. An add-on is a
+feature charged on top of it, and there is one today: the
+[branded link domain](/monitoring/branded-link-domain/), which serves the tracked
+links in your signatures from a hostname of your own rather than Sigil's shared
+one.
+
+It is priced per organisation rather than per mailbox, so it costs the same
+whether you have twelve seats or twelve hundred. The Billing view shows the
+current price on the Add-ons card, next to a short description of what it does
+and a button to add it.
+
+| Arrangement | How the add-on is added |
+| --- | --- |
+| Per-seat or trial | Add it yourself on the Billing view |
+| Managed by a partner | Ask your provider. They enable it from their own portal, and it reaches their invoice rather than yours |
+| Comped or NFR | Add it yourself. The base subscription stays free; the add-on is not |
+| Tophhie Cloud's own organisation | Granted internally |
+
+Unlike seats, an add-on prorates. Seat counts drift daily, and an invoice line
+per drift would be unreadable, so seat changes are not prorated. An add-on is
+bought once on a day you chose, and charging a full month for the last three days
+of one is the kind of thing that produces a support ticket on the first invoice.
+
+Removing it is self-serve in the same place, and takes the branded domain with
+it, since an organisation should not keep serving links from a hostname nobody is
+paying for.
+
+An organisation whose subscription is free is the one case that needs a step
+first. It has never been asked for billing details or a payment method, because
+it had nothing to pay, and an add-on subscription with no way to pay is abandoned
+by Stripe within a day. The Billing view asks for both before it will let you add
+one, and says which is missing. The add-on is then billed on its own monthly
+invoice, and the subscription itself stays free.
+
+A lapsed or cancelled subscription takes the add-on with it. The hostname stays
+provisioned so links already in sent mail keep resolving, but no new link is
+minted on it until the subscription is live again.
+
 ## Discounts
 
 A discount is agreed with Sigil rather than entered in the portal. There is no
@@ -246,6 +294,11 @@ percentage, so the date the price changes is visible well before it arrives.
 
 The same reduction is attached to the Stripe subscription, so the invoice and the
 estimate agree rather than being two separate numbers that have to be reconciled.
+
+Because it sits on the subscription rather than on one line of it, a discount
+covers every line that subscription raises, [add-ons](#add-ons) included. The
+exception is an organisation whose base subscription is free and whose add-on is
+therefore billed on a subscription of its own.
 
 When an agreed term runs out, the discount stops applying and invoices return to
 full price. Nothing is charged retrospectively, and nothing needs cancelling. The

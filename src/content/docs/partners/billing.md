@@ -56,6 +56,51 @@ one period to the next.
 Your own tenant, the one holding your own signatures, is handled separately from
 your clients' as part of the partner arrangement.
 
+## Add-ons on a client
+
+Some features are charged on top of the per-mailbox rate. There is one today, the
+[branded link domain](/monitoring/branded-link-domain/), and it is enabled for a
+client by you rather than by the client.
+
+The client cannot add it themselves, and is not billed for it. It reaches your
+monthly invoice instead, and a client putting a recurring charge on somebody
+else's bill is not something Sigil allows. Their Billing view says as much and
+tells them to ask you.
+
+It is metered the same way seats are: a second daily count, this time of clients
+that have a branded domain actually live, invoiced monthly in arrears at the list
+price shown on your Partner billing page. Your partner discount reaches it,
+because the discount sits on the aggregate subscription rather than on one line of
+it.
+
+Two things follow from the count being of live domains rather than of enabled
+add-ons. A client you have enabled it for costs you nothing until their
+administrators have set a hostname up and its certificate has issued, and a client
+whose domain you disable stops being counted the same day.
+
+Your own organisation is counted on that meter too, at your partner rate, if you
+enable the add-on for it. That is deliberate: an MSP buying the add-on for its own
+signatures should see it on the invoice it already has rather than get a second
+one at list price.
+
+| | |
+| --- | --- |
+| Enabled by | Partner Owners, Admins and Technicians, from the client's row on the Clients view |
+| Charged | Per client with a live domain, per month, in arrears |
+| Discount | Your partner discount applies |
+| Set up by | The client's own administrators, in their Settings |
+| Disabling | Removes the client's domain and ends the charge |
+
+Enabling or disabling an add-on is recorded in your own partner log, and again in
+the client's [change log](/monitoring/change-log/) attributed to you. Their
+administrators would otherwise find a feature they never asked for with nothing to
+explain where it came from.
+
+An add-on can only be enabled once you have accepted the current
+[partner agreement](/partners/agreement/), in the same way as inviting a client or
+transferring one. It puts a charge on your invoice, so the terms covering it have
+to be ones you have agreed.
+
 ## Partner margin
 
 A partner discount is applied to the aggregate subscription as a whole-percent
@@ -162,14 +207,24 @@ That export is the input to your own billing system. It gives you the seat count
 per client per period, which is what you need to rebill at whatever rate your own
 arrangement uses.
 
+Its columns are the date, the client name, the tenant id and the seat count.
+[Add-ons](#add-ons-on-a-client) are not in it, so a partner rebilling an add-on
+reads which clients have one from the Clients view rather than from the CSV.
+
 Sigil does not produce client-facing invoices on your behalf. The commercial
 relationship with the client is yours.
 
 ## What your invoice shows
 
-The metered line on a partner invoice is a single figure: the seat count the
+The metered seat line on a partner invoice is a single figure: the seat count the
 period billed on. That is enough to charge against and not enough to explain,
 so Sigil writes the per-client split into the invoice's own footer.
+
+An [add-on](#add-ons-on-a-client) appears as a second metered line, counted in
+clients rather than mailboxes. The footer covers seats only and says so in its
+opening line, so the add-on line is not broken down there, and neither the
+invoice nor the usage export names which clients it covers. The Clients view's
+row menu is what tells you whether a given client has the add-on enabled.
 
 The footer lists each client and its seats, largest first, then the total and
 the number of clients it covers, then a link back to the usage report with that

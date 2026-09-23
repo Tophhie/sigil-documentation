@@ -61,6 +61,11 @@ fetches from `portal.usesigil.app` and is itself served from
 `static.usesigil.app`. The link domain answers `/r/` redirects and returns 404
 for every other path, so it carries no API or portal surface.
 
+If you hold the [branded link domain](/monitoring/branded-link-domain/) add-on,
+your own hostname serves tracked links in place of `e-clk.usesigil.app`, and
+should be allowed in its stead. Only recipients reach it, so an outbound filter
+covering your own staff is rarely the thing that matters here.
+
 Two hosts Sigil does not own are also involved. Both are Microsoft's, and neither
 is specific to Sigil:
 

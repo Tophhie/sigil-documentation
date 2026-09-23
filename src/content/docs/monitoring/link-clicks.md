@@ -21,6 +21,10 @@ That domain serves redirects and nothing else. Every other path on it returns
 
 The recipient's experience is a redirect they will not notice.
 
+Organisations that would rather their links carried their own name can add a
+[branded link domain](/monitoring/branded-link-domain/). Everything on this page
+applies unchanged to one, except the hostname the redirect sits under.
+
 ## What is tracked, and what opts in
 
 [Banner](/targeting/banners/) links are always tracked. There is no opt-out,
@@ -164,7 +168,7 @@ Two copies of the history exist and they answer different questions.
 
 | Data | Retention |
 | --- | --- |
-| Daily click totals per link | Indefinite |
+| Daily click totals per link | For as long as your organisation uses Sigil |
 | Per-click records | 90 days, then purged by a nightly sweep |
 
 Totals and the daily chart come from the rollup, so they reach back to the day a

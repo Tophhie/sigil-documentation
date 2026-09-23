@@ -42,6 +42,10 @@ that kind shows in the client's own [attribute
 coverage](/monitoring/attribute-coverage/) and [activity](/monitoring/activity/)
 views rather than on this list.
 
+Alongside Release, the row menu carries the switch for the
+[branded link domain](/monitoring/branded-link-domain/) add-on. See
+[enabling an add-on for a client](#enabling-an-add-on-for-a-client).
+
 ## Adding a client
 
 You cannot grant admin consent inside somebody else's Entra tenant. Only an
@@ -107,6 +111,38 @@ which is how work across a client base gets automated. A key belongs to the
 client rather than to you: it appears on their own list, flagged as created by
 their IT provider, and their Admin can revoke it. There is no key that spans
 several clients, so a provider with forty clients manages forty of them.
+
+## Enabling an add-on for a client
+
+Some features cost extra and are not included in the per-mailbox rate. There is
+one today, the [branded link domain](/monitoring/branded-link-domain/), which
+serves a client's tracked links from a hostname of their own.
+
+Enable it from the client's row menu on the Clients view, under Enable branded
+link domain. Owners, Admins and Technicians can, and the current
+[partner agreement](/partners/agreement/) has to be accepted first, because it
+adds a charge to your invoice.
+
+A Technician can switch it on and cannot then set the hostname up inside the
+client, since that sits under the client's settings and a Technician holds no
+settings capability. The client's own administrators or one of your Owners or
+Admins does that part.
+
+The client cannot enable it themselves, since your invoice is not theirs to add
+to. Once you have enabled it, the setup is theirs: the hostname is on their DNS
+and their administrators add it in their own Settings. Nothing happens, and
+nothing is charged, until they do.
+
+Disabling it removes their domain and their tracked links return to the shared
+hostname on the next render. The confirmation names the hostname that is about to
+go, because links already sitting in mail that client has sent stop working with
+it.
+
+Both directions are recorded in your partner audit log and in the client's own
+[change log](/monitoring/change-log/), attributed to you rather than to them.
+
+See [partner billing](/partners/billing/#add-ons-on-a-client) for how it is
+charged.
 
 ## Taking over an existing tenant
 

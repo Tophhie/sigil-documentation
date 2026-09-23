@@ -127,6 +127,19 @@ fetched, and does not reach further back. See the
 | Clicks counted from one address on one link | 60 a minute. Above that the recipient is still redirected and only the record is dropped |
 | Clicks counted on one link, across every address | 600 a minute at each location on Cloudflare's network. Above that the recipient is still redirected and only the record is dropped |
 
+## Branded link domain
+
+| Item | Value |
+| --- | --- |
+| Domains per organisation | One |
+| Hostname | A subdomain, not a bare domain. At most 253 characters, each label at most 63 |
+| Hostnames refused outright | Anything under `usesigil.app`, wildcards, and any hostname another organisation has claimed |
+| Time from the CNAME appearing to the domain going live | Usually a few minutes |
+| How often the certificate's state is re-read | Nightly, and on demand from the Settings card |
+| Re-checking on demand | Not rate limited. Claiming and releasing are |
+
+See [branded link domain](/monitoring/branded-link-domain/).
+
 ## How long changes take to reach users
 
 | Change | Time |
@@ -164,12 +177,28 @@ still uses the old decision and the one after it follows the directory.
 
 A directory attribute change, such as a new job title, usually follows the same
 hour. The longer case is a mailbox whose signature has to be built from scratch,
-which happens after a template publish or when nobody has written from that
-address for a day. To keep that first message quick, Sigil builds it from the
-directory record it kept from that mailbox's last message, which can be up to a
-week old, and reads a fresh one in the background. The signature built that way
-is then used for up to an hour like any other, so the new job title can take an
-hour from that first message, plus one more compose, to appear.
+which happens when nobody has written from that address for a day. To keep that
+first message quick, Sigil builds it from the directory record it kept from that
+mailbox's last message, which can be up to a week old, and reads a fresh one in
+the background. The signature built that way is then used for up to an hour like
+any other, so the new job title can take an hour from that first message, plus
+one more compose, to appear.
+
+A publish used to fall into that case and now usually does not. Sigil re-renders
+both signatures for every mailbox that has composed in the last week after a
+publish, a version restore, promoting a staged rollout, assigning a template to a
+role or turning link tracking on or off, and again each night. The first message
+after any of those is normally a swap for something already built rather than a
+build from scratch. Those re-renders read the directory afresh,
+which is why a job title changed shortly before a publish generally arrives with
+it. A mailbox that has not composed in a week is not re-rendered and falls back to
+the paragraph above, and the re-render covers at most the thousand mailboxes that
+composed most recently.
+
+Nothing is put in front of a mailbox that would have been refused. A paused
+organisation, an excluded mailbox and one whose billing has stopped are all
+skipped, so a re-render can never hand somebody a signature the next compose
+would have withheld.
 
 ## Staged rollout defaults
 
@@ -242,7 +271,7 @@ twenty client organisations is twenty separate callers rather than one.
 | --- | --- |
 | Actions that render, read the directory or resolve a mailbox | 120 a minute |
 | Actions that send an email | 12 a minute |
-| What counts in the first group | Preview, previewing an archived version, downloading a mailbox's signature, saving somebody else's profile values, simulating assignment rules, syncing an excluded group now, uploading an image, importing a template, looking up your website for a new template |
+| What counts in the first group | Preview, previewing an archived version, downloading a mailbox's signature, saving somebody else's profile values, simulating assignment rules, syncing an excluded group now, uploading an image, importing a template, looking up your website for a new template, claiming or releasing a branded link domain, buying or dropping the add-on behind it |
 | What counts in the second | Test email, and sending the health digest on demand |
 | Over the limit | 429 with a message saying to wait a moment. Nothing is changed or sent |
 | An API key's share | Its own, so a key cannot spend a person's allowance |

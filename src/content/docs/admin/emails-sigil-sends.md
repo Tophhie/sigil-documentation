@@ -193,6 +193,15 @@ exists because a managed client is allowed to have no administrators at all, its
 provider being the one who runs it, so a notice that needs somebody to act would
 otherwise reach nobody for that client.
 
+An announcement can also be addressed to partners alone, reaching every active
+partner's Owners and Admins and no organisation at all. That is for programme
+news rather than product news: a revision to the [partner
+agreement](/partners/agreement/) is the obvious case, since it concerns the
+people who signed it and nobody else. A suspended partner is left out, in the
+same way a lapsed organisation is, because terms are announced to partners still
+on them. Both kinds can be addressed this way, a service notice and a product
+update alike.
+
 A [product update](#product-updates) can reach partner staff the same way. The
 partner has its own switch for it on Partner staff in the console, which covers
 its Owners and Admins and nobody else, and each person can still stop them for

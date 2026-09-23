@@ -371,6 +371,11 @@ list of addresses opted out of product updates. A purge does not touch it and a
 tenant export does not include it. It belongs to each person, and deleting it
 with an organisation would mean emailing somebody who had asked Sigil to stop.
 
+A [branded link domain](/monitoring/branded-link-domain/) is released as part of
+the purge, so a hostname pointed at Sigil is not left being answered on behalf of
+an organisation that no longer exists. That step treats a hostname already gone
+as done rather than as a failure, so a purge cannot be stuck by it.
+
 The purge runs in phases and keeps track of how far it reached. Billing stops
 first, then stored images and cached entries go, then the records themselves, and
 a phase that fails takes up again from where it stopped rather than starting the

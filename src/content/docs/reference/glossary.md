@@ -12,6 +12,11 @@ The template served for new messages. A separate one may cover replies.
 The Outlook extension, built on Office.js, that applies the signature when
 somebody composes a message.
 
+**Add-on**
+A feature charged on top of the per-mailbox price, per organisation. There is one
+today, the branded link domain. A managed client's add-ons are enabled by its
+provider and billed to them.
+
 **API key**
 A credential belonging to an organisation rather than to a person, created by an
 Admin so that a script can reach Sigil unattended. It carries capabilities and no
@@ -24,6 +29,11 @@ Entra group membership. See [assignment rules](/targeting/assignment-rules/).
 **Banner**
 A time-boxed campaign image injected above or below the signature. See
 [banners](/targeting/banners/).
+
+**Branded link domain**
+A hostname belonging to the customer, pointed at Sigil by a CNAME, which serves
+that organisation's tracked links in place of the shared one. It resolves that
+organisation's links and no other's.
 
 **Conditional section**
 Markup of the form `{{#field}}...{{/field}}` that disappears when the underlying
@@ -185,4 +195,7 @@ A customer organisation, keyed by its Entra tenant id.
 
 **Tracked link**
 A redirect under `e-clk.usesigil.app/r/<slug>` that counts clicks without
-identifying the clicker. See [link clicks](/monitoring/link-clicks/).
+identifying the clicker, or under the organisation's own hostname where it holds
+the [branded link domain](/monitoring/branded-link-domain/) add-on. See
+[link clicks](/monitoring/link-clicks/).
+

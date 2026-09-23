@@ -89,6 +89,18 @@ Neither of them stamps the schedule. Trying the digest cannot push the real one
 out by a week, which is the only reason it is safe to press either without
 thinking about it.
 
+## The Link domain card
+
+Settings also carries the card for a
+[branded link domain](/monitoring/branded-link-domain/), which is where the
+hostname is claimed, watched while its certificate issues, and removed.
+
+It is not one of the four switches above and has no default, because it is a paid
+add-on rather than a choice about behaviour. The card is on the page whether or
+not your organisation holds the add-on: without it, the card explains what the
+feature does and points at Billing, rather than offering a button that would be
+refused.
+
 ## Defaults and organisations that never open this page
 
 An organisation that has never touched Settings gets the defaults above, and
@@ -116,6 +128,9 @@ Changing any of them writes a [change log](/monitoring/change-log/) entry under
 the Changed settings action, with who changed it and when. Sending yourself a
 digest is recorded there too. Previewing one is not, because nothing left the
 building.
+
+A link domain added or removed is recorded under its own action rather than under
+settings, naming the hostname.
 
 Somebody opting their own address out of product updates is not in your change
 log. It is a choice about their own inbox rather than a change to your

@@ -49,6 +49,7 @@ organisation.
 | An administrator editing a colleague's profile values | Yes |
 | A person editing their own profile values | No |
 | Changing an organisation-wide setting | Yes |
+| Adding, removing or losing a [branded link domain](/monitoring/branded-link-domain/), and buying or dropping the add-on behind it | Yes |
 | Anything Tophhie Cloud support did on your organisation | Yes |
 
 Each entry carries who performed the action and when.
@@ -277,6 +278,7 @@ change that had replaced half the list.
 | Excluding or including a mailbox | The addresses, the group where one was involved, and the note |
 | A staged rollout | The template, the versions, which transition, the percentage and the reason |
 | Creating or revoking an API key | The key's name, what became of it, and its access |
+| A branded link domain | The hostname, what changed about it, and the reason where something was refused |
 | Anything Tophhie Cloud support did | The lever's own summary, such as the seat count that was set or the address whose role changed |
 
 Opening a row shows the whole record as a table of fields and values, with the

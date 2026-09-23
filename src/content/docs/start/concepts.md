@@ -109,6 +109,9 @@ template, which rewrites its static links at render time. Links containing a
 placeholder are never rewritten, and hits from security scanners are counted
 apart from the human ones. See [link clicks](/monitoring/link-clicks/).
 
+An organisation can serve them from a hostname of its own instead, with the
+[branded link domain](/monitoring/branded-link-domain/) add-on.
+
 ## Seat
 
 A billable licensed member mailbox. Shared and resource mailboxes are unlicensed

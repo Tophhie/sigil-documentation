@@ -91,6 +91,14 @@ under `/api/admin/managed`, `/api/admin/partner` and `/api/admin/platform`; the
 onboarding routes; and the `/api/admin/api-keys` routes themselves. See
 [API keys](/admin/api-keys/).
 
+The three [branded link domain](/monitoring/branded-link-domain/) writes are out
+too, while the read of its state is in. Claiming a hostname starts a recurring
+charge, and releasing one takes every tracked link in every signature back to the
+shared hostname and breaks the ones already in sent mail, which is not undone by
+running the call again: getting it back means re-validating a certificate against
+the customer's own DNS. Re-checking a certificate's state is excluded only
+because it is useful next to those two and its answer is already in the read.
+
 A test asserts in both directions against the registered routes: every allow-list
 entry names a path that exists and the capability that route's guard actually
 demands, and any route in neither the allow-list nor the explicit exclusion list
@@ -404,6 +412,10 @@ telemetry.
 | `PUT /api/admin/profile-values/:email` | Admin token, staff profile details capability | Edit a colleague's values on their behalf, or enter them for a mailbox that has none yet. The address must exist in the directory, and a secondary alias is stored against the mailbox's primary address. Validated exactly as the colleague's own save is, and recorded in the change log |
 | `GET /api/admin/settings/digest/preview` | Admin token, settings capability | The [health digest](/monitoring/health-digest/) as it would be sent now. Sends nothing |
 | `POST /api/admin/settings/digest/send` | Admin token, settings capability | Mail the digest to the calling admin alone |
+| `GET /api/admin/link-domain` | Admin token, settings capability | The organisation's [branded link domain](/monitoring/branded-link-domain/): the hostname, how far its certificate has got, the CNAME target a new one points at, and whether the add-on is held. `domain` is null while links are still on the shared hostname, which the response names |
+| `POST /api/admin/link-domain` | Admin token, settings capability | Claim a hostname and order a certificate for it. Answers 402 when the add-on is not held, and 400 with the reason when the hostname will not do |
+| `DELETE /api/admin/link-domain` | Admin token, settings capability | Release the hostname. New links return to the shared domain, and links already sent on the branded one stop resolving |
+| `POST /api/admin/link-domain/check` | Admin token, settings capability | Re-read the certificate's state now rather than waiting for the nightly check |
 | `GET /api/admin/onboarding` | Admin token, Admin role | Getting started checklist state |
 | `POST /api/admin/onboarding/dismiss` | Admin token, Admin role | Dismiss the checklist |
 | `POST /api/admin/dpa/accept` | Admin token, Admin role | Record acceptance of the data processing agreement |
@@ -414,6 +426,7 @@ telemetry.
 | `PUT /api/admin/billing/profile` | Admin token, billing capability | Save the billing profile |
 | `GET /api/admin/billing/invoices` | Admin token, billing capability | Invoice history, newest first, each row carrying the hosted page and the PDF. Answers with an empty list and a flag rather than an error when the invoices cannot be read |
 | `GET /api/admin/billing/adjustments` | Admin token, billing capability | Credits and corrections applied to the account, newest first, each with its category and the reason |
+| `POST /api/admin/billing/addons/link-domain` | Admin token, billing capability | Buy or drop the branded link domain add-on. Refused for a partner-managed client, for an organisation with no live subscription, and until the billing profile and a means of payment are in place. Dropping it removes the domain |
 | `GET /api/admin/exclusions` | Admin token, cost management capability | The cost management list and the mode that says how it is read: the individually listed mailboxes, each annotated with whether it still resolves in the directory and whether it was billable, the listed groups, the totals across both, and the seats the list bills |
 | `PUT /api/admin/exclusions/mode` | Admin token, cost management capability | Switch between exclusion mode and inclusion mode. Refused while anything is on the list |
 | `POST /api/admin/exclusions` | Admin token, cost management capability | Put one mailbox or many on the list, with an optional note. In exclusion mode that excludes them, in inclusion mode it includes them |
@@ -458,6 +471,7 @@ tenant. They live under `/api/admin/partner`.
 | --- | --- |
 | `GET /clients` | The managed client list |
 | `POST /clients/:tenantId/release` | Release a client back to direct billing |
+| `POST /clients/:tenantId/addons/link-domain` | Enable or disable the [branded link domain](/monitoring/branded-link-domain/) add-on for one client. Disabling removes their domain. Needs the manage permission and an accepted agreement |
 | `GET /invites` | Outstanding client invitations |
 | `POST /invites` | Issue one, returning the consent link and optionally mailing it |
 | `DELETE /invites/:token` | Revoke a pending invitation |

@@ -26,16 +26,21 @@ commitment made on behalf of the MSP, which is not something a technician should
 be able to sign on a service desk shift.
 
 Acceptance gates client work, not sign-in. A partner who has not accepted can
-sign in and read the console, but inviting a client, requesting a transfer of an
-existing tenant and releasing a client are all refused until they have. The
-sub-processor chain has to be agreed before another organisation's data is handed
-over.
+sign in and read the console, but four things are refused until they have:
+inviting a client, requesting a transfer of an existing tenant, releasing a
+client, and enabling an [add-on](/partners/billing/#add-ons-on-a-client) for one.
+The first three hand another organisation's data along a sub-processor chain that
+has to be agreed first. The fourth puts a metered charge on your own invoice, and
+nobody should be able to do that under terms that never mentioned it.
 
 When the substance of the agreement changes, the version in force moves and every
-partner is asked to accept the new version. Until they do, the same three actions
+partner is asked to accept the new version. Until they do, the same four actions
 are refused again. Signing in, reading the console and the clients you already
 manage are unaffected, so a version bump does not interrupt a client's
 signatures.
+
+The current version is dated 22 September 2026. It added the add-on terms in
+clause 6 described below, and every partner was re-gated until they accepted it.
 
 ## You accept two documents, not one
 
@@ -71,6 +76,33 @@ agreed to it with you in writing.
 That is worth checking before you sign a client rather than after. An MSP can
 promise a client a four-hour breach notification; the chain behind it does not
 tighten to match.
+
+## What clause 6 says about add-ons
+
+Clause 6 is the billing clause, and it gained a paragraph on add-ons in the
+September 2026 revision. Four commitments are worth knowing before you enable
+one.
+
+An add-on is enabled for a client by you. Your clients cannot enable one
+themselves while you manage them, and Tophhie Cloud does not bill them for one
+directly.
+
+It is billed on your same monthly invoice, in arrears, for each client that has
+it live, measured daily and charged in the same way as mailboxes. Your partner
+discount applies to it.
+
+Disabling an add-on for a client ends the charge for that client and removes what
+it provided. For the branded link domain, that means the client's hostname goes
+and their links return to the shared one.
+
+No price appears in the agreement text. Like the per-mailbox rate, an add-on's
+price lives in the portal, so changing it is not a change to the agreement and
+does not put you back behind the acceptance gate.
+
+Clause 11 says the free internal tenant you get as an active partner covers the
+service itself and not add-ons. If you enable one for your own organisation it is
+billed to you at list less your partner discount, the same way a client's is. See
+[partner billing](/partners/billing/#add-ons-on-a-client).
 
 ## Breach notification reaches you sooner
 

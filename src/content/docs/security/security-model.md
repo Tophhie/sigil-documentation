@@ -220,11 +220,26 @@ wrong one fails silently in whichever browser nobody happens to be watching.
 ## The link domain
 
 Tracked links are served from `e-clk.usesigil.app`, which answers `/r/` redirects
-and returns 404 for every other path.
+and [contact card](/signatures/contact-card/) downloads and returns 404 for every
+other path.
 
 Recipients click those links, so the domain is the most widely exposed surface
 Sigil has. Keeping the portal and API off it means the exposed surface is a
 redirect and nothing else.
+
+An organisation can serve its links from a hostname of its own instead, with the
+[branded link domain](/monitoring/branded-link-domain/) add-on. The same rule
+applies to it: redirects and contact cards, 404 for everything else.
+
+A branded hostname resolves only the links belonging to the organisation that
+claimed it. A slug belonging to another organisation returns 404 on it, even
+though the same slug resolves on the shared hostname. Without that scoping, one
+customer's hostname would serve another customer's links and record the click
+against them, on a path that is unauthenticated by necessity.
+
+A hostname an organisation has ever claimed answers for that organisation or for
+nobody. It is never treated as unclaimed while the record naming it exists, since
+an unclaimed hostname is one that resolves everybody's links.
 
 ## Operator access
 

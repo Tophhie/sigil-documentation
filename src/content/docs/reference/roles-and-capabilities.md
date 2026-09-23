@@ -22,9 +22,9 @@ a description of it.
 | Link click analytics | Click tracking and its reports | Yes | No | Yes | Yes | No | No |
 | Monitoring | Activity feed, attribute coverage, audit log | Yes | Yes | No | Yes | Yes | No |
 | Users and roles | Invite users and assign roles | Yes | No | No | No | No | Yes |
-| Billing | Plan, seats, subscription and billing profile | Yes | No | No | No | No | Yes |
+| Billing | Plan, seats, subscription, billing profile and [add-ons](/admin/billing/#add-ons) | Yes | No | No | No | No | Yes |
 | Cost management | Which mailboxes and Entra groups have Sigil, which way round that list reads, and the suggestions behind it | Yes | No | No | No | No | Yes |
-| Settings | The organisation-wide switches (publish approval, profile editing and the health digest), and which [profile fields](/admin/profile-fields/) exist | Yes | No | No | No | No | No |
+| Settings | The organisation-wide switches (publish approval, profile editing and the health digest), which [profile fields](/admin/profile-fields/) exist, and the [branded link domain](/monitoring/branded-link-domain/) | Yes | No | No | No | No | No |
 | Staff profile details | See and correct what a named colleague entered in their own [profile fields](/admin/profile-fields/) | Yes | No | No | No | No | No |
 
 Admin is the only role that holds every capability. Assignment rules, settings
@@ -44,6 +44,13 @@ handed it to a role built to avoid exactly that. Hence a capability of its own.
 Defining which fields exist stays under settings, and the two come apart in
 practice: somebody can be trusted to correct a wrong number without also deciding
 what the organisation asks its staff for.
+
+Billing and settings come apart the same way over the
+[branded link domain](/monitoring/branded-link-domain/). Buying or dropping the
+add-on is a billing decision and sits under billing; claiming the hostname that
+then appears in everybody's outgoing mail is a settings one. The Billing role can
+therefore decide what the organisation pays for without being able to change what
+a signature links to.
 
 Where [publish approval](/signatures/approvals/) is switched on, holding the
 templates capability is no longer enough to put a body live. Publishing,
