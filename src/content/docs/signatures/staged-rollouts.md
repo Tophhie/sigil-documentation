@@ -27,8 +27,22 @@ as the [HTML editor](/signatures/html-editor/).
 It starts at 10% of mailboxes. Everyone else carries on receiving exactly what
 they receive now.
 
-There is at most one rollout per template. Starting a second supersedes the
-first.
+There is at most one rollout per template. While one is running, Staged publish
+is disabled in both editors and says a rollout is already in progress, so a
+second cannot be started until the first has promoted or been rolled back.
+
+You need the templates capability, and where
+[publish approval](/signatures/approvals/) is on you need to be an Admin.
+
+1. Open the template in its editor from Templates.
+2. Choose Save draft if you want the body kept whichever way the rollout ends.
+3. Choose Staged publish. In the designer the button reads Staged.
+4. In the HTML editor, choose Start rollout in the confirmation. The designer
+   starts it as soon as you choose the button.
+
+A message says the rollout has started at 10%, and a panel appears above the
+editor to watch it from. The button is unavailable while a rollout is already
+running for the template.
 
 ## What happens next
 
@@ -141,6 +155,24 @@ everyone else has been on all along. Nothing is republished.
 
 Both are recorded in the [change log](/monitoring/change-log/).
 
+### Promoting
+
+1. Open the template in its editor from Templates. The rollout panel sits
+   above the editor.
+2. Choose Promote to everyone. In the designer the button reads Promote now.
+3. Choose Promote in the confirmation.
+
+A message confirms it is promoted and that everyone picks it up within
+seconds.
+
+### Rolling back
+
+1. Open the template in its editor from Templates.
+2. Choose Roll back in the rollout panel.
+3. Choose Roll back in the confirmation.
+
+A message confirms everyone is on the current signature.
+
 ## Promotion
 
 Promoting writes the new body to the template, archives the outgoing body into
@@ -213,5 +245,5 @@ Admins and Editors. It requires the same permission as publishing. See
 
 Where [publish approval](/signatures/approvals/) is switched on, starting and
 promoting a rollout need an admin. Abandoning one does not, and deliberately so:
-whoever spots a problem has to be able to stop it, and stopping a rollout returns
-users to the body that was already approved.
+whoever spots a problem has to be able to stop it, and stopping a rollout
+returns users to the body that was already approved.

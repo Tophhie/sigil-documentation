@@ -117,6 +117,21 @@ acceptance from your own records rather than asking Tophhie Cloud for it.
 Accepting records who accepted and when, against your organisation, and the
 confirmation says so before you agree rather than after.
 
+You need the Admin role in the organisation itself. Staff at a provider who
+manage your organisation for you cannot accept it on your behalf.
+
+1. Open Billing in the portal sidebar.
+2. Choose the DPA tab.
+3. Choose Read the agreement to open the published text.
+4. Choose Accept on behalf of your organisation. The button names it.
+5. Choose Accept in the confirmation, which says which version you are
+   accepting and that your name and the time will be recorded.
+
+The card then shows an Accepted badge with the version, the date and who
+accepted it. When the prompt at the top of a portal page is showing, its Accept
+button does the same thing, and Remind me later puts it off for the rest of the
+browser session.
+
 ### When it needs accepting again
 
 The agreement is versioned. When a revised version is published, an organisation

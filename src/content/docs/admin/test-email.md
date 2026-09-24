@@ -16,6 +16,19 @@ containing the signature exactly as a recipient would receive it, including
 inline images, the current [banner](/targeting/banners/) if a window is open, and
 the applicable [footer](/targeting/footers/).
 
+You need the Admin or Editor role.
+
+1. Open Templates in the portal sidebar.
+2. Choose Send a test.
+3. Under Render as, enter the address of the mailbox whose signature you want
+   to see.
+4. Under Signature, pick New-message signature or Reply signature.
+5. Under Send to, enter the recipient, or leave it blank to send it to
+   yourself.
+6. Choose Send test.
+
+The portal confirms the address the test went to.
+
 ## Where a test can be sent
 
 The recipient defaults to your own address, and you can name a different one, as
@@ -72,6 +85,15 @@ A test email renders one mailbox's signature. To check what a specific colleague
 receives, use the download action on the Templates view, which produces the live
 signature for any mailbox you name as a standalone HTML file.
 
+1. Open Templates in the portal sidebar.
+2. Choose Download.
+3. Under Render as, enter the mailbox's address.
+4. Under Signature, pick New-message signature or Reply signature.
+5. Choose Download.
+
+The file is saved as `signature-<address>.html`, with the images inlined so it
+renders anywhere.
+
 The download resolves the rules exactly as a real request would, so it tells you
 what that person is being served right now.
 
@@ -92,6 +114,6 @@ Admins and Editors, who hold the same capability that covers the template
 library. No other [role](/admin/users-and-roles/) reaches test emails.
 
 Read that alongside the section above: granting somebody the template capability
-also lets them mail a rendered signature to any colleague in your directory, from
-Sigil's sending domain. It is a reason to keep the Editor role to people you
-would trust with the template library anyway.
+also lets them mail a rendered signature to any colleague in your directory,
+from Sigil's sending domain. It is a reason to keep the Editor role to people
+you would trust with the template library anyway.

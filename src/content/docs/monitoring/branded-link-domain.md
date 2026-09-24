@@ -70,6 +70,32 @@ say so on their own form.
 Once you confirm, Sigil claims the hostname and orders a certificate for it. The
 card on Settings is where you come back to watch that happen.
 
+### Adding the domain
+
+The add-on must already be on your subscription, and you need the Admin role,
+or a partner Owner or Admin role inside a managed client.
+
+1. Open Settings in the portal sidebar, under Organisation.
+2. On the Link domain card, choose Add a link domain.
+3. Under Hostname, enter the subdomain, such as links.example.com. The record
+   beneath updates to match.
+4. In your DNS provider, create the record shown: Type CNAME, Name as shown,
+   and Value as shown. Copy beside Name and Value puts each on the clipboard.
+5. Choose Add domain.
+
+A message confirms the hostname was added and is waiting for DNS, or that it is
+already live. The card then shows a badge for the state it is in.
+
+### Checking it has gone live
+
+1. Open Settings in the portal sidebar, under Organisation.
+2. Read the badge on the Link domain card. While it reads Waiting for DNS or
+   Setting up, the card repeats the CNAME record and says which stage it is at.
+3. Once your record is in place, choose Check again.
+
+A message says either that your link domain is live or that it is still waiting
+for DNS. The badge changes to Live once the certificate is deployed.
+
 ## The four states
 
 | Badge | What it means |
@@ -123,6 +149,15 @@ minted on. The exception is removal, described below.
 ## Removing a domain
 
 Remove is on the Link domain card, behind a confirmation.
+
+1. Open Settings in the portal sidebar, under Organisation.
+2. On the Link domain card, choose Remove. While the domain is still pending,
+   the same button reads Cancel.
+3. In the confirmation, which says that links already in sent mail stop working
+   once the hostname stops resolving, choose Remove.
+
+A message confirms the hostname was removed and the card returns to offering
+Add a link domain.
 
 New links go back to the shared hostname from the next render. Links already in
 mail you have sent stop working once the hostname stops resolving, which happens
@@ -185,6 +220,24 @@ subscription itself stays free.
 
 Removing the add-on is self-serve in the same place, and takes the domain with
 it.
+
+### Adding the add-on
+
+You need the Admin or Billing role, and your organisation must be billed
+directly rather than through a partner.
+
+1. Open Billing in the portal sidebar, under Organisation.
+2. Scroll to the Add-ons card and find Branded link domain, with its price
+   beside it.
+3. If the card asks you to complete your billing details or add a payment
+   method first, do that. An organisation whose subscription is free will not
+   have been asked for either before.
+4. Choose Add for the price shown.
+
+A message confirms the add-on was added, the card shows an Included badge, and
+it points you to Settings to set the hostname up. To drop it later, choose
+Remove add-on on the same card and confirm Remove; the confirmation says that
+links already in sent mail stop working once the domain stops resolving.
 
 ## If your organisation is managed by a partner
 

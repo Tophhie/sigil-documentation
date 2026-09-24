@@ -87,6 +87,29 @@ scope sent for that role is discarded rather than stored.
 Owners manage the staff list from Partner staff in the console. Adding somebody
 needs their email address and a role.
 
+1. Open Partner staff in the portal sidebar.
+2. Choose Add staff.
+3. Enter their Email address. It must be a mailbox in your own organisation.
+4. Pick a Role.
+5. Under Client access, switch on the clients they may reach, or leave every
+   switch off for access to all clients. The list is not shown for the
+   Billing role.
+6. Choose Save.
+
+They appear in the list with their role and, under Client access, either the
+clients named or All clients. To change somebody's role or scope, add them
+again with the same email address: the form is titled Add or update staff,
+and saving replaces what was there. You cannot change your own role.
+
+To remove somebody:
+
+1. Open Partner staff in the portal sidebar.
+2. Choose Remove on their row.
+3. Choose Remove in the confirmation.
+
+They lose access to every client immediately. You cannot remove yourself, and
+a partner must keep at least one Owner.
+
 The same page holds the partner's product update switch, which only Owners can
 change. With it on, which is the default, the partner's Owners and Admins receive the occasional round-up of
 what has changed in Sigil, and turning it off stops them for all partner staff.
@@ -95,6 +118,12 @@ decide in their own [settings](/admin/settings/#product-update-emails), and
 anybody can still stop product updates for their own address from the link at
 the bottom of one. See
 [emails Sigil sends](/admin/emails-sigil-sends/#product-updates).
+
+1. Open Partner staff in the portal sidebar.
+2. Under Product update emails, switch Send product update emails to your
+   owners and admins on or off.
+
+The change is saved as soon as the switch moves.
 
 ## Partner staff and their own tenant
 
@@ -109,5 +138,5 @@ Tophhie Cloud's own support staff have a separate mechanism entirely: a read-onl
 "view as tenant" session that expires on the server after 30 minutes.
 
 Partner access is read-write and not time-boxed, because a partner is
-administering their clients rather than supporting them from outside. The two are
-distinct paths with distinct guards.
+administering their clients rather than supporting them from outside. The two
+are distinct paths with distinct guards.

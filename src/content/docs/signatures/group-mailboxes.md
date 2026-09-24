@@ -22,6 +22,13 @@ The person switches the From field in Outlook, in a message started from their
 own mailbox. That is the whole gesture, and it is the one Sigil sees. A new
 message, a reply or a forward all work.
 
+1. In Outlook, start a new message, a reply or a forward from your own
+   mailbox.
+2. Change the From field to the group's address.
+
+The add-in notices the change and applies the group's signature, replacing the
+one already in the message.
+
 For the group's address to appear in that dropdown, an administrator grants the
 permission in the Microsoft 365 admin center or Exchange admin center, under the
 group's settings. Microsoft's guide is
@@ -83,6 +90,23 @@ for a group's mailbox. One rule with the value `group` sends every group in the
 organisation to a template of your choosing, and covers groups created next
 month without anybody touching Sigil. An email-address rule works too, for one
 group at a time.
+
+You need the Admin role.
+
+1. Open Rules in the portal sidebar.
+2. Choose Add rule.
+3. Enter a Rule name.
+4. Under Match on, choose Directory attribute.
+5. Under Attribute, choose Mailbox kind.
+6. In Matching value(s), enter `group`.
+7. Under New messages and under Replies, pick the template groups should get.
+8. Choose Add rule.
+
+The dialog reminds you that `group` matches the mailbox of a Microsoft 365
+Group or distribution list and `user` matches everything else, shared
+mailboxes included. The rule is saved as soon as it is added. For one group at
+a time, choose Email as the attribute and enter the group's address instead.
+See [creating a rule](/targeting/assignment-rules/#creating-a-rule).
 
 Rules that match on an Entra group's membership do not apply to a group's own
 mailbox, because a group is not a member of anything a rule can name. Every other

@@ -186,8 +186,36 @@ payment method for invoices automatically.
 Manage cards through the Stripe customer portal, also linked from the Billing
 view.
 
-An organisation on invoice terms has no card, and the Billing view offers none:
-the buttons are not shown rather than shown and refused.
+An organisation on invoice terms has no card, and the Billing view offers no
+button to add one: it is not shown rather than shown and refused. The button
+into the Stripe customer portal stays, since invoices are read there.
+
+### Adding a payment method
+
+You need the Admin or Billing role, and your
+[billing details](/admin/billing-profile/) must be complete: until they are,
+the button is disabled.
+
+1. Open Billing in the portal sidebar.
+2. On the Your subscription tab, choose Add payment method.
+3. You are taken to Stripe Checkout. Save the card there.
+4. Stripe returns you to the Billing view.
+
+A "Payment method saved." message confirms it, and the Payment figure on the
+subscription panel changes from "No card yet" to "Card on file". If you leave
+Checkout without saving a card, you are returned to the Billing view and
+nothing changes.
+
+### Changing the payment method
+
+1. Open Billing in the portal sidebar.
+2. On the Your subscription tab, choose Update payment method.
+3. Save the new card in Stripe Checkout. Stripe returns you to the Billing
+   view.
+
+The new card becomes the default for invoices. To manage the cards already
+saved, choose Manage billing & invoices instead, which takes you to the Stripe
+customer portal and back to the Billing view when you are done.
 
 ## What the Billing view shows
 
@@ -234,10 +262,14 @@ rather than leaving you to infer it from whether a card is present.
 | Internal | Tophhie Cloud's own organisation |
 
 The last three mean nobody is invoiced, and the view says so with a "Not billed"
-badge and drops the subscription panel and the billing details form entirely.
-There is nothing to fix, so offering a card to add would only invite somebody to
-try. Those organisations also see both billing steps on the
+badge and drops the subscription panel. There is nothing to fix, so offering a
+card to add would only invite somebody to try. Those organisations also see both
+billing steps on the
 [Getting started checklist](/admin/getting-started-checklist/) marked optional.
+
+A comped or NFR organisation keeps the Billing details tab, because it can still
+buy an [add-on](#add-ons) and an add-on needs somebody to invoice. Only Tophhie
+Cloud's own organisation loses the form entirely.
 
 Billed via partner is not the same as being free. Somebody is invoiced for those
 seats, it is your provider rather than you, and the view names them and the seat
@@ -245,6 +277,26 @@ count they are carrying on your behalf.
 
 The arrangement is worked out from your account rather than stored as a label of
 its own, so it cannot fall out of step with what actually gets charged.
+
+### Accepting the data processing agreement
+
+Only an Admin of the organisation itself can accept it. Partner staff looking
+in at a managed client cannot, because the client is the controller. See
+[data processing agreement](/security/compliance/#data-processing-agreement).
+
+1. Open Billing in the portal sidebar.
+2. Open the DPA tab. It carries a ! marker while the agreement is waiting to
+   be accepted.
+3. Choose Read the agreement, which opens it in a new tab.
+4. Choose Accept on behalf of, followed by your organisation's name.
+5. Read the confirmation, which names the version and says your name and the
+   time will be recorded against your organisation.
+6. Choose Accept.
+
+A "Data Processing Agreement accepted." message confirms it, and the card
+shows an Accepted badge with the version, the date and who accepted it. The
+prompt at the top of every portal page offers the same Read the agreement and
+Accept buttons, so it can be accepted from there without opening Billing.
 
 ## Add-ons
 
@@ -277,14 +329,46 @@ paying for.
 
 An organisation whose subscription is free is the one case that needs a step
 first. It has never been asked for billing details or a payment method, because
-it had nothing to pay, and an add-on subscription with no way to pay is abandoned
-by Stripe within a day. The Billing view asks for both before it will let you add
-one, and says which is missing. The add-on is then billed on its own monthly
-invoice, and the subscription itself stays free.
+it had nothing to pay, and an add-on subscription with no way to pay is
+abandoned by Stripe within a day. A comped organisation is asked for both before
+it can add one, and the view says which is missing. The add-on is then billed on
+its own monthly invoice, and the subscription itself stays free.
+
+A partner's own NFR organisation is asked for billing details only. Its add-on
+goes onto the partner invoice at the partner rate, which already has a payment
+method behind it.
 
 A lapsed or cancelled subscription takes the add-on with it. The hostname stays
 provisioned so links already in sent mail keep resolving, but no new link is
 minted on it until the subscription is live again.
+
+### Adding the branded link domain
+
+You need the Admin or Billing role and complete billing details. A comped
+organisation also needs a payment method on file unless it is on invoice
+terms; the card says which is missing and offers Add payment method.
+
+1. Open Billing in the portal sidebar.
+2. On the Your subscription tab, find the Add-ons card below the subscription
+   panel.
+3. Choose the Add button, which names the monthly price.
+4. Set the domain up in Settings. See
+   [branded link domain](/monitoring/branded-link-domain/).
+
+A "Branded link domain added." message confirms it, and the card shows an
+Included badge. If the add-on was recorded but Stripe could not be reached, the
+message says so instead.
+
+### Removing it
+
+1. Open Billing in the portal sidebar.
+2. On the Add-ons card, choose Remove add-on.
+3. Read the confirmation: tracked links go back to Sigil's shared hostname on
+   the next signature render, and links already in mail you have sent stop
+   working once your domain stops resolving.
+4. Choose Remove.
+
+An "Add-on removed." message confirms it.
 
 ## Discounts
 
@@ -331,7 +415,19 @@ mirrored back here. See [billing profile](/admin/billing-profile/).
 ## Cancelling
 
 Cancel from the Billing view, behind a confirmation that spells out what happens
-next.
+next. You need the Admin or Billing role.
+
+1. Open Billing in the portal sidebar.
+2. On the Your subscription tab, choose Cancel subscription.
+3. Read the confirmation. It names the date signatures continue until, and on
+   a card account it says the saved card is removed once the subscription
+   ends.
+4. Choose Cancel subscription to confirm, or Keep subscription to close the
+   dialog without cancelling.
+
+A message confirms the cancellation and the date signatures continue until.
+The subscription panel then reads "cancellation scheduled" next to the end
+date, and the Cancel subscription button is replaced by Keep subscription.
 
 Cancelling does not stop service on the spot. Direct organisations are invoiced
 per seat monthly in advance, so the month you have already paid for runs out
@@ -353,6 +449,25 @@ After it has ended, reactivating is a new subscription rather than a resumed one
 The first invoice is raised straight away and the seat meter restarts, which the
 confirmation says before anything is charged. Reactivating needs complete billing
 details, in the same way adding a card does.
+
+### Reactivating
+
+Before the end date, choose Keep subscription on the Your subscription tab. It
+takes effect at once, without a confirmation, and a message says the
+cancellation has been withdrawn.
+
+Once the subscription has ended, and your billing details are complete:
+
+1. Open Billing in the portal sidebar.
+2. On a card account, add a payment method first if the panel says your saved
+   card has been removed. See
+   [adding a payment method](#adding-a-payment-method).
+3. Choose Reactivate subscription.
+4. Read the confirmation, which says the first invoice is raised straight away
+   and the seat meter resumes.
+5. Choose Reactivate and start billing, or Not now.
+
+A message confirms that billing and signatures have resumed.
 
 ### The card is released when it ends
 

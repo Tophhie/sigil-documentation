@@ -29,6 +29,28 @@ portal accepts them in. Adding a card is refused until the details are complete,
 so a list that asked for the card first would send you straight into a refusal.
 See [what waits on the billing details](/admin/billing-profile/#what-waits-on-it).
 
+The checklist is for the Admin role. Working through it goes like this.
+
+1. Open Getting started in the portal sidebar.
+2. Find the first step without a tick. Optional ones carry an Optional badge.
+3. Choose the step's button, which takes you to where the step is done.
+4. Come back to Getting started once you have, and carry on down the list.
+
+| Step | Button | Where it takes you |
+| --- | --- | --- |
+| Connect Microsoft 365 | Grant admin consent | Microsoft's consent prompt |
+| Add your billing details | Add billing details | The Billing details dialog, which you finish with Save billing details |
+| Add a payment method | Add card | The card checkout |
+| Accept the Data Processing Agreement | Review and accept | The DPA tab of Billing |
+| Customise your signature | Edit signature | Templates |
+| Deploy the Outlook add-in | Copy, beside the manifest URL | Nowhere: the step itself carries the instructions for the Microsoft 365 admin centre |
+| Invite your team | Manage users | Users & roles |
+| Send a test email | Send a test | Templates |
+
+The progress line at the top counts the required steps done. When they all are,
+the page says that everything essential is done and signatures are reaching
+your users.
+
 ## Required and optional steps
 
 The required steps are the ones without which signatures do not reach anybody.
@@ -114,6 +136,12 @@ website already publishes. See
 The checklist shows automatically until the required steps are done, or until
 you dismiss it. Dismissing it is the one piece of state stored about the
 checklist; everything else is computed.
+
+1. Open Getting started in the portal sidebar.
+2. Choose Dismiss.
+
+The portal confirms it is hidden and that you can still reach it from the
+sidebar, then opens Templates.
 
 You can return to it from Getting started in the sidebar at any time.
 

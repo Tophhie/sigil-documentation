@@ -38,6 +38,15 @@ Open the Templates page and look at the In use card. If it says Paused, that is
 your answer: somebody switched delivery off for the whole organisation and it is
 still off. Resume it there.
 
+1. Open Templates in the portal sidebar.
+2. Look at the badge in the header of the In use card: Live or Paused. While
+   delivery is paused a warning at the top of the page says "Signatures are
+   paused" as well.
+3. Choose Resume. The button is shown to administrators.
+
+The next message anybody composes gets a signature, subject to the ten minute
+wait described [below](#you-fixed-it-and-the-signature-has-not-come-back).
+
 This is worth checking first because it is silent. Nobody is warned that their
 signature has stopped, everything in the portal keeps working, and the add-in is
 behaving exactly as it was told to. See
@@ -71,6 +80,12 @@ a warning above its figures for exactly this state, and the seat count on your
 next invoice would be zero. See
 [which way round the list reads](/admin/cost-management/#which-way-round-the-list-reads).
 
+1. Open Cost management in the portal sidebar.
+2. If the mode card says Inclusion mode and a warning above the figures says
+   the list is empty, nobody is being served.
+3. Choose Include a mailbox to add the people who should have Sigil, or choose
+   Switch to exclusion mode and confirm with Switch to put everyone back in.
+
 ### Has admin consent lapsed?
 
 If consent has been withdrawn or the enterprise application removed, Sigil can no
@@ -78,11 +93,18 @@ longer read your directory and cannot personalise anything. Re-visit
 `/admin/consent` and grant consent again. See
 [connect your organisation](/deploy/connect-your-organisation/).
 
+1. Open Getting started in the portal sidebar.
+2. If the Connect Microsoft 365 step is unticked, choose Grant admin consent.
+3. Approve on Microsoft's screen. You are returned to the portal.
+
 ### Was the add-in ever actually deployed?
 
 The [Getting started checklist](/admin/getting-started-checklist/) only marks the
 add-in step complete once Sigil has seen a real signature request from your
 tenant. If that step is still open, the deployment has not reached anyone yet.
+
+1. Open Getting started in the portal sidebar.
+2. Check whether the "Deploy the Outlook add-in" step is ticked.
 
 If you deployed it in the last three days, this is probably just propagation.
 Allow 6 to 72 hours.
@@ -111,6 +133,14 @@ nothing in its URL beyond the host, so there is no address or parameter in it fo
 a content rule to object to. See
 [domains Sigil uses](/deploy/requirements/#domains-sigil-uses).
 
+To read the reasons for one network or office:
+
+1. Open Activity in the portal sidebar.
+2. In the Signature log, enter an affected address under Mailbox, set Source
+   to Add-in (apply), and choose Search.
+3. Read the badge on each failed row. It names the reason, `server-error` or
+   `unreachable`.
+
 ## Some people have a signature and others do not
 
 ### Check the never-applied list
@@ -119,6 +149,12 @@ Open [Activity](/monitoring/activity/). It cross-references your directory to
 list mailboxes that have never successfully applied a signature. That list is
 usually the fastest route to the pattern: one department, one office, one client
 platform.
+
+1. Open Activity in the portal sidebar.
+2. Read the Signature adoption card. It says how many mailboxes have applied
+   their signature at least once and how many never have.
+3. Choose Export mailboxes (CSV). The file lists every mailbox with Yes or No
+   under Signature applied.
 
 ### Is it a first-run sign-in failure?
 
@@ -137,10 +173,30 @@ These pre-token failures carry no verified identity, so they cannot be reported
 back. They appear as a mailbox's absence from the telemetry rather than as a
 recorded failure.
 
+Ask the person to do this in Outlook on Windows, Mac or the web:
+
+1. Start a new message.
+2. Choose My signature on the ribbon.
+3. If the pane says "Sign in to see and apply your signature", choose Sign in
+   and apply and complete the Microsoft sign-in.
+4. The pane says "Signature applied." and shows a preview of the signature.
+
+Their mailbox then appears in the By mailbox table in Activity, with Manual in
+the How column for that apply.
+
 ### Is the add-in assigned to them?
 
 Check the assignment in Integrated apps. A pilot deployment that was never
 widened is a common cause of a clean split between two groups of people.
+
+1. In the Microsoft 365 admin centre go to Settings, then Integrated apps.
+2. Open Sigil by Tophhie Cloud.
+3. Check who the deployment is assigned to: specific users and groups, or
+   Entire organisation. The people without a signature should be covered.
+4. Leave shared mailboxes out of the assignment. The add-in runs for the
+   person sending, never for the mailbox.
+
+A change to the assignment takes the usual 6 to 72 hours to reach clients.
 
 ### Is the signature missing only in a shared mailbox?
 
@@ -157,6 +213,14 @@ Add-in column in [Activity](/monitoring/activity/#which-add-in-version-people-ar
 says which manifest your organisation is on. The table of which clients need what
 is on
 [sending on behalf of a mailbox](/signatures/sending-on-behalf/#where-the-add-in-runs-in-a-shared-mailbox).
+
+1. Open Activity in the portal sidebar.
+2. Find the person's mailbox in the By mailbox table and read the Add-in
+   column. It shows the manifest version, or `pre-1.5` for one older than the
+   version stamp.
+3. If a notice at the top of the page says mailboxes are still on an older
+   version, choose Update and follow the steps in the dialog. See
+   [updating the add-in](/deploy/deploy-the-add-in/#updating-the-add-in).
 
 On Android and iOS a shared mailbox added as its own account gets no signature
 from any add-in, and there is nothing to fix. Microsoft does not support the
@@ -179,6 +243,11 @@ Ask them to open the "My signature" pane from the compose ribbon. It applies the
 signature on demand and, when it cannot, says why. That message is usually the
 whole diagnosis.
 
+1. Ask the person to start a new message in Outlook on Windows, Mac or the web
+   and choose My signature on the ribbon.
+2. Ask them to read you the message the pane shows. Where the pane still offers
+   Apply my signature, ask them to choose it and read you the result.
+
 One message is misleading, and it is worth checking first. If the pane says Sigil
 is not set up for the organisation yet, and everybody else has a signature, that
 mailbox has almost certainly been
@@ -188,6 +257,20 @@ Cost management list and put it back if it should not be there.
 
 If your organisation runs cost management the other way round, the same message
 means the mailbox is simply not on the list. Include it.
+
+If the pane says "Sigil isn't switched on for your organisation yet":
+
+1. Open Cost management in the portal sidebar.
+2. Look for the address in the list.
+3. In exclusion mode, choose Put back on its row and confirm with Put back. In
+   inclusion mode, choose Include a mailbox and add the address.
+
+Then confirm what Sigil recorded for that mailbox:
+
+1. Open Activity in the portal sidebar.
+2. In the Signature log, enter the address under Mailbox and choose Search.
+3. Read the newest rows. An add-in row is badged Applied or with the reason it
+   failed; a server row is badged Fetched when the signature was served.
 
 If the pane works but automatic application does not, the add-in is present and
 authenticated, and the problem is with event activation rather than with Sigil.
@@ -300,12 +383,17 @@ re-including somebody or paying an overdue invoice can take up to ten minutes to
 reach anybody who was writing messages at the time, and no time at all to reach
 anybody who was not.
 
-Pressing Apply in the "My signature" pane skips the wait, because the pane always
-asks Sigil. That is also the quickest way to tell this apart from a real fault:
-if Apply produces a signature and automatic messages do not, you are inside the
-window. If Apply also refuses, the underlying cause has not actually been fixed.
-See
-[a refusal is remembered for ten minutes](/start/how-it-works/#a-refusal-is-remembered-for-ten-minutes).
+Pressing Apply my signature in the "My signature" pane skips the wait, because
+the pane always asks Sigil. That is also the quickest way to tell this apart
+from a real fault: if Apply produces a signature and automatic messages do not,
+you are inside the window. If Apply also refuses, the underlying cause has not
+actually been fixed. See [a refusal is remembered for ten
+minutes](/start/how-it-works/#a-refusal-is-remembered-for-ten-minutes).
+
+1. Start a new message in Outlook on Windows, Mac or the web.
+2. Choose My signature on the ribbon.
+3. Choose Apply my signature. The pane says "Signature applied." or explains
+   the refusal.
 
 ## Other things that look like faults
 
@@ -333,6 +421,15 @@ to this documentation, the support address, and the response commitment, and it
 starts an email for you with your organisation name and Microsoft 365 tenant id
 already in it. Those two are the details support otherwise has to ask for, and
 each round trip costs another day.
+
+1. Choose Help in the portal sidebar.
+2. Under Support, choose the support email address. Your mail client opens a
+   draft with your organisation name and Microsoft 365 tenant id filled in.
+3. Add the affected address, the Outlook client and platform, and whether the
+   "My signature" pane works, then send it.
+
+The same dialog carries Open the documentation, Open the feedback portal, and a
+Full support page link.
 
 If an IT provider manages Sigil for your organisation, Help names them and points
 you at them first. They configure your signatures, so they can usually resolve it

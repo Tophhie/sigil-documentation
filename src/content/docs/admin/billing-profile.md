@@ -158,8 +158,33 @@ your partner invoices and, after the partnership ends, your own. See
 
 ## Changing it later
 
-Save the change and it is pushed to Stripe immediately. Invoices already issued
-are unaffected; future ones carry the new details.
+You need the Admin or Billing role. The steps are the same whether you are
+completing the pre-filled profile for the first time or correcting it later.
+
+1. Open Billing in the portal sidebar.
+2. Open the Billing details tab. It carries a ! marker while the profile is
+   incomplete, and the Add billing details button on the prompt at the top of
+   the portal lands here too.
+3. Fill in Company name (legal), Billing email, Address line 1, City, Postcode
+   and Country. Each is marked required. Address line 2 and Region / county
+   are optional.
+4. Add a VAT number if you are registered for one, and a Purchase order
+   number if your invoices need one. Both are marked optional.
+5. Choose Save billing details.
+
+A "Billing details saved." message confirms it, and the tab shows when the
+profile was last updated. If the trial had been set to end for want of the
+details, the message says instead that it is no longer set to end. If the VAT
+number is refused, everything else is saved and the message names the problem
+with the number. If Stripe could not be updated, the message says so and asks
+you to save again later.
+
+The [getting started checklist](/admin/getting-started-checklist/) opens the
+same form in a dialog titled Billing details, with the same Save billing
+details button.
+
+The change is pushed to Stripe immediately. Invoices already issued are
+unaffected; future ones carry the new details.
 
 If a tax identifier changes, update the country first if that is also changing,
 so the identifier is registered with the right type.

@@ -23,6 +23,15 @@ Every image the template references, embedded in the bundle.
 Export a template from its row menu on the Templates view. The result is a single
 JSON file.
 
+Exporting and importing need the admin or editor role.
+
+1. Open Templates in the portal sidebar.
+2. Open the menu at the end of the template's row.
+3. Choose Export.
+
+The browser downloads a file named after the template, and a message confirms
+it was exported with its images.
+
 ## Importing
 
 Import from the Templates view. An import always creates a new library entry
@@ -30,6 +39,14 @@ rather than overwriting an existing template, so there is no way to import over
 something by accident. If the bundle's name is already taken, the new entry gets
 a numbered suffix rather than the import being refused, which is worth knowing
 before you import the same bundle twice and wonder which one is live.
+
+1. Open Templates in the portal sidebar.
+2. Choose Import.
+3. Pick the JSON file that was exported.
+
+The new entry appears in the library, and a message gives the name it was
+imported under and how many images were renamed to avoid a collision. A file
+that is not a template export is refused with a message saying so.
 
 Images in a bundle are held to the same rules as an upload: PNG or JPEG, and no
 more than 1 MB each. A bundle file over 20 MB is refused before it is read. An

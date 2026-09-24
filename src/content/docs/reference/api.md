@@ -146,6 +146,27 @@ All three return 403. They are separated because only the first can be resolved
 by the person holding the token, by granting admin consent. See
 [connect your organisation](/deploy/connect-your-organisation/).
 
+### Making a first call with a key
+
+You need a key, which an Admin creates from API keys in the portal sidebar and
+whose secret is shown once, at creation. See [API keys](/admin/api-keys/).
+
+1. Open API keys in the portal sidebar.
+2. Choose the API reference tab.
+3. Under Calling the API, choose Copy beside the example command.
+4. Replace `sigil_…` in the copied command with the key's secret.
+5. Run it.
+
+The command sends `GET /api/admin/me` with the key on the `Authorization`
+header. The response names the key as `email: "API key: <name>"`, lists the
+capabilities it carries and returns an empty `roles` list, which proves the key
+works before anything else does.
+
+On the same tab, Show what this key can do lists your live keys. Picking one
+greys out every operation that key would be refused, and hovering a greyed row
+gives the reason and the status code it would get. OpenAPI 3.1 downloads the
+same reference as `sigil-openapi.json`.
+
 ## Signature endpoints
 
 | Route | Auth | Purpose |
@@ -332,6 +353,11 @@ The booking route takes the same body a publish takes, plus `publishAt` as an
 ISO-8601 instant and an optional `rollout` block. It applies the same length,
 validation and eject checks a publish does, so a schedule that would be rejected
 when it fires is rejected when it is booked.
+
+The eject check is the one guard a portal user never meets. Publishing plain
+`html` to a template built in the designer discards its design document, so the
+request is refused unless it also carries `eject: true`. The error says so. See
+[ejecting to HTML](/signatures/designer/#ejecting-to-html).
 
 `publishAt` must be in the future and within 365 days. The body is stored on the
 schedule rather than read from the draft when it fires. All four routes need the
@@ -550,7 +576,7 @@ than by a token, and mirrors subscription state locally.
 A 402 across an entire organisation is almost always a lapsed trial or a past-due
 subscription. See [troubleshooting](/deploy/troubleshooting/).
 
-The two causes of a 403 are distinguishable from the server's own records but not
-by the add-in, which treats both as a reason to apply nothing. An excluded
+The two causes of a 403 are distinguishable from the server's own records but
+not by the add-in, which treats both as a reason to apply nothing. An excluded
 mailbox therefore reports the same way in the pane as an unconnected
 organisation.

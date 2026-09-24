@@ -69,7 +69,19 @@ The full capability grid is in
 
 ## Inviting somebody
 
-Invite from Users and roles. You need their email address and a role.
+Invite from Users and roles. You need their email address and a role. You
+also need the Admin or Billing role yourself, and only an Admin is offered Admin
+as a role to give.
+
+1. Open Users & roles in the portal sidebar.
+2. Choose Invite user.
+3. Under Email address, start typing their name or address and pick them from
+   the directory suggestions, or type the address in full.
+4. Pick a Role. Editor is selected to begin with.
+5. Choose Add user.
+
+The dialog closes, the portal confirms that they get access next time they sign
+in, and they appear in the list.
 
 They sign in at `portal.usesigil.app/admin` with their Microsoft account. There
 is no separate password to set and no account to activate.
@@ -106,12 +118,26 @@ is a different question from who signed in, and the two do not have to agree.
 
 Change a role from the same view. The change applies on their next request.
 
+1. Open Users & roles in the portal sidebar.
+2. Pick the new role from the Role drop-down on the person's row.
+
+It saves as soon as you pick it, and the portal confirms with "Role updated."
+
 Removing somebody removes their access entirely. They can still sign in, because
 signing in is an Entra matter, but they are told to request access and can reach
 nothing.
 
+1. Open Users & roles in the portal sidebar.
+2. Choose Remove on the person's row.
+3. Choose Remove in the Remove user dialog to confirm.
+
+The dialog says they lose portal access the next time they sign in, and they
+leave the list.
+
 Nobody can change their own role or remove their own access, which is what stops
-an accidental self-demotion.
+an accidental self-demotion. Your own row carries a You badge, its Role
+drop-down is disabled and it has no Remove button. Somebody holding the Billing
+role sees every Admin's row locked the same way.
 
 ## Your organisation always keeps an Admin
 

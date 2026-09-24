@@ -32,6 +32,19 @@ most other roles cannot, and Microsoft turns them away at its own screen with an
 AADSTS error rather than letting the attempt through to Sigil. See
 [requirements](/deploy/requirements/).
 
+Signed in to Microsoft 365 as an administrator who can grant consent
+tenant-wide:
+
+1. Open `https://portal.usesigil.app/admin/consent` in your browser.
+2. On Microsoft's consent screen, check the organisation named and review the
+   permissions listed, then approve.
+3. You are returned to the portal. It shows "Your organisation is connected"
+   and sends you to Microsoft to sign in.
+4. Sign in with your Microsoft work account.
+
+If you had already signed in to the portal before granting consent, step 3
+takes you straight into the portal instead.
+
 ## What provisioning does
 
 The consent callback sets your tenant up before you have signed in:
@@ -118,6 +131,22 @@ commonest dead end here, and it is worth using rather than pressing the approve
 button and reading back an AADSTS code. The copied link deliberately carries no
 account details, since the point is for a different person to open it.
 
+To connect your organisation from that screen:
+
+1. Open `https://portal.usesigil.app/admin` and choose Sign in with Microsoft.
+2. On the screen headed "One more step to set up", check that the domain named
+   is the organisation you mean to connect.
+3. Choose Approve as an administrator.
+4. Approve the consent on Microsoft's screen.
+5. You are returned to the portal, signed in.
+
+If you cannot approve it yourself:
+
+1. On the same screen choose "Not an administrator? Copy the link". The button
+   reads Link copied.
+2. Send the link to an administrator who can grant consent. Once they have
+   opened it and approved on Microsoft's screen, sign in again.
+
 ## If consent does not complete
 
 If Microsoft turns the attempt away, you are sent back to the portal with a short
@@ -128,6 +157,14 @@ rather than a request for more detail. The commonest cause is an administrator
 who cannot grant consent tenant-wide. Closing the consent screen without deciding
 records nothing against your organisation, and the link can simply be opened
 again.
+
+When you are sent back to the portal after a failed attempt:
+
+1. Read the message on the screen headed "Setting up didn't finish". Where it
+   carries a reference, note it down.
+2. Choose Reload.
+3. Open the consent link again as an administrator who can approve it. If the
+   attempt fails the same way, contact support and quote the reference.
 
 One outcome is worth recognising because it looks like a failure and is not.
 Before setting up an organisation it has never seen, Sigil asks Microsoft whether
@@ -142,6 +179,13 @@ are returned to the portal with a message saying the consent could not be
 verified yet. Opening the consent link again is the whole remedy. If Microsoft
 cannot answer at all, through an outage or a timeout, provisioning goes ahead as
 normal, because an unanswered question is not evidence against a real customer.
+
+That screen is headed "We couldn't confirm the connection yet":
+
+1. Choose Reload.
+2. Sign in with Microsoft if you are asked to.
+3. On the "One more step to set up" screen, choose Approve as an administrator
+   and approve on Microsoft's screen again.
 
 An organisation that is already connected is never refused on this basis, so a
 signature service already in use cannot be affected by it.
@@ -186,6 +230,18 @@ Sigil's operators run a daily scan that flags tenants whose directory access has
 lapsed, and can email your administrators a re-consent link. If you suspect this
 has happened, re-visiting `/admin/consent` and granting consent again restores
 it.
+
+To grant consent again from the portal:
+
+1. Open Getting started in the portal sidebar. The Connect Microsoft 365 step
+   is unticked while Sigil cannot read your directory.
+2. Choose Grant admin consent.
+3. Approve on Microsoft's screen.
+4. You are returned to the portal.
+
+Opening `https://portal.usesigil.app/admin/consent` directly does the same
+thing. Nothing else about your organisation changes, and the next section says
+what re-consenting cannot fix.
 
 ## What re-consenting cannot fix
 

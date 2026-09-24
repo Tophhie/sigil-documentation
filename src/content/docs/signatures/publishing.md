@@ -31,6 +31,29 @@ The Templates view shows a Draft badge against anything holding one, so you know
 before opening a template that you are about to see something users have not
 received.
 
+### Saving a draft
+
+You need the templates capability, which Admins and Editors hold.
+
+1. Open Templates in the portal sidebar.
+2. Choose Edit or Design on the template's row, or click its name.
+3. Make your changes.
+4. Choose Save draft.
+
+A message confirms the draft is saved and that users keep the live version
+until you publish. If the rendered signature is over Outlook's size limit, the
+draft is still saved and the message says it cannot be published as it is.
+
+### Discarding a draft
+
+1. Open the template in its editor from Templates.
+2. Choose Discard draft. Before a draft has been saved the button reads Discard
+   and only throws away unsaved edits.
+3. Confirm when asked. The button reads Discard in the HTML editor and Discard
+   draft in the designer.
+
+The editor returns to the live version.
+
 ## The diff
 
 Before you publish, the editor shows a line diff between the draft and the live
@@ -42,6 +65,17 @@ place, the paste that brought more than you meant.
 
 The diff is specific to the HTML editor. A designer template has no lines to
 compare, so its review step is the canvas and the preview instead.
+
+To read it:
+
+1. Open the template in the HTML editor from Templates.
+2. Choose Diff in the toolbar.
+3. Read the Changes vs the live version card. Added lines carry a plus, removed
+   lines a minus, and the header counts both.
+4. Choose Diff again to hide it.
+
+If the editor already matches the live version, a message says there are no
+changes instead.
 
 ## Publishing
 
@@ -63,6 +97,17 @@ Sigil finishes before the message can leave. See
 
 Publishing is recorded in the [change log](/monitoring/change-log/) with who did
 it and when.
+
+You need the templates capability, and where
+[publish approval](/signatures/approvals/) is on you need to be an Admin.
+
+1. Open the template in its editor from Templates.
+2. Choose Publish.
+3. In the HTML editor, choose Publish in the confirmation. The designer
+   publishes as soon as you choose the button.
+
+A message confirms it is published and that new messages pick it up within
+seconds.
 
 ## What blocks a publish
 
@@ -151,6 +196,6 @@ you rolled back from stays recoverable too.
 
 See [versions and rollback](/signatures/versions/).
 
-A [staged rollout](/signatures/staged-rollouts/) avoids needing this in the first
-place for the changes where it would hurt most, because the version everyone is
-on never changes until the new one has been shown to apply.
+A [staged rollout](/signatures/staged-rollouts/) avoids needing this in the
+first place for the changes where it would hurt most, because the version
+everyone is on never changes until the new one has been shown to apply.

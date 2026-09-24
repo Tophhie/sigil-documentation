@@ -25,6 +25,15 @@ Only a partner Owner can accept. It is a commercial and data protection
 commitment made on behalf of the MSP, which is not something a technician should
 be able to sign on a service desk shift.
 
+1. Open Clients in the portal sidebar.
+2. On the card headed Accept the partner agreement, open Read the agreement if
+   you want the full text. It opens in a new tab.
+3. Choose Accept on behalf of, followed by your organisation's name.
+
+The confirmation reads "Agreement accepted." and the card goes. Anybody other
+than an Owner sees the same card with a line saying an owner at your
+organisation needs to accept it.
+
 Acceptance gates client work, not sign-in. A partner who has not accepted can
 sign in and read the console, but four things are refused until they have:
 inviting a client, requesting a transfer of an existing tenant, releasing a

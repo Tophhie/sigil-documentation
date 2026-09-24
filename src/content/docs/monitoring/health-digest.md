@@ -129,6 +129,20 @@ would be believed.
 If your organisation is too new to be sent one, the preview still renders and
 tells you it would be held back. See below for when that applies.
 
+### Previewing or sending a test
+
+You need the Admin role, or a partner Owner or Admin role inside a managed
+client.
+
+1. Open Settings in the portal sidebar, under Organisation.
+2. On the Health digest card, choose Preview. The subject line and the rendered
+   digest appear beneath the frequency options.
+3. Choose Hide preview to close it.
+4. To see it in an inbox, choose Send me one.
+
+A message confirms the address it was sent to and that this does not change
+when the next one goes out.
+
 ## How often it arrives
 
 | Setting | Behaviour |
@@ -144,9 +158,25 @@ It defaults to on because a digest nobody discovers is a digest nobody reads. It
 is a service email about your own organisation, with an off switch linked from
 every send.
 
+### Changing the frequency or switching it off
+
+You need the Admin role, or a partner Owner or Admin role inside a managed
+client.
+
+1. Open Settings in the portal sidebar, under Organisation.
+2. On the Health digest card, choose Weekly, Monthly or Off.
+
+The choice saves as soon as you make it and a message confirms it. The card
+also shows when the last digest was sent. Switching it back on later is the
+same choice in reverse.
+
 ## Who receives it
 
 Every administrator of the organisation.
+
+There is no separate recipient list. The digest goes to everyone who holds the
+Admin role, so to change who receives it, change who is an admin in
+[Users & roles](/admin/users-and-roles/).
 
 An organisation with no administrators yet, which happens partway through
 onboarding, is not sent one and is not marked as having received one. It gets its

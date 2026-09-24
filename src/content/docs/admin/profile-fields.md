@@ -30,6 +30,26 @@ The page says so when either is missing.
 
 ## Defining a field
 
+You need the Admin role.
+
+1. Open Profile fields in the portal sidebar.
+2. On the Fields tab, choose New field.
+3. Enter a Label. The Placeholder box, which holds the key, fills itself in
+   from the label; change it if you want a different key.
+4. Enter Help text if you want a line under the box.
+5. Pick a Type.
+6. For Choice, enter the Options, one per line.
+7. For Text, set the Maximum length.
+8. Turn on Ask everyone to fill this in if the field should count as required.
+9. Leave Available now on unless the field should start hidden.
+10. Choose Add field.
+
+The portal confirms with the placeholder to use in a template, and the field
+appears in the list marked Available.
+
+To change a field later, choose Edit on its row, make the change and choose
+Save changes. The Placeholder box is locked.
+
 | Property | What it does |
 | --- | --- |
 | Key | Becomes the placeholder `{{custom.<key>}}`. Lower-case letter first, then letters and numbers only |
@@ -168,6 +188,12 @@ default, unlike the health digest, because it changes what non-administrative
 staff can do in a product nobody has told them about yet. It gets switched on
 deliberately.
 
+1. Open Profile fields in the portal sidebar.
+2. On the Fields tab, turn on Let staff fill these in themselves.
+
+The portal confirms that staff can now fill the fields in at `/me`. If no field
+is available yet, the card says the page is empty and asks you to add one.
+
 Turning it off later stops editing. It does not blank anything: values already
 stored keep appearing in signatures, because a decision about who may edit
 should not quietly remove a line from everybody's mail. An administrator who
@@ -189,6 +215,28 @@ everything is where it was.
 Deleting removes the definition and sweeps that key out of every stored profile.
 The values are gone rather than hidden. The portal asks first and says so.
 
+To hide a field:
+
+1. Open Profile fields in the portal sidebar.
+2. On the Fields tab, open the Field actions menu at the end of the field's
+   row.
+3. Choose Hide from staff.
+
+Its status changes to Hidden, and the portal reminds you that templates already
+using it keep rendering what people entered. Choose Make available from the
+same menu to bring it back.
+
+To delete a field:
+
+1. Open Profile fields in the portal sidebar.
+2. On the Fields tab, open the Field actions menu at the end of the field's
+   row.
+3. Choose Delete.
+4. Choose Delete field and values in the dialog to confirm.
+
+The dialog says how many people have entered something into the field before
+you confirm, and the portal confirms once it is gone.
+
 ## Seeing what people entered
 
 The "What people entered" tab lists every mailbox with stored values, what is in
@@ -198,6 +246,18 @@ fields that person has filled in.
 You can edit somebody else's values from here. It exists for the support case,
 where a colleague is on leave and their number is wrong, and for pre-filling
 before you ask anyone to visit the page.
+
+You need the Admin role, or a partner role that holds staff profile details.
+
+1. Open Profile fields in the portal sidebar.
+2. Choose the What people entered tab.
+3. Choose Edit on the person's row.
+4. Change the values. A choice field offers Not set and the options you listed.
+5. Choose Save.
+
+The portal confirms the save and that the person can still change it
+themselves. A value the field's type refuses is reported against that field
+rather than saved.
 
 ### Entering values for a mailbox that has none
 
@@ -212,6 +272,17 @@ it here.
 A colleague who has not visited the page yet is the second. A starter whose
 direct line is known before their first day can have it filled in ahead of them,
 and they can change it themselves afterwards.
+
+1. Open Profile fields in the portal sidebar.
+2. Choose the What people entered tab.
+3. Choose Add mailbox.
+4. Enter the Mailbox address.
+5. Fill in the fields.
+6. Choose Save.
+
+An address that is not in your directory is reported against the Mailbox box.
+If it matches somebody already listed, the dialog says you are editing what
+they put in.
 
 The address has to be a real mailbox in your Microsoft 365 directory, and Sigil
 checks it rather than taking your word for it. A typo would otherwise create an
@@ -336,5 +407,5 @@ thinner. See
 [data and privacy](/security/data-and-privacy/#getting-your-data-out).
 
 One person's values are also in the per-mailbox export a subject access request
-uses, so a request about a colleague is answered by one file rather than two. See
-[data and privacy](/security/data-and-privacy/#subject-access-requests).
+uses, so a request about a colleague is answered by one file rather than two.
+See [data and privacy](/security/data-and-privacy/#subject-access-requests).

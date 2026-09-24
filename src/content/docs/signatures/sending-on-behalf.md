@@ -79,6 +79,19 @@ into the message. So two colleagues taking turns at a reception desk cannot end
 up sending each other's "on behalf of" line: the second one waits for a fresh
 signature instead of starting from the first one's.
 
+## Sending from a shared mailbox
+
+Nothing is set up in Sigil for this. The sender needs permission to send from
+the mailbox, granted in Microsoft 365, and the add-in has to be running in the
+compose window, which the table above decides.
+
+1. In Outlook, start a new message, a reply or a forward from your own
+   mailbox.
+2. Change the From field to the shared mailbox's address.
+
+The add-in notices the change and applies the signature for that mailbox,
+replacing the one already in the message. Nothing else has to be pressed.
+
 ## The two identities
 
 Every compose request carries a mailbox and a person. The From address says which

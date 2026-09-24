@@ -97,6 +97,21 @@ So the list has a mode, set on the Cost management page.
 | Exclusion, the default | The mailboxes that do not have Sigil | Served a signature, and billed |
 | Inclusion | The only mailboxes that have Sigil | Not served, and not billed |
 
+To change it, the list must be empty. You need the Admin or Billing role, or
+partner Owner or Admin inside a managed client.
+
+1. Open Cost management in the portal sidebar.
+2. On the card headed Exclusion mode or Inclusion mode, choose Switch to
+   inclusion mode or Switch to exclusion mode. The button is disabled while
+   anything is listed, with the reason beside it.
+3. Read the confirmation. Switching to inclusion mode says nobody receives a
+   signature and the seat count is zero until you add someone.
+4. Choose Switch (nobody until I add them) for inclusion mode, or Switch for
+   exclusion mode.
+
+A message confirms the new mode, and the page's wording, buttons and headline
+figures change to match it.
+
 ### One mode at a time
 
 A list cannot exclude some people and include others. Two lists with opposite
@@ -202,7 +217,7 @@ Press "Suggest mailboxes" and Sigil lists the billable mailboxes that have not
 successfully applied a signature in the last 90 days, with an estimate of what
 excluding all of them would save each month.
 
-Nothing is excluded until you tick it. The list is the starting point for a
+Nothing is excluded until you choose it. The list is the starting point for a
 decision rather than an action.
 
 The suggestion errs on the side of leaving people alone.
@@ -234,6 +249,19 @@ The list is fetched only when you ask for it. It walks your whole directory and
 cross-references the telemetry, which is not work to do every time somebody opens
 the page.
 
+### Using the suggestions
+
+1. Open Cost management in the portal sidebar.
+2. Choose Suggest mailboxes. The button is only offered in exclusion mode.
+3. A panel headed Never applied a signature lists the mailboxes, each with the
+   reason it is there, and the saving the whole list represents.
+4. Choose Exclude on a row to exclude that mailbox, or Exclude all followed by
+   the count to exclude every mailbox listed. Excluding them all asks you to
+   confirm with Exclude all.
+
+Each mailbox excluded this way joins the list below with the note "No
+signature applied in the last quarter", and can be put back like any other.
+
 ## Excluding a mailbox by hand
 
 Pick the mailbox and add an optional note of up to 200 characters. The note is
@@ -244,6 +272,22 @@ writing.
 An address typed rather than picked is resolved to the mailbox behind it first,
 so pasting somebody's alias out of a ticket works. See
 [you can type an alias](#you-can-type-an-alias).
+
+You need the Admin or Billing role, or partner Owner or Admin inside a managed
+client.
+
+1. Open Cost management in the portal sidebar.
+2. Choose Exclude a mailbox. In inclusion mode the button reads Include a
+   mailbox.
+3. In Mailbox, start typing a name or address and pick the mailbox from the
+   suggestions, or type or paste an address.
+4. Add a Note if you want one.
+5. Choose Exclude mailbox, or Include mailbox in inclusion mode.
+
+A message names the mailbox that went on the list, and the address you typed
+if that was an alias of it, and says it gets no signature and comes off the
+next invoice. The mailbox appears in the list at the bottom of the page with
+the note, the date and who added it.
 
 ## Excluding an Entra group
 
@@ -263,6 +307,20 @@ Nested groups count. Sigil walks the group's membership transitively, so a group
 of groups excludes the people inside all of them. Members that are not people,
 such as devices and service principals, are ignored because they have no mailbox
 to exclude.
+
+1. Open Cost management in the portal sidebar.
+2. Under By Entra group, choose Exclude a group. In inclusion mode the button
+   reads Include a group.
+3. In Group, start typing the group's name and pick it from the suggestions,
+   or paste its object ID.
+4. Add a Note if you want one.
+5. Choose Exclude group, or Include group in inclusion mode.
+
+A message names the group and how many mailboxes it excluded. A group that is
+empty is still added, and the message says it currently covers no mailboxes.
+If its membership could not be read, the message says that instead, and the
+group is added with the error shown on its row so you can retry it with
+Refresh.
 
 ### It tracks
 
@@ -339,6 +397,39 @@ at the next refresh.
 Individual exclusions do not behave this way. See
 [a renamed mailbox stops being excluded](#a-renamed-mailbox-stops-being-excluded)
 below.
+
+## Reviewing the list
+
+1. Open Cost management in the portal sidebar.
+2. Read the headline figures at the top: Excluded, Coming off the bill and,
+   when any row no longer resolves, Not in directory. In inclusion mode they
+   are Included, Billed seats and Kept out instead.
+3. Under By Entra group, each group's row shows how many mailboxes it covers
+   and when it was last checked. Choose Refresh to re-read it now.
+4. The table at the bottom lists the mailboxes you picked individually, with
+   the note, when each was added and by whom. A row that was never billable
+   says so, and a row whose address no longer resolves is marked as not in
+   the directory.
+
+## Putting a mailbox back
+
+You need the Admin or Billing role, or partner Owner or Admin inside a managed
+client.
+
+1. Open Cost management in the portal sidebar.
+2. In the list at the bottom of the page, find the mailbox and choose Put
+   back. In inclusion mode the button reads Stop including.
+3. Read the confirmation, which says the mailbox starts receiving signatures
+   again and returns to the seat count on your next invoice.
+4. Choose Put back, or Stop including in inclusion mode.
+
+A "Back in." message confirms it and the row disappears.
+
+To release a whole group, choose Remove on its row under By Entra group and
+confirm with Stop excluding. The confirmation says that anybody covered only
+by that group starts receiving signatures again, and that anybody you also
+excluded individually stays excluded. A message then says how many mailboxes
+are back in.
 
 ## When each half takes effect
 

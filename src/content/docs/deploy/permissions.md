@@ -145,5 +145,11 @@ In the Microsoft 365 admin centre or the Entra portal, look under Enterprise
 applications for Sigil. The Permissions tab lists exactly what was consented to
 and when.
 
+1. In the Entra portal, open Enterprise applications.
+2. Open Sigil.
+3. Open the Permissions tab and read the list. An organisation that consented
+   before `GroupMember.Read.All` was requested will not see it here until
+   somebody consents again.
+
 Consent can be withdrawn there at any time. Withdrawing it stops Sigil reading
 your directory, which stops signatures rendering.

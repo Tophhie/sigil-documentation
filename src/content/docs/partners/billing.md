@@ -145,6 +145,19 @@ The details are held in Sigil and pushed to Stripe when you save them. If the pu
 fails, you are told so explicitly rather than being shown a success message while
 invoices continue to carry the old details. Save again to retry.
 
+Owner and Billing roles can edit it.
+
+1. Open Partner billing in the portal sidebar.
+2. Under Billing details, fill in Company name (legal), Billing email, Address
+   line 1, City, Postcode and Country. VAT number, Purchase order number,
+   Address line 2 and Region / county are optional.
+3. Choose Save billing details.
+
+The confirmation reads "Billing details saved." If the push to Stripe failed,
+it says so instead and asks you to save again later. The Add your invoice
+details card on the Clients view leads to the same form through Add billing
+details.
+
 Until the profile carries a legal name, a billing email and a full postal address
 including the country, the Clients page
 prompts for it. That prompt appears once your partner agreement is accepted, since
@@ -171,6 +184,23 @@ Your invoices are listed on the Partner billing page, newest first, each linking
 to its own hosted page to view, download or pay it. That list is your partner
 account's, not your own tenant's: your own organisation is not invoiced while
 the partnership is running, so its Billing view has nothing of its own to show.
+
+To add or change the card:
+
+1. Open Partner billing in the portal sidebar.
+2. Choose Add payment method, or Update payment method when a card is already
+   on file.
+3. Enter the card on the Stripe page that opens and confirm it.
+
+You are returned to Partner billing with "Payment method saved." Manage
+billing & invoices on the same page opens Stripe's customer portal, where the
+card and the invoices can also be managed.
+
+To open an invoice:
+
+1. Open Partner billing in the portal sidebar.
+2. Under Invoices, choose View on the invoice, or Pay on one on invoice terms
+   that is awaiting payment. The button beside it downloads the PDF.
 
 On invoice terms nothing on the page asks for a card, because none is involved.
 The card panel is replaced by the terms you are on, and the warning about
@@ -206,6 +236,15 @@ prior periods, exportable as CSV.
 That export is the input to your own billing system. It gives you the seat count
 per client per period, which is what you need to rebill at whatever rate your own
 arrangement uses.
+
+Owner and Billing roles can export it.
+
+1. Open Usage & rebilling in the portal sidebar.
+2. Set From and To, then choose Show. Or pick a month under Billed periods,
+   which sets both dates to that invoice's window.
+3. Choose Export CSV.
+
+The file is named sigil-usage.csv and covers the window on screen.
 
 Its columns are the date, the client name, the tenant id and the seat count.
 [Add-ons](#add-ons-on-a-client) are not in it, so a partner rebilling an add-on
@@ -258,6 +297,10 @@ finer grained than any invoice line would be.
 The usage report offers your billed periods as buttons, one per recent invoice,
 newest first. Each shows the month it covers and what it came to. Picking one
 sets the report to exactly the window that invoice billed.
+
+1. Open Usage & rebilling in the portal sidebar.
+2. Under Billed periods, choose the invoice's month. The From and To dates
+   move to that invoice's window and the table reloads.
 
 Those windows are read from the invoices themselves rather than counted back a
 month at a time, because month lengths and the anchoring of your own billing

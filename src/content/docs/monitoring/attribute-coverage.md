@@ -59,6 +59,35 @@ who have one.
 When a signature is missing a field for some people, to find out whether it is
 one person or a systemic gap.
 
+### Running the audit
+
+The audit walks every mailbox in the directory, so it runs when you ask rather
+than when the page opens. You need the Admin, Editor, Viewer or Compliance
+role.
+
+1. Open Attribute coverage in the portal sidebar, under Directory.
+2. Choose Run audit. The button reads Running while the directory is walked.
+3. Read the table. Each row is one attribute, with Populated as a count out of
+   the total and Missing for as the number of mailboxes without a value. A row
+   with nothing missing shows the full count and a dash under Missing for.
+
+A message confirms how many mailboxes were audited and, where any were left
+out, how many external accounts were excluded.
+
+### Finding which attribute is missing for one person
+
+The view lists the gap per attribute rather than per person, so the answer
+comes from the export.
+
+1. Run the audit as above.
+2. In the row for the attribute you are checking, choose Export (CSV). The
+   button only appears on rows with a gap.
+3. Open the download and look for the person's address. The file lists every
+   mailbox missing that attribute, one per row.
+4. Repeat for each attribute the template uses.
+
+The file is named after the attribute, such as missing-department.csv.
+
 ## What to do about a gap
 
 Two options, and they are not exclusive.
