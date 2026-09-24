@@ -61,10 +61,22 @@ mailboxes](/admin/cost-management/) is the tool that changes what you pay.
 
 ## Resuming
 
-The next message anybody composes gets a signature. There is nothing to purge and
-no cache to wait out, because the pause is checked before any cached signature is
-consulted. A paused organisation is never served a stale copy of what it had
-before.
+There is nothing to purge and no cache to wait out on Sigil's side, because the
+pause is checked before any cached signature is consulted. A paused organisation
+is never served a stale copy of what it had before.
+
+The add-in adds a delay of its own, and it is the thing most likely to be
+reported as resuming not working. A mailbox that has just been refused is not
+asked about again for ten minutes: the add-in notes the refusal on the device and
+stops an automatic message there rather than asking Sigil a question it answered
+a moment ago. So the first message after you resume can still go out unsigned,
+for anybody who was writing messages while the pause was on. The delay is
+measured from that person's last unsigned message, so somebody who has not
+composed for a while is unaffected.
+
+Opening the "My signature" pane and pressing Apply skips the wait entirely,
+because the pane always asks Sigil. See
+[a refusal is remembered for ten minutes](/start/how-it-works/#a-refusal-is-remembered-for-ten-minutes).
 
 ## What it looks like elsewhere in the portal
 

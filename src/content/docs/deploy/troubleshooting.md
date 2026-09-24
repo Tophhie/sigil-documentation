@@ -286,6 +286,27 @@ sheet.
 There is no "My signature" pane on mobile, because Outlook mobile activates
 add-ins in read mode only. A mobile-only failure is fixed from a desktop client.
 
+## You fixed it and the signature has not come back
+
+Check this before looking anywhere else, because it resolves itself.
+
+When Sigil refuses a mailbox, the add-in notes the refusal on the device and
+stops an automatic message for the next ten minutes rather than asking again.
+That covers all three of the refusals above: delivery
+[paused](/signatures/pausing-delivery/), the mailbox
+[kept out of Sigil](/admin/cost-management/), and
+[billing lapsed](/admin/billing/#what-happens-if-billing-lapses). So resuming,
+re-including somebody or paying an overdue invoice can take up to ten minutes to
+reach anybody who was writing messages at the time, and no time at all to reach
+anybody who was not.
+
+Pressing Apply in the "My signature" pane skips the wait, because the pane always
+asks Sigil. That is also the quickest way to tell this apart from a real fault:
+if Apply produces a signature and automatic messages do not, you are inside the
+window. If Apply also refuses, the underlying cause has not actually been fixed.
+See
+[a refusal is remembered for ten minutes](/start/how-it-works/#a-refusal-is-remembered-for-ten-minutes).
+
 ## Other things that look like faults
 
 A new message with no other edits will not autosave a draft, even though the

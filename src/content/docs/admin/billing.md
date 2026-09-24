@@ -128,7 +128,12 @@ at once, along with whether
 [troubleshooting](/deploy/troubleshooting/).
 
 Nothing is deleted when billing lapses. Templates, images, rules, banners and
-footers all remain. Restoring an active subscription restores signatures.
+footers all remain. Restoring an active subscription restores signatures at the
+next message, except for anybody who has been composing while they were stopped:
+the add-in notes a refusal on the device for ten minutes and does not ask again
+inside it, so those people wait out the rest of the window or open the "My
+signature" pane and press Apply. See
+[a refusal is remembered for ten minutes](/start/how-it-works/#a-refusal-is-remembered-for-ten-minutes).
 
 ### The portal warns before it stops
 

@@ -96,6 +96,13 @@ prompt you to sign in, so if a sign-in is needed it stops quietly rather than
 interrupting you mid-message. Opening the pane once completes the sign-in, and it
 works automatically from then on.
 
+The other cause worth knowing is a signature that was switched off and has just
+been switched back on. Once Sigil has told your Outlook that you are not to be
+given a signature, it stops asking for ten minutes rather than asking again on
+every message, so a change your IT team made a moment ago can take that long to
+reach you. Opening the pane and pressing Apply asks straight away, and everything
+is back to normal afterwards.
+
 ## On your phone
 
 The signature is applied automatically on Outlook for iOS and Android, but there

@@ -91,6 +91,7 @@ See [assignment rules](/targeting/assignment-rules/).
 | Daily click totals per tracked link | For as long as your organisation uses Sigil |
 | Per-click records behind the analytics splits | 90 days, then purged by a nightly sweep |
 | Signature copy kept on a person's device | 45 days from that address's last compose, renewed by each one |
+| A refusal noted on a person's device | Ten minutes from the refused compose |
 | Operator audit log | Indefinite |
 | Onboarding attempt records | Indefinite, and kept after a deprovision |
 | Sign-up diagnostics held on those records | 90 days, then cleared while the attempt stays |
@@ -152,20 +153,28 @@ See [branded link domain](/monitoring/branded-link-domain/).
 | Image upload or replacement | Seconds |
 | Footer edit | Seconds |
 | Banner window opening or closing | Immediately |
-| Pausing or resuming delivery | Next compose |
+| Pausing delivery | Next compose |
+| Resuming delivery, putting a mailbox back into Sigil, or paying an overdue invoice | Next compose, or up to ten minutes for somebody who was composing while stopped |
 | Assignment rules change | Next compose |
 | Directory change affecting which rule matches | Up to an hour, then one further compose |
 | Profile field value saved, by anybody in the organisation | Next compose |
 | Directory attribute change in Entra | Up to an hour, without a republish. After a publish or a quiet spell, up to an hour from that mailbox's first message, then one further compose |
+| Microsoft 365 profile photo added or changed | Up to a day |
+| Add-in manifest change | Requires redeploy, plus 6 to 72 hours propagation and fresh consent |
+| Initial add-in deployment | 6 to 72 hours propagation |
 
 Those are the times a change takes to reach what a mailbox is served. The first
 message somebody composes after a publish can briefly draw the previous
 signature and then replace it, because the add-in starts from the copy it kept on
 the device. What is sent is the new version either way. See
 [why it sometimes changes as you watch](/users/how-your-signature-works/#why-it-sometimes-changes-as-you-watch).
-| Microsoft 365 profile photo added or changed | Up to a day |
-| Add-in manifest change | Requires redeploy, plus 6 to 72 hours propagation and fresh consent |
-| Initial add-in deployment | 6 to 72 hours propagation |
+
+The row covering resuming, re-including and paying is one delay rather than
+three, and it belongs to the add-in rather than to Sigil. A mailbox that has just
+been refused has that refusal noted on the device for ten minutes, and an
+automatic message inside the window stops without asking again. Pressing Apply in
+the "My signature" pane asks regardless, which is the way past it. See
+[a refusal is remembered for ten minutes](/start/how-it-works/#a-refusal-is-remembered-for-ten-minutes).
 
 The two rules rows are different events. Saving a rule list changes the version
 its cached decisions are filed under, so the edit lands on the next compose. A

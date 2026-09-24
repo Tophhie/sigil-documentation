@@ -137,7 +137,22 @@ count is not evidence that everybody is being reached.
 `sign-in-required` self-heals once the person opens the "My signature" pane and
 signs in. See [troubleshooting](/deploy/troubleshooting/).
 
-From the token onwards, every outcome is reported, whether it succeeded or not.
+There is a fifth case, and it is deliberate rather than a limitation of the
+report. Once Sigil has refused a mailbox, the add-in notes that refusal on the
+device and stops an automatic message for the next ten minutes without asking
+again, so those messages report nothing and reach no request log either. The
+refusal that set the note was recorded in full. See
+[a refusal is remembered for ten minutes](/start/how-it-works/#a-refusal-is-remembered-for-ten-minutes).
+
+The consequence for reading this view is that a refusal count is not a message
+count. A mailbox that is excluded or paused contributes at most one record per
+ten minutes for each of new messages and replies, however many messages the
+person writes. Read a run of them as evidence that the add-in is still deployed
+and still reaching Sigil, which is what they were always for, rather than as a
+measure of how much mail is going out unsigned.
+
+Otherwise, from the token onwards, every outcome is reported, whether it
+succeeded or not.
 
 ## Automatic and manual
 

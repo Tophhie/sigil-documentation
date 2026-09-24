@@ -345,6 +345,7 @@ below.
 | Effect | When |
 | --- | --- |
 | The signature stops | Immediately. The next compose is refused |
+| The signature comes back | At the next compose, or up to ten minutes later for somebody who was composing while excluded |
 | The seat count changes | At the next daily seat sync |
 | The price changes | On your next invoice |
 
@@ -352,8 +353,17 @@ Seat changes never produce a mid-cycle invoice or a credit, so excluding twenty
 mailboxes today does not refund part of this month. That is the same treatment a
 leaver already gets. See [billing](/admin/billing/).
 
-Putting a mailbox back works the same way in reverse. Signatures resume at once,
-and the seat returns on the next invoice.
+Putting a mailbox back works the same way in reverse, with one delay worth
+knowing about. The seat returns on the next invoice, and Sigil serves the
+signature to the next message that asks for it. The add-in may not ask straight
+away: a mailbox that was refused in the last ten minutes has that refusal noted
+on the device, and an automatic message inside the window stops without
+contacting Sigil at all. Somebody who has been writing throughout therefore waits
+out the rest of the window before a signature appears.
+
+Opening the "My signature" pane and pressing Apply skips the wait, because the
+pane always asks. See
+[a refusal is remembered for ten minutes](/start/how-it-works/#a-refusal-is-remembered-for-ten-minutes).
 
 ## What a mailbox kept out of Sigil sees
 

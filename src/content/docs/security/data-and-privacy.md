@@ -129,6 +129,10 @@ is purged with everything else on deprovision.
 
 No tokens. No rendered signature HTML in the telemetry. No message content.
 
+"No tokens" is about Sigil's own storage. Microsoft's sign-in library keeps a
+token cache of its own on the device, which is covered in
+[the copy kept on the device](#the-copy-kept-on-the-device) below.
+
 No passwords, because there are none. People authenticate entirely through
 Entra. The only credential Sigil issues is an API key for a script, and the
 secret behind one is stored as a SHA-256 hash, so it cannot be recovered from
@@ -155,6 +159,26 @@ storage is missing or refused, which third-party storage blocking in an embedded
 frame can cause, there is no copy and nothing else changes: the signature is
 fetched as it always was.
 
+Two smaller things are written into the same storage. One is a tag identifying
+the version of the signature the copy holds, kept alongside it and for as long as
+it lasts. The next message sends the tag, so that Sigil can answer that nothing
+has changed rather than sending the signature over again. It is a hash, and it
+carries nothing readable. The other is a note that Sigil refused this mailbox,
+which lasts ten minutes and exists so that an excluded or paused mailbox is not
+asked about on every message. It records which of the two kinds of refusal it
+was and when, and no more than that. See
+[a refusal is remembered for ten minutes](/start/how-it-works/#a-refusal-is-remembered-for-ten-minutes).
+
+Separately, Microsoft's sign-in library keeps its own cache of the access token
+the add-in uses, so that a token is brokered when one expires rather than on
+every message. On Outlook on the web, new Outlook, Mac and mobile it is held in
+browser storage under the add-in's origin, encrypted by the library with a key
+it holds in a session cookie; classic Outlook on Windows has no browser storage
+and the cache lives only as long as the message being written. The tokens are Microsoft's,
+issued by Entra for the person signed in, and Sigil neither reads them from that
+cache nor stores them anywhere of its own. Where the browser refuses the storage,
+the library falls back to keeping them in memory for one message.
+
 Nothing about the copy is sent anywhere. It is written and read on the device,
 and Sigil learns only whether a compose used one, as part of the
 [telemetry](#telemetry) below.
@@ -169,8 +193,11 @@ Both hold metadata only: which mailbox, which template version, which compose
 type, whether it came from cache, the response status, the client platform, and
 the reason on failure. The add-in's report also carries timings: how long the
 attempt took, how that time divided between its steps, how long the Outlook
-runtime took to start, and whether the [kept copy](#the-copy-kept-on-the-device)
-was used, matched, replaced or withdrawn. Those are durations and outcomes, with
+runtime took to start, how the request to Sigil divided between looking up the
+name, connecting, waiting for the first byte and downloading, how many bytes came
+back, and whether the [kept copy](#the-copy-kept-on-the-device) was used,
+matched, replaced or withdrawn. Where the add-in was refused, the report carries
+the status code behind it. Those are durations, byte counts and outcomes, with
 nothing of the message or the signature in them.
 
 Telemetry writes are best-effort and off the critical path, so a storage problem

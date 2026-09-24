@@ -49,12 +49,53 @@ The copy is held on the person's own device for 45 days after that address last
 composed, renewed by every message. Where the device has no storage available to
 the add-in, there is no copy and the signature is simply fetched as before.
 
+Most of the time the fresh answer is the first row of that table, so the
+reconcile fetch is answered without sending the signature again. Sigil tags every
+signature it serves with a hash of the rendered HTML and its images, and the
+device keeps the tag beside the copy. The next message sends the tag, and where
+it still matches, Sigil replies that nothing has changed in a few dozen bytes
+instead of sending the signature and its images a second time. The message is
+left alone either way. The saving is in what crosses the network, not in what the
+person sees, and a device whose copy predates the tag simply fetches the
+signature once more and gets a tag with it.
+
 The trade is worth stating plainly, because it is the one thing an administrator
 will see: the first message somebody composes after a publish can show the old
 signature and then swap to the new one in front of them. What is sent is the new
 one, unless Sigil could not be reached at all, in which case the kept copy is
 what goes out and the table above says so. See
 [why it sometimes changes as you watch](/users/how-your-signature-works/#why-it-sometimes-changes-as-you-watch).
+
+### A refusal is remembered for ten minutes
+
+The rows above assume Sigil is asked. There is one case where it is not.
+
+When Sigil refuses a mailbox, because the organisation has
+[paused delivery](/signatures/pausing-delivery/), the mailbox is
+[kept out of Sigil](/admin/cost-management/), or
+[billing has lapsed](/admin/billing/#what-happens-if-billing-lapses), the add-in
+notes the refusal on the device against that mailbox and that kind of message.
+For the next ten minutes an automatic compose stops there, without brokering a
+token and without asking Sigil again. The reason is that somebody kept out of
+Sigil goes on writing messages all day, and each of those messages used to walk
+the whole path just to be told no.
+
+From the administrator's side this looks like a fault, so it is worth being clear
+about: undoing any of those three reaches an automatic message up to ten minutes
+late. The delay is measured from that person's last refused message, so somebody
+who has been writing throughout waits the full window and somebody who has not
+been composing is unaffected.
+
+The way past it is the "My signature" pane. Its Apply button always asks Sigil,
+whatever the device remembers, and an answer that serves a signature clears the
+note. So anybody who cannot wait can open the pane, apply once, and every message
+after that behaves normally.
+
+A message stopped this way reports nothing, because there is no token to report
+with. The refusal that set the note was reported, so the
+[Activity](/monitoring/activity/) view holds one record rather than a record per
+message. See
+[what the numbers will not tell you](/monitoring/activity/#what-the-numbers-will-not-tell-you).
 
 ## What is checked at the API boundary
 
