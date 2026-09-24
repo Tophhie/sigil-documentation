@@ -36,6 +36,19 @@ signature.
 Whichever template is served, it is still personalised per person from the
 directory.
 
+### Changing which template is served
+
+Assigning a role needs the admin role. An editor can create and publish
+templates but cannot change which one people receive.
+
+1. Open Templates in the portal sidebar.
+2. Open the menu at the end of the template's row.
+3. Under Assign role, choose Set active for new mail, or Use for replies.
+
+The In use card at the top of the view shows the change, and the row gains an
+Active or Reply badge. To have replies use the new-message template again,
+choose Reset to same beside the reply template in the In use card.
+
 ## Refining assignment
 
 Roles set the organisation-wide default. To give different groups different
@@ -95,6 +108,19 @@ the library always opens it in the editor it was authored in.
 | From your website | Designer | The starter, with your logo, brand colour, address, social profiles and legal page read off your public website |
 | HTML editor | HTML editor | The default signature's markup |
 
+Creating a template needs the admin or editor role and a desktop browser; on a
+phone the portal says so rather than opening the dialog.
+
+1. Open Templates in the portal sidebar.
+2. Choose New template.
+3. Enter a Template name.
+4. Under Start from, pick Starter signature, Blank canvas or HTML editor.
+5. Choose Create in designer, or Create in HTML editor for the HTML choice.
+
+The template opens in the editor you chose. Nobody receives it until you
+publish it and assign it a role. From your website has a longer flow, described
+[below](#starting-from-your-website).
+
 The starter and the default markup are meant to be edited or cleared rather than
 kept. They are there so the first thing you see is a working signature to change
 instead of an empty canvas. Both carry [the same two
@@ -114,8 +140,10 @@ placeholder autocomplete. It suits hand-authored templates and exact control,
 which is what you usually want when recreating an existing signature from another
 product.
 
-A designer template can be ejected to HTML, which is a one-way move. HTML cannot
-be pulled back into the designer, because visual authoring is the designer's job
+A designer template can be ejected to HTML through the API, which is a one-way
+move with no button in the portal. See
+[ejecting to HTML](/signatures/designer/#ejecting-to-html). HTML cannot be
+pulled back into the designer, because visual authoring is the designer's job
 and reverse-engineering arbitrary markup into blocks would produce something
 neither faithful nor editable.
 
@@ -142,6 +170,20 @@ Nothing has been created at this point. Each finding has a Leave out button, and
 social profiles can be dropped one at a time. Creating the template stores the
 logo in your [image library](/signatures/images/) and opens the result in the
 designer, where it behaves like any other template.
+
+The whole flow, from the library:
+
+1. Open Templates in the portal sidebar.
+2. Choose New template.
+3. Under Start from, pick From your website, then choose Next.
+4. Enter your Website address and choose Look up.
+5. On What we found, choose Leave out on anything you do not want, and drop
+   any social profile you do not want.
+6. Check the Template name. It is filled in from the site's name if you left it
+   blank.
+7. Choose Create in designer.
+
+Back goes a step backwards at any point without creating anything.
 
 ### What changes in the starter
 
@@ -197,11 +239,32 @@ site up again reads it again.
 Duplicating copies a template into a new library entry, which is the usual way to
 create a variant for one department without risking the original.
 
+1. Open Templates in the portal sidebar.
+2. Open the menu at the end of the template's row.
+3. Choose Duplicate.
+4. Enter a Name for the copy and choose Duplicate.
+
+The copy appears in the library as its own entry, with no role assigned.
+
 Renaming affects the library entry only. Nothing that references the template
 breaks.
 
+1. Open Templates in the portal sidebar.
+2. Open the menu at the end of the template's row.
+3. Choose Rename.
+4. Enter the new Template name and choose Rename.
+
 Deleting is blocked while a template is assigned to a role or referenced by an
 assignment rule. Reassign first.
+
+1. Open Templates in the portal sidebar.
+2. Open the menu at the end of the template's row.
+3. Choose Delete.
+4. Choose Delete in the confirmation.
+
+Delete is missing from the menu while the template carries the Active or Reply
+badge. A template an assignment rule still uses is refused with a message
+naming the rule.
 
 A deleted template goes to Recently deleted rather than disappearing. It keeps
 its full version history and can be restored for 30 days. See

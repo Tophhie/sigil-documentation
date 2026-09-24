@@ -32,6 +32,23 @@ Admin. It is the same capability as choosing the active template, because these
 are the same decision from two ends: one decides which signature a mailbox gets,
 the other decides whether it gets one at all.
 
+### Pausing
+
+1. Open Templates in the portal sidebar.
+2. In the header of the In use card, choose Pause.
+3. Choose Pause signatures in the confirmation.
+
+The badge changes to Paused, a message says nobody is receiving a signature,
+and the notice appears at the top of the page.
+
+### Resuming
+
+1. Open Templates in the portal sidebar.
+2. In the header of the In use card, choose Resume.
+
+The badge changes to Live, and a message says the next message composed gets a
+signature.
+
 ## What stops and what does not
 
 | Surface | While paused |

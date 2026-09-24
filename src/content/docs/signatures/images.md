@@ -31,6 +31,16 @@ displays immediately.
 Upload images in the Images view of the portal. Each one is stored against your
 organisation and is available to any template in your library.
 
+Uploading needs the admin or editor role.
+
+1. Open Images in the portal sidebar.
+2. Choose Upload image.
+3. Pick a PNG or JPG file of up to 1 MB.
+
+The new row shows the stored name and the `cid:` reference to use in a
+template. The designer's Image block has its own Upload button, which adds to
+the same library.
+
 Uploads are recorded in the [change log](/monitoring/change-log/) along with who
 uploaded them.
 
@@ -60,6 +70,15 @@ that. The practical consequence is that a logo you want to replace should be
 re-uploaded under exactly the name shown in the Images view, so `Acme-Logo.png`
 rather than the `Acme Logo.png` still sitting on your desktop.
 
+To replace an image:
+
+1. Open Images in the portal sidebar and note the Name shown for the image.
+2. Give the new file exactly that name on your computer.
+3. Choose Upload image and pick the file.
+
+Every template referencing the image picks up the new file on its next
+compose, with nothing to republish.
+
 ## Seeing what you have
 
 The Images view shows a thumbnail of every uploaded image alongside its name and
@@ -80,6 +99,11 @@ name with a `cid:` URL:
 
 In the [designer](/signatures/designer/), add an Image block and pick the image.
 The compiler emits the same reference.
+
+1. Drag Image from the Blocks rail onto the canvas.
+2. In the inspector, under Image, pick the image from the list, or choose
+   Upload to add one from your computer.
+3. Set the width and height in pixels, and the Alt text.
 
 Always set an explicit `width` in pixels. Outlook does not reliably scale images
 without one, and a logo exported at 2x will render at twice the size you intended.
@@ -188,6 +212,12 @@ to connect the two.
 Detach it from everything the message lists, then delete. Deletions are recorded
 in the [change log](/monitoring/change-log/), and the previous file is not
 retained, so keep your source files.
+
+1. Open Images in the portal sidebar.
+2. Choose Delete at the end of the image's row.
+3. Choose Delete in the confirmation.
+
+An image something still uses is refused with a message listing what uses it.
 
 ## Images and export
 

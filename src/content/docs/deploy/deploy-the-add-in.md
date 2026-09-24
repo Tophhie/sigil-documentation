@@ -87,6 +87,13 @@ have one, since Outlook treats that as a different case entirely. See
 Then look at [Activity](/monitoring/activity/). You want to see signature
 requests arriving and apply outcomes succeeding.
 
+1. Open Activity in the portal sidebar.
+2. In the By mailbox table, find each pilot's mailbox. Outcome should read
+   Applied, and the Add-in column should show the manifest version you
+   uploaded.
+3. Ask anybody missing from the table to start a new message and choose My
+   signature on the ribbon. The pane says why nothing was applied.
+
 ## Go tenant-wide
 
 Once the pilot is clean, widen the assignment in Integrated apps to the whole
@@ -96,6 +103,13 @@ again.
 Watch the never-applied list in Activity over the following week. It
 cross-references your directory, so it lists mailboxes that have never had a
 signature applied rather than only reporting on the ones that have.
+
+1. In the Microsoft 365 admin centre go to Settings, then Integrated apps.
+2. Open Sigil by Tophhie Cloud and widen the assignment to the groups you
+   intend to cover, or to Entire organisation.
+3. Allow 6 to 72 hours.
+4. Open Activity in the portal sidebar and watch the Never applied count in
+   the Signature adoption card. Export mailboxes (CSV) lists which they are.
 
 ## What needs a redeploy, and what does not
 
@@ -163,8 +177,9 @@ So the add-in reports which manifest it was installed from, on the same beacon
 that reports whether the signature applied, and
 [Activity](/monitoring/activity/) shows you the answer. When any mailbox that
 has composed in the last 30 days is on an older manifest than the one Sigil is
-serving, the view carries an "Add-in update available" notice naming the current
-version, how many mailboxes are behind, and a link to the manifest to re-upload.
+serving, the view carries a notice naming the manifest version Sigil now serves
+and how many mailboxes are behind, with an Update button that opens the steps
+and the manifest link to re-upload.
 The per-mailbox table has an Add-in column with each mailbox's version in it.
 
 A mailbox reading `pre-1.5` is one whose manifest is older than the stamp
@@ -185,6 +200,12 @@ left in March does not hold your organisation at "behind" for ever.
 
 Until you update, those mailboxes keep working exactly as they did. They simply
 do not get whatever the newer manifest declares.
+
+1. Open Activity in the portal sidebar.
+2. If your organisation is behind, a notice at the top of the page says which
+   manifest Sigil now serves and how many mailboxes are on an older one. Choose
+   Update to open the steps, with a Copy button for the manifest link.
+3. In the By mailbox table, read the Add-in column for each mailbox.
 
 ## Updating the add-in
 
@@ -218,6 +239,11 @@ through, which is how you watch an update land rather than guess at it.
 
 ## Removing the add-in
 
-Remove it from Integrated apps in the same place you uploaded it. Signatures stop
-being applied once the removal propagates. Existing messages are unaffected,
-because Sigil only ever writes into the compose window.
+Remove it from Integrated apps in the same place you uploaded it. Signatures
+stop being applied once the removal propagates. Existing messages are
+unaffected, because Sigil only ever writes into the compose window.
+
+1. In the Microsoft 365 admin centre go to Settings, then Integrated apps.
+2. Open Sigil by Tophhie Cloud.
+3. Remove the deployment, and allow the propagation window for it to leave
+   every client.

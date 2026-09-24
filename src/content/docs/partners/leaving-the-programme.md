@@ -21,6 +21,16 @@ Tell Tophhie Cloud through `support@usesigil.app`. There is no notice period and
 no minimum term, which follows from there being
 [no minimum spend](/partners/service-level/#no-minimums) either.
 
+1. Release every client you still manage, one at a time, from Clients. See
+   [releasing a client](/partners/clients/#releasing-a-client).
+2. Write to `support@usesigil.app` saying you are leaving the programme.
+3. Add a payment method on your own organisation's Billing view, so your own
+   signatures carry on once your internal-use tenant moves to standard
+   billing.
+
+Tophhie Cloud then downgrades your partner account. Nothing is deleted, and
+the [record](#where-the-record-lives) shows it as your own decision.
+
 Your own decision to stop reselling is recorded as exactly that rather than as a
 removal. The distinction is deliberate: the record of why a partnership ended
 outlives the partnership, and being able to show you were not thrown out is worth

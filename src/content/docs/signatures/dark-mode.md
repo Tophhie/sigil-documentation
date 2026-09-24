@@ -85,6 +85,17 @@ It is a simulation rather than a promise. It is modelled on Outlook's own
 transform and checked against real renders, but the clients do not publish their
 behaviour and can change it.
 
+To check a design:
+
+1. Open the template in the designer, using Design on its row in Templates.
+2. Choose Expand on the Live preview if it is collapsed.
+3. Switch on Dark mode.
+4. Look at any text over a picture and at the disclaimer line.
+5. Switch it off to see the light render again.
+
+The choice is kept in your browser, so the preview opens the same way next
+time.
+
 ## The advisory badges
 
 The designer also checks a design for the two failures above as you edit, and
@@ -128,6 +139,7 @@ recipient.
 
 ## Checking it for real
 
-Send a [test email](/admin/test-email/) and read it in a client set to dark mode.
-The preview and the advisories are there to catch the obvious cases at your desk;
-the clients your organisation actually uses are the ones that settle it.
+Send a [test email](/admin/test-email/) and read it in a client set to dark
+mode. The preview and the advisories are there to catch the obvious cases at
+your desk; the clients your organisation actually uses are the ones that settle
+it.

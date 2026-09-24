@@ -56,6 +56,14 @@ carries on working, so you can deploy and test the add-in without anyone getting
 a half-finished signature. See
 [pausing delivery](/signatures/pausing-delivery/).
 
+Only an Admin can pause and resume.
+
+1. Open Templates in the portal sidebar.
+2. In the In use card, choose Pause.
+3. Choose Pause signatures in the confirmation.
+
+The card shows a Paused badge until you choose Resume in the same place.
+
 ## Phase 2: pilot
 
 Deploy the manifest through Integrated apps, targeting a small group. Ten to
@@ -63,9 +71,28 @@ twenty people from more than one department is usually enough, and picking peopl
 across Windows, Mac, web and mobile gives better coverage than picking a whole
 team on one platform.
 
+You need an account that can upload add-ins in the Microsoft 365 admin
+centre.
+
+1. Open Getting started in the portal sidebar and, under Deploy the Outlook
+   add-in, choose Copy next to the manifest URL.
+2. In the Microsoft 365 admin centre, go to Settings, then Integrated apps.
+3. Choose Upload custom apps, and select Office Add-in.
+4. Provide the manifest URL, `https://static.usesigil.app/manifest.xml`.
+5. Assign it to the pilot group only.
+6. Accept the permissions request and finish the deployment.
+
+The steps in full are in [deploy the add-in](/deploy/deploy-the-add-in/).
+
 Wait out the propagation window. Then check [Activity](/monitoring/activity/):
 you are looking for signature requests arriving, apply outcomes succeeding, and
 nobody stuck in the never-applied list.
+
+1. Open Activity in the portal sidebar.
+2. Under Signature adoption, read how many mailboxes have applied their
+   signature and how many never have.
+3. Under By mailbox, find each pilot mailbox and check its Outcome.
+4. Choose Export mailboxes (CSV) for the never-applied mailboxes as a list.
 
 Ask the pilot group to check replies and forwards as well as new messages, and to
 send at least one message from a shared mailbox or a Microsoft 365 Group if they
@@ -137,5 +164,5 @@ to them, rather than sequencing the two.
 
 If the two cannot be switched over in the same moment, deploy the add-in with
 [delivery paused](/signatures/pausing-delivery/) and resume at the instant the
-old product stops. That turns a cutover that depends on propagation timing, which
-you do not control, into one that depends on a button, which you do.
+old product stops. That turns a cutover that depends on propagation timing,
+which you do not control, into one that depends on a button, which you do.

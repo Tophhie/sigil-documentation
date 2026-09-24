@@ -29,6 +29,15 @@ drafts are already in flight behind a review nobody asked for.
 See [publish approval](/signatures/approvals/) for the review cycle, what is
 gated and what deliberately is not.
 
+You need the Admin role to change it.
+
+1. Open Settings in the portal sidebar.
+2. In the Publish approval card, turn on Require an admin to approve every
+   signature change.
+
+It saves as soon as the switch moves, and the portal confirms with "Settings
+saved." Turn the same switch off to remove the requirement.
+
 ## Profile editing
 
 With this on, anybody in your organisation can open `portal.usesigil.app/me` and
@@ -45,6 +54,14 @@ remove the values.
 
 Which fields exist is a separate page. See
 [profile fields](/admin/profile-fields/).
+
+1. Open Settings in the portal sidebar.
+2. In the Profile editing card, turn on Let colleagues fill in their own
+   signature details.
+
+It saves as soon as the switch moves. The same switch is on Profile fields,
+labelled Let staff fill these in themselves, so you can turn it on from the page
+where you defined the fields.
 
 ## Product update emails
 
@@ -67,6 +84,14 @@ stops them for that one address, with no sign-in, and nobody else can undo it.
 So an admin who wants them can stay on while a colleague who does not opts out,
 and switching this setting back on never overrides somebody who asked to stop.
 
+To stop them for your organisation:
+
+1. Open Settings in the portal sidebar.
+2. In the Product update emails card, turn off Send product update emails to
+   our admins.
+
+It saves as soon as the switch moves.
+
 ## Health digest
 
 An email to every administrator summarising coverage, apply failures, directory
@@ -75,6 +100,11 @@ gaps and anything waiting on a decision.
 Weekly, monthly and off are the three choices. See
 [the health digest](/monitoring/health-digest/) for what it contains and why it
 defaults to on.
+
+1. Open Settings in the portal sidebar.
+2. In the Health digest card, choose Weekly, Monthly or Off.
+
+It saves as soon as you choose, and the card says when the last one was sent.
 
 Two buttons sit beside the setting.
 
@@ -89,6 +119,18 @@ Neither of them stamps the schedule. Trying the digest cannot push the real one
 out by a week, which is the only reason it is safe to press either without
 thinking about it.
 
+To try it:
+
+1. Open Settings in the portal sidebar.
+2. In the Health digest card, choose Preview.
+3. Read the digest that renders under the frequency options, with its subject
+   line above it.
+4. Choose Send me one to mail the same digest to your own address.
+
+Preview turns into Hide preview while the digest is open. After a send, the
+portal confirms the address it went to and that this does not change when the
+next one goes out.
+
 ## The Link domain card
 
 Settings also carries the card for a
@@ -100,6 +142,27 @@ add-on rather than a choice about behaviour. The card is on the page whether or
 not your organisation holds the add-on: without it, the card explains what the
 feature does and points at Billing, rather than offering a button that would be
 refused.
+
+With the add-on, and the Admin role, claiming a hostname goes like this.
+
+1. Open Settings in the portal sidebar.
+2. In the Link domain card, choose Add a link domain.
+3. Enter the Hostname, such as `links.yourdomain.com`.
+4. Create the CNAME record the dialog shows at your DNS provider.
+5. Choose Add domain.
+
+The card then shows the hostname with a badge saying where it has got to,
+Waiting for DNS to begin with, repeats the record to create, and offers Check
+again. Once the certificate is issued the badge reads Live.
+
+To remove it:
+
+1. Open Settings in the portal sidebar.
+2. In the Link domain card, choose Remove.
+3. Choose Remove in the confirmation dialog.
+
+The dialog warns that links already sitting in mail you have sent stop working
+once the hostname stops resolving.
 
 ## Defaults and organisations that never open this page
 

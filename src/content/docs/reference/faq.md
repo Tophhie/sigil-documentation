@@ -320,6 +320,14 @@ our tenant" comes from your records rather than from asking. See
 [actions taken by Tophhie Cloud
 support](/monitoring/change-log/#actions-taken-by-tophhie-cloud-support).
 
+You need a role that holds monitoring: Admin, Editor, Viewer or Compliance.
+
+1. Open Audit log under Monitoring in the portal sidebar.
+2. Set Show to Organisation, access & support.
+3. Look for rows badged Sigil support in the Who column.
+
+Download CSV saves the rows as filtered.
+
 ## Can we script Sigil, or pull its numbers into a dashboard?
 
 Yes. An Admin can create an [API key](/admin/api-keys/), which is a credential

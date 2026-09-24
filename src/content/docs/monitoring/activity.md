@@ -48,6 +48,41 @@ The two still belong together in an investigation, and usually in that order:
 read here that applies started failing on Tuesday, then read the change log for
 what an administrator did on Monday.
 
+### Finding whether a mailbox has had a signature applied
+
+You need the Admin, Editor, Viewer or Compliance role.
+
+1. Open Activity in the portal sidebar, under Monitoring.
+2. In the By mailbox table, find the person's address. Rows are most recent
+   first.
+3. Read the Outcome column. A badge shows the result of the last apply the
+   add-in reported. Fetched only means the signature was served but no apply
+   was ever reported for that mailbox.
+4. Read the Applied / failed column for the running counts, and the How column
+   for whether the last apply was automatic or manual.
+
+For the full history of one mailbox, scroll to the Signature log card, enter
+the address under Mailbox and choose Search. Events are newest first, capped at
+500, with Prev and Next to page through them.
+
+### Filtering the signature log
+
+The raw log is only read when you search it, so opening the view does not
+scan the whole history.
+
+1. Open Activity in the portal sidebar, under Monitoring.
+2. Scroll to the Signature log card.
+3. Set any of the filters, or none. Mailbox takes an address. Outcome offers
+   Any, Applied / fetched OK, Failed to apply, Not found, Unauthorized,
+   Billing inactive, Signatures paused, Mailbox excluded and Error. Source
+   offers Any, Add-in (apply) and Server (fetch). From and To take a date each,
+   and a date covers the whole of that UTC day.
+4. Choose Search.
+
+Each row shows when, the mailbox, and the event: an outcome badge for an add-in
+report, or Fetched for a served request, with how it was triggered beside it.
+If nothing matches, the table says so.
+
 ## The never-applied list
 
 This is the most useful thing in the view. It cross-references your directory
@@ -78,6 +113,20 @@ email and would otherwise chase your administrators about them weekly, for ever.
 The directory cross-reference is best-effort. If Graph is briefly unavailable the
 rest of the telemetry still renders without it.
 
+### Reading the list
+
+1. Open Activity in the portal sidebar, under Monitoring.
+2. Read the Signature adoption card at the top. It shows what percentage of
+   your mailboxes have applied a signature at least once, with Applied and
+   Never applied counts beneath, and the five most recent mailboxes under
+   Latest activity.
+3. Choose Export mailboxes (CSV).
+
+The download is a file called signature-adoption.csv with one row per mailbox
+and Yes or No under Signature applied. The No rows are the never-applied list.
+If the directory could not be read, the card is replaced by a notice saying the
+cross-reference is unavailable and the rest of the view is still complete.
+
 ## Which add-in version people are on
 
 The add-in's files sit at fixed URLs, so everybody runs the current code. The
@@ -88,9 +137,10 @@ is the part only a manifest can declare, such as
 and the running code cannot see that it is missing.
 
 So every apply reports the manifest version behind it, and the per-mailbox table
-carries it in an Add-in column. When any mailbox that has composed in the last 30
-days is on an older manifest than the one Sigil serves, the view opens with an
-"Add-in update available" notice saying how many are behind.
+carries it in an Add-in column. When any mailbox that has composed in the last
+30 days is on an older manifest than the one Sigil serves, the view opens with a
+notice naming the manifest version Sigil now serves and how many of the
+mailboxes active in the last 30 days are still on an older one.
 
 The notice opens the steps rather than only naming the problem. It walks through
 the four things the update needs, with a button through to Integrated apps and
@@ -109,6 +159,28 @@ Re-uploading is an administrator's job in the Microsoft 365 admin centre, and
 nothing in Sigil can do it for you. Until it happens those mailboxes keep working
 as they did. See
 [which manifest version you are on](/deploy/deploy-the-add-in/#which-manifest-version-you-are-on).
+
+To act on the notice you need to be an administrator of your Microsoft 365
+tenant as well as of Sigil.
+
+1. Open Activity in the portal sidebar, under Monitoring. The notice at the top
+   names the manifest Sigil now serves and how many mailboxes are on an older
+   one.
+2. Choose Update. A dialog called Update the add-in opens with the steps.
+3. Choose Open Integrated apps. In the Microsoft 365 admin centre, open Sigil by
+   Tophhie Cloud and choose Update add-in.
+4. Select Provide link to manifest file. Back in the dialog, choose Copy beside
+   the manifest link, paste it in, then click Validate and Next.
+5. Accept the permissions prompt as soon as it appears. Do this in the same
+   sitting as the previous step, because people are blocked from the add-in
+   between the upload and the consent.
+6. Leave the deployment assigned to your users and groups, or Entire
+   organisation if that is what you chose. Never assign it to a shared mailbox.
+7. Choose Done.
+
+The dialog asks you to allow Microsoft's usual 6 to 72 hours for the update to
+propagate before treating a mailbox that has not moved as a fault. The Add-in
+column shows each mailbox's version as it comes through.
 
 ## What the numbers will not tell you
 

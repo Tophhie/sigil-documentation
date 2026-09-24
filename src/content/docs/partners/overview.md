@@ -120,9 +120,25 @@ relationship rather than just a tenant. Contact Tophhie Cloud through
 
 What you get back is a single link. Following it walks through the programme
 terms offered to you, then sends you to Microsoft admin consent for your own
-organisation. Granting it provisions your tenant, creates the partner record on
-those terms, and makes the administrator who consented the partner Owner. There
-is no further step at either end.
+organisation. Granting it provisions your tenant and creates the partner record
+on those terms. The first administrator to sign in to the portal afterwards
+becomes the partner Owner, which is normally the person who consented. There is
+no further step at either end.
+
+To accept the invitation you need to be a Microsoft 365 administrator of your
+own organisation. Somebody who is not can forward the link to whoever is.
+
+1. Open the invitation link.
+2. Read the terms it shows. Read the partner agreement opens the full text in
+   a new tab.
+3. Choose Set up your partner account.
+4. Sign in with your Microsoft 365 work account and approve Sigil for your
+   organisation on Microsoft's consent screen.
+5. Sign in to the portal at `portal.usesigil.app/admin`.
+
+The sidebar gains a Partner section, and Clients opens with a card asking you
+to accept the partner agreement. See
+[accepting it](/partners/agreement/#accepting-it).
 
 The link is single-use and expires. It is also honoured only for an organisation
 Microsoft confirms has granted consent, so a link followed for a tenant that has

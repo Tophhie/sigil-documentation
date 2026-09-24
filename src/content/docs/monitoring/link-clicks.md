@@ -148,6 +148,32 @@ every tracked link with a 30-day trend line on each row. Any row opens that
 link's own page, which is the same set of charts narrowed to one link plus its
 all-time total.
 
+### Choosing a window and showing filtered hits
+
+You need the Admin, Marketing or Viewer role.
+
+1. Open Link clicks in the portal sidebar, under Monitoring.
+2. Choose 7 days, 30 days, 90 days or 12 months at the top of the view. The
+   figures and charts reload for that window.
+3. To see the automated hits on the chart, switch on Show filtered automated
+   hits on the Clicks over time card. The caption notes that the muted upper
+   band is automated traffic and is excluded from every figure on the page.
+4. Choose Refresh to re-read the numbers.
+
+There is no other filter on the view, and no download of click data.
+
+### Opening one link's detail
+
+1. Open Link clicks in the portal sidebar, under Monitoring.
+2. Scroll to the Every tracked link table.
+3. Click the link's Destination.
+
+The Link detail page shows the link's clicks in the chosen window, its All time
+total since the day it was created, the hits filtered as automated, and its
+last click, followed by the same chart, splits and weekday grid narrowed to
+that one link. The same window buttons and the Show filtered automated hits
+switch apply. Choose All tracked links to go back.
+
 ## Per 1,000 signatures
 
 A click count with no base rate cannot be compared to anything. Three hundred

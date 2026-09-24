@@ -15,10 +15,25 @@ the things generic rich-text editors mangle. Visual authoring belongs in the
 [designer](/signatures/designer/), whose documents compile to that markup for
 you.
 
+Editing needs the admin or editor role and a desktop browser.
+
+1. Open Templates in the portal sidebar.
+2. Choose the template's name, or Edit at the end of its row.
+
+A template built in the designer has Design there instead, and opens in the
+designer. If one is opened here anyway, its compiled markup is shown read-only.
+
 ## Placeholder autocomplete
 
 Typing `{{` offers the placeholder list. Typing `{{#` offers the same list as
 conditional section openers.
+
+1. Put the cursor in the HTML where the placeholder should go.
+2. Type `{{` and choose the placeholder from the list, or type `{{#` and
+   choose a field to open a conditional section on it.
+
+The Placeholders panel below the editor lists the same fields as chips; choosing
+one inserts it at the cursor.
 
 The list comes from the API rather than being hard-coded in the editor, so it
 cannot drift from what the renderer actually knows how to resolve. If a
@@ -93,6 +108,12 @@ colleague had sent from it. See
 Before you publish, the editor shows a line diff between what you have written
 and the live version. That is worth reading every time; it catches the edit you
 did not mean to make far more reliably than re-reading the whole template.
+
+1. Choose Diff in the editor's toolbar.
+2. Read the Changes vs the live version card that appears above the editor.
+3. Choose Diff again to hide it.
+
+If nothing has changed, a message says the editor matches the live version.
 
 The diff is the one thing this editor has that the
 [designer](/signatures/designer/) does not. Everything else about getting a body

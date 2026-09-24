@@ -24,6 +24,21 @@ If you use the [My signature pane](/users/my-signature-pane/) in Outlook, there
 is an "Edit my details" button on it that opens the same page in your browser.
 The button only appears when there is actually something for you to fill in.
 
+From Outlook:
+
+1. Start a new message, a reply or a forward.
+2. On the ribbon, choose My signature.
+3. In the pane, choose Edit my details.
+
+The page opens in your browser. To go there directly instead:
+
+1. Open `portal.usesigil.app/me` in your browser.
+2. Choose Sign in with Microsoft.
+3. Sign in with your work account.
+
+The page is headed "Your signature details", with your email address at the
+top and a Sign out button beside it.
+
 ## What is on the page
 
 Your organisation's fields come first, as a form. What is in it is entirely up
@@ -81,20 +96,35 @@ its own, without anybody re-editing a template.
 
 ## Saving
 
+1. Under "Yours to fill in", type into each field, or pick from its list.
+2. Choose Save.
+
+Save stays greyed out until you have changed something. When the save has gone
+through, "Saved. Your next email will use it." appears beside the button, and
+the preview under "How your signature looks" is redrawn with your new details.
+A field marked "asked of everyone" is one your organisation would like filled
+in; the number still to fill in is shown beside the button, and you can save
+without them.
+
+To clear a value you no longer want:
+
+1. Delete the text from the field, or choose "Prefer not to say" from a list.
+2. Choose Save.
+
 Your next email uses what you saved. There is no waiting period and nothing to
 restart.
 
 Some fields only accept certain values, and you are told at the point of saving
 rather than finding out later. A field for a web address wants a full one
-beginning `https://`. A field offering a list of choices takes one of those
-choices. That is your organisation's decision about the field, not Sigil being
+beginning `https://` or `http://`. A field offering a list of choices takes one
+of those choices. That is your organisation's decision about the field, not Sigil being
 particular.
 
-If your organisation changes a field after you filled it in, you keep what you
-chose. An option that has since been taken off the list still shows as your
-answer rather than the field going blank, and you pick again from the new list
-whenever you next save. The exception is a field whose type has changed
-altogether, where an answer that no longer fits the new kind of field is removed.
+If your organisation changes what a field may hold after you filled it in, an
+answer that no longer fits is removed rather than left in your signature. That
+happens when a field's type changes altogether, and when an option you chose is
+taken off a list. Pick again from the new list the next time you visit. A field
+that only had its label, help text or length changed keeps your answer.
 
 Leaving a field empty is fine. Your signature closes up around anything you have
 not filled in, so an empty field leaves no gap, no stray comma and no empty
@@ -127,19 +157,22 @@ can be in place on their first day.
 When an administrator edits your details, it is recorded in your organisation's
 change log with their name on it. When you edit your own, it is not: that log is
 your IT team's record of changes to the organisation's signatures, not a record
-of you keeping your own number up to date. The page itself shows who last saved
-it and when.
+of you keeping your own number up to date.
 
 ## If the page says editing is not available
 
-Two things can cause it, and neither is a fault.
+Three things can cause it, and none of them is a fault.
 
 Your organisation may not have switched profile editing on. It is off until an
 administrator turns it on, and there is nothing you can do from your end.
 
-Or your mailbox may be one your organisation has deliberately left out of Sigil,
-which is normal for shared and unattended mailboxes.
+Or your organisation's Sigil subscription may not be active at the moment, in
+which case the page says there is nothing to edit right now.
 
-Either way your IT team can tell you which, and the values you may already have
-entered keep appearing in your signature regardless. Switching editing off stops
-people changing their details; it does not remove them.
+A third message looks different. If your mailbox is one your organisation has
+deliberately left out of Sigil, which is normal for shared and unattended
+mailboxes, the page reports the mailbox as excluded instead.
+
+In every case your IT team can tell you which, and the values you may already
+have entered keep appearing in your signature regardless. Switching editing off
+stops people changing their details; it does not remove them.

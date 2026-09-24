@@ -42,6 +42,19 @@ Stripe emails the invoice to your billing contact and you pay it from its hosted
 page, by card or by bank transfer. Nothing on your account is charged
 automatically, and no card is asked for anywhere.
 
+To pay one from the portal rather than from the email:
+
+1. Open Billing in the portal sidebar.
+2. Open the Documents tab.
+3. In the Invoices list, choose Pay on the invoice. It is the button shown for
+   an invoice on terms that is still open.
+4. You are taken to the invoice's hosted page on Stripe. Pay it there by card
+   or by bank transfer.
+
+While an invoice on terms is open, a reminder above the list says to quote the
+invoice number as the payment reference on a bank transfer. See
+[paying by bank transfer](#paying-by-bank-transfer).
+
 That last part is worth stating plainly, because it changes several things at
 once. Every prompt in Sigil that would otherwise mention a card reads how your
 account is collected before it says anything: the trial reminders, the overdue
@@ -95,6 +108,20 @@ Every row links out to the invoice's own hosted page, which is where the PDF
 lives and, on terms, where it is paid. There is a separate download beside it
 for the PDF on its own.
 
+### Downloading an invoice
+
+You need the Admin or Billing role.
+
+1. Open Billing in the portal sidebar.
+2. Open the Documents tab.
+3. In the Invoices list, find the invoice and choose the download button at
+   the end of its row. Its tooltip reads Download the PDF.
+
+Choose View instead to open the invoice's hosted page on Stripe in a new tab.
+On invoice terms an open invoice's button reads Pay rather than View, and the
+same page is where it is paid. See
+[paying on invoice terms](#paying-on-invoice-terms).
+
 The list is read live rather than from a copy held here, so it shows what your
 invoices actually say. If it cannot be read, the view says so and offers to try
 again rather than showing an empty history, which would read as "you have never
@@ -147,6 +174,14 @@ free text field, so it takes whatever form your own purchase orders use.
 
 The Billing view carries a credits list: every credit and correction applied to
 your account, with the reason it was agreed.
+
+### Viewing your credits
+
+1. Open Billing in the portal sidebar.
+2. Open the Documents tab.
+3. The Credits list sits below the invoices.
+
+It reads "No credits have been applied." until there is one.
 
 The reason is the point of it. A credit that appears on an invoice with no
 explanation is a support ticket six months later, when nobody remembers what it

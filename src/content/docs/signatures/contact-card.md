@@ -35,6 +35,27 @@ The section matters. Where no card link can be minted for a mailbox, the
 placeholder resolves to nothing, and the section removes the button rather than
 leaving a link that goes nowhere.
 
+To add the link in the designer:
+
+1. Open the template in the designer, using Design on its row in Templates.
+2. Drag a Button block from the rail onto the canvas, or select one already
+   there.
+3. In the inspector, under Button, open the field menu beside the Link box and
+   choose Contact card link from the Contact group.
+4. Under Visibility, add a Show when rule that Contact card link has a value,
+   so the button disappears where no link can be minted.
+5. Choose Save draft or Publish.
+
+To add it in the HTML editor:
+
+1. Open the template in the HTML editor, using Edit on its row in Templates.
+2. Put the cursor inside the `href` of the link.
+3. Under Placeholders beneath the editor, choose Contact card link in the
+   Contact group. It inserts `{{contactCardUrl}}` at the cursor.
+4. Wrap the whole link in `{{#contactCardUrl}}` and `{{/contactCardUrl}}` as
+   above.
+5. Choose Save draft or Publish.
+
 ## What the card contains
 
 | vCard field | Directory source |
@@ -122,3 +143,11 @@ nowhere to hang them inside Outlook's table layout without inventing wrapper
 elements. Emitting them flat would be invalid, and something reading it would
 take the company name as the person's own name, which is worse than emitting
 nothing.
+
+To switch it on:
+
+1. Open the template in the designer, using Design on its row in Templates.
+2. Click an empty part of the canvas, or press Escape, so the inspector shows
+   the canvas settings.
+3. Under Contact details, tick Machine-readable contact details.
+4. Choose Save draft or Publish.

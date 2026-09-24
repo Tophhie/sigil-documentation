@@ -40,6 +40,20 @@ schedule set three years out fires against a template library nobody remembers
 configuring, carrying a body captured against a design system that has since
 moved on.
 
+To book one:
+
+1. Open the template in its editor from Templates.
+2. Choose Schedule.
+3. Enter the date and time under Publish at.
+4. To begin a staged rollout at that time instead, switch on Start a staged
+   rollout instead of publishing to everyone. In the designer the switch reads
+   Start a staged rollout instead.
+5. Choose Schedule.
+
+A message gives the time it is booked for and says that what is in the editor
+now is what publishes. A banner stays on the template saying a publish is
+booked, and the Templates page shows a Scheduled badge.
+
 ## What actually gets published
 
 The body is captured when you book the schedule, not read from the draft when it
@@ -92,6 +106,12 @@ make any more. The change log records the cancellation and its reason.
 
 Cancelling a booked publish leaves the live body exactly as it was, because
 nothing had changed yet. There is nothing to undo.
+
+1. Open the template in its editor from Templates.
+2. In the banner saying a publish is booked, choose Cancel it.
+3. Choose Cancel it in the confirmation.
+
+A message confirms the scheduled publish is cancelled and the banner goes.
 
 ## If it fails
 

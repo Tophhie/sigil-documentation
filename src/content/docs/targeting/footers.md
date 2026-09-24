@@ -25,6 +25,41 @@ subsidiary's alias gets the subsidiary's footer. See
 Selection is specific first: a footer matching the sending domain wins over the
 default.
 
+To decide which domain a footer applies to:
+
+1. Open the footer's dialog, from New footer or from Edit on its row.
+2. In Applies to domain, enter the bare domain, such as `contoso.com`, or
+   leave it blank for the default that covers every other domain.
+3. Choose Create footer or Save changes.
+
+The Applies to column then shows the domain, or All other domains for the
+default.
+
+## Creating and editing a footer
+
+You need the Admin or Compliance role.
+
+1. Open Footers in the portal sidebar.
+2. Choose New footer.
+3. Enter a Footer name.
+4. In Applies to domain, enter the domain the footer is for, or leave it blank
+   for the default.
+5. Write the footer in Footer content. The next section describes the editor.
+6. Choose Create footer.
+
+The footer is live at once. The toast says it was created and live and that
+every matching signature now carries it, and the list shows it as Live.
+
+To change a footer:
+
+1. Open Footers in the portal sidebar.
+2. Choose Edit on the footer's row.
+3. Change its name, its domain or its content.
+4. Choose Save changes.
+
+Signatures pick the change up within seconds. A paused footer stays paused; see
+[pausing a footer](#pausing-a-footer).
+
 ## Writing a footer
 
 Footers are written in a small formatting editor rather than by hand. The toolbar
@@ -136,6 +171,25 @@ while you are in it, and resuming stays a separate deliberate act from the list.
 A newly created footer is live immediately. There is no separate publish step for
 a footer the way there is for a template, which the create button says rather
 than leaving you to find out from the first message that goes out with it.
+
+To pause or resume a footer:
+
+1. Open Footers in the portal sidebar.
+2. Open the row's menu, the button at the right of the row labelled Footer
+   actions.
+3. Choose Pause, or Resume on a footer that is paused.
+
+The Status column changes to Paused, or back to Live.
+
+## Deleting a footer
+
+1. Open Footers in the portal sidebar.
+2. Open the row's menu, labelled Footer actions.
+3. Choose Delete.
+4. Confirm with Delete in the Delete footer dialog.
+
+The dialog says that signatures stop carrying it immediately. To take a footer
+out of circulation without losing its wording, pause it instead.
 
 ## How quickly changes take effect
 

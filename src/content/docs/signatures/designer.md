@@ -15,6 +15,15 @@ identically to a hand-written one everywhere else in the product.
 
 Open it from the portal, or directly at `portal.usesigil.app/admin/designer/`.
 
+Editing needs the admin or editor role and a desktop browser.
+
+1. Open Templates in the portal sidebar.
+2. Choose the template's name, or Design at the end of its row.
+
+A template authored in the HTML editor has Edit in place of Design, because it
+opens in the HTML editor instead. The arrow at the left of the designer's top
+bar takes you back to the library.
+
 ## Blocks
 
 A design is a tree of blocks on a canvas.
@@ -39,6 +48,17 @@ fixed pixel width, and columns you do not size share what is left.
 The QR code and Photo blocks behave differently from the rest, because the image
 each one produces depends on who is sending. See
 [per-user images](/signatures/per-user-images/).
+
+### Adding a block
+
+1. Drag a tile from the Blocks rail on the left onto the canvas.
+2. Drop it in the gap where it should sit, between two blocks or inside a
+   column.
+
+The new block is selected as it lands, so its settings are already open in the
+inspector on the right. Columns cannot be dropped inside a column. Every block
+has a handle with Duplicate and Delete on it; a selected block also goes with
+the Delete key.
 
 ## Social icons
 
@@ -82,6 +102,17 @@ out the condition for the row from the conditions on the icons inside it.
 An icon with no condition means the row always has something to show, so the row
 is never hidden. Text blocks collapse the same way and for the same reason. See
 [blocks that empty themselves](#blocks-that-empty-themselves).
+
+To give one icon a condition:
+
+1. Select the social icons block on the canvas.
+2. In the inspector, find the icon under Social icons. They are numbered Icon
+   1, Icon 2 and so on, in the order they render.
+3. Under its Show when, choose Always.
+4. Choose the field the icon depends on.
+
+The list stays open so several rules can be chosen; every one of them has to
+hold.
 
 ### Styling the row
 
@@ -183,6 +214,14 @@ Text blocks accept the same [placeholders](/signatures/placeholders/) as a
 hand-written template. Insert them from the field menu rather than typing them,
 so the token always matches something that actually renders.
 
+1. Select the text block and put the cursor where the field should go.
+2. Choose Insert field on the block's toolbar.
+3. Pick the Mailbox or Sender segment.
+4. Type in the search box to narrow the list, then choose a row.
+
+The field lands at the cursor as a chip. Choosing Insert field without first
+putting the cursor in the block appends the chip at the end.
+
 The field menu is segmented, grouped and filterable. Each row shows the field's
 label with its `{{token}}` underneath, so a long field name never competes with
 its token for width. Typing in the filter narrows the list; choosing a row inserts
@@ -234,6 +273,16 @@ This is how you avoid the classic problems: a phone row that leaves a dangling
 label for people with no phone number, or an address block that collapses to a
 line of commas.
 
+1. Select the block on the canvas.
+2. In the inspector, open Visibility.
+3. Under Show when, choose Always.
+4. Pick the Mailbox or Sender segment and choose the field the block depends
+   on.
+
+The rule reads back as a sentence, such as "Mobile has a value", and the block
+carries an "if" badge on the canvas. Choose Change to swap the rule, or the
+cross beside it to remove it.
+
 Six derived conditions help here. `anyPhone` is true when the person has any
 phone number at all, `anyAddress` when they have any address component, and
 `hasPhoto` when their mailbox has a Microsoft 365 profile photo. Attaching a whole
@@ -268,6 +317,13 @@ listed with "and" between them because every one of them has to hold. So one lin
 can carry a job title, a department and a qualification and print only the parts a
 given person actually has.
 
+1. Select the chip inside the text block.
+2. In the inspector, open Visibility.
+3. Under Show when, choose Always, or Add another rule if the chip already has
+   one.
+4. Choose each field the chip depends on. The list stays open until you close
+   it.
+
 A block takes one rule rather than several. That is the shape of what it compiles
 to rather than a preference. Where a whole row needs two conditions, put one on
 the row and the other on the block inside it, which is how nesting combines
@@ -275,11 +331,21 @@ them.
 
 ### Conditions on labels and separators
 
-Plain text can carry a rule of its own too. Highlight it and press Rule on the
-text toolbar, then choose the fields it depends on. Every rule you choose must
-hold, and choosing none shows the text always. That is how a label such as "T: "
-or a separator such as " | " goes away with the value it belongs to, rather than
-being left behind with nothing after it.
+Plain text can carry a rule of its own too. Highlight it and press the eye
+button on the text toolbar, whose tooltip reads "Show the highlighted text only
+when a rule holds", then choose the fields it depends on. Every rule you choose
+must hold, and choosing none shows the text always. That is how a label such as
+"T: " or a separator such as " | " goes away with the value it belongs to,
+rather than being left behind with nothing after it.
+
+1. Highlight the text inside the block.
+2. Choose the eye button on the text toolbar. Its tooltip reads "Show the
+   highlighted text only when a rule holds".
+3. In the dialog, choose Always and pick each field the text depends on.
+4. Choose Apply.
+
+Choosing the button with nothing highlighted opens a message saying so rather
+than a dialog.
 
 Text with a rule has a dotted underline on the canvas. Selecting the text block
 lists every such part under Parts of this text in its Visibility settings, each
@@ -319,7 +385,7 @@ condition.
 | --- | --- |
 | A whole block, including a row and everything in it | Select the block, open Visibility, and set Show when |
 | One field chip inside a line of text | Select the chip, open Visibility, and add it as a rule |
-| A label, separator or other plain text | Highlight it and press Rule on the text toolbar |
+| A label, separator or other plain text | Highlight it and press the eye button on the text toolbar |
 | A single social icon | Select the social block and set Show when on that icon |
 
 A block carrying a condition shows an "if Sent on behalf of the mailbox" badge on
@@ -466,11 +532,16 @@ scheduling and sending a draft back, opens a dialog.
 A designer template can be ejected to HTML. This converts it to a hand-authored
 template containing the compiled markup, and it is one-way.
 
-Eject when you need something the blocks cannot express and the HTML block is not
-enough. After ejecting, the template is edited in the
-[HTML editor](/signatures/html-editor/) from then on.
+There is no button for it in the portal. Opening a designer template in the
+[HTML editor](/signatures/html-editor/) shows its compiled markup read-only,
+with Save draft and Publish disabled, so the design document cannot be discarded
+by accident. Ejecting is done through the [API](/reference/api/): publishing
+plain HTML to a designer template is refused unless the request says explicitly
+that ejecting is intended. After that, the template is edited in the HTML editor
+from then on.
 
-HTML cannot be imported back into the designer.
+Eject when you need something the blocks cannot express and the HTML block is
+not enough. HTML cannot be imported back into the designer.
 
 Do not eject a template that uses a QR code or a Photo block. Those images are
 generated from the design document, and ejecting discards it. See

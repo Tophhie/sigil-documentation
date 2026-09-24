@@ -256,6 +256,22 @@ internal name, the version and the image name.
 Every kind of entry is filed on one side or the other, so a new one cannot end up
 unclassified and quietly stop appearing without anybody noticing.
 
+### Filtering the log
+
+You need the Admin, Editor, Viewer or Compliance role.
+
+1. Open Audit log in the portal sidebar, under Monitoring.
+2. Under Show, choose Everything, Template changes, or Organisation, access &
+   support.
+3. Under Who, type part of a name or address.
+4. Under Action, pick one. The list is grouped into the same two halves and
+   only names actions present in what is loaded.
+5. To keep the result, choose Download CSV.
+
+The table narrows as you type or choose, and says Nothing matches those
+filters when the combination leaves nothing. Prev and Next page through longer
+results, and Refresh re-reads the log.
+
 ## What each entry says changed
 
 Every row carries a Detail line saying what actually moved, and opens into the
@@ -285,6 +301,19 @@ Opening a row shows the whole record as a table of fields and values, with the
 raw stored form underneath for the case where the exact bytes matter. It is the
 same dialog the Tophhie Cloud operator console uses, worded for you rather than
 for us.
+
+### Opening an entry
+
+1. Open Audit log in the portal sidebar, under Monitoring.
+2. Find the row, narrowing with the filters if you need to.
+3. Click the text in its Detail column. It is underlined where the entry holds
+   more than the line shows; a row with nothing further is plain text and does
+   not open.
+4. Read the record. The dialog is titled with the action and shows When, Who,
+   Action and, where they apply, Effect, Version and Asset, followed by a
+   Details table of every stored field.
+5. Expand Raw JSON to see the stored form as it was written.
+6. Choose Close.
 
 This is where the detail that used to be recorded but not shown now appears.
 Rollout reasons, approval notes, the addresses on an exclusion and the fields an

@@ -39,6 +39,18 @@ placeholder. `https://example.com/book/{{extensionAttribute3}}` gives each
 person their own booking link; a plain URL does not, and Sigil recognises the
 difference so it does not do per-person work it has no need to do.
 
+There is nothing to upload. The block is added in the designer:
+
+1. Drag QR from the Blocks rail onto the canvas.
+2. In the inspector, under QR code, set Encodes to The sender's contact card
+   or A link.
+3. For a link, enter it in the Link box. The field button beside it inserts a
+   placeholder.
+4. Set the Size, the Dark / light colours and the Alt text.
+
+The code appears when you publish. The live preview under the canvas shows a
+real one, encoding the sample person or the mailbox named in Render as.
+
 ### Sizing and colour
 
 | Setting | Range |
@@ -80,6 +92,16 @@ Classic Outlook renders a circular image as a square. That is a Word rendering
 engine limitation rather than a Sigil choice, and it is the same caveat that
 applies to rounded button corners. Choose circle if you are happy for classic
 Outlook recipients to see a square.
+
+Nothing is uploaded; each person's photo is read from Microsoft 365 when their
+signature is served. The block is added in the designer:
+
+1. Drag Photo from the Blocks rail onto the canvas.
+2. In the inspector, under Photo, set the Size and the Shape.
+3. Add Alt text, and a Link if the photo should be clickable.
+
+The block's condition is set for you, so there is nothing to add under
+Visibility.
 
 ### People without a photo
 
@@ -160,5 +182,5 @@ not have.
 
 This has one consequence worth planning around. Ejecting a designer template to
 HTML discards the design document, and the reserved references left in the
-markup then have nothing to resolve them. If a template uses a QR code or a photo
-block, treat it as one you will keep editing in the designer.
+markup then have nothing to resolve them. If a template uses a QR code or a
+photo block, treat it as one you will keep editing in the designer.

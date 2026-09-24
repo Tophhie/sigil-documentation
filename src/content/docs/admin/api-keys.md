@@ -31,6 +31,18 @@ an access-management act rather than an area of the product, and the users
 capability is also held by the Billing role, so gating it that way would let a
 billing manager issue themselves a key that edits signatures.
 
+1. Open API keys in the portal sidebar.
+2. On the Keys tab, choose New key.
+3. Enter a Name.
+4. Pick an Expires date if the key should stop on its own.
+5. Under Access, choose each area the key may reach.
+6. Leave Read-only on unless the key has to make changes.
+7. Choose Create key.
+
+The dialog closes and the secret appears in a panel at the top of the page,
+headed with the key's name and "copy this now". Choose Copy to put it on the
+clipboard, store it somewhere safe, then choose Done.
+
 | Field | Meaning |
 | --- | --- |
 | Name | Up to 80 characters, so you can recognise the key later. It is a label and never an identity |
@@ -144,12 +156,11 @@ work a key is for. Reading or writing what a named colleague typed into one is
 not, and if anything that is more personal than a directory attribute rather than
 less, since the person entered it themselves.
 
-One consequence of that is worth spelling out, because the portal does not. Staff
-profile details appears in the list of areas you can grant, since the form offers
-whatever you hold yourself. Every operation it covers is off the allow-list, so a
-key granted it can reach nothing through it. Granting it is harmless and also
-pointless. The area a script wants for profile fields is settings, which is what
-defining them needs.
+The form reflects that split. It lists only the areas at least one key-reachable
+operation needs, narrowed from what you hold yourself, so Staff profile details
+is not offered at all: every operation it covers is off the allow-list, and a
+key granted it could reach nothing through it. The area a script wants for
+profile fields is settings, which is what defining them needs.
 
 Every one of these is something a person in the portal can still do. Nothing
 here reduces what your administrators can reach.
@@ -183,6 +194,17 @@ One thing the document cannot express is the read-only switch. OpenAPI describes
 what an endpoint needs rather than what a particular credential was issued with,
 so the document says in its description that a read-only key refuses every write
 below rather than pretending to model it.
+
+To read the list as one of your keys sees it:
+
+1. Open API keys in the portal sidebar.
+2. Choose the API reference tab.
+3. Under Show what this key can do, pick one of your live keys.
+
+Rows the key would be refused are greyed out, and hovering over one says why in
+the words the refusal would arrive in. Pick Everything a key could reach to go
+back to the whole list. Choose OpenAPI 3.1 at the top of the tab to download
+the document as `sigil-openapi.json`.
 
 ## Choosing what to grant
 
@@ -227,10 +249,28 @@ ceiling is set well above the per-key limit so that an organisation running
 several keys from one outbound address, a build runner or a scheduler on your own
 network, meets the limit that was meant for it rather than this one.
 
+## Rotating a key
+
+There is no regenerate action, so a rotation is a new key followed by a
+revocation.
+
+1. Create a new key with the same access, as above.
+2. Update whatever uses the old key to present the new secret.
+3. Revoke the old key, as below.
+
+Both keys stay on the list afterwards, the old one marked as revoked.
+
 ## Revoking
 
 Revoke stops the key immediately and cannot be undone. Anything using it starts
 failing at once, which is the point.
+
+1. Open API keys in the portal sidebar.
+2. On the Keys tab, choose Revoke on the key's row.
+3. Choose Revoke in the Revoke this key dialog to confirm.
+
+The dialog says that anything using the key stops working immediately, and the
+row stays, greyed out, with a Revoked badge and the date.
 
 The key stays on the list afterwards, marked as revoked. Deleting the row would
 leave change log entries pointing at a credential nobody can name, which would

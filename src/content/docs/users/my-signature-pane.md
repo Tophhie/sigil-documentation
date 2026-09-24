@@ -11,6 +11,19 @@ that applies your signature on demand.
 Most of the time you will never need it. It exists for the times when the
 automatic path cannot do its job.
 
+## Opening the pane
+
+The button is there in Outlook on Windows, Outlook on Mac and Outlook on the
+web. Outlook on your phone has no button; see
+[where it is not available](#where-it-is-not-available).
+
+1. In Outlook, start a new message, a reply or a forward.
+2. On the ribbon, choose My signature. It sits in a group called Signature.
+
+The pane opens. While it finds out about your signature it says "Checking
+your signature", and then shows a preview labelled with which signature it is:
+new messages, or replies and forwards.
+
 ## What it does
 
 It applies your signature immediately and shows you a preview of what was
@@ -32,14 +45,24 @@ Where your organisation has switched it on, it also offers "Edit my details",
 which opens the page where you fill in your own signature details. See
 [filling in your own details](/users/your-details/).
 
+To apply your signature yourself:
+
+1. Open the pane from the compose ribbon.
+2. Choose Apply my signature.
+
+The button reads "Applying" while it works. When it has finished, the pane says
+"Signature applied" and shows the signature it put into your message. If it
+could not, the pane says why.
+
 ## What it tells you when something is wrong
 
 The pane distinguishes between problems worth retrying and problems that retrying
 cannot fix.
 
 Where a retry might work, the Apply and Download buttons stay where they are and
-the explanation sits above them. A failed sign-in, a connection that dropped, or
-Outlook declining the signature all fall into this group.
+the explanation sits beneath them, so the button you just pressed does not move.
+A failed sign-in, a connection that dropped, or Outlook declining the signature
+all fall into this group.
 
 Where nothing can be applied to this mailbox at all, the buttons are removed and
 only the explanation remains. That covers a mailbox with no signature configured,
@@ -89,6 +112,19 @@ The pane can show a sign-in prompt. That is what makes it the fix: opening it on
 completes the sign-in that the automatic path could not, and from then on the
 automatic path works.
 
+When the pane needs you to sign in, it says "Sign in to see and apply your
+signature" and the main button reads Sign in and apply instead of Apply my
+signature.
+
+1. Open the pane from the compose ribbon.
+2. Choose Sign in and apply.
+3. Sign in with your work account in the prompt that appears.
+
+Once you are signed in, the pane applies your signature and says "Signature
+applied". If it says "Sign-in didn't complete, so your signature wasn't
+applied. Try again.", choose the button once more. From then on the automatic
+path signs you in on its own.
+
 ## Download my signature
 
 The download saves your signature as a standalone HTML file with the images
@@ -96,6 +132,13 @@ embedded in it, so it works anywhere without needing anything else alongside it.
 
 It is useful for pasting your signature into another system, keeping a personal
 copy, or sending somebody exactly what your signature looks like.
+
+1. Open the pane from the compose ribbon.
+2. Choose Download my signature.
+
+The button reads "Preparing" while the file is built, and you may be asked to
+sign in if you have not already. The file is saved as "Sigil signature.html",
+and the pane says "Signature downloaded".
 
 ## Where it is not available
 

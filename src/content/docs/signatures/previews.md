@@ -37,6 +37,12 @@ the corner are enough to tell one template from another at a glance.
 Where there is no picture, nothing is drawn. A row with an empty placeholder box
 would read as a fault in organisations where previews are simply not switched on.
 
+To open a picture at full size:
+
+1. Open Templates or Versions in the portal sidebar.
+2. Click the thumbnail after the template's name, or on the version's row.
+3. Close the dialog when you have seen it.
+
 ## What the picture shows
 
 The render uses the same sample person the editor's preview uses, and your
@@ -131,6 +137,28 @@ editor.
 There is no picture of your working draft inside the portal. The editor's own
 preview is live and already shows it, and the approval email carries the draft for
 the person who is not in the editor.
+
+## Previewing as a particular person
+
+The pictures always show the sample person. To see a template rendered with a
+real colleague's details, use the editor's own preview.
+
+1. Open the template in its editor from Templates.
+2. In the HTML editor, type the person's address into the box in the Preview
+   card's header, which reads sample data until you do. In the designer,
+   choose Expand on the Live preview if it is collapsed, then type the address
+   under Render as.
+3. To render as if somebody else pressed Send from that mailbox, as with a
+   shared mailbox, put their address in the sent by box, or under Sent by in
+   the designer.
+
+The preview re-renders for that mailbox. The HTML editor also lists the
+mailbox's directory attributes under the preview, with "not set" against any
+that are empty. Clear the box to return to the sample person.
+
+Send a test and Download on the Templates page render the live signature for a
+person rather than what is in the editor. Both ask which mailbox to render as.
+See [test email](/admin/test-email/).
 
 ## API keys
 

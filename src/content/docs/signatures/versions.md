@@ -32,10 +32,21 @@ previews were switched on has no picture until the nightly pass makes one.
 Restore is offered from the preview as well as from the list, and goes through
 the same confirmation either way.
 
+To preview a version:
+
+1. Open Versions in the portal sidebar.
+2. Pick the template in the Signature picker.
+3. Choose Preview on the version's row.
+4. Choose Close, or Restore this version if it is the one you want.
+
+The dialog shows when the version was published, by whom, and how many
+characters it renders to.
+
 ## Restoring a version
 
 Restore from the Versions view, using the signature picker to choose which
-template's history you want, or from a template's row menu on the Templates view.
+template's history you want. Version history on a template's row menu on the
+Templates view opens the same view with that template already selected.
 
 Restoring publishes the old body as a new version. That is worth understanding:
 it is a forward action rather than a rewind, so the version you rolled back
@@ -44,6 +55,19 @@ it is a forward action rather than a rewind, so the version you rolled back
 Restored versions reach users in seconds, exactly like any other publish.
 
 Rollbacks are recorded in the [change log](/monitoring/change-log/).
+
+You need the templates capability, and where
+[publish approval](/signatures/approvals/) is on you need to be an Admin.
+
+1. Open Versions in the portal sidebar, or choose Version history from a
+   template's row menu on the Templates page.
+2. Pick the template in the Signature picker if it is not already selected.
+3. Choose Restore on the version's row, or Restore this version from its
+   preview.
+4. Choose Restore in the confirmation.
+
+A message confirms it is restored, and the template's Last published date on
+the Templates page moves to now.
 
 ## Rollbacks and staged rollouts
 

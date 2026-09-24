@@ -19,6 +19,25 @@ or membership of an Entra group.
 The outcome is a template per role: one for new messages and one for replies and
 forwards.
 
+## Creating a rule
+
+You need the Admin role.
+
+1. Open Rules in the portal sidebar.
+2. Choose Add rule.
+3. Enter a Rule name.
+4. Under Match on, choose Directory attribute or Entra group membership.
+5. Fill in the condition: the Attribute and its Matching value(s) for an
+   attribute rule, or the Group for a group rule. The two sections below cover
+   each.
+6. Under New messages and under Replies, pick the template the rule should
+   assign. Leaving one at No change lets that role fall through to the rules
+   below and the organisation default, and at least one of the two must be set.
+7. Choose Add rule.
+
+The rule is added at the bottom of the list and saved straight away. The
+toolbar shows Saving while that happens and Saved once it has landed.
+
 ## Matching on a directory attribute
 
 Eleven attributes can be matched on: department, job title, company, employee
@@ -48,22 +67,31 @@ Attribute matching depends on the directory being populated. Run
 an attribute; a rule matching on `department` is only as good as the proportion of
 your directory that has one.
 
+To set an attribute condition:
+
+1. In the rule dialog, set Match on to Directory attribute.
+2. Pick the attribute from the Attribute list.
+3. Enter the values in Matching value(s), separated by commas.
+
+The dialog reminds you that any one of the values matching is enough. With
+Mailbox kind picked it says instead what `group` and `user` each cover.
+
 ## Matching on an Entra group
 
 A group rule matches when the person is a member of the named Entra group.
 
-The group is named by its object id rather than picked from a list. Copy the
-object id from the group's own page in the Microsoft Entra admin centre and paste
-it into the rule. There is no search-by-name on this form, which is the one place
-rules and [cost management](/admin/cost-management/#excluding-an-entra-group)
-differ on the same idea: the exclusion picker searches your directory by name,
-the rule form does not.
+The group is picked by name. Start typing in the Group box and the form searches
+your directory, the same picker
+[cost management](/admin/cost-management/#excluding-an-entra-group) uses to
+exclude a group's members. Picking from the suggestions stores the group's
+object id and shows its name in the list.
 
-The id is not checked against your directory when you save. A rule carrying an id
-that does not exist, or one from a different tenant, is stored happily and simply
-never matches anybody. Nothing warns you, so paste rather than retype, and use
-the simulator below to confirm the rule fires for somebody you know is in the
-group.
+You can also paste an object id copied from the group's own page in the
+Microsoft Entra admin centre. A pasted id is not checked against your directory
+when you save. A rule carrying an id that does not exist, or one from a
+different tenant, is stored happily and simply never matches anybody. Nothing
+warns you, so prefer the picker, paste rather than retype, and use the simulator
+below to confirm the rule fires for somebody you know is in the group.
 
 Groups are often the more maintainable option. Membership is managed where your
 organisation already manages access, rather than depending on an attribute being
@@ -75,6 +103,17 @@ admin consent along with everything else. The same permission is what lets
 [cost management](/admin/cost-management/) exclude a group's members, so an
 organisation that can write group rules can already do that too. See
 [permissions](/deploy/permissions/).
+
+To set a group condition:
+
+1. In the rule dialog, set Match on to Entra group membership.
+2. In the Group box, start typing the group's name and pick it from the
+   suggestions, or paste its object id.
+
+With a group picked from the suggestions, the dialog says the rule matches
+members of that group, including members of groups nested inside it, and the
+list shows the group's name. With a pasted id, the dialog says the name is
+looked up when the rule runs and the list shows the id.
 
 ## Order matters
 
@@ -102,25 +141,70 @@ The handle is also a button. Focus it and use the arrow keys to move the rule up
 or down without a pointer, or use Move up and Move down in the row's own menu.
 Both do exactly what dragging does.
 
+To move a rule with a pointer:
+
+1. Open Rules in the portal sidebar.
+2. Drag the rule by the handle at the left of its row. A line shows where it
+   will land.
+3. Drop it where it should sit.
+
+To move a rule without a pointer:
+
+1. Open the row's menu, the button at the right of the row labelled Rule
+   actions.
+2. Choose Move up or Move down.
+
+Each move is saved as soon as it is made. Move up is not offered on the first
+rule and Move down is not offered on the last.
+
 ## Editing and saving
 
-The rules list is a working copy. Adding, editing, reordering and removing all
-happen locally, and the whole list is saved in one action.
+Every change is saved as you make it. Adding, editing, reordering and removing
+each go to the server straight away, and the toolbar shows a Saving pill while
+one is in flight and Saved once it has landed. There is no separate save button
+and no unsaved state to lose, so what you see in the list is what your
+organisation is being served.
 
-An unsaved changes marker appears as soon as you touch anything, and nothing
-reaches users until you save. That means you can reorganise the whole list, or
-back out of a change you did not mean to make, without anybody receiving a
-half-finished arrangement.
+The trade is that there is no working copy to back out of. A rule you did not
+mean to remove has to be added again, and a reorder you did not mean to make has
+to be moved back.
 
 Select a rule to edit it in place. Its condition and its template assignments are
 both editable, so correcting a rule does not mean deleting it and building a
 replacement.
+
+### Editing a rule
+
+1. Open Rules in the portal sidebar.
+2. Choose Edit on the rule's row.
+3. Change its name, its condition or its templates.
+4. Choose Save rule.
+
+The rule keeps its position in the list, so editing it never changes what
+matches first.
+
+### Removing a rule
+
+1. Open Rules in the portal sidebar.
+2. Open the row's menu, labelled Rule actions.
+3. Choose Remove.
+
+There is no confirmation: the rule is removed and the list is saved without it
+straight away.
 
 ## Testing a rule against one mailbox
 
 Test a user, at the top of the rules page, dry-runs the rules against one of your
 mailboxes and reports what that person gets. Enter their address and run the
 simulation.
+
+1. Open Rules in the portal sidebar.
+2. Choose Test a user.
+3. In Mailbox to test, enter the person's address, or start typing their name
+   and pick them from the suggestions.
+4. Choose Run simulation.
+
+Choosing Test a user again closes the panel and clears the result.
 
 The panel names the template for new messages and the template for replies, and
 says what decided each one: the rule that matched, with its position in the list,
@@ -144,16 +228,16 @@ person's directory record.
 
 ## What the simulation does and does not do
 
-It runs against the saved rules. If you have unsaved edits, the simulation is
-blocked until you save them. The rules the server holds are the ones your users
-are being served, and a result taken against a list that exists only on your
-screen would describe nobody. Editing the list also clears a result already on
-screen, for the same reason.
+It runs against the rules the server holds, which are the ones being served.
+While a change is still saving, the simulation is held off and says so, since a
+result taken against a list the server has not yet received would describe
+nobody. Editing the list also clears a result already on screen, for the same
+reason.
 
-It reads the directory and group membership fresh, rather than from the ten
-minute resolution cache, so it answers for the rules as they stand now rather
-than for what that mailbox was last served. Nothing is written back to the cache,
-nothing is sent, and no signature changes. It is not recorded in the
+It reads the directory and group membership fresh, rather than from the
+hour-long resolution cache, so it answers for the rules as they stand now rather
+than for what that mailbox was last served. Nothing is written back to the
+cache, nothing is sent, and no signature changes. It is not recorded in the
 [change log](/monitoring/change-log/) either, because nothing changed.
 
 Give it an alias and it evaluates the rules on that alias, exactly as a real send
@@ -173,7 +257,8 @@ silently resolved.
 ## Who can change them
 
 Admins only. No other [role](/admin/users-and-roles/) reaches assignment rules,
-including Editor.
+including Editor. Where a partner manages your organisation, its Owner, Admin
+and Technician staff hold the same capability on your tenant.
 
 Rules are the only part of Sigil held that tightly. An Editor changing a template
 changes what one group of people send; a rule changing which template a group
@@ -256,9 +341,9 @@ mailbox. That runs the whole path, placeholders and images included, so it shows
 what the add-in will actually produce.
 
 The two agree as soon as you save a rule list, because saving strands the cached
-decisions the download reads from. They can disagree for up to an hour after
-a change made in Entra: the simulation reads the directory live, while a download
+decisions the download reads from. They can disagree for up to an hour after a
+change made in Entra: the simulation reads the directory live, while a download
 answers from a decision that was cached before the person moved. The simulation
-is the one that is right in that window. A download is not a compose, so it works
-a stale decision out again there and then rather than deferring it. The extra
-message only applies to what people are actually sending.
+is the one that is right in that window. A download is not a compose, so it
+works a stale decision out again there and then rather than deferring it. The
+extra message only applies to what people are actually sending.

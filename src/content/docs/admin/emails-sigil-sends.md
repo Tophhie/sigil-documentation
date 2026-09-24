@@ -120,6 +120,17 @@ every Admin and every holder of the Billing [role](/admin/users-and-roles/),
 plus the billing email on your [billing profile](/admin/billing-profile/) if you
 have set one. Duplicates are removed, so somebody who is both is mailed once.
 
+To add a finance mailbox to those recipients without giving it a portal role,
+set it as the billing email:
+
+1. Open Billing in the portal sidebar.
+2. Open the Billing details tab.
+3. Enter the address in Billing email.
+4. Choose Save billing details.
+
+The same address is where Stripe sends the invoice itself. See
+[billing profile](/admin/billing-profile/#changing-it-later).
+
 Trial reminders go out three days before the trial ends and again the day
 before, in a morning sweep rather than at whatever hour the clock rolls over. A
 message about money leaving an account belongs in the morning post. Each is sent

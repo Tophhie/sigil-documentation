@@ -31,6 +31,24 @@ right shape for an announcement nobody is meant to click. Leaving alt text blank
 falls back to the campaign name, so a recipient reading with images switched off
 sees something rather than nothing.
 
+You need the Admin or Marketing role, and the image must already be uploaded
+under Images.
+
+1. Open Banners in the portal sidebar.
+2. Choose New banner.
+3. Enter a Campaign name.
+4. Pick the image from the Image list.
+5. Enter a Click-through URL if the banner should be clickable, and Alt text
+   if the campaign name is not the right description of it.
+6. Under Placement, choose Below the signature or Above the signature.
+7. Pick the Time zone the window should be read in.
+8. Set Starts and Ends. The end has to be after the start.
+9. Choose Create banner.
+
+The banner appears in the list with its Status alongside, Scheduled until its
+window opens. It goes live at the start time and signatures pick it up
+immediately.
+
 ## Scheduling
 
 A banner's start and end are authored as a wall-clock time in an IANA time zone
@@ -48,6 +66,12 @@ A banner cannot be edited in the portal once it is created. The list offers
 Pause, Resume and Delete, so a wrong window or a wrong image means deleting the
 banner and creating it again. The [admin API](/reference/api/) can change an
 existing banner in place, if you script your campaigns.
+
+To change a banner that is already created:
+
+1. Open Banners in the portal sidebar.
+2. Choose Delete on the banner's row, and confirm with Delete.
+3. Choose New banner and create it again with the corrected values.
 
 Opening or closing a window takes effect immediately. The active banner is part
 of the rendered-signature cache key, so there is nothing to wait for and nothing
@@ -136,3 +160,18 @@ If you need it gone sooner, pause it or delete it. Both take effect immediately.
 Pausing keeps the banner in the list and can be undone with
 Resume. If the window is still open when you resume, the banner goes straight
 back on. Deleting cannot be undone.
+
+To pause a banner:
+
+1. Open Banners in the portal sidebar.
+2. Choose Pause on the banner's row.
+
+Its Status changes to Paused. Choose Resume on the same row to put it back.
+
+To delete a banner:
+
+1. Open Banners in the portal sidebar.
+2. Choose Delete on the banner's row.
+3. Confirm with Delete in the Delete banner dialog.
+
+The dialog says that signatures stop carrying it immediately.

@@ -58,35 +58,91 @@ Give an address and Sigil emails the invitation for you. Leave it out and you ge
 the link back to pass on through your own channels, which is often what an MSP
 wants when the introduction is already in a thread of its own.
 
-The client administrator follows it, grants admin consent for their own tenant,
-and the tenant provisions itself as it would for any direct customer, except that
-it is linked to your partner record and billed to you rather than to them.
+Owners and Admins can add a client, once the current partner agreement has
+been accepted.
+
+1. Open Clients in the portal sidebar.
+2. Choose Add a client.
+3. Enter the Client organisation name.
+4. Enter Their administrator's email, or leave it blank to send the link
+   yourself.
+5. Choose Create invite.
+
+With an address given, the invitation is emailed and the confirmation names
+the address it went to. Without one, the link is copied to your clipboard.
+Either way the invitation is listed under Pending invites & transfers on the
+Clients view until it is used, with Copy link beside it.
+
+The client administrator follows it and grants admin consent for their own
+tenant. The tenant provisions itself as it would for any direct customer, on the
+ordinary trial and billed to nobody yet, and the invitation is consumed.
+
+Consent does not link the tenant to you on its own. It raises a management
+request in your name, which an Admin at the client answers in their own portal
+in the same way as a [transfer](#taking-over-an-existing-tenant). Approval is
+the moment the tenant moves onto your account and your invoice; until then you
+have no access to it, so a link followed by an organisation you were not
+invited to manage produces nothing but a request it can refuse.
+
+1. The client administrator follows the invitation link.
+2. They sign in with Microsoft and grant admin consent for their organisation.
+3. They sign in to the Sigil portal, where a card at the top reads that your
+   organisation has asked to manage their Sigil account.
+4. They choose Approve.
+
+Until they do, the request is listed under Pending invites & transfers as
+awaiting their approval, and you have no access to the tenant.
 
 A pending invitation can be revoked before it is used.
 
+1. Open Clients in the portal sidebar.
+2. Under Pending invites & transfers, open the Invite actions menu on the
+   invitation's row.
+3. Choose Revoke invite.
+
+The link stops working at once.
+
 An invitation is only honoured for an organisation that has genuinely granted
-consent. Microsoft's consent redirect names the tenant it came back for, and that
-name alone is not proof of anything, so Sigil checks the named tenant against
-Microsoft directly before attaching it to you. Where the check comes back
-definite that the organisation has not granted consent, the tenant is provisioned
-as an ordinary direct customer, the partner link is withheld, and your invitation
-is left unused so it can be sent again.
+consent. Microsoft's consent redirect names the tenant it came back for, and
+that name alone is not proof of anything, so Sigil checks the named tenant
+against Microsoft directly before raising the request in your name. Where the
+check comes back definite that the organisation has not granted consent, the
+tenant is provisioned as an ordinary direct customer, no request is raised, and
+your invitation is left unused so it can be sent again.
 
 The check only refuses on a definite answer. A Microsoft outage, a timeout or a
-slow moment during consent all count as no answer rather than as evidence against
-the client, and the onboarding goes ahead with the partner link attached. That
-asymmetry is deliberate: a real client should never lose a signup to a check that
-could not reach Microsoft.
+slow moment during consent all count as no answer rather than as evidence
+against the client, and the onboarding goes ahead with the management request
+raised. That asymmetry is deliberate: a real client should never lose a signup
+to a check that could not reach Microsoft, and the request still needs their
+Admin's approval before anything changes hands.
 
-The same fallback covers a link that fails for any other reason. A client whose
-partner link could not be completed is provisioned as an ordinary direct customer
-on a full trial rather than being left with no billing arrangement at all, and
-Tophhie Cloud can move it onto your account afterwards. It is the safe way round:
+The same fallback covers an invitation that fails for any other reason, such as
+one that has expired or was already used. The client is provisioned as an
+ordinary direct customer on a full trial rather than being left with no billing
+arrangement at all, and you can [request a
+transfer](#taking-over-an-existing-tenant) afterwards. It is the safe way round:
 the client's signatures work either way, and only who pays is left to settle.
 
 ## Working inside a client
 
 Open a client and choose Manage. The portal switches into that client's context.
+
+Owners, Admins and Technicians can, for the clients in their scope.
+
+1. Open Clients in the portal sidebar.
+2. Choose Manage on the client's row.
+
+The portal opens the client's Templates view. A banner at the top reads
+Managing, followed by the client's name, and says that changes are recorded
+against your organisation. The Partner entries leave the sidebar while you are
+in a client's context.
+
+To come back out:
+
+1. Choose Exit on the banner.
+
+You land on the Clients view.
 
 Every view works exactly as it does for a direct tenant: templates, the designer,
 rules, banners, footers, activity, coverage. There is no separate partner version
@@ -123,6 +179,15 @@ link domain. Owners, Admins and Technicians can, and the current
 [partner agreement](/partners/agreement/) has to be accepted first, because it
 adds a charge to your invoice.
 
+1. Open Clients in the portal sidebar.
+2. Open the Client actions menu on the client's row.
+3. Choose Enable branded link domain.
+4. Choose Enable in the confirmation.
+
+The confirmation says the add-on is added to your monthly invoice at your
+partner rate once the client has set a domain up. To take it off again, choose
+Disable branded link domain from the same menu and confirm with Disable.
+
 A Technician can switch it on and cannot then set the hostname up inside the
 client, since that sits under the client's settings and a Technician holds no
 settings capability. The client's own administrators or one of your Owners or
@@ -155,9 +220,31 @@ Name the organisation by its primary domain or by its Entra tenant id. Either
 works, and the tenant id is the way round a client who has since changed the
 domain on their Sigil account.
 
+Owners and Admins can request a transfer, once the current partner agreement
+has been accepted.
+
+1. Open Clients in the portal sidebar.
+2. Choose Request a transfer.
+3. Choose By domain or By tenant id.
+4. Enter Their primary domain or Their Entra tenant id.
+5. Choose Send request.
+
+The confirmation says the request is sent and that their administrator has to
+approve it before anything moves. If no unmanaged organisation matches, you
+are told so and pointed at sending an invite instead. While it waits, the
+request is listed under Pending invites & transfers as awaiting their
+approval.
+
 Their administrators are emailed the request and approve or decline it in their
 own portal. The request expires after 14 days if nobody answers, and an
 organisation can only have one pending at a time.
+
+On their side, only an Admin at the organisation can answer, and a partner
+cannot answer on their behalf.
+
+1. The client administrator signs in to the Sigil portal. A card at the top
+   reads that your organisation has asked to manage their Sigil account.
+2. They choose Approve or Decline.
 
 Nothing moves until it is approved. A transfer request is a request, not a claim.
 
@@ -195,6 +282,15 @@ who did not choose this has time to add a card before anything stops.
 Their administrators are emailed, so a release is never something a client
 discovers by noticing. Owners and Admins can release; a Technician cannot.
 
+1. Open Clients in the portal sidebar.
+2. Open the Client actions menu on the client's row.
+3. Choose Release client.
+4. Choose Release in the confirmation.
+
+The confirmation says you lose access immediately, that billing returns to
+them, and that they need to add a payment method to keep signatures running.
+The client leaves your list.
+
 Do this when a relationship ends, so the client is not left unable to administer
 their own signatures and you are not left paying for them.
 
@@ -209,6 +305,13 @@ period and the same email to their administrators. See
 ## A client can end it too
 
 A managed client's own administrator can remove your access without asking you.
+
+On their side it takes an Admin.
+
+1. The client administrator signs in to the Sigil portal. A card at the top
+   reads Managed by, followed by your organisation's name.
+2. They choose Remove their access.
+3. They choose Remove access in the confirmation.
 
 That is deliberate rather than an oversight. The client is the data controller,
 and a controller has to be able to end a processor relationship it no longer

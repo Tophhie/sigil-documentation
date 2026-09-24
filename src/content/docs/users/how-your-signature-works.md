@@ -91,6 +91,16 @@ Open the "My signature" button on the compose ribbon. It applies the signature o
 demand and, if it cannot, tells you why. See
 [the My signature pane](/users/my-signature-pane/).
 
+1. Go back to the message you are writing, or start a new one.
+2. On the ribbon, choose My signature.
+3. Choose Apply my signature, or Sign in and apply if that is what the button
+   says.
+4. If a sign-in prompt appears, sign in with your work account.
+
+The pane says "Signature applied" when it has worked, and the signature is in
+your message. If it could not apply one, the message in the pane says why and
+who can fix it.
+
 The most common cause is the first time you use it. The automatic path cannot
 prompt you to sign in, so if a sign-in is needed it stops quietly rather than
 interrupting you mid-message. Opening the pane once completes the sign-in, and it
@@ -146,7 +156,9 @@ message.
 
 The "My signature" pane offers a download. It saves your signature as a
 self-contained HTML file, which is useful if you want to paste it into another
-system or keep a copy.
+system or keep a copy. See
+[download my signature](/users/my-signature-pane/#download-my-signature) for
+the steps.
 
 ## Who to ask
 
