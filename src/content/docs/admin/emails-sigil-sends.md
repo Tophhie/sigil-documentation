@@ -33,6 +33,7 @@ organisation who can actually act on it.
 | You've been given a role | Somebody is added to Users and roles for the first time. Names the role and what it covers |
 | You've been invited to manage your organisation | An organisation is provisioned for you rather than self-served, so the first administrator has a link to start from |
 | Signature test | You send a [test email](/admin/test-email/). Goes to the address you name, defaulting to your own |
+| A signature is waiting for your approval | An editor submits a draft for review. Goes to every administrator except the person who submitted it, and carries a picture of the proposed signature where [signature previews](/signatures/previews/) are switched on |
 | Sigil health digest | Weekly by default, to every administrator. Coverage, apply failures and anything waiting on a decision |
 | Sigil health digest, on request | An administrator presses "Send me one" in [settings](/admin/settings/). Goes to that administrator only |
 | Action needed: reconnect Sigil | Admin consent has lapsed and signatures have stopped updating. Sent to every administrator |
@@ -61,6 +62,14 @@ mailed, so a transient Graph outage does not become a fleet-wide alarm.
 The role email goes out only when somebody is added, not when an existing user's
 role is changed. Changing a role takes effect on their next request and needs no
 announcement.
+
+The approval request goes out whenever a draft is submitted, whether or not
+[publish approval](/signatures/approvals/) is switched on, because submitting is
+available either way. It is built a moment after the submit rather than during it,
+and it is not sent at all if the draft has been withdrawn or changed by the time
+it is built, so a reviewer never opens a picture of something that no longer
+exists. An organisation whose only administrator submitted the draft has nobody
+else to tell, and nothing is sent.
 
 The last three rows are all written by a person at Tophhie Cloud rather than
 fired by an event. The first is about your organisation in particular; the other

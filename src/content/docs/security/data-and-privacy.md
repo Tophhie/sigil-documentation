@@ -35,6 +35,11 @@ Templates, design documents and their version history.
 
 Uploaded images.
 
+A picture of each published version and each submitted draft, where
+[signature previews](/signatures/previews/) are switched on. Each one is rendered
+for a sample person rather than for anybody in your organisation, and is deleted
+with the version it shows.
+
 Configuration: assignment rules, banners, footers, roles and users.
 
 A name for each address Sigil has seen, so that the portal can show people by
@@ -257,12 +262,25 @@ Sigil runs on Cloudflare's edge network. Templates and configuration are in D1,
 images in R2, and rendered signatures in a KV cache. Billing is handled by Stripe.
 See [infrastructure](/security/infrastructure/).
 
-Data at rest sits in the United Kingdom or the European Economic Area. Uploaded
-images and the nightly database backups are held in storage created in
-Cloudflare's EU jurisdiction. That is a restriction Cloudflare enforces on where
-the files may be kept, rather than a preferred location it is free to ignore. For the
-full list of who processes what, where each one holds it, and the notice you get
-before that list changes, see
+Data at rest sits in the United Kingdom or the European Economic Area. The
+database, the uploaded images and the nightly database backups are all held in
+storage created in Cloudflare's EU jurisdiction. That is a restriction Cloudflare
+enforces on where the data may be kept, rather than a preferred location it is
+free to ignore, and the read copies the database keeps for speed are only made
+inside the same jurisdiction.
+
+The caches are the exception, and the data processing agreement says so in its
+own words rather than leaving it to be inferred. A rendered signature and the
+directory details behind it are cached on Cloudflare's global network so that the
+first message of somebody's day is not held up by a lookup, which means those
+short-lived copies can sit outside the UK and EEA while they live. They expire on
+their own, they are rebuilt from the record rather than being it, and the record
+stays in the EU. How long each one lives is in
+[what Sigil stores](#what-sigil-stores) and in the
+[retention table](/security/compliance/#retention).
+
+For the full list of who processes what, where each one holds it, and the notice
+you get before that list changes, see
 [sub-processors](/security/compliance/#sub-processors-and-where-data-is-stored).
 
 ## Tenant isolation

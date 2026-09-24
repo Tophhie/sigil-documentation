@@ -73,6 +73,11 @@ rather than outside it. It takes no address and reads no directory record: it
 renders the stored body against sample data, which answers "what did this version
 look like" without answering anything about a person.
 
+The two render routes beside it, which answer the same question as a picture, are
+out. They return an image rather than data, and the HTML a key already gets from
+the preview route is the form a script can read, diff or store. See
+[signature previews](/signatures/previews/).
+
 `GET /api/admin/profile-values` and `PUT /api/admin/profile-values/:email` are
 out for the same reason. Those return and write what a named colleague entered
 about themselves, which is the same per-individual read, and arguably more
@@ -232,6 +237,8 @@ safely carry. Saves are rate limited per mailbox.
 | `POST /api/admin/templates/:id/restore` | Admin token | Bring one back from Recently deleted |
 | `GET /api/admin/templates/:id/versions` | Admin token | Rollback history |
 | `GET /api/admin/templates/:id/versions/:version/preview` | Admin token | One archived version rendered against sample data, images inlined, with its length and the Outlook limit |
+| `GET /api/admin/templates/:id/render` | Admin token | A PNG of the live version rendered for the sample person, where [signature previews](/signatures/previews/) are switched on. 404 while no picture has been made. Not reachable with an API key |
+| `GET /api/admin/templates/:id/versions/:version/render` | Admin token | The same picture for an archived version. Not reachable with an API key |
 | `POST /api/admin/templates/:id/rollback` | Admin token | Restore a version |
 | `PUT /api/admin/templates/:id/draft` | Admin token | Save a working copy |
 | `DELETE /api/admin/templates/:id/draft` | Admin token | Discard a working copy |

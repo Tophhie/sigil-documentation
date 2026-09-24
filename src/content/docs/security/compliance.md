@@ -169,17 +169,26 @@ agreement names all three rather than reserving the right to add more quietly.
 | Sub-processor | What it does | Where |
 | --- | --- | --- |
 | Microsoft | Identity through Entra ID, and directory data through Graph | Your own tenant's region |
-| Cloudflare | Application hosting, storage and caching | Global edge, with data at rest in the UK or EU |
+| Cloudflare | Application hosting, storage and caching | Stored data in the EU, with cached copies on its global network |
 | Stripe | Subscription billing and card processing | UK, EU and US |
 
 Your directory data and the content you author are stored in the United Kingdom
-or the European Economic Area. Uploaded images and the nightly database backups
-sit in storage created in Cloudflare's EU jurisdiction, which Cloudflare enforces
-as a limit on where the files may be stored rather than treating as a
-preference. Where one of those sub-processors moves personal
-data outside the UK or EEA, the transfer runs on an adequacy decision or on the
-UK Addendum to the EU Standard Contractual Clauses, which the agreement
-incorporates.
+or the European Economic Area. The database, the uploaded images and the nightly
+database backups all sit in storage created in Cloudflare's EU jurisdiction, which
+Cloudflare enforces as a limit on where the data may be kept rather than treating
+as a preference.
+
+Caching is the exception the agreement names in its own words. To serve a
+signature quickly wherever the person composing it happens to be, Cloudflare holds
+short-lived copies of rendered signatures, and of the directory details they are
+built from, on its global network, so those copies can sit outside the UK and EEA
+for as long as they live. They expire on their own and are never the record: the
+record is in the EU, and the caches are rebuilt from it. Retention for each is in
+the table below.
+
+That caching, and any other movement of personal data outside the UK or EEA by a
+sub-processor, runs on an adequacy decision or on the UK Addendum to the EU
+Standard Contractual Clauses, which the agreement incorporates.
 
 Microsoft appearing on that list is worth reading carefully, because it is not
 Sigil choosing a supplier. Your directory already lives in your own Microsoft
@@ -311,6 +320,7 @@ administrators a re-consent link.
 | --- | --- |
 | Directory attributes read from Microsoft Graph | Never stored as a record of their own. Held inside a rendered signature for at most a day (refreshed hourly while in use), in a lookup cache for up to seven days after the mailbox last composed (fresh for fifteen minutes, then refreshed in the background), and in a photo cache for a day |
 | Template version history | Last 10 published bodies per template |
+| Preview pictures of a version, where [signature previews](/signatures/previews/) are switched on | As long as the version they show. They depict a sample person rather than anybody in your organisation |
 | Deleted templates | 30 days in Recently deleted, then purged by a daily sweep |
 | Change log | For as long as your organisation uses Sigil |
 | Operator audit log | Indefinite |

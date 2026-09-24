@@ -150,6 +150,11 @@ Every image in a signature travels inside the cached copy served for every
 mailbox, which is why the library has a ceiling at all. The limits sit far above
 what a real signature uses.
 
+The pictures behind [signature previews](/signatures/previews/) are not part of
+the library and do not count against either meter. Sigil makes them, and it
+deletes them with the version they show, so they are not yours to manage and not
+yours to pay for in shelf space.
+
 ## Transparency
 
 A signature sits on whatever background the recipient's mail client uses, which

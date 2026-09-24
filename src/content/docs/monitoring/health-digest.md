@@ -22,10 +22,26 @@ them.
 | Directory gaps | Attributes your live templates reference that a meaningful share of mailboxes do not have |
 | Banners closing | Any [campaign banner](/targeting/banners/) whose window ends within a week, unless it is paused |
 | Waiting on approval | Drafts submitted for review and not yet decided |
+| Published this week | Every template published in the last seven days, with the date and who published it |
 | Booked publishes | Any [scheduled publish](/signatures/scheduled-publishing/) not yet fired |
 | Running rollouts | Any [staged rollout](/signatures/staged-rollouts/) in flight, and what percentage it is at |
 
 Empty sections are left out rather than printed as zeroes.
+
+## Pictures of what was published
+
+Where [signature previews](/signatures/previews/) are switched on for your
+organisation, each line under Published this week carries a picture of the
+signature that went live, so the digest answers what changed rather than only
+that something did.
+
+At most four pictures ride in one digest, and a large one is left out, so the
+mail stays something an inbox will accept. A version published before the
+previews were switched on, or one the nightly sweep has not reached yet, is
+listed without a picture rather than held back.
+
+Who published it is named rather than addressed: the digest prints the person's
+name where Sigil knows it, and falls back to the address it holds otherwise.
 
 ## While delivery is paused
 

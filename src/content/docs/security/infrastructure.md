@@ -8,14 +8,21 @@ sidebar:
 Sigil runs on Cloudflare's edge network. The signature path executes close to
 whoever is composing the message.
 
+The stores that hold your data are created in Cloudflare's EU jurisdiction, which
+is a limit Cloudflare enforces rather than a location it prefers. The caches in
+front of them are deliberately global, because that is what makes a signature
+arrive without a wait. See
+[where data lives](/security/data-and-privacy/#where-data-lives).
+
 ## Components
 
 | Component | Used for |
 | --- | --- |
 | Cloudflare edge compute | The API, the admin portal and the redirect service |
-| Cloudflare D1 | Templates, configuration, telemetry and billing state |
-| Cloudflare R2 | Uploaded images and nightly database backups, both in Cloudflare's EU jurisdiction |
-| Cloudflare KV | Rendered signature cache and per-mailbox rule resolution |
+| Cloudflare D1 | Templates, configuration, telemetry and billing state, in Cloudflare's EU jurisdiction |
+| Cloudflare R2 | Uploaded images, preview pictures and nightly database backups, all in Cloudflare's EU jurisdiction |
+| Cloudflare KV | Rendered signature cache and per-mailbox rule resolution, cached on the global network and expiring on its own |
+| Cloudflare's headless browser | Rendering the [signature previews](/signatures/previews/) shown in the portal and in Sigil's emails |
 | Cloudflare Email | Invitations, test emails, operator notices and internal alerts |
 | Stripe | Subscriptions, payment methods and invoices |
 | Microsoft Entra ID | Authentication for both the add-in and the portal |

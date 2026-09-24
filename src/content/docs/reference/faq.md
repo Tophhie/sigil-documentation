@@ -266,11 +266,18 @@ a single mailbox can be exported for a subject access request. See
 
 ## Where is our data held, and who else processes it?
 
-In the United Kingdom or the European Economic Area at rest. Three
-sub-processors are involved: Microsoft for identity and directory data,
-Cloudflare for hosting and storage, and Stripe for billing. The data processing
-agreement names all three and commits to 30 days' notice before that list
-changes, with a right to object and leave.
+In the United Kingdom or the European Economic Area at rest. The database, your
+uploaded images and the nightly backups all sit in storage created in Cloudflare's
+EU jurisdiction. The caches in front of them are global, because that is what
+makes a signature arrive without a wait: a rendered signature and the directory
+details behind it are cached on Cloudflare's network, can sit outside the UK and
+EEA while they live, and expire on their own. The data processing agreement says
+so in its own words rather than leaving it to be inferred.
+
+Three sub-processors are involved: Microsoft for identity and directory data,
+Cloudflare for hosting, storage and caching, and Stripe for billing. The agreement
+names all three and commits to 30 days' notice before that list changes, with a
+right to object and leave.
 
 Your directory is the one to be clear about. It stays in your own Microsoft
 tenant, in the region you chose when you bought Microsoft 365, and Sigil reads it

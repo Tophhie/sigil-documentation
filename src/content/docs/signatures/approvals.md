@@ -70,6 +70,31 @@ The body is left exactly as it was when it is sent back. A rejection is a reques
 for changes rather than an undo, so the editor reopens the same work with the note
 attached to it.
 
+## The approvers hear about it
+
+Submitting a draft emails every other administrator of the organisation. The
+message names who submitted it and which template, and its button opens the
+library to review it.
+
+Where [signature previews](/signatures/previews/) are switched on, the mail carries
+a picture of the proposed signature, and of the live one above it where there is
+one, so an approver can judge an ordinary change from their phone without signing
+in. The pictures ride inside the message rather than being linked, because Outlook
+hides remote images from senders it does not know and an approval email that
+arrived as two empty boxes would be worse than the text it replaced. They show the
+sample person, so the message discloses no colleague's details to whoever reads it.
+
+The submitter is not sent a copy, and an organisation with a single administrator
+who submitted the draft themselves has nobody to notify, so nothing is sent.
+
+The mail is built shortly after the submit rather than as part of it, and the draft
+is read again at that point. A draft withdrawn, published or edited in the meantime
+sends nothing rather than a picture of a body that no longer exists.
+
+The queue in the portal and the next [health digest](/monitoring/health-digest/)
+both still list a submitted draft, so the mail is a prompt rather than the only
+place a review appears.
+
 ## Editing resets the review
 
 Saving a draft clears its review state. A submitted draft drops out of the queue,
