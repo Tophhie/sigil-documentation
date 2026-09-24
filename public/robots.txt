@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Astro publishes a sitemap INDEX, not /sitemap.xml. Crawlers that only fall
+# back to /sitemap.xml when this file is absent (Cloudflare AI Search, which
+# indexes this site for the portal's "Ask the documentation") need it named.
+Sitemap: https://docs.usesigil.app/sitemap-index.xml
