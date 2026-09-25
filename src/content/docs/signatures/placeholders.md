@@ -245,10 +245,23 @@ disappear when none of several independent things inside it survive, which is
 what a row of social icons each hanging off a different attribute needs. Nesting
 can only say "and".
 
-There is no negation and no grouping. A section written with `&`, `!` or brackets
-is refused when you save, with a message saying grouped conditions are not
-switched on for your organisation. There is rarely a reason to write the vertical
-bar form by hand, although it is accepted.
+A section written with `&`, `!` or brackets is refused when you save, with a
+message saying grouped conditions are not switched on for your organisation.
+There is rarely a reason to write the vertical bar form by hand, although it is
+accepted.
+
+Where [grouped conditions](/signatures/designer/#and-or-and-not-in-one-rule) have
+reached your organisation, those three characters are accepted as well, and the
+full form is `!` for "is empty", `&` for "and", `|` for "or" and brackets to say
+which binds first, with no spaces anywhere inside the marker:
+
+```html
+{{#(mobilePhone|businessPhone)&!isGroup}}<tr>…</tr>{{/(mobilePhone|businessPhone)&!isGroup}}
+```
+
+A closing marker must repeat its opening one character for character, as it must
+for any section. The rule may nest three levels deep, and may name at most twenty
+fields.
 
 A section like this counts as using every field it names, so all of them appear
 in [attribute coverage](/monitoring/attribute-coverage/) and in the

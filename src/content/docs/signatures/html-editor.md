@@ -94,7 +94,12 @@ The either-of form described under
 [placeholders](/signatures/placeholders/#sections-that-open-on-either-of-two-fields),
 `{{#a|b}}`, is accepted. A section written with `&`, `!` or brackets is refused,
 with a message saying grouped conditions are not switched on for your
-organisation.
+organisation. Where
+[grouped conditions](/signatures/designer/#and-or-and-not-in-one-rule) have
+reached your organisation, all three are accepted, and the
+[marker syntax](/signatures/placeholders/#sections-that-open-on-either-of-two-fields)
+covers the whole form. Typing `{{#` then an operator continues to offer the field
+list, so a longer rule can be completed rather than typed out.
 
 ## Preview and diff
 

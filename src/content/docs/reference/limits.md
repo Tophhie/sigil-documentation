@@ -285,10 +285,24 @@ twenty client organisations is twenty separate callers rather than one.
 | Over the limit | 429 with a message saying to wait a moment. Nothing is changed or sent |
 | An API key's share | Its own, so a key cannot spend a person's allowance |
 | Searching the directory from an address box | 120 a minute from an allowance of its own, so typing into a picker never uses up what previews need |
+| Asking the documentation a question | 20 a minute from an allowance of its own, since an answer is a model writing prose rather than a database read. See [ask the documentation](/admin/ask-the-documentation/) |
 
 The figures are set well above what the portal's own screens can generate by
 being used. Reaching one means a script, a stuck retry, or a page left refreshing
 itself.
+
+## Ask the documentation
+
+| Item | Value |
+| --- | --- |
+| Question length | 3 to 500 characters |
+| Conversation carried into a follow-up | The last 8 messages, held in your browser and stored nowhere |
+| Pages cited under an answer | Up to 4, and none whose match is weak |
+| How long an answer may take | 25 seconds, then it asks you to try again |
+| How soon a documentation change reaches the answers | Within about six hours |
+| Cost | None. It is not priced and not an add-on |
+
+See [ask the documentation](/admin/ask-the-documentation/).
 
 ## The add-in's own requests
 

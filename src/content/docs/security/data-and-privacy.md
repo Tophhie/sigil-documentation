@@ -143,6 +143,17 @@ Entra. The only credential Sigil issues is an API key for a script, and the
 secret behind one is stored as a SHA-256 hash, so it cannot be recovered from
 the database by anybody, Tophhie Cloud included.
 
+No questions typed into
+[Ask the documentation](/admin/ask-the-documentation/), and no answers given back.
+The question is sent for inference with the documentation passages that match it,
+and neither it nor the answer is written to a database, kept by Cloudflare, or
+used to train a model. The service's own log line for one records how long the
+answer took and how many pages it cited, and not the text. Because the question
+is text an administrator typed rather than directory data or signature content,
+Tophhie Cloud processes it as a controller in its own right, on the basis of its
+legitimate interest in helping the people who administer Sigil find their way
+round it. The privacy policy in the portal carries a row saying so.
+
 ## The copy kept on the device
 
 The add-in keeps the last signature each mailbox was served on the device that

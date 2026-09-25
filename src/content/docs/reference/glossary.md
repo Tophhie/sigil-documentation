@@ -22,6 +22,11 @@ A credential belonging to an organisation rather than to a person, created by an
 Admin so that a script can reach Sigil unattended. It carries capabilities and no
 role. See [API keys](/admin/api-keys/).
 
+**Ask the documentation**
+A question box in the portal that answers from this documentation site and links
+the pages it drew on. It reads the documentation and not your organisation's data.
+See [ask the documentation](/admin/ask-the-documentation/).
+
 **Assignment rule**
 An ordered predicate that picks a template for a person by directory attribute or
 Entra group membership. See [assignment rules](/targeting/assignment-rules/).

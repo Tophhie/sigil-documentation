@@ -49,6 +49,7 @@ organisation.
 | An administrator editing a colleague's profile values | Yes |
 | A person editing their own profile values | No |
 | Changing an organisation-wide setting | Yes |
+| Accepting the [data processing agreement](/security/compliance/#data-processing-agreement) | Yes |
 | Adding, removing or losing a [branded link domain](/monitoring/branded-link-domain/), and buying or dropping the add-on behind it | Yes |
 | Anything Tophhie Cloud support did on your organisation | Yes |
 

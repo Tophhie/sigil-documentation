@@ -293,8 +293,10 @@ which is about who is sending rather than about what the directory holds. The
 last two are a pair: "sent from a group mailbox" is true when the mailbox is a
 [Microsoft 365 Group or distribution list](/signatures/group-mailboxes/), and
 "not sent from a group mailbox" is its opposite, for the line that assumes a
-person, such as a "Chat with me in Teams" link. They are a pair because a
-condition cannot be negated.
+person, such as a "Chat with me in Teams" link. They are a pair because a rule
+cannot ordinarily be turned round. Where
+[grouped conditions](#and-or-and-not-in-one-rule) are switched on it can be, and
+the second of the pair is then a convenience rather than the only way.
 
 The Sender tab of the menu has its own versions of the first two, Sender any
 phone and Sender any address. They test the phones and address of whoever
@@ -327,7 +329,8 @@ given person actually has.
 A block takes one rule rather than several. That is the shape of what it compiles
 to rather than a preference. Where a whole row needs two conditions, put one on
 the row and the other on the block inside it, which is how nesting combines
-them.
+them. Where [grouped conditions](#and-or-and-not-in-one-rule) are switched on, a
+block takes as many rules as a chip does and the nesting is no longer needed.
 
 ### Conditions on labels and separators
 
@@ -354,6 +357,54 @@ with its rule, so you can change or remove one without hunting for it.
 The starter design uses these. Its phone labels, the separator between the two
 phone numbers and the comma in the address each show only when the field they
 belong to has a value.
+
+### And, or and not in one rule
+
+Everything above describes one rule, or several that all have to hold. A customer
+running several shared mailboxes asked for the other case: show this when either
+of two things is true. That is what grouped conditions are, and they are being
+rolled out gradually, so your organisation may still have the picker described
+above. Nothing you have already built changes either way, and a design authored
+with a group keeps working if the feature is later switched off.
+
+Where it is switched on, every Show when control in the inspector reads as a
+sentence with an Edit rules button beside it, rather than as a list of rules. The
+sentence is the rule in words, such as "Mobile has a value or Email has a value,
+and the message is not sent on behalf of the mailbox". Blocks, field chips, social
+icons and highlighted text all use the one dialog.
+
+1. Select the block, chip or icon, or highlight the text and choose the eye button
+   on the text toolbar.
+2. Open Visibility and choose Edit rules, or Add rules where there are none yet.
+3. Choose a rule from the field menu, the same menu you insert fields from.
+4. Add each further rule with Add rule.
+5. Choose the "and" between two rules to switch the whole list to "or", and
+   choose it again to switch back.
+6. Choose not on a rule to turn it round, so "Mobile has a value" becomes
+   "Mobile is empty".
+7. Choose Add a group for a bracket with a connective of its own.
+8. Choose Done.
+
+The word between two rules is the control rather than a label. Every list is all
+ands or all ors, so there is one word to read and one to click, and a rule reading
+"a and b or c" cannot arise to be misread.
+
+A group is a bracket: a rule down its left, its contents indented, and its own
+"all of" or "any of" cap. One level of nesting is offered in the dialog, which is
+enough for "either of these two, and that one". The document itself allows three,
+so a deeper rule written by hand in the
+[HTML editor](/signatures/html-editor/#conditional-sections) still renders.
+
+The dialog holds the rule while you shape it and writes it once when you choose
+Done, so an edit is one step to undo rather than one per click. Closing it without
+choosing Done leaves the rule as it was.
+
+The canvas badge summarises what it can. A rule naming more than three fields
+elides, reading "if Mobile or 2 more" rather than running off the block.
+
+On the HTML side the same rule is written inside the section marker, and the
+operators are refused until the feature reaches your organisation. See
+[conditional sections](/signatures/html-editor/#conditional-sections).
 
 ### Labels on a shared mailbox's signature
 

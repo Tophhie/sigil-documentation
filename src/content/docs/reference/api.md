@@ -78,6 +78,10 @@ out. They return an image rather than data, and the HTML a key already gets from
 the preview route is the form a script can read, diff or store. See
 [signature previews](/signatures/previews/).
 
+`POST /api/admin/help/ask` is out as well. It answers a person's question in
+prose, and a script wanting what the documentation says should read the
+documentation. See [ask the documentation](/admin/ask-the-documentation/).
+
 `GET /api/admin/profile-values` and `PUT /api/admin/profile-values/:email` are
 out for the same reason. Those return and write what a named colleague entered
 about themselves, which is the same per-individual read, and arguably more
@@ -449,6 +453,7 @@ telemetry.
 | `POST /api/admin/link-domain` | Admin token, settings capability | Claim a hostname and order a certificate for it. Answers 402 when the add-on is not held, and 400 with the reason when the hostname will not do |
 | `DELETE /api/admin/link-domain` | Admin token, settings capability | Release the hostname. New links return to the shared domain, and links already sent on the branded one stop resolving |
 | `POST /api/admin/link-domain/check` | Admin token, settings capability | Re-read the certificate's state now rather than waiting for the nightly check |
+| `POST /api/admin/help/ask` | Admin token, any role | A question about the documentation, answered from `docs.usesigil.app` with the pages it drew on. Answers 404 where the feature is not switched on for the organisation, before the body is read. Not available to API keys. See [ask the documentation](/admin/ask-the-documentation/) |
 | `GET /api/admin/onboarding` | Admin token, Admin role | Getting started checklist state |
 | `POST /api/admin/onboarding/dismiss` | Admin token, Admin role | Dismiss the checklist |
 | `POST /api/admin/dpa/accept` | Admin token, Admin role | Record acceptance of the data processing agreement |
