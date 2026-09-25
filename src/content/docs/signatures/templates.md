@@ -68,7 +68,7 @@ Selecting a template opens the Editor for it. A designer template opens in the
 [HTML editor](/signatures/html-editor/), so the library is the only place that
 shows the whole picture at once.
 
-Where [signature previews](/signatures/previews/) are switched on, each row also
+With [signature previews](/signatures/previews/), each row also
 carries a thumbnail after the name: the top-left corner of the live signature, at
 close to its own size, which is enough to tell a template from its near-identical
 duplicate. Clicking the thumbnail opens the whole picture. A row whose template

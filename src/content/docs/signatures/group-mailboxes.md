@@ -80,7 +80,8 @@ handle it. Put the line behind the `notGroup` condition, so it disappears for a
 group and stays for everyone else; in the designer that is "not sent from a
 group mailbox" in a block's "show when" list. Or give groups their own template,
 below. Its twin, `isGroup`, is for a line only a team mailbox should carry. They
-are a pair because a condition cannot be negated.
+became a pair before a condition could be turned round, and either still works;
+in the designer's rules dialog, not on `isGroup` means the same as `notGroup`.
 
 ## Giving groups their own template
 

@@ -262,7 +262,7 @@ safely carry. Saves are rate limited per mailbox.
 | `POST /api/admin/templates/:id/restore` | Admin token | Bring one back from Recently deleted |
 | `GET /api/admin/templates/:id/versions` | Admin token | Rollback history |
 | `GET /api/admin/templates/:id/versions/:version/preview` | Admin token | One archived version rendered against sample data, images inlined, with its length and the Outlook limit |
-| `GET /api/admin/templates/:id/render` | Admin token | A PNG of the live version rendered for the sample person, where [signature previews](/signatures/previews/) are switched on. 404 while no picture has been made. Not reachable with an API key |
+| `GET /api/admin/templates/:id/render` | Admin token | A PNG of the live version rendered for the sample person, for [signature previews](/signatures/previews/). 404 while no picture has been made. Not reachable with an API key |
 | `GET /api/admin/templates/:id/versions/:version/render` | Admin token | The same picture for an archived version. Not reachable with an API key |
 | `POST /api/admin/templates/:id/rollback` | Admin token | Restore a version |
 | `PUT /api/admin/templates/:id/draft` | Admin token | Save a working copy |
@@ -453,7 +453,7 @@ telemetry.
 | `POST /api/admin/link-domain` | Admin token, settings capability | Claim a hostname and order a certificate for it. Answers 402 when the add-on is not held, and 400 with the reason when the hostname will not do |
 | `DELETE /api/admin/link-domain` | Admin token, settings capability | Release the hostname. New links return to the shared domain, and links already sent on the branded one stop resolving |
 | `POST /api/admin/link-domain/check` | Admin token, settings capability | Re-read the certificate's state now rather than waiting for the nightly check |
-| `POST /api/admin/help/ask` | Admin token, any role | A question about the documentation, answered from `docs.usesigil.app` with the pages it drew on. Answers 404 where the feature is not switched on for the organisation, before the body is read. Not available to API keys. See [ask the documentation](/admin/ask-the-documentation/) |
+| `POST /api/admin/help/ask` | Admin token, any role | A question about the documentation, answered from `docs.usesigil.app` with the pages it drew on. Answers 404 if the feature is unavailable to the organisation, before the body is read. Not available to API keys. See [ask the documentation](/admin/ask-the-documentation/) |
 | `GET /api/admin/onboarding` | Admin token, Admin role | Getting started checklist state |
 | `POST /api/admin/onboarding/dismiss` | Admin token, Admin role | Dismiss the checklist |
 | `POST /api/admin/dpa/accept` | Admin token, Admin role | Record acceptance of the data processing agreement |

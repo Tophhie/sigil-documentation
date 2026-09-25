@@ -23,11 +23,11 @@ The archived body is rendered as it was stored rather than validated again. A
 custom field retired since that version was published would otherwise make
 exactly the old versions worth looking at the ones that refuse to open.
 
-Where [signature previews](/signatures/previews/) are switched on, the version
+With [signature previews](/signatures/previews/), the version
 history shows pictures as well: the live version in full above the table, and a
 thumbnail on each archived row that opens at full size. That answers which version
 you are choosing between before you open any of them. A version published before
-previews were switched on has no picture until the nightly pass makes one.
+previews existed has no picture until the nightly pass makes one.
 
 Restore is offered from the preview as well as from the list, and goes through
 the same confirmation either way.

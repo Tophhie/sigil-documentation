@@ -35,8 +35,8 @@ Templates, design documents and their version history.
 
 Uploaded images.
 
-A picture of each published version and each submitted draft, where
-[signature previews](/signatures/previews/) are switched on. Each one is rendered
+A picture of each published version and each submitted draft, for
+[signature previews](/signatures/previews/). Each one is rendered
 for a sample person rather than for anybody in your organisation, and is deleted
 with the version it shows.
 

@@ -82,7 +82,7 @@ else in the portal. It is deliberately kept clear of the path that promotes the
 first administrator, so opening it can never make an ordinary colleague one.
 
 Help is open to every role, and so is
-[ask the documentation](/admin/ask-the-documentation/) where it is switched on. A
+[ask the documentation](/admin/ask-the-documentation/). A
 Viewer gets stuck as readily as an Admin, and an answer describes the
 documentation rather than your organisation's data, so there is nothing there to
 restrict.

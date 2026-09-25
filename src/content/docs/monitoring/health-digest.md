@@ -30,14 +30,13 @@ Empty sections are left out rather than printed as zeroes.
 
 ## Pictures of what was published
 
-Where [signature previews](/signatures/previews/) are switched on for your
-organisation, each line under Published this week carries a picture of the
+With [signature previews](/signatures/previews/), each line under Published this week carries a picture of the
 signature that went live, so the digest answers what changed rather than only
 that something did.
 
 At most four pictures ride in one digest, and a large one is left out, so the
-mail stays something an inbox will accept. A version published before the
-previews were switched on, or one the nightly sweep has not reached yet, is
+mail stays something an inbox will accept. A version published before
+previews existed, or one the nightly sweep has not reached yet, is
 listed without a picture rather than held back.
 
 Who published it is named rather than addressed: the digest prints the person's

@@ -194,7 +194,7 @@ See [profile fields](/admin/profile-fields/) for defining them, and
 | `{{hasPhoto}}` | The mailbox has a Microsoft 365 profile photo |
 | `{{onBehalfOf}}` | Somebody is sending on the mailbox's behalf, rather than the mailbox sending for itself |
 | `{{isGroup}}` | The mailbox is a Microsoft 365 Group or distribution list, rather than a person or a shared mailbox |
-| `{{notGroup}}` | The opposite: a person's, shared or resource mailbox. Its own condition because sections cannot be negated |
+| `{{notGroup}}` | The opposite: a person's, shared or resource mailbox. Its own condition because it predates `!`, which now does the same as `{{#!isGroup}}` |
 
 These exist for conditional sections rather than for printing. Attaching a whole
 contact row to `{{#anyPhone}}` lets the entire row disappear for people with no
@@ -223,7 +223,7 @@ Wrap optional content so it disappears when the underlying attribute is empty:
 Here the department and its separator only appear when there is a job title to
 attach them to, and the whole thing disappears for someone with neither.
 
-Sections nest freely, and nesting is how you combine conditions. The example
+Sections nest freely, and nesting is one way to combine conditions. The example
 above shows content that appears only when both attributes are present.
 
 In the [designer](/signatures/designer/), the same behaviour is available on any
@@ -245,15 +245,13 @@ disappear when none of several independent things inside it survive, which is
 what a row of social icons each hanging off a different attribute needs. Nesting
 can only say "and".
 
-A section written with `&`, `!` or brackets is refused when you save, with a
-message saying grouped conditions are not switched on for your organisation.
 There is rarely a reason to write the vertical bar form by hand, although it is
 accepted.
 
-Where [grouped conditions](/signatures/designer/#and-or-and-not-in-one-rule) have
-reached your organisation, those three characters are accepted as well, and the
-full form is `!` for "is empty", `&` for "and", `|` for "or" and brackets to say
-which binds first, with no spaces anywhere inside the marker:
+The same marker also takes `&`, `!` and brackets, which is how
+[grouped conditions](/signatures/designer/#and-or-and-not-in-one-rule) are
+written. The full form is `!` for "is empty", `&` for "and", `|` for "or" and
+brackets to say which binds first, with no spaces anywhere inside the marker:
 
 ```html
 {{#(mobilePhone|businessPhone)&!isGroup}}<tr>…</tr>{{/(mobilePhone|businessPhone)&!isGroup}}

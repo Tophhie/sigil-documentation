@@ -14,8 +14,8 @@ Signature previews answer it. Sigil renders each published version, and each dra
 submitted for review, to a picture, and shows that picture wherever the
 signature's own HTML cannot go or is not worth reading.
 
-This is being rolled out gradually, so it may not be switched on for your
-organisation yet. Nothing about it changes what your users receive.
+Previews are available to every organisation, with nothing to switch on. Nothing
+about them changes what your users receive.
 
 ## Where the pictures appear
 
@@ -35,7 +35,8 @@ unreadable at any row height, whereas the name line, the logo and the colours in
 the corner are enough to tell one template from another at a glance.
 
 Where there is no picture, nothing is drawn. A row with an empty placeholder box
-would read as a fault in organisations where previews are simply not switched on.
+would read as a fault, when all it means is that the picture has not been made
+yet.
 
 To open a picture at full size:
 
@@ -86,8 +87,9 @@ Rendering runs in the background after a version becomes live, by every route
 that can make one live: a publish, a publish from a draft, a restore, a
 [scheduled publish](/signatures/scheduled-publishing/) firing, and a
 [staged rollout](/signatures/staged-rollouts/) being promoted. A nightly pass
-catches anything the moment misses, so an organisation that has just had previews
-switched on has pictures of its whole history by the next morning.
+catches anything the moment misses, including versions published before
+previews existed, so a template's whole kept history has pictures by the next
+morning.
 
 A submitted draft is rendered when it is submitted, as part of building the
 approval email. A draft is rendered per body, so resubmitting an unchanged draft

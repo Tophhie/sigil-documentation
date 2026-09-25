@@ -393,10 +393,10 @@ manages Sigil for you, it names them and points you at them first, since they ar
 the ones configuring your signatures. The same details are on
 `portal.usesigil.app/support` for anyone not signed in.
 
-Where [ask the documentation](/admin/ask-the-documentation/) has reached your
-organisation, the same dialog also carries a question box that answers from this
-documentation and links the pages it used, and a sparkle button in the bottom
-right of every portal page opens it from wherever you are.
+The same dialog also carries a question box that answers from this documentation
+and links the pages it used, and a sparkle button in the bottom right of every
+portal page opens it from wherever you are. See
+[ask the documentation](/admin/ask-the-documentation/).
 
 ## Can we run Sigil alongside our existing signature product?
 

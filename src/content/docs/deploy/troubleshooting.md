@@ -422,9 +422,10 @@ starts an email for you with your organisation name and Microsoft 365 tenant id
 already in it. Those two are the details support otherwise has to ask for, and
 each round trip costs another day.
 
-Where [ask the documentation](/admin/ask-the-documentation/) is switched on, the
-same dialog opens with a question box, and a sparkle button in the bottom right of
-every portal page opens it without leaving the page you are on. It answers from
+The same dialog opens with a question box for
+[asking the documentation](/admin/ask-the-documentation/), and a sparkle button
+in the bottom right of every portal page opens it without leaving the page you
+are on. It answers from
 this documentation and links the pages it used, which is quicker than a support
 round trip for anything the documentation already covers. It cannot see your
 organisation, so it will not tell you why one particular mailbox is unsigned.

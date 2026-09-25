@@ -108,11 +108,13 @@ To give one icon a condition:
 1. Select the social icons block on the canvas.
 2. In the inspector, find the icon under Social icons. They are numbered Icon
    1, Icon 2 and so on, in the order they render.
-3. Under its Show when, choose Always.
-4. Choose the field the icon depends on.
+3. Under its Show when, choose Add rules.
+4. In the Show when dialog, choose Choose a rule and pick the field the icon
+   depends on.
+5. Choose Done.
 
-The list stays open so several rules can be chosen; every one of them has to
-hold.
+Several rules can be chosen. They are joined with "and" to begin with, so every
+one of them has to hold, and choosing the "and" makes it "or".
 
 ### Styling the row
 
@@ -274,14 +276,18 @@ label for people with no phone number, or an address block that collapses to a
 line of commas.
 
 1. Select the block on the canvas.
-2. In the inspector, open Visibility.
-3. Under Show when, choose Always.
-4. Pick the Mailbox or Sender segment and choose the field the block depends
-   on.
+2. In the inspector, open Visibility. Show when reads "Always" while the block
+   has no rule.
+3. Choose Add rules.
+4. In the Show when dialog, choose Choose a rule, pick the Mailbox or Sender
+   segment, and choose the field the block depends on.
+5. Choose Done.
 
-The rule reads back as a sentence, such as "Mobile has a value", and the block
-carries an "if" badge on the canvas. Choose Change to swap the rule, or the
-cross beside it to remove it.
+The rule reads back in the inspector as a sentence, such as "Mobile has a
+value", and the block carries an "if" badge on the canvas. Choose Edit rules to
+change it, or remove the rule with the cross beside it in the dialog. The dialog
+can also combine several rules with "and", "or" and "not", which is covered under
+[and, or and not in one rule](#and-or-and-not-in-one-rule).
 
 Six derived conditions help here. `anyPhone` is true when the person has any
 phone number at all, `anyAddress` when they have any address component, and
@@ -293,10 +299,10 @@ which is about who is sending rather than about what the directory holds. The
 last two are a pair: "sent from a group mailbox" is true when the mailbox is a
 [Microsoft 365 Group or distribution list](/signatures/group-mailboxes/), and
 "not sent from a group mailbox" is its opposite, for the line that assumes a
-person, such as a "Chat with me in Teams" link. They are a pair because a rule
-cannot ordinarily be turned round. Where
-[grouped conditions](#and-or-and-not-in-one-rule) are switched on it can be, and
-the second of the pair is then a convenience rather than the only way.
+person, such as a "Chat with me in Teams" link. They became a pair when a rule
+could not be turned round. Any rule can be now, with
+[not](#and-or-and-not-in-one-rule), so the second of the pair is a convenience
+rather than the only way.
 
 The Sender tab of the menu has its own versions of the first two, Sender any
 phone and Sender any address. They test the phones and address of whoever
@@ -314,38 +320,39 @@ to set it yourself.
 ### Conditions on a single field
 
 Selecting a field chip inside a text block gives that chip its own visibility
-rules, separate from the block it sits in. A chip can carry several, and they are
-listed with "and" between them because every one of them has to hold. So one line
-can carry a job title, a department and a qualification and print only the parts a
-given person actually has.
+rules, separate from the block it sits in. So one line can carry a job title, a
+department and a qualification and print only the parts a given person actually
+has.
 
 1. Select the chip inside the text block.
 2. In the inspector, open Visibility.
-3. Under Show when, choose Always, or Add another rule if the chip already has
-   one.
-4. Choose each field the chip depends on. The list stays open until you close
-   it.
+3. Under Show when, choose Add rules, or Edit rules if the chip already has
+   some.
+4. Choose each field the chip depends on. The field menu stays open until you
+   close it, so several can be picked in one go.
+5. Choose Done.
 
-A block takes one rule rather than several. That is the shape of what it compiles
-to rather than a preference. Where a whole row needs two conditions, put one on
-the row and the other on the block inside it, which is how nesting combines
-them. Where [grouped conditions](#and-or-and-not-in-one-rule) are switched on, a
-block takes as many rules as a chip does and the nesting is no longer needed.
+Several rules are joined with "and" to begin with, so every one of them has to
+hold. Choose the "and" to make it "or".
+
+A block takes as many rules as a chip does. A row that needs two conditions can
+carry both itself, rather than being nested inside another row to get the second.
 
 ### Conditions on labels and separators
 
 Plain text can carry a rule of its own too. Highlight it and press the eye
 button on the text toolbar, whose tooltip reads "Show the highlighted text only
-when a rule holds", then choose the fields it depends on. Every rule you choose
-must hold, and choosing none shows the text always. That is how a label such as
-"T: " or a separator such as " | " goes away with the value it belongs to,
-rather than being left behind with nothing after it.
+when a rule holds", then choose the fields it depends on. Leaving the dialog with
+no rules shows the text always. That is how a label such as "T: " or a separator
+such as " | " goes away with the value it belongs to, rather than being left
+behind with nothing after it.
 
 1. Highlight the text inside the block.
 2. Choose the eye button on the text toolbar. Its tooltip reads "Show the
    highlighted text only when a rule holds".
-3. In the dialog, choose Always and pick each field the text depends on.
-4. Choose Apply.
+3. In the Show when dialog, choose Choose a rule and pick each field the text
+   depends on.
+4. Choose Done.
 
 Choosing the button with nothing highlighted opens a message saying so rather
 than a dialog.
@@ -360,18 +367,15 @@ belong to has a value.
 
 ### And, or and not in one rule
 
-Everything above describes one rule, or several that all have to hold. A customer
+The everyday case is one rule, or several that all have to hold. A customer
 running several shared mailboxes asked for the other case: show this when either
-of two things is true. That is what grouped conditions are, and they are being
-rolled out gradually, so your organisation may still have the picker described
-above. Nothing you have already built changes either way, and a design authored
-with a group keeps working if the feature is later switched off.
+of two things is true. That is what grouped conditions are. They are available to
+every organisation, and a design built before them renders exactly as it did.
 
-Where it is switched on, every Show when control in the inspector reads as a
-sentence with an Edit rules button beside it, rather than as a list of rules. The
-sentence is the rule in words, such as "Mobile has a value or Email has a value,
-and the message is not sent on behalf of the mailbox". Blocks, field chips, social
-icons and highlighted text all use the one dialog.
+Every Show when control in the inspector reads as a sentence with an Edit rules
+button beside it. The sentence is the rule in words, such as "Mobile has a value
+or Email has a value, and the message is not sent on behalf of the mailbox".
+Blocks, field chips, social icons and highlighted text all use the one dialog.
 
 1. Select the block, chip or icon, or highlight the text and choose the eye button
    on the text toolbar.
@@ -402,8 +406,7 @@ choosing Done leaves the rule as it was.
 The canvas badge summarises what it can. A rule naming more than three fields
 elides, reading "if Mobile or 2 more" rather than running off the block.
 
-On the HTML side the same rule is written inside the section marker, and the
-operators are refused until the feature reaches your organisation. See
+On the HTML side the same rule is written inside the section marker. See
 [conditional sections](/signatures/html-editor/#conditional-sections).
 
 ### Labels on a shared mailbox's signature
@@ -460,12 +463,13 @@ A text block whose chips are all conditional on it collapses on its own, so you
 do not have to set the same condition on the block as well. See
 [blocks that empty themselves](#blocks-that-empty-themselves).
 
-Two limits are worth knowing before you build around it.
+Two things are worth knowing before you build around it.
 
-The condition cannot be inverted. There is no way to show a line only when
-somebody is *not* sending on behalf of the mailbox. Usually you do not need one,
-because the Sender fields already read correctly both ways. When you genuinely
-need different content for a shared mailbox, give it its own template with an
+The condition can be turned round with not, in the
+[rules dialog](#and-or-and-not-in-one-rule), to show a line only when nobody is
+sending on behalf of the mailbox. Usually you do not need to, because the Sender
+fields already read correctly both ways. When you genuinely need different
+content for a shared mailbox, give it its own template with an
 [assignment rule](/targeting/assignment-rules/), which matches the mailbox.
 
 A line behind this condition disappears when the directory cannot be reached at

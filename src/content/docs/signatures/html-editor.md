@@ -92,11 +92,9 @@ renders, and whatever it was meant to wrap would go missing with no explanation.
 
 The either-of form described under
 [placeholders](/signatures/placeholders/#sections-that-open-on-either-of-two-fields),
-`{{#a|b}}`, is accepted. A section written with `&`, `!` or brackets is refused,
-with a message saying grouped conditions are not switched on for your
-organisation. Where
-[grouped conditions](/signatures/designer/#and-or-and-not-in-one-rule) have
-reached your organisation, all three are accepted, and the
+`{{#a|b}}`, is accepted, and so are `&` for "and", `!` for "is empty" and
+brackets, which are the HTML side of
+[grouped conditions](/signatures/designer/#and-or-and-not-in-one-rule). The
 [marker syntax](/signatures/placeholders/#sections-that-open-on-either-of-two-fields)
 covers the whole form. Typing `{{#` then an operator continues to offer the field
 list, so a longer rule can be completed rather than typed out.

@@ -33,7 +33,7 @@ organisation who can actually act on it.
 | You've been given a role | Somebody is added to Users and roles for the first time. Names the role and what it covers |
 | You've been invited to manage your organisation | An organisation is provisioned for you rather than self-served, so the first administrator has a link to start from |
 | Signature test | You send a [test email](/admin/test-email/). Goes to the address you name, defaulting to your own |
-| A signature is waiting for your approval | An editor submits a draft for review. Goes to every administrator except the person who submitted it, and carries a picture of the proposed signature where [signature previews](/signatures/previews/) are switched on |
+| A signature is waiting for your approval | An editor submits a draft for review. Goes to every administrator except the person who submitted it, and carries a [picture of the proposed signature](/signatures/previews/) |
 | Sigil health digest | Weekly by default, to every administrator. Coverage, apply failures and anything waiting on a decision |
 | Sigil health digest, on request | An administrator presses "Send me one" in [settings](/admin/settings/). Goes to that administrator only |
 | Action needed: reconnect Sigil | Admin consent has lapsed and signatures have stopped updating. Sent to every administrator |

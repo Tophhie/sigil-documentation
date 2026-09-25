@@ -335,7 +335,7 @@ administrators a re-consent link.
 | --- | --- |
 | Directory attributes read from Microsoft Graph | Never stored as a record of their own. Held inside a rendered signature for at most a day (refreshed hourly while in use), in a lookup cache for up to seven days after the mailbox last composed (fresh for fifteen minutes, then refreshed in the background), and in a photo cache for a day |
 | Template version history | Last 10 published bodies per template |
-| Preview pictures of a version, where [signature previews](/signatures/previews/) are switched on | As long as the version they show. They depict a sample person rather than anybody in your organisation |
+| Preview pictures of a version, for [signature previews](/signatures/previews/) | As long as the version they show. They depict a sample person rather than anybody in your organisation |
 | Deleted templates | 30 days in Recently deleted, then purged by a daily sweep |
 | Change log | For as long as your organisation uses Sigil |
 | Operator audit log | Indefinite |

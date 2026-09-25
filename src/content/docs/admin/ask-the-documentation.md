@@ -13,9 +13,8 @@ Ask the documentation is a question box inside the portal for exactly that
 moment. You type the question in your own words, and an answer comes back written
 from these pages, with links to the ones it drew on.
 
-This is being rolled out gradually, so it may not be switched on for your
-organisation yet. Nothing about it changes what your users receive, and nothing
-in the portal depends on it.
+It is available to every organisation, with nothing to switch on. Nothing about
+it changes what your users receive, and nothing in the portal depends on it.
 
 ## Where it is
 
@@ -163,7 +162,7 @@ your bill.
 | "That took too long. Try a shorter question." | The answer did not arrive within 25 seconds. Asking again usually works |
 | "The documentation couldn't be searched just now. Try again shortly." | The search service did not answer. Nothing is wrong with your organisation's signatures |
 | "Documentation search isn't available right now." | The feature is temporarily unavailable across the service |
-| "Documentation search is not turned on for your organisation." | It has not reached your organisation yet |
+| "Documentation search is not turned on for your organisation." | The feature is unavailable to your organisation at the moment. Nothing else is affected, and the documentation site can still be read directly |
 | A message about waiting a moment | More than 20 questions in a minute from you. Nothing is lost, and the next one works |
 
 None of these affect anything else. Signatures, publishing and delivery do not

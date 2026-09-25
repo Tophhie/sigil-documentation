@@ -124,8 +124,7 @@ Submitting a draft emails every other administrator of the organisation. The
 message names who submitted it and which template, and its button opens the
 library to review it.
 
-Where [signature previews](/signatures/previews/) are switched on, the mail carries
-a picture of the proposed signature, and of the live one above it where there is
+The mail also carries [a picture](/signatures/previews/) of the proposed signature, and of the live one above it where there is
 one, so an approver can judge an ordinary change from their phone without signing
 in. The pictures ride inside the message rather than being linked, because Outlook
 hides remote images from senders it does not know and an approval email that
