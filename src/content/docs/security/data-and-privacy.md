@@ -59,6 +59,14 @@ a directory call succeeding. See [cost management](/admin/cost-management/).
 
 Telemetry metadata about signature requests and apply outcomes.
 
+A note of each time Microsoft Graph asked Sigil to slow down while reading your
+directory. Each note holds the status Graph returned, how long it asked Sigil to
+wait, and which kind of Graph call it was, such as a user lookup or a photo. Any
+address, id or other identifier is removed from the call before it is stored,
+so a note cannot say whose record was being read. Tophhie Cloud uses these to
+see how hard Graph limits each organisation and design around it. They are
+deleted after 30 days, and with your organisation if it leaves.
+
 Tracked link definitions, their click counts, and 90 days of per-click records
 holding no identifier of any kind.
 
@@ -326,7 +334,9 @@ link definitions and click records are out because every destination already sit
 in a template or a banner, and the clicks hold no identity to return. Booked
 [scheduled publishes](/signatures/scheduled-publishing/) and rollouts still in
 flight are out because they are machinery rather than record, and whatever they
-publish lands in the change log. Your [API keys](/admin/api-keys/) are out
+publish lands in the change log. The notes of Graph asking Sigil to slow down are out
+because they are Tophhie Cloud's operational record, holding no personal data and
+nothing you wrote. Your [API keys](/admin/api-keys/) are out
 because a document that leaves the platform must not enumerate live credentials.
 Ask support if you need any of them for a compliance exercise.
 

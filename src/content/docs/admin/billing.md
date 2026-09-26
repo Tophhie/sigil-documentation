@@ -8,6 +8,9 @@ sidebar:
 Sigil costs £0.70 per licensed mailbox per month, billed monthly, with every
 feature included. There is a 14 day free trial.
 
+Prices exclude VAT. Where VAT applies, it is added to the invoice on top of the
+figure the portal shows. See [VAT](#vat).
+
 One optional add-on is charged on top of that, per organisation rather than per
 mailbox. See [add-ons](#add-ons).
 
@@ -369,6 +372,40 @@ message says so instead.
 4. Choose Remove.
 
 An "Add-on removed." message confirms it.
+
+## VAT
+
+Every price Sigil shows is before VAT. The Billing view's estimate line ends
+"excluding VAT", and so do the public pricing page and the terms of use. Where VAT
+applies, Stripe adds it to the invoice as a separate line.
+
+Whether it applies, and at what rate, is worked out by Stripe from the address on
+your [billing profile](/admin/billing-profile/), not chosen by Sigil. A UK
+organisation pays UK VAT on top of the per-mailbox price. An organisation
+somewhere Tophhie Cloud is not registered to collect tax is invoiced with none.
+
+That is why the address matters beyond appearing on the invoice. Sigil creates
+your subscription when you connect, before anybody has filled in a billing
+profile, so there is often no address to work from at first. Tax calculation is
+switched on for the subscription when you save a complete profile, and a nightly
+check switches it on for any subscription that still lacks it. It applies from
+the next invoice. Stripe does not go back and add tax to an invoice already
+raised.
+
+A subscription that invoices straight away, such as restarting one that has
+already ended or adding the branded link domain, needs the address before it can
+start. If Stripe cannot place the address you have saved, the portal says:
+"Our payment provider can't work out the tax treatment from the billing address
+on file. Check the address on the Billing page and try again." To fix it:
+
+1. Open Billing in the portal sidebar.
+2. Open the Billing details tab.
+3. Check Country first, then Address line 1, City and Postcode.
+4. Choose Save billing details.
+5. Go back and try the action again.
+
+If you are VAT registered, add the number on the same tab. See
+[billing profile](/admin/billing-profile/).
 
 ## Discounts
 

@@ -27,7 +27,10 @@ The billing email is where Stripe sends invoices and receipts. Point this at
 whichever inbox your finance team actually reads rather than at an individual, so
 invoices survive somebody changing job.
 
-The billing address appears on the invoice and is used for tax determination.
+The billing address appears on the invoice and is what Stripe uses to decide
+whether VAT applies and at what rate. Saving a complete profile is also what
+switches tax calculation on for your subscription, from the next invoice. See
+[VAT](/admin/billing/#vat).
 
 The VAT or tax identifier is registered with Stripe as a managed tax id. The type
 is derived from the country you set, so a United Kingdom address produces a UK

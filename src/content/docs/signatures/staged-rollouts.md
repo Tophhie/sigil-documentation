@@ -175,9 +175,14 @@ A message confirms everyone is on the current signature.
 
 ## Promotion
 
-Promoting writes the new body to the template, archives the outgoing body into
-[version history](/signatures/versions/), and clears the draft, exactly as an
-ordinary publish would.
+Promoting writes the new body to the template and archives the outgoing body
+into [version history](/signatures/versions/), exactly as an ordinary publish
+would.
+
+What happens to the draft depends on who promoted it. Choosing Promote clears the
+draft, as a publish does. When the rollout promotes itself after its last step,
+the draft is kept, because nobody is there to say whether a colleague's working
+copy is still wanted.
 
 The version string is the one the rollout has carried since it started. That is
 deliberate: every apply outcome collected during the soak still refers to the

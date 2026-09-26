@@ -32,8 +32,12 @@ to fit inside Outlook's 30,000 character limit, a
 HTML over a designer template is refused unless you confirm it. A schedule that
 would be rejected at midnight is rejected now instead.
 
-There is one pending schedule per template. Booking a second replaces the first
-rather than queueing behind it.
+There is one pending schedule per template. Booking a second from the editor
+replaces the first rather than queueing behind it, since the banner has already
+told you one is booked. If a colleague booked one after you opened the editor,
+your booking is refused with "A publish is already booked for this template.
+Cancel it or replace it." The banner then appears, and booking again replaces
+theirs.
 
 A publish can be booked up to 365 days ahead. That is not a technical ceiling. A
 schedule set three years out fires against a template library nobody remembers
@@ -66,6 +70,11 @@ its own copy.
 
 The consequence is that editing the draft afterwards does not change what is
 booked. If you want the newer body to go live, book the schedule again.
+
+A draft saved after the booking survives the publish. An ordinary publish clears
+the draft, because the person publishing is looking at it. Nobody is watching
+when a schedule fires, so it leaves any draft in place for somebody to decide
+about in the morning. The draft may be work that was meant for a later release.
 
 The editor carries a banner for as long as a schedule is pending, so a hotfix
 published today cannot be quietly undone overnight by a schedule nobody

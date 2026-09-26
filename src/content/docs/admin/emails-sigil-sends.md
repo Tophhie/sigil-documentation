@@ -158,6 +158,26 @@ first goes past due, since there is nothing gained by sitting on it overnight. A
 second message lands about a week before signatures stop, from the morning sweep
 with the trial reminders.
 
+When a card payment fails, the first notice says what the bank said, where
+Stripe recorded a reason. "We couldn't collect your payment" sends people to
+Tophhie Cloud, when a declined card can only be fixed by whoever issued it. The
+notice names the card by brand and last four digits, then gives one of these:
+
+| What the bank said | What the notice suggests |
+| --- | --- |
+| It declined the payment | Update the card, or ask the bank to allow the payment so the next automatic retry goes through. A card issued outside the UK gets a line saying such cards are often blocked for payments in pounds until the bank allows them |
+| Not enough funds, or a spending limit reached | Update the card on file |
+| The card has expired | Update the card on file |
+| The card details were not recognised | Update the card on file |
+| The bank wants the payment confirmed | Open the invoice from the Billing page and pay it there, confirming with the bank. The button reads View and pay the invoice rather than Update your payment method |
+| A temporary fault at the bank | Nothing yet, because the payment is retried automatically. Update the card if it keeps failing |
+
+Declines the bank marks as a lost or stolen card, or as suspected fraud, read as
+a plain decline. Without a recorded reason the notice keeps its general wording.
+The reason only appears in the first notice, because by the second one it may no
+longer be the reason, and neither notice for invoice terms mentions a card at
+all.
+
 A card that is retried and declines again does not send another and does not
 move the date. The clock runs from the first failure, or on terms from the due
 date, so retrying neither buys time nor costs any.

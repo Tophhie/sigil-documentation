@@ -16,7 +16,9 @@ signature are untouched.
 
 You can leave a draft sitting for as long as you like, come back to it, and
 preview it. There is one draft per template, so a second person editing the same
-template is editing the same draft rather than creating a competing one.
+template is editing the same draft rather than creating a competing one. If
+they both save, the second save is refused rather than overwriting the first.
+See [when a colleague saved first](#when-a-colleague-saved-first).
 
 Discarding a draft throws away the working copy and leaves the live version
 exactly as it was.
@@ -53,6 +55,37 @@ draft is still saved and the message says it cannot be published as it is.
    draft in the designer.
 
 The editor returns to the live version.
+
+### When a colleague saved first
+
+Two people can have the same template open at once. Each save, publish,
+submission and approval carries the version and the draft the editor loaded,
+and Sigil refuses the write if either has changed since, rather than letting
+the later click silently overwrite the earlier one.
+
+| Message | What happened |
+| --- | --- |
+| Someone else saved a draft of this template after you opened it. Reload to see their version. | A colleague saved the draft after you opened the editor |
+| This template was published by someone else after you opened it. Reload to see the live version. | A new version went live after you opened the editor |
+| This draft changed after you opened it. Reload before publishing. | You were approving or publishing a draft that has since been edited |
+| A rollout is already running for this template. Wait for it to finish or cancel it first. | A colleague started a [staged rollout](/signatures/staged-rollouts/) you had not seen |
+| A publish is already booked for this template. Cancel it or replace it. | A colleague booked a [scheduled publish](/signatures/scheduled-publishing/) you had not seen |
+
+Nothing you typed is lost when this happens. The editor keeps your text or your
+canvas and quietly re-reads the template, so its draft banner, rollout panel and
+schedule banner now show what your colleague did. What to do next:
+
+1. Read the banners to see what changed and who changed it.
+2. If your version should win, choose the same button again. The editor now
+   knows about the other change, so the second attempt goes through, and it is
+   a deliberate overwrite rather than an accidental one. A booked publish is
+   replaced the same way. A running rollout is the exception: Staged publish
+   stays unavailable until it is promoted or rolled back.
+3. If theirs should win, reload the page and pick up from their version. Your
+   unsaved edits are discarded when you do.
+
+Scripts calling the API with a key are not fenced unless they ask to be. See
+[template endpoints](/reference/api/#avoiding-overwriting-a-colleagues-change).
 
 ## The diff
 

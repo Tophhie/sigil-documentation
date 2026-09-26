@@ -90,6 +90,7 @@ See [assignment rules](/targeting/assignment-rules/).
 | Per-mailbox activity rollup and daily apply totals | For as long as your organisation uses Sigil |
 | Daily click totals per tracked link | For as long as your organisation uses Sigil |
 | Per-click records behind the analytics splits | 90 days, then purged by a nightly sweep |
+| Notes of Microsoft Graph asking Sigil to slow down | 30 days, then purged by a nightly sweep |
 | Signature copy kept on a person's device | 45 days from that address's last compose, renewed by each one |
 | A refusal noted on a person's device | Ten minutes from the refused compose |
 | Operator audit log | Indefinite |
@@ -341,7 +342,7 @@ See [API keys](/admin/api-keys/).
 | Item | Value |
 | --- | --- |
 | Trial length | 14 days |
-| Price | £0.70 per licensed mailbox per month |
+| Price | £0.70 per licensed mailbox per month, excluding VAT |
 | Billing period | Monthly |
 | Billable seat | A licensed member mailbox that cost management has not kept out of Sigil |
 | Free | Shared and resource mailboxes, accounts invited in from outside, disabled accounts, mailboxes kept out of Sigil |

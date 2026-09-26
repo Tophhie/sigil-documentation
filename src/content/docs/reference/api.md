@@ -307,6 +307,37 @@ The library listing carries `hasDraft` per entry, computed as a boolean rather
 than by reading the drafts themselves, so listing the library never loads a
 template body. It is what the Draft badge is drawn from.
 
+### Avoiding overwriting a colleague's change
+
+Template writes accept two optional fields describing what the caller last read:
+`expectedVersion`, the template's `version`, and `expectedDraftUpdatedAt`, the
+draft's `updatedAt`, or `null` to say there was no draft. `PUT
+/api/admin/templates/:id` and `POST …/publish-draft` take both, and `PUT
+…/draft` and `POST …/draft/submit` take the draft one.
+
+If the template no longer matches, the write is refused with 409, nothing is
+changed, and the body carries a `code` and a `current` object saying what the
+template holds now and who saved it:
+
+| `code` | Meaning |
+| --- | --- |
+| `version_conflict` | A different version is live than the one you sent |
+| `draft_conflict` | The draft was saved by somebody else after the one you sent |
+| `draft_changed` | The draft you are approving or publishing has changed since you read it |
+| `rollout_running` | You started a staged rollout while another is running |
+| `schedule_exists` | You booked a publish while another is pending |
+
+Leaving both fields out keeps the older behaviour, where the last write wins, so
+an existing script carries on working. A script that reads a template, changes
+it and writes it back should send them, for the same reason the portal does. The
+portal's own handling is described under
+[when a colleague saved first](/signatures/publishing/#when-a-colleague-saved-first).
+
+`rollout_running` and `schedule_exists` are cleared by sending `replace: true`
+with the request, which replaces the running rollout or the pending booking on
+purpose. It does not get past `version_conflict`: a rollout is always measured
+against the version that is live when it starts.
+
 ### When publish approval is on
 
 With [publish approval](/signatures/approvals/) switched on for the organisation,
@@ -348,7 +379,7 @@ templates capability, the same as an ordinary publish. See
 
 | Route | Auth | Purpose |
 | --- | --- | --- |
-| `PUT /api/admin/templates/:id/schedule` | Admin token | Book a publish for a future instant, replacing any pending one |
+| `PUT /api/admin/templates/:id/schedule` | Admin token | Book a publish for a future instant. A pending one is replaced only with `replace: true`, and otherwise answers 409 `schedule_exists` |
 | `GET /api/admin/templates/:id/schedule` | Admin token | The schedule on one template, whatever its state |
 | `GET /api/admin/schedules` | Admin token | Every pending schedule, soonest first |
 | `DELETE /api/admin/templates/:id/schedule` | Admin token | Call off a booked publish |

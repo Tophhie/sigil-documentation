@@ -31,6 +31,10 @@ Those counts are summed across your whole client base and reported once a day as
 usage against a single metered subscription belonging to the partner. You are
 invoiced monthly in arrears for what the period actually recorded.
 
+The list prices on your Partner billing page exclude VAT, as the page itself
+says. Where VAT applies, Stripe adds it to the invoice, working it out from the
+address on your billing profile. See [VAT](/admin/billing/#vat).
+
 There is no minimum volume and no minimum spend on the partner arrangement, so a
 month in which you manage no billable mailboxes costs nothing. That is a
 commitment in the [partner agreement](/partners/service-level/#no-minimums)

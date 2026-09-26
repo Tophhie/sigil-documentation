@@ -20,7 +20,7 @@ that a Microsoft 365 administrator deploys once across the organisation.
 | Platform | Microsoft 365 and Exchange Online |
 | Delivery | Outlook add-in plus a web admin portal |
 | Identity | Microsoft Entra ID, with no separate login |
-| Price | £0.70 per licensed mailbox per month, 14 day free trial |
+| Price | £0.70 per licensed mailbox per month, excluding VAT, 14 day free trial |
 | Vendor | Tophhie Cloud |
 
 ## The problem it solves
