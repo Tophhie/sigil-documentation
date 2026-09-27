@@ -104,8 +104,8 @@ applied automatically, so a month that qualified and went unclaimed stays
 unclaimed once the window closes.
 
 An agreed credit appears on your Partner billing page as a service credit,
-carrying the month it settles and the reason it was agreed, and comes off a
-following invoice. That record is what makes a credit explicable months later,
+carrying the month it settles and the reason it was agreed, and comes off your
+next invoice. That record is what makes a credit explicable months later,
 when the invoice it reduced is the only thing anybody can still see. See
 [invoices and credits](/admin/invoices-and-credits/#credits-and-corrections).
 

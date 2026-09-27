@@ -11,10 +11,18 @@ the start is easier than discovering them at publish time.
 
 ## 30,000 characters
 
-A rendered signature must stay under 30,000 characters of HTML.
+A rendered signature must be no more than 30,000 characters of HTML.
 
 The portal blocks a publish that would exceed it, which means you find out at your
 desk rather than through a report of broken signatures.
+
+The check has limits worth knowing. It renders the template with the sample
+person, and it measures the template alone. A [campaign
+banner](/targeting/banners/) and a [compliance footer](/targeting/footers/) are
+added when a signature is sent, and so are real directory values, which can be
+longer than the sample ones. Nothing re-measures at that point. A template that
+passes with only a few hundred characters to spare can still reach Outlook over
+the limit, so keep a margin.
 
 Attached images do not count toward this, because the limit applies to the markup
 rather than to the attachments. What does count is the markup itself, and
@@ -51,9 +59,9 @@ Outlook on Windows renders HTML with Word's rendering engine. Modern CSS layout
 does not survive it.
 
 Use nested tables with explicit widths. Put styles inline on elements rather than
-in a `<style>` block. Use pixel values rather than relative units. The
-[designer](/signatures/designer/) compiles to exactly this shape, which is one of
-the reasons to use it.
+in a `<style>` block. Size type, spacing and images in pixels rather than
+relative units. The [designer](/signatures/designer/) compiles to this shape,
+which is one of the reasons to use it.
 
 ## Rounded corners are square
 
@@ -86,8 +94,10 @@ deployed, they run sequentially.
 
 ## Dark mode
 
-Every client built on Outlook on the web recolours the text and background
-colours a signature sets, and never touches its images. Light text over a dark
+Every client built on Outlook on the web can recolour the text and background
+colours a signature sets, and never touches its images. The compose editor
+recolours all of them; the reading pane only changes colours that fail a
+contrast check. See [dark mode](/signatures/dark-mode/). Light text over a dark
 picture therefore disappears, and a faint grey disclaimer becomes hard to read.
 
 Nothing in the signature can prevent it, so the fix is a colour choice or a
@@ -95,8 +105,9 @@ change of layout. See [dark mode](/signatures/dark-mode/).
 
 ## Testing your design
 
-Preview in the portal shows the shape of a template with sample data, which is
-enough to check that conditional sections collapse correctly.
+Preview in the portal shows a template with sample data, or as a real mailbox in
+your directory, which is enough to check that conditional sections collapse
+correctly.
 
 To see how a client actually renders it, send a [test email](/admin/test-email/)
 and open it in the clients your organisation uses. Outlook on Windows is the one

@@ -9,8 +9,9 @@ Sigil's security boundary is the Entra token, verified on every request. There i
 no network gate in front of it, and nothing anybody signs in with is a Sigil
 credential.
 
-The one credential Sigil issues is an [API key](/admin/api-keys/), which an
-administrator creates deliberately for a script. It is described below, and no
+The one credential Sigil issues to your organisation is an
+[API key](/admin/api-keys/), which an administrator creates deliberately for a
+script. It is described below, and no
 part of the product depends on one existing.
 
 ## Why the add-in holds no secret
@@ -69,7 +70,9 @@ no sign-in of any kind that does not go through Entra.
 An [API key](/admin/api-keys/) is the exception to everything above, and is
 scoped tightly enough to stay one.
 
-It is created by an Admin, belongs to one organisation, and carries a set of
+It is created by an Admin, or by an Owner or Admin at a
+[managed service provider](/partners/clients/) looking after the organisation.
+It belongs to one organisation, and carries a set of
 capabilities but no role.
 
 What it may reach is an allow-list rather than a set of blocked areas. One list
@@ -197,6 +200,7 @@ only one of them protects the half nobody was attacking.
 | `Strict-Transport-Security` | Six months, including subdomains. A browser that has loaded `usesigil.app` once will not try plain HTTP for it again |
 | `X-Content-Type-Options` | Stops a browser guessing a response is a different type from the one it was sent as |
 | `X-Frame-Options` and a `frame-ancestors` policy | The portal cannot be framed by another site. Both are sent, because browsers do not all honour the same one |
+| `Content-Security-Policy` | Limits where the portal's pages may load code and send data from. See below |
 | `Referrer-Policy` | A tracked link's destination sees that the click came from Sigil, never the full path of the redirector |
 
 HSTS preloading is deliberately left off. Preloading needs a year-long maximum
@@ -212,24 +216,45 @@ call is cross-origin by design. Both choices are held in place by tests, so a
 library upgrade that quietly reinstates a default fails a build rather than
 somebody's Outlook.
 
-The framing policy is what the content security policy currently governs. A
-policy over script and style sources is a larger piece of work that needs the
-portal, the sign-in flow and the drag-and-drop designer audited first, since a
-wrong one fails silently in whichever browser nobody happens to be watching.
+The portal's pages are served with an enforced content security policy, in
+place since 10 September 2026. It is there for the day sanitising misses
+something: templates, footers and the designer all carry markup that
+administrators write, and the policy is the layer that holds if any of it slips
+through.
+
+| Directive | What it allows |
+| --- | --- |
+| Scripts | Sigil's own origin only. No inline script and no script from a content delivery network |
+| Styles | Sigil's own origin, plus inline styles, which the portal and signature previews rely on |
+| Fonts | Sigil's own origin. The portal's fonts are hosted by Sigil, so no request goes to a font service |
+| Connections, frames and form posts | Sigil's own origin and Microsoft's sign-in service, `login.microsoftonline.com` |
+| `<base>` and `<object>` | Nothing at all |
+
+A violation is reported back to Sigil rather than only being blocked, so a page
+that breaks under the policy is noticed rather than left for a customer to
+find. A stricter candidate runs alongside it in report-only mode, identical but
+for images, to find out whether any template still points at an image host that
+is not Sigil's own. API responses carry only the framing directive, since the
+rest of the policy only means something on a page.
 
 ## The link domain
 
 Tracked links are served from `e-clk.usesigil.app`, which answers `/r/` redirects
 and [contact card](/signatures/contact-card/) downloads and returns 404 for every
-other path.
+other path. The one addition is `/.well-known/`, where a certificate authority
+checks domain ownership before issuing a certificate.
 
 Recipients click those links, so the domain is the most widely exposed surface
 Sigil has. Keeping the portal and API off it means the exposed surface is a
 redirect and nothing else.
 
 An organisation can serve its links from a hostname of its own instead, with the
-[branded link domain](/monitoring/branded-link-domain/) add-on. The same rule
-applies to it: redirects and contact cards, 404 for everything else.
+[branded link domain](/monitoring/branded-link-domain/) add-on. A branded
+hostname is not closed down path by path in the same way, because telling a
+customer's hostname apart from Sigil's own would mean a database lookup in front
+of every portal and API request. The portal and API still require sign-in there
+like anywhere else. The protection that matters is on the two paths that need no
+sign-in, redirects and contact cards, and it is described next.
 
 A branded hostname resolves only the links belonging to the organisation that
 claimed it. A slug belonging to another organisation returns 404 on it, even

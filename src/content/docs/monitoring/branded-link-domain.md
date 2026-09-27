@@ -192,10 +192,13 @@ A hostname an organisation has ever claimed answers for that organisation or for
 nobody, for as long as the record naming it exists. It is released only when the
 domain is removed.
 
-The rest of the rule from the shared hostname still holds: a branded hostname
-answers `/r/` redirects and [contact card](/signatures/contact-card/) downloads,
-and returns 404 for everything else. The portal and the API are not reachable on
-it.
+A branded hostname is not closed down the way the shared one is. The shared
+hostname returns 404 for anything other than redirects and
+[contact card](/signatures/contact-card/) downloads; a branded one does not
+refuse other paths outright, because recognising it would put a database lookup
+in front of every portal and API request. Anything else reached through it still
+needs a signed-in session, exactly as it does on `portal.usesigil.app`, so the
+paths a recipient can use without signing in are the same two.
 
 ## Adding it to your subscription
 

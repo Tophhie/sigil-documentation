@@ -69,8 +69,10 @@ See [staged rollouts](/signatures/staged-rollouts/).
 
 An ordered list of predicates that refines which template a person gets. Each
 rule matches on a directory attribute equalling one of a set of values, or on
-membership of an Entra group, and names a template per role. First match wins;
-anyone unmatched falls back to the organisation-wide roles. See
+membership of an Entra group, and names a template per role. Each role is
+resolved on its own: the first matching rule that names a template for that role
+wins, so a rule with no reply template leaves replies to the rules below it.
+Anyone left unresolved falls back to the organisation-wide roles. See
 [assignment rules](/targeting/assignment-rules/).
 
 ## Banner
@@ -125,8 +127,8 @@ signature at the same time. See [cost management](/admin/cost-management/).
 
 ## Portal role
 
-A permission level inside the portal, stored per tenant and assigned by an
-administrator. The six roles are Admin, Editor, Marketing, Viewer, Compliance and
+A permission level inside the portal, stored per tenant and assigned by anyone
+holding the Admin or Billing role. The six roles are Admin, Editor, Marketing, Viewer, Compliance and
 Billing. The Entra token establishes who you are and which organisation you
 belong to; the portal role decides what you can do. See
 [users and roles](/admin/users-and-roles/).

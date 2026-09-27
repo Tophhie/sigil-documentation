@@ -54,15 +54,16 @@ does not fire for a message started from the iOS Share sheet.
 | --- | --- |
 | `portal.usesigil.app` | Admin portal and the signature API |
 | `static.usesigil.app` | The add-in bundle and its manifest |
-| `e-clk.usesigil.app` | Tracked link redirects only |
+| `e-clk.usesigil.app` | Tracked link redirects and contact card downloads |
 
 If your organisation filters outbound traffic, allow all three. The add-in
 fetches from `portal.usesigil.app` and is itself served from
-`static.usesigil.app`. The link domain answers `/r/` redirects and returns 404
-for every other path, so it carries no API or portal surface.
+`static.usesigil.app`. The link domain answers `/r/` redirects, `/vcf/` contact
+card downloads and certificate validation requests under `/.well-known/`, and
+returns 404 for every other path, so it carries no API or portal surface.
 
 If you hold the [branded link domain](/monitoring/branded-link-domain/) add-on,
-your own hostname serves tracked links in place of `e-clk.usesigil.app`, and
+your own hostname serves tracked links and contact cards in place of `e-clk.usesigil.app`, and
 should be allowed in its stead. Only recipients reach it, so an outbound filter
 covering your own staff is rarely the thing that matters here.
 
@@ -83,6 +84,10 @@ Outlook on the web normally takes Microsoft's copy of `MicrosoftAjax.js` from
 Sigil's. So a network that blocks `ajax.aspnetcdn.com` can see the add-in work in
 the browser and fail in the other Outlook clients.
 
+Sign-in goes through `login.microsoftonline.com`, the same Microsoft sign-in
+service every Microsoft 365 app uses, so it is already allowed wherever Outlook
+works.
+
 Nothing else needs allowing. The icons in the "My signature" pane were once
 fetched from `unpkg.com`; they now ship inside the add-in bundle, so an
 organisation that blocks general-purpose content delivery networks loses nothing
@@ -99,8 +104,9 @@ still names `unpkg.com`, those entries can be removed.
 Outlook itself sets limits on what a signature can contain. Design within them
 from the start rather than discovering them at publish time.
 
-A rendered signature must stay under 30,000 characters. The portal blocks a
-publish that would exceed it.
+A rendered signature must be no more than 30,000 characters. The portal blocks a
+publish that would exceed it, measured with sample data and without any banner or
+footer, so leave some headroom.
 
 SVG is not supported. Use PNG or JPG.
 
