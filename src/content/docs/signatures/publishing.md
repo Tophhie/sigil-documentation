@@ -56,6 +56,35 @@ draft is still saved and the message says it cannot be published as it is.
 
 The editor returns to the live version.
 
+### Seeing who else has it open
+
+When a colleague opens the same template while you have it open, a line under
+the template's name says so, such as "Sam Patel is also editing this
+template." It names everyone else who has it open, in either editor, and
+disappears when they close it or move to another template.
+
+If a colleague saves a draft or publishes while you are working, a banner
+appears above the HTML editor, such as "Draft saved by Sam Patel just now.
+Reload to see it." The designer shows the same words as a message, naming the
+colleague by email address. Your text or canvas is left exactly as it was. Sigil never swaps in
+their version behind your back, so the choice is yours:
+
+1. Read the banner to see who changed what.
+2. To pick up their version, choose Reload in the banner, or reload the page in
+   the designer. Anything you had not saved is discarded.
+3. To carry on with your own version, keep working. When you save or publish,
+   Sigil tells you your copy is out of date, and
+   [the steps below](#when-a-colleague-saved-first) apply.
+
+A publish also refreshes the editor's rollout panel and schedule banner on its
+own, since both describe the version that has just been replaced.
+
+Only people who can edit templates see this. The presence line and the banners
+are part of the portal's live updates, which need the portal to hold an open
+connection to Sigil. If that connection drops, for example on a flaky network,
+the portal reconnects on its own and re-reads anything that changed while it
+was away. Until it does, you are warned by the refusal described next instead.
+
 ### When a colleague saved first
 
 Two people can have the same template open at once. Each save, publish,

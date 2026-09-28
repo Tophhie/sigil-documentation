@@ -186,7 +186,7 @@ it, marking each operation reachable or not. That answers the question people
 actually arrive with, which is never "what does the API offer" but "why is my
 script getting a refusal".
 
-The same page offers an OpenAPI 3.1 document to download, which imports into
+The same page offers an OpenAPI 3.0 document to download, which imports into
 Postman and generates a client. A key can fetch that document itself, so a build
 job can regenerate its client without anybody signing in.
 
@@ -203,7 +203,7 @@ To read the list as one of your keys sees it:
 
 Rows the key would be refused are greyed out, and hovering over one says why in
 the words the refusal would arrive in. Pick Everything a key could reach to go
-back to the whole list. Choose OpenAPI 3.1 at the top of the tab to download
+back to the whole list. Choose OpenAPI 3.0 at the top of the tab to download
 the document as `sigil-openapi.json`.
 
 ## Choosing what to grant

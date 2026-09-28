@@ -68,7 +68,8 @@ providers accept that; the ones that want only the label in front of your domain
 say so on their own form.
 
 Once you confirm, Sigil claims the hostname and orders a certificate for it. The
-card on Settings is where you come back to watch that happen.
+card on Settings is where you come back to watch that happen. It updates itself
+when the domain's status changes, so there is no need to reload the page.
 
 ### Adding the domain
 

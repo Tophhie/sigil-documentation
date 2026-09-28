@@ -82,6 +82,10 @@ the preview route is the form a script can read, diff or store. See
 prose, and a script wanting what the documentation says should read the
 documentation. See [ask the documentation](/admin/ask-the-documentation/).
 
+So is `GET /api/admin/events/socket`, the connection the portal keeps open to
+hear about changes as they happen. It tells an open page to re-read something,
+which a script can do on its own schedule by calling the route it already uses.
+
 `GET /api/admin/profile-values` and `PUT /api/admin/profile-values/:email` are
 out for the same reason. Those return and write what a named colleague entered
 about themselves, which is the same per-individual read, and arguably more
@@ -118,7 +122,7 @@ decision rather than a default.
 | Route | Auth | Purpose |
 | --- | --- | --- |
 | `GET /api/admin/api-surface` | Admin token or key | The allow-list as data, with the base URL. What the portal's API reference tab renders |
-| `GET /api/admin/api-reference.json` | Admin token or key | The same thing as an OpenAPI 3.1 document, served as a download |
+| `GET /api/admin/api-reference.json` | Admin token or key | The same thing as an OpenAPI 3.0 document, served as a download |
 
 Both are guarded by authentication alone. A key holds no role and so could never
 pass an Admin-role guard, which would make an admin-gated reference unreachable
@@ -168,7 +172,7 @@ works before anything else does.
 
 On the same tab, Show what this key can do lists your live keys. Picking one
 greys out every operation that key would be refused, and hovering a greyed row
-gives the reason and the status code it would get. OpenAPI 3.1 downloads the
+gives the reason and the status code it would get. OpenAPI 3.0 downloads the
 same reference as `sigil-openapi.json`.
 
 ## Signature endpoints
@@ -485,6 +489,7 @@ telemetry.
 | `DELETE /api/admin/link-domain` | Admin token, settings capability | Release the hostname. New links return to the shared domain, and links already sent on the branded one stop resolving |
 | `POST /api/admin/link-domain/check` | Admin token, settings capability | Re-read the certificate's state now rather than waiting for the nightly check |
 | `POST /api/admin/help/ask` | Admin token, any role | A question about the documentation, answered from `docs.usesigil.app` with the pages it drew on. Answers 404 if the feature is unavailable to the organisation, before the body is read. Not available to API keys. See [ask the documentation](/admin/ask-the-documentation/) |
+| `GET /api/admin/events/socket` | Admin token, templates, settings or billing capability | The WebSocket the portal holds open for [live updates](/signatures/publishing/#seeing-who-else-has-it-open). Each message names what changed by id and nothing more, and only reaches people who hold the capability for it. Answers 403 for a role with none of the three. Not available to API keys |
 | `GET /api/admin/onboarding` | Admin token, Admin role | Getting started checklist state |
 | `POST /api/admin/onboarding/dismiss` | Admin token, Admin role | Dismiss the checklist |
 | `POST /api/admin/dpa/accept` | Admin token, Admin role | Record acceptance of the data processing agreement |

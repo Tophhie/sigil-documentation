@@ -70,6 +70,18 @@ deleted after 30 days, and with your organisation if it leaves.
 Tracked link definitions, their click counts, and 90 days of per-click records
 holding no identifier of any kind.
 
+A short list of recent changes, which is what lets an open portal page update
+itself when a colleague publishes, a rollout moves or a payment is confirmed.
+Each entry holds the kind of change, when it happened, the ids and statuses it
+concerns, and the email address of the administrator who made it, where a
+person made it. It never holds a signature, a design, a directory attribute or
+anything about a recipient: the page is told what changed and re-reads it the
+ordinary way. Sigil keeps the last 200 entries or the last 24 hours, whichever
+is less, so that a page which briefly lost its connection can catch up. While
+an administrator has a template open, their name and address are shown to
+colleagues who have the same template open, and that is held only for as long
+as the page stays open.
+
 Billing state, mirrored from Stripe, and your billing profile.
 
 Your organisation's choice about [product update emails](/admin/settings/#product-update-emails),
@@ -282,8 +294,9 @@ images in R2, and rendered signatures in a KV cache. Billing is handled by Strip
 See [infrastructure](/security/infrastructure/).
 
 Data at rest sits in the United Kingdom or the European Economic Area. The
-database, the uploaded images and the nightly database backups are all held in
-storage created in Cloudflare's EU jurisdiction. That is a restriction Cloudflare
+database, the uploaded images, the nightly database backups and the list of
+recent changes behind live updates are all held in storage created in
+Cloudflare's EU jurisdiction. That is a restriction Cloudflare
 enforces on where the data may be kept, rather than a preferred location it is
 free to ignore, and the read copies the database keeps for speed are only made
 inside the same jurisdiction.

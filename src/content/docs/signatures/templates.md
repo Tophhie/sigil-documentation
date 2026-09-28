@@ -95,6 +95,11 @@ The Draft badge is a yes or no rather than a preview. The library deliberately
 never loads template bodies, since that would mean pulling a full signature per
 row to answer a question that fits in a badge.
 
+The badges keep themselves current. When anyone publishes, saves a draft,
+starts or finishes a rollout, or books or cancels a publish, the library
+re-reads within a second or so, so a view left open on another screen does not
+go stale.
+
 ## Creating a template
 
 Creating one asks for a name and where to start from. That choice also decides

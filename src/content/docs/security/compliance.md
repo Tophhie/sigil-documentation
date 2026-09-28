@@ -346,6 +346,7 @@ administrators a re-consent link.
 | Onboarding attempt records | Indefinite, and outside the tenant's own data |
 | Sign-up diagnostics held on those records | 90 days, then cleared while the attempt stays |
 | Sign-ins from an organisation that never connected | 90 days from the last sighting, then removed in full |
+| Recent changes behind the portal's live updates | The last 200 or the last 24 hours, whichever is less. Ids, statuses and the acting administrator's address only |
 | Addresses opted out of product update emails | Until that person opts back in. Holds the address and the date only |
 
 Deprovisioning a tenant purges all of it except the onboarding attempt records

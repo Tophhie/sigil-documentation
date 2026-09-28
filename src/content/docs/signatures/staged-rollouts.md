@@ -129,9 +129,12 @@ percentage, both versions' apply results side by side, and what the evaluator
 will do at its next pass, in words rather than in numbers you have to interpret.
 
 The panel is in whichever editor the template opens in, which is the one you
-started the rollout from. It refreshes itself about once a minute, so the apply
-counts move continuously even though a decision is only taken every fifteen
-minutes.
+started the rollout from. It updates itself whenever the rollout moves: when it
+starts, steps up to its next percentage, is promoted or is rolled back, whether
+a colleague or the evaluator made the change. Between those moments the apply
+counts are as they were when the panel last read them, so reopen the template
+to see the latest figures. In the designer, if the portal's live connection
+drops, the panel falls back to re-reading once a minute until it returns.
 
 A verdict of holding, with a count of apply outcomes against the 20 it needs,
 means nobody in the slice has composed enough messages yet. That is the normal

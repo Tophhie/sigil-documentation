@@ -36,7 +36,7 @@ the corner are enough to tell one template from another at a glance.
 
 Where there is no picture, nothing is drawn. A row with an empty placeholder box
 would read as a fault, when all it means is that the picture has not been made
-yet.
+yet. Once it is made, it appears in place without the page being reloaded.
 
 To open a picture at full size:
 

@@ -209,6 +209,11 @@ subscription panel changes from "No card yet" to "Card on file". If you leave
 Checkout without saving a card, you are returned to the Billing view and
 nothing changes.
 
+Stripe confirms some changes a moment after you are returned. When that
+confirmation arrives, the Billing view, the Getting started checklist and any
+billing warning across the top of the portal all update on their own for
+anyone who can see billing.
+
 ### Changing the payment method
 
 1. Open Billing in the portal sidebar.
