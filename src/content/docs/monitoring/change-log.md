@@ -176,6 +176,10 @@ Entries read in plain language rather than as internal lever names:
 | Recorded your data processing agreement | Acceptance was recorded on your behalf |
 | Repaired a setup step | An unfinished onboarding step was completed |
 | Scheduled your organisation for deletion, or Cancelled the scheduled deletion | A deprovision was booked or called off |
+| Moved your organisation's data to a dedicated store, or Moved your organisation's data back to the shared store | Your data was copied into a database of its own, checked, and switched over, or the reverse. See [tenant isolation](/security/data-and-privacy/#tenant-isolation) |
+| Took a backup of your organisation's data | A backup of your organisation's own database was taken by hand, on top of the nightly one |
+| Checked that a backup of your organisation's data restores | The latest backup was restored into a temporary copy and compared with your live data. The copy is deleted as soon as the comparison is done. Marked Read, because nothing of yours changed |
+| Restored your organisation's data to its last nightly checkpoint | Your organisation's own database was rewound to the point recorded at its last nightly maintenance run. Anything changed after that point is undone |
 
 An action with no wording of its own falls back to its internal name. That is
 worse to read than a label and much better than a hidden row, which is the trade

@@ -19,9 +19,9 @@ arrive without a wait. See
 | Component | Used for |
 | --- | --- |
 | Cloudflare edge compute | The API, the admin portal and the redirect service |
-| Cloudflare D1 | Templates, configuration, telemetry and billing state, in Cloudflare's EU jurisdiction |
+| Cloudflare D1 | The shared database: organisation records, billing state, and everything else for an organisation not yet moved to its own database, in Cloudflare's EU jurisdiction |
+| Cloudflare Durable Objects | Each organisation's own database, holding its templates, configuration, telemetry and change log. Also the portal's live updates: the open connections, and the list of recent changes a page catches up from. All in Cloudflare's EU jurisdiction |
 | Cloudflare R2 | Uploaded images, preview pictures and nightly database backups, all in Cloudflare's EU jurisdiction |
-| Cloudflare Durable Objects | The portal's live updates: the open connections, and the list of recent changes a page catches up from, in Cloudflare's EU jurisdiction |
 | Cloudflare KV | Rendered signature cache and per-mailbox rule resolution, cached on the global network and expiring on its own |
 | Cloudflare's headless browser | Rendering the [signature previews](/signatures/previews/) shown in the portal and in Sigil's emails |
 | Cloudflare Email | Invitations, test emails, operator notices and internal alerts |

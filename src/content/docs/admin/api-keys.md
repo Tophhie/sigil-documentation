@@ -237,7 +237,7 @@ Beyond either, Sigil answers 429 until the rate falls back under the limit.
 
 The first is per key rather than per address, so a script running on a fleet of
 build agents is still one client. It sits far above any plausible runbook or
-reporting pull, and exists because the database is shared across every
+reporting pull, and exists because the service is shared across every
 organisation, which makes a retry loop somebody else's problem as well as yours.
 
 The second is deliberately looser, and is a load guard rather than a security

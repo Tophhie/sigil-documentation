@@ -108,7 +108,7 @@ random data rather than something a person chose, so there is nothing to guess.
 
 Revocation is immediate and the row survives it, which keeps the change log's
 attribution resolvable. Expiry is optional and checked on every request. Each
-key is rate limited to 600 requests a minute, because the database is shared
+key is rate limited to 600 requests a minute, because the service is shared
 across organisations and a runaway script should not become everybody's problem.
 
 ## Authorisation
@@ -146,8 +146,24 @@ and cannot be injected.
 
 ## Tenant isolation
 
-All tenant data shares one database with a tenant id on every row, and every
-storage function takes the tenant id, so a query cannot forget to scope itself.
+Each organisation's data is moving into a database of its own. A new
+organisation is created with its own from the start, and organisations that
+joined earlier are being moved across one at a time. Once an organisation has
+its own database, its templates, rules, users, telemetry and change log are
+physically apart from everybody else's, so keeping them apart no longer depends
+on every query remembering to filter by organisation.
+
+Until an organisation has been moved, its data sits in the shared database with
+a tenant id on every row, and every storage function takes the tenant id, so a
+query cannot forget to scope itself. The tenant id stays on every row after the
+move as well.
+
+A few records stay in the shared database for every organisation, because Sigil
+has to find them before it knows which organisation a request belongs to: the
+organisation record itself, billing and subscription state, API key hashes,
+tracked link destinations, portal sign-in records, the names shown against the
+people who use the portal, and partner records. None of them is content you
+authored.
 
 Object storage keys are prefixed by tenant. Cache keys are tenant-salted. Tracked
 link slugs are derived from the tenant id and the destination, so two

@@ -621,3 +621,12 @@ The two causes of a 403 are distinguishable from the server's own records but
 not by the add-in, which treats both as a reason to apply nothing. An excluded
 mailbox therefore reports the same way in the pane as an unconnected
 organisation.
+
+Outside the signature path, one more code is worth handling in a script. While
+your organisation's data is being
+[moved into a database of its own](/security/data-and-privacy/#tenant-isolation),
+a request that would change your templates, rules, users or settings is
+answered 503 with
+`Retry-After: 120` and the error "Your organisation's data is being moved. Try
+again in a couple of minutes." Reads keep working. The move takes a few
+minutes, so waiting for the `Retry-After` and trying once more is enough.

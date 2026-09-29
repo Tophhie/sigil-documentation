@@ -403,6 +403,14 @@ signature was set. That is Outlook's behaviour, not a signature failure.
 If other event-based add-ins are deployed in your tenant, they run sequentially
 rather than in parallel, which can make signature application feel slower.
 
+A save or publish in the portal that fails with "Your organisation's data is
+being moved. Try again in a couple of minutes." is not a fault. Your
+organisation is being moved into a database of its own, which refuses changes
+for a few minutes while the copy is made and checked. Signatures keep being
+served while it happens. Wait two minutes and try again. The move shows in your
+[change log](/monitoring/change-log/) once it has finished. See
+[tenant isolation](/security/data-and-privacy/#tenant-isolation).
+
 The pane's "Edit my details" button is missing for most organisations, and that
 is the normal state. It appears only where
 [profile editing](/admin/settings/) is switched on and at least one

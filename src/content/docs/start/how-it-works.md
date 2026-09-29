@@ -201,10 +201,11 @@ signatures against the same application registration and the same add-in
 manifest.
 
 A tenant is an organisation, keyed by its Entra tenant id, which arrives on every
-verified token. All tenant data shares one database with a tenant id on every
-row, storage keys are prefixed by tenant, and cache keys are tenant-salted. The
-signature endpoint resolves the tenant from the token and refuses an unknown or
-suspended one.
+verified token. Each organisation's data is kept in a database of its own, or
+in a shared database with a tenant id on every row until the organisation has
+been moved across. Storage keys are prefixed by tenant, and cache keys are
+tenant-salted. The signature endpoint resolves the tenant from the token and
+refuses an unknown or suspended one.
 
 There is nothing tenant-specific in the add-in. It uses the `/organizations`
 authority, so NAA brokers each person's token through their own tenant, whichever
@@ -212,7 +213,8 @@ that is.
 
 ## What it runs on
 
-Sigil runs on Cloudflare's edge network. Templates and metadata live in D1, inline
+Sigil runs on Cloudflare's edge network. Templates and metadata live in the
+organisation's own database (or the shared one, until it has been moved), inline
 images in R2, and rendered signatures in a KV cache. Billing runs on Stripe. Mail
 for invites, test emails and operator notices goes through Cloudflare Email
 Routing.

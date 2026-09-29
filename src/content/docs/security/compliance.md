@@ -188,7 +188,7 @@ agreement names all three rather than reserving the right to add more quietly.
 | Stripe | Subscription billing and card processing | UK, EU and US |
 
 Your directory data and the content you author are stored in the United Kingdom
-or the European Economic Area. The database, the uploaded images and the nightly
+or the European Economic Area. The databases, the uploaded images and the nightly
 database backups all sit in storage created in Cloudflare's EU jurisdiction, which
 Cloudflare enforces as a limit on where the data may be kept rather than treating
 as a preference.

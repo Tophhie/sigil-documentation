@@ -289,12 +289,15 @@ entirely for a suspended or removed organisation.
 
 ## Where data lives
 
-Sigil runs on Cloudflare's edge network. Templates and configuration are in D1,
-images in R2, and rendered signatures in a KV cache. Billing is handled by Stripe.
-See [infrastructure](/security/infrastructure/).
+Sigil runs on Cloudflare's edge network. Your templates, configuration and
+telemetry are in a database of your organisation's own, or in the shared database
+until your organisation has been moved to one (see
+[tenant isolation](#tenant-isolation)). Images are in R2, and rendered signatures
+in a KV cache. Billing is handled by Stripe. See
+[infrastructure](/security/infrastructure/).
 
 Data at rest sits in the United Kingdom or the European Economic Area. The
-database, the uploaded images, the nightly database backups and the list of
+databases, the uploaded images, the nightly database backups and the list of
 recent changes behind live updates are all held in storage created in
 Cloudflare's EU jurisdiction. That is a restriction Cloudflare
 enforces on where the data may be kept, rather than a preferred location it is
@@ -320,6 +323,21 @@ you get before that list changes, see
 Every record carries a tenant id, storage keys are prefixed by tenant, and cache
 keys are tenant-salted. A query cannot reach another organisation's data, and the
 signature endpoint refuses a tenant it does not recognise.
+
+Each organisation is also getting a database of its own. New organisations start
+with one, and existing organisations are being moved across one at a time. The
+move copies everything, checks the copy row by row against the original, and
+only then switches over, so nothing you wrote is lost or changed by it. It takes
+a few minutes. Signatures keep being served throughout, and changes in the portal
+are refused for those minutes with the message "Your organisation's data is being
+moved. Try again in a couple of minutes." Your
+[change log](/monitoring/change-log/#actions-taken-by-tophhie-cloud-support)
+records the move as "Moved your organisation's data to a dedicated store".
+
+The move changes where your data is kept, not what is kept or for how long. The
+retention periods, the EU jurisdiction and the deletion on deprovision are the
+same either side of it. See [security model](/security/security-model/#tenant-isolation)
+for what stays in the shared database and why.
 
 ## Getting your data out
 
@@ -469,7 +487,11 @@ during its grace window is safe even if a purge had already been queued for it.
 
 Everything above describes the live systems. Backups are the one place a purge
 does not reach: a backup holding your data is overwritten on its normal cycle
-within 90 days and stays covered by the data processing agreement until it is. If
+within 90 days and stays covered by the data processing agreement until it is.
+The nightly backups of an organisation's own database are the one kind a purge
+does remove, and each expires after 30 days in any case. The shared database's
+backups still hold whatever it held about you, including everything from before
+your organisation was moved, until they expire on that same cycle. If
 you are giving somebody a date by which the data is gone, that is the date to
 give. See
 [deletion on termination](/security/compliance/#deletion-on-termination-and-what-backups-mean-for-it).
