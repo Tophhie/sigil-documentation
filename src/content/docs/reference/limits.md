@@ -96,6 +96,7 @@ See [assignment rules](/targeting/assignment-rules/).
 | Operator audit log | Indefinite |
 | Onboarding attempt records | Indefinite, and kept after a deprovision |
 | Sign-up diagnostics held on those records | 90 days, then cleared while the attempt stays |
+| Campaign tags on a sign-up | The `utm_` tags stay with the attempt. The Microsoft Advertising click id is cleared at 90 days with the diagnostics |
 | Sign-ins from an organisation that never connected | 90 days from the last sighting, then removed in full |
 
 Click totals and the daily chart outlive the per-click records they were built

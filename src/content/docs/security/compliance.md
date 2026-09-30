@@ -74,7 +74,9 @@ accounting law that governs the financial part of it; portal access records, on
 that same contract and on the legitimate interest in keeping the portal secure
 and giving your administrators an audit trail; and the sign-up diagnostics, on the
 legitimate interest in telling a real administrator apart from the crawlers that
-follow a public sign-up link.
+follow a public sign-up link. The campaign tags recorded on a sign-up rest on the
+same basis, as a legitimate interest in measuring Tophhie Cloud's own
+advertising.
 
 Product update emails to administrators and partner staff are Tophhie Cloud's own
 processing too, on the legitimate interest in keeping existing customers informed
@@ -345,6 +347,7 @@ administrators a re-consent link.
 | Per-click records behind the analytics splits | 90 days, then purged by a nightly sweep |
 | Onboarding attempt records | Indefinite, and outside the tenant's own data |
 | Sign-up diagnostics held on those records | 90 days, then cleared while the attempt stays |
+| Campaign tags on a sign-up | The `utm_` tags stay with the attempt. The Microsoft Advertising click id is cleared at 90 days with the diagnostics |
 | Sign-ins from an organisation that never connected | 90 days from the last sighting, then removed in full |
 | Recent changes behind the portal's live updates | The last 200 or the last 24 hours, whichever is less. Ids, statuses and the acting administrator's address only |
 | Addresses opted out of product update emails | Until that person opts back in. Holds the address and the date only |

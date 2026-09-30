@@ -405,8 +405,8 @@ rather than in parallel, which can make signature application feel slower.
 
 A save or publish in the portal that fails with "Your organisation's data is
 being moved. Try again in a couple of minutes." is not a fault. Your
-organisation is being moved into a database of its own, which refuses changes
-for a few minutes while the copy is made and checked. Signatures keep being
+organisation's data is being moved between databases by Tophhie Cloud support,
+which refuses changes for a few minutes while the copy is made and checked. Signatures keep being
 served while it happens. Wait two minutes and try again. The move shows in your
 [change log](/monitoring/change-log/) once it has finished. See
 [tenant isolation](/security/data-and-privacy/#tenant-isolation).

@@ -19,7 +19,7 @@ arrive without a wait. See
 | Component | Used for |
 | --- | --- |
 | Cloudflare edge compute | The API, the admin portal and the redirect service |
-| Cloudflare D1 | The shared database: organisation records, billing state, and everything else for an organisation not yet moved to its own database, in Cloudflare's EU jurisdiction |
+| Cloudflare D1 | The shared database: organisation records, billing state, API key hashes, tracked link destinations, portal sign-ins, the names shown against portal users and partner records, which Sigil has to read before it knows which organisation a request belongs to. In Cloudflare's EU jurisdiction |
 | Cloudflare Durable Objects | Each organisation's own database, holding its templates, configuration, telemetry and change log. Also the portal's live updates: the open connections, and the list of recent changes a page catches up from. All in Cloudflare's EU jurisdiction |
 | Cloudflare R2 | Uploaded images, preview pictures and nightly database backups, all in Cloudflare's EU jurisdiction |
 | Cloudflare KV | Rendered signature cache and per-mailbox rule resolution, cached on the global network and expiring on its own |

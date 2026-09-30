@@ -110,11 +110,24 @@ again. That address is what gives support somebody to contact when a sign-up
 fails before it has named an organisation, and nothing is authorised on the
 strength of it.
 
+If the link you arrived by carried campaign tags, Sigil records those on the same
+attempt, so Tophhie Cloud knows which of its own adverts or listings brought the
+sign-up. The tags are the five `utm_` parameters (source, medium, campaign, term
+and content) and, from a Microsoft Advertising advert, the `msclkid` click id.
+They are read off the link itself. No advertising cookie is set, no tracking pixel
+is loaded, and nothing about the sign-up is reported back to the advertising
+platform. The portal holds the tags in the browser tab you arrived in, only for
+as long as it takes to get you from the Microsoft sign-in to the consent screen,
+and forgets them once consent completes. A tag longer than 200 characters, or a
+click id that does not look like one, is dropped rather than kept.
+
 No IP address is recorded at any point. These details exist to tell a real
 administrator apart from the mail security scanners and crawlers that follow a
 public sign-up link, and to diagnose a sign-up that did not finish, so they are
 deleted after 90 days while the attempt, its outcome and its timeline are kept
-for good. They cover Sigil's own sign-up flow and nothing else. Nothing of the
+for good. The click id goes at 90 days with them, because it identifies one
+click by one person. The campaign tags stay with the attempt, because they name
+an advert rather than anybody who clicked it. They cover Sigil's own sign-up flow and nothing else. Nothing of the
 kind is recorded about the people in your organisation.
 
 Where an invitation link was used, Sigil also counts how many times its landing
@@ -290,8 +303,7 @@ entirely for a suspended or removed organisation.
 ## Where data lives
 
 Sigil runs on Cloudflare's edge network. Your templates, configuration and
-telemetry are in a database of your organisation's own, or in the shared database
-until your organisation has been moved to one (see
+telemetry are in a database of your organisation's own (see
 [tenant isolation](#tenant-isolation)). Images are in R2, and rendered signatures
 in a KV cache. Billing is handled by Stripe. See
 [infrastructure](/security/infrastructure/).
@@ -324,15 +336,26 @@ Every record carries a tenant id, storage keys are prefixed by tenant, and cache
 keys are tenant-salted. A query cannot reach another organisation's data, and the
 signature endpoint refuses a tenant it does not recognise.
 
-Each organisation is also getting a database of its own. New organisations start
-with one, and existing organisations are being moved across one at a time. The
-move copies everything, checks the copy row by row against the original, and
-only then switches over, so nothing you wrote is lost or changed by it. It takes
-a few minutes. Signatures keep being served throughout, and changes in the portal
-are refused for those minutes with the message "Your organisation's data is being
-moved. Try again in a couple of minutes." Your
+Each organisation also has a database of its own. New organisations start with
+one, and every organisation that joined earlier was moved across on 28 September
+2026. The move copied everything, checked the copy row by row against the
+original, and only then switched over, so nothing you wrote was lost or changed
+by it. Your
 [change log](/monitoring/change-log/#actions-taken-by-tophhie-cloud-support)
-records the move as "Moved your organisation's data to a dedicated store".
+records it as "Moved your organisation's data to a dedicated store".
+
+The rows the shared database held for you before the move are still there, and
+nothing reads them. They stay until Tophhie Cloud removes those tables, which
+will not happen before every organisation has been on its own database for 30
+days, and the purge on deprovision removes them with everything else in the
+meantime.
+
+Tophhie Cloud support can still move an organisation's data, in either
+direction, when a support case calls for it. Each move takes a few minutes.
+Signatures keep being served throughout, and changes in the portal are refused
+for those minutes with the message "Your organisation's data is being moved. Try
+again in a couple of minutes." The change log records each move, including one
+back to the shared store.
 
 The move changes where your data is kept, not what is kept or for how long. The
 retention periods, the EU jurisdiction and the deletion on deprovision are the
@@ -491,7 +514,8 @@ within 90 days and stays covered by the data processing agreement until it is.
 The nightly backups of an organisation's own database are the one kind a purge
 does remove, and each expires after 30 days in any case. The shared database's
 backups still hold whatever it held about you, including everything from before
-your organisation was moved, until they expire on that same cycle. If
+your organisation was moved to its own database, until they expire on that same
+cycle. If
 you are giving somebody a date by which the data is gone, that is the date to
 give. See
 [deletion on termination](/security/compliance/#deletion-on-termination-and-what-backups-mean-for-it).

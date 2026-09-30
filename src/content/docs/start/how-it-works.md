@@ -201,9 +201,8 @@ signatures against the same application registration and the same add-in
 manifest.
 
 A tenant is an organisation, keyed by its Entra tenant id, which arrives on every
-verified token. Each organisation's data is kept in a database of its own, or
-in a shared database with a tenant id on every row until the organisation has
-been moved across. Storage keys are prefixed by tenant, and cache keys are
+verified token. Each organisation's data is kept in a database of its own, with
+the tenant id still on every row. Storage keys are prefixed by tenant, and cache keys are
 tenant-salted. The signature endpoint resolves the tenant from the token and
 refuses an unknown or suspended one.
 
@@ -214,7 +213,7 @@ that is.
 ## What it runs on
 
 Sigil runs on Cloudflare's edge network. Templates and metadata live in the
-organisation's own database (or the shared one, until it has been moved), inline
+organisation's own database, inline
 images in R2, and rendered signatures in a KV cache. Billing runs on Stripe. Mail
 for invites, test emails and operator notices goes through Cloudflare Email
 Routing.

@@ -146,17 +146,16 @@ and cannot be injected.
 
 ## Tenant isolation
 
-Each organisation's data is moving into a database of its own. A new
-organisation is created with its own from the start, and organisations that
-joined earlier are being moved across one at a time. Once an organisation has
-its own database, its templates, rules, users, telemetry and change log are
-physically apart from everybody else's, so keeping them apart no longer depends
-on every query remembering to filter by organisation.
+Each organisation's data is kept in a database of its own. A new organisation
+is created with one from the start, and every organisation that joined before
+that was moved across on 28 September 2026. Its templates, rules, users,
+telemetry and change log are physically apart from everybody else's, so keeping
+them apart does not depend on every query remembering to filter by organisation.
 
-Until an organisation has been moved, its data sits in the shared database with
-a tenant id on every row, and every storage function takes the tenant id, so a
-query cannot forget to scope itself. The tenant id stays on every row after the
-move as well.
+The tenant id is still on every row, and every storage function still takes it,
+so a query cannot forget to scope itself even inside an organisation's own
+database. That is the check the shared database relied on before the move, and
+it was kept rather than dropped.
 
 A few records stay in the shared database for every organisation, because Sigil
 has to find them before it knows which organisation a request belongs to: the

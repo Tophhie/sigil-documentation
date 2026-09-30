@@ -623,8 +623,8 @@ mailbox therefore reports the same way in the pane as an unconnected
 organisation.
 
 Outside the signature path, one more code is worth handling in a script. While
-your organisation's data is being
-[moved into a database of its own](/security/data-and-privacy/#tenant-isolation),
+Tophhie Cloud support is
+[moving your organisation's data between databases](/security/data-and-privacy/#tenant-isolation),
 a request that would change your templates, rules, users or settings is
 answered 503 with
 `Retry-After: 120` and the error "Your organisation's data is being moved. Try
