@@ -16,8 +16,11 @@ disabled accounts and accounts invited in from outside the client's organisation
 excluded. See [what counts as a seat](/admin/billing/#what-counts-as-a-seat).
 
 Mailboxes kept out of Sigil through [cost management](/admin/cost-management/)
-come off that count too, and they do so from the day the change is made rather
-than at a period boundary, because the usage is metered daily. Partner Owners and
+come off that count too, from the next daily measurement rather than at a period
+boundary. Because your charge is an [average of the days](#how-the-average-is-worked-out),
+an exclusion made late in the month takes only the remaining days off. A mailbox
+trimmed on the 29th has still been served for 28 days, and is billed for them.
+Partner Owners and
 Admins can make those changes on a client themselves, which is the point of it
 being a separate permission from billing: the seats sit on your bill, so trimming
 them is your business, while the client's own card and invoices are not.
@@ -27,9 +30,17 @@ list are served and billed. It is worth being deliberate about, because the
 switch necessarily starts from an empty list, and an empty inclusion list means
 none of that client's people receive a signature until you add them.
 
-Those counts are summed across your whole client base and reported once a day as
-usage against a single metered subscription belonging to the partner. You are
-invoiced monthly in arrears for what the period actually recorded.
+Those counts are measured every night across your whole client base and reported
+as usage against a single metered subscription belonging to the partner. You are
+invoiced monthly in arrears, and the charge is the average of the nightly
+measurements across the billing period. The Partner billing page and every
+averaged invoice put it in one sentence: "Your monthly charge is the average of
+the daily billable mailbox measurements across the billing period."
+
+That is what clause 6 of the [partner agreement](/partners/agreement/) already
+says, that usage is measured daily and you pay for the mailboxes you actually
+manage. Moving to the average did not change the agreement, its version or the
+price, so nobody was asked to accept it again.
 
 The list prices on your Partner billing page exclude VAT, as the page itself
 says. Where VAT applies, Stripe adds it to the invoice, working it out from the
@@ -43,7 +54,8 @@ rather than a current concession.
 That is a different model from a direct tenant, which carries a licensed seat
 quantity that prorates when it changes. A partner has no quantity, so there is no
 proration and no mid-cycle invoice. Clients joining and leaving during a month
-show up in the month's usage rather than as adjustments.
+show up in the month's average for the days they were with you, rather than as
+adjustments.
 
 A client whose Microsoft 365 consent has lapsed cannot be counted. It is reported
 separately rather than aborting the aggregate, so one broken client does not stop
@@ -60,6 +72,93 @@ one period to the next.
 Your own tenant, the one holding your own signatures, is handled separately from
 your clients' as part of the partner arrangement.
 
+## How the average is worked out
+
+Each night Sigil records every client's billable mailboxes and marks the day as
+measured for your account. Your charge for the period is the total of those
+daily counts, the mailbox-days, divided by the number of days measured.
+
+| | |
+| --- | --- |
+| Days in a period | From the day the billing period starts to the day before it ends, in UTC. A period running from 15 October to 15 November covers the 31 days from 15 October to 14 November |
+| Precision | Three decimal places, rounded once at the end |
+| On the invoice | The seat line's quantity is the average itself, for example 35.467, multiplied by the per-mailbox price |
+| A night that was missed | Left out of the average rather than counted as zero. The next night's report recalculates from the daily records and catches up |
+| A day with no clients | Counted as a measured day at zero, so the average falls rather than the empty days disappearing |
+
+Every day belongs to exactly one period, and the last day of a period is measured
+and reported before Stripe drafts the invoice, so nothing falls between two
+invoices.
+
+Steady usage costs the same as it always did. 56 mailboxes every day averages
+56.000, in a 28, 30 or 31-day month alike. The average only differs from a
+single count when the number moves during the month, and then it bills the
+days as they were:
+
+- A client you roll out on the 20th of a 30-day month adds roughly a third of
+  its mailboxes to the average, not all of them.
+- A client you offboard on the 10th is billed for the days it was with you,
+  not for nothing.
+- A client suspended partway through counts as zero from the day it is
+  suspended, as above, and at its full count before that.
+
+Each day's measurement is the one taken overnight, and it is fixed once taken.
+Refresh seats, on the Partner billing page, only fills in a day that nothing has
+measured yet. A mailbox excluded in the afternoon and added back in the evening
+therefore cannot rewrite the day it was served.
+
+A client that moves from one partner to another is counted once a day, for
+whichever partner measured it first that day. The same rule decides which
+partner's usage export lists it for that day, so the report you rebill from
+matches your invoice. See
+[taking over an existing tenant](/partners/clients/#taking-over-an-existing-tenant).
+
+If your partner account itself is suspended partway through a period, you are
+billed for the days it was served and nothing for the days it was off.
+
+### When the average starts
+
+Partner billing moves to the average from 1 October 2026, one partner at a time,
+and always at a period boundary rather than partway through a month. Each
+partner moves at the start of its first billing period that begins on or after
+that date. A period that began earlier is billed on its final day's count, as
+partner billing always had been, and its invoice reads that way. A partner that
+joins on or after 1 October is on the average from its first period.
+
+Until your account moves, the sentence on the Partner billing page carries the
+date it applies from: "This applies from your first billing period that starts
+on or after 1 Oct 2026." Once it has moved, the sentence stands on its own.
+
+### Checking the period so far
+
+The figures at the top of the Partner billing page show where the current period
+stands.
+
+| Figure | What it shows |
+| --- | --- |
+| Seats in use | Today's billable mailboxes across every client |
+| Average this period | The average so far, to two decimal places, with how many days have been measured. It shows a dash until the first night of the period has been measured |
+| This month, estimated | The average so far at your rate, less your partner discount. Before your account moves to the average, it is today's count instead |
+
+The estimate moves as the month goes on, and comes close to the invoice's seat
+charge once the period's last day is measured. It leaves out VAT, credits and
+add-ons. Early in a period it rests on a
+few days, so a rollout that is still under way pulls it about.
+
+If the numbers look stale, Owner and Billing staff can ask for a fresh count:
+
+1. Open Partner billing in the portal sidebar.
+2. Choose Refresh seats.
+
+Refresh seats only has something to do on a day that nothing has measured or
+reported yet, such as after a missed night. It then measures today, reports the
+period's average and confirms with "Reported an average of 35.47 seats for this
+period.", with your own figure. On a normal day the overnight run has already
+done both, so the answer is "Nothing to report (already-reported-today)." and the
+figures stay as they are. Either way it never changes a day that is already
+counted. It can be used once every ten minutes; sooner than that, it answers
+"Seats were synced in the last ten minutes. Try again shortly."
+
 ## Add-ons on a client
 
 Some features are charged on top of the per-mailbox rate. There is one today, the
@@ -71,16 +170,18 @@ monthly invoice instead, and a client putting a recurring charge on somebody
 else's bill is not something Sigil allows. Their Billing view says as much and
 tells them to ask you.
 
-It is metered the same way seats are: a second daily count, this time of clients
-that have a branded domain actually live, invoiced monthly in arrears at the list
-price shown on your Partner billing page. Your partner discount reaches it,
+It is metered the same way seats are: a second nightly count, this time of
+clients that have a branded domain actually live, averaged across the billing
+period and invoiced monthly in arrears at the list price shown on your Partner
+billing page. A client whose domain was live for 15 days of a 30-day period adds
+0.5 to the average. Your partner discount reaches it,
 because the discount sits on the aggregate subscription rather than on one line of
 it.
 
 Two things follow from the count being of live domains rather than of enabled
 add-ons. A client you have enabled it for costs you nothing until their
 administrators have set a hostname up and its certificate has issued, and a client
-whose domain you disable stops being counted the same day.
+whose domain you disable stops being counted from the next nightly measurement.
 
 Your own organisation is counted on that meter too, at your partner rate, if you
 enable the add-on for it. That is deliberate: an MSP buying the add-on for its own
@@ -90,7 +191,7 @@ one at list price.
 | | |
 | --- | --- |
 | Enabled by | Partner Owners, Admins and Technicians, from the client's row on the Clients view |
-| Charged | Per client with a live domain, per month, in arrears |
+| Charged | Per client with a live domain, averaged over the days it was live, monthly in arrears |
 | Discount | Your partner discount applies |
 | Set up by | The client's own administrators, in their Settings |
 | Disabling | Removes the client's domain and ends the charge |
@@ -259,7 +360,13 @@ Owner and Billing roles can export it.
 
 The file is named sigil-usage.csv and covers the window on screen.
 
-Its columns are the date, the client name, the tenant id and the seat count.
+Its columns are the date, the client name, the tenant id and the seat count,
+one row per client per measured day. Those daily rows are what your invoice is
+made of: a client's seat counts added up over an invoice's window are the
+mailbox-days its footer prints for that client. A client that moved to or from
+another partner on a given day appears only in the export of the partner it was
+billed to for that day.
+
 [Add-ons](#add-ons-on-a-client) are not in it, so a partner rebilling an add-on
 reads which clients have one from the Clients view rather than from the CSV.
 
@@ -268,31 +375,49 @@ relationship with the client is yours.
 
 ## What your invoice shows
 
-The metered seat line on a partner invoice is a single figure: the seat count the
-period billed on. That is enough to charge against and not enough to explain,
-so Sigil writes the per-client split into the invoice's own footer.
+The metered seat line on a partner invoice is a single figure: the period's
+average, printed by Stripe as the line's quantity, such as 35.467 times the
+per-mailbox price. That is enough to charge against and not enough to explain,
+so Sigil writes the working into the invoice's own footer. It has to be the
+footer, because Stripe does not let the description on a subscription's invoice
+line be changed.
 
 An [add-on](#add-ons-on-a-client) appears as a second metered line, counted in
-clients rather than mailboxes. The footer covers seats only and says so in its
-opening line, so the add-on line is not broken down there, and neither the
-invoice nor the usage export names which clients it covers. The Clients view's
-row menu is what tells you whether a given client has the add-on enabled.
+clients rather than mailboxes, and its quantity is that period's average too.
 
-The footer lists each client and its seats, largest first, then the total and
-the number of clients it covers, then a link back to the usage report with that
-invoice's period already selected. If there are more clients than the footer has
-room for, the ones that do not fit collapse into a single counted line reading
-how many were left and how many seats they hold, so the figures on the invoice
-always add up to the total you were charged.
+The footer, on an invoice billed on the average, reads in this order:
 
-The breakdown is taken from the last day the period recorded, and the footer
-names that date. Usage is metered on the final figure reported in a period
-rather than on an average or a sum, so that day is the one the invoice is
-actually made of. Any other day would print a breakdown that reads as
-authoritative and does not reconcile.
+1. The sentence "Your monthly charge is the average of the daily billable mailbox
+   measurements across the billing period."
+2. "Average billable mailboxes by client", the period's dates and how many days
+   were measured, for example "1 to 31 Oct 2026 (31 days measured)". If a night
+   was missed, it says so, as in "30 days measured of 31".
+3. Each client, largest first, with its average and its mailbox-days, such as
+   "Contoso: 22.387 (694 mailbox-days)". A client's average is its mailbox-days
+   divided by the days measured for your whole account, so a client that joined
+   halfway through shows half its size.
+4. The total average across all your clients, and the mailbox-days it is made
+   of.
+5. The average for branded link domains, when any client had one live during the
+   period. It is a single figure, not split by client.
+6. A link back to the usage report with that invoice's period already selected,
+   which is the day-by-day record behind every figure.
 
-Two cases produce no footer at all. A period holding no recorded usage, which
-happens to a partner provisioned partway through a cycle, leaves the invoice
+Every average is to the same three places as the seat line, so the footer's
+total matches the quantity Stripe printed. If there are more clients than the
+footer has room for, the ones that do not fit collapse into a single counted
+line reading how many were left, with their average and mailbox-days, so the
+figures always add up to the total you were charged. The Clients view's row menu
+is still what tells you which clients have the add-on enabled, because neither
+the invoice nor the usage export names them.
+
+An invoice for a period that began before
+[the move to the average](#when-the-average-starts) was billed on that period's
+final day. Its footer lists each client's seats on that day rather than an
+average, and names the date, since that day is the one the invoice was made of.
+
+Two cases produce no footer at all. A period with no measured days, which can
+happen to a partner provisioned partway through a cycle, leaves the invoice
 alone rather than printing a breakdown that cannot be true. So does a failure
 while writing it: the annotation is cosmetic and is never allowed to interfere
 with the invoice or with billing, so the invoice issues as normal with the
@@ -333,7 +458,9 @@ Check the client list before exporting. It shows the seat count last recorded
 for each client, so a figure that looks wrong for the size of the client is
 worth chasing before the numbers reach your own billing run. Nothing on that
 view compares the count to what you were invoiced, which is what the period
-buttons are for.
+buttons are for. Expect the two to differ for any client whose size changed
+during the month, since the invoice charges the month's average and the list
+shows only the latest day.
 
 ## When a client's billing lapses
 

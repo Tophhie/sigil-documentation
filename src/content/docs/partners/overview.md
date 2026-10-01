@@ -64,8 +64,10 @@ is suspended or not being billed to you. It is the way into any of them. See
 [managing clients](/partners/clients/) for what it does and does not tell you.
 
 Partner billing, covering the consolidated subscription, the current aggregate
-seat count, how you pay, your invoice history and any credits applied to the
-account.
+seat count, the average so far this billing period, how you pay, your invoice
+history and any credits applied to the account. Your charge is the average of
+the nightly measurements across the period. See
+[partner billing](/partners/billing/#how-the-average-is-worked-out).
 
 Usage and rebilling, with per-client seat counts for the current and prior
 periods, exportable for your own billing system.

@@ -554,7 +554,8 @@ tenant. They live under `/api/admin/partner`.
 | `DELETE /invites/:token` | Revoke a pending invitation |
 | `GET /transfers` | Outstanding requests to take over an existing tenant |
 | `POST /transfers` | Ask to take one over, by domain or Entra tenant id |
-| `GET /billing`, `POST /billing/checkout`, `POST /billing/portal`, `POST /billing/sync` | The consolidated subscription |
+| `GET /billing`, `POST /billing/checkout`, `POST /billing/portal` | The consolidated subscription. `GET /billing` also carries `periodToDate` (days measured, mailbox-days and the average so far), `seatMethod` (`last` or `average`) and `seatMethodNote`, the sentence the page prints |
+| `POST /billing/sync` | Refresh seats. Reports the period's average once the account is on it, returned as `averageSeatsMilli` (thousandths of a mailbox) beside `seats`. Returns `seats: null` with a `skipped` reason, usually `already-reported-today`, when the day has already been reported. Once every ten minutes, 429 sooner |
 | `POST /billing/setup-intent`, `POST /billing/setup-intent/:id/complete` | The card form on Partner billing, as for an organisation |
 | `POST /billing/invoices/:id/payment-intent` | Pay one of the partner account's open invoices by card in the portal |
 | `PUT /billing/profile` | Save the partner's own invoice details |

@@ -112,8 +112,8 @@ when the invoice it reduced is the only thing anybody can still see. See
 ## No minimums
 
 There is no minimum volume and no minimum spend. You are billed monthly in
-arrears for the mailboxes you actually manage, so a month in which you manage
-none costs nothing. See [partner billing](/partners/billing/) for how the count
+arrears for the mailboxes you actually manage, measured daily and averaged
+across the billing period, so a month in which you manage none costs nothing. See [partner billing](/partners/billing/) for how the count
 is made.
 
 ## Accepting the agreement

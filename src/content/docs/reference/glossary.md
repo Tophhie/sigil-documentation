@@ -97,6 +97,12 @@ than chosen in the portal. See
 **Managed client**
 A tenant linked to a partner, configured and billed through that partner.
 
+**Mailbox-day**
+One billable mailbox counted on one day. A partner's monthly charge is its
+mailbox-days for the period divided by the days measured, which is the average
+the invoice charges. See
+[partner billing](/partners/billing/#how-the-average-is-worked-out).
+
 **NAA**
 Nested app authentication, the mechanism by which the add-in acquires an Entra
 token silently from inside Outlook.
