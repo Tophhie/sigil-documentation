@@ -495,6 +495,9 @@ telemetry.
 | `POST /api/admin/dpa/accept` | Admin token, Admin role | Record acceptance of the data processing agreement |
 | `GET /api/admin/billing` | Admin token, billing capability | Subscription status, seats, card, invoice |
 | `POST /api/admin/billing/checkout` | Admin token, billing capability | A hosted Stripe card-capture URL. Answers 409, naming the missing fields, until the billing profile is complete |
+| `POST /api/admin/billing/setup-intent` | Admin token, billing capability | Start the card form on the Billing page: a one-use secret the form is drawn against. Answers 409, naming the missing fields, until the billing profile is complete. Not available to API keys |
+| `POST /api/admin/billing/setup-intent/:id/complete` | Admin token, billing capability | Report that the card form succeeded, so the card becomes the invoice default at once. Answers 409 while the card is still being confirmed, and 502 when it was saved but could not be made the default. Not available to API keys |
+| `POST /api/admin/billing/invoices/:id/payment-intent` | Admin token, billing capability | Start paying one open invoice by card in the portal. Answers 404 for an invoice that is not this organisation's, and 409 for one that is no longer open. Not available to API keys |
 | `POST /api/admin/billing/portal` | Admin token, billing capability | A hosted Stripe management URL |
 | `POST /api/admin/billing/cancel`, `…/reactivate` | Admin token, billing capability | Schedule the subscription to end at the close of the current period, or resume it: inside that window reactivating lifts the schedule, after it a new subscription is started. Reactivating answers 409 until the billing profile is complete |
 | `PUT /api/admin/billing/profile` | Admin token, billing capability | Save the billing profile |
@@ -552,6 +555,8 @@ tenant. They live under `/api/admin/partner`.
 | `GET /transfers` | Outstanding requests to take over an existing tenant |
 | `POST /transfers` | Ask to take one over, by domain or Entra tenant id |
 | `GET /billing`, `POST /billing/checkout`, `POST /billing/portal`, `POST /billing/sync` | The consolidated subscription |
+| `POST /billing/setup-intent`, `POST /billing/setup-intent/:id/complete` | The card form on Partner billing, as for an organisation |
+| `POST /billing/invoices/:id/payment-intent` | Pay one of the partner account's open invoices by card in the portal |
 | `PUT /billing/profile` | Save the partner's own invoice details |
 | `GET /billing/invoices`, `GET /billing/adjustments` | The partner account's invoice history, and the credits applied to it |
 | `GET /usage`, `GET /usage/export` | Per-client seat counts, and the CSV for rebilling |

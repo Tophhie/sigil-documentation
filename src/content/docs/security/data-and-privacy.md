@@ -82,7 +82,11 @@ an administrator has a template open, their name and address are shown to
 colleagues who have the same template open, and that is held only for as long
 as the page stays open.
 
-Billing state, mirrored from Stripe, and your billing profile.
+Billing state, mirrored from Stripe, and your billing profile. No card number
+is held. The card form on the Billing page is drawn by Stripe, and what is typed
+into it goes from the browser to Stripe directly. The card's brand, last four
+digits and expiry date are read from Stripe when the page asks for them and are
+not stored by Sigil.
 
 Your organisation's choice about [product update emails](/admin/settings/#product-update-emails),
 with the other settings. Separately, a list of the addresses that have opted out

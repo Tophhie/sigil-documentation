@@ -195,7 +195,7 @@ somebody the Admin role.
 
 They get access the next time they sign in with their Microsoft 365 account.
 
-Under Billing, add a card through Stripe Checkout. At the end of the trial Stripe
+Under Billing, add a card in the form on the page. At the end of the trial Stripe
 either charges the card or, if there is no card on file, cancels the
 subscription. An organisation that never adds a card simply stops rather than
 being billed by surprise, and once the trial ends without an active subscription
@@ -210,9 +210,11 @@ before a card can be added.
 3. Choose Save billing details.
 4. Open the Your subscription tab.
 5. Choose Add payment method.
-6. Enter the card on Stripe's checkout page.
+6. Enter the card in the form that opens and choose Save card. If your bank asks
+   you to confirm the card, follow its prompt.
 
-Stripe returns you to Billing once the card is saved.
+A "Payment method saved." message confirms it. The card details go straight to
+Stripe, Sigil's payment processor, and never pass through Sigil.
 
 ## What comes next
 

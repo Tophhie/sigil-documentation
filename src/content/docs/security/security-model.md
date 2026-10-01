@@ -239,11 +239,23 @@ through.
 
 | Directive | What it allows |
 | --- | --- |
-| Scripts | Sigil's own origin only. No inline script and no script from a content delivery network |
+| Scripts | Sigil's own origin, plus Stripe's card form library from `js.stripe.com`. No inline script and no script from a content delivery network |
 | Styles | Sigil's own origin, plus inline styles, which the portal and signature previews rely on |
 | Fonts | Sigil's own origin. The portal's fonts are hosted by Sigil, so no request goes to a font service |
-| Connections, frames and form posts | Sigil's own origin and Microsoft's sign-in service, `login.microsoftonline.com` |
+| Connections | Sigil's own origin, Microsoft's sign-in service `login.microsoftonline.com`, and `api.stripe.com`, where the card form sends what is typed into it |
+| Frames | Sigil's own origin, Microsoft's sign-in service, and Stripe's `js.stripe.com` and `hooks.stripe.com`, which draw the card form and a bank's card check |
+| Form posts | Sigil's own origin and Microsoft's sign-in service |
 | `<base>` and `<object>` | Nothing at all |
+
+Stripe's script is the one third-party script the portal loads, and the reason
+it is an exception is Stripe's rule rather than Sigil's: it must come from
+Stripe's own address and may not be bundled or copied, because that is what
+keeps card entry with Stripe rather than with Sigil. Every field of the card form
+is a frame from Stripe, so the portal never sees a card number. Only the pages
+that offer the card form load it: Billing, Partner billing and Getting started.
+No other page carries a third-party script.
+Stripe's list also suggests allowing every address under `js.stripe.com`; the
+policy names the exact address instead.
 
 A violation is reported back to Sigil rather than only being blocked, so a page
 that breaks under the policy is noticed rather than left for a customer to

@@ -42,14 +42,22 @@ Stripe emails the invoice to your billing contact and you pay it from its hosted
 page, by card or by bank transfer. Nothing on your account is charged
 automatically, and no card is asked for anywhere.
 
-To pay one from the portal rather than from the email:
+To pay one by card from the portal rather than from the email:
 
 1. Open Billing in the portal sidebar.
 2. Open the Documents tab.
-3. In the Invoices list, choose Pay on the invoice. It is the button shown for
-   an invoice on terms that is still open.
-4. You are taken to the invoice's hosted page on Stripe. Pay it there by card
-   or by bank transfer.
+3. In the Invoices list, choose Pay on the invoice. It is shown on any invoice
+   that is still open.
+4. Enter the card in the form that opens and choose the button, which names the
+   amount due. If your bank asks you to confirm the payment, follow its prompt.
+
+A "Payment received. Thank you." message confirms it, and the list re-reads so
+the invoice shows as paid. Paying this way does not put the account onto card
+collection: the card pays that invoice, and later invoices still arrive on your
+terms.
+
+To pay by bank transfer instead, choose View on the invoice. Its hosted page on
+Stripe opens in a new tab and carries the bank details to pay to.
 
 While an invoice on terms is open, a reminder above the list says to quote the
 invoice number as the payment reference on a bank transfer. See
@@ -105,8 +113,9 @@ An invoice that has been partly settled, by a credit or a part payment, shows
 what is still remaining underneath the total.
 
 Every row links out to the invoice's own hosted page, which is where the PDF
-lives and, on terms, where it is paid. There is a separate download beside it
-for the PDF on its own.
+lives and, on terms, where the bank details for a transfer are printed. There is
+a separate download beside it for the PDF on its own. An open invoice also has a
+Pay button, which pays it by card in a form on the page.
 
 ### Downloading an invoice
 
@@ -118,8 +127,29 @@ You need the Admin or Billing role.
    the end of its row. Its tooltip reads Download the PDF.
 
 Choose View instead to open the invoice's hosted page on Stripe in a new tab.
-On invoice terms an open invoice's button reads Pay rather than View, and the
-same page is where it is paid. See
+
+### Paying an open invoice by card
+
+You need the Admin or Billing role.
+
+1. Open Billing in the portal sidebar.
+2. Open the Documents tab.
+3. In the Invoices list, choose Pay on the open invoice.
+4. Enter the card in the form that opens and choose the button, which reads Pay
+   followed by the amount still due.
+
+This is the quickest way to settle a payment that failed, without leaving the
+portal. It pays that one invoice and does not change the card your subscription
+is charged to. To change that card as well, see
+[changing the payment method](/admin/billing/#changing-the-payment-method).
+Saving a new card there also pays the latest open invoice, so you need only one
+of the two.
+
+The card details go straight to Stripe in a form Stripe draws, and never pass
+through Sigil. If the form reads "This invoice can't be paid by card here. Use
+the invoice page instead.", choose View and pay on the hosted page. An invoice
+that has been paid, voided or written off in the meantime is refused with "This
+invoice isn't open, so there's nothing to pay." See also
 [paying on invoice terms](#paying-on-invoice-terms).
 
 The list is read live rather than from a copy held here, so it shows what your

@@ -185,26 +185,35 @@ they do for a direct organisation, and
 follows is what differs for a partner.
 
 Your invoices are listed on the Partner billing page, newest first, each linking
-to its own hosted page to view, download or pay it. That list is your partner
-account's, not your own tenant's: your own organisation is not invoiced while
-the partnership is running, so its Billing view has nothing of its own to show.
+to its own hosted page to view or download it. An open invoice can also be paid
+by card on the page itself. That list is your partner account's, not your own
+tenant's: your own organisation is not invoiced while the partnership is
+running, so its Billing view carries no card, details or invoices of its own and
+offers a Go to Partner billing button instead.
 
 To add or change the card:
 
 1. Open Partner billing in the portal sidebar.
 2. Choose Add payment method, or Update payment method when a card is already
    on file.
-3. Enter the card on the Stripe page that opens and confirm it.
+3. Enter the card in the form that opens and choose Save card. If your bank asks
+   you to confirm it, follow its prompt.
 
-You are returned to Partner billing with "Payment method saved." Manage
-billing & invoices on the same page opens Stripe's customer portal, where the
-card and the invoices can also be managed.
+The form closes with "Payment method saved." and the page shows the card it now
+holds, for example "Visa ending 4242, expires 04/28". The card number goes
+straight to Stripe and never passes through Sigil. Manage billing in Stripe on
+the same page opens Stripe's customer portal, for anything the page does not do
+itself, such as removing an old card.
 
-To open an invoice:
+To pay or open an invoice:
 
 1. Open Partner billing in the portal sidebar.
-2. Under Invoices, choose View on the invoice, or Pay on one on invoice terms
-   that is awaiting payment. The button beside it downloads the PDF.
+2. Under Invoices, choose Pay on an open invoice to pay it by card in the form
+   that opens, or View to open its hosted page on Stripe. The button beside them
+   downloads the PDF.
+
+Paying an invoice this way charges that invoice only. It does not change the
+card the partner account is charged to.
 
 On invoice terms nothing on the page asks for a card, because none is involved.
 The card panel is replaced by the terms you are on, and the warning about

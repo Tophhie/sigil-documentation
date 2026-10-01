@@ -158,6 +158,10 @@ Missing billing details get a prompt of their own, described under
 way to the two warnings above while either is showing, unless the trial has
 already been set to end for want of the details.
 
+The warning's button reads Add payment method, or Fix payment once a payment has
+failed. It opens Billing with the card form already up, so fixing the card is one
+click rather than two.
+
 The warning can be put off for the rest of the browser session, and comes back on
 the next sign-in. Putting one off does not hide the next: the dismissal is keyed
 to the date being warned about, so an extended trial or a fresh failure is warned
@@ -183,15 +187,23 @@ lapsing must not stop it running theirs.
 
 Both are self-serve from the Billing view.
 
-Add a card through Stripe Checkout. The card you add is promoted to the default
-payment method for invoices automatically.
+You add a card in a form that opens on the Billing view itself, so you never
+leave the portal to do it. The card you add becomes the default payment method
+for invoices straight away.
 
-Manage cards through the Stripe customer portal, also linked from the Billing
-view.
+The form is drawn by Stripe, Sigil's payment processor. Every field in it is
+Stripe's own, so the card number goes from your browser to Stripe and never
+passes through Sigil. Sigil is told only whether the card was saved, and
+afterwards reads back the brand, the last four digits and the expiry date to
+show you which card is on file. It follows the portal's light or dark theme.
+
+Manage billing in Stripe, also on the Billing view, opens the Stripe customer
+portal for anything the page does not do itself, such as removing a card you no
+longer use.
 
 An organisation on invoice terms has no card, and the Billing view offers no
 button to add one: it is not shown rather than shown and refused. The button
-into the Stripe customer portal stays, since invoices are read there.
+into the Stripe customer portal stays.
 
 ### Adding a payment method
 
@@ -201,16 +213,30 @@ the button is disabled.
 
 1. Open Billing in the portal sidebar.
 2. On the Your subscription tab, choose Add payment method.
-3. You are taken to Stripe Checkout. Save the card there.
-4. Stripe returns you to the Billing view.
+3. Enter the card in the form that opens, and choose Save card.
+4. If your bank asks you to confirm the card, follow its prompt. Some banks
+   show the check inside the form; others take you to their own page and then
+   back to the Billing view.
 
 A "Payment method saved." message confirms it, and the Payment figure on the
-subscription panel changes from "No card yet" to "Card on file". If you leave
-Checkout without saving a card, you are returned to the Billing view and
-nothing changes.
+subscription panel changes from "No card yet" to "Card on file", with the card
+named underneath, for example "Visa ending 4242, expires 04/28". Choosing Cancel
+closes the form and changes nothing.
 
-Stripe confirms some changes a moment after you are returned. When that
-confirmation arrives, the Billing view, the Getting started checklist and any
+Saving a card also pays the latest open invoice on your subscription, if there
+is one, so a card added to settle a failed payment does both at once.
+
+If the form cannot be loaded, it reads "The card form couldn't be loaded." A
+browser extension that blocks content is the usual cause, because the form comes
+from Stripe's own address. Allow `js.stripe.com` and try again.
+
+If Stripe saves the card but it cannot be made the default, the form stays open
+and says "The card was saved with Stripe but couldn't be set as your payment
+method." The button changes to Try again, which repeats only that last step, so
+you do not enter the card a second time. Sigil also retries it on its own when
+Stripe confirms the card.
+
+When the save completes, the Billing view, the Getting started checklist and any
 billing warning across the top of the portal all update on their own for
 anyone who can see billing.
 
@@ -218,12 +244,12 @@ anyone who can see billing.
 
 1. Open Billing in the portal sidebar.
 2. On the Your subscription tab, choose Update payment method.
-3. Save the new card in Stripe Checkout. Stripe returns you to the Billing
-   view.
+3. Enter the new card in the form and choose Save card.
 
-The new card becomes the default for invoices. To manage the cards already
-saved, choose Manage billing & invoices instead, which takes you to the Stripe
-customer portal and back to the Billing view when you are done.
+The new card becomes the default for invoices. The old one stays saved with
+Stripe but is no longer charged. To remove it, choose Manage billing in Stripe,
+which takes you to the Stripe customer portal and back to the Billing view when
+you are done.
 
 ## What the Billing view shows
 
@@ -238,9 +264,11 @@ The view is split into tabs: Your subscription, Billing details, Documents and
 DPA. The invoice and credit lists are on Documents. See
 [invoices and credits](/admin/invoices-and-credits/).
 
-Billing details and Documents appear only for an organisation billed directly, so
-a free arrangement or a partner-managed client sees neither, and Documents waits
-until billing has been set up. DPA appears on every arrangement. A tab that needs
+Billing details and Documents appear for an organisation billed directly, and
+for a comped organisation, which can keep a card for add-ons. An NFR
+organisation or a partner-managed client sees neither, and Documents waits until
+billing has been set up. See [the arrangement it names](#the-arrangement-it-names).
+DPA appears on every arrangement. A tab that needs
 something from you, such as incomplete details or an agreement waiting to be
 accepted, carries a ! marker, and a warning on the subscription tab that another
 tab resolves links straight to it.
@@ -270,14 +298,27 @@ rather than leaving you to infer it from whether a card is present.
 | Internal | Tophhie Cloud's own organisation |
 
 The last three mean nobody is invoiced, and the view says so with a "Not billed"
-badge and drops the subscription panel. There is nothing to fix, so offering a
-card to add would only invite somebody to try. Those organisations also see both
+badge and drops the subscription panel. Those organisations also see both
 billing steps on the
 [Getting started checklist](/admin/getting-started-checklist/) marked optional.
 
-A comped or NFR organisation keeps the Billing details tab, because it can still
-buy an [add-on](#add-ons) and an add-on needs somebody to invoice. Only Tophhie
-Cloud's own organisation loses the form entirely.
+A comped organisation, and Tophhie Cloud's own, can still keep a card and
+billing details on file. The plan card has a payment section showing whether a
+card is on file and whether the billing details are complete, with Add payment
+method and Add billing details buttons. A note under it reads "Nothing is
+charged while your plan is free. A saved card is only used for add-ons you
+choose, or if your plan changes." None of it is required. The Billing details
+tab is there too, and Documents appears once Stripe holds a customer record for
+you, which happens the first time you save a card or buy an
+[add-on](#add-ons). A comped organisation that buys an add-on can read its
+invoices there.
+
+An NFR organisation is different, because everything it is billed for,
+add-ons included, goes on the partner invoice. A card saved on it would pay for
+nothing. Its plan card carries a Go to Partner billing button instead of a
+payment section, and it has no Billing details or Documents tab. The partner
+account's own details and card are the ones that count. See
+[partner billing](/partners/billing/).
 
 Billed via partner is not the same as being free. Somebody is invoiced for those
 seats, it is your provider rather than you, and the view names them and the seat
@@ -342,9 +383,9 @@ abandoned by Stripe within a day. A comped organisation is asked for both before
 it can add one, and the view says which is missing. The add-on is then billed on
 its own monthly invoice, and the subscription itself stays free.
 
-A partner's own NFR organisation is asked for billing details only. Its add-on
-goes onto the partner invoice at the partner rate, which already has a payment
-method behind it.
+A partner's own NFR organisation is asked for neither. Its add-on goes onto the
+partner invoice at the partner rate, and the partner account's details and
+payment method are the ones that apply.
 
 A lapsed or cancelled subscription takes the add-on with it. The hostname stays
 provisioned so links already in sent mail keep resolving, but no new link is
@@ -354,7 +395,8 @@ minted on it until the subscription is live again.
 
 You need the Admin or Billing role and complete billing details. A comped
 organisation also needs a payment method on file unless it is on invoice
-terms; the card says which is missing and offers Add payment method.
+terms; the card says which is missing and offers Add payment method. A
+partner's own NFR organisation needs neither.
 
 1. Open Billing in the portal sidebar.
 2. On the Your subscription tab, find the Add-ons card below the subscription

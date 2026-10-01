@@ -216,11 +216,12 @@ A direct organisation is charged from the day it is added, for the part of the
 month it is used, rather than a full month for a few days. Seat counts do not
 work that way, but an add-on is bought once on a day you chose, so it prorates.
 
-An organisation whose subscription is free has never been asked for billing
-details or a payment method, because it had nothing to pay. Adding an add-on
-gives it something to pay, so the Billing view asks for both first and says which
-is missing. The add-on is then billed on its own monthly invoice, and the
-subscription itself stays free.
+A comped organisation may never have been asked for billing details or a
+payment method, because it had nothing to pay. Adding an add-on gives it
+something to pay, so the Billing view asks for both first and says which is
+missing. The add-on is then billed on its own monthly invoice, and the
+subscription itself stays free. A partner's own NFR organisation is asked for
+neither, because its add-on goes onto the partner invoice.
 
 Removing the add-on is self-serve in the same place, and takes the domain with
 it.
@@ -234,8 +235,8 @@ directly rather than through a partner.
 2. Scroll to the Add-ons card and find Branded link domain, with its price
    beside it.
 3. If the card asks you to complete your billing details or add a payment
-   method first, do that. An organisation whose subscription is free will not
-   have been asked for either before.
+   method first, do that. A comped organisation may not have been asked for
+   either before.
 4. Choose Add for the price shown.
 
 A message confirms the add-on was added, the card shows an Included badge, and

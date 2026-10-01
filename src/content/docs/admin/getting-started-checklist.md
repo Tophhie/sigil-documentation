@@ -40,7 +40,7 @@ The checklist is for the Admin role. Working through it goes like this.
 | --- | --- | --- |
 | Connect Microsoft 365 | Grant admin consent | Microsoft's consent prompt |
 | Add your billing details | Add billing details | The Billing details dialog, which you finish with Save billing details |
-| Add a payment method | Add card | The card checkout |
+| Add a payment method | Add card | A card form that opens over the checklist, so you stay on Getting started |
 | Accept the Data Processing Agreement | Review and accept | The DPA tab of Billing |
 | Customise your signature | Edit signature | Templates |
 | Deploy the Outlook add-in | Copy, beside the manifest URL | Nowhere: the step itself carries the instructions for the Microsoft 365 admin centre |
