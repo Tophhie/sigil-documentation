@@ -106,9 +106,11 @@ An invitation is only honoured for an organisation that has genuinely granted
 consent. Microsoft's consent redirect names the tenant it came back for, and
 that name alone is not proof of anything, so Sigil checks the named tenant
 against Microsoft directly before raising the request in your name. Where the
-check comes back definite that the organisation has not granted consent, the
-tenant is provisioned as an ordinary direct customer, no request is raised, and
-your invitation is left unused so it can be sent again.
+check comes back definite that the organisation has not granted consent, no
+request is raised and your invitation is left unused so it can be used again. A
+new organisation is stopped before anything is created and shown a screen asking
+it to try again, which is usually all it takes while Microsoft finishes recording
+the consent. An organisation that already uses Sigil carries on as it was.
 
 The check only refuses on a definite answer. A Microsoft outage, a timeout or a
 slow moment during consent all count as no answer rather than as evidence
@@ -132,6 +134,13 @@ Owners, Admins and Technicians can, for the clients in their scope.
 
 1. Open Clients in the portal sidebar.
 2. Choose Manage on the client's row.
+
+Manage is refused with a message in three cases. "Accept the partner agreement
+before managing clients." means the agreement in force has not been accepted yet,
+which an Owner fixes on the [agreement](/partners/agreement/) card. "You aren't
+assigned to this client." means your [scope](/partners/roles/#client-scoping)
+does not include it. "This client's access is suspended." means the client
+organisation is suspended, and nobody can work inside it until that is lifted.
 
 The portal opens the client's Templates view. A banner at the top reads
 Managing, followed by the client's name, and says that changes are recorded

@@ -29,6 +29,15 @@ You need the Admin or Editor role.
 
 The portal confirms the address the test went to.
 
+The Render as address has to be a mailbox Sigil can find in your directory. If
+it is not, the send is refused with "No such user" and nothing goes out.
+
+The message arrives from `signatures@usesigil.app` with the subject "Signature
+test:" followed by the template name and the mailbox it was rendered as. A short
+grey line above a rule says which signature it is, and the signature itself
+starts below the rule. If a test seems not to have arrived, search for that
+subject, including in junk mail.
+
 ## Where a test can be sent
 
 The recipient defaults to your own address, and you can name a different one, as

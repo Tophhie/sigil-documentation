@@ -35,21 +35,34 @@ than an Owner sees the same card with a line saying an owner at your
 organisation needs to accept it.
 
 Acceptance gates client work, not sign-in. A partner who has not accepted can
-sign in and read the console, but four things are refused until they have:
-inviting a client, requesting a transfer of an existing tenant, releasing a
-client, and enabling an [add-on](/partners/billing/#add-ons-on-a-client) for one.
-The first three hand another organisation's data along a sub-processor chain that
-has to be agreed first. The fourth puts a metered charge on your own invoice, and
-nobody should be able to do that under terms that never mentioned it.
+sign in and read the console, but these are refused until they have:
+
+- inviting a client
+- requesting a transfer of an existing tenant
+- releasing a client
+- enabling an [add-on](/partners/billing/#add-ons-on-a-client) for one
+- working inside a client with [Manage](/partners/clients/#working-inside-a-client)
+
+Inviting, transferring, releasing and working inside a client all handle another
+organisation's data along a sub-processor chain that has to be agreed first. An
+add-on puts a metered charge on your own invoice, and nobody should be able to do
+that under terms that never mentioned it. Manage is refused with "Accept the
+partner agreement before managing clients."
 
 When the substance of the agreement changes, the version in force moves and every
-partner is asked to accept the new version. Until they do, the same four actions
-are refused again. Signing in, reading the console and the clients you already
-manage are unaffected, so a version bump does not interrupt a client's
-signatures.
+partner is asked to accept the new version. Until an Owner does, the same
+actions are refused again, and that includes working inside the clients you
+already manage, so plan for your Technicians and Admins being unable to open a
+client until it is accepted. Signing in and reading the console are unaffected,
+and nothing stops a client's signatures, so a version bump never interrupts
+delivery.
 
-The current version is dated 22 September 2026. It added the add-on terms in
-clause 6 described below, and every partner was re-gated until they accepted it.
+The version you accept is made of two dates, the partner agreement's and the
+[data processing agreement's](/security/compliance/), because accepting one
+accepts the other on the footing described below. A revision to either asks every
+partner to accept again. The partner agreement is dated 22 September 2026, when it
+added the add-on terms in clause 6 described below. The data processing agreement
+is dated 24 September 2026.
 
 ## You accept two documents, not one
 

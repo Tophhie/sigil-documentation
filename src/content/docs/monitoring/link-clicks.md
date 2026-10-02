@@ -16,8 +16,10 @@ A tracked link is a redirect under the dedicated domain
 logs the click after the redirect has already gone out, so nothing waits on the
 write.
 
-That domain serves redirects and nothing else. Every other path on it returns
-404, so the portal and API surface only answer on their own hostname.
+That domain serves redirects, the [contact card](/signatures/contact-card/)
+downloads a signature links to, and the token a certificate authority checks when
+it issues a certificate, and nothing else. Every other path on it returns 404, so
+the portal and API surface only answer on their own hostname.
 
 The recipient's experience is a redirect they will not notice.
 
@@ -30,8 +32,14 @@ applies unchanged to one, except the hostname the redirect sits under.
 [Banner](/targeting/banners/) links are always tracked. There is no opt-out,
 because measuring a campaign is the point of running one.
 
-Templates opt in per template, using the Tracking toggle on the Templates view.
-Turning it on rewrites the template's static links at render time.
+Templates opt in per template.
+
+1. Open Templates in the portal sidebar.
+2. Open the menu at the end of the template's row.
+3. Choose Turn link tracking on.
+
+The portal confirms with "Link tracking on." and the template's row gains a Link
+tracking chip. Turning it on rewrites the template's static links at render time.
 
 ## Links that are never rewritten
 
@@ -228,6 +236,6 @@ being able to change anything. Editors do not reach link clicks.
 
 ## Turning tracking off
 
-Toggle Tracking off for a template and its links stop being rewritten at render
-time. Links already sent in existing messages keep working, because the redirect
+Choose Turn link tracking off from the same menu and the template's links stop
+being rewritten at render time. Links already sent in existing messages keep working, because the redirect
 records remain valid.

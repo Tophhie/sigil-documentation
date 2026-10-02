@@ -73,8 +73,15 @@ Staff can be scoped to a subset of clients rather than all of them, which is the
 usual arrangement for technicians on a large client base.
 
 Scoping is set per person rather than per role. Somebody with no scope set
-reaches every client of the partner; somebody scoped reaches only the clients
-listed against them.
+reaches every client of the partner; somebody scoped can only work inside the
+clients listed against them. Choosing Manage on any other client is refused with
+"You aren't assigned to this client."
+
+A scope narrows who can work inside a client. It does not narrow the Clients
+view itself, which lists every client of the partner to everyone who can open it,
+and it is not checked when a client is released or an add-on is switched on or
+off. Those actions follow the role alone, so an Admin scoped to ten clients can
+still release a client outside those ten.
 
 It applies to the three roles that reach clients at all, so an Owner, an Admin or
 a Technician can each be narrowed. The Billing role cannot, because it has no

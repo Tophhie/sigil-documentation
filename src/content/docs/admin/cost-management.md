@@ -444,6 +444,12 @@ Seat changes never produce a mid-cycle invoice or a credit, so excluding twenty
 mailboxes today does not refund part of this month. That is the same treatment a
 leaver already gets. See [billing](/admin/billing/).
 
+An IT provider whose partner invoice is worked out on the period's average sees
+it sooner. There is still no mid-cycle invoice, but the excluded mailboxes stop
+counting towards that average from the day they are measured, so the current
+period's charge already reflects them. See
+[how the average is worked out](/partners/billing/#how-the-average-is-worked-out).
+
 Putting a mailbox back works the same way in reverse, with one delay worth
 knowing about. The seat returns on the next invoice, and Sigil serves the
 signature to the next message that asks for it. The add-in may not ask straight

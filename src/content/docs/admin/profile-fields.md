@@ -52,7 +52,7 @@ Save changes. The Placeholder box is locked.
 
 | Property | What it does |
 | --- | --- |
-| Key | Becomes the placeholder `{{custom.<key>}}`. Lower-case letter first, then letters and numbers only |
+| Key | Becomes the placeholder `{{custom.<key>}}`. Lower-case letter first, then letters and numbers only, up to 32 characters |
 | Label | What your colleagues see above the input |
 | Help | Optional line under the input, where you explain what you want |
 | Type | Also the validation. See below |
@@ -95,9 +95,11 @@ is refused on save.
 
 ### One check applies to every type
 
-Whatever the type, a value that looks like a link is restricted to ordinary
-`http` and `https` addresses. Something like a `javascript:` link is refused from
-a text field just as firmly as from a Link one.
+Whatever the type, a value that would run as code if it were used as a link is
+refused. That means anything starting `javascript:`, `data:` or `vbscript:`, and
+it is refused from a text field just as firmly as from a Link one. Other schemes,
+such as `mailto:` or `tel:`, are fine in a text field. Only the Link type insists
+on an ordinary `http` or `https` address.
 
 That is deliberately not a rule of the Link type, because a type is a statement
 about what a field is for and three ordinary things get around it. You can change
@@ -130,12 +132,14 @@ somebody typed is the worse of the two outcomes.
 
 ### Retiring an option
 
-If you remove an option from a choice field while people still have it stored,
-they keep it. Their profile page and the administrator's view of their values
-both show what is there rather than blanking the field.
+Removing an option from a choice field is a change to its options, so the sweep
+above applies. Anybody who had that option stored loses it, the field reads as
+Not set for them, and the portal's count of removed values includes them.
 
-Nobody loses their answer to a change they had no part in. They pick again from
-the new list the next time they save.
+Renaming an option counts as removing the old one and adding a new one, so it
+clears the old answer too. If people should keep their answer, add the new
+option first, move the stored values across in the What people entered tab, and
+remove the old option last.
 
 ## Using them in a template
 
@@ -256,12 +260,13 @@ You need the Admin role, or a partner role that holds staff profile details.
 5. Choose Save.
 
 The portal confirms the save and that the person can still change it
-themselves. A value the field's type refuses is reported against that field
-rather than saved.
+themselves. If any value is refused, the problem is shown against that field and
+nothing in the form is saved, including the values that were fine. Correct it and
+save again.
 
 ### Entering values for a mailbox that has none
 
-The tab also has an Add a mailbox button, for a mailbox that has never been to
+The tab also has an Add mailbox button, for a mailbox that has never been to
 the profile page at all. Two cases need it.
 
 A shared mailbox is the first, and it is the only way its fields can be filled
@@ -335,8 +340,12 @@ See [roles and capabilities](/reference/roles-and-capabilities/).
 
 ## What is recorded
 
-Adding, changing, hiding or deleting a field writes a
-[change log](/monitoring/change-log/) entry with the key and what changed.
+Adding, hiding or deleting a field writes a
+[change log](/monitoring/change-log/) entry with the key. So does changing its
+label, its type or whether it is required, and the entry says what moved,
+including how many stored values a change swept out. Edits that touch only the
+help text, the maximum length or a choice field's options, and sweep nothing,
+are saved without an entry.
 Switching profile editing on or off is recorded under Changed settings.
 
 An administrator editing somebody else's values is recorded, with the mailbox

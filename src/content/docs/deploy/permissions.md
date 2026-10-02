@@ -12,8 +12,8 @@ modify your directory even if it were asked to.
 | Permission | Used for |
 | --- | --- |
 | `User.Read.All` | Reading the directory attributes that personalise a signature |
-| `Organization.Read.All` | Reading your organisation's name and domain at onboarding |
-| `GroupMember.Read.All` | Assignment rules that match on Entra group membership, and excluding a group's members in cost management |
+| `Organization.Read.All` | Reading your organisation's name, domain and registered address, and checking that consent is still in place |
+| `GroupMember.Read.All` | Finding group mailboxes, assignment rules that match on Entra group membership, and the groups in cost management |
 
 ## Consent covers all three, or none of them
 
@@ -78,20 +78,33 @@ token.
 
 ## Organization.Read.All
 
-Used once, at onboarding, to name your tenant record and to pre-fill the billing
-profile from your registered address. It is not read on the signature path.
+Sigil reads your organisation's record to name your tenant and to pre-fill the
+billing profile from your registered address. It reads it again to keep that name
+current when people sign in, when your billing details are set up or refreshed,
+and as a quick check that Sigil can still reach your directory. That check runs
+when the Getting started page loads, in the nightly seat count, and when Tophhie
+Cloud support looks at your organisation's health.
+
+None of this is on the signature path. Composing a message never reads it.
 
 ## GroupMember.Read.All
 
-Two features need it, and an organisation that uses neither never exercises it.
+Three things use it.
+
+Group mailboxes. When somebody sends as a Microsoft 365 group, a distribution
+list or a mail-enabled security group, the From address belongs to a group rather
+than a person. Sigil only looks under groups after the address has failed to
+match a user, so ordinary mail never reaches this step. See
+[group mailboxes](/signatures/group-mailboxes/).
 
 [Assignment rules](/targeting/assignment-rules/) that match on Entra group
 membership read the groups a person belongs to. Rules that match on directory
 attributes do not touch it.
 
 [Cost management](/admin/cost-management/) reads the membership of a group you
-have excluded, and searches your groups for the picker. Excluding mailboxes
-individually does not touch it.
+have excluded, and searches your groups for the picker. It also lists your
+mail-enabled groups, so a group's address on your list is recognised as a group
+mailbox rather than flagged as missing from the directory.
 
 It is requested at consent time regardless, because asking for it later would
 mean a second consent round trip at the moment an administrator is trying to
@@ -100,7 +113,9 @@ write a rule or exclude a group.
 One permission covers both directions, which groups a person belongs to and who
 belongs to a given group, so neither feature asks for anything the other did not
 already need. An organisation that consented before this permission was requested
-will find both of them report the problem rather than fail silently.
+will find both of them report the problem rather than fail silently. Group
+mailboxes behave as they did before the lookup existed: a message sent as one is
+refused as an address Sigil cannot find.
 
 ## Application permissions, not delegated
 

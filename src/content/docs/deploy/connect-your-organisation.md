@@ -209,10 +209,18 @@ granted consent before acting on an invitation for it. Without the check, holdin
 an invitation and knowing a tenant id, which is public, would be enough to claim
 an organisation that had never heard of the invitation.
 
-If the answer is definite that no consent exists, your organisation is still
-connected, as an ordinary direct customer. What is withheld is the invitation:
-the provider link or partner status is not applied, and the invitation is left
-unused so it can be sent again once consent is in place.
+If the answer is definite that no consent exists, what happens depends on
+whether Sigil already knows your organisation. A new organisation is stopped
+before anything is created, on the "We couldn't confirm the connection yet"
+screen described above, and retrying is the remedy. An organisation that is
+already connected carries on as it was. Either way the invitation is not applied
+and is left unused, so it still works once consent is in place.
+
+An IT provider's invitation never hands your organisation over by itself. Once
+consent is confirmed, it raises a management request in the provider's name. Your
+first administrator to sign in sees it and approves or declines it, and the
+provider has no access to your tenant until it is approved. See
+[adding a client](/partners/clients/#adding-a-client).
 
 If Microsoft cannot answer, through an outage, a timeout or the moments while
 consent is still propagating, the invitation is honoured as normal. An unanswered

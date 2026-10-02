@@ -28,8 +28,10 @@ no minimum term, which follows from there being
    signatures carry on once your internal-use tenant moves to standard
    billing.
 
-Tophhie Cloud then downgrades your partner account. Nothing is deleted, and
-the [record](#where-the-record-lives) shows it as your own decision.
+Tophhie Cloud then downgrades your partner account. Your own tenant and your
+clients' tenants are untouched, the partner console's own records go as described
+under [removal is not deletion](#removal-is-not-deletion), and the
+[record](#where-the-record-lives) shows it as your own decision.
 
 Your own decision to stop reselling is recorded as exactly that rather than as a
 removal. The distinction is deliberate: the record of why a partnership ended
@@ -102,7 +104,7 @@ not dormant at all.
 | The window | Six consecutive months, measured as 183 days |
 | Measured from | The last time a client organisation moved in or out |
 | For a partner who never had one | The day the partner was onboarded |
-| Notice before removal | Written to your Owners, with 30 days to respond |
+| Notice before removal | Written to your Owner and Billing staff, with 30 days to respond |
 
 Measuring from the last client movement rather than from the onboarding is what
 makes the clock start when you released your last client, which is the moment it
@@ -114,7 +116,8 @@ names a client without ever producing one.
 
 Clause 9.2 is not only the six months. It also promises that Tophhie Cloud writes
 to your Owners first and gives you 30 days to add a client or say why the
-partnership should continue.
+partnership should continue. The notice goes to your Billing staff as well as your
+Owners, the same people who receive your invoices.
 
 That notice is enforced rather than left to diligence. A partner cannot be
 removed on this ground until it has been sent and the 30 days have run, so a
@@ -183,9 +186,24 @@ window closes.
 
 ## Removal is not deletion
 
-Nothing is deleted. Your organisation keeps its Sigil account, its templates, its
-brand assets, its images and its people, and so does every client that was ever
-managed under the partnership.
+No tenant is deleted. Your organisation keeps its Sigil account, its templates,
+its brand assets, its images and its people, and so does every client that was
+ever managed under the partnership.
+
+What does go is the partner account itself and the records that only made sense
+as part of it:
+
+| Removed | What that means |
+| --- | --- |
+| Your partner staff list and their client scopes | Nobody at your firm can reach a client through the console |
+| Pending invitations and transfer requests | Links you sent stop working |
+| The partner event log | The console's own history of client moves and staff changes |
+| Your partner subscription record, seat snapshots and daily measurements | The Partner billing view and its usage history are gone |
+
+If you want to keep your usage history, choose Export CSV under
+[rebilling](/partners/billing/#rebilling) before you leave, and save copies of any
+invoices you need. The console closes with the partner account, so neither can be
+fetched from it afterwards.
 
 This is the same shape as
 [releasing a client](/partners/clients/#releasing-a-client), which also moves a

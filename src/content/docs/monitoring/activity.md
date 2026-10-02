@@ -40,7 +40,7 @@ Which add-in manifest version each mailbox installed, and a notice when any of
 them is behind. Described below.
 
 What this view does not carry is the [change log](/monitoring/change-log/), which
-has a view of its own beside this one. It used to sit here as two cards at the
+has a view of its own beside this one, called Audit log in the sidebar. It used to sit here as two cards at the
 foot of the page. Whether the add-in is reaching people and who changed what are
 different questions, and the second had outgrown the bottom of the first.
 
@@ -261,8 +261,12 @@ which points at the network between Outlook and `portal.usesigil.app` rather tha
 at the service. See
 [troubleshooting](/deploy/troubleshooting/#is-something-on-your-network-eating-the-request).
 
-A refusal Sigil makes deliberately is never either of these. It is recorded as a
-refusal in its own right, described below.
+A refusal Sigil makes deliberately is recorded as a refusal in its own right,
+described below, with one wrinkle. When the address resolves to nobody in your
+directory, Sigil answers with a 404, and the add-in has no name of its own for
+that answer. Its report therefore reads `server-error` with status 404, while
+the served request beside it reads `not-found`. A 404 under `server-error` is a
+directory question, not an outage.
 
 Neither reason appears when the mailbox still has a usable copy of its last
 signature on the device. Sigil could not be reached, but the person did get a
@@ -326,6 +330,18 @@ not enough.
 The line the add-in does draw is between the service declining and the service
 failing. Without it, a lapsed subscription would read to somebody as a network
 problem they could fix by retrying.
+
+Two more reasons come from the add-in alone, because they happen after Sigil has
+answered:
+
+| Reason | Meaning |
+| --- | --- |
+| `no-signature` | Sigil answered successfully, but there was no signature in the answer |
+| `apply-failed` | The signature arrived, and Outlook refused to put it into the message |
+
+Neither has a served-request twin that explains it. `apply-failed` in particular
+points at the Outlook client rather than at Sigil, so the client platform on
+the event is the first thing to read.
 
 ## What the outcomes are used for besides reporting
 

@@ -132,10 +132,12 @@ the more diligently you used cost management. In inclusion mode the same rule
 works the other way round: only the mailboxes on your list are counted, and
 everyone else is left out.
 
-The report gives each of those counts rather than dropping the accounts silently,
-and gives them separately rather than as one total, because an account can be
-both. If the number of mailboxes looks lower than you expected, those two figures
-are the first thing to read.
+Both are left out deliberately. When an audit finishes, the portal's message
+says how many mailboxes it audited and, where there were any, how many external
+accounts it left out. The number left out by cost management is not shown there.
+If the number of mailboxes looks lower than you expected, check the external
+count in that message, then compare against your
+[cost management](/admin/cost-management/) list.
 
 ## Why the count differs from your seat count
 
