@@ -32,7 +32,9 @@ You need the Admin role.
    each.
 6. Under New messages and under Replies, pick the template the rule should
    assign. Leaving one at No change lets that role fall through to the rules
-   below and the organisation default, and at least one of the two must be set.
+   below, and at least one of the two must be set. Replies are the exception
+   when it comes to the organisation default: see
+   [order matters](#order-matters).
 7. Choose Add rule.
 
 The rule is added at the bottom of the list and saved straight away. The
@@ -124,6 +126,13 @@ one of them blank. A rule that matches somebody but names only a new-message
 template settles their new messages and lets the search carry on down the list
 for their reply template. So a broad rule setting only a reply signature can sit
 below several narrow ones and still apply to all of them.
+
+If the search reaches the bottom of the list without finding a reply template,
+replies borrow the new-message template the matching rule set, rather than going
+to the organisation's default reply template. A rule that names only a
+new-message template therefore decides that person's replies too, unless a rule
+further down sets a reply template for them. Set Replies explicitly on the rule
+when that is not what you want.
 
 Put narrow rules above broad ones. A rule matching everyone in the United Kingdom
 placed above a rule matching the Manchester office means the Manchester rule never
@@ -234,8 +243,8 @@ result taken against a list the server has not yet received would describe
 nobody. Editing the list also clears a result already on screen, for the same
 reason.
 
-It reads the directory and group membership fresh, rather than from the
-hour-long resolution cache, so it answers for the rules as they stand now rather
+It reads group membership fresh, and directory attributes from a copy no more
+than 15 minutes old, rather than from the hour-long resolution cache, so it answers for the rules as they stand now rather
 than for what that mailbox was last served. Nothing is written back to the
 cache, nothing is sent, and no signature changes. It is not recorded in the
 [change log](/monitoring/change-log/) either, because nothing changed.
@@ -342,7 +351,8 @@ what the add-in will actually produce.
 
 The two agree as soon as you save a rule list, because saving strands the cached
 decisions the download reads from. They can disagree for up to an hour after a
-change made in Entra: the simulation reads the directory live, while a download
+change made in Entra: the simulation reads group membership live and directory
+attributes within 15 minutes, while a download
 answers from a decision that was cached before the person moved. The simulation
 is the one that is right in that window. A download is not a compose, so it
 works a stale decision out again there and then rather than deferring it. The

@@ -87,9 +87,11 @@ reported as resuming not working. A mailbox that has just been refused is not
 asked about again for ten minutes: the add-in notes the refusal on the device and
 stops an automatic message there rather than asking Sigil a question it answered
 a moment ago. So the first message after you resume can still go out unsigned,
-for anybody who was writing messages while the pause was on. The delay is
-measured from that person's last unsigned message, so somebody who has not
-composed for a while is unaffected.
+for anybody who was writing messages while the pause was on. The ten minutes
+run from the last time Sigil itself refused that mailbox, not from the last
+unsigned message: messages stopped on the device in the meantime do not restart
+the clock. The note is kept per mailbox, and separately for new messages and
+replies. Somebody who has not composed for a while is unaffected.
 
 Opening the "My signature" pane and pressing Apply skips the wait entirely,
 because the pane always asks Sigil. See
@@ -117,8 +119,11 @@ the whole organisation and none of it is a fault.
 
 `PUT /api/admin/signature-delivery` takes `{ "paused": true }` or `false`, and
 `GET /api/admin/templates` reports the current state as `signaturesPaused`. An
-[API key](/admin/api-keys/) can reach both, given the assignment rules capability
-and, for the write, not being marked read-only.
+[API key](/admin/api-keys/) can reach both, but they need different capabilities.
+The write needs the assignment rules capability and a key that is not marked
+read-only. The read needs the templates capability, so a key that holds only
+assignment rules can pause and resume but cannot see which state it left things
+in.
 
 Being reachable by a key is deliberate. Cutting delivery over during a mail
 migration, or holding it while a rollout script runs, is the kind of step that

@@ -14,7 +14,9 @@ The contact card link is the other half. It is a placeholder that resolves to a
 URL for the sender's own vCard, so a "Save my contact" button downloads a file
 the recipient's contacts app understands.
 
-Both are built from the same directory record, so the two can never disagree.
+Both are built by the same function from the same directory attributes. The one
+place they can differ is the email address when somebody sends from an alias:
+see the Email row below.
 
 ## Using it
 
@@ -63,7 +65,7 @@ To add it in the HTML editor:
 | Name | `displayName`, with given and family name separately |
 | Organisation | `companyName` |
 | Title | `jobTitle` |
-| Email | The sending address |
+| Email | The mailbox's primary address (see below for aliases) |
 | Work phone | `businessPhone` |
 | Mobile | `mobilePhone` |
 | Fax | `faxNumber` |
@@ -72,8 +74,16 @@ To add it in the HTML editor:
 Empty attributes are left out of the card rather than written as blanks, so a
 person with no fax number has no fax line.
 
-This is exactly the set the QR code carries, which is the point: one function
-builds both.
+This is the set the QR code carries, which is the point: one function builds
+both.
+
+The difference is when each is built. A QR code is drawn as the message is
+composed, so it carries the address the message is sent from, alias included.
+The contact card link is opened later, by the recipient, and Sigil reads the
+directory again at that point. An alias resolves to the mailbox that owns it, so
+the card carries that mailbox's primary address rather than the alias. Somebody
+who sends from a brand alias and wants recipients to save the alias should use
+the QR code, or show the alias as text in the signature.
 
 It is the directory record and only the directory record. The details staff
 [fill in themselves](/admin/profile-fields/) do not appear on the card, even

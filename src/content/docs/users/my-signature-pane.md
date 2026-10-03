@@ -26,8 +26,9 @@ new messages, or replies and forwards.
 
 ## What it does
 
-It applies your signature immediately and shows you a preview of what was
-applied.
+It shows you a preview of the signature Sigil would give this message, with
+"Checking your signature…" while it fetches. Opening the pane does not change
+the message: nothing is applied until you choose Apply my signature.
 
 The preview is laid out at the pane's own width, the way a narrow email window
 would lay it out, so text wraps and nothing is shrunk. Only where something in

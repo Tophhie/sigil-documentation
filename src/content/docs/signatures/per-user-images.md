@@ -130,9 +130,14 @@ under a brand alias still gets their photo.
 
 ### Caching
 
-Photos are cached for a day, and so is the knowledge that a mailbox has none.
-Adding or changing a photo in Microsoft 365 therefore takes up to a day to appear
-in a signature. A directory attribute change, such as a new job title, is quicker,
+Sigil keeps each photo, and the knowledge that a mailbox has none, for up to a
+week, and checks Microsoft 365 for a newer one once the copy is a day old. That
+check happens behind the message rather than in front of it: the first message
+composed after the day is up still carries the old photo (or no photo), and the
+check it starts brings the new one to the message after. So a photo added or
+changed in Microsoft 365 appears from the second message sent more than a day
+after the change. For somebody who rarely sends mail, that can be several days
+later. A directory attribute change, such as a new job title, is quicker,
 usually within the hour. See [limits](/reference/limits/) for the exact timings.
 
 ## How they reach the message

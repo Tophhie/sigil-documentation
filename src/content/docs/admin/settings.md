@@ -158,7 +158,8 @@ again. Once the certificate is issued the badge reads Live.
 To remove it:
 
 1. Open Settings in the portal sidebar.
-2. In the Link domain card, choose Remove.
+2. In the Link domain card, choose Remove. While the domain is still waiting for
+   DNS or being set up, the same button reads Cancel.
 3. Choose Remove in the confirmation dialog.
 
 The dialog warns that links already sitting in mail you have sent stop working

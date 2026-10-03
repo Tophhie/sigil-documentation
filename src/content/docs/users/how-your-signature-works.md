@@ -52,9 +52,12 @@ The copy is your own signature on your own device, which is the same thing
 Outlook keeps for a signature you configured yourself. It is held for 45 days
 after the last message you wrote from that address, and every message renews it.
 
-The copy also records who it was fetched for. If you share a computer with a
-colleague, a copy that was fetched for them is discarded rather than put into
-your message, so you wait a moment for your own instead of starting from theirs.
+Copies are kept per signed-in account, so colleagues who share a computer under
+their own accounts never see each other's. The copy also records who it was
+fetched for, which matters where two people use one shared account in the same
+browser. There, a copy fetched for the other person can appear in your message
+for a moment, and is taken back out as soon as Sigil confirms who you are. It is
+replaced by your own and never goes out.
 
 ## Your own Outlook signature
 
@@ -68,7 +71,9 @@ applied while Sigil is active.
 
 Your name, job title, phone number and address come from your organisation's
 directory, not from Sigil. A wrong job title is a directory record to be
-corrected, and the signature will follow within minutes once it is.
+corrected, and the signature follows within about an hour once it is: the
+first message you write after that hour may still carry the old details while
+Sigil fetches the new ones, and the message after it carries them.
 
 Ask whoever maintains your organisation's directory, usually IT or HR.
 

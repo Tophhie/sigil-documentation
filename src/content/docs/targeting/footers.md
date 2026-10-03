@@ -169,8 +169,10 @@ signature, so the edit changes the wording and nothing else. The dialog says so
 while you are in it, and resuming stays a separate deliberate act from the list.
 
 A newly created footer is live immediately. There is no separate publish step for
-a footer the way there is for a template, which the create button says rather
-than leaving you to find out from the first message that goes out with it.
+a footer the way there is for a template. The confirmation after Create footer
+says so, "Footer created and live. Every matching signature now carries it.",
+rather than leaving you to find out from the first message that goes out with
+it.
 
 To pause or resume a footer:
 

@@ -146,8 +146,11 @@ Invite them under [users and roles](/admin/users-and-roles/). Each role is narro
 on purpose: Marketing reaches banners and link clicks only, Compliance reaches
 the footer, Viewer reads and changes nothing.
 
-Assignment rules are the one thing only an Admin can change, because a rule
-decides who receives which signature and so reaches the whole organisation.
+Assignment rules are Admin-only, because a rule decides who receives which
+signature and so reaches the whole organisation. Two other areas are also held
+by Admin alone: organisation-wide settings (publish approval, the health digest,
+profile editing) and correcting the profile details colleagues entered about
+themselves. See [roles and capabilities](/reference/roles-and-capabilities/).
 
 Add a card in [Billing](/admin/billing/) before the trial ends. With no card on
 file the subscription cancels at trial end, and once the trial ends without an

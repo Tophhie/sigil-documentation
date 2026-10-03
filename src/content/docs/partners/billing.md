@@ -302,7 +302,15 @@ To add or change the card:
 
 The form closes with "Payment method saved." and the page shows the card it now
 holds, for example "Visa ending 4242, expires 04/28". The card number goes
-straight to Stripe and never passes through Sigil. Manage billing in Stripe on
+straight to Stripe and never passes through Sigil.
+
+If Stripe saves the card but it cannot be made the default, the form stays open
+and says "The card was saved with Stripe but couldn't be set as your payment
+method." A card that is not the default is never charged, so Sigil does not
+report it as saved. The button changes to Try again, which repeats only that
+last step, so you do not enter the card a second time.
+
+Manage billing in Stripe on
 the same page opens Stripe's customer portal, for anything the page does not do
 itself, such as removing an old card.
 
