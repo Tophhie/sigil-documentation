@@ -106,7 +106,7 @@ A Microsoft 365 administrator grants it once. See
 
 This is the one that matters and the one that is easiest to get wrong, so it
 carries the full instructions and a button that opens Sigil's
-[Microsoft Marketplace listing](https://marketplace.microsoft.com/en-us/product/WA200011511).
+[Microsoft Marketplace listing](https://appsource.microsoft.com/product/office/WA200011511).
 
 It completes only when the service has actually seen a signature request arrive
 from your organisation. Finishing the deployment does not tick it. Somebody

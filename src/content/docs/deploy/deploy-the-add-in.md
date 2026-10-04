@@ -21,12 +21,12 @@ the coverage figures in [Activity](/monitoring/activity/) assume.
 ## Deploy from the Microsoft Marketplace
 
 Sigil is listed on the Microsoft Marketplace as
-[Sigil by Tophhie Cloud](https://marketplace.microsoft.com/en-us/product/WA200011511),
+[Sigil by Tophhie Cloud](https://appsource.microsoft.com/product/office/WA200011511),
 for every Outlook client including mobile. Deploying it from there is the
 supported way to install it.
 
 1. Signed in as a Microsoft 365 administrator, open
-   [Sigil on the Microsoft Marketplace](https://marketplace.microsoft.com/en-us/product/WA200011511)
+   [Sigil on the Microsoft Marketplace](https://appsource.microsoft.com/product/office/WA200011511)
    and choose Get it now. You can also start in the Microsoft 365 admin centre:
    go to Settings, then Integrated apps, choose Get apps and search for Sigil.
 2. Choose who gets it. Start with a pilot group rather than the whole

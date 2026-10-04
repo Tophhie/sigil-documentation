@@ -125,7 +125,7 @@ open the template's menu and choose Set active for new mail.
 This is the step that makes signatures appear, and the one that needs care.
 
 Deploy Sigil from the
-[Microsoft Marketplace](https://marketplace.microsoft.com/en-us/product/WA200011511). The Getting started
+[Microsoft Marketplace](https://appsource.microsoft.com/product/office/WA200011511). The Getting started
 checklist links straight to the listing.
 
 Target a pilot group first. Allow 6 to 72 hours for propagation before treating
@@ -140,7 +140,7 @@ centre.
 
 1. Open Getting started in the portal sidebar and, under Deploy the Outlook
    add-in, choose Open in Microsoft Marketplace. The listing is
-   [Sigil by Tophhie Cloud](https://marketplace.microsoft.com/en-us/product/WA200011511).
+   [Sigil by Tophhie Cloud](https://appsource.microsoft.com/product/office/WA200011511).
 2. Signed in as a Microsoft 365 administrator, choose Get it now.
 3. Assign it to your pilot group.
 4. Accept the permissions request and finish the deployment.

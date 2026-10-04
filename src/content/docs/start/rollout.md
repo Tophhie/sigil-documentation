@@ -66,7 +66,7 @@ The card shows a Paused badge until you choose Resume in the same place.
 
 ## Phase 2: pilot
 
-Deploy Sigil from the [Microsoft Marketplace](https://marketplace.microsoft.com/en-us/product/WA200011511),
+Deploy Sigil from the [Microsoft Marketplace](https://appsource.microsoft.com/product/office/WA200011511),
 targeting a small group. Ten to
 twenty people from more than one department is usually enough, and picking people
 across Windows, Mac, web and mobile gives better coverage than picking a whole
@@ -77,7 +77,7 @@ centre.
 
 1. Open Getting started in the portal sidebar and, under Deploy the Outlook
    add-in, choose Open in Microsoft Marketplace. The listing is
-   [Sigil by Tophhie Cloud](https://marketplace.microsoft.com/en-us/product/WA200011511).
+   [Sigil by Tophhie Cloud](https://appsource.microsoft.com/product/office/WA200011511).
 2. Signed in as a Microsoft 365 administrator, choose Get it now.
 3. Assign it to the pilot group only.
 4. Accept the permissions request and finish the deployment.
