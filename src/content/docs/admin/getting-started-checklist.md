@@ -43,7 +43,7 @@ The checklist is for the Admin role. Working through it goes like this.
 | Add a payment method | Add card | A card form that opens over the checklist, so you stay on Getting started |
 | Accept the Data Processing Agreement | Review and accept | The DPA tab of Billing |
 | Customise your signature | Edit signature | Templates |
-| Deploy the Outlook add-in | Copy, beside the manifest URL | Nowhere: the step itself carries the instructions for the Microsoft 365 admin centre |
+| Deploy the Outlook add-in | Open in Microsoft Marketplace | Sigil's Microsoft Marketplace listing, in a new tab, where an administrator deploys it |
 | Invite your team | Manage users | Users & roles |
 | Send a test email | Send a test | Templates |
 
@@ -105,15 +105,15 @@ A Microsoft 365 administrator grants it once. See
 ## The add-in step
 
 This is the one that matters and the one that is easiest to get wrong, so it
-carries the full instructions: the Microsoft 365 Integrated apps steps and the
-manifest URL, with a button to copy it.
+carries the full instructions and a button that opens Sigil's
+[Microsoft Marketplace listing](https://marketplace.microsoft.com/en-us/product/WA200011511).
 
 It completes only when the service has actually seen a signature request arrive
-from your organisation. Uploading the manifest does not tick it. Somebody
+from your organisation. Finishing the deployment does not tick it. Somebody
 composing a message and getting a signature does.
 
 That is the point. Deployment is asynchronous and takes 6 to 72 hours to
-propagate, so a step that completed on upload would tell you nothing useful.
+propagate, so a step that completed on deployment would tell you nothing useful.
 
 See [deploy the add-in](/deploy/deploy-the-add-in/).
 

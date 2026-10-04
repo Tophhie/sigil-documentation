@@ -20,10 +20,10 @@ Add-in propagation takes 6 to 72 hours after you deploy through Integrated apps.
 Nothing you do makes it faster, and treating a missing add-in as a fault inside
 that window wastes time.
 
-Any later change to the manifest requires admin consent again, and users are
-blocked from the add-in until it is granted. Template changes, image changes and
-add-in code changes do not touch the manifest, so day-to-day work is unaffected.
-Getting the manifest right before you go tenant-wide is worth the effort.
+Any later change to the add-in's manifest requires admin consent again, and
+users are blocked from the add-in until it is granted. Template changes, image
+changes and add-in code changes do not touch the manifest, so day-to-day work is
+unaffected.
 
 ## Phase 1: connect and design
 
@@ -66,21 +66,21 @@ The card shows a Paused badge until you choose Resume in the same place.
 
 ## Phase 2: pilot
 
-Deploy the manifest through Integrated apps, targeting a small group. Ten to
+Deploy Sigil from the [Microsoft Marketplace](https://marketplace.microsoft.com/en-us/product/WA200011511),
+targeting a small group. Ten to
 twenty people from more than one department is usually enough, and picking people
 across Windows, Mac, web and mobile gives better coverage than picking a whole
 team on one platform.
 
-You need an account that can upload add-ins in the Microsoft 365 admin
+You need an account that can deploy add-ins in the Microsoft 365 admin
 centre.
 
 1. Open Getting started in the portal sidebar and, under Deploy the Outlook
-   add-in, choose Copy next to the manifest URL.
-2. In the Microsoft 365 admin centre, go to Settings, then Integrated apps.
-3. Choose Upload custom apps, and select Office Add-in.
-4. Provide the manifest URL, `https://static.usesigil.app/manifest.xml`.
-5. Assign it to the pilot group only.
-6. Accept the permissions request and finish the deployment.
+   add-in, choose Open in Microsoft Marketplace. The listing is
+   [Sigil by Tophhie Cloud](https://marketplace.microsoft.com/en-us/product/WA200011511).
+2. Signed in as a Microsoft 365 administrator, choose Get it now.
+3. Assign it to the pilot group only.
+4. Accept the permissions request and finish the deployment.
 
 The steps in full are in [deploy the add-in](/deploy/deploy-the-add-in/).
 

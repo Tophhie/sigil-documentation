@@ -124,9 +124,9 @@ open the template's menu and choose Set active for new mail.
 
 This is the step that makes signatures appear, and the one that needs care.
 
-In the Microsoft 365 admin centre, go to Settings, then Integrated apps, then
-Upload custom apps, and upload the Sigil manifest. The Getting started checklist
-carries the exact manifest URL for your tenant.
+Deploy Sigil from the
+[Microsoft Marketplace](https://marketplace.microsoft.com/en-us/product/WA200011511). The Getting started
+checklist links straight to the listing.
 
 Target a pilot group first. Allow 6 to 72 hours for propagation before treating
 a missing add-in as a fault.
@@ -134,19 +134,18 @@ a missing add-in as a fault.
 Event-based add-ins only auto-launch when an administrator deploys them. A
 person installing it themselves will not get automatic signatures.
 
-You need an account that can upload add-ins in the Microsoft 365 admin
+You need an account that can deploy add-ins in the Microsoft 365 admin
 centre.
 
 1. Open Getting started in the portal sidebar and, under Deploy the Outlook
-   add-in, choose Copy next to the manifest URL.
-2. In the Microsoft 365 admin centre, go to Settings, then Integrated apps.
-3. Choose Upload custom apps, and select Office Add-in.
-4. Provide the manifest URL, `https://static.usesigil.app/manifest.xml`.
-5. Assign it to your pilot group.
-6. Accept the permissions request and finish the deployment.
+   add-in, choose Open in Microsoft Marketplace. The listing is
+   [Sigil by Tophhie Cloud](https://marketplace.microsoft.com/en-us/product/WA200011511).
+2. Signed in as a Microsoft 365 administrator, choose Get it now.
+3. Assign it to your pilot group.
+4. Accept the permissions request and finish the deployment.
 
 The checklist marks this step done once Sigil has seen a signature request
-from your tenant, not when you finish the upload.
+from your tenant, not when you finish the deployment.
 
 Full detail: [deploy the add-in](/deploy/deploy-the-add-in/).
 
