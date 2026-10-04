@@ -1,6 +1,6 @@
 ---
 title: Deploy the Outlook add-in
-description: Upload the Sigil manifest through Integrated apps, pilot it, and wait out propagation.
+description: Deploy Sigil from the Microsoft Marketplace, pilot it, and wait out propagation.
 sidebar:
   order: 4
 ---
@@ -18,28 +18,27 @@ fire on compose and they will get no automatic signature.
 There is no way around this. It is a Microsoft platform rule, not a Sigil
 restriction.
 
-## Upload the manifest
+## Deploy from the Microsoft Marketplace
 
-In the Microsoft 365 admin centre:
+Sigil is listed on the Microsoft Marketplace as
+[Sigil by Tophhie Cloud](https://appsource.microsoft.com/product/office/WA200011511),
+for every Outlook client including mobile. Deploying it from there is the
+supported way to install it.
 
-1. Go to Settings, then Integrated apps.
-2. Choose Upload custom apps, and select Office Add-in.
-3. Provide the manifest URL:
-
-   ```
-   https://static.usesigil.app/manifest.xml
-   ```
-
-4. Choose who gets it. Start with a pilot group rather than the whole
+1. Signed in as a Microsoft 365 administrator, open
+   [Sigil on the Microsoft Marketplace](https://appsource.microsoft.com/product/office/WA200011511)
+   and choose Get it now. You can also start in the Microsoft 365 admin centre:
+   go to Settings, then Integrated apps, choose Get apps and search for Sigil.
+2. Choose who gets it. Start with a pilot group rather than the whole
    organisation.
-5. Accept the permissions request and finish the deployment.
+3. Accept the permissions request and finish the deployment.
 
-The same URL is shown with a copy button on the
+The same link is on the
 [Getting started checklist](/admin/getting-started-checklist/) in the portal.
 
-It is the same manifest for every organisation. The add-in is multi-tenant and
-works out which organisation somebody belongs to from their sign-in, so there is
-nothing tenant-specific to generate and nothing to keep secret.
+It is the same add-in for every organisation. It is multi-tenant and works out
+which organisation somebody belongs to from their sign-in, so there is nothing
+tenant-specific to configure and nothing to keep secret.
 
 ### The publisher name
 
@@ -52,9 +51,10 @@ It has not always. Until August 2026 the manifest named the sole trader Sigil
 traded as before the company was incorporated, and a review that stopped on the
 difference was stopping on something real. The correction is in the manifest now.
 
-It reaches an organisation that had already deployed the add-in only when an
-administrator updates the custom app, because
-[a URL upload is not self-updating](#uploading-by-url-does-not-make-it-self-updating).
+A Marketplace deployment shows the corrected name. An organisation that uploaded
+the manifest as a custom app before then sees it only once an administrator
+updates the custom app, because
+[a custom app is not self-updating](#if-you-uploaded-the-manifest-as-a-custom-app).
 If yours still shows the old name, that is what it is telling you, and the update
 carries a fresh consent prompt like any other manifest change. See
 [compliance](/security/compliance/) for the company details in full.
@@ -89,8 +89,8 @@ requests arriving and apply outcomes succeeding.
 
 1. Open Activity in the portal sidebar.
 2. In the By mailbox table, find each pilot's mailbox. Outcome should read
-   Applied, and the Add-in column should show the manifest version you
-   uploaded.
+   Applied, and the Add-in column should show the add-in's manifest
+   version.
 3. Ask anybody missing from the table to start a new message and choose My
    signature on the ribbon. The pane says why nothing was applied.
 
@@ -116,7 +116,7 @@ signature applied rather than only reporting on the ones that have.
 Almost everything the manifest points at is a URL, so most changes never touch
 it.
 
-| Change | Manifest redeploy needed? |
+| Change | New add-in version needed? |
 | --- | --- |
 | Signature templates, images, banners, footers | No. Published from the portal, live in seconds |
 | Add-in code and icons | No. Outlook picks up new code within a compose or two, and caches icons, so allow a restart |
@@ -125,7 +125,8 @@ it.
 
 The practical version: your day-to-day work as an administrator never requires a
 redeploy. Only a change to the add-in's declared shape does, and those are made
-by Tophhie Cloud rather than by you.
+by Tophhie Cloud rather than by you. A Marketplace deployment receives them from
+Microsoft without you uploading anything.
 
 New add-in code arrives without anybody being kept waiting for it. Outlook uses
 the copy it already has and fetches the newer one in the background, so a client
@@ -135,26 +136,23 @@ starts, which is a worse trade than one message written with the previous code.
 
 ## When a manifest change does happen
 
-Two rules apply, and both bite when ignored.
+Tophhie Cloud publishes a new version to the Marketplace, and Microsoft rolls it
+out to organisations that deployed from there. You do not upload anything.
 
-The manifest `<Version>` must be raised on every change. Microsoft requires it,
-and an update deployed without a version bump may simply not take.
+One rule still reaches you. Any manifest change to an admin-deployed
+event-based add-in requires admin consent again, and users are blocked from the
+add-in until it is granted. Give the consent as soon as the admin centre asks for
+it.
 
-Any manifest change to an admin-deployed event-based add-in requires admin
-consent again, and users are blocked from the add-in until it is granted. This is
-why the manifest is worth getting right before going tenant-wide.
+## If you uploaded the manifest as a custom app
 
-## Uploading by URL does not make it self-updating
+Before Sigil was on the Marketplace, organisations deployed it by uploading the
+manifest as a custom app. Those deployments keep working. The difference is that
+a custom app does not update itself: Microsoft took its own copy at upload time,
+and updating remains an explicit administrator action, either through the admin
+centre or with `Set-OrganizationAddIn`.
 
-Only Marketplace add-ins update automatically. When you upload by URL, Microsoft
-takes its own copy at that moment. Updating remains an explicit administrator
-action, either through the admin centre or with `Set-OrganizationAddIn`, which
-accepts a file path or a URL.
-
-A Marketplace listing is the one path that would spare you that, and Sigil is not
-published there yet, so every organisation running Sigil today has uploaded it as
-a custom app. Plan on being told when a new manifest is worth taking, rather than
-on receiving one. The portal does the telling, in
+The portal tells you when a newer manifest is worth taking, in
 [Activity](/monitoring/activity/), and
 [which manifest version you are on](#which-manifest-version-you-are-on) covers
 what it shows.
@@ -165,8 +163,8 @@ change. Most releases reach you without a manifest at all.
 
 ## Which manifest version you are on
 
-Because the upload is a copy, an organisation can sit on a manifest from months
-ago without noticing. The add-in's own code is not the problem: everything the
+Because a custom app upload is a copy, an organisation can sit on a manifest
+from months ago without noticing. The add-in's own code is not the problem: everything the
 manifest points at is a fixed URL, so every client runs the current code
 whatever manifest it was installed from. What an old manifest is missing is
 exactly the part only a manifest can declare, such as
@@ -209,7 +207,9 @@ do not get whatever the newer manifest declares.
 
 ## Updating the add-in
 
-Updating is the same job as the first upload and takes about five minutes. The
+This applies to an organisation that uploaded the manifest as a custom app. A
+Marketplace deployment is updated by Microsoft. Updating a custom app takes
+about five minutes. The
 notice in [Activity](/monitoring/activity/) opens these steps with the manifest
 link ready to copy, so the version and the URL do not have to be carried between
 two browser tabs by hand.
@@ -239,7 +239,7 @@ through, which is how you watch an update land rather than guess at it.
 
 ## Removing the add-in
 
-Remove it from Integrated apps in the same place you uploaded it. Signatures
+Remove it from Integrated apps in the same place you deployed it. Signatures
 stop being applied once the removal propagates. Existing messages are
 unaffected, because Sigil only ever writes into the compose window.
 

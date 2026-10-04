@@ -11,8 +11,8 @@ appearing at the bottom of somebody's email.
 ## The lifecycle of one signature
 
 1. A Microsoft 365 administrator grants admin consent to Sigil's multi-tenant
-   Entra application and deploys the Outlook add-in manifest through Integrated
-   apps. This happens once.
+   Entra application and deploys the Outlook add-in from the Microsoft
+   Marketplace. This happens once.
 2. Someone starts a message. The add-in fires on `OnNewMessageCompose`, which
    covers new messages, replies and forwards, and on `OnMessageFromChanged` when
    the sending account switches. No clicks, no task pane.

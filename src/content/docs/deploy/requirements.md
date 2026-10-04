@@ -16,7 +16,7 @@ You need an account that can do two things:
 | Task | Permission needed |
 | --- | --- |
 | Grant admin consent to Sigil's Entra application | Privileged Role Administrator or Global Administrator |
-| Upload an add-in under Integrated apps | Global Administrator |
+| Deploy an add-in under Integrated apps | Global Administrator |
 
 In practice one Global Administrator covers both. The consent step installs
 Sigil's service principal in your tenant and grants the read-only Graph

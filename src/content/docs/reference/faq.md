@@ -51,13 +51,14 @@ next time, because the template is served fresh on every compose.
 
 ## Do users need to install anything?
 
-No. An administrator deploys the add-in centrally through Integrated apps.
+No. An administrator deploys the add-in centrally from the Microsoft
+Marketplace, which places it under Integrated apps.
 Individual installation does not work for automatic signatures, because
 event-based add-ins only auto-launch when an administrator deploys them.
 
 ## How long does deployment take?
 
-6 to 72 hours to propagate after you upload the manifest. Nothing speeds it up.
+6 to 72 hours to propagate after you deploy the add-in. Nothing speeds it up.
 See [deploy the add-in](/deploy/deploy-the-add-in/).
 
 ## How quickly does a template change reach people?
