@@ -103,7 +103,8 @@ keeps its full version history and can be restored for 30 days.
 
 An administrator who is certain can delete it permanently straight away. Anything
 left in Recently deleted is purged by a daily sweep once the 30 day window has
-elapsed.
+elapsed. The window runs from the most recent deletion, so a template restored and
+deleted again starts a fresh 30 days.
 
 Deleting is blocked while a template is assigned to a role or referenced by an
 [assignment rule](/targeting/assignment-rules/), so you cannot accidentally

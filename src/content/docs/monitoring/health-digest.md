@@ -204,6 +204,13 @@ Every organisation due a digest is sent one on the same run. Sigil used to work
 through the list in batches, so a busy day could push a digest to the following
 morning; it no longer does, and no organisation waits its turn behind another.
 
+Each organisation is sent at most one digest per period, even if the run that
+sends it is retried. Between the end of September and 3 October 2026, while
+organisations were being moved onto their own databases, some were sent a digest
+every morning whatever their frequency, including organisations that had
+switched it off. That was a fault and is fixed; your saved choice was kept
+throughout and applies again without you changing anything.
+
 A digest is not sent to an organisation whose signatures have stopped, whether
 that is a suspension, a pending deletion or a billing reason. The test is the
 same one the signature path applies, so the digest stops when the signatures do

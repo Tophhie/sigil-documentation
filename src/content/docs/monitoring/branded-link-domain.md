@@ -77,7 +77,8 @@ The add-on must already be on your subscription, and you need the Admin role,
 or a partner Owner or Admin role inside a managed client.
 
 1. Open Settings in the portal sidebar, under Organisation.
-2. On the Link domain card, choose Add a link domain.
+2. On the Link domain card, choose Add a link domain, at the top right of the
+   card beside its title.
 3. Under Hostname, enter the subdomain, such as links.example.com. The record
    beneath updates to match.
 4. In your DNS provider, create the record shown: Type CNAME, Name as shown,
@@ -92,7 +93,8 @@ already live. The card then shows a badge for the state it is in.
 1. Open Settings in the portal sidebar, under Organisation.
 2. Read the badge on the Link domain card. While it reads Waiting for DNS or
    Setting up, the card repeats the CNAME record and says which stage it is at.
-3. Once your record is in place, choose Check again.
+3. Once your record is in place, choose Check again, beside the badge at the top
+   right of the card.
 
 A message says either that your link domain is live or that it is still waiting
 for DNS. The badge changes to Live once the certificate is deployed.
@@ -149,7 +151,8 @@ minted on. The exception is removal, described below.
 
 ## Removing a domain
 
-Remove is on the Link domain card, behind a confirmation.
+Remove is at the top right of the Link domain card, beside the badge, behind a
+confirmation.
 
 1. Open Settings in the portal sidebar, under Organisation.
 2. On the Link domain card, choose Remove. While the domain is still pending,
