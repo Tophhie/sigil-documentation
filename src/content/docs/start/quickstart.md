@@ -131,8 +131,9 @@ checklist links straight to the listing.
 Target a pilot group first. Allow 6 to 72 hours for propagation before treating
 a missing add-in as a fault.
 
-Event-based add-ins only auto-launch when an administrator deploys them. A
-person installing it themselves will not get automatic signatures.
+Deploy it as an administrator rather than leaving people to install it
+themselves. An administrator deployment always launches on compose; a
+self-installed copy depends on how Microsoft lists the add-in.
 
 You need an account that can deploy add-ins in the Microsoft 365 admin
 centre.

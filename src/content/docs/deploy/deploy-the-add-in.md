@@ -9,14 +9,14 @@ This is the step that makes signatures appear. It is also the step most likely t
 be misdiagnosed, because propagation is slow enough that a correct deployment
 looks broken for the first day.
 
-## Administrator deployment is required
+## Deploy it centrally
 
-Event-based add-ins only auto-launch when an administrator deploys them. If
-somebody installs the Sigil add-in themselves from their own Outlook, it will not
-fire on compose and they will get no automatic signature.
-
-There is no way around this. It is a Microsoft platform rule, not a Sigil
-restriction.
+Have an administrator deploy Sigil for the organisation, or for the groups you
+choose, rather than leaving people to install it from their own Outlook. Whether
+Outlook launches a self-installed copy on compose depends on how Microsoft lists
+the add-in, which is Microsoft's decision and can change. An administrator
+deployment always launches on compose, and it is what the pilot steps below and
+the coverage figures in [Activity](/monitoring/activity/) assume.
 
 ## Deploy from the Microsoft Marketplace
 

@@ -136,9 +136,8 @@ add-ins in read mode only.
 
 Some limits are worth knowing before you commit.
 
-Sigil is Microsoft 365 only. Automatic application requires administrator
-deployment of the add-in, because event-based add-ins do not auto-launch when a
-user installs them individually. Propagation after deployment takes 6 to 72
+Sigil is Microsoft 365 only. Automatic application relies on an
+administrator deploying the add-in for the organisation. Propagation after deployment takes 6 to 72
 hours.
 
 Outlook itself constrains the templates: a rendered signature must stay under
