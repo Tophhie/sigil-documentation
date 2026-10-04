@@ -53,9 +53,8 @@ next time, because the template is served fresh on every compose.
 
 No. An administrator deploys the add-in centrally from the Microsoft
 Marketplace, which places it under Integrated apps.
-Don't rely on people installing it themselves. An administrator deployment
-always launches on compose, while a self-installed copy depends on how
-Microsoft lists the add-in.
+Individual installation does not work for automatic signatures, because
+event-based add-ins only auto-launch when an administrator deploys them.
 
 ## How long does deployment take?
 
