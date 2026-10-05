@@ -130,8 +130,10 @@ cross-reference is unavailable and the rest of the view is still complete.
 ## Which add-in version people are on
 
 The add-in's files sit at fixed URLs, so everybody runs the current code. The
-manifest is the part that does not update itself, and an organisation can sit on
-one from months ago without anything looking wrong. What an old manifest lacks
+manifest is the part that can lag. A deployment from the Microsoft Marketplace
+is updated by Microsoft, but a manifest uploaded as a custom app does not update
+itself, and an organisation can sit on one from months ago without anything
+looking wrong. What an old manifest lacks
 is the part only a manifest can declare, such as
 [shared mailbox support](/signatures/sending-on-behalf/#where-the-add-in-runs-in-a-shared-mailbox),
 and the running code cannot see that it is missing.
@@ -155,13 +157,16 @@ a classic Outlook for Windows build too old to report it. Both are out of date,
 which is why it does not read as unknown. A dash means the mailbox has never
 applied a signature, and the never-applied list is the better place to read that.
 
-Re-uploading is an administrator's job in the Microsoft 365 admin centre, and
-nothing in Sigil can do it for you. Until it happens those mailboxes keep working
-as they did. See
+The dialog's steps are for a custom app upload. Re-uploading is an
+administrator's job in the Microsoft 365 admin centre, and nothing in Sigil can
+do it for you. If you deployed from the Microsoft Marketplace there is nothing to
+upload: Microsoft rolls the new version out, and the notice clears as each
+mailbox composes with it. Either way, until it happens those mailboxes keep
+working as they did. See
 [which manifest version you are on](/deploy/deploy-the-add-in/#which-manifest-version-you-are-on).
 
-To act on the notice you need to be an administrator of your Microsoft 365
-tenant as well as of Sigil.
+To update a custom app upload from the notice you need to be an administrator
+of your Microsoft 365 tenant as well as of Sigil.
 
 1. Open Activity in the portal sidebar, under Monitoring. The notice at the top
    names the manifest Sigil now serves and how many mailboxes are on an older

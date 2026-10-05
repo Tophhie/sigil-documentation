@@ -120,7 +120,8 @@ time they open the template.
 
 ## The approvers hear about it
 
-Submitting a draft emails every other administrator of the organisation. The
+Submitting a draft emails every other user with the Admin role in the
+organisation. The
 message names who submitted it and which template, and its button opens the
 library to review it.
 
@@ -188,16 +189,23 @@ independently, so the refusal is the control rather than the hidden button.
 
 ## What is recorded
 
-Submitting, rejecting and approving each write a [change log](/monitoring/change-log/)
+Submitting and sending back each write a [change log](/monitoring/change-log/)
 entry under the Approval action, with the transition and the rejection note.
 
-A publish that came from a submitted draft records the submitter, the approver
-and whether the two were the same person.
+Approving is a publish, so it appears as a Published entry. A publish that came
+from a submitted draft records the submitter, the approver and whether the two
+were the same person.
 
 ## Partner-managed organisations
 
 A partner Owner or Admin working inside a managed client can change the client's
 approval switch. A partner Technician cannot.
+
+Partner Owner and Admin staff working inside the client also count as
+approvers: they can publish, approve and send back. A partner Technician works as
+an Editor does and submits for review. The approval email goes only to the
+client's own Admins, never to partner staff, so for a client with no Admin of its
+own, watch the Waiting for your review card on the Templates page instead.
 
 Turning off a client's publish approval is exactly the kind of change the control
 exists to prevent, so it sits with the partner roles that also manage access

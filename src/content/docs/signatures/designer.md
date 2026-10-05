@@ -13,7 +13,8 @@ That compiled HTML is what gets stored, versioned, rendered and cached. Nothing
 downstream knows design documents exist, which means a designed template behaves
 identically to a hand-written one everywhere else in the product.
 
-Open it from the portal, or directly at `portal.usesigil.app/admin/designer/`.
+Open it from the template library in the portal. The designer's address on its
+own, without a template chosen, shows only "No template selected".
 
 Editing needs the admin or editor role and a desktop browser.
 
@@ -90,7 +91,7 @@ because the list lives in the inspector panel rather than on the canvas.
 
 ### Icons that appear only for some people
 
-Each icon carries its own "visible when", the same as any block, so a row can
+Each icon carries its own Show when rules, the same as any block, so a row can
 hold one icon per attribute and show each person only the ones they have. Point
 the link at a placeholder and the icon reaches that person's own profile.
 
@@ -200,9 +201,9 @@ The overall width in pixels, which is the width of the outer table.
 The font family, the default text colour, and the default link colour. A block or
 an individual run of text can override any of them.
 
-The background colour, which defaults to transparent. Transparent is the right
-default for email, because a signature sits on whatever background the recipient's
-client uses.
+The canvas background is always transparent. There is no setting for it, and
+transparent is the right default for email, because a signature sits on whatever
+background the recipient's client uses.
 
 Machine-readable contact details, which is off by default. Switching it on labels
 the signature with schema.org `Person` markup, so a client or a crawler can read
@@ -268,7 +269,7 @@ to remove.
 
 ## Conditional blocks
 
-Any block can be given a "visible when" field. The block is emitted wrapped in a
+Any block can be given Show when rules, under Visibility in its settings. The block is emitted wrapped in a
 conditional section and disappears entirely for people where that field is empty.
 
 This is how you avoid the classic problems: a phone row that leaves a dangling
@@ -289,8 +290,9 @@ change it, or remove the rule with the cross beside it in the dialog. The dialog
 can also combine several rules with "and", "or" and "not", which is covered under
 [and, or and not in one rule](#and-or-and-not-in-one-rule).
 
-Six derived conditions help here. `anyPhone` is true when the person has any
-phone number at all, `anyAddress` when they have any address component, and
+Six derived conditions help here. `anyPhone` is true when the person has a
+business or mobile number (a fax number does not count), `anyAddress` when they
+have a street address, a city or a country, and
 `hasPhoto` when their mailbox has a Microsoft 365 profile photo. Attaching a whole
 row to one of those lets the entire row disappear rather than each field inside
 it. The fourth is
@@ -304,8 +306,10 @@ could not be turned round. Any rule can be now, with
 [not](#and-or-and-not-in-one-rule), so the second of the pair is a convenience
 rather than the only way.
 
-The Sender tab of the menu has its own versions of the first two, Sender any
-phone and Sender any address. They test the phones and address of whoever
+The Sender tab of the menu has its own versions of the first two, listed under
+Conditions at the top as "Any of the sender's phone numbers has a value" and
+"Any of the sender's address lines has a value". On the canvas badge they read
+Sender any phone and Sender any address. They test the phones and address of whoever
 pressed Send, so a row of the sender's phone numbers can hang on the sender's
 phones rather than on the mailbox's.
 
@@ -395,16 +399,17 @@ ands or all ors, so there is one word to read and one to click, and a rule readi
 
 A group is a bracket: a rule down its left, its contents indented, and its own
 "all of" or "any of" cap. One level of nesting is offered in the dialog, which is
-enough for "either of these two, and that one". The document itself allows three,
-so a deeper rule written by hand in the
-[HTML editor](/signatures/html-editor/#conditional-sections) still renders.
+enough for "either of these two, and that one". The design document allows
+three, and a marker written by hand in the
+[HTML editor](/signatures/html-editor/#conditional-sections) has no depth limit
+at all.
 
 The dialog holds the rule while you shape it and writes it once when you choose
 Done, so an edit is one step to undo rather than one per click. Closing it without
 choosing Done leaves the rule as it was.
 
 The canvas badge summarises what it can. A rule naming more than three fields
-elides, reading "if Mobile or 2 more" rather than running off the block.
+elides, reading "if Mobile or 3 more" rather than running off the block.
 
 On the HTML side the same rule is written inside the section marker. See
 [conditional sections](/signatures/html-editor/#conditional-sections).
@@ -449,7 +454,7 @@ while you are working.
 Show when is the same field menu you insert from, in a mode where a row is picked
 as a rule rather than inserted. A chosen rule reads back as the sentence it is:
 "Mobile has a value" for a directory attribute, and "The message is sent on behalf
-of the mailbox" for this one. The four derived conditions are worded as the fact
+of the mailbox" for this one. The derived conditions are worded as the fact
 they test rather than as a value, because none of them is a directory attribute
 Sigil could find empty. It works the answer out for each message.
 
@@ -500,6 +505,14 @@ standing for the sake of its own line breaks is exactly the blank line this
 removes. A block that holds nothing but line breaks is left alone: that is
 deliberate vertical space, and no condition of Sigil's belongs on it.
 
+## Seeing the banner and footer
+
+The live preview has a Banner & footer switch. Turned on, it adds whatever
+[campaign banner](/targeting/banners/) and [compliance footer](/targeting/footers/)
+are in force for the mailbox you are previewing as, so you see the signature as
+recipients will. Hovering over the switch names them. When nothing is active the
+preview does not change, and the hover says so.
+
 ## Checking a design in dark mode
 
 The live preview has a Dark mode toggle. It shows the render put through the same
@@ -532,7 +545,7 @@ it goes live, the designer can do too.
 | Control | What it does |
 | --- | --- |
 | Save draft | Keeps the working copy without changing what anybody receives |
-| Discard | Reverts unsaved edits, or with a draft saved, deletes it and reloads the published design |
+| Discard, or Discard draft once one is saved | Reverts unsaved edits, or with a draft saved, deletes it and reloads the published design |
 | Submit for review | Puts the draft in the [approvals queue](/signatures/approvals/) |
 | Approve and publish, Send back | The approver's two choices on a submitted draft |
 | Schedule | Books the publish for an instant you choose |
@@ -572,8 +585,10 @@ you have open, a strip sits under the top bar showing the percentage, both
 versions' apply failure rates, and what the evaluator will do at its next pass.
 Promote now and Roll back are on the strip.
 
-It refreshes every 60 seconds, so the counts move continuously even though the
-evaluator only takes a decision every fifteen minutes.
+It updates as the rollout moves, so the counts change continuously even though
+the evaluator only takes a decision every fifteen minutes. If the designer loses
+its live connection to Sigil, it falls back to checking once a minute while the
+tab is visible.
 
 A booked publish shows as its own strip, with the option to cancel it, and says
 plainly that it publishes the design captured when it was booked rather than

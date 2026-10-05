@@ -32,7 +32,10 @@ falls back to the campaign name, so a recipient reading with images switched off
 sees something rather than nothing.
 
 You need the Admin or Marketing role, and the image must already be uploaded
-under Images.
+under Images. The Image list is read from Images, which only the Admin and Editor
+roles reach, so somebody with the Marketing role alone sees an empty list and
+cannot create a banner. Give them the Editor role as well, or have an Admin
+create it.
 
 1. Open Banners in the portal sidebar.
 2. Choose New banner.
@@ -106,7 +109,10 @@ Admins and the Marketing [role](/admin/users-and-roles/), and nobody else.
 
 Marketing reaches campaign banners and link click analytics and nothing else,
 which is usually the right level for a marketing team: they can run campaigns
-without being able to change the signature templates or reach billing.
+without being able to change the signature templates or reach billing. The one
+catch is that picking a banner's image reads your image library, which Marketing
+cannot see, so a Marketing-only user can pause, resume and delete banners but
+cannot create one. See [creating a banner](#creating-a-banner).
 
 The Editor role does not reach banners. Editors own the template a banner is
 attached to, but a campaign is a separate thing with its own schedule and its own
@@ -117,11 +123,17 @@ owner, so the two are granted separately.
 Keep the file small. A banner is attached to every message sent while the window
 is open, so a 500KB image is a real cost at organisational volume.
 
-Set an explicit pixel width on the image, and design it to sit comfortably at the
-width of a signature rather than at the full width of an email client.
+A banner has no width setting. It shows at the image's own pixel size, shrinking
+only where the reading pane is narrower, so export it at exactly the width it
+should appear, ideally no more than 600 pixels. Design it to sit comfortably
+under a signature rather than across the full width of an email client.
 
 Set meaningful alt text. Some recipients will see only that, and the campaign
 name it falls back to was written for your banner list rather than for them.
+
+To see a banner that is already live under a signature, turn on Banner & footer
+in the [designer's](/signatures/designer/#seeing-the-banner-and-footer) live
+preview.
 
 Test it before the real window opens. Create a copy with a short window
 starting now, send yourself a [test email](/admin/test-email/), then delete the

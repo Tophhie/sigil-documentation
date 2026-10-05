@@ -85,9 +85,11 @@ Sections nest. Values are HTML-escaped when they are substituted. Any placeholde
 that is left unresolved is stripped, so a literal `{{jobTitle}}` can never reach a
 recipient.
 
-A section left open, or closed with a marker that does not repeat the opening one
-exactly, is refused when you save, preview or publish, and the message names the
-marker. Without that check the stray marker would be stripped when the signature
+A section left open, closed with a marker that does not repeat the opening one
+exactly, closed without ever being opened, or written as a rule Sigil cannot
+read is refused when you save a draft, publish or schedule, and the message
+names the marker. The preview still renders it, with the stray marker removed,
+so check the message rather than the preview. Without that check the stray marker would be stripped when the signature
 renders, and whatever it was meant to wrap would go missing with no explanation.
 
 The either-of form described under

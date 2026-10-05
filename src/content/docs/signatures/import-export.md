@@ -20,6 +20,9 @@ The design document, if the template was built in the
 
 Every image the template references, embedded in the bundle.
 
+An export holds the published version. Unpublished draft changes are not
+included, so publish first if you want them to travel.
+
 Export a template from its row menu on the Templates view. The result is a single
 JSON file.
 
@@ -63,6 +66,14 @@ That applies to a designer-built template as well as a hand-written one. A desig
 holds its images by name inside the document rather than as `cid:` references in
 markup, so those references are remapped in the document itself before it is
 compiled.
+
+A designer template that uses your own [profile fields](/admin/profile-fields/)
+only imports into an organisation that has the same fields defined and switched
+on. Otherwise the import is refused with a message naming the field, because the
+design is checked against the target organisation's fields exactly as a publish
+would be. Create the fields under Profile fields in the target organisation
+first. A hand-written HTML template imports either way, and a field the target
+does not have renders empty.
 
 [Built-in social icons](/signatures/designer/#social-icons) are not images in the
 library, so they travel with the design and need no remapping at all.
@@ -109,7 +120,7 @@ attached.
 
 | Where | What it produces |
 | --- | --- |
-| Templates view, download action | The live signature for any mailbox you name |
+| Templates view, Download button | The live new-message or reply signature for any mailbox you name. Refused while signatures are paused |
 | The "My signature" pane in Outlook | The signed-in person's own signature |
 
 This is useful for pasting a signature into another system, keeping a personal

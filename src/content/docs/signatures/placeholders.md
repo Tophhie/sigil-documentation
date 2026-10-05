@@ -73,7 +73,7 @@ your own directory is populated before you build a layout around it.
 | `{{managerName}}` | The manager's display name |
 | `{{managerJobTitle}}` | The manager's job title |
 | `{{managerEmail}}` | The manager's mail address |
-| `{{managerPhone}}` | The manager's phone number |
+| `{{managerPhone}}` | The manager's mobile number, or their first business number when there is no mobile |
 
 Manager is a navigation property rather than a plain attribute, so Graph only
 returns it when it is expanded explicitly. Sigil does that on the compose path
@@ -188,8 +188,8 @@ See [profile fields](/admin/profile-fields/) for defining them, and
 
 | Placeholder | True when |
 | --- | --- |
-| `{{anyPhone}}` | The person has any phone number at all |
-| `{{anyAddress}}` | The person has any address component at all |
+| `{{anyPhone}}` | The person has a business or mobile number. A fax number does not count |
+| `{{anyAddress}}` | The person has a street address, a city or a country. County or state, postcode and office alone do not count |
 | `{{sender.anyPhone}}`, `{{sender.anyAddress}}` | The same two tests against whoever pressed Send. On an ordinary send they test the mailbox, like every sender field |
 | `{{hasPhoto}}` | The mailbox has a Microsoft 365 profile photo |
 | `{{onBehalfOf}}` | Somebody is sending on the mailbox's behalf, rather than the mailbox sending for itself |
@@ -203,7 +203,9 @@ phone number, instead of leaving an empty label or a stray separator behind.
 `hasPhoto` is resolved only when a template actually contains a Photo block,
 because answering it costs a call to Microsoft Graph. A Photo block in the
 [designer](/signatures/designer/) carries the condition on its own, so this is
-mainly useful for hiding something that sits alongside a photo. See
+mainly useful for hiding something that sits alongside a photo. In a template
+written in the HTML editor `{{#hasPhoto}}` never opens, because only a design's
+Photo block triggers the lookup. See
 [per-user images](/signatures/per-user-images/).
 
 `onBehalfOf` is the switch behind an "on behalf of" clause. It is the only
@@ -227,7 +229,7 @@ Sections nest freely, and nesting is one way to combine conditions. The example
 above shows content that appears only when both attributes are present.
 
 In the [designer](/signatures/designer/), the same behaviour is available on any
-block through its "visible when" field.
+block through Show when, under Visibility in its settings.
 
 ### Sections that open on either of two fields
 
@@ -238,15 +240,11 @@ of the fields it names has a value:
 {{#custom.linkedin|custom.github}}<tr>…</tr>{{/custom.linkedin|custom.github}}
 ```
 
-This form is written by the [designer](/signatures/designer/) rather than by you,
-and you will only meet it if you open a designer template in the HTML editor. It
-exists for the one thing nesting cannot express: a container that has to
-disappear when none of several independent things inside it survive, which is
-what a row of social icons each hanging off a different attribute needs. Nesting
-can only say "and".
-
-There is rarely a reason to write the vertical bar form by hand, although it is
-accepted.
+The [designer](/signatures/designer/) writes this form for a row of social
+icons that each hang off a different attribute, and you can write it by hand in
+the HTML editor. It covers the one thing nesting cannot express: a container
+that has to disappear when none of several independent things inside it survive.
+Nesting can only say "and".
 
 The same marker also takes `&`, `!` and brackets, which is how
 [grouped conditions](/signatures/designer/#and-or-and-not-in-one-rule) are
@@ -258,8 +256,9 @@ brackets to say which binds first, with no spaces anywhere inside the marker:
 ```
 
 A closing marker must repeat its opening one character for character, as it must
-for any section. The rule may nest three levels deep, and may name at most twenty
-fields.
+for any section. In the designer a rule may nest three levels deep and name at
+most twenty fields. The HTML editor does not apply those limits to a marker you
+write by hand.
 
 A section like this counts as using every field it names, so all of them appear
 in [attribute coverage](/monitoring/attribute-coverage/) and in the

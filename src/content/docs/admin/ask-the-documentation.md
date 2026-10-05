@@ -163,7 +163,9 @@ your bill.
 | "The documentation couldn't be searched just now. Try again shortly." | The search service did not answer. Nothing is wrong with your organisation's signatures |
 | "Documentation search isn't available right now." | The feature is temporarily unavailable across the service |
 | "Documentation search is not turned on for your organisation." | The feature is unavailable to your organisation at the moment. Nothing else is affected, and the documentation site can still be read directly |
-| A message about waiting a moment | More than 20 questions in a minute from you. Nothing is lost, and the next one works |
+| "That's a lot of questions at once. Give it a minute and ask again." | More than 20 questions in a minute from you. Nothing is lost, and the next one works |
+| "The documentation couldn't be reached. Check your connection and try again." | Your browser could not reach Sigil at all, usually a dropped connection |
+| "The conversation couldn't be read. Start a new one." | The earlier turns sent with your question were not in a shape Sigil could read. Start a new conversation |
 
 None of these affect anything else. Signatures, publishing and delivery do not
 depend on this feature, and the documentation site itself is always there to read

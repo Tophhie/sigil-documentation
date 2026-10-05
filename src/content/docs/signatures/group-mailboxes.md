@@ -77,8 +77,10 @@ Your existing template is therefore already right for a group in most cases. The
 one thing to look at is any line that assumes a person: a "Chat with me in
 Teams" link, say, which leads nowhere useful from a group's address. Two ways to
 handle it. Put the line behind the `notGroup` condition, so it disappears for a
-group and stays for everyone else; in the designer that is "not sent from a
-group mailbox" in a block's "show when" list. Or give groups their own template,
+group and stays for everyone else. In the designer, open the block's Show when
+rules with Add rules…, choose a rule and pick "The mailbox is not a Microsoft 365
+Group or distribution list". In the HTML editor's field list it is "not sent
+from a group mailbox". Or give groups their own template,
 below. Its twin, `isGroup`, is for a line only a team mailbox should carry. They
 became a pair before a condition could be turned round, and either still works;
 in the designer's rules dialog, not on `isGroup` means the same as `notGroup`.
@@ -110,9 +112,10 @@ a time, choose Email as the attribute and enter the group's address instead.
 See [creating a rule](/targeting/assignment-rules/#creating-a-rule).
 
 Rules that match on an Entra group's membership do not apply to a group's own
-mailbox, because a group is not a member of anything a rule can name. Every other
+mailbox, because a group is not a member of anything a rule can name. Email and
+Email domain rules match a group exactly as they match a person. Every other
 attribute is empty for a group and so matches nothing, which means a group that
-no rule names gets your default template.
+no Mailbox kind, Email or Email domain rule catches gets your default template.
 
 ## Where groups appear in the portal
 
@@ -149,6 +152,9 @@ Check, in this order:
    restriction on the *Send As* permission, and the message never reaches Sigil.
 3. **Does the person's own signature apply?** If not, the problem is not the
    group. Start with [troubleshooting](/deploy/troubleshooting/).
-4. **Has a group just been created or given a new alias?** Sigil remembers what
-   the directory said for a quarter of an hour, so a brand-new group may take
-   that long to be found on its first send.
+4. **Has a group just been created or given a new alias?** Sigil looks an
+   address it has not seen before up in Microsoft 365 on its first send, so a
+   new group is found as soon as Microsoft's directory search lists it, which
+   can lag briefly behind the group's creation. A change to a group Sigil has
+   already seen, such as a new name, can take up to a quarter of an hour to
+   show.

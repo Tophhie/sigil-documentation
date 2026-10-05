@@ -116,8 +116,9 @@ restart.
 
 Some fields only accept certain values, and you are told at the point of saving
 rather than finding out later. A field for a web address wants a full one
-beginning `https://` or `http://`. A field offering a list of choices takes one
-of those choices. That is your organisation's decision about the field, not Sigil being
+beginning `https://` or `http://`. A field for an email address or a phone
+number checks that what you type looks like one. A field offering a list of
+choices takes one of those choices. That is your organisation's decision about the field, not Sigil being
 particular.
 
 If your organisation changes what a field may hold after you filled it in, an
@@ -161,18 +162,22 @@ of you keeping your own number up to date.
 
 ## If the page says editing is not available
 
-Three things can cause it, and none of them is a fault.
+Four things can cause it, and none of them is a fault.
 
 Your organisation may not have switched profile editing on. It is off until an
-administrator turns it on, and there is nothing you can do from your end.
+administrator turns it on, and there is nothing you can do from your end. The
+page is headed Nothing to fill in. Anything you entered earlier keeps appearing
+in your signature: switching editing off stops people changing their details, it
+does not remove them.
 
 Or your organisation's Sigil subscription may not be active at the moment, in
-which case the page says there is nothing to edit right now.
+which case the page is headed Nothing to edit right now.
 
-A third message looks different. If your mailbox is one your organisation has
-deliberately left out of Sigil, which is normal for shared and unattended
-mailboxes, the page reports the mailbox as excluded instead.
+The other two show as an error message instead. Mailbox excluded means your
+mailbox is one your organisation has deliberately left out of Sigil, which is
+normal for shared and unattended mailboxes. Organisation not active means your
+organisation's Sigil account is not currently active.
 
-In every case your IT team can tell you which, and the values you may already
-have entered keep appearing in your signature regardless. Switching editing off
-stops people changing their details; it does not remove them.
+In the last three cases you get no signature from Sigil at the moment, so
+nothing you entered appears until that changes. Your IT team can tell you which
+applies.

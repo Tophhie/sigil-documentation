@@ -43,8 +43,10 @@ add-in was deployed and however long it waited. Microsoft now steers
 administrators towards promoting a shared mailbox to a full account in new
 Outlook for Windows, so this is a common way to meet it.
 
-If that describes what you are seeing, the fix is to re-upload the manifest. The
-portal tells you when your organisation is behind: see
+If that describes what you are seeing and your organisation uploaded Sigil as a
+custom app, the fix is to update the custom app. A deployment from the Microsoft
+Marketplace is updated by Microsoft rather than by you. The portal tells you
+when your organisation is behind: see
 [which manifest version you are on](/deploy/deploy-the-add-in/#which-manifest-version-you-are-on).
 
 Deploy the add-in to the people, never to the shared mailbox. Microsoft's own

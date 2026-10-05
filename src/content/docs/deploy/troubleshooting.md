@@ -219,7 +219,9 @@ is on
    column. It shows the manifest version, or `pre-1.5` for one older than the
    version stamp.
 3. If a notice at the top of the page says mailboxes are still on an older
-   version, choose Update and follow the steps in the dialog. See
+   version and you uploaded Sigil as a custom app, choose Update and follow the
+   steps in the dialog. A Marketplace deployment is updated by Microsoft, so
+   allow its rollout to reach those mailboxes instead. See
    [updating the add-in](/deploy/deploy-the-add-in/#updating-the-add-in).
 
 On Android and iOS a shared mailbox added as its own account gets no signature

@@ -233,7 +233,7 @@ effect immediately:
 | Footer edit | Seconds |
 | Assignment rules change | Next compose |
 | Directory attribute change affecting which rule matches | Up to an hour, then one further compose |
-| Add-in manifest change | Requires redeploy and re-consent |
+| Add-in manifest change | Admin consent again. A Marketplace deployment receives the new version from Microsoft; a custom app upload must be updated by an administrator |
 
 Assignment rules look like an exception and are not quite one. Evaluating a rule
 needs directory data, so the decision reached for each mailbox is cached, but the

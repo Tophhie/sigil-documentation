@@ -57,6 +57,10 @@ underscores are dropped, and leading and trailing separators are trimmed. A file
 called `Acme Logo (final).png` is stored as `Acme-Logo-final.png`. The Images
 view shows the name that was actually used, which is the one to reference.
 
+Names beginning `sigil-` are reserved and refused. Sigil uses that prefix for the
+QR codes and profile photos it generates for each sender, and an upload under it
+would never be shown.
+
 Uploading a file whose own name is already in the library replaces that image in
 place. That is how a logo is updated: every template referencing it picks up the
 new bytes on the next compose, with nothing to republish.
@@ -83,7 +87,7 @@ compose, with nothing to republish.
 
 The Images view shows a thumbnail of every uploaded image alongside its name and
 the `cid:` reference to use in a template. Selecting a thumbnail opens the image
-at full size with its file size.
+at full size with its dimensions in pixels and its file size.
 
 The file size is the number to look at. It is the one property of an image that
 affects every message anyone sends, and it is invisible from the file name.
@@ -208,6 +212,11 @@ unpublished draft uses it, and each banner that is the image.
 Drafts count deliberately. A draft referencing a deleted image renders nothing
 the moment somebody publishes it, and the person publishing would have no reason
 to connect the two.
+
+The check does not cover older versions in
+[version history](/signatures/versions/) or templates in the bin. Rolling back
+to a version, or restoring a template, that used a deleted image brings it back
+without that image, so check before deleting an image you might want back.
 
 Detach it from everything the message lists, then delete. Deletions are recorded
 in the [change log](/monitoring/change-log/), and the previous file is not

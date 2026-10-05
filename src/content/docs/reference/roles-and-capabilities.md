@@ -24,7 +24,7 @@ a description of it.
 | Users and roles | Invite users and assign roles | Yes | No | No | No | No | Yes |
 | Billing | Plan, seats, subscription, billing profile and [add-ons](/admin/billing/#add-ons) | Yes | No | No | No | No | Yes |
 | Cost management | Which mailboxes and Entra groups have Sigil, which way round that list reads, and the suggestions behind it | Yes | No | No | No | No | Yes |
-| Settings | The organisation-wide switches (publish approval, profile editing and the health digest), which [profile fields](/admin/profile-fields/) exist, and the [branded link domain](/monitoring/branded-link-domain/) | Yes | No | No | No | No | No |
+| Settings | The organisation-wide switches (publish approval, profile editing, the health digest and product update emails), which [profile fields](/admin/profile-fields/) exist, and the [branded link domain](/monitoring/branded-link-domain/) | Yes | No | No | No | No | No |
 | Staff profile details | See and correct what a named colleague entered in their own [profile fields](/admin/profile-fields/) | Yes | No | No | No | No | No |
 
 Admin is the only role that holds every capability. Assignment rules, settings
@@ -54,8 +54,9 @@ a signature links to.
 
 Where [publish approval](/signatures/approvals/) is switched on, holding the
 templates capability is no longer enough to put a body live. Publishing,
-restoring a version, staging a rollout and scheduling any of it then need the
-Admin role, while everything else an Editor does is unchanged.
+restoring a version, starting or promoting a staged rollout and scheduling any
+of it then need the Admin role, or a partner Owner or Admin working inside a
+managed client, while everything else an Editor does is unchanged.
 
 Cost management is deliberately its own capability rather than part of billing.
 The two travel together for a tenant, where the Admin and Billing roles hold
@@ -134,6 +135,7 @@ Partner roles apply across a managed client base. See
 | Work inside a managed client at all | Yes | Yes | Yes | No |
 | Exclude a client's mailboxes from Sigil | Yes | Yes | No | No |
 | Create an API key inside a managed client | Yes | Yes | No | No |
+| Switch a client's branded link domain add-on on or off | Yes | Yes | Yes | No |
 | Add, invite, transfer or release a client | Yes | Yes | No | No |
 | Partner billing and invoice details | Yes | No | No | Yes |
 | Usage and rebilling export | Yes | No | No | Yes |
