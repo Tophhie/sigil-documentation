@@ -14,6 +14,11 @@ centre. Global Administrator covers both.
 
 ## 1. Connect your organisation
 
+If you came from the free trial button on Sigil's website, you start on a trial
+screen that says what you will need and offers a setup link to send to your IT
+administrator. See
+[starting from the free trial](/deploy/connect-your-organisation/#starting-from-the-free-trial).
+
 Visit `https://portal.usesigil.app/admin/consent`. You are redirected to
 Microsoft's admin consent screen, which lists the read-only Graph permissions
 Sigil needs. Granting consent installs Sigil's service principal in your tenant.
@@ -25,8 +30,8 @@ to a blank page.
 
 The first person to sign in afterwards becomes the tenant administrator.
 
-You need a Global Administrator account for this, because Microsoft refuses
-consent from anyone else.
+You need a Global Administrator or Privileged Role Administrator account for
+this, because Microsoft refuses tenant-wide consent from anyone else.
 
 1. Go to `https://portal.usesigil.app/admin/consent`.
 2. Sign in on Microsoft's screen with the administrator account.
@@ -34,13 +39,13 @@ consent from anyone else.
 4. Wait to be returned to the portal.
 
 The portal shows "Your organisation is connected" and takes you straight into
-Microsoft sign-in.
+Microsoft sign-in, then on to the Getting started checklist.
 
 If you signed in to the portal before consent was granted, the portal stops at
 "One more step to set up" instead of opening. Choose Approve as an
-administrator to start the same flow. If you are not a Global Administrator
-yourself, choose "Not an administrator? Copy the link" and send the link to
-somebody who is.
+administrator to start the same flow. If you cannot grant consent yourself,
+choose "Not an administrator? Copy the link" and send the link to somebody who
+can.
 
 Full detail: [connect your organisation](/deploy/connect-your-organisation/).
 
@@ -54,10 +59,12 @@ account. There is no separate password.
 3. Open Getting started in the portal sidebar if the checklist is not already
    showing.
 
-The checklist runs from Connect Microsoft 365 through billing details, a
-payment method, the Data Processing Agreement, your signature, the add-in,
-your team and a test email. Only an Admin sees it. Choosing Dismiss hides it,
-and it stays reachable from the sidebar.
+The checklist puts getting a signature working first: connecting Microsoft
+365, your signature, the add-in, and checking the signature in Outlook. Billing
+details and a payment method come next, as what keeps signatures running after
+the trial. The Data Processing Agreement, your team and a test email come last.
+Only an Admin sees it. Choosing Dismiss hides it, and it stays reachable from
+the sidebar.
 
 The [Getting started checklist](/admin/getting-started-checklist/) is the first
 entry in the sidebar, so an empty portal is never where you start. Each step's
@@ -144,8 +151,10 @@ centre.
 3. Assign it to your pilot group.
 4. Accept the permissions request and finish the deployment.
 
-The checklist marks this step done once Sigil has seen a signature request
-from your tenant, not when you finish the deployment.
+The checklist marks this step done once Sigil has heard from the add-in in
+your tenant, not when you finish the deployment. The next step, Check your
+signature in Outlook, ticks once the add-in reports that it actually applied a
+signature.
 
 Full detail: [deploy the add-in](/deploy/deploy-the-add-in/).
 

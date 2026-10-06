@@ -298,9 +298,9 @@ rather than leaving you to infer it from whether a card is present.
 | Internal | Tophhie Cloud's own organisation |
 
 The last three mean nobody is invoiced, and the view says so with a "Not billed"
-badge and drops the subscription panel. Those organisations also see both
-billing steps on the
-[Getting started checklist](/admin/getting-started-checklist/) marked optional.
+badge and drops the subscription panel. The
+[Getting started checklist](/admin/getting-started-checklist/) leaves out its
+billing group for those organisations, since there is nothing to pay.
 
 A comped organisation, and Tophhie Cloud's own, can still keep a card and
 billing details on file. The plan card has a payment section showing whether a

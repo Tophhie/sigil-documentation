@@ -78,7 +78,9 @@ outstanding, and a prompt sits at the top of every page in the portal for anybod
 who can open Billing. Its button goes straight to the Billing details tab. The
 prompt can be put off for the rest of the browser session until the trial has
 been set to end for want of the details. From then on it names the date and
-stays. An organisation nobody invoices is not asked for any of it.
+stays. Getting started is the one page that leaves the prompt out, because the
+checklist already asks, until that end date has been set. An organisation nobody invoices is not asked
+for any of it.
 
 ## What waits on it
 

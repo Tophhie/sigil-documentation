@@ -100,8 +100,10 @@ longer read your directory and cannot personalise anything. Re-visit
 ### Was the add-in ever actually deployed?
 
 The [Getting started checklist](/admin/getting-started-checklist/) only marks the
-add-in step complete once Sigil has seen a real signature request from your
-tenant. If that step is still open, the deployment has not reached anyone yet.
+add-in step complete once Sigil has heard from the add-in in your tenant. If
+that step is still open, the deployment has not reached anyone yet. If it is
+ticked but "Check your signature in Outlook" is not, the add-in is running but
+has not reported a successful apply, and Activity will show why.
 
 1. Open Getting started in the portal sidebar.
 2. Check whether the "Deploy the Outlook add-in" step is ticked.

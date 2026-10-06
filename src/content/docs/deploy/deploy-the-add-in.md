@@ -67,8 +67,9 @@ before others.
 
 While you wait, the [Getting started checklist](/admin/getting-started-checklist/)
 tracks this step honestly: it only marks the add-in as deployed once Sigil has
-actually seen a signature request arrive from your tenant. It is not a checkbox
-you tick.
+actually heard from the add-in in your tenant. It is not a checkbox you tick.
+The step after it, Check your signature in Outlook, goes further and waits for
+the add-in to report that it applied a signature.
 
 ## Pilot first
 

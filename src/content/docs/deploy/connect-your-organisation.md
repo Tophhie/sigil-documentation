@@ -9,6 +9,41 @@ Onboarding is self-serve. There is no provisioning call, no account to be create
 for you, and no credentials to exchange. A Microsoft 365 administrator grants
 consent and the tenant provisions itself.
 
+## Starting from the free trial
+
+The free trial button on Sigil's website opens the portal's trial screen rather
+than the usual sign-in. It is headed "Start your 14-day free trial" and sets out
+what you are agreeing to before anybody signs in:
+
+| | |
+| --- | --- |
+| Card | Not needed to try Sigil. Add payment details before the trial ends to keep signatures running |
+| What you need | Microsoft 365 with Exchange Online, and an administrator who can approve directory access and deploy the Outlook add-in |
+| Where to work | A desktop browser, to customise your signature |
+| How long the add-in takes | Up to 72 hours for Microsoft to distribute it |
+
+The screen also links to [the permissions Sigil needs](/deploy/permissions/).
+Your organisation's trial starts when an administrator connects Microsoft 365,
+not when you open this screen.
+
+If you are the administrator:
+
+1. Choose Continue with Microsoft and sign in with your work account.
+2. On the screen headed "One more step to set up", choose Approve as an
+   administrator and approve on Microsoft's screen.
+3. You arrive on the [Getting started checklist](/admin/getting-started-checklist/).
+
+If somebody else will have to approve it:
+
+1. Choose "Copy setup link for your IT admin". The button reads Link copied.
+2. A box appears under the card with the link in it. If your browser blocked the
+   copy, select the link in the box and copy it yourself.
+3. Send the link to your Microsoft 365 administrator. It opens the same trial
+   screen for them, so they can read what is being asked before they sign in.
+
+The setup link is also the easy way to move from a phone to a desktop: open it on
+the desktop and carry on there.
+
 ## Grant admin consent
 
 Go to:
@@ -40,10 +75,13 @@ tenant-wide:
    permissions listed, then approve.
 3. You are returned to the portal. It shows "Your organisation is connected"
    and sends you to Microsoft to sign in.
-4. Sign in with your Microsoft work account.
+4. Sign in with your Microsoft work account. You arrive on the Getting started
+   checklist.
 
 If you had already signed in to the portal before granting consent, step 3
-takes you straight into the portal instead.
+takes you straight into the checklist instead. A colleague who already has a
+role other than Admin is taken to the first page their role can open, because
+the checklist is for Admins only.
 
 ## What provisioning does
 
@@ -125,11 +163,15 @@ sign-in screen appearing a second time and the natural conclusion is that
 signing in failed. It also names your domain, so you can see which organisation
 is about to be connected.
 
-If you are not the administrator who can approve it, the same screen offers to
-copy the consent link so you can send it to somebody who is. That is the
-commonest dead end here, and it is worth using rather than pressing the approve
-button and reading back an AADSTS code. The copied link deliberately carries no
-account details, since the point is for a different person to open it.
+The screen says that a Global Administrator or Privileged Role Administrator
+can grant consent. If you are neither, it offers to copy a setup link so you can
+send it to somebody who is. That is the commonest dead end here, and it is worth
+using rather than pressing the approve button and reading back an AADSTS code.
+The link opens the trial screen described under
+[starting from the free trial](#starting-from-the-free-trial), so your
+administrator sees what Sigil asks for before signing in. It deliberately
+carries no account details, since the point is for a different person to open
+it.
 
 To connect your organisation from that screen:
 
@@ -143,9 +185,11 @@ To connect your organisation from that screen:
 If you cannot approve it yourself:
 
 1. On the same screen choose "Not an administrator? Copy the link". The button
-   reads Link copied.
-2. Send the link to an administrator who can grant consent. Once they have
-   opened it and approved on Microsoft's screen, sign in again.
+   reads Link copied, and a box appears under the card with the link in it. If
+   your browser blocked the copy, select the link in the box and copy it.
+2. Send the link to an administrator who can grant consent. They open it, choose
+   Continue with Microsoft, then Approve as an administrator.
+3. Once they have approved on Microsoft's screen, sign in again.
 
 ## If consent does not complete
 
