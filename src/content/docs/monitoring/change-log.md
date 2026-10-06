@@ -166,6 +166,7 @@ Entries read in plain language rather than as internal lever names:
 | Re-linked your billing, or Updated your invoice details | A billing record was repaired or corrected |
 | Corrected your billed seat count | A seat count was adjusted. See [billing](/admin/billing/) |
 | Changed your discount, or Extended your trial | A commercial arrangement was changed |
+| Added prepaid mailboxes to your plan, or Ended prepaid mailboxes on your plan | A [prepaid block](/admin/billing/#prepaid-mailboxes) was recorded, or ended early. The entry gives the block's term, such as "50 mailboxes, 30 Oct 2026 to 29 Oct 2027" |
 | Changed how your invoices are collected | Your subscription moved between card payment and invoicing, or back. See [invoices and credits](/admin/invoices-and-credits/) |
 | Issued a credit to your account | A credit was applied against your invoices |
 | Cancelled your subscription, or Reactivated your subscription | Your subscription state was changed |

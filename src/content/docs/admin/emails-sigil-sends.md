@@ -41,6 +41,7 @@ organisation who can actually act on it.
 | Add your billing details before your Sigil trial ends | A trial about to convert still has incomplete billing details, so it has been set to end on its trial date. Names the date and what happens either way |
 | Your Sigil payment failed, or your Sigil invoice is overdue | A payment has failed, or an invoice has gone past its due date. Names the day signatures stop |
 | Your Sigil signatures stop on a named day | About a week before the grace period runs out, if it is still unsettled |
+| Your prepaid mailboxes end on a named day | Thirty days before a [prepaid block](/admin/billing/#prepaid-mailboxes) ends, once per block. Says that mailboxes are billed monthly at your usual rate after that |
 | A message from Tophhie Cloud | Support needs to tell your administrators something specific about your organisation |
 | An announcement from Tophhie Cloud | Something applies to every customer rather than to you in particular, such as an add-in manifest worth taking or a change to a published policy. A service notice, sent whatever your email preferences |
 | A product update from Tophhie Cloud | Occasionally, when enough has changed in the service to be worth a round-up. Nobody has to act on one, so it honours the [product update setting](/admin/settings/#product-update-emails) and each person's own opt-out. See [product updates](#product-updates) |
@@ -115,7 +116,7 @@ messages in the table above.
 
 ### The billing notices
 
-The four billing messages go to everybody who could do something about them:
+The five billing messages go to everybody who could do something about them:
 every Admin and every holder of the Billing [role](/admin/users-and-roles/),
 plus the billing email on your [billing profile](/admin/billing-profile/) if you
 have set one. Duplicates are removed, so somebody who is both is mailed once.
@@ -250,6 +251,7 @@ their own address from the link at the bottom of one.
 | Message | Sent when |
 | --- | --- |
 | Action needed: your Sigil payment failed | A payment on the partner subscription has failed. Names the date signatures stop across every managed client if it stays unpaid |
+| Prepaid mailboxes for a client end on a named day | Thirty days before a [prepaid block](/partners/billing/#prepaid-mailboxes-for-a-client) you paid for ends, once per block. Names the client, and says its mailboxes are billed at your usual rate after that. Goes to the same people as the payment failure notice |
 | Your Sigil partnership is at risk | The partnership has gone six consecutive months without an active client. Written to the partner's Owners, and it starts the 30 days the agreement gives them to respond |
 
 The partnership-at-risk notice exists because the partner agreement promises it.

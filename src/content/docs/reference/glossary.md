@@ -134,6 +134,12 @@ The page at `portal.usesigil.app/me` where anybody in an organisation fills in
 their own profile fields. Needs no portal role and grants none. See
 [filling in your own details](/users/your-details/).
 
+**Prepaid mailboxes**
+A block of mailboxes paid for up front for a fixed term. While it runs, only
+mailboxes above the block are billed monthly. See
+[billing](/admin/billing/#prepaid-mailboxes), or for a partner,
+[prepaid mailboxes for a client](/partners/billing/#prepaid-mailboxes-for-a-client).
+
 **Paused delivery**
 An organisation-wide switch that stops mailboxes receiving a signature while
 leaving every admin surface working. It changes nothing about seats or the

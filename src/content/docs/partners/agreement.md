@@ -126,6 +126,12 @@ service itself and not add-ons. If you enable one for your own organisation it i
 billed to you at list less your partner discount, the same way a client's is. See
 [partner billing](/partners/billing/#add-ons-on-a-client).
 
+Clause 6 bills monthly in arrears with no minimum spend, so it has nothing to say
+about paying for a client's mailboxes up front. A prepaid block is agreed
+separately for each deal in a signed side letter, and the agreement itself does
+not change. See
+[prepaid mailboxes for a client](/partners/billing/#prepaid-mailboxes-for-a-client).
+
 ## Breach notification reaches you sooner
 
 Where a personal data breach affects a client you manage, you are told what is

@@ -137,7 +137,8 @@ stands.
 | Figure | What it shows |
 | --- | --- |
 | Seats in use | Today's billable mailboxes across every client |
-| Average this period | The average so far, to two decimal places, with how many days have been measured. It shows a dash until the first night of the period has been measured |
+| Average this period | The average so far, to two decimal places, with how many days have been measured. It shows a dash until the first night of the period has been measured. Where a [prepaid block](#prepaid-mailboxes-for-a-client) applies, this is the average after the block, and the average as measured is shown beside it, as in "34.20 measured, before prepaid" |
+| Prepaid mailboxes | Only shown while one of your clients has a prepaid block. The prepaid mailboxes across all your clients today, "netted off your clients' usage" |
 | This month, estimated | The average so far at your rate, less your partner discount. Before your account moves to the average, it is today's count instead |
 
 The estimate moves as the month goes on, and comes close to the invoice's seat
@@ -158,6 +159,61 @@ done both, so the answer is "Nothing to report (already-reported-today)." and th
 figures stay as they are. Either way it never changes a day that is already
 counted. It can be used once every ten minutes; sooner than that, it answers
 "Seats were synced in the last ten minutes. Try again shortly."
+
+## Prepaid mailboxes for a client
+
+You can pay up front for a block of mailboxes for one client, such as 50
+mailboxes for 12 months, and have only that client's usage above the block
+billed monthly. The partner agreement bills monthly in arrears with no minimum
+spend, so a prepayment sits outside it and is agreed deal by deal in a signed
+side letter. Under that letter the block is non-refundable, runs for a fixed
+term, covers the named client only, and ends if the client leaves your
+management. Usage above the block is billed as normal.
+
+To set one up:
+
+1. Ask Tophhie Cloud for a prepaid block, naming the client, the number of
+   mailboxes and the term.
+2. Sign the side letter.
+3. Pay the prepayment invoice. It is raised against your own Stripe customer, so
+   it arrives alongside your monthly invoices rather than going to the client.
+4. Once it is paid, Tophhie Cloud records the block against the client, with the
+   side letter's invoice or order reference. A block cannot be recorded for a
+   client without one.
+
+The nightly measurements do not change. What changes is the figure reported
+for the period: before the average is worked out, each client's mailbox-days are
+reduced by its prepaid mailboxes over the same measured days, client by client
+and across the whole period. So:
+
+- A quiet week offsets a busy one. A client at 45 mailboxes for half the month
+  and 55 for the other half, against a block of 50, is billed for nothing.
+- A block that starts or ends partway through a period needs nothing special.
+  Only the days it covers are reduced.
+- A night that was missed removes both that day's count and that day's cover,
+  so it neither helps nor costs you.
+- One client's unused block never reduces another client's bill.
+
+A period still billed on its final day's count, from before
+[the move to the average](#when-the-average-starts), takes each client's block
+off that day's count in the same way.
+
+A client with a block shows a badge such as "50 prepaid" beside its name in the
+client list on the Partner billing page.
+
+If the client moves to another partner, or to being billed directly, your block
+stops applying from that day, because it was tied to you as the payer. Whether
+anything is moved or refunded is a matter for Tophhie Cloud and the side letter,
+not something that happens automatically.
+
+Thirty days before a block ends, your billing email and every Owner and Billing
+member of partner staff are emailed once, naming the client and the date. From
+the day after it ends, the client's mailboxes are billed monthly at your usual
+rate again. Tophhie Cloud is alerted at the same time, so a renewal can be
+discussed before then.
+
+The client sees the block too, as described in
+[what clients see](#what-clients-see).
 
 ## Add-ons on a client
 
@@ -348,6 +404,10 @@ A managed client's Billing view reflects that their organisation is billed
 through their partner. There is no card for them to add and no subscription for
 them to cancel, because neither exists at their level.
 
+Where you have paid for a [prepaid block](#prepaid-mailboxes-for-a-client) for
+the client, their Billing view says so, as in "Your provider has prepaid 50 of
+them until" followed by the date. It does not show what you paid.
+
 Everything else in their portal works normally.
 
 ## Rebilling
@@ -368,10 +428,18 @@ Owner and Billing roles can export it.
 
 The file is named sigil-usage.csv and covers the window on screen.
 
-Its columns are the date, the client name, the tenant id and the seat count,
-one row per client per measured day. Those daily rows are what your invoice is
-made of: a client's seat counts added up over an invoice's window are the
-mailbox-days its footer prints for that client. A client that moved to or from
+Its columns are the date, the client name, the tenant id, the seat count, the
+prepaid seats and the billable seats, one row per client per measured day. The
+prepaid seats are the client's [prepaid block](#prepaid-mailboxes-for-a-client)
+that day, 0 for most clients, and the billable seats are the seat count less
+that block. Those daily rows are what your invoice is made of: a client's
+billable seats added up over an invoice's window, and taken as 0 if the total is
+below zero, are the mailbox-days its footer prints for that client.
+
+A single day's billable figure can be negative, when a client sits below its
+block, because the block is netted across the whole period rather than day by
+day. On screen, the Prepaid and Billable columns only appear when a client in
+the window has a block. A client that moved to or from
 another partner on a given day appears only in the export of the partner it was
 billed to for that day.
 
@@ -403,9 +471,14 @@ The footer, on an invoice billed on the average, reads in this order:
 3. Each client, largest first, with its average and its mailbox-days, such as
    "Contoso: 22.387 (694 mailbox-days)". A client's average is its mailbox-days
    divided by the days measured for your whole account, so a client that joined
-   halfway through shows half its size.
+   halfway through shows half its size. A client with a
+   [prepaid block](#prepaid-mailboxes-for-a-client) gets a longer line giving
+   its measured average, its prepaid mailboxes and when they run to, then the
+   billed average and mailbox-days, such as "Contoso: average 56.000, of which 50
+   prepaid until 29 Oct 2027; billed 6.000 (186 mailbox-days)".
 4. The total average across all your clients, and the mailbox-days it is made
-   of.
+   of. Where a block applies, these are the billed figures, after prepaid
+   mailboxes.
 5. The average for branded link domains, when any client had one live during the
    period. It is a single figure, not split by client.
 6. A link back to the usage report with that invoice's period already selected,

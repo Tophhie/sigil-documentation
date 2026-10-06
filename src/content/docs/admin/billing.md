@@ -85,6 +85,53 @@ Excluding one stops its signature and removes its seat, and Sigil will point out
 which mailboxes are candidates by naming the ones that have never applied a
 signature. See [cost management](/admin/cost-management/).
 
+## Prepaid mailboxes
+
+An organisation can pay for a block of mailboxes up front for a fixed term, such
+as 50 mailboxes for 12 months, rather than paying for every mailbox month by
+month. It is arranged with Tophhie Cloud rather than set up in the portal:
+
+1. Ask Tophhie Cloud for a prepaid block, with the number of mailboxes and the
+   term you want.
+2. Pay the prepayment invoice you are sent. It is a one-off invoice, separate
+   from your monthly one.
+3. Once it is paid, Tophhie Cloud records the block against your organisation.
+   It normally starts on your subscription's renewal day, so it lines up with a
+   whole month you have not yet been billed for.
+
+From then on the monthly subscription charges only for mailboxes above the
+block. With 50 prepaid and 54 licensed mailboxes in use, the month's invoice is
+for 4. With 50 prepaid and 42 in use, it is for none, and the subscription
+carries on as normal with a zero invoice each month. Unused prepaid mailboxes do
+not carry over to a later month.
+
+A block does not change what counts as a seat. Every rule in
+[what counts as a seat](#what-counts-as-a-seat) still decides your seat count,
+and the block is taken off that count afterwards. A directory read that fails is
+still never billed as zero.
+
+To check a block:
+
+1. Open Billing in the portal sidebar.
+2. Stay on the Your subscription tab.
+
+A Prepaid mailboxes figure shows the number of mailboxes and the day the block
+runs to, with the note "Only mailboxes above this number are billed monthly."
+The line under the monthly estimate gives both counts, for example "54 licensed
+mailboxes, 50 prepaid: 4 × £0.70 / month, excluding VAT", so the estimate adds
+up. Adding a block, or ending one early, also appears in your
+[change log](/monitoring/change-log/).
+
+Thirty days before a block ends, your billing contacts are emailed once,
+"Your prepaid mailboxes end on" followed by the date. Nothing stops when it
+ends. From the next day every mailbox is billed monthly again at your usual
+rate, unless a new block has been agreed.
+
+If your organisation is billed through a partner, a block is something your
+partner arranges and pays for, not you. Your Billing view says so: "Your
+provider has prepaid 50 of them until" followed by the date. See
+[prepaid mailboxes for a client](/partners/billing/#prepaid-mailboxes-for-a-client).
+
 ## The trial
 
 The trial gives you real seats from day one. Nothing is charged until it ends.
