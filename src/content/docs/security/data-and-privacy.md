@@ -371,7 +371,7 @@ for what stays in the shared database and why.
 Two exports exist, and they answer different questions.
 
 A whole-organisation export is a single JSON file holding your organisation record
-and subscription, your portal users, every template with its body and design
+and subscription, your portal users and any custom roles, every template with its body and design
 document, templates still in Recently deleted, the role pointers, assignment
 rules, banners, footers, your [profile fields](/admin/profile-fields/) with the
 values people entered in them, the change log and your images. Ask support for

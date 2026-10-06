@@ -36,6 +36,7 @@ organisation.
 | Deleting an image | Yes |
 | Sending a test email | Yes |
 | Changing who has access, and at what role | Yes |
+| Creating, editing or deleting a [custom role](/admin/users-and-roles/#custom-roles) | Yes |
 | Re-pointing somebody's access after their address changed | Yes |
 | Every stage of a staged rollout | Yes |
 | Submitting a draft for review, and approving or rejecting it | Yes |
@@ -295,7 +296,8 @@ change that had replaced half the list.
 | Assigning a template to a role | Which role, and the template that replaced the one before it |
 | Editing a banner or footer | The name, and each field that moved, as before and after |
 | Changing a setting | Each setting that moved, as before and after |
-| Changing who has access | The mailbox, the previous role and the new one, and whether it was an invitation |
+| Changing who has access | The mailbox, the previous role and the new one, and whether it was an invitation. A custom role is named as it was called at the time |
+| Changing custom roles | The role's name and what happened to it. A new role lists the areas it reaches, an edited one shows a rename as old name → new name and the areas added (+) or taken away (-), and a deleted one reads "deleted" |
 | Renaming a template | The old name and the new one |
 | Excluding or including a mailbox | The addresses, the group where one was involved, and the note |
 | A staged rollout | The template, the versions, which transition, the percentage and the reason |

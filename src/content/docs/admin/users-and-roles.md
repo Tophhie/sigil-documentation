@@ -12,7 +12,7 @@ organisation.
 Your Entra token establishes who you are and which organisation you belong to.
 Your role decides what you can do.
 
-## The six roles
+## The six built-in roles
 
 | Role | Can do |
 | --- | --- |
@@ -71,17 +71,22 @@ submits them for review.
 The full capability grid is in
 [roles and capabilities](/reference/roles-and-capabilities/).
 
+If none of the six fits somebody, an Admin can define a role of their own. See
+[custom roles](#custom-roles).
+
 ## Inviting somebody
 
 Invite from Users and roles. You need their email address and a role. You
-also need the Admin or Billing role yourself, and only an Admin is offered Admin
+also need a role that reaches Users and roles yourself, which is Admin, Billing,
+or a [custom role](#custom-roles) given that area. Only an Admin is offered Admin
 as a role to give.
 
 1. Open Users & roles in the portal sidebar.
 2. Choose Invite user.
 3. Under Email address, start typing their name or address and pick them from
    the directory suggestions, or type the address in full.
-4. Pick a Role. Editor is selected to begin with.
+4. Pick a Role. Editor is selected to begin with. Any custom roles are listed
+   after the six built-in ones.
 5. Choose Add user.
 
 The dialog closes, the portal confirms that they get access next time they sign
@@ -91,7 +96,9 @@ They sign in at `portal.usesigil.app/admin` with their Microsoft account. There
 is no separate password to set and no account to activate.
 
 Somebody added for the first time is emailed their portal link and told which
-role they have been given. Changing an existing user's role sends nothing, since
+role they have been given. For a custom role, the email uses the role's name and
+lists the areas it reaches, as in "As Communications, you can work in signature
+templates and compliance footers". Changing an existing user's role sends nothing, since
 it takes effect on their next request. See
 [emails Sigil sends](/admin/emails-sigil-sends/).
 
@@ -142,6 +149,100 @@ Nobody can change their own role or remove their own access, which is what stops
 an accidental self-demotion. Your own row carries a You badge, its Role
 drop-down is disabled and it has no Remove button. Somebody holding the Billing
 role sees every Admin's row locked the same way.
+
+## Custom roles
+
+The built-in roles cover most organisations, but a person sometimes needs a
+combination none of them offers. Somebody who owns both the signature templates
+and the legal footers would otherwise be an Editor who asks a colleague for
+footer changes, a Compliance user who cannot touch a template, or an Admin who
+can also cancel the subscription. A custom role lets you give them exactly the
+two areas instead.
+
+A custom role is a name and a list of the areas of the portal it can reach. The
+areas are the same eleven capabilities the built-in roles are made of, listed in
+[roles and capabilities](/reference/roles-and-capabilities/). Once defined, it
+appears in the Role drop-down beside the built-in roles and is given to people in
+the same way.
+
+| | |
+| --- | --- |
+| Who can define, edit or delete one | An Admin, or a partner Owner or Admin working inside your organisation |
+| Who can give one to a colleague | Anybody who can manage users, which includes the Billing role |
+| How many | Up to 20 per organisation |
+| Name | Required, up to 40 characters, and different from your other custom roles |
+| Description | Optional, up to 200 characters. A note for the next Admin about who the role is for |
+| Areas | At least one |
+| Roles per person | Still one. Somebody who needs two roles' worth of access gets a custom role that combines them |
+
+Defining roles is kept to Admins even though the Billing role manages users.
+Otherwise a Billing user could write a role that reaches templates and then give
+it to a second account of their own.
+
+### What a custom role can never do
+
+Some things belong to the Admin role itself rather than to any capability, so no
+custom role can be given them, whatever areas it reaches:
+
+- Creating, changing or removing an Admin.
+- Accepting the [data processing agreement](/admin/billing/#accepting-the-data-processing-agreement).
+- Creating or revoking [API keys](/admin/api-keys/).
+- Defining custom roles.
+- Rejecting a submitted draft, and publishing while
+  [publish approval](/signatures/approvals/) is switched on.
+- The [getting started checklist](/admin/getting-started-checklist/).
+
+A custom role can be given the Settings area, though. That area includes the
+publish approval switch, so somebody holding it can turn approval off and then
+publish without review if the role also reaches templates. Give Settings only to
+people you would trust with that.
+
+### Creating a custom role
+
+1. Open Users & roles in the portal sidebar.
+2. In the Custom roles card, choose New role.
+3. Enter a Name, such as "Communications". This is what people see wherever a
+   role is shown, including the email telling someone they have access.
+4. Optionally, enter a Description.
+5. Under Can reach, pick each area the role should have.
+6. Choose Create role.
+
+The role appears in the Custom roles card, which shows what it can reach and how
+many people hold it. It also gets its own column in the What each role can do
+grid.
+
+To give it to somebody, invite them or change their role in the usual way and
+pick it from the Role drop-down.
+
+### Changing a custom role
+
+1. Open Users & roles in the portal sidebar.
+2. Choose Edit on the role's row in the Custom roles card.
+3. Change the name, description or areas.
+4. Choose Save changes.
+
+The change applies to everybody holding the role at once, on their next request.
+Their portal menu catches up the next time they reload it.
+
+### Deleting a custom role
+
+You can only delete a role that nobody holds, so deleting one never silently
+takes away somebody's access. While anybody holds it, the delete button is
+disabled and says how many people do, for example "One person holds this role.
+Give them another role first."
+
+1. Give everybody holding the role a different one.
+2. Open Users & roles in the portal sidebar.
+3. Choose the delete button on the role's row in the Custom roles card.
+4. Choose Delete in the Delete role dialog to confirm.
+
+Creating, changing and deleting a custom role are all recorded in the
+[change log](/monitoring/change-log/), including which areas were added or taken
+away. A change of somebody's role records the role's name as it was at the time,
+so the entry still reads correctly after the role is renamed or deleted.
+
+Users with the Billing role, or any other role that manages users, see the
+Custom roles card but not the buttons to change it.
 
 ## Your organisation always keeps an Admin
 

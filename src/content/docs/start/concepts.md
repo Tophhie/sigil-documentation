@@ -128,8 +128,10 @@ signature at the same time. See [cost management](/admin/cost-management/).
 ## Portal role
 
 A permission level inside the portal, stored per tenant and assigned by anyone
-holding the Admin or Billing role. The six roles are Admin, Editor, Marketing, Viewer, Compliance and
-Billing. The Entra token establishes who you are and which organisation you
+whose role reaches users and roles, such as Admin or Billing. The six built-in
+roles are Admin, Editor, Marketing, Viewer, Compliance and Billing, and an Admin
+can define up to 20 custom roles alongside them, each a named set of the areas
+it can reach. The Entra token establishes who you are and which organisation you
 belong to; the portal role decides what you can do. See
 [users and roles](/admin/users-and-roles/).
 

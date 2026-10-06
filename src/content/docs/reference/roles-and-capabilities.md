@@ -9,9 +9,11 @@ sidebar:
 
 Roles are assigned per organisation from [users and roles](/admin/users-and-roles/).
 
-There are six, and each grants a set of capabilities. A capability is the unit
-each route actually checks, so this table is what the server enforces rather than
-a description of it.
+There are six built-in roles, and each grants a set of capabilities. A capability
+is the unit each route actually checks, so this table is what the server enforces
+rather than a description of it. An Admin can also define
+[custom roles](#custom-roles), each of which grants whichever of the same
+capabilities it was given.
 
 | Capability | Covers | Admin | Editor | Marketing | Viewer | Compliance | Billing |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -27,8 +29,9 @@ a description of it.
 | Settings | The organisation-wide switches (publish approval, profile editing, the health digest and product update emails), which [profile fields](/admin/profile-fields/) exist, and the [branded link domain](/monitoring/branded-link-domain/) | Yes | No | No | No | No | No |
 | Staff profile details | See and correct what a named colleague entered in their own [profile fields](/admin/profile-fields/) | Yes | No | No | No | No | No |
 
-Admin is the only role that holds every capability. Assignment rules, settings
-and staff profile details are the three capabilities no other role holds. Rules
+Admin is the only built-in role that holds every capability. Assignment rules,
+settings and staff profile details are the three capabilities no other built-in
+role holds. Rules
 decide who receives which signature, and whether anybody receives one at all, and
 settings decide who may publish, so both have organisation-wide reach that a
 narrower role should not.
@@ -91,6 +94,26 @@ restrict.
 The portal hides navigation a role cannot reach. Every server route independently
 checks the capability it requires, so hiding a menu item is presentation rather
 than the control.
+
+## Custom roles
+
+A custom role is a named set of capabilities from the table above, defined by an
+Admin in [users and roles](/admin/users-and-roles/#custom-roles). Any of the
+eleven can be given to one, including the three only Admin holds among the
+built-in roles. A route checks a custom role's capabilities exactly as it checks
+a built-in role's, so wherever these pages say a task needs, for example, the
+Admin, Editor, Viewer or Compliance role, a custom role holding the same
+capability can do it too.
+
+What a custom role cannot reach is the authority that belongs to the Admin role
+itself rather than to a capability: managing Admins, accepting the data
+processing agreement, creating API keys, defining custom roles, rejecting a
+submitted draft, the getting started checklist, and publishing while
+[publish approval](/signatures/approvals/) is switched on. Those stay with
+Admins, and with a partner's Owners and Admins working inside a managed client.
+
+A person still holds exactly one role. Somebody who needs the access of two is
+given a custom role that combines them. An organisation can define up to 20.
 
 ## API keys hold capabilities and no role
 

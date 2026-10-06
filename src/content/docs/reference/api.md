@@ -98,7 +98,7 @@ Also outside it: `POST /api/admin/test-email` and both digest routes, which send
 or compose mail; every billing route that writes to Stripe, along with the
 invoice and credit lists, whose rows carry links that pay an invoice and the
 commercial reasoning behind concessions; `PUT /api/admin/users`
-and `DELETE /api/admin/users/:email`; `PUT /api/admin/settings`, `GET /api/admin/approvals`
+and `DELETE /api/admin/users/:email`; the custom role routes that write; `PUT /api/admin/settings`, `GET /api/admin/approvals`
 and the draft submit and reject routes; `POST /api/admin/dpa/accept`; everything
 under `/api/admin/managed`, `/api/admin/partner` and `/api/admin/platform`; the
 onboarding routes; and the `/api/admin/api-keys` routes themselves. See
@@ -479,6 +479,8 @@ telemetry.
 | `GET /api/admin/flags` | Admin token | Which features being rolled out gradually are switched on for this organisation. Reachable with an API key of any scope |
 | `GET/PUT /api/admin/users`, `DELETE /api/admin/users/:email` | Admin token, users capability | Manage users and roles |
 | `GET /api/admin/users/search` | Admin token, templates or users capability | Directory lookup, for pickers such as download and test email |
+| `GET /api/admin/custom-roles` | Admin token, users capability | The organisation's [custom roles](/admin/users-and-roles/#custom-roles): each one's key, name, description, capabilities and how many people hold it. A holder's `role` on `GET /api/admin/users` is that key, `custom:` followed by twelve characters, and `roleName` carries the role's name |
+| `POST /api/admin/custom-roles`, `PUT/DELETE /api/admin/custom-roles/:id` | Admin token, Admin role | Define, change or delete a custom role. Answers 409 for a duplicate name, at the limit of 20, or when deleting a role somebody still holds |
 | `GET/PUT /api/admin/settings` | Admin token, settings capability | The organisation-wide switches: publish approval, profile editing, product update emails and digest frequency |
 | `GET /api/admin/profile-values` | Admin token, staff profile details capability | Every mailbox with stored [profile values](/admin/profile-fields/), each with its completion count, and the enabled field definitions to label them with |
 | `PUT /api/admin/profile-values/:email` | Admin token, staff profile details capability | Edit a colleague's values on their behalf, or enter them for a mailbox that has none yet. The address must exist in the directory, and a secondary alias is stored against the mailbox's primary address. Validated exactly as the colleague's own save is, and recorded in the change log |

@@ -158,7 +158,13 @@ evidence of the add-in's apply results. See
 **Role**
 Two meanings, distinguished by context. A signature role is the slot a template
 fills: `new` or `reply`. A portal role is a permission level: Admin, Editor,
-Marketing, Viewer, Compliance or Billing.
+Marketing, Viewer, Compliance, Billing, or a custom role your organisation
+defined.
+
+**Custom role**
+A portal role an Admin defines, made of a name and the capabilities it reaches.
+It is given to people like a built-in role. See
+[custom roles](/admin/users-and-roles/#custom-roles).
 
 **Scheduled publish**
 A template body booked to go live at a chosen instant. The body is captured when
