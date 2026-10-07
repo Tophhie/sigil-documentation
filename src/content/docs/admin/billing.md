@@ -132,6 +132,12 @@ partner arranges and pays for, not you. Your Billing view says so: "Your
 provider has prepaid 50 of them until" followed by the date. See
 [prepaid mailboxes for a client](/partners/billing/#prepaid-mailboxes-for-a-client).
 
+A block belongs to whoever paid for it. A block you paid for yourself stops
+applying on the day your organisation moves under a partner, and a block a
+partner paid for stops applying when you leave that partner. Whether anything is
+moved or refunded is agreed with Tophhie Cloud; it is never carried over
+automatically.
+
 ## The trial
 
 The trial gives you real seats from day one. Nothing is charged until it ends.

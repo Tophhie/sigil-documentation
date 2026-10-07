@@ -148,7 +148,7 @@ the footer, Viewer reads and changes nothing.
 
 Assignment rules are Admin-only, because a rule decides who receives which
 signature and so reaches the whole organisation. Two other areas are also held
-by Admin alone: organisation-wide settings (publish approval, the health digest,
+by Admin alone among the built-in roles: organisation-wide settings (publish approval, the health digest,
 profile editing) and correcting the profile details colleagues entered about
 themselves. See [roles and capabilities](/reference/roles-and-capabilities/).
 

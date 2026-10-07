@@ -199,7 +199,8 @@ compared the new version against a body that is no longer live, so they no longe
 describe a choice anyone can make.
 
 A [scheduled publish](/signatures/scheduled-publishing/) firing does the same
-thing for the same reason, and records why.
+thing for the same reason. In both cases the change log shows the publish, not a
+separate entry for the rollout it cancelled.
 
 Promotion is refused in the same situation. If the template was republished
 behind the rollout's back, promoting it would quietly undo that publish.
@@ -241,8 +242,11 @@ one.
 
 ## What is recorded
 
-Every transition is written to the [change log](/monitoring/change-log/): who
-started the rollout, what each evaluation decided and why, and how it ended. A
+The [change log](/monitoring/change-log/) records who started the rollout, each
+step up, and how it ended (promoted, rolled back, or retired after 30 days), with
+the reason the evaluation gave. Passes that decide to hold at the current step
+are not logged, and neither is a rollout cancelled because the template was
+published over it. A
 rollback carries its reason, so the log shows the failure rates that caused it
 rather than only the fact of it.
 

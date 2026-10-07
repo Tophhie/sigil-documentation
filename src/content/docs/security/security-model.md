@@ -116,7 +116,10 @@ across organisations and a runaway script should not become everybody's problem.
 Authentication and authorisation are separate.
 
 The token establishes who somebody is and which organisation they belong to.
-Their role, stored per tenant inside Sigil, decides what they can do. Every
+Their role, stored per tenant inside Sigil, decides what they can do. That is
+one of the six built-in roles, or a custom role an Admin has put together from
+the same capabilities. Admin authority itself cannot be granted through a custom
+role. Every
 server route declares the capability it requires and checks it independently.
 
 The portal hides navigation a role cannot reach, but that is presentation. The
@@ -193,10 +196,10 @@ rather than policing the author.
 the way in for a related reason. A footer is rich text an administrator writes,
 it is stored as written, and it is loaded back into an editor when a colleague
 opens it, so script-capable markup in a footer would run in that colleague's
-session rather than in a recipient's mail client. Because the Compliance role and
-an MSP Technician can edit footers without reaching users, settings or billing,
-leaving it uncleaned would turn the narrowest role in the product into a route to
-the widest. Scripts, frames, forms, embedded objects, event handler attributes
+session rather than in a recipient's mail client. Because a role can edit footers
+without reaching users, settings or billing (Compliance, an MSP Technician, or a
+custom role given footers alone), leaving it uncleaned would turn the narrowest
+roles in the product into a route to the widest. Scripts, frames, forms, embedded objects, event handler attributes
 and executable URL schemes are removed when the footer is saved, and the markup
 is parsed by a real HTML parser rather than matched with a pattern. The editor
 cleans stored markup again before showing it, so a footer saved before the rule

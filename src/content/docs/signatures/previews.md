@@ -24,7 +24,7 @@ about them changes what your users receive.
 | [Template library](/signatures/templates/) | A thumbnail after each template's name, showing the top-left corner of the live signature |
 | [Version history](/signatures/versions/) | The live version in full above the table, and a thumbnail on every archived version |
 | Approval request email | The proposed signature, and the live one above it, inline in the mail an admin gets when a draft is submitted |
-| [Health digest](/monitoring/health-digest/) | A picture under each line of Published this week |
+| [Health digest](/monitoring/health-digest/) | A picture under each line of Published this week, for up to four templates per digest |
 
 A thumbnail is a way in rather than the picture itself. Clicking one opens the
 render at full size, with a note saying what it is a render of.
@@ -36,7 +36,9 @@ the corner are enough to tell one template from another at a glance.
 
 Where there is no picture, nothing is drawn. A row with an empty placeholder box
 would read as a fault, when all it means is that the picture has not been made
-yet. Once it is made, it appears in place without the page being reloaded.
+yet. On the Versions page, an archived version's picture appears in place once it
+is made. The library thumbnail and the Live now picture do not refresh by
+themselves, so reload the page to see one that has just been made.
 
 To open a picture at full size:
 
@@ -62,7 +64,8 @@ links to on your own website is fetched by the renderer the way a mail client
 would fetch it, so a logo on a host that does not answer leaves a blank box in the
 picture and nothing else fails.
 
-The picture is as wide as the signature itself, up to 640 pixels, on white, and is
+The picture is as wide as the signature plus a narrow white margin, up to 640
+pixels, and is
 captured at twice that resolution so it stays sharp on a high-density screen. A
 narrow signature gets a narrow picture rather than one padded out to a fixed size.
 

@@ -28,8 +28,8 @@ Reply templates are usually shorter. A full brand block on every message in a
 long thread gets tiresome quickly, so a name, title and phone number is a common
 choice.
 
-The add-in works out which is needed. It calls `getComposeTypeAsync` and requests
-`type=reply` for a reply or a forward. The method is probed rather than assumed,
+The add-in works out which is needed. It calls `getComposeTypeAsync` and asks for
+the reply signature (`"type": "reply"` in the request) for a reply or a forward. The method is probed rather than assumed,
 so an older Outlook client that does not support it simply gets the new-message
 signature.
 
@@ -38,8 +38,10 @@ directory.
 
 ### Changing which template is served
 
-Assigning a role needs the admin role. An editor can create and publish
-templates but cannot change which one people receive.
+Assigning a role needs the assignment rules capability, which the Admin role
+holds and a [custom role](/admin/users-and-roles/#custom-roles) can be given. An
+Editor can create and publish templates but cannot change which one people
+receive.
 
 1. Open Templates in the portal sidebar.
 2. Open the menu at the end of the template's row.
@@ -113,7 +115,8 @@ the library always opens it in the editor it was authored in.
 | From your website | Designer | The starter, with your logo, brand colour, address, social profiles and legal page read off your public website |
 | HTML editor | HTML editor | The default signature's markup |
 
-Creating a template needs the admin or editor role and a desktop browser; on a
+Creating a template needs the templates capability (the Admin and Editor roles,
+or a custom role that includes it) and a desktop browser; on a
 phone the portal says so rather than opening the dialog.
 
 1. Open Templates in the portal sidebar.

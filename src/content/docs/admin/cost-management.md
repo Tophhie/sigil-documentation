@@ -200,6 +200,12 @@ row on the list records whether that mailbox was billable, and the headline
 figures separate how many mailboxes are excluded from how many are actually
 coming off the bill.
 
+A [prepaid block](/admin/billing/#prepaid-mailboxes) changes the arithmetic.
+While one is active you pay only for the mailboxes above the number you
+prepaid, so excluding a mailbox lowers your count but only lowers the bill once
+the count is above the block. Neither the headline figures nor the suggestion
+estimate on this page take a prepaid block into account.
+
 The directory picker only suggests enabled mailboxes belonging to your own
 organisation, for the same reason. You can still type any address by hand.
 

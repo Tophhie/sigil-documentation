@@ -63,7 +63,8 @@ If an [IT provider](/partners/overview/) manages your organisation, its Owners
 and Admins count as Admins here while they work inside your tenant. They can
 invite your colleagues and manage your Admins. Its Technicians cannot.
 
-The Admin role is also the only one that reaches [settings](/admin/settings/). If
+The Admin role is also the only built-in role that reaches
+[settings](/admin/settings/), though a custom role can be given it. If
 [publish approval](/signatures/approvals/) is switched on there, it becomes the
 only role that can put a signature live, and an Editor works through drafts and
 submits them for review.

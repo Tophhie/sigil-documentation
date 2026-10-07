@@ -175,8 +175,10 @@ to change a default, not a setup step.
 
 ## Who can change them
 
-The settings capability, which only an Admin holds. Editors, Marketing, Viewers,
-the Compliance role and the Billing role do not reach this page.
+The settings capability. Of the built-in roles only Admin holds it. Editors,
+Marketing, Viewers, the Compliance role and the Billing role do not reach this
+page. An Admin can give the capability to a [custom role](/admin/users-and-roles/#custom-roles), and anyone holding
+that role can then change these settings, publish approval included.
 
 In a [partner-managed](/partners/overview/) organisation, a partner Owner or
 Admin can change these for a client. A partner Technician cannot. Turning a

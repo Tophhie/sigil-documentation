@@ -28,8 +28,10 @@ field, so you can check which one that was; the
 
 The same checks a publish runs apply when you book it: the rendered signature has
 to fit inside Outlook's 30,000 character limit, a
-[designer](/signatures/designer/) template has to validate, and publishing plain
-HTML over a designer template is refused unless you confirm it. A schedule that
+[designer](/signatures/designer/) template has to validate, and plain HTML cannot
+be scheduled over a designer template: the HTML editor does not offer Schedule or
+Publish for one, and the API refuses it unless the request explicitly asks to
+convert the template. A schedule that
 would be rejected at midnight is rejected now instead.
 
 There is one pending schedule per template. Booking a second from the editor
@@ -93,6 +95,10 @@ because that is what it can honestly promise. If you need something to be live b
 A schedule missed while Sigil was unavailable fires late rather than never. Late
 is recoverable and visible. Never is neither.
 
+The same holds while your organisation is not being served, for example while a
+subscription has lapsed or the organisation is suspended. A booked publish stays
+pending and fires on the first check after signatures are being served again.
+
 ## Scheduling a staged rollout
 
 A schedule can start a [staged rollout](/signatures/staged-rollouts/) instead of
@@ -109,7 +115,10 @@ A schedule that fires while a rollout is running cancels that rollout.
 
 This is the same rule a manual publish follows. The baseline the canary was
 measuring against is no longer live, so its numbers describe a choice nobody can
-make any more. The change log records the cancellation and its reason.
+make any more. The change log shows the scheduled publish itself; the rollout it
+cancelled does not get an entry of its own. A schedule booked as a staged rollout
+is different: it replaces any rollout already running on the template, starting
+the new one from the beginning.
 
 ## Cancelling
 
@@ -125,8 +134,15 @@ A message confirms the scheduled publish is cancelled and the banner goes.
 ## If it fails
 
 A schedule that cannot publish is marked failed with the reason, and the row is
-kept rather than removed, so "what happened to the midnight publish?" has an
-answer the next morning.
+kept rather than removed. It is not retried, because a publish that failed once
+will almost certainly fail again fifteen minutes later.
+
+The portal does not show a failed schedule. The Scheduled badge and the editor's
+banner simply disappear, the live body is unchanged, and no change log entry is
+written for the failure. So if a booked publish has not happened, open the
+template and check what is live: if the change is not there, book it again or
+publish it by hand. The stored reason can be read over the API, from
+`GET /api/admin/templates/:id/schedule`.
 
 The commonest reason is that the template was deleted between booking the
 schedule and it firing.
@@ -138,7 +154,7 @@ worse than one you can see has failed and why.
 ## What is recorded
 
 Booking, cancelling and firing each write a [change log](/monitoring/change-log/)
-entry under the Scheduled publish action.
+entry under the Scheduled publish action. A schedule that fails does not.
 
 A schedule that fires is recorded against the person who booked it rather than
 against the system. A person decided this would happen, and the log should name

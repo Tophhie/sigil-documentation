@@ -7,9 +7,10 @@ sidebar:
 
 An MSP is asked for commitments by its own clients that it cannot make unless
 Sigil makes them first. The partner agreement carries two of them: an uptime
-figure with credits behind it, and a response time on escalations.
+figure with credits behind it, and a target response time on escalations.
 
-Both are obligations in the agreement rather than sales copy, and both apply for
+Both are written into the agreement rather than being sales copy, though only
+the uptime figure has credits behind it. Both apply for
 as long as you are an active partner. Neither is offered to a direct customer:
 the [terms of use](/security/compliance/#published-legal-documents) make no
 availability commitment, and the published support page states an aim rather than
@@ -26,7 +27,7 @@ Support is split, and the split follows what each side sells.
 | Kind of request | Who handles it | Target |
 | --- | --- | --- |
 | General usage, configuration and day-to-day queries from your clients | You, as first line | Yours to set |
-| An issue affecting the availability of the service itself: a bug, a regression, an outage | Escalate to Tophhie Cloud | Response within four business hours |
+| An issue affecting the availability of the service itself: a bug, a regression, an outage | Escalate to Tophhie Cloud | Target response within four business hours |
 | General product queries you would rather not answer yourself | Tophhie Cloud, at lower priority | None |
 
 First-line support is the part of the service you sell, so your clients should
@@ -113,7 +114,7 @@ when the invoice it reduced is the only thing anybody can still see. See
 
 There is no minimum volume and no minimum spend. You are billed monthly in
 arrears for the mailboxes you actually manage, measured daily and averaged
-across the billing period, so a month in which you manage none costs nothing. See [partner billing](/partners/billing/) for how the count
+across the billing period, less any mailboxes you have prepaid for a client, so a month in which you manage none costs nothing. See [partner billing](/partners/billing/) for how the count
 is made.
 
 ## Accepting the agreement

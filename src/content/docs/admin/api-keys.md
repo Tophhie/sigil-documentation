@@ -118,7 +118,9 @@ that has not been decided either way.
 
 A call to something not on the list answers 404 rather than 403. The endpoint
 genuinely does not exist for keys, and a 403 would confirm to a leaked key which
-routes are real.
+routes are real. The one exception is key management itself and the partner
+console's addresses, which answer 403 with "Not available to API keys." to a
+valid key.
 
 The list narrows and never widens. A request that gets through it still faces the
 same access check a person's request faces, so nothing here can grant a key
@@ -134,8 +136,8 @@ individual's directory record on demand.
 | Refused | Why |
 | --- | --- |
 | Sending mail: [test email](/admin/test-email/), and sending or previewing the [health digest](/monitoring/health-digest/) | A credential that can post a rendered signature to any colleague's inbox, unattended, is an outbound mailer rather than a way of checking a layout |
-| Moving money: checkout, the billing portal, cancelling, reactivating, the billing profile, and the [invoice and credit lists](/admin/invoices-and-credits/) | Reading seat counts into a dashboard is a real request. Cancelling a subscription from a cron job is not. An invoice row carries a link that views and pays it, and the credits list carries the commercial reasoning behind a concession, neither of which belongs behind an unattended credential |
-| Granting access: inviting a colleague, changing a role, removing someone | Issuing a credential is an access-management act, which is why only an Admin can do it. Granting portal roles is the same act |
+| Moving money: checkout, the billing portal, cancelling, reactivating, the billing profile, the [invoice and credit lists](/admin/invoices-and-credits/), buying or dropping an add-on, and claiming or removing a [branded link domain](/monitoring/branded-link-domain/) | Reading seat counts into a dashboard is a real request. Cancelling a subscription from a cron job is not. An invoice row carries a link that views and pays it, and the credits list carries the commercial reasoning behind a concession, neither of which belongs behind an unattended credential |
+| Granting access: inviting a colleague, changing a role, removing someone, and defining, changing or deleting a [custom role](/admin/users-and-roles/#custom-roles). A key holding the users area can still list custom roles | Issuing a credential is an access-management act, which is why only an Admin can do it. Granting portal roles is the same act |
 | Overriding a control: changing organisation settings, the approval queue, submitting or rejecting a draft | Settings can switch [publish approval](/signatures/approvals/) off. Approval is a second pair of eyes, and a script signing off on a colleague's work is the thing it exists to prevent |
 | Reading one named person: preview against a real address, the per-mailbox download, [rule simulation](/targeting/assignment-rules/), the directory picker, and what colleagues entered in their [profile fields](/admin/profile-fields/) | Each answers "tell me about this mailbox" for an address the caller supplies. A tenant-wide credential that can do that a mailbox at a time is a way to read your directory |
 | Managing keys | A leaked key must not be able to mint a replacement, or revoke the key you are about to use to stop it |
@@ -307,7 +309,9 @@ A managed service provider's Owners and Admins can create a key inside a client
 they manage, because that automation is much of the reason the feature exists.
 
 Any key they create is flagged on your list as created by your IT provider, and
-you can revoke it yourself. See [the partner programme](/partners/overview/).
+you can revoke it yourself. It also stops working, and is marked revoked, as soon
+as that provider no longer manages your organisation, whether you moved to
+another provider or left the partner arrangement. See [the partner programme](/partners/overview/).
 
 ## What it will not do
 

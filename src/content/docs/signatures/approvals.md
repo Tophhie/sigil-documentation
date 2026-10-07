@@ -18,7 +18,8 @@ nobody asked for, so Sigil will not do it for you.
 ## Turning it on
 
 The switch lives in [settings](/admin/settings/) and applies to the whole
-organisation. It needs the settings capability, which only an Admin holds. See
+organisation. It needs the settings capability. Of the built-in roles only Admin holds it,
+though an Admin can also give it to a [custom role](/admin/users-and-roles/#custom-roles). See
 [roles and capabilities](/reference/roles-and-capabilities/).
 
 1. Open Settings in the portal sidebar.

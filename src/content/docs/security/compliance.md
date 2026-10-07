@@ -86,6 +86,10 @@ a link that stops them for the recipient's address, and an administrator can
 switch them off for the whole organisation. See
 [emails Sigil sends](/admin/emails-sigil-sends/#product-updates).
 
+Questions typed into [Ask the documentation](/admin/ask-the-documentation/) are
+processed on the legitimate interest in answering them from the documentation.
+Neither the question nor the answer is kept.
+
 ## Individual rights
 
 The privacy policy sets out the rights a person in the UK or the EEA has over
@@ -301,7 +305,9 @@ send the template in the body of the request rather than in its address. Without
 it an operator looking at a reported rendering fault would see an empty preview
 pane, which is the one thing they opened the session for.
 
-Destructive actions require a fresh interactive re-authentication in the moment.
+In the console, a destructive action asks for a fresh interactive sign-in first.
+On the server, every destructive action is refused to anyone without the
+operator tier.
 
 The operator list cannot lock itself out: the last operator cannot be removed or
 demoted.
@@ -335,7 +341,7 @@ administrators a re-consent link.
 
 | Data | Retention |
 | --- | --- |
-| Directory attributes read from Microsoft Graph | Never stored as a record of their own. Held inside a rendered signature for at most a day (refreshed hourly while in use), in a lookup cache for up to seven days after the mailbox last composed (fresh for fifteen minutes, then refreshed in the background), and in a photo cache for a day |
+| Directory attributes read from Microsoft Graph | Never stored as a record of their own. Held inside a rendered signature for at most a day (refreshed hourly while in use), in a lookup cache for up to seven days after the mailbox last composed (fresh for fifteen minutes, then refreshed in the background), and in a photo cache for up to seven days (fresh for a day, then refreshed in the background). On the device, the add-in keeps the last signature it applied for up to 45 days after the mailbox last composed |
 | Template version history | Last 10 published bodies per template |
 | Preview pictures of a version, for [signature previews](/signatures/previews/) | As long as the version they show. They depict a sample person rather than anybody in your organisation |
 | Deleted templates | 30 days in Recently deleted, then purged by a daily sweep |
@@ -373,8 +379,11 @@ You can export your templates, images and activity data yourself at any time fro
 the portal, and nothing about ending the service is a precondition for getting
 them.
 
-On termination, or on your written request at any point, your organisation's data
-is deleted within 30 days, except where law requires it to be kept. The purge
+Cancelling your subscription does not start deletion. Your data is kept so that,
+if you come back, your signatures are restored as you left them. Once you ask for
+deletion, in writing to privacy@usesigil.app or through support, your
+organisation's data is deleted within 30 days, except where law requires it to
+be kept. The purge
 itself is described in
 [data and privacy](/security/data-and-privacy/#deleting-your-data), which is
 about the live systems: the records, the stored images and the cached entries all

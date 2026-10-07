@@ -66,7 +66,8 @@ is suspended or not being billed to you. It is the way into any of them. See
 Partner billing, covering the consolidated subscription, the current aggregate
 seat count, the average so far this billing period, how you pay, your invoice
 history and any credits applied to the account. Your charge is the average of
-the nightly measurements across the period. See
+the nightly measurements across the period, less any mailboxes you have
+prepaid for a client. See
 [partner billing](/partners/billing/#how-the-average-is-worked-out).
 
 Usage and rebilling, with per-client seat counts for the current and prior

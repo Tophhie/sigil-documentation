@@ -24,7 +24,8 @@ arrive without a wait. See
 | Cloudflare R2 | Uploaded images, preview pictures and nightly database backups, all in Cloudflare's EU jurisdiction |
 | Cloudflare KV | Rendered signature cache and per-mailbox rule resolution, cached on the global network and expiring on its own |
 | Cloudflare's headless browser | Rendering the [signature previews](/signatures/previews/) shown in the portal and in Sigil's emails |
-| Cloudflare Email | Invitations, test emails, operator notices and internal alerts |
+| Cloudflare Email | Invitations, test emails, approval requests, the health digest, billing and trial notices, product updates, operator notices and internal alerts |
+| Cloudflare AI Search | Answering questions typed into [Ask the documentation](/admin/ask-the-documentation/). Nothing is kept |
 | Stripe | Subscriptions, payment methods and invoices |
 | Microsoft Entra ID | Authentication for both the add-in and the portal |
 | Microsoft Graph | Read-only directory attributes for personalisation |
@@ -119,8 +120,11 @@ somebody's job title in Entra reaches Outlook without anyone republishing: a
 cached entry older than the window still serves that compose, then re-renders in
 the background from a fresh directory read, so the change lands on the compose
 after. The entry itself lives a day. The attributes are read when a signature is
-rendered and are never stored as a record of their own: the rendered signature
-and the directory lookup below are the only places they sit.
+rendered and are never stored as a record of their own: the rendered signature,
+the directory lookup below and the profile photo cache are the only places they
+sit on the server. The add-in also keeps a copy of the last signature it applied
+on the device, described in
+[data and privacy](/security/data-and-privacy/).
 
 The answer to a directory lookup counts as fresh for fifteen minutes, so that a
 person composing several messages is not looked up in Graph each time. After

@@ -14,8 +14,9 @@ rather than you and none of this appears in your portal. See
 [partner billing](/partners/billing/).
 
 Nor does it appear for an organisation on a free arrangement. Where the Billing
-view carries a "Not billed" badge there is nothing to invoice and nothing to
-credit, so neither list is shown. See
+view carries a "Not billed" badge, seats are not invoiced. An internal or comped
+plan that has saved a card or bought an add-on still gets the Documents tab,
+holding the invoices for those purchases only. See
 [the arrangement it names](/admin/billing/#the-arrangement-it-names).
 
 ## Two ways to be collected
@@ -67,8 +68,8 @@ That last part is worth stating plainly, because it changes several things at
 once. Every prompt in Sigil that would otherwise mention a card reads how your
 account is collected before it says anything: the trial reminders, the overdue
 notices, the warnings at the top of the portal, the cancellation and
-reactivation confirmations, and the Add a card button, which is not shown at
-all. An accounts team on terms is never sent looking for a card that does not
+reactivation confirmations, and the Add payment method button, which is not
+shown at all. An accounts team on terms is never sent looking for a card that does not
 exist.
 
 The Billing view says which arrangement you are on where it would otherwise show
@@ -247,8 +248,8 @@ Credits are applied to invoices and are not paid out in cash. That is stated in
 the terms of use, and for a partner it is also how the agreement's
 [service credits](/partners/service-level/#claiming-a-credit) are settled.
 
-A credit waiting on your account is shown above the invoice list as well, with
-the amount and a note that it comes off the next invoice, so it is visible
+A credit waiting on your account is also shown on the Your subscription tab,
+under Payment, with the amount and a note that it comes off the next invoice, so it is visible
 before the invoice that consumes it arrives.
 
 Credits are issued by Tophhie Cloud rather than requested in the portal. A
