@@ -22,7 +22,9 @@ no minimum term, which follows from there being
 [no minimum spend](/partners/service-level/#no-minimums) either.
 
 1. Release every client you still manage, one at a time, from Clients. See
-   [releasing a client](/partners/clients/#releasing-a-client).
+   [releasing a client](/partners/clients/#releasing-a-client). Releasing needs
+   the current partner agreement accepted, so if the console asks an Owner to
+   accept a new version, do that first.
 2. Write to `support@usesigil.app` saying you are leaving the programme.
 3. Add a payment method on your own organisation's Billing view, so your own
    signatures carry on once your internal-use tenant moves to standard
@@ -199,6 +201,7 @@ as part of it:
 | Pending invitations and transfer requests | Links you sent stop working |
 | The partner event log | The console's own history of client moves and staff changes |
 | Your partner subscription record, seat snapshots and daily measurements | The Partner billing view and its usage history are gone |
+| Prepaid mailbox blocks your firm bought for clients | The blocks are deleted with the partner account, so none carries over to a client |
 
 If you want to keep your usage history, choose Export CSV under
 [rebilling](/partners/billing/#rebilling) before you leave, and save copies of any

@@ -15,12 +15,14 @@ none.
 ## What it covers
 
 Every attribute that maps to a [placeholder](/signatures/placeholders/): the
-identity fields, the phone numbers, job title and department, the address
-components, the manager fields, and all fifteen extension attributes.
+identity fields, the phone numbers, job title and department, company name,
+employee ID and employee type, the address components, the manager fields, and
+all fifteen extension attributes.
 
 Four kinds of placeholder are left out, because none has a populated or missing
 state in the directory to score. The derived helpers `anyPhone`, `anyAddress`,
-`hasPhoto` and `onBehalfOf` are computed rather than stored. `contactCardUrl` is
+`hasPhoto`, `onBehalfOf`, `isGroup` and `notGroup` are computed rather than
+stored. `contactCardUrl` is
 [supplied by Sigil](/signatures/contact-card/) rather than read from the
 directory. The [sender fields](/signatures/placeholders/#sender) describe whoever
 is composing rather than the mailbox being audited, so a gap in one is a gap in
@@ -114,8 +116,9 @@ in Entra.
 
 ## Who is counted
 
-Everyone with a mailbox in your organisation, shared and resource mailboxes
-included.
+Every account in your directory, shared and resource mailboxes included. The
+audit does not check for a mailbox or a licence, so an unlicensed account or a
+disabled leaver still in the directory is counted too.
 
 Two groups are left out.
 
@@ -153,7 +156,9 @@ The two numbers answer different questions and are expected to differ.
 
 The [health digest](/monitoring/health-digest/) reports the same gaps by email,
 narrowed to the attributes your live templates actually reference and to those
-missing on at least 10% of mailboxes.
+missing on at least 10% of mailboxes. The one exception is the manager fields,
+which the digest currently reports as missing for everybody. The figures on
+this page are the right ones for those.
 
 That is the shorter question, answered without anybody opening the portal. This
 page is where you go once it has told you there is something to look at, because

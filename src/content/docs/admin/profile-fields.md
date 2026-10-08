@@ -30,7 +30,7 @@ The page says so when either is missing.
 
 ## Defining a field
 
-You need the Admin role.
+You need the Admin role, or a custom role that can reach Tenant settings.
 
 1. Open Profile fields in the portal sidebar.
 2. On the Fields tab, choose New field.
@@ -58,7 +58,7 @@ Save changes. The Placeholder box is locked.
 | Type | Also the validation. See below |
 | Options | The permitted values for a choice field |
 | Required | Advisory. Prompts on the profile page and counts towards completion |
-| Maximum length | Defaults to 200 characters, and can be anything up to 500 |
+| Maximum length | Defaults to 200 characters, and can be anything up to 500. Only a Text field shows the box |
 | Available | Whether the field appears on the profile page and in the field picker |
 
 The key cannot be changed after the field is created. Renaming it would silently
@@ -84,6 +84,11 @@ stops a bad value reaching a recipient's inbox.
 | Link | A full web address beginning `http://` or `https://` | `url` |
 | Email address | An address of the usual shape | `email` |
 | Phone number | Digits and the punctuation phone numbers are written with | `phone` |
+
+Every type is held to the field's maximum length, not only Text. The portal
+shows the Maximum length box for Text fields alone, so a Link, Email address or
+Phone number field keeps the 200-character default. A very long tracking link
+in a Link field is refused for that reason.
 
 The third column only matters if you are creating fields through the
 [API](/reference/api/), where the type is sent as one of those five strings.
@@ -238,20 +243,23 @@ To delete a field:
 3. Choose Delete.
 4. Choose Delete field and values in the dialog to confirm.
 
-The dialog says how many people have entered something into the field before
-you confirm, and the portal confirms once it is gone.
+If you can also see what people entered, the dialog says how many people have
+entered something into the field before you confirm. Without that, it warns
+that every stored value goes, without a number. The portal confirms once the
+field is gone.
 
 ## Seeing what people entered
 
 The "What people entered" tab lists every mailbox with stored values, what is in
-each field, when it was last updated and by whom, and how many of the available
+each field, when it was last updated, and how many of the available
 fields that person has filled in.
 
 You can edit somebody else's values from here. It exists for the support case,
 where a colleague is on leave and their number is wrong, and for pre-filling
 before you ask anyone to visit the page.
 
-You need the Admin role, or a partner role that holds staff profile details.
+You need the Admin role, a custom role with Staff profile details, or a partner
+role that holds staff profile details.
 
 1. Open Profile fields in the portal sidebar.
 2. Choose the What people entered tab.
@@ -314,9 +322,9 @@ the two are not the same permission.
 
 | Action | Capability | Roles |
 | --- | --- | --- |
-| Define, change, hide or delete fields | Settings | Admin |
-| Switch profile editing on or off | Settings | Admin |
-| See, edit and pre-fill what colleagues entered | Staff profile details | Admin |
+| Define, change, hide or delete fields | Settings | Admin, or a custom role with Tenant settings |
+| Switch profile editing on or off | Settings | Admin, or a custom role with Tenant settings |
+| See, edit and pre-fill what colleagues entered | Staff profile details | Admin, or a custom role with Staff profile details |
 | Fill in your own details | None | Everybody |
 
 Staff profile details is its own capability rather than part of users and roles,
@@ -355,8 +363,8 @@ because a change log is not a place to duplicate somebody's personal details.
 A person editing their own values is deliberately not recorded there. That log
 is your record of what changed about your organisation's signatures, and a
 hundred people updating their own mobile numbers would drown it. The profile
-itself carries who last saved it and when, which is what the "What people
-entered" tab shows.
+itself records when it was last saved, which is the Updated column on the "What
+people entered" tab.
 
 ## When an edit reaches a signature
 

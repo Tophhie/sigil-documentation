@@ -16,7 +16,7 @@ containing the signature exactly as a recipient would receive it, including
 inline images, the current [banner](/targeting/banners/) if a window is open, and
 the applicable [footer](/targeting/footers/).
 
-You need the Admin or Editor role.
+You need the Admin or Editor role, or a custom role that can reach Templates, images and drafts.
 
 1. Open Templates in the portal sidebar.
 2. Choose Send a test.
@@ -119,8 +119,10 @@ Banner windows take effect immediately in both directions, so this costs nothing
 
 ## Who can send them
 
-Admins and Editors, who hold the same capability that covers the template
-library. No other [role](/admin/users-and-roles/) reaches test emails.
+Anyone holding the template capability, which is the one that covers the
+template library. Among the built-in [roles](/admin/users-and-roles/) that is
+Admin and Editor. A custom role that can reach Templates, images and drafts can send them too, and
+so can partner Owners, Admins and Technicians working for a client.
 
 Read that alongside the section above: granting somebody the template capability
 also lets them mail a rendered signature to any colleague in your directory,

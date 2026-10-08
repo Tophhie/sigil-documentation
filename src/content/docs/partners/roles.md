@@ -89,6 +89,11 @@ access inside any client to narrow. A scope list against a Billing user would
 read as though it granted something, so the console does not offer one and a
 scope sent for that role is discarded rather than stored.
 
+One gap: moving a scoped Owner, Admin or Technician to Billing leaves their old
+scope in place, and it still shows under Client access on the staff list. It
+grants nothing, since Billing reaches no client. Clear the scope before you change
+the role if you want the list to read cleanly.
+
 ## Managing staff
 
 Owners manage the staff list from Partner staff in the console. Adding somebody

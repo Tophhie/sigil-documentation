@@ -6,8 +6,10 @@ sidebar:
 ---
 
 Sigil requests three Microsoft Graph application permissions at admin consent.
-All are read-only. No write permission is requested anywhere, so Sigil cannot
-modify your directory even if it were asked to.
+All are read-only. No Graph write permission is requested anywhere, so Sigil
+cannot modify your directory even if it were asked to. The Outlook add-in has a
+separate, narrower permission of its own: it can read and write the message
+being composed, which is how the signature gets into it.
 
 | Permission | Used for |
 | --- | --- |
@@ -79,11 +81,13 @@ token.
 ## Organization.Read.All
 
 Sigil reads your organisation's record to name your tenant and to pre-fill the
-billing profile from your registered address. It reads it again to keep that name
-current when people sign in, when your billing details are set up or refreshed,
-and as a quick check that Sigil can still reach your directory. That check runs
-when the Getting started page loads, in the nightly seat count, and when Tophhie
-Cloud support looks at your organisation's health.
+billing profile from your registered address. It reads it again when your
+billing details are set up or refreshed, and at sign-in only if your tenant has
+no name on record yet. It is also the quick check that Sigil can still reach your
+directory. That check runs every time the Getting started page loads, when
+Tophhie Cloud support looks at your organisation's health, and in the nightly
+seat count if reading your directory fails, to tell a withdrawn consent apart
+from a passing fault.
 
 None of this is on the signature path. Composing a message never reads it.
 

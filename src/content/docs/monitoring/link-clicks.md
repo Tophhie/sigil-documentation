@@ -16,7 +16,7 @@ A tracked link is a redirect under the dedicated domain
 logs the click after the redirect has already gone out, so nothing waits on the
 write.
 
-That domain serves redirects, the [contact card](/signatures/contact-card/)
+The shared domain serves redirects, the [contact card](/signatures/contact-card/)
 downloads a signature links to, and the token a certificate authority checks when
 it issues a certificate, and nothing else. Every other path on it returns 404, so
 the portal and API surface only answer on their own hostname.
@@ -25,7 +25,10 @@ The recipient's experience is a redirect they will not notice.
 
 Organisations that would rather their links carried their own name can add a
 [branded link domain](/monitoring/branded-link-domain/). Everything on this page
-applies unchanged to one, except the hostname the redirect sits under.
+applies unchanged to one, except the hostname the redirect sits under. The
+404-for-everything-else rule above is for the shared domain only. A branded
+hostname is not narrowed the same way; what protects it is that a redirect or
+contact card on it only resolves for links that belong to your organisation.
 
 ## What is tracked, and what opts in
 
@@ -108,14 +111,19 @@ copies a real browser's user agent cannot be identified after the fact. Older
 totals are therefore slightly inflated. Only clicks recorded since then get the
 full treatment.
 
-## A ceiling on how often one address can be counted
+## Ceilings on how often a click is counted
 
 A tracked link is public by necessity, since the people who follow it are
 recipients rather than signed-in users. That makes the click log something a
 stranger could inflate, so one address following one link is counted at most 60
 times a minute.
 
-Nothing above that ceiling is turned away. The recipient is redirected to the
+There is a second ceiling for the link as a whole: 600 counted clicks a minute
+across every address, which is what a spread-out scanner meets once each of its
+addresses is inside its own budget. It is measured at each of the service's
+locations separately, so treat it as approximate.
+
+Nothing above either ceiling is turned away. The recipient is redirected to the
 destination exactly as before, and only the record is dropped, because a person
 who genuinely clicked twice too fast should not be left staring at a block page
 their mail client cannot get past.
@@ -188,8 +196,9 @@ A click count with no base rate cannot be compared to anything. Three hundred
 clicks is good or dreadful depending on how many signatures went out underneath
 it.
 
-The denominator is successful add-in applies. That is a proxy and the portal
-labels it as one: an apply is a compose, not a send and not a read. It is the
+The denominator is successful add-in applies, shown under the figure as
+"across N applied signatures". That is a proxy: an apply is a compose, not a
+send and not a read. It is the
 right order of magnitude and it moves with the same things clicks move with,
 which is enough to make two campaigns comparable to each other.
 

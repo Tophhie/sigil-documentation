@@ -21,8 +21,9 @@ number, so a client added today shows no seats until the next count runs.
 
 A client that is not being billed to you is badged too, since its seats sit at
 nought on your aggregate whatever the seat figure beside it says. Where that
-arrangement runs to a date, the badge names it: "Free until 14 October", and
-the seats start counting again the day after. An open-ended one reads "Not
+arrangement runs to a date, the badge names it, as in "Free until 14 Oct 2026",
+and the seats count from that date. The nightly billing run picks the change
+up. An open-ended one reads "Not
 billed" instead.
 
 That date is the one thing worth planning around, which is why it is on the row
@@ -177,6 +178,11 @@ client rather than to you: it appears on their own list, flagged as created by
 their IT provider, and their Admin can revoke it. There is no key that spans
 several clients, so a provider with forty clients manages forty of them.
 
+Every key your firm created inside a client is revoked when the partnership with
+that client ends, whichever side ends it. The client's change log records each
+revocation, so an integration that stops working the day after a release has an
+explanation waiting.
+
 ## Enabling an add-on for a client
 
 Some features cost extra and are not included in the per-mailbox rate. There is
@@ -184,13 +190,13 @@ one today, the [branded link domain](/monitoring/branded-link-domain/), which
 serves a client's tracked links from a hostname of their own.
 
 Enable it from the client's row menu on the Clients view, under Enable branded
-link domain. Owners, Admins and Technicians can, and the current
+link domain… Owners, Admins and Technicians can, and the current
 [partner agreement](/partners/agreement/) has to be accepted first, because it
 adds a charge to your invoice.
 
 1. Open Clients in the portal sidebar.
 2. Open the Client actions menu on the client's row.
-3. Choose Enable branded link domain.
+3. Choose Enable branded link domain…
 4. Choose Enable in the confirmation.
 
 The confirmation says the add-on is added to your monthly invoice at your
@@ -259,11 +265,15 @@ Nothing moves until it is approved. A transfer request is a request, not a claim
 
 Approving it stops the organisation's own subscription before its seats move onto
 your bill, so nobody pays twice for the same month. If that step fails, the
-transfer does not go through: the organisation is told plainly that it is still
+organisation is not moved onto your billing: it is told plainly that it is still
 billed in its own name and to ask Tophhie Cloud to finish the link. That is
 deliberate. A tenant that moved onto partner billing while its own subscription
-was still running would be invoiced twice with no way to unpick it, so a failure
-leaves it where it started rather than half moved.
+was still running would be invoiced twice with no way to unpick it.
+
+The request itself is used up by the approval, though. It leaves your pending
+list and cannot be approved a second time, so finishing the move is Tophhie
+Cloud's job rather than something the client can retry. Ask support if a client
+tells you they saw this message.
 
 ### Taking back a client you previously managed
 
@@ -289,7 +299,11 @@ and they get the same grace period a client-initiated departure gets, so somebod
 who did not choose this has time to add a card before anything stops.
 
 Their administrators are emailed, so a release is never something a client
-discovers by noticing. Owners and Admins can release; a Technician cannot.
+discovers by noticing. Owners and Admins can release; a Technician cannot. Like
+managing a client, releasing one needs the current
+[partner agreement](/partners/agreement/) accepted. If a new version is waiting
+for an Owner, Release is refused with "Accept the partner agreement before
+managing clients." until they accept it.
 
 1. Open Clients in the portal sidebar.
 2. Open the Client actions menu on the client's row.

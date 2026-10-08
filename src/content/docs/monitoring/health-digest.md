@@ -78,6 +78,12 @@ An attribute has to be missing on at least 10% of mailboxes before it is
 mentioned. Below that it is ordinary sparseness, and a handful of people without a
 mobile number is not something worth mailing anybody about.
 
+The digest currently gets the manager fields wrong. It reads your directory
+without looking up each person's manager, so if a live template uses
+`managerName`, `managerEmail` or another manager field, the digest reports that
+field as missing for everybody. Run [Attribute coverage](/monitoring/attribute-coverage/)
+for the real figure: it does look managers up.
+
 A placeholder that is not a real field is reported too, since a mistyped
 placeholder resolves to nothing for everybody, which is exactly the kind of thing
 worth surfacing.
