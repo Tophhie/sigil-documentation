@@ -125,8 +125,8 @@ cross-references the directory, so it surfaces mailboxes that have never had a
 signature applied rather than just showing you the ones that have.
 
 Expect a small tail. The most common cause is the first-run silent sign-in
-failing, which resolves when the person opens the "My signature" pane once on a
-desktop client. Consent is per user rather than per device, so one desktop
+failing, which resolves when the person opens the "My signature" pane on a desktop
+client and chooses Sign in and apply. Consent is per user rather than per device, so one desktop
 sign-in fixes their mobile too.
 
 ## Phase 5: hand over

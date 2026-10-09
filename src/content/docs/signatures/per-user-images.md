@@ -133,11 +133,12 @@ under a brand alias still gets their photo.
 Sigil keeps each photo, and the knowledge that a mailbox has none, for up to a
 week, and checks Microsoft 365 for a newer one once the copy is a day old. That
 check happens behind the message rather than in front of it: the first message
-composed after the day is up still carries the old photo (or no photo), and the
-check it starts brings the new one to the message after. So a photo added or
-changed in Microsoft 365 appears from the second message sent more than a day
-after the change. For somebody who rarely sends mail, that can be several days
-later. A directory attribute change, such as a new job title, is quicker,
+composed after the day is up still carries the old photo (or no photo), and
+starts the check. The finished signature, images and all, is cached in turn and
+rebuilt at most once an hour, also behind the message. So a photo added or
+changed in Microsoft 365 appears a day or so after the change, once the person
+has sent a few messages spread over more than an hour. For somebody who rarely
+sends mail, that can be several days later. A directory attribute change, such as a new job title, is quicker,
 usually within the hour. See [limits](/reference/limits/) for the exact timings.
 
 ## How they reach the message
@@ -165,16 +166,24 @@ If your organisation has restricted photo access specifically, the read fails an
 Sigil treats every mailbox as having no photo, so the block hides rather than
 breaking.
 
+A Microsoft 365 Group or distribution list mailbox never has a photo as far as
+Sigil is concerned, so a photo block always hides for one. See
+[sending as a Microsoft 365 Group](/signatures/group-mailboxes/).
+
 ## Where they appear
 
 Per-user images are generated everywhere a real signature is served: the add-in
 on compose, both download paths, the test email, and the portal's live download
 for a named mailbox.
 
-The designer's own preview is the exception. It renders with sample data and
-there is no mailbox to have a photo, so it draws a generic avatar in place of
+The designer's own preview is the exception when it renders with sample data.
+There is no mailbox to have a photo, so it draws a generic avatar in place of
 one. That is deliberate: a block that silently vanished in preview would tell you
 nothing about the space it occupies.
+
+With a mailbox chosen in Render as, the preview shows that person's real photo
+instead, or hides the block if they have none, so you see what they will be
+sent.
 
 A QR code in the designer preview is real, and encodes the sample data.
 
@@ -186,6 +195,7 @@ because generating them depends on the design document that the HTML editor does
 not have.
 
 This has one consequence worth planning around. Ejecting a designer template to
-HTML discards the design document, and the reserved references left in the
+HTML, which is done through the [API](/reference/api/) rather than in the
+portal, discards the design document, and the reserved references left in the
 markup then have nothing to resolve them. If a template uses a QR code or a
 photo block, treat it as one you will keep editing in the designer.

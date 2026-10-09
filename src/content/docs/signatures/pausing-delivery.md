@@ -27,8 +27,9 @@ While delivery is paused the whole Templates page carries a notice saying so,
 above everything else on it. Everything below that notice describes a signature
 nobody is currently receiving, which is worth being told before you read it.
 
-Changing it needs the assignment rules capability, which in practice means an
-Admin. It is the same capability as choosing the active template, because these
+Changing it needs the Assignment rules capability: an Admin, a managing
+partner's Owner, Admin or Technician, or a
+[custom role](/admin/users-and-roles/#custom-roles) that includes it. It is the same capability as choosing the active template, because these
 are the same decision from two ends: one decides which signature a mailbox gets,
 the other decides whether it gets one at all.
 
@@ -93,7 +94,7 @@ unsigned message: messages stopped on the device in the meantime do not restart
 the clock. The note is kept per mailbox, and separately for new messages and
 replies. Somebody who has not composed for a while is unaffected.
 
-Opening the "My signature" pane and pressing Apply skips the wait entirely,
+Opening the "My signature" pane and pressing Apply my signature skips the wait entirely,
 because the pane always asks Sigil. See
 [a refusal is remembered for ten minutes](/start/how-it-works/#a-refusal-is-remembered-for-ten-minutes).
 

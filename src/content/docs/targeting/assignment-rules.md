@@ -21,7 +21,8 @@ forwards.
 
 ## Creating a rule
 
-You need the Admin role.
+You need the Admin role, or a [custom role](/admin/users-and-roles/#custom-roles)
+that includes Assignment rules.
 
 1. Open Rules in the portal sidebar.
 2. Choose Add rule.
@@ -42,11 +43,11 @@ toolbar shows Saving while that happens and Saved once it has landed.
 
 ## Matching on a directory attribute
 
-Eleven attributes can be matched on: department, job title, company, employee
-type, office location, city, county or state, country, email address, email
-domain and mailbox kind. A rule matches when the person's value for that
+The Attribute list names eleven: Department, Job title, Company, Employee type,
+Office, City, County / state, Country, Email, Email domain and Mailbox kind. A rule matches when the person's value for that
 attribute is one of the values you list, so a single rule can cover several
-departments. Values are matched without regard to case.
+departments. Values are matched without regard to case, and spaces at either
+end are ignored.
 
 Mailbox kind is `user` for a person, a shared mailbox or a resource mailbox, and
 `group` for the mailbox of a Microsoft 365 Group or distribution list. One rule
@@ -59,7 +60,7 @@ template can print. In particular the extension attributes are not on it, so a
 rule cannot target the slot your organisation uses for something of its own. An
 Entra group is the way to express that.
 
-Email domain matching uses the address the message is being sent from rather than
+Email and Email domain both use the address the message is being sent from rather than
 the mailbox's primary address. That is what lets one person carry a different
 brand's signature when sending from that brand's alias. See
 [how it works](/start/how-it-works/#the-sending-address-not-the-mailbox).
@@ -115,7 +116,9 @@ To set a group condition:
 With a group picked from the suggestions, the dialog says the rule matches
 members of that group, including members of groups nested inside it, and the
 list shows the group's name. With a pasted id, the dialog says the name is
-looked up when the rule runs and the list shows the id.
+looked up when the rule runs. In practice the rule is saved without a name and
+the list carries on showing the id, since matching compares ids and never needs
+the name.
 
 ## Order matters
 
@@ -178,7 +181,7 @@ The trade is that there is no working copy to back out of. A rule you did not
 mean to remove has to be added again, and a reorder you did not mean to make has
 to be moved back.
 
-Select a rule to edit it in place. Its condition and its template assignments are
+Choose Edit on a rule's row to change it. Its condition and its template assignments are
 both editable, so correcting a rule does not mean deleting it and building a
 replacement.
 
@@ -247,7 +250,8 @@ It reads group membership fresh, and directory attributes from a copy no more
 than 15 minutes old, rather than from the hour-long resolution cache, so it answers for the rules as they stand now rather
 than for what that mailbox was last served. Nothing is written back to the
 cache, nothing is sent, and no signature changes. It is not recorded in the
-[change log](/monitoring/change-log/) either, because nothing changed.
+[change log](/monitoring/change-log/) either, because nothing changed. Saving the
+rules list is recorded there, with what was added, removed, changed or reordered.
 
 Give it an alias and it evaluates the rules on that alias, exactly as a real send
 from that address would, while reading group membership from the mailbox behind
@@ -265,11 +269,12 @@ silently resolved.
 
 ## Who can change them
 
-Admins only. No other [role](/admin/users-and-roles/) reaches assignment rules,
-including Editor. Where a partner manages your organisation, its Owner, Admin
+The Admin role, and any [custom role](/admin/users-and-roles/#custom-roles) given
+the Assignment rules capability. No other built-in
+[role](/admin/users-and-roles/) reaches assignment rules, including Editor. Where a partner manages your organisation, its Owner, Admin
 and Technician staff hold the same capability on your tenant.
 
-Rules are the only part of Sigil held that tightly. An Editor changing a template
+Among the built-in roles, rules are the only part of Sigil held that tightly. An Editor changing a template
 changes what one group of people send; a rule changing which template a group
 resolves to reaches the whole organisation at once, and the two are not the same
 risk.
@@ -294,9 +299,18 @@ Anyone no rule matches gets the template assigned to the `new` and `reply`
 organisation-wide default and it always applies, so there is no way for somebody
 to end up with no signature because no rule covered them.
 
+The default sits at the bottom of the rules list as a locked Organisation default
+row, which cannot be moved or removed. It names the two templates, shows Not set
+for a role with none, and adds (same as new messages) where replies borrow the
+new-message template. Its Change link opens Templates, where the roles are
+assigned. During a simulation the row carries its own Applied to verdict for any
+role no rule settled.
+
 ## How quickly changes take effect
 
-Rules changes land on the next message anybody composes.
+Rules changes land on the next message anybody composes. The portal's own
+message after a save says a change reaches users within ten minutes, which is
+more cautious than the server needs to be.
 
 Evaluating a rule needs directory data, which would put a lookup on the path of
 every compose, so the decision each rule list reaches for a given mailbox is
@@ -324,13 +338,13 @@ first, then delete.
 
 ## Worked examples
 
-A subsidiary with its own brand: match on `emailDomain` equalling the
+A subsidiary with its own brand: match on Email domain equalling the
 subsidiary's domain, and point both roles at that brand's templates.
 
 A sales team with a booking link: put the sales people in an Entra group and
 match on it, pointing at a template that includes the link.
 
-Regional address blocks: match on `officeLocation` with one rule per region, each
+Regional address blocks: match on Office with one rule per region, each
 naming a template carrying that office's address. Where the only difference is the
 address, an alternative is one template using the address placeholders directly,
 which needs no rules at all.

@@ -37,6 +37,12 @@ The section matters. Where no card link can be minted for a mailbox, the
 placeholder resolves to nothing, and the section removes the button rather than
 leaving a link that goes nowhere.
 
+The template preview, in the designer and in the HTML editor, never has a card
+link to show, even with Render as set to a real mailbox. A button wrapped in the
+section, or carrying the Show when rule below, is therefore hidden in every
+preview. That is expected. Download the signature from Templates or send a
+[test email](/admin/test-email/) to see the button as recipients will.
+
 To add the link in the designer:
 
 1. Open the template in the designer, using Design on its row in Templates.
@@ -121,8 +127,14 @@ never existed, so a card link reveals nothing about the state of your account.
 
 ## How long a link lasts
 
-A link does not expire. The same mailbox always produces the same URL, so a link
-in a message sent last year still works.
+A link does not expire. The same sending address always produces the same link,
+so a link in a message sent last year still works. Mail sent from an alias
+carries a different link from mail sent from the primary address, though both
+fetch the same card.
+
+The one thing that ends a link early is the person leaving. The card is looked
+up in your directory when it is fetched, so once the address no longer resolves
+to anybody, the link comes back as not found.
 
 That is deliberate. A business card does not expire, and a dead link in an old
 email is worse than a live one. It also keeps rendered signatures cacheable,
@@ -133,6 +145,11 @@ the mail was sent, so somebody who changed job title hands out the new title on
 cards downloaded from old mail. The response is cacheable for a day, so a change
 can take that long to reach a recipient who has fetched the card recently.
 
+Where your organisation has a [branded link domain](/monitoring/branded-link-domain/)
+active, card links are minted on it, and that domain serves your organisation's
+cards only. Card downloads are deliberately not counted as clicks in link
+analytics.
+
 ## Machine-readable contact details
 
 Separately, a designer template can emit schema.org `Person` markup around the
@@ -141,7 +158,9 @@ signature. It is off by default and switched on per template in
 
 When it is on, the outer table is labelled as a Person and the name, given and
 family names, job title, email address, phone numbers, fax and contact card link
-each carry the matching property.
+each carry the matching property where they appear as a field in a text block. A
+field used only as the target of a link or a Button block, such as the Save my
+contact button above, is not marked up.
 
 Nothing moves and nothing is added. Microdata is attributes on markup that is
 already there, so it cannot change how a signature looks, and it introduces no

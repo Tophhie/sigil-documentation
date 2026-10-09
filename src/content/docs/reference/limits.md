@@ -161,7 +161,7 @@ See [branded link domain](/monitoring/branded-link-domain/).
 | Directory change affecting which rule matches | Up to an hour, then one further compose |
 | Profile field value saved, by anybody in the organisation | Next compose |
 | Directory attribute change in Entra | Up to an hour, without a republish. After a publish or a quiet spell, up to an hour from that mailbox's first message, then one further compose |
-| Microsoft 365 profile photo added or changed | A day, then two further composes. The first compose after the day still carries the old photo and fetches the new one |
+| Microsoft 365 profile photo added or changed | A day or so, then a few composes spread over more than an hour. The photo copy refreshes after a day and the finished signature at most hourly, both behind the message |
 | Add-in manifest change | Fresh admin consent, plus 6 to 72 hours propagation. Delivered by Microsoft for a Marketplace deployment; a custom app upload must be updated by an administrator |
 | Initial add-in deployment | 6 to 72 hours propagation |
 

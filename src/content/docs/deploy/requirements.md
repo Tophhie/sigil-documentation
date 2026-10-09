@@ -41,7 +41,8 @@ of a small number of documented exceptions, but a compose task pane is not, so
 the manifest declares events and nothing else for the mobile form factor.
 
 Mobile therefore has no manual fallback. Somebody whose signature fails on a
-phone recovers by opening the pane once on a desktop client, because consent is
+phone recovers by opening the pane on a desktop client and choosing Sign in and
+apply, because consent is
 per user rather than per device.
 
 Two mobile behaviours worth knowing: on a reply the signature is not visible

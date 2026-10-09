@@ -39,18 +39,21 @@ change since your last message, the signature is replaced with the new one a
 second or so later, in front of you. That is the change arriving rather than a
 fault.
 
-What leaves your mailbox is the current signature, whenever Sigil can be reached
-at all. The check finishes before the message can be sent, so anything you saw
+What leaves your mailbox is the current signature, whenever Sigil answers within
+a few seconds. The check finishes before the message can be sent, so anything you saw
 swap in the editor had already settled by the time you pressed Send.
 
-If Sigil cannot be reached at all, the kept copy stays and your message goes out
+If Sigil cannot be reached, or does not answer within a few seconds, the kept
+copy stays and your message goes out
 with it, so a brief network problem does not leave you signing off with nothing.
-If your organisation has excluded your mailbox or paused signatures, the kept
-copy is taken back out of the message instead of being left standing.
+If your mailbox is no longer to get a signature, because your organisation has
+excluded it, paused signatures or let its subscription lapse, the kept copy is
+taken back out of the message instead of being left standing.
 
 The copy is your own signature on your own device, which is the same thing
 Outlook keeps for a signature you configured yourself. It is held for 45 days
-after the last message you wrote from that address, and every message renews it.
+after the last message you wrote from that address, and every message Sigil
+answers renews it.
 
 Copies are kept per signed-in account, so colleagues who share a computer under
 their own accounts never see each other's. The copy also records who it was
@@ -108,23 +111,27 @@ who can fix it.
 
 The most common cause is the first time you use it. The automatic path cannot
 prompt you to sign in, so if a sign-in is needed it stops quietly rather than
-interrupting you mid-message. Opening the pane once completes the sign-in, and it
-works automatically from then on.
+interrupting you mid-message. Opening the pane and choosing Sign in and apply
+completes the sign-in, and it works automatically from then on. Opening the pane
+on its own is not enough, because the pane only tries a silent sign-in until you
+press the button.
 
 The other cause worth knowing is a signature that was switched off and has just
 been switched back on. Once Sigil has told your Outlook that you are not to be
 given a signature, it stops asking for ten minutes rather than asking again on
 every message, so a change your IT team made a moment ago can take that long to
-reach you. Opening the pane and pressing Apply asks straight away, and everything
-is back to normal afterwards.
+reach you. Opening the pane and pressing Apply asks straight away. The ten minutes
+are counted separately for new messages and for replies and forwards, so pressing
+Apply in a new message puts new messages right, and replies catch up when their
+own ten minutes run out, or at once if you press Apply in a reply.
 
 ## On your phone
 
 The signature is applied automatically on Outlook for iOS and Android, but there
 is no "My signature" button, because Outlook mobile does not support one.
 
-If your signature is not working on your phone, open the pane once on a computer.
-That fixes the phone too, because the sign-in is tied to you rather than to a
+If your signature is not working on your phone, open the pane once on a computer
+and choose Sign in and apply. That fixes the phone too, because the sign-in is tied to you rather than to a
 device.
 
 Two things on mobile are normal rather than faults: on a reply, the signature is

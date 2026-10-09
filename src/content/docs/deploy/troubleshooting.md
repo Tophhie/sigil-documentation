@@ -166,8 +166,9 @@ prompt or an expired session, that silent acquisition fails and the add-in gives
 up quietly by design. An error bar on every compose would be worse than a
 missing signature.
 
-The fix is for the person to open the "My signature" pane once on a desktop
-client, which can complete an interactive sign-in. It self-heals from there, and
+The fix is for the person to open the "My signature" pane on a desktop client
+and choose Sign in and apply, which completes an interactive sign-in. Opening
+the pane alone only tries a silent sign-in. It self-heals from there, and
 because consent is per user rather than per device, one desktop sign-in also
 fixes their phone.
 

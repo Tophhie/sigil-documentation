@@ -42,7 +42,8 @@ code.
 
 It offers a download of your signature as a self-contained file.
 
-Where your organisation has switched it on, it also offers "Edit my details",
+Where your organisation has switched it on and there are details for you to fill
+in, it also offers "Edit my details",
 which opens the page where you fill in your own signature details. See
 [filling in your own details](/users/your-details/).
 
@@ -65,6 +66,11 @@ the explanation sits beneath them, so the button you just pressed does not move.
 A failed sign-in, a connection that dropped, or Outlook declining the signature
 all fall into this group.
 
+A dropped connection only shows as an error when your device has no kept copy of
+your signature. If it has one, Apply puts that copy in and says "Signature
+applied", exactly as the automatic path would. See
+[how your signature works](/users/how-your-signature-works/).
+
 Where nothing can be applied to this mailbox at all, the buttons are removed and
 only the explanation remains. That covers a mailbox with no signature configured,
 an organisation that has not finished setting Sigil up, a subscription that is not
@@ -74,8 +80,9 @@ that could only fail would waste your time and tell you nothing.
 Each of these names who can fix it, which is usually your IT team rather than
 you.
 
-One of those messages is worth reading loosely. If the pane says Sigil is not set
-up for your organisation, it can mean two other things as well. Your own mailbox
+One of those messages is worth reading loosely. If the pane says "Sigil isn't
+switched on for your organisation yet. Ask your IT team.", it can mean two other
+things as well. Your own mailbox
 may have been [kept out of Sigil](/admin/cost-management/) deliberately, which
 is a normal thing for an organisation to do for a shared or unattended mailbox.
 Or your organisation may have
@@ -109,9 +116,11 @@ multi-factor prompt, the automatic path may have no way to authenticate you. Whe
 that happens it stops quietly rather than interrupting you, because an error bar
 on every message you write would be worse than a missing signature.
 
-The pane can show a sign-in prompt. That is what makes it the fix: opening it once
-completes the sign-in that the automatic path could not, and from then on the
-automatic path works.
+The pane can show a sign-in prompt. That is what makes it the fix: choosing Sign
+in and apply in the pane completes the sign-in that the automatic path could not,
+and from then on the automatic path works. Opening the pane does not raise the
+prompt by itself. It tries a silent sign-in, and if that is not enough it changes
+the button and waits for you.
 
 When the pane needs you to sign in, it says "Sign in to see and apply your
 signature" and the main button reads Sign in and apply instead of Apply my
@@ -150,8 +159,8 @@ exceptions.
 Your signature is still applied automatically on mobile. What you lose is the
 manual fallback.
 
-If your signature is not working on your phone, open the pane once on a computer.
-The sign-in is tied to you rather than to a device, so fixing it once fixes both.
+If your signature is not working on your phone, open the pane once on a computer
+and choose Sign in and apply. The sign-in is tied to you rather than to a device, so fixing it once fixes both.
 
 ## If the pane itself does not appear
 

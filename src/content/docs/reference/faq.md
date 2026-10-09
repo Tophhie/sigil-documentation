@@ -202,8 +202,8 @@ records are deleted after 90 days. See
 The automatic path runs in a part of Outlook with no user interface, so it can
 only sign somebody in silently. On a first use, or after an expired session or an
 MFA prompt, that can fail and the add-in stops quietly rather than interrupting
-somebody mid-message. Opening the "My signature" pane once completes the sign-in,
-and it works automatically from then on.
+somebody mid-message. Opening the "My signature" pane and choosing Sign in and apply
+completes the sign-in, and it works automatically from then on.
 
 ## Why is there no manual button on mobile?
 

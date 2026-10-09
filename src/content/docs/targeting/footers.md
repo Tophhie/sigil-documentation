@@ -23,7 +23,13 @@ subsidiary's alias gets the subsidiary's footer. See
 [how it works](/start/how-it-works/#the-sending-address-not-the-mailbox).
 
 Selection is specific first: a footer matching the sending domain wins over the
-default.
+default. The match is on the exact domain, so a footer for `contoso.com` does not
+cover `uk.contoso.com`. A subdomain that sends mail needs a footer of its own, or
+falls to the default.
+
+Each domain takes one footer, and so does the default. Creating a second one is
+refused with a message naming the footer that already holds the slot, for example
+"A footer for contoso.com already exists ("Contoso legal"). Edit it instead."
 
 To decide which domain a footer applies to:
 
@@ -37,7 +43,9 @@ default.
 
 ## Creating and editing a footer
 
-You need the Admin or Compliance role.
+You need the Admin or Compliance role, or a
+[custom role](/admin/users-and-roles/#custom-roles) that includes Compliance
+footers.
 
 1. Open Footers in the portal sidebar.
 2. Choose New footer.
@@ -125,11 +133,11 @@ survives is everything a footer legitimately needs: inline formatting, links,
 images, tables, inline styles and the conditional sections above.
 
 What is taken out is the markup that can run code or pull in another document.
-Scripts, frames, embedded objects, forms and their fields, and media elements are
-removed along with their contents. Event handler attributes such as `onerror` and
+Scripts, frames, embedded objects, forms and their fields, media elements and
+inline SVG are removed along with their contents. Event handler attributes such as `onerror` and
 `onload` are stripped from whatever they were attached to. A link or image
-address is kept only if it uses `http`, `https`, `mailto`, `tel`, `cid`, or a
-`data:` address holding an ordinary raster image, and the address is normalised
+address is kept only if it is relative or uses `http`, `https`, `mailto`, `tel`,
+`cid`, or a `data:` address holding an ordinary raster image, and the address is normalised
 before that check so a scheme cannot hide behind an entity or a stray control
 character. A `style` attribute that tries to navigate or execute goes the same
 way.
@@ -154,14 +162,23 @@ this is why. What is stored is what was kept.
 The 30,000 character limit applies to the whole rendered signature, which includes
 the footer. A long disclaimer eats into the budget available to the template.
 
+Sigil does not check this for you. Saving a footer has no length check, and the
+check that blocks an oversized template measures the template without its footer.
+A long footer can therefore push a template that passed over the limit with no
+warning. Leave a margin on the template for the footer it will carry.
+
 See [Outlook constraints](/signatures/outlook-constraints/).
 
 ## Pausing a footer
 
 A footer can be paused from the list rather than deleted. A paused footer stops
-appearing in signatures within seconds, and its wording, domain and history are
-left alone, so taking a disclaimer out of circulation for a month does not mean
+appearing in signatures within seconds, and its wording and domain are left
+alone, so taking a disclaimer out of circulation for a month does not mean
 writing it again afterwards.
+
+Pausing a domain's footer hands that domain to the default footer, if you have
+one, rather than leaving its signatures with no footer at all. While a default is
+live, there is no way to give one domain no footer.
 
 Editing a paused footer leaves it paused. Fixing a typo in something that was
 deliberately taken out of circulation must not quietly put it back into every
@@ -190,7 +207,8 @@ The Status column changes to Paused, or back to Live.
 3. Choose Delete.
 4. Confirm with Delete in the Delete footer dialog.
 
-The dialog says that signatures stop carrying it immediately. To take a footer
+The dialog says that signatures stop carrying it immediately. Deletion is
+permanent: there is no recycle bin for footers. To take a footer
 out of circulation without losing its wording, pause it instead.
 
 ## How quickly changes take effect
@@ -210,7 +228,10 @@ so changing any one of them takes effect without touching the others.
 
 ## Who can manage footers
 
-Admins and the Compliance [role](/admin/users-and-roles/). The Editor role covers
+Admins, the Compliance [role](/admin/users-and-roles/), and any
+[custom role](/admin/users-and-roles/#custom-roles) given Compliance footers.
+Where a partner manages your organisation, its Owner, Admin and Technician staff
+can manage footers too. The Editor role covers
 templates and images but not footers, and the Marketing role reaches neither.
 
 That split is deliberate: a compliance footer is usually owned by legal or IT
