@@ -513,6 +513,26 @@ are in force for the mailbox you are previewing as, so you see the signature as
 recipients will. Hovering over the switch names them. When nothing is active the
 preview does not change, and the hover says so.
 
+With the switch on, a Banner date field appears beside the preview's other
+fields. Pick a date and the preview shows the banner that will be running on
+that day, so you can design against a scheduled campaign before it starts. Leave
+it blank for today.
+
+1. Open the live preview and turn on Banner & footer.
+2. Under Banner date, choose the day you want to see.
+
+Three things to know about what the date does:
+
+| | |
+| --- | --- |
+| What moves | Only the banner. A footer has no window, so it is the same on every date |
+| Which moment of the day | Midday UTC. A banner that starts later than that on its first day shows from the following date |
+| Paused banners | Not shown, because the date answers what a real send would carry on that day. To see a paused banner, use [Preview on the Banners view](/targeting/banners/#checking-a-banner-before-it-goes-live) |
+
+Where two windows overlap on the chosen date, the preview shows the one that
+would win, by the same [rule](/targeting/banners/#overlapping-windows) a real
+send follows.
+
 ## Checking a design in dark mode
 
 The live preview has a Dark mode toggle. It shows the render put through the same

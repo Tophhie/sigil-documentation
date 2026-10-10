@@ -35,7 +35,8 @@ You need the Admin or Marketing role, and the image must already be uploaded
 under Images. The Image list is read from Images, which only the Admin and Editor
 roles reach, so somebody with the Marketing role alone sees an empty list and
 cannot create a banner. Give them the Editor role as well, or have an Admin
-create it.
+create it. Once it exists they can preview it, test it, and edit everything
+about it except the image.
 
 1. Open Banners in the portal sidebar.
 2. Choose New banner.
@@ -65,20 +66,82 @@ whichever side of a clock change that falls on.
 The portal shows the window back to you in the zone you chose, rather than
 converting it to yours.
 
-A banner cannot be edited in the portal once it is created. The list offers
-Pause, Resume and Delete, so a wrong window or a wrong image means deleting the
-banner and creating it again. The [admin API](/reference/api/) can change an
-existing banner in place, if you script your campaigns.
-
-To change a banner that is already created:
-
-1. Open Banners in the portal sidebar.
-2. Choose Delete on the banner's row, and confirm with Delete.
-3. Choose New banner and create it again with the corrected values.
-
 Opening or closing a window takes effect immediately. The active banner is part
 of the rendered-signature cache key, so there is nothing to wait for and nothing
 to purge.
+
+## Editing a banner
+
+Any banner can be changed after it is created, whatever its status: the name,
+the image, the link, the alt text, the placement and the window.
+
+1. Open Banners in the portal sidebar.
+2. Choose Edit on the banner's row.
+3. Change what needs changing. Starts and Ends show the window in the time
+   zone the banner was scheduled in, not in yours.
+4. Choose Save changes.
+
+Editing a banner whose Status is Live asks first, in a dialog titled Edit a live
+banner, because the change reaches signatures straight away. Confirm with Save
+changes. A banner that is scheduled, paused or ended saves without asking.
+
+The portal confirms with "Banner saved", and the edit is written to the
+[change log](/monitoring/change-log/) with what moved.
+
+Moving the window of an ended banner so that it covers now puts it back on
+signatures immediately, the same as creating it would.
+
+Somebody with the Marketing role alone can edit a banner but cannot give it a
+different image, for the same reason they cannot create one: the Image list is
+empty for them. Leave Image alone and the banner keeps the picture it has.
+
+This page used to say a banner could not be edited in the portal and had to be
+deleted and created again. That stopped being true in October 2026.
+
+## Checking a banner before it goes live
+
+A scheduled banner used to be invisible until the moment it reached recipients.
+There are now four ways to see one first, and none of them needs its window to
+be open.
+
+| Where | What it shows | Who can use it |
+| --- | --- | --- |
+| Preview on the banner's row | The banner on your own signature, in the portal | Anyone who can manage banners |
+| Send test to me, in that preview | The same thing as an email in your own inbox | Anyone who can manage banners and has a mailbox in the organisation |
+| The Banner choice on [Send a test](/admin/test-email/) | The banner on any colleague's signature, sent to an inbox in your directory | Anyone who can send test emails |
+| Banner date in the [designer's](/signatures/designer/#seeing-the-banner-and-footer) live preview | Whichever banner runs on a date you pick, under the design you are working on | Anyone who can edit templates |
+
+To preview a banner:
+
+1. Open Banners in the portal sidebar.
+2. Choose Preview on the banner's row.
+
+The dialog shows your own new-message signature with the banner attached, and
+names the mailbox and the template underneath. The banner appears whatever its
+schedule says, so this works for one that is scheduled, paused or ended. Links
+in the preview go straight to their destination and are not tracked, so clicking
+one does not count against the campaign.
+
+To see it in a real mail client, choose Send test to me in the same dialog. The
+portal confirms the address it went to, which is always your own. The message is
+the same one a [test email](/admin/test-email/) sends, and its grey line above
+the rule names the banner it carries. The send is recorded in the
+[change log](/monitoring/change-log/) as a test email, like any other.
+
+Both are fixed to the person who is signed in. A preview never renders as a
+colleague and a test never goes to one. The Marketing role reaches banners
+without reaching templates or the directory, and letting it name a mailbox would
+hand it a way to read colleagues' details. To see the banner on somebody else's
+signature, use Send a test on the Templates view, which needs the template
+capability.
+
+If your account has no mailbox in the organisation, which is the usual case for
+partner staff working in a client's portal, the preview uses sample data on the
+live new-message template and says so. Send test to me is unavailable then,
+because there is no signature of yours to send.
+
+Unlike the preview, a test email behaves like the real thing: the banner's link
+is tracked, so a click in a test counts towards the banner's total.
 
 ## Position
 
@@ -111,8 +174,9 @@ Marketing reaches campaign banners and link click analytics and nothing else,
 which is usually the right level for a marketing team: they can run campaigns
 without being able to change the signature templates or reach billing. The one
 catch is that picking a banner's image reads your image library, which Marketing
-cannot see, so a Marketing-only user can pause, resume and delete banners but
-cannot create one. See [creating a banner](#creating-a-banner).
+cannot see, so a Marketing-only user can preview, test, edit, pause, resume
+and delete banners but cannot create one or change a banner's image. See
+[creating a banner](#creating-a-banner).
 
 The Editor role does not reach banners. Editors own the template a banner is
 attached to, but a campaign is a separate thing with its own schedule and its own
@@ -131,14 +195,9 @@ under a signature rather than across the full width of an email client.
 Set meaningful alt text. Some recipients will see only that, and the campaign
 name it falls back to was written for your banner list rather than for them.
 
-To see a banner that is already live under a signature, turn on Banner & footer
-in the [designer's](/signatures/designer/#seeing-the-banner-and-footer) live
-preview.
-
-Test it before the real window opens. Create a copy with a short window
-starting now, send yourself a [test email](/admin/test-email/), then delete the
-copy. Pausing the real banner while you do this keeps it from winning over the
-copy if the two windows overlap.
+Look at it before the real window opens. See
+[checking a banner before it goes live](#checking-a-banner-before-it-goes-live).
+There is no longer any need to create a throwaway copy with a short window.
 
 ## Overlapping windows
 

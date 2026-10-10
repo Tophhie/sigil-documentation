@@ -94,8 +94,10 @@ The field definitions are a different matter and are reachable: defining the
 same six fields when a provider stands up a new client is exactly the
 configuration work a key exists for.
 
-Also outside it: `POST /api/admin/test-email` and both digest routes, which send
-or compose mail; every billing route that writes to Stripe, along with the
+Also outside it: `POST /api/admin/test-email`,
+`POST /api/admin/banners/:id/test-email` and both digest routes, which send
+or compose mail; `POST /api/admin/banners/:id/preview`, which renders the
+caller's own signature and so needs a caller who has one; every billing route that writes to Stripe, along with the
 invoice and credit lists, whose rows carry links that pay an invoice and the
 commercial reasoning behind concessions; `PUT /api/admin/users`
 and `DELETE /api/admin/users/:email`; the custom role routes that write; `PUT /api/admin/settings`, `GET /api/admin/approvals`
@@ -279,7 +281,7 @@ safely carry. Saves are rate limited per mailbox.
 | `POST /api/admin/templates/import` | Admin token | Import a bundle as a new entry |
 | `PUT /api/admin/roles` | Admin token, rules capability | Assign templates to the `new` and `reply` roles |
 | `PUT /api/admin/signature-delivery` | Admin token, rules capability | Pause or resume delivery for the whole organisation. Takes `{ "paused": true }` or `false` |
-| `POST /api/admin/preview` | Admin token | Render with sample data, or against a named mailbox, in which case the response carries that mailbox's directory attributes alongside the HTML. An optional `sender` renders the [shared mailbox case](/signatures/placeholders/#sender) |
+| `POST /api/admin/preview` | Admin token | Render with sample data, or against a named mailbox, in which case the response carries that mailbox's directory attributes alongside the HTML. An optional `sender` renders the [shared mailbox case](/signatures/placeholders/#sender). With `chrome` set, an optional `at` picks the day whose [banner](/targeting/banners/) is shown: a date as `YYYY-MM-DD`, read as midday UTC, or a full ISO timestamp. Anything else answers 400 |
 | `GET /api/admin/download?email=&type=` | Admin token | A mailbox's live signature as a standalone file |
 
 Shortcuts acting on the active new-message template exist at
@@ -415,14 +417,16 @@ templates capability. See
 | `GET/PUT /api/admin/rules` | Admin token, rules capability | Assignment rules, replaced as one ordered list |
 | `POST /api/admin/rules/simulate` | Admin token, rules capability | Dry-run the saved rules against one mailbox |
 | `GET /api/admin/rules/groups/search` | Admin token, rules capability | The same group name search, reachable without cost management: how a group name becomes the object id a group rule matches on. Returns an empty list below two characters, and 502 if the directory permission for groups was never granted |
-| `GET/POST /api/admin/banners`, `PUT/DELETE /api/admin/banners/:id` | Admin token, banners capability | Campaign banners |
+| `GET/POST /api/admin/banners`, `PUT/DELETE /api/admin/banners/:id` | Admin token, banners capability | Campaign banners. `PUT` is a partial update, and any change to `startsAt` or `endsAt` must carry `timezone` with it |
+| `POST /api/admin/banners/:id/preview` | Admin token, banners capability | One banner on the caller's own new-message signature, whatever its window or paused state, with images inlined and links untracked. `renderedAs` is null when the caller has no mailbox in the organisation and sample data was used. Not reachable with an API key |
+| `POST /api/admin/banners/:id/test-email` | Admin token, banners capability | Mail the same thing to the caller. Takes no recipient and no mailbox. 400 when the caller has no mailbox in the organisation. Not reachable with an API key |
 | `GET/POST /api/admin/footers`, `PUT/DELETE /api/admin/footers/:id` | Admin token, footers capability | Compliance footers |
 | `GET /api/admin/assets` | Admin token, templates capability | The image list |
 | `GET /api/admin/assets/usage` | Admin token, templates capability | How full the image library is, against its limits |
 | `GET /api/admin/asset/:name` | Admin token, templates capability | One image, base64 encoded, for the portal's preview |
 | `PUT /api/admin/asset/:name`, `DELETE /api/admin/asset/:name` | Admin token, templates capability | Upload or remove an image. An upload must be a PNG or JPEG of up to 1 MB: another type answers 400, a larger file 413, and a full library 409 |
 | `PUT /api/admin/templates/:id/tracking` | Admin token, templates capability | Toggle link tracking for a template |
-| `POST /api/admin/test-email` | Admin token, templates capability | Send a rendered signature to a named inbox |
+| `POST /api/admin/test-email` | Admin token, templates capability | Send a rendered signature to a named inbox. An optional `banner` is `"live"` (the default), `"none"`, or a banner id, which attaches that banner whatever its window. An unknown id answers 400 |
 
 The placeholder list is the one route here with no capability of its own. It
 describes what a template could reference rather than exposing any of your data,

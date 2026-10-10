@@ -13,8 +13,9 @@ actually renders it.
 
 From the portal, send a rendered signature to an inbox. The mail arrives
 containing the signature exactly as a recipient would receive it, including
-inline images, the current [banner](/targeting/banners/) if a window is open, and
-the applicable [footer](/targeting/footers/).
+inline images, the [banner](/targeting/banners/) that is live if a window is
+open, and the applicable [footer](/targeting/footers/). You can ask for a
+different banner, or none.
 
 You need the Admin or Editor role, or a custom role that can reach Templates, images and drafts.
 
@@ -23,9 +24,11 @@ You need the Admin or Editor role, or a custom role that can reach Templates, im
 3. Under Render as, enter the address of the mailbox whose signature you want
    to see.
 4. Under Signature, pick New-message signature or Reply signature.
-5. Under Send to, enter the recipient, or leave it blank to send it to
+5. Under Banner, leave Live banner, if any to get what a real send would
+   carry right now, or pick No banner or one of your banners by name.
+6. Under Send to, enter the recipient, or leave it blank to send it to
    yourself.
-6. Choose Send test.
+7. Choose Send test.
 
 The portal confirms the address the test went to.
 
@@ -34,8 +37,8 @@ it is not, the send is refused with "No such user" and nothing goes out.
 
 The message arrives from `signatures@usesigil.app` with the subject "Signature
 test:" followed by the template name and the mailbox it was rendered as. A short
-grey line above a rule says which signature it is, and the signature itself
-starts below the rule. If a test seems not to have arrived, search for that
+grey line above a rule says which signature it is and names the banner it
+carries, or says "No banner", and the signature itself starts below the rule. If a test seems not to have arrived, search for that
 subject, including in junk mail.
 
 ## Where a test can be sent
@@ -114,8 +117,22 @@ difference between seeing the outcome and understanding it.
 
 ## Testing a banner before it launches
 
-Set a short window covering now, send a test email, then set the real window.
-Banner windows take effect immediately in both directions, so this costs nothing.
+Pick the banner under Banner when you send the test. Any banner can be chosen,
+whatever its window: one scheduled for next month, one that is paused, one that
+has ended. The test carries it as though it were live, and nothing changes for
+anybody else.
+
+The list of banners by name appears if you can also manage banners, which among
+the built-in roles means Admin. An Editor sees Live banner, if any and No banner
+only. Somebody who manages banners without reaching templates has their own
+route: Preview on the Banners view, with its Send test to me button. See
+[checking a banner before it goes live](/targeting/banners/#checking-a-banner-before-it-goes-live).
+
+A click on the banner in a test email is tracked like any other, so it counts
+towards that banner's total in [link clicks](/monitoring/link-clicks/).
+
+This page used to suggest setting a short window covering now and then putting
+the real window back. That is no longer needed.
 
 ## Who can send them
 

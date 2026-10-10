@@ -282,8 +282,8 @@ twenty client organisations is twenty separate callers rather than one.
 | --- | --- |
 | Actions that render, read the directory or resolve a mailbox | 120 a minute |
 | Actions that send an email | 12 a minute |
-| What counts in the first group | Preview, previewing an archived version, downloading a mailbox's signature, saving somebody else's profile values, simulating assignment rules, syncing an excluded group now, uploading an image, importing a template, looking up your website for a new template, claiming or releasing a branded link domain, buying or dropping the add-on behind it |
-| What counts in the second | Test email, and sending the health digest on demand |
+| What counts in the first group | Preview, previewing a banner, previewing an archived version, downloading a mailbox's signature, saving somebody else's profile values, simulating assignment rules, syncing an excluded group now, uploading an image, importing a template, looking up your website for a new template, claiming or releasing a branded link domain, buying or dropping the add-on behind it |
+| What counts in the second | Test email, the banner preview's Send test to me, and sending the health digest on demand |
 | Over the limit | 429 with a message saying to wait a moment. Nothing is changed or sent |
 | An API key's share | Its own, so a key cannot spend a person's allowance |
 | Searching the directory from an address box | 120 a minute from an allowance of its own, so typing into a picker never uses up what previews need |
