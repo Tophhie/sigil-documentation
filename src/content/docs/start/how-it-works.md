@@ -82,9 +82,10 @@ the whole path just to be told no.
 
 From the administrator's side this looks like a fault, so it is worth being clear
 about: undoing any of those three reaches an automatic message up to ten minutes
-late. The delay is measured from that person's last refused message, so somebody
-who has been writing throughout waits the full window and somebody who has not
-been composing is unaffected.
+late. The ten minutes run from the last time Sigil itself refused that person.
+Messages stopped on the device in the meantime do not restart the clock, so
+somebody who has been writing throughout waits out whatever is left of the
+window, and somebody who has not been composing is unaffected.
 
 The way past it is the "My signature" pane. Its Apply button always asks Sigil,
 whatever the device remembers, and an answer that serves a signature clears the

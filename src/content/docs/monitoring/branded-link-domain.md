@@ -62,8 +62,8 @@ proves you own the hostname by fetching a token over it, so a domain added befor
 the record exists sits waiting until it appears, while one added afterwards is
 usually live within a few minutes.
 
-The record is shown as a table rather than written into a sentence, because it is
-going to be retyped into a DNS provider. The name is the full hostname. Most
+The record is shown as three labelled rows, Type, Name and Value, rather than
+written into a sentence, because it is going to be copied into a DNS provider. The name is the full hostname. Most
 providers accept that; the ones that want only the label in front of your domain
 say so on their own form.
 
@@ -74,7 +74,8 @@ when the domain's status changes, so there is no need to reload the page.
 ### Adding the domain
 
 The add-on must already be on your subscription, and you need the Admin role,
-or a partner Owner or Admin role inside a managed client.
+a [custom role](/admin/users-and-roles/#custom-roles) that reaches Tenant
+settings, or a partner Owner or Admin role inside a managed client.
 
 1. Open Settings in the portal sidebar, under Organisation.
 2. On the Link domain card, choose Add a link domain, at the top right of the
@@ -267,8 +268,8 @@ See [partner billing](/partners/billing/) for how it reaches their invoice.
 
 | Action | Who |
 | --- | --- |
-| Add, remove or re-check the domain | Admins, and partner Owners and Admins inside a managed client |
-| Buy or drop the add-on | Admins and the Billing role |
+| Add, remove or re-check the domain | Admins, a custom role that reaches Tenant settings, and partner Owners and Admins inside a managed client |
+| Buy or drop the add-on | Admins, the Billing role, and a custom role that reaches Subscription and invoices |
 | Enable it for a managed client | Partner Owners, Admins and Technicians |
 
 A partner Technician can switch the add-on on for a client and cannot then set
