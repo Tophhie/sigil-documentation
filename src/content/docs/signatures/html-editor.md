@@ -118,7 +118,9 @@ did not mean to make far more reliably than re-reading the whole template.
 2. Read the Changes vs the live version card that appears above the editor.
 3. Choose Diff again to hide it.
 
-If nothing has changed, a message says the editor matches the live version.
+If nothing has changed, a message says the editor matches the live version. A
+template of more than 800 lines is not diffed, and the editor says "Too large to
+diff here." instead.
 
 The diff is the one thing this editor has that the
 [designer](/signatures/designer/) does not. Everything else about getting a body

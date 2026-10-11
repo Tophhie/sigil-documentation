@@ -111,8 +111,10 @@ To clear a value you no longer want:
 1. Delete the text from the field, or choose "Prefer not to say" from a list.
 2. Choose Save.
 
-Your next email uses what you saved. There is no waiting period and nothing to
-restart.
+Your next email uses what you saved, and there is nothing to restart. The one
+exception is a signature that is built to show the details of whoever is
+sending rather than the mailbox's own, which some organisations use for shared
+mailboxes. There a change can take about an hour to appear.
 
 Some fields only accept certain values, and you are told at the point of saving
 rather than finding out later. A field for a web address wants a full one
@@ -181,3 +183,8 @@ organisation's Sigil account is not currently active.
 In the last three cases you get no signature from Sigil at the moment, so
 nothing you entered appears until that changes. Your IT team can tell you which
 applies.
+
+A fifth case is not a refusal at all. Where editing is on but your organisation
+has not yet added any details of its own, the page opens as normal and says
+there is nothing for you to fill in yet. Everything in your signature then comes
+from your Microsoft 365 account.

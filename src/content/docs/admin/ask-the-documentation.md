@@ -174,6 +174,7 @@ directly.
 ## Still stuck
 
 An answer that does not resolve it is a support case, and Help is where that
-starts. The same dialog carries the support address, the response commitment, and
-your IT provider's details if one manages Sigil for you. See
+starts. The same dialog carries the support address and the response commitment.
+If an IT provider manages Sigil for you it names them first, without contact
+details, because they are the quicker people to ask. See
 [troubleshooting](/deploy/troubleshooting/#still-stuck).

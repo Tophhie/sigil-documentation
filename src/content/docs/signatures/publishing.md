@@ -76,6 +76,12 @@ their version behind your back, so the choice is yours:
    Sigil tells you your copy is out of date, and
    [the steps below](#when-a-colleague-saved-first) apply.
 
+The HTML editor behaves differently after a colleague publishes, as opposed to
+saving a draft. It re-reads the live version as soon as it hears of the publish,
+so it already knows about their change and your next save or publish goes
+through without being refused. The banner is the only warning you get there, so
+read it before you choose Publish. The designer still refuses the first attempt.
+
 A publish also refreshes the editor's rollout panel and schedule banner on its
 own, since both describe the version that has just been replaced.
 
@@ -136,6 +142,9 @@ To read it:
    lines a minus, and the header counts both.
 4. Choose Diff again to hide it.
 
+A template of more than 800 lines, on either side of the comparison, is not
+diffed. The editor says "Too large to diff here." instead.
+
 If the editor already matches the live version, a message says there are no
 changes instead.
 
@@ -153,8 +162,9 @@ One detail is worth knowing before somebody reports it as a fault. The add-in
 puts the copy it kept from that mailbox's last message in first, so the message
 composed immediately after a publish can show the outgoing signature and then
 replace it with the new one about a second later, in the editor, while the person
-is looking at it. What is sent is the new version, because the check against
-Sigil finishes before the message can leave. See
+is looking at it. What is sent is the new version, provided Sigil answers. The
+add-in gives that check five seconds, and if Sigil cannot be reached in that
+time the kept copy stays in the message. See
 [why it sometimes changes as you watch](/users/how-your-signature-works/#why-it-sometimes-changes-as-you-watch).
 
 Publishing is recorded in the [change log](/monitoring/change-log/) with who did
@@ -168,8 +178,9 @@ You need the templates capability, and where
 3. In the HTML editor, choose Publish in the confirmation. The designer
    publishes as soon as you choose the button.
 
-A message confirms it is published and that new messages pick it up within
-seconds.
+A message confirms it is published. The designer adds that new messages pick
+it up within seconds, and the HTML editor adds the same when the template is
+your organisation's new-message signature.
 
 ## What blocks a publish
 
@@ -206,7 +217,8 @@ what goes live. See [scheduled publishing](/signatures/scheduled-publishing/).
 
 ## Publishing to part of the organisation first
 
-Next to Publish is Staged publish, which sends the new body to 10% of mailboxes
+Next to Publish is Staged publish, labelled Staged in the designer, which sends
+the new body to 10% of mailboxes
 and leaves everyone else on the current version. It steps up to 25%, 50% and then
 everyone as the add-in reports that the new version is applying, and rolls itself
 back if it starts failing more often than the version it would replace.

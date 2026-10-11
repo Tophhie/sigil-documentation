@@ -30,7 +30,8 @@ they line up.
 
 A per-mailbox rollup, so you can see the state of any individual person.
 
-A recent feed of events across the organisation.
+The signature log: every individual request and outcome, read when you search
+it.
 
 Adoption statistics across the whole tenant.
 
@@ -56,14 +57,17 @@ You need the Admin, Editor, Viewer or Compliance role.
 2. In the By mailbox table, find the person's address. Rows are most recent
    first.
 3. Read the Outcome column. A badge shows the result of the last apply the
-   add-in reported. Fetched only means the signature was served but no apply
-   was ever reported for that mailbox.
+   add-in reported. Fetched only means a signature was requested for that
+   mailbox but no apply was ever reported. That includes a mailbox that is
+   [kept out of Sigil](/admin/cost-management/) and was refused one.
 4. Read the Applied / failed column for the running counts, and the How column
    for whether the last apply was automatic or manual.
 
 For the full history of one mailbox, scroll to the Signature log card, enter
-the address under Mailbox and choose Search. Events are newest first, capped at
-500, with Prev and Next to page through them.
+the address under Mailbox and choose Search. Events are newest first, with Prev
+and Next to page through them. A search returns the newest 100 events that
+match, although the card's own heading says 500. To reach further back than
+that, set From and To to an earlier range and search again.
 
 ### Filtering the signature log
 
@@ -166,7 +170,8 @@ working as they did. See
 [which manifest version you are on](/deploy/deploy-the-add-in/#which-manifest-version-you-are-on).
 
 To update a custom app upload from the notice you need to be an administrator
-of your Microsoft 365 tenant as well as of Sigil.
+of your Microsoft 365 tenant. The notice itself shows to anybody who can open
+Activity, so a Viewer may be the one who spots it and passes it on.
 
 1. Open Activity in the portal sidebar, under Monitoring. The notice at the top
    names the manifest Sigil now serves and how many mailboxes are on an older
@@ -235,11 +240,15 @@ succeeded or not.
 
 Outcomes record how the signature was applied:
 
-| Trigger | Meaning |
-| --- | --- |
-| `auto-new` | Applied automatically when the message was started |
-| `auto-from-changed` | Applied automatically when the sending account changed |
-| `manual` | Applied by hand from the "My signature" pane |
+| Trigger | Shown as | Meaning |
+| --- | --- | --- |
+| `auto-new` | Auto · new | Applied automatically when the message was started |
+| `auto-from-changed` | Auto · from changed | Applied automatically when the sending account changed |
+| `manual` | Manual | Applied by hand from the "My signature" pane |
+
+The signature log has a fourth, Preview. It marks the request the "My
+signature" pane makes to draw its preview when it opens, so it appears against
+a fetch and never against an apply.
 
 A mailbox with only manual applications is a mailbox where automatic activation
 is not working. That is worth investigating even though the person does have a
@@ -301,7 +310,11 @@ and the served request says which decision was taken:
 | `not-found` | The address resolved to no mailbox in your directory |
 
 The event search has a filter for each, so any of them can be pulled out on its
-own.
+own. Leave Mailbox empty when you search for `paused` or `billing-inactive`.
+Those two are decided before Sigil looks at which mailbox was asked for, so they
+are recorded against the person who was signed in and no mailbox. The log shows
+that person's address in the mailbox column, but a search by address does not
+find the row.
 
 They are recorded rather than swallowed because each answers a question somebody
 is actually asking. An excluded mailbox should not be requesting a signature at
@@ -368,7 +381,7 @@ allowed to slow or fail the signature somebody is waiting on, so a storage probl
 loses telemetry rather than breaking signatures.
 
 Individual requests and outcomes are kept for 90 days and then deleted by a
-nightly sweep, so the recent feed and a single mailbox's event history reach back
+nightly sweep, so the signature log and a single mailbox's event history reach back
 no further than that. The per-mailbox rollup and the adoption totals built from
 those events are kept for as long as your organisation uses Sigil. The
 never-applied list reads the rollup, so a mailbox whose last successful apply was
@@ -379,7 +392,9 @@ See [data and privacy](/security/data-and-privacy/) for the full picture.
 ## Who can see it
 
 Admins, Editors, Viewers and the Compliance role, which all hold monitoring. The
-Marketing and Billing roles do not reach it.
+Marketing and Billing roles do not reach it. A
+[custom role](/admin/users-and-roles/#custom-roles) reaches it when it has been
+given "Activity and coverage".
 
 Viewer exists largely for this view: a service desk needs to answer "is this
 person's signature working" without being able to change a template.

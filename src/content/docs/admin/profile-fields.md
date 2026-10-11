@@ -376,6 +376,11 @@ The cost of that is honest: one person's edit strands every cached signature in
 the organisation, and they re-render one compose at a time as people write mail.
 That is the same effect publishing a template already has.
 
+That covers any template or footer that uses a plain `{{custom.<key>}}`
+placeholder. A template whose only profile placeholders are the
+`{{sender.custom.<key>}}` form is not rebuilt by a save, so a new answer waits
+for the cached signature to age: up to an hour, and then one further compose.
+
 ## Limits
 
 | Limit | Value |

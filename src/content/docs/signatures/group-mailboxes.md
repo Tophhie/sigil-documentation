@@ -70,8 +70,10 @@ reach. So when the group's signature renders:
 - any [profile field](/admin/profile-fields/) you have defined reaches the
   member who sent the message, through `{{sender.custom.<key>}}`. A group has
   nobody to fill in a profile of its own, so the plain `{{custom.<key>}}` form
-  is always empty for one. If a group's signature should carry the sender's
-  pronouns, that is the placeholder to use.
+  is empty for one unless an administrator has entered answers against the
+  group's address under [Profile fields](/admin/profile-fields/). If a group's
+  signature should carry the sender's pronouns, the sender form is the
+  placeholder to use.
 
 Your existing template is therefore already right for a group in most cases. The
 one thing to look at is any line that assumes a person: a "Chat with me in
@@ -119,8 +121,12 @@ no Mailbox kind, Email or Email domain rule catches gets your default template.
 
 ## Where groups appear in the portal
 
-Every box in the portal that takes an email address accepts a group's, and the
-suggestions list offers groups alongside people, marked "Group mailbox". You can
+Every box in the portal that names a mailbox accepts a group's address, and the
+suggestions list offers groups alongside people, marked "Group mailbox". Two
+boxes leave groups out of their suggestions: inviting a portal user, which a
+group cannot be, and excluding a mailbox in cost management, where the address
+has to be typed in full. The designer's preview boxes suggest groups without
+the marker. You can
 preview a group's signature, simulate the rules for it, send a
 [test email](/admin/test-email/) as it and download its signature, all as for
 any other mailbox.
@@ -157,4 +163,5 @@ Check, in this order:
    new group is found as soon as Microsoft's directory search lists it, which
    can lag briefly behind the group's creation. A change to a group Sigil has
    already seen, such as a new name, can take up to a quarter of an hour to
-   show.
+   show in a preview. In a signature it follows every other directory change:
+   up to an hour, and then one further compose.

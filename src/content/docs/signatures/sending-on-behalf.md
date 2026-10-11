@@ -76,10 +76,13 @@ asks anybody to.
 
 It also settles what happens on a shared computer. The copy of the last
 signature a device keeps records who it was fetched for, not just which address
-it was for, and a copy fetched for somebody else is discarded rather than put
-into the message. So two colleagues taking turns at a reception desk cannot end
-up sending each other's "on behalf of" line: the second one waits for a fresh
-signature instead of starting from the first one's.
+it was for. The add-in puts the kept copy in first and checks whose it is as
+soon as it knows who is signed in, which is a moment later. A copy fetched for
+somebody else is taken back out and a fresh signature is fetched in its place.
+So two colleagues taking turns at a reception desk do not end up sending each
+other's "on behalf of" line, although the second may see the first one's
+signature for an instant before it is replaced. The exception is a compose where
+the sign-in itself fails: nothing can be checked, and the kept copy stays.
 
 ## Sending from a shared mailbox
 
@@ -152,6 +155,13 @@ The second is almost always the one a shared mailbox wants: a line that names a
 person should carry that person's pronouns, not an answer filled in against
 `sales@`.
 
+One difference in timing follows from the choice. A saved answer normally
+reaches the next message composed, but that holds only where the template or
+its footer uses a plain `{{custom.…}}` placeholder somewhere. A template whose
+only profile placeholders are the `{{sender.custom.…}}` form keeps serving the
+signature it already built, so a newly saved answer can take up to an hour, and
+then one further compose, to appear.
+
 When nobody else is sending, every one of them resolves to the mailbox's own
 value. That fallback is what lets one line serve a personal mailbox and a shared
 one:
@@ -164,9 +174,10 @@ Sent from `sales@` by Jane Doe, that renders "Kind regards, Jane Doe on behalf o
 Sales". Sent from Jane's own mailbox, the same line renders "Kind regards, Jane
 Doe" and the clause closes.
 
-`{{onBehalfOf}}` is the switch. It is the only condition in Sigil that can be
-true for one person sending from a mailbox and false for another, which is why it
-exists rather than leaving you to compare a name against an address.
+`{{onBehalfOf}}` is the switch. It answers whether anybody else is sending at
+all, which no sender field can tell you, since each of those falls back to the
+mailbox's own value. That is why it exists rather than leaving you to compare a
+name against an address.
 
 ## Building it
 
@@ -224,17 +235,19 @@ in. A signature downloaded from the Templates view, a
 [test email](/admin/test-email/) and a preview all render the mailbox sending for
 itself unless you tell the preview otherwise.
 
-Telling the preview otherwise is a second address box, labelled "sent by", in
-both editors. Put `sales@` in the first box and a colleague in the second, and
+Telling the preview otherwise is a second address box in both editors, labelled
+"sent by" in the HTML editor and "Sent by" in the designer. Put `sales@` in the first box and a colleague in the second, and
 you see what a delegate's message will actually say, including whether the
 condition opens. The named colleague's own [profile field](/admin/profile-fields/)
 answers are loaded too, so `{{sender.custom.…}}` previews as truthfully as their
 name does. Sample data in the first box works too. See
 [previewing a shared mailbox send](/signatures/templates/#previewing-a-shared-mailbox-send).
 
-Naming somebody who is not a delegate does nothing visible. The preview applies
-the same test a real send does, so it cannot show you an output no message could
-produce.
+Naming the mailbox itself, or one of its own addresses, does nothing visible,
+because nobody sends on their own behalf. That is the only test the preview
+makes. It does not check that the colleague you name has permission to send
+from the mailbox, so it shows the clause for anybody in your directory. An
+address that is not in your directory is refused with "No such sender".
 
 ## Cost
 
