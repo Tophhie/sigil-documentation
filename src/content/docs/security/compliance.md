@@ -347,6 +347,7 @@ administrators a re-consent link.
 | Deleted templates | 30 days in Recently deleted, then purged by a daily sweep |
 | Change log | For as long as your organisation uses Sigil |
 | Operator audit log | Indefinite |
+| Tophhie Cloud's own tenant, subscription and billing records | For as long as your organisation uses Sigil, then for as long as tax and accounting law requires the financial records to be kept |
 | Individual signature requests and apply outcomes | 90 days, then purged by a nightly sweep |
 | Per-mailbox activity rollup and daily apply totals | For as long as your organisation uses Sigil |
 | Daily click totals per tracked link | For as long as your organisation uses Sigil |

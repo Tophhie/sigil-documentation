@@ -80,10 +80,6 @@ headline figures, but shown rather than hidden so the filter can be checked. See
 A legal or compliance block appended below every signature at render time. See
 [footers](/targeting/footers/).
 
-**Founding tenant**
-Tophhie Cloud's own organisation. Billing-exempt, and the home of the platform
-operators.
-
 **Integrated apps**
 The area of the Microsoft 365 admin centre where an administrator deploys the
 add-in.
@@ -119,9 +115,6 @@ A managed service provider running Sigil for a client base. Not a tenant. See
 **Placeholder**
 A token such as `{{jobTitle}}` replaced with directory data at render time. See
 [placeholders](/signatures/placeholders/).
-
-**Platform console**
-Tophhie Cloud's cross-tenant operator view.
 
 **Profile field**
 A custom field an organisation defines and its own staff fill in, reached in a

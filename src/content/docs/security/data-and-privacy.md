@@ -496,6 +496,15 @@ list of addresses opted out of product updates. A purge does not touch it and a
 tenant export does not include it. It belongs to each person, and deleting it
 with an organisation would mean emailing somebody who had asked Sigil to stop.
 
+Tophhie Cloud's own commercial records are outside it as well. The purge removes
+what Sigil holds on your organisation's behalf, and the record that you were a
+customer is a different thing: the organisation's name, its domain and billing
+country, the terms and dates of the subscription, and the invoices and payment
+references held with Stripe. Tophhie Cloud holds those as a controller in its own
+right, and the privacy policy keeps them for as long as tax and accounting law
+requires. The customer record names an organisation rather than a person. An
+invoice carries the billing details you gave for it.
+
 A [branded link domain](/monitoring/branded-link-domain/) is released as part of
 the purge, so a hostname pointed at Sigil is not left being answered on behalf of
 an organisation that no longer exists. That step treats a hostname already gone
