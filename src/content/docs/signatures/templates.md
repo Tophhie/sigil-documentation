@@ -137,7 +137,9 @@ started from either needs the same edit before it is published.
 
 A blank canvas left empty is a signature that renders nothing. Occasionally that
 is the point: assigned to a mailbox, it lets the mailbox send without a signature
-while it stays served and on the seat count.
+while it stays served and on the seat count. A blank canvas is created with
+[campaign banners](/targeting/banners/#keeping-banners-off-a-signature) switched
+off, so it really does send nothing while a campaign is running.
 
 The [drag-and-drop designer](/signatures/designer/) edits a block tree and
 compiles to email-safe HTML when you publish. It suits people who do not want to

@@ -7,7 +7,8 @@ sidebar:
 
 A banner is an image injected above or below every rendered signature while its
 window is open. It needs no template edit, and it removes itself when the window
-closes.
+closes. A signature can be set to never carry one; see
+[keeping banners off a signature](#keeping-banners-off-a-signature).
 
 This is the marketing surface. An event, a campaign, a seasonal message: set the
 window and forget about it.
@@ -142,6 +143,60 @@ because there is no signature of yours to send.
 
 Unlike the preview, a test email behaves like the real thing: the banner's link
 is tracked, so a click in a test counts towards the banner's total.
+
+## Keeping banners off a signature
+
+A banner goes on every signature by default. Each template has its own switch
+that stops that, so a signature you want kept plain stays plain whatever
+campaign is running. The usual case is a reply signature: a short reply
+template, or a blank one that sends no signature at all, would otherwise go out
+carrying the campaign banner on its own.
+
+The switch belongs to the template, not to the banner, so it holds for every
+campaign anyone creates later. It also follows the template wherever it is
+used, including when an [assignment rule](/targeting/assignment-rules/) routes
+a department to it.
+
+You need the templates capability to change it (the Admin and Editor roles, or
+a custom role that includes it). The Marketing role cannot, because the
+decision is about the signature rather than the campaign.
+
+1. Open Templates in the portal sidebar.
+2. Open the menu at the end of the template's row.
+3. Choose Turn campaign banners off.
+
+The portal confirms with "Campaign banners off for this signature." and the
+row gains a Banners off chip. Choose Turn campaign banners on from the same
+menu to undo it.
+
+The change reaches users as fast as a publish does: the template's cached
+signatures are thrown away and rebuilt, so the next compose picks it up. It is
+recorded in the [change log](/monitoring/change-log/) as "Toggled campaign
+banners", with on or off. It does not add an entry to the template's version
+history.
+
+A template created from Blank canvas starts with banners off, since the only
+reason to send an empty signature is to send nothing. The New template dialog
+says so. Every other template starts with banners on. Blank templates created
+before October 2026 were not changed and still carry banners until you switch
+them off.
+
+The switch is copied when a template is duplicated, and an exported template
+carries it into the organisation it is imported into.
+
+### Where the switch does not apply
+
+Seeing a particular banner on purpose overrides it. Preview and Send test to me
+on the Banners view, and a [test email](/admin/test-email/) with a banner
+picked by name, all show that banner even on a template that keeps banners
+off, in the same way they ignore the banner's window and paused state. A test
+email left on Live banner, if any honours the switch, because it answers what a
+real send would carry.
+
+The [designer's](/signatures/designer/#seeing-the-banner-and-footer) live
+preview honours the switch too. With Banner & footer turned on it shows no
+banner, and hovering over the switch says "Campaign banners are off for this
+signature, so none is shown".
 
 ## Position
 

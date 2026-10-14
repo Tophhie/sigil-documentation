@@ -25,7 +25,10 @@ You need the Admin or Editor role, or a custom role that can reach Templates, im
    to see.
 4. Under Signature, pick New-message signature or Reply signature.
 5. Under Banner, leave Live banner, if any to get what a real send would
-   carry right now, or pick No banner or one of your banners by name.
+   carry right now, or pick No banner or one of your banners by name. A banner
+   picked by name is shown even when the template
+   [keeps campaign banners off](/targeting/banners/#keeping-banners-off-a-signature);
+   Live banner, if any respects that switch.
 6. Under Send to, enter the recipient, or leave it blank to send it to
    yourself.
 7. Choose Send test.

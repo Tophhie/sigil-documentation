@@ -511,7 +511,9 @@ The live preview has a Banner & footer switch. Turned on, it adds whatever
 [campaign banner](/targeting/banners/) and [compliance footer](/targeting/footers/)
 are in force for the mailbox you are previewing as, so you see the signature as
 recipients will. Hovering over the switch names them. When nothing is active the
-preview does not change, and the hover says so.
+preview does not change, and the hover says so. When the template has
+[campaign banners switched off](/targeting/banners/#keeping-banners-off-a-signature),
+no banner is shown and the hover says that instead.
 
 With the switch on, a Banner date field appears beside the preview's other
 fields. Pick a date and the preview shows the banner that will be running on

@@ -129,7 +129,8 @@ The compose type decides which of the two roles is used. The add-in calls
 `getComposeTypeAsync`, and a reply or forward asks for the reply signature. When
 no reply template is configured, the new-message template is served instead.
 
-The [banner](/targeting/banners/) is whichever campaign window is currently open.
+The [banner](/targeting/banners/) is whichever campaign window is currently open,
+unless the chosen template has campaign banners switched off.
 The [footer](/targeting/footers/) is the one matching the sending email domain,
 or the default if there is one.
 

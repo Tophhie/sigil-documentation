@@ -79,7 +79,8 @@ Anyone left unresolved falls back to the organisation-wide roles. See
 
 A time-boxed image injected above or below every rendered signature while its
 window is open. Banners need no template edit and remove themselves when the
-window closes. See [banners](/targeting/banners/).
+window closes. A template can be set to never carry one. See
+[banners](/targeting/banners/).
 
 ## Footer
 
@@ -149,7 +150,7 @@ On every compose, Sigil answers three questions and assembles the result:
 | Question | Answered by |
 | --- | --- |
 | Which template? | Assignment rules, falling back to the `new` or `reply` role |
-| Which banner, if any? | Whichever campaign window is open right now |
+| Which banner, if any? | Whichever campaign window is open right now, unless the template keeps banners off |
 | Which footer, if any? | The sending address's email domain, falling back to the default |
 
 The chosen template is personalised with that person's directory attributes, the

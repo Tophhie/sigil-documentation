@@ -88,7 +88,9 @@ Role assignments. The imported template is not made active for anything.
 identity and belong to the organisation rather than to any one template.
 
 [Banners](/targeting/banners/) and [footers](/targeting/footers/), which are
-separate objects applied at render time.
+separate objects applied at render time. The template's own switch for keeping
+campaign banners off does travel, so a template exported with banners off is
+imported with them off.
 
 Version history. The imported template starts fresh.
 

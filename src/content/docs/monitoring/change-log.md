@@ -32,6 +32,7 @@ organisation.
 | Creating, editing or removing a banner | Yes |
 | Creating, editing or removing a footer | Yes |
 | Turning link tracking on or off | Yes |
+| Turning campaign banners on or off for a template | Yes |
 | Uploading an image | Yes |
 | Deleting an image | Yes |
 | Sending a test email | Yes |
@@ -241,7 +242,7 @@ Three filters narrow it, and they combine.
 By half. Template changes carries the actions that alter what goes out on
 somebody's mail: the whole template lifecycle, publishes and rollbacks, drafts,
 image uploads and deletions, banners, footers, assignment rules, link tracking,
-approvals, scheduled publishes and staged rollouts. Assignment rules and banners
+each template's campaign banner switch, approvals, scheduled publishes and staged rollouts. Assignment rules and banners
 are in because they decide which template a mailbox gets and what is injected
 into it. Organisation, access and support carries everything else: role and user
 changes, pausing and resuming delivery, mailbox and group exclusions, API keys,

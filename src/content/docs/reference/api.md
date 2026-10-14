@@ -426,6 +426,7 @@ templates capability. See
 | `GET /api/admin/asset/:name` | Admin token, templates capability | One image, base64 encoded, for the portal's preview |
 | `PUT /api/admin/asset/:name`, `DELETE /api/admin/asset/:name` | Admin token, templates capability | Upload or remove an image. An upload must be a PNG or JPEG of up to 1 MB: another type answers 400, a larger file 413, and a full library 409 |
 | `PUT /api/admin/templates/:id/tracking` | Admin token, templates capability | Toggle link tracking for a template |
+| `PUT /api/admin/templates/:id/banners` | Admin token, templates capability | Say whether campaign banners may be added to a template. Takes `{ "enabled": true }` or `false`; anything else answers 400 |
 | `POST /api/admin/test-email` | Admin token, templates capability | Send a rendered signature to a named inbox. An optional `banner` is `"live"` (the default), `"none"`, or a banner id, which attaches that banner whatever its window. An unknown id answers 400 |
 
 The placeholder list is the one route here with no capability of its own. It
