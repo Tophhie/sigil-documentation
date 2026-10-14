@@ -213,11 +213,13 @@ that is.
 
 ## What it runs on
 
-Sigil runs on Cloudflare's edge network. Templates and metadata live in the
+Sigil runs on Cloudflare's network, pinned to its Western Europe region.
+Templates and metadata live in the
 organisation's own database, inline
 images in R2, and rendered signatures in a KV cache. Billing runs on Stripe. Mail
-for invites, test emails and operator notices goes through Cloudflare Email
-Routing.
+for invites, test emails and service notices goes through Cloudflare Email.
 
-The practical consequence is that the signature path is edge-executed and close
-to the user wherever they are. See [infrastructure](/security/infrastructure/).
+Every signature request is handled in that one region, next to the databases and
+close to the Microsoft directories Sigil reads, which keeps each compose quick
+and predictable rather than dependent on which Cloudflare location a request
+happened to reach. See [infrastructure](/security/infrastructure/).

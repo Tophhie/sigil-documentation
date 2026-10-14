@@ -306,7 +306,7 @@ entirely for a suspended or removed organisation.
 
 ## Where data lives
 
-Sigil runs on Cloudflare's edge network. Your templates, configuration and
+Sigil runs on Cloudflare's network, in its Western Europe region. Your templates, configuration and
 telemetry are in a database of your organisation's own (see
 [tenant isolation](#tenant-isolation)). Images are in R2, and rendered signatures
 in a KV cache. Billing is handled by Stripe. See

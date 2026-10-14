@@ -81,6 +81,7 @@ carries its own way out.
 
 That way out is personal. Each product update has a link at the bottom that
 stops them for that one address, with no sign-in, and nobody else can undo it.
+The same page offers Start them again, so the person can change their mind.
 So an admin who wants them can stay on while a colleague who does not opts out,
 and switching this setting back on never overrides somebody who asked to stop.
 
@@ -97,7 +98,8 @@ It saves as soon as the switch moves.
 An email to every administrator summarising coverage, apply failures, directory
 gaps and anything waiting on a decision.
 
-Weekly, monthly and off are the three choices. See
+Weekly, monthly and off are the three choices. Monthly means every 30 days
+rather than once per calendar month. See
 [the health digest](/monitoring/health-digest/) for what it contains and why it
 defaults to on.
 
@@ -109,8 +111,9 @@ It saves as soon as you choose, and the card says when the last one was sent.
 Two buttons sit beside the setting.
 
 Preview renders the digest your organisation would receive right now, inside the
-page, and sends nothing. If your organisation is too new for one to be sent, the
-preview still renders and says why it would be skipped.
+page, and sends nothing. If there is nothing to report yet, because there are no
+mailboxes and no signature activity, the preview still renders and says that
+nothing would be sent.
 
 Send me one mails it to you and to nobody else. A test that mailed the whole
 leadership team is a button nobody would press.

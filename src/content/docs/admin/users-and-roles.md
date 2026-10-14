@@ -61,7 +61,10 @@ including themselves through a second account.
 
 If an [IT provider](/partners/overview/) manages your organisation, its Owners
 and Admins count as Admins here while they work inside your tenant. They can
-invite your colleagues and manage your Admins. Its Technicians cannot.
+invite your colleagues and define custom roles. The Users & roles page does not
+offer them the Admin role, though, and shows each of your Admins as read-only,
+so granting, changing or removing an Admin is a job for one of your own Admins.
+Its Technicians cannot manage users at all.
 
 The Admin role is also the only built-in role that reaches
 [settings](/admin/settings/), though a custom role can be given it. If

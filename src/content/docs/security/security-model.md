@@ -31,7 +31,7 @@ the security comes from the token rather than from anything hidden.
 Every call to the API carries an Entra access token, and the server checks it
 before doing anything:
 
-The home tenant claim, which both resolves the request to a tenant and selects
+The tenant claim (`tid`), which both resolves the request to a tenant and selects
 what the rest of the checks are made against.
 
 The cryptographic signature, against the signing keys that tenant publishes.
@@ -94,7 +94,7 @@ that is most of what the credential exists for.
 
 The add-in's signature endpoints are refused too, because those take a
 per-mailbox token rather than an organisation-wide one, as are the key management
-routes, the partner routes and the operator console.
+routes and the partner routes.
 
 The portal renders the list as a reference beside the keys, generated from the
 list that enforces it, so what a key is documented to reach and what it can reach
@@ -154,6 +154,9 @@ is created with one from the start, and every organisation that joined before
 that was moved across on 28 September 2026. Its templates, rules, users,
 telemetry and change log are physically apart from everybody else's, so keeping
 them apart does not depend on every query remembering to filter by organisation.
+The copy each organisation's data was moved from is still held in the shared
+database for now, as a way back if a move had to be reversed, and is due to be
+removed.
 
 The tenant id is still on every row, and every storage function still takes it,
 so a query cannot forget to scope itself even inside an organisation's own
@@ -227,8 +230,7 @@ withdrawn, which makes it far harder to undo than to switch on.
 
 Two headers are switched off on purpose rather than by omission, because their
 usual settings break something people rely on. Isolating the browsing context
-would sever the popup window that Entra re-authentication uses, which is the
-check that gates destructive operator actions. Restricting cross-origin resource
+would sever the popup window that Entra re-authentication uses. Restricting cross-origin resource
 loads would put the add-in's own call to the signature endpoint at risk, and that
 call is cross-origin by design. Both choices are held in place by tests, so a
 library upgrade that quietly reinstates a default fails a build rather than

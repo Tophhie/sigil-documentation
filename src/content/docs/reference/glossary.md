@@ -19,7 +19,7 @@ provider and billed to them.
 
 **API key**
 A credential belonging to an organisation rather than to a person, created by an
-Admin so that a script can reach Sigil unattended. It carries capabilities and no
+Admin, or by the organisation's IT provider, so that a script can reach Sigil unattended. It carries capabilities and no
 role. See [API keys](/admin/api-keys/).
 
 **Ask the documentation**
@@ -177,7 +177,8 @@ applies to the whole organisation, and it can only be changed while the list is
 empty. See [cost management](/admin/cost-management/#which-way-round-the-list-reads).
 
 **Seat**
-A billable licensed member mailbox. Shared and resource mailboxes are free, as
+A billable licensed member mailbox. Unlicensed mailboxes, which normally
+includes shared and resource mailboxes, are free, as
 are accounts invited in from outside the organisation, disabled accounts, and
 mailboxes the organisation has kept out of Sigil in cost management, whether
 individually, through an Entra group, or by never including them.

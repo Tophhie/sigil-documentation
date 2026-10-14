@@ -5,13 +5,15 @@ sidebar:
   order: 4
 ---
 
-Sigil runs on Cloudflare's edge network. The signature path executes close to
-whoever is composing the message.
+Sigil runs on Cloudflare's network, pinned to Cloudflare's Western Europe region
+so that every signature request is handled next to Sigil's databases and close to
+the Microsoft directories it reads from. A fixed region keeps the database and
+directory calls behind every compose short and predictable.
 
 The stores that hold your data are created in Cloudflare's EU jurisdiction, which
 is a limit Cloudflare enforces rather than a location it prefers. The caches in
-front of them are deliberately global, because that is what makes a signature
-arrive without a wait. See
+front of them use Cloudflare's global key-value store, so they are not confined to
+the EU in the same way. See
 [where data lives](/security/data-and-privacy/#where-data-lives).
 
 ## Components
@@ -22,9 +24,9 @@ arrive without a wait. See
 | Cloudflare D1 | The shared database: organisation records, billing state, API key hashes, tracked link destinations, portal sign-ins, the names shown against portal users and partner records, which Sigil has to read before it knows which organisation a request belongs to. In Cloudflare's EU jurisdiction |
 | Cloudflare Durable Objects | Each organisation's own database, holding its templates, configuration, telemetry and change log. Also the portal's live updates: the open connections, and the list of recent changes a page catches up from. All in Cloudflare's EU jurisdiction |
 | Cloudflare R2 | Uploaded images, preview pictures and nightly database backups, all in Cloudflare's EU jurisdiction |
-| Cloudflare KV | Rendered signature cache and per-mailbox rule resolution, cached on the global network and expiring on its own |
+| Cloudflare KV | Rendered signature cache, directory lookups, profile photos and per-mailbox rule resolution, cached on the global network and expiring on their own |
 | Cloudflare's headless browser | Rendering the [signature previews](/signatures/previews/) shown in the portal and in Sigil's emails |
-| Cloudflare Email | Invitations, test emails, approval requests, the health digest, billing and trial notices, product updates, operator notices and internal alerts |
+| Cloudflare Email | Invitations, test emails, approval requests, the health digest, billing and trial notices, product updates and service notices |
 | Cloudflare AI Search | Answering questions typed into [Ask the documentation](/admin/ask-the-documentation/). Nothing is kept |
 | Stripe | Subscriptions, payment methods and invoices |
 | Microsoft Entra ID | Authentication for both the add-in and the portal |
@@ -51,8 +53,10 @@ or API.
 An organisation holding the [branded link domain](/monitoring/branded-link-domain/)
 add-on has a fourth host, its own, serving its tracked links in place of
 `e-clk.usesigil.app`. It is a hostname on the customer's domain pointed at Sigil
-by a CNAME. It is not narrowed to redirects in the same way, but anything beyond
-redirects and contact cards still needs a signed-in session there.
+by a CNAME. It is not narrowed to redirects in the same way, but the portal and
+the API still need a signed-in session there. Only redirects, contact cards and
+Sigil's public information pages, such as the privacy policy and terms, answer
+without one.
 
 ## Code loaded from other hosts
 
@@ -119,20 +123,25 @@ A one hour freshness window sits on top of that, which is how a change to
 somebody's job title in Entra reaches Outlook without anyone republishing: a
 cached entry older than the window still serves that compose, then re-renders in
 the background from a fresh directory read, so the change lands on the compose
-after. The entry itself lives a day. The attributes are read when a signature is
-rendered and are never stored as a record of their own: the rendered signature,
-the directory lookup below and the profile photo cache are the only places they
-sit on the server. The add-in also keeps a copy of the last signature it applied
+after. The entry itself lives a day, though a nightly pass renders a fresh one
+for every mailbox that composed in the past week, so Monday's first message is as
+quick as Friday's. The attributes are read when a signature is rendered and are
+never stored as a record of their own: the rendered signature, the directory
+lookup below and the profile photo cache are the only places they sit on the
+server, apart from short-lived results behind the portal's people picker and the
+group memberships that assignment rules and cost management work from. The add-in also keeps a copy of the last signature it applied
 on the device, described in
 [data and privacy](/security/data-and-privacy/).
 
 The answer to a directory lookup counts as fresh for fifteen minutes, so that a
 person composing several messages is not looked up in Graph each time. After
 that it still answers straight away while a fresh copy is read in the
-background, and it is kept for up to seven days after the mailbox last composed,
-so the first message of the morning is not held up by a slow Graph call. That
-week, not the day above, is what bounds how long directory data exists inside
-Sigil. A deprovisioned organisation has it cleared with everything else.
+background, and it is kept for seven days after it was last read from Graph, so
+the first message of the morning is not held up by a slow Graph call. The nightly
+pass above reads Graph again for every mailbox that composed in the past week, so
+directory data for a mailbox can remain for up to about two weeks after its last
+compose. That, not the day above, is what bounds how long directory data exists
+inside Sigil. A deprovisioned organisation has it cleared with everything else.
 
 The routing decision behind assignment rules is cached separately, keyed by a
 rules version that changes whenever the rules are edited, so an edit strands

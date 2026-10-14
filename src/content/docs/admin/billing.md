@@ -215,8 +215,8 @@ The warning's button reads Add payment method, or Fix payment once a payment has
 failed. It opens Billing with the card form already up, so fixing the card is one
 click rather than two.
 
-The warning can be put off for the rest of the browser session, and comes back on
-the next sign-in. Putting one off does not hide the next: the dismissal is keyed
+Remind me later hides the warning for the rest of the browser session. It comes
+back in a new tab or window, or once the browser has been closed. Putting one off does not hide the next: the dismissal is keyed
 to the date being warned about, so an extended trial or a fresh failure is warned
 about again.
 
@@ -309,7 +309,7 @@ you are done.
 Subscription status, seats in use, how the account is collected, your invoice
 history, and any credits applied to your account.
 
-Where the card would be, an account on invoice terms reads "Invoice, net 30", or
+Where the card would be, an account on invoice terms reads "Invoice · net 30", or
 whatever term was agreed. A credit waiting on the account is shown there too,
 with a note that it comes off the next invoice.
 
@@ -635,7 +635,7 @@ add-in from Integrated apps.
 
 If you want your data deleted rather than left dormant, ask support to
 deprovision the tenant. That cancels billing and purges every record, asset and
-cached entry belonging to your organisation, bar the two exceptions set out in
+cached entry belonging to your organisation, bar the exceptions set out in
 [data and privacy](/security/data-and-privacy/).
 
 ## Managed by a partner

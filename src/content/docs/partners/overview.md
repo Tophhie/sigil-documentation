@@ -55,11 +55,15 @@ use for support.
 ## What partner staff can see
 
 The partner console has its own section in the portal, shown when you sign in as
-partner staff:
+partner staff. Which pages you see depends on your
+[partner role](/partners/roles/): an Owner sees all four, an Admin or Technician
+sees Clients only, and Billing staff see Partner billing and Usage & rebilling
+but not Clients.
 
 Clients, which is the workbench. One row per managed client, showing its name
 and primary domain, the seat count last recorded, whether a template has been
-published, and how many users the tenant holds, with a badge for a client that
+published, and how many portal users the client has of its own (often none,
+since you administer it), with a badge for a client that
 is suspended or not being billed to you. It is the way into any of them. See
 [managing clients](/partners/clients/) for what it does and does not tell you.
 
@@ -70,8 +74,8 @@ the nightly measurements across the period, less any mailboxes you have
 prepaid for a client. See
 [partner billing](/partners/billing/#how-the-average-is-worked-out).
 
-Usage and rebilling, with per-client seat counts for the current and prior
-periods, exportable for your own billing system.
+Usage & rebilling, with each client's seat count day by day for any date range
+or billed period, and an Export CSV button for your own billing system.
 
 Partner staff, for managing who at the MSP has access and at what level.
 
@@ -100,7 +104,9 @@ It covers how client data is handled, the uptime Sigil commits to and the credit
 if that commitment is missed, who answers a client's support questions, billing,
 what happens to your clients if your own payments fail, use of the Sigil name,
 confidentiality, liability, and the grounds on which a partnership can end. Only
-a partner Owner can accept it, and accepting is what unblocks taking a client on.
+a partner Owner can accept it. Until the current version is accepted, nobody at
+the partner can add or manage a client, and that includes clients you already
+have when a new version is published.
 See [the partner agreement](/partners/agreement/), [support and service
 level](/partners/service-level/) and
 [leaving the programme](/partners/leaving-the-programme/).
@@ -143,7 +149,10 @@ The sidebar gains a Partner section, and Clients opens with a card asking you
 to accept the partner agreement. See
 [accepting it](/partners/agreement/#accepting-it).
 
-The link is single-use and expires. It is also honoured only for an organisation
+The link is single-use and lasts 30 days unless Tophhie Cloud set a different
+expiry when sending it. An expired or used link opens a page headed "This
+invitation isn't available", with a button to ask for a fresh link from
+partners@usesigil.app. The link is also honoured only for an organisation
 Microsoft confirms has granted consent, so a link followed for a tenant that has
 not consented provisions an ordinary customer rather than a partner, and leaves
 the link unused so it can be sent again.

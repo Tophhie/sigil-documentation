@@ -120,6 +120,7 @@ is made.
 ## Accepting the agreement
 
 Both commitments on this page take effect when a partner Owner accepts the
-agreement, and a partner who has not accepted cannot take a client on at all. The
+agreement, and until the current version is accepted nobody at the partner can
+add or manage a client. The
 mechanics, along with the data processing agreement the same acceptance covers,
 are in [the partner agreement](/partners/agreement/#accepting-it).

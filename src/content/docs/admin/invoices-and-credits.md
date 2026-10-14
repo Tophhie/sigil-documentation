@@ -26,8 +26,9 @@ holding the invoices for those purchases only. See
 | Card | The invoice is charged to the card on file the moment it is raised |
 | Invoice terms | The invoice is emailed to your billing contact and is payable within an agreed number of days |
 
-Card is the default, and it is what a self-served signup gets. Nothing is ever
-outstanding on it, because the invoice is raised and settled in the same moment.
+Card is the default, and it is what a self-served signup gets. The invoice is
+charged the moment it is raised, so nothing is normally left outstanding unless
+that payment fails.
 
 Invoice terms are agreed with Tophhie Cloud rather than switched on in the
 portal. There is no setting for it, because extending credit is a commercial
@@ -73,7 +74,7 @@ shown at all. An accounts team on terms is never sent looking for a card that do
 exist.
 
 The Billing view says which arrangement you are on where it would otherwise show
-the card, as "Invoice, net 30" or whatever term was agreed.
+the card, as "Invoice · net 30" or whatever term was agreed.
 
 ### The trial converts into an invoice
 
@@ -180,7 +181,8 @@ A transfer that arrives without a usable reference is not lost, but it is not
 applied either. It sits on your account as a balance, and the Billing view says
 so, naming the amount received and that it has not reached an invoice yet.
 Somebody applies it by hand within a working day. If it is still showing after
-that, raise it with support.
+that, raise it with support. Money that is never applied is returned by Stripe
+after 75 days, and the invoice is still unpaid.
 
 That gap is worth taking seriously rather than assuming it sorts itself out. A
 transfer sitting unapplied leaves the invoice open, and an open invoice past its
@@ -194,9 +196,9 @@ surprise in your favour.
 
 ## Purchase order reference
 
-The [billing profile](/admin/billing-profile/) carries a purchase order
-reference. Whatever you put there is printed on every invoice as a field of its
-own.
+The [billing profile](/admin/billing-profile/) has a Purchase order number
+field, up to 140 characters. Whatever you put there is printed on every invoice
+as a PO number field of its own.
 
 Set it if your finance system will not process an invoice without one. It is a
 free text field, so it takes whatever form your own purchase orders use.

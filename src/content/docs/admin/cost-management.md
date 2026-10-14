@@ -219,8 +219,8 @@ it can answer the question directly rather than leaving you to audit 400 licence
 by hand: which of these mailboxes have never once used the thing you are paying
 for.
 
-Press "Suggest mailboxes" and Sigil lists the billable mailboxes that have not
-successfully applied a signature in the last 90 days, with an estimate of what
+Press "Suggest mailboxes" and Sigil lists the billable mailboxes that have never
+once successfully applied a signature, with an estimate of what
 excluding all of them would save each month.
 
 Nothing is excluded until you choose it. The list is the starting point for a
@@ -231,11 +231,13 @@ The suggestion errs on the side of leaving people alone.
 A mailbox that has applied a signature even once is never suggested, whatever its
 volume since.
 
-Ninety days rather than thirty, so somebody on extended leave, a seasonal role,
-or somebody who simply sends very little mail is not swept up.
+There is no look-back window, so somebody on extended leave, in a seasonal role
+or who simply sends very little mail is not swept up as long as Sigil has signed
+their mail at least once. The panel's own text mentions 90 days, but that figure
+is a minimum age for your organisation rather than a window on each mailbox.
 
 An organisation connected less than 90 days ago gets no suggestions at all,
-because nobody in it has had a full window in which to apply anything. The panel
+because nobody in it has had a full quarter in which to apply anything. The panel
 says so rather than showing an empty list.
 
 Two states are kept apart on the list, because they mean different things.
@@ -429,7 +431,9 @@ client.
    again and returns to the seat count on your next invoice.
 4. Choose Put back, or Stop including in inclusion mode.
 
-A "Back in." message confirms it and the row disappears.
+A "Back in." message confirms it and the row disappears. If one of your listed
+groups also covers the mailbox, it stays excluded through that group even though
+its own row has gone. Take it out of the group in Entra, or remove the group.
 
 To release a whole group, choose Remove on its row under By Entra group and
 confirm with Stop excluding. The confirmation says that anybody covered only
@@ -490,7 +494,7 @@ asking about it.
 | Report | Effect |
 | --- | --- |
 | The [never-applied list](/monitoring/activity/) | Excluded mailboxes are dropped |
-| [Attribute coverage](/monitoring/attribute-coverage/) | Dropped from the total, and counted separately |
+| [Attribute coverage](/monitoring/attribute-coverage/) | Dropped from the total. The API reports how many were dropped, but the page does not show the figure |
 | The [health digest](/monitoring/health-digest/) | Dropped, since it reports on both of the above |
 
 The digest is the important one. Left in, it would email your administrators
@@ -551,11 +555,10 @@ This is the one thing outside signature editing that changes what a colleague's
 outgoing mail looks like, so "who switched off my signature" has to be
 answerable.
 
-The addresses involved, the note, and whether a managed service provider made the
-change are stored on the entry but not printed in the portal's log view. They are
-read from the API or from a
-[tenant export](/security/data-and-privacy/#getting-your-data-out), the same as
-rollout reasons and approval details.
+Each entry shows the addresses involved (the first three, then a count of the
+rest), the group it came through, and the note. A change made by your IT provider
+carries a Your provider badge. The same detail is in the API and in a
+[tenant export](/security/data-and-privacy/#getting-your-data-out).
 
 Group refreshes are logged the same way, and this matters more than it might
 sound. Because membership tracks, a mailbox can lose its signature without
