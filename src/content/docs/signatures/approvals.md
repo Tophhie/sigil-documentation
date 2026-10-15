@@ -206,7 +206,7 @@ Partner Owner and Admin staff working inside the client also count as
 approvers: they can publish, approve and send back. A partner Technician works as
 an Editor does and submits for review. The approval email goes only to the
 client's own Admins, never to partner staff, so for a client with no Admin of its
-own, watch the Waiting for your review card on the Templates page instead.
+own, watch for the Awaiting review badge on the Templates page instead.
 
 Turning off a client's publish approval is exactly the kind of change the control
 exists to prevent, so it sits with the partner roles that also manage access

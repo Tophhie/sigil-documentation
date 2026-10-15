@@ -155,10 +155,10 @@ The two numbers answer different questions and are expected to differ.
 ## Having the gaps come to you
 
 The [health digest](/monitoring/health-digest/) reports the same gaps by email,
-narrowed to the attributes your live templates actually reference and to those
-missing on at least 10% of mailboxes. The one exception is the manager fields,
-which the digest currently reports as missing for everybody. The figures on
-this page are the right ones for those.
+narrowed to the attributes your default new-message and reply templates
+reference and to those missing on at least 10% of mailboxes. The one exception
+is the manager fields, which the digest currently reports as missing for
+everybody. The figures on this page are the right ones for those.
 
 That is the shorter question, answered without anybody opening the portal. This
 page is where you go once it has told you there is something to look at, because

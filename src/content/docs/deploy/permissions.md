@@ -83,8 +83,8 @@ token.
 Sigil reads your organisation's record to name your tenant and to pre-fill the
 billing profile from your registered address. It reads it again when your
 billing details are set up or refreshed, and at sign-in only if your tenant has
-no name on record yet. It is also the quick check that Sigil can still reach your
-directory. That check runs every time the Getting started page loads, when
+no name or no billing profile on record yet. It is also the quick check that
+Sigil can still reach your directory. That check runs every time the Getting started page loads, when
 Tophhie Cloud support looks at your organisation's health, and in the nightly
 seat count if reading your directory fails, to tell a withdrawn consent apart
 from a passing fault.

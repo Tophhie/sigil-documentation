@@ -177,8 +177,8 @@ applies to the whole organisation, and it can only be changed while the list is
 empty. See [cost management](/admin/cost-management/#which-way-round-the-list-reads).
 
 **Seat**
-A billable licensed member mailbox. Unlicensed mailboxes, which normally
-includes shared and resource mailboxes, are free, as
+A licensed member mailbox. Unlicensed mailboxes, which normally
+include shared and resource mailboxes, are free, as
 are accounts invited in from outside the organisation, disabled accounts, and
 mailboxes the organisation has kept out of Sigil in cost management, whether
 individually, through an Entra group, or by never including them.

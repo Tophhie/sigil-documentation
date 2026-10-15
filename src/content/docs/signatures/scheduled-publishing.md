@@ -29,7 +29,7 @@ field, so you can check which one that was; the
 The same checks a publish runs apply when you book it: the rendered signature has
 to fit inside Outlook's 30,000 character limit, a
 [designer](/signatures/designer/) template has to validate, and plain HTML cannot
-be scheduled over a designer template: the HTML editor does not offer Schedule or
+be scheduled over a designer template: the HTML editor disables Schedule and
 Publish for one, and the API refuses it unless the request explicitly asks to
 convert the template. A schedule that
 would be rejected at midnight is rejected now instead.
@@ -126,7 +126,8 @@ Cancelling a booked publish leaves the live body exactly as it was, because
 nothing had changed yet. There is nothing to undo.
 
 1. Open the template in its editor from Templates.
-2. In the banner saying a publish is booked, choose Cancel it.
+2. In the banner saying a publish is booked, or that a staged rollout starts,
+   choose Cancel it.
 3. Choose Cancel it in the confirmation.
 
 A message confirms the scheduled publish is cancelled and the banner goes.
@@ -162,7 +163,9 @@ them rather than make the publish look like it came from nowhere.
 
 ## Who can do it
 
-Anyone holding the templates capability, which is Admins and Editors.
+Anyone holding the templates capability. Of the built-in roles that is Admin and
+Editor, and an Admin can also give it to a
+[custom role](/admin/users-and-roles/#custom-roles).
 
 Where [publish approval](/signatures/approvals/) is switched on, scheduling
 needs an admin as well. Booking a publish is publishing, just later, so gating

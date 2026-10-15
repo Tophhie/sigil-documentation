@@ -11,8 +11,9 @@ way into any of them.
 ## What the client list shows
 
 Each row carries the client's name and primary domain, the seat count last
-recorded for them, whether they have a published template, and how many users
-their tenant holds. A client whose tenant has been suspended is badged as such.
+recorded for them, whether they have a published template, and how many people
+hold a portal role in their organisation. A client whose tenant has been
+suspended is badged as such.
 Alongside each row are Manage, which opens the client, and a menu holding
 Release.
 

@@ -19,7 +19,7 @@ them.
 | --- | --- |
 | Coverage | What share of your mailboxes have ever applied a signature successfully, and up to five that never have |
 | Apply failures | How many attempts Outlook did not accept, across the organisation |
-| Directory gaps | Attributes your live templates reference that a meaningful share of mailboxes do not have |
+| Directory gaps | Attributes your default new-message and reply templates reference that a meaningful share of mailboxes do not have |
 | Banners closing | Any [campaign banner](/targeting/banners/) whose window ends within a week, unless it is paused |
 | Waiting on approval | Drafts submitted for review and not yet decided |
 | Published this week | Every template published in the last seven days, with the date and who published it |
@@ -68,8 +68,10 @@ filter away.
 ## Directory gaps are scoped to what you actually use
 
 The gaps section does not report on every attribute a template could reference.
-It reports on the ones your live templates actually depend on, including the
-fields that only appear as conditions on a section.
+It reports on the ones your organisation's default new-message and reply
+templates actually depend on, including the fields that only appear as
+conditions on a section. A template that only reaches people through an
+[assignment rule](/targeting/assignment-rules/) is not checked.
 
 That is the difference between a useful line and noise. Nobody needs telling that
 `extensionAttribute12` is unpopulated if no template mentions it.
@@ -79,14 +81,14 @@ mentioned. Below that it is ordinary sparseness, and a handful of people without
 mobile number is not something worth mailing anybody about.
 
 The digest currently gets the manager fields wrong. It reads your directory
-without looking up each person's manager, so if a live template uses
+without looking up each person's manager, so if a default template uses
 `managerName`, `managerEmail` or another manager field, the digest reports that
 field as missing for everybody. Run [Attribute coverage](/monitoring/attribute-coverage/)
 for the real figure: it does look managers up.
 
-A placeholder that is not a real field is reported too, since a mistyped
-placeholder resolves to nothing for everybody, which is exactly the kind of thing
-worth surfacing.
+Only real directory attributes are checked. A mistyped placeholder, a derived
+helper such as `anyPhone`, and a field Sigil supplies itself such as
+`contactCardUrl` are not reported.
 
 [Attribute coverage](/monitoring/attribute-coverage/) in the portal is the fuller
 version of the same audit, and the place to go once the digest has told you there
