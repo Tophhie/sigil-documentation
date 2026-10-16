@@ -172,7 +172,7 @@ that should have Sigil rather than the ones that should not. See
 ## Can Sigil tell us if it is actually working?
 
 Yes, and this is one of the things it does that most client-side signature tools
-cannot. [Activity](/monitoring/activity/) records every request and every apply
+cannot. [Activity](/monitoring/activity/) records each signature request and its apply
 outcome per mailbox, and lists mailboxes that have never had a signature applied.
 
 You do not have to go and look, either. A [health digest](/monitoring/health-digest/)
@@ -316,8 +316,9 @@ staff. The individual is recorded in Tophhie Cloud's own copy, which is what an
 investigation would read.
 
 That covers being looked at as well as being changed. A read-only support session
-is recorded as "Viewed your portal", so the answer to "has anyone at Sigil been in
-our tenant" comes from your records rather than from asking. See
+is recorded as "Viewed your portal (read-only support session)", so the answer
+to "has anyone at Sigil been in our tenant" comes from your records rather than
+from asking. See
 [actions taken by Tophhie Cloud
 support](/monitoring/change-log/#actions-taken-by-tophhie-cloud-support).
 

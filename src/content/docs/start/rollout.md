@@ -92,7 +92,9 @@ nobody stuck in the never-applied list.
 2. Under Signature adoption, read how many mailboxes have applied their
    signature and how many never have.
 3. Under By mailbox, find each pilot mailbox and check its Outcome.
-4. Choose Export mailboxes (CSV) for the never-applied mailboxes as a list.
+4. Choose Export mailboxes (CSV) for a list of every mailbox, with a Signature
+   applied column reading Yes or No. The never-applied mailboxes are the No
+   rows.
 
 Ask the pilot group to check replies and forwards as well as new messages, and to
 send at least one message from a shared mailbox or a Microsoft 365 Group if they

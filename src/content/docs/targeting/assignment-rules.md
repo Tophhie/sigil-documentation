@@ -116,9 +116,9 @@ To set a group condition:
 With a group picked from the suggestions, the dialog says the rule matches
 members of that group, including members of groups nested inside it, and the
 list shows the group's name. With a pasted id, the dialog says the name is
-looked up when the rule runs. In practice the rule is saved without a name and
-the list carries on showing the id, since matching compares ids and never needs
-the name.
+looked up when the rule runs and that the list shows the id. Only the second
+half holds: the rule is saved without a name and the list carries on showing the
+id, since matching compares ids and never needs the name.
 
 ## Order matters
 
@@ -221,8 +221,8 @@ Choosing Test a user again closes the panel and clears the result.
 The panel names the template for new messages and the template for replies, and
 says what decided each one: the rule that matched, with its position in the list,
 or the organisation default where nothing matched. It also shows the mailbox's
-own value for every attribute your rules test, and how many Entra groups the
-mailbox is in.
+own value for every attribute your rules test and, when the list has a group
+rule, how many Entra groups the mailbox is in.
 
 Every rule in the list below then carries its own verdict from that walk.
 
@@ -259,8 +259,12 @@ it. The panel says which address it routed on when the two differ.
 
 If group membership cannot be read, usually because the `GroupMember.Read.All`
 permission has not been granted, the simulation says so and carries on. Every
-group rule counts as no match, which is what would happen on a real send too, and
-the attribute rules still answer.
+group rule counts as no match and the attribute rules still answer.
+
+A real send does not degrade the same way. Where the server has no cached
+decision for that mailbox, a failed group lookup fails the signature request
+itself rather than routing as if no group rule matched, and the add-in falls
+back to the copy it last kept, if it has one.
 
 Where a rule points at a template that no longer exists, the simulation reports
 that the organisation default was served in its place. That should be rare, since
@@ -274,7 +278,8 @@ the Assignment rules capability. No other built-in
 [role](/admin/users-and-roles/) reaches assignment rules, including Editor. Where a partner manages your organisation, its Owner, Admin
 and Technician staff hold the same capability on your tenant.
 
-Among the built-in roles, rules are the only part of Sigil held that tightly. An Editor changing a template
+Among the built-in roles, rules are held as tightly as organisation settings and
+staff profile details: Admin is the only one with any of the three. An Editor changing a template
 changes what one group of people send; a rule changing which template a group
 resolves to reaches the whole organisation at once, and the two are not the same
 risk.

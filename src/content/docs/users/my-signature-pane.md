@@ -37,8 +37,8 @@ preview scaled down, and then only enough to show the whole of it rather than
 its left third. A plain text signature is never made smaller than it will
 actually be.
 
-If it could not, it says why, in language you can act on rather than an error
-code.
+If it cannot apply a signature, it says why, in language you can act on rather
+than an error code.
 
 It offers a download of your signature as a self-contained file.
 

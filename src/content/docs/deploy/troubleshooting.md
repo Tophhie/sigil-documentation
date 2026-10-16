@@ -42,7 +42,8 @@ still off. Resume it there.
 2. Look at the badge in the header of the In use card: Live or Paused. While
    delivery is paused a warning at the top of the page says "Signatures are
    paused" as well.
-3. Choose Resume. The button is shown to administrators.
+3. Choose Resume. The button is shown to anyone whose role holds the Assignment
+   rules capability, which among the built-in roles is Admin.
 
 The next message anybody composes gets a signature, subject to the ten minute
 wait described [below](#you-fixed-it-and-the-signature-has-not-come-back).
@@ -131,8 +132,8 @@ filtering problem rather than a Sigil problem. Where the host is blocked
 outright, nothing is reported at all and the mailboxes surface on the
 never-applied list instead, so both symptoms point at the same check: whether
 `portal.usesigil.app` is reachable from that network. The request carries
-nothing in its URL beyond the host, so there is no address or parameter in it for
-a content rule to object to. See
+nothing in its URL beyond the host and a fixed path, so there is no address or
+parameter in it for a content rule to object to. See
 [domains Sigil uses](/deploy/requirements/#domains-sigil-uses).
 
 To read the reasons for one network or office:
@@ -254,8 +255,8 @@ whole diagnosis.
    Apply my signature, ask them to choose it and read you the result.
 
 One message is misleading, and it is worth checking first. If the pane says Sigil
-is not set up for the organisation yet, and everybody else has a signature, that
-mailbox has almost certainly been
+is not switched on for the organisation yet, and everybody else has a signature,
+that mailbox has almost certainly been
 [excluded from Sigil](/admin/cost-management/). The add-in cannot tell the two
 apart, because the service refuses both the same way. Look for the address on the
 Cost management list and put it back if it should not be there.
@@ -421,7 +422,8 @@ is the normal state. It appears only where
 [profile editing](/admin/settings/) is switched on and at least one
 [profile field](/admin/profile-fields/) is available to fill in, and it stays
 hidden for a mailbox that has been [excluded](/admin/cost-management/) from
-Sigil. The add-in asks the server rather than deciding for itself, so a button
+Sigil, and for everyone while the organisation is suspended or its
+subscription has lapsed. The add-in asks the server rather than deciding for itself, so a button
 that leads nowhere is not a state it can reach.
 
 ## Still stuck

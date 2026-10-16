@@ -59,16 +59,24 @@ Copies are kept per signed-in account, so colleagues who share a computer under
 their own accounts never see each other's. The copy also records who it was
 fetched for, which matters where two people use one shared account in the same
 browser. There, a copy fetched for the other person can appear in your message
-for a moment, and is taken back out as soon as Sigil confirms who you are. It is
-replaced by your own and never goes out.
+for a moment, and is taken back out as soon as Sigil confirms who you are. It
+never goes out, and your own goes in once Sigil answers.
 
 ## Your own Outlook signature
 
 Sigil suppresses any signature you have configured in Outlook, so you get one
 signature rather than two.
 
-If you had a personal signature before, it is not deleted. It is simply not
-applied while Sigil is active.
+How it does that is Microsoft's choice and differs by client:
+
+| Client | What happens to your own signature |
+| --- | --- |
+| Outlook on Windows (classic) and Outlook on Mac | The signature is kept, but the default for new messages and for replies and forwards is set to (none) |
+| Outlook on the web and new Outlook on Windows | The signature is kept, but the option that adds it automatically is switched off |
+| Outlook for iOS and Android | The signature saved on the phone is cleared |
+
+The setting stays changed after Sigil has done its work, so if Sigil is ever
+removed you would need to choose your own signature again.
 
 ## If your details are wrong
 

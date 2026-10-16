@@ -48,8 +48,9 @@ There is nothing to upload. The block is added in the designer:
    placeholder.
 4. Set the Size, the Dark / light colours and the Alt text.
 
-The code appears when you publish. The live preview under the canvas shows a
-real one, encoding the sample person or the mailbox named in Render as.
+The canvas shows a schematic in the block's colours rather than a scannable
+code. The live preview under the canvas shows a real one, encoding the sample
+person or the mailbox named in Render as.
 
 ### Sizing and colour
 

@@ -92,7 +92,8 @@ works.
 The card form on the portal's Billing pages is drawn by Stripe, Sigil's payment
 processor, and needs `js.stripe.com`, `api.stripe.com` and `hooks.stripe.com`.
 Only the people who add a card or pay an invoice in the portal need them. If
-they are blocked, the form reads "The card form couldn't be loaded." and
+they are blocked, the form reads "The card form couldn't be loaded. A content
+blocker may be stopping Stripe; try again, or use the Stripe page instead." and
 signatures are unaffected.
 
 Nothing else needs allowing. The icons in the "My signature" pane were once
