@@ -81,7 +81,7 @@ Teams" link, say, which leads nowhere useful from a group's address. Two ways to
 handle it. Put the line behind the `notGroup` condition, so it disappears for a
 group and stays for everyone else. In the designer, open the block's Show when
 rules with Add rules…, choose a rule and pick "The mailbox is not a Microsoft 365
-Group or distribution list". In the HTML editor's field list it is "not sent
+Group or distribution list". In the HTML editor's field list it is "Not sent
 from a group mailbox". Or give groups their own template,
 below. Its twin, `isGroup`, is for a line only a team mailbox should carry. They
 became a pair before a condition could be turned round, and either still works;

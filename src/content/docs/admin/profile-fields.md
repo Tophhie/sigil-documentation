@@ -57,7 +57,7 @@ Save changes. The Placeholder box is locked.
 | Help | Optional line under the input, where you explain what you want |
 | Type | Also the validation. See below |
 | Options | The permitted values for a choice field |
-| Required | Advisory. Prompts on the profile page and counts towards completion |
+| Required | Advisory. Marks the field on the profile page and counts it in the number still to fill in there |
 | Maximum length | Defaults to 200 characters, and can be anything up to 500. Only a Text field shows the box |
 | Available | Whether the field appears on the profile page and in the field picker |
 
@@ -69,7 +69,8 @@ says what it is doing.
 Required does not mean enforced. A required field somebody has not filled in
 renders empty rather than failing. A signature must never go missing from a
 message because a colleague skipped a form, so the flag drives the prompt on the
-profile page and the completion count on this one, and nothing else.
+profile page and nothing else. The completion count on the What people entered
+tab counts every available field, required or not.
 
 ## Types, and why they are the validation
 
@@ -187,8 +188,10 @@ what that person entered and nothing else: a delegate who left the field blank
 prints nothing rather than borrowing the mailbox's answer.
 
 This also covers [group mailboxes](/signatures/group-mailboxes/). A group has
-nobody to fill in a profile, so `{{custom.…}}` is always empty there, while
-`{{sender.custom.…}}` carries the answer of the member who sent the message.
+nobody to fill in a profile, so `{{custom.…}}` is empty there unless an
+administrator has entered answers against the group's address with Add mailbox,
+while `{{sender.custom.…}}` carries the answer of the member who sent the
+message.
 
 ## Turning profile editing on
 

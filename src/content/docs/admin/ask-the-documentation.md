@@ -18,7 +18,8 @@ it changes what your users receive, and nothing in the portal depends on it.
 
 ## Where it is
 
-There are two ways to it, and both are the same conversation.
+There are two ways to it. Both work the same way and give the same answers, and
+each keeps a conversation of its own.
 
 | Where | What it looks like |
 | --- | --- |

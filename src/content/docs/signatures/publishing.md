@@ -124,8 +124,8 @@ Scripts calling the API with a key are not fenced unless they ask to be. See
 
 ## The diff
 
-Before you publish, the editor shows a line diff between the draft and the live
-version.
+Before you publish, the editor shows a line diff between what is in the editor, saved
+or not, and the live version.
 
 Read it. It is the cheapest check available and it catches the class of mistake
 that is otherwise invisible: the stray character, the tag you closed in the wrong

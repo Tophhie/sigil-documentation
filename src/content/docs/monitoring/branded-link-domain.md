@@ -114,8 +114,10 @@ checking the CNAME, validating, issuing, or deploying. The first real domain rea
 as stuck through ninety seconds of ordinary certificate issuance, because one
 word covered all four, which is why the stage is spelled out.
 
-Sigil re-reads the state every night, and Check again asks immediately. There is
-no penalty for pressing it, and it is what you want after creating the record.
+Sigil re-reads the state of a pending or live domain every night, and Check
+again asks immediately. There is no penalty for pressing it, and it is what you
+want after creating the record. A domain marked Not working is not re-read
+overnight, so after fixing the cause, press Check again yourself.
 
 Nothing stops working while a domain is pending or failed. Links keep being
 minted on the shared hostname until yours is live, so an unfinished setup costs
@@ -295,7 +297,7 @@ in sent mail at once, so both are for a person on a screen rather than a script.
 | Domains per organisation | One |
 | Hostname length | 253 characters, and each label at most 63 |
 | Time to go live | Usually a few minutes after the CNAME appears |
-| How often the state is re-read | Nightly, plus whenever you press Check again |
+| How often the state is re-read | Nightly while pending or live, plus whenever you press Check again |
 
 One domain per organisation is the current limit rather than a permanent one.
 What multiple domains need is not billing but a rule deciding which domain a

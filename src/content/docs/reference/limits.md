@@ -110,7 +110,7 @@ and therefore only cover the last 90 days. See
 | Item | Value |
 | --- | --- |
 | Entries in the portal's Audit log view | Most recent 500 of each half, paged |
-| Entries a single API request returns | Most recent 500 |
+| Entries a single API request returns | Most recent 100 by default, and at most 500 when the request asks for more |
 | Entries in a tenant export | Most recent 5,000 |
 
 All three are display limits rather than retention ones. The two halves are
@@ -328,7 +328,7 @@ with the status recorded beside it.
 | --- | --- |
 | Keys per organisation | No limit |
 | Key name | 80 characters |
-| Expiry | Optional, and must be in the future |
+| Expiry | Optional. A key works to the end of the chosen day, UTC |
 | Times the secret is shown | One, at creation |
 | Requests per key | 600 a minute, then 429 until the rate falls back under it |
 | Requests presenting a key, per calling address | 2,000 a minute, counting invalid keys as well as valid ones |

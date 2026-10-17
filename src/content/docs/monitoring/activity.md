@@ -58,8 +58,11 @@ You need the Admin, Editor, Viewer or Compliance role.
    first.
 3. Read the Outcome column. A badge shows the result of the last apply the
    add-in reported. Fetched only means a signature was requested for that
-   mailbox but no apply was ever reported. That includes a mailbox that is
-   [kept out of Sigil](/admin/cost-management/) and was refused one.
+   mailbox but no apply was ever reported, such as a mailbox that has only
+   opened the "My signature" pane's preview, or one whose report was lost. A
+   mailbox that is [kept out of Sigil](/admin/cost-management/) usually shows
+   `not-activated` here instead, because the add-in reports the refusal as a
+   failed apply.
 4. Read the Applied / failed column for the running counts, and the How column
    for whether the last apply was automatic or manual.
 
@@ -227,7 +230,7 @@ refusal that set the note was recorded in full. See
 [a refusal is remembered for ten minutes](/start/how-it-works/#a-refusal-is-remembered-for-ten-minutes).
 
 The consequence for reading this view is that a refusal count is not a message
-count. A mailbox that is excluded or paused contributes at most one record per
+count. A mailbox that is excluded or paused contributes at most one refusal per
 ten minutes for each of new messages and replies, however many messages the
 person writes. Read a run of them as evidence that the add-in is still deployed
 and still reaching Sigil, which is what they were always for, rather than as a

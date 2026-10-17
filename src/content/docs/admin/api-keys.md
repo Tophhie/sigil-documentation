@@ -46,7 +46,7 @@ clipboard, store it somewhere safe, then choose Done.
 | Field | Meaning |
 | --- | --- |
 | Name | Up to 80 characters, so you can recognise the key later. It is a label and never an identity |
-| Expires | Optional, and must be a date in the future. A key with no expiry date works until it is revoked |
+| Expires | Optional. The key works for the whole of the day you pick, today included, and stops at the end of it in UTC. A key with no expiry date works until it is revoked |
 | Access | The areas the key may reach, from the same list of capabilities a role is built from. At least one is required |
 | Read-only | On by default. The key can read the areas you ticked and change nothing |
 
@@ -143,7 +143,7 @@ individual's directory record on demand.
 | Managing keys | A leaked key must not be able to mint a replacement, or revoke the key you are about to use to stop it |
 | Your relationship with an IT provider: accepting or declining a transfer, ending the arrangement | Deciding who processes your data is an administrator's act |
 | The data processing agreement, and the getting started checklist | Both need the Admin role, which a key never holds |
-| Partner endpoints, and the Tophhie Cloud operator console | Neither acts on a single tenant |
+| Partner endpoints, and Tophhie Cloud's own administration of the service | Neither acts on a single tenant |
 
 The last line about reading one named person is narrower than "reads the
 directory", deliberately. [Activity](/monitoring/activity/) and
