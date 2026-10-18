@@ -175,7 +175,7 @@ Entries read in plain language rather than as internal lever names:
 | Re-sent the Microsoft consent prompt | A re-consent link was sent to your administrators |
 | Sent your admins a message | Support emailed your administrators about your organisation |
 | Sent your admins a platform announcement | Your administrators were included in a notice sent to many customers at once, such as a manifest update, a change of policy or a [product update](/admin/emails-sigil-sends/#product-updates). Only the admins who still take product updates were mailed one of those |
-| Viewed your organisation's details (AI-assisted support session) | An operator read your organisation's details through an AI assistant connected to the support console. Recorded at most once an hour for each operator, however many times they looked in that hour |
+| Viewed your organisation's details (AI-assisted support session) | An operator read your organisation's details through an AI assistant used by Tophhie Cloud support. Recorded at most once an hour for each operator, however many times they looked in that hour |
 | Recorded your data processing agreement | Acceptance was recorded on your behalf |
 | Repaired a setup step | An unfinished onboarding step was completed |
 | Scheduled your organisation for deletion, or Cancelled the scheduled deletion | A deprovision was booked or called off |
@@ -184,10 +184,9 @@ Entries read in plain language rather than as internal lever names:
 | Checked that a backup of your organisation's data restores | The latest backup was restored into a temporary copy and compared with your live data. The copy is deleted as soon as the comparison is done. Marked Read, because nothing of yours changed |
 | Restored your organisation's data to its last nightly checkpoint | Your organisation's own database was rewound to the point recorded at its last nightly maintenance run. Anything changed after that point is undone |
 
-An action with no wording of its own falls back to its internal name. That is
-worse to read than a label and much better than a hidden row, which is the trade
-being made: an unfamiliar word still tells you Tophhie Cloud touched your
-organisation and when.
+Every support action that can reach your log has wording of its own. Sigil
+refuses to write an action to a customer's log without it, so you never see an
+internal name in place of a description.
 
 These entries are also kept separately in Tophhie Cloud's own operator audit log,
 and the two copies are not redundant. Your copy is yours and is deleted with your
@@ -266,7 +265,8 @@ unclassified and quietly stop appearing without anybody noticing.
 
 ### Filtering the log
 
-You need the Admin, Editor, Viewer or Compliance role.
+You need a role with the Monitoring area: Admin, Editor, Viewer, Compliance, or a
+custom role given it.
 
 1. Open Audit log in the portal sidebar, under Monitoring.
 2. Under Show, choose Everything, Template changes, or Organisation, access &
@@ -307,9 +307,7 @@ change that had replaced half the list.
 | Anything Tophhie Cloud support did | The lever's own summary, such as the seat count that was set or the address whose role changed |
 
 Opening a row shows the whole record as a table of fields and values, with the
-raw stored form underneath for the case where the exact bytes matter. It is the
-same dialog the Tophhie Cloud operator console uses, worded for you rather than
-for us.
+raw stored form underneath for the case where the exact bytes matter.
 
 ### Opening an entry
 
@@ -432,5 +430,6 @@ Tophhie Cloud reads rather than what you read. See
 
 ## Who can see it
 
-Admins, Editors, Viewers and the Compliance role, which all hold monitoring. The
-Marketing and Billing roles do not reach it.
+Admins, Editors, Viewers and the Compliance role, which all hold monitoring, and
+any custom role given the Monitoring area. The Marketing and Billing roles do not
+reach it.

@@ -26,7 +26,8 @@ included, so publish first if you want them to travel.
 Export a template from its row menu on the Templates view. The result is a single
 JSON file.
 
-Exporting and importing need the admin or editor role.
+Exporting and importing need the templates capability, which the Admin and Editor
+roles hold and a custom role can be given.
 
 1. Open Templates in the portal sidebar.
 2. Open the menu at the end of the template's row.
@@ -122,8 +123,8 @@ attached.
 
 | Where | What it produces |
 | --- | --- |
-| Templates view, Download button | The live new-message or reply signature for any mailbox you name. Refused while signatures are paused |
-| The "My signature" pane in Outlook | The signed-in person's own signature |
+| Templates view, Download button | The live new-message or reply signature for any mailbox you name. Still works while signatures are paused, so you can check a signature before switching delivery back on |
+| The "My signature" pane in Outlook | The signed-in person's own signature. Refused while signatures are paused |
 
 This is useful for pasting a signature into another system, keeping a personal
 copy, or sending somebody exactly what their signature looks like. It is a

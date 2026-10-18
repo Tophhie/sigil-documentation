@@ -291,8 +291,8 @@ Shortcuts acting on the active new-message template exist at
 Every route above except `PUT /api/admin/roles` and
 `PUT /api/admin/signature-delivery` needs the templates capability, which the
 Editor role holds alongside an Admin. Pointing a role at a different template and
-pausing delivery are guarded by the rules capability instead, which no role but
-Admin holds. See [roles and capabilities](/reference/roles-and-capabilities/).
+pausing delivery are guarded by the rules capability instead, which no built-in
+role but Admin holds, though a custom role can be given it. See [roles and capabilities](/reference/roles-and-capabilities/).
 
 Those two sit together on purpose. One decides which signature a mailbox gets,
 the other whether it gets one at all, and they are the same decision from two
@@ -537,9 +537,10 @@ failure is surfaced rather than swallowed, since finding out whether the send
 works is the entire point of the route.
 
 Most of these guards name a capability rather than a role, so the Billing role
-reaches the subscription and the user list alongside an Admin. The three that
-name the Admin role are genuinely Admin-only, and the settings capability is
-held by the Admin role alone, so in practice that route is too. See
+reaches the subscription and the user list alongside an Admin. The routes that
+name the Admin role are Admin-only, whatever a custom role reaches. The settings
+capability belongs to no built-in role but Admin, though a custom role can be
+given it. See
 [roles and capabilities](/reference/roles-and-capabilities/).
 
 A partner's own administrator cannot accept a managed client's DPA on their
@@ -582,8 +583,9 @@ Working inside a client uses the ordinary tenant endpoints above, with the
 client's context established by the partner relationship. See
 [the partner programme](/partners/overview/).
 
-The client's own half of that relationship lives under `/api/admin/managed` and
-is reachable by an Admin of the managed tenant, not by their partner.
+The client's own half of that relationship lives under `/api/admin/managed`. The
+two writes answer only an Admin of the managed tenant, never their partner.
+`GET /status` answers anyone signed in to the tenant.
 
 | Route | Purpose |
 | --- | --- |

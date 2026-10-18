@@ -341,7 +341,7 @@ administrators a re-consent link.
 
 | Data | Retention |
 | --- | --- |
-| Directory attributes read from Microsoft Graph | Never stored as a record of their own. Held inside a rendered signature for at most a day (refreshed hourly while in use), in a lookup cache for up to seven days after the mailbox last composed (fresh for fifteen minutes, then refreshed in the background), and in a photo cache for up to seven days (fresh for a day, then refreshed in the background). On the device, the add-in keeps the last signature it applied for up to 45 days after the mailbox last composed |
+| Directory attributes read from Microsoft Graph | Never stored as a record of their own. Held inside a rendered signature for at most a day (refreshed hourly while in use), in a lookup cache for seven days after it was last read from Microsoft 365 (fresh for fifteen minutes, then refreshed in the background), which a nightly pass keeps topping up for about a week after the mailbox last composed, so up to about two weeks in all, and in a photo cache for up to seven days (fresh for a day, then refreshed in the background). On the device, the add-in keeps the last signature it applied for up to 45 days after the mailbox last composed |
 | Template version history | Last 10 published bodies per template |
 | Preview pictures of a version, for [signature previews](/signatures/previews/) | As long as the version they show. They depict a sample person rather than anybody in your organisation |
 | Deleted templates | 30 days in Recently deleted, then purged by a daily sweep |
@@ -361,7 +361,8 @@ administrators a re-consent link.
 
 Deprovisioning a tenant purges all of it except the onboarding attempt records
 and the diagnostics on them, which describe an attempt to connect rather than a
-live organisation, and the product update opt-outs, which belong to a person
+live organisation, the operator audit log, a managed service provider's own
+event history, and the product update opt-outs, which belong to a person
 rather than to an organisation. That includes every row above marked "for as
 long as your organisation uses Sigil": the change log, activity rollups and
 daily totals have no expiry of their own, and go when the organisation does. A

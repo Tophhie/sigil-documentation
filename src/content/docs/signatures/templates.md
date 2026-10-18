@@ -353,5 +353,5 @@ unpublished [draft](/signatures/publishing/), and the HTML editor shows a line
 diff against the live version before you commit.
 
 Publishing increments the template's version, which strands every cached
-signature for it. Changes reach users within seconds, with no redeploy and
-nothing to purge.
+signature for it. Changes reach users within seconds, and there is nothing
+to purge.

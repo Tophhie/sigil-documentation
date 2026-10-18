@@ -40,10 +40,8 @@ the EU in the same way. See
 | `static.usesigil.app` | The add-in bundle and its manifest |
 | `e-clk.usesigil.app` | Tracked link redirects only |
 
-The add-in is served from a different hostname to the API on purpose. That
-hostname is baked into the Entra broker redirect URI and into every URL in the
-add-in manifest, which is part of why a hostname change requires a manifest
-redeploy and fresh admin consent.
+The add-in is served from a different hostname to the API on purpose, so the
+code your users' Outlook loads is kept apart from the service it calls.
 
 The link domain answers `/r/` redirects, contact card downloads and the
 `/.well-known/` path a certificate authority uses to check domain ownership, and

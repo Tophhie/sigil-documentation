@@ -15,15 +15,17 @@ plus licence and account state for seat counting. The full list is in
 Those attributes are read when a signature is rendered and are never written down
 as a record of their own. What holds them afterwards is the rendered signature
 itself, cached for at most a day, and the directory record that fed it, kept for
-up to seven days after that mailbox last composed a message. The record counts as
+seven days after it was last read from Microsoft 365. A nightly pass reads it
+again for every mailbox that composed in the past week, so the record can last
+up to about two weeks after that mailbox last composed a message. The record counts as
 fresh for fifteen minutes. After that it still answers straight away while a
 fresh copy is read from Microsoft 365 in the background, so the first message of
 the day is not held up by a directory look-up. A cached signature older than an
 hour is re-rendered from a fresh directory read the next time it serves, which is
 what lets a corrected job title reach Outlook, usually within an hour, with
 nobody republishing anything. The longer case is in
-[limits](/reference/limits/#how-long-changes-take-to-reach-users). A week after somebody last composed a message there is
-nothing of their directory record left inside Sigil.
+[limits](/reference/limits/#how-long-changes-take-to-reach-users). About two weeks after somebody last composed a message
+there is nothing of their directory record left inside Sigil.
 
 Recipient content is never read. Sigil writes into the compose window and does
 not sit in your mail flow, so it has no access to message bodies, subjects or
@@ -483,9 +485,12 @@ connect, described under what Sigil stores, is kept, because it describes an
 onboarding rather than a live organisation, and many of its entries belong to
 attempts that never became tenants at all. If you were a partner's client, the
 partner's own event history keeps its record of your account being linked and
-released, because that history belongs to them.
+released, because that history belongs to them. And Tophhie Cloud's operator
+audit log keeps its record of any action its staff took on your organisation,
+because the record of a purge has to survive the purge. Your own copy of those
+entries, in your change log, is purged with everything else.
 
-Those two are the whole list, and it is enforced rather than promised. Every
+Those three are the whole list, and it is enforced rather than promised. Every
 place Sigil stores something against an organisation is either purged or named as
 a deliberate exception, and an automated check refuses any new storage that is
 neither. A list of what to delete that nothing verifies is a list that quietly

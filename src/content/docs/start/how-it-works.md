@@ -137,7 +137,7 @@ or the default if there is one.
 ## Why changes are fast
 
 Rendered signatures are cached in Cloudflare KV, keyed by template id, template
-version, and the recipient's email address. Publishing a template increments its
+version, and the sending address. Publishing a template increments its
 version, which strands every cached entry for that template at once. The next
 request renders fresh.
 

@@ -32,9 +32,10 @@ right shape for an announcement nobody is meant to click. Leaving alt text blank
 falls back to the campaign name, so a recipient reading with images switched off
 sees something rather than nothing.
 
-You need the Admin or Marketing role, and the image must already be uploaded
-under Images. The Image list is read from Images, which only the Admin and Editor
-roles reach, so somebody with the Marketing role alone sees an empty list and
+You need a role with campaign banners (Admin, Marketing, or a custom role given
+it), and the image must already be uploaded under Images. The Image list is read
+from Images, which needs the templates capability that the Admin and Editor roles
+hold, so somebody with the Marketing role alone sees an empty list and
 cannot create a banner. Give them the Editor role as well, or have an Admin
 create it. Once it exists they can preview it, test it, and edit everything
 about it except the image.
@@ -223,7 +224,9 @@ on its click rate.
 
 ## Who can manage banners
 
-Admins and the Marketing [role](/admin/users-and-roles/), and nobody else.
+Admins, the Marketing [role](/admin/users-and-roles/), and any custom role given
+campaign banners. A partner's Owners, Admins and Technicians can manage them too
+when working in a client's portal.
 
 Marketing reaches campaign banners and link click analytics and nothing else,
 which is usually the right level for a marketing team: they can run campaigns

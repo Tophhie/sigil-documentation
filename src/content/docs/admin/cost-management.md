@@ -411,7 +411,8 @@ below.
 1. Open Cost management in the portal sidebar.
 2. Read the headline figures at the top: Excluded, Coming off the bill and,
    when any row no longer resolves, Not in directory. In inclusion mode they
-   are Included, Billed seats and Kept out instead.
+   are Included, Billed seats and Kept out, again with Not in directory when
+   any row no longer resolves.
 3. Under By Entra group, each group's row shows how many mailboxes it covers
    and when it was last checked. Choose Refresh to re-read it now.
 4. The table at the bottom lists the mailboxes you picked individually, with
@@ -480,8 +481,8 @@ included.
 Nothing, on compose. The add-in is refused and applies no signature rather than
 interrupting a message with an error.
 
-If they open the "My signature" pane, it currently tells them Sigil is not set up
-for the organisation yet. That message is wrong for this case. The add-in cannot
+If they open the "My signature" pane, it tells them "Sigil isn't switched on for
+your organisation yet. Ask your IT team." That message is wrong for this case. The add-in cannot
 tell an excluded mailbox apart from an unconnected organisation, because the
 service refuses both the same way. Worth knowing before somebody raises a ticket
 about it.

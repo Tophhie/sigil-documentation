@@ -96,9 +96,10 @@ part nobody proofreads.
 
 ## Testing a different person's signature
 
-A test email renders one mailbox's signature. To check what a specific colleague
-receives, use the download action on the Templates view, which produces the live
-signature for any mailbox you name as a standalone HTML file.
+A test email can already show any colleague's signature: put their address in
+Render as. If you want their live signature as a file rather than as mail, use
+the download action on the Templates view, which saves it as a standalone HTML
+file.
 
 1. Open Templates in the portal sidebar.
 2. Choose Download.

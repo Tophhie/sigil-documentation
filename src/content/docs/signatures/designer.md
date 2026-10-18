@@ -16,7 +16,8 @@ identically to a hand-written one everywhere else in the product.
 Open it from the template library in the portal. The designer's address on its
 own, without a template chosen, shows only "No template selected".
 
-Editing needs the admin or editor role and a desktop browser.
+Editing needs the templates capability, which the Admin and Editor roles hold and
+a custom role can be given, and a desktop browser.
 
 1. Open Templates in the portal sidebar.
 2. Choose the template's name, or Design at the end of its row.
@@ -159,6 +160,14 @@ A background plus a border on a column is what a card or a coloured sidebar
 stripe is made of. Backgrounds default to transparent, which is the right default
 for email.
 
+To style a block or a column:
+
+1. Select it on the stage.
+2. In the inspector, open Background & border.
+3. Pick a background colour. The clear button next to it removes the background
+   again.
+4. Turn the border on and set its Width, Style and colour.
+
 Buttons are the exception. A button's background colour is the button's own fill
 rather than the cell behind it, because a button already is a coloured box.
 
@@ -174,7 +183,8 @@ contact details level with the photo beside them.
 Block alignment only does something when the block has room to move within its
 own cell, which means setting a minimum height as well. A block normally sits in
 a cell exactly as tall as its content, so alignment alone has nothing to work
-with. The designer says so rather than letting you set a value that does nothing.
+with. The designer still lets you pick a value, and shows a note under the
+control saying vertical alignment needs a minimum height to work within.
 
 ## Text formatting
 
@@ -194,14 +204,22 @@ signature.
 
 ## Canvas settings
 
-The canvas holds the defaults every block inherits:
+The canvas holds the defaults every block inherits. To change them:
+
+1. Press Escape, or click an empty part of the stage, so that no block is
+   selected.
+2. The inspector shows Signature settings. Width and Font stack are under
+   Canvas, Text and Links under Colours, and machine-readable contact details
+   under Contact details.
+
+What each one controls:
 
 The overall width in pixels, which is the width of the outer table.
 
 The font family, the default text colour, and the default link colour. A block or
 an individual run of text can override any of them.
 
-The canvas background is always transparent. There is no setting for it, and
+The canvas background is always transparent. The designer has no setting for it, and
 transparent is the right default for email, because a signature sits on whatever
 background the recipient's client uses.
 
