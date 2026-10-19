@@ -37,7 +37,9 @@ wrap each run of text in its own table.
 ## No SVG
 
 Outlook does not render SVG. A signature containing one shows nothing where the
-image should be.
+image should be. The image library refuses an SVG upload for that reason, with
+"SVG is not supported in mail signatures; use PNG or JPG", so a vector logo needs
+exporting as PNG first.
 
 Use PNG for logos and line art, JPG for photographs. Export at roughly twice the
 display size for sharpness on high-density screens, then set an explicit pixel
@@ -96,8 +98,8 @@ deployed, they run sequentially.
 
 Every client built on Outlook on the web can recolour the text and background
 colours a signature sets, and never touches its images. The compose editor
-recolours all of them; the reading pane only changes colours that fail a
-contrast check. See [dark mode](/signatures/dark-mode/). Light text over a dark
+recolours all of them. The reading pane has at times been gentler and changed
+only colours that fail a contrast check. See [dark mode](/signatures/dark-mode/). Light text over a dark
 picture therefore disappears, and a faint grey disclaimer becomes hard to read.
 
 Nothing in the signature can prevent it, so the fix is a colour choice or a

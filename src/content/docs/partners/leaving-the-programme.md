@@ -89,7 +89,9 @@ Cloud rather than as a provider of a service built on Sigil.
 A removal on this ground may take effect immediately, and your partner account
 may be suspended first. Suspension stops your clients' signatures, which is why
 it is reserved for a serious or unresolved breach and why you are told first
-except where the law forbids it.
+except where the law forbids it. A suspension cannot be recorded without a
+reason, and that reason is written to your own partner event log as well as
+Tophhie Cloud's, so it is still there when the account is reactivated.
 
 ## Six months without an active client
 
@@ -199,7 +201,7 @@ as part of it:
 | --- | --- |
 | Your partner staff list and their client scopes | Nobody at your firm can reach a client through the console |
 | Pending invitations and transfer requests | Links you sent stop working |
-| The partner event log | The console's own history of client moves and staff changes |
+| The partner event log | The history of client moves and staff changes, including those Tophhie Cloud made for you, and any suspension with its reason |
 | Your partner subscription record, seat snapshots and daily measurements | The Partner billing view and its usage history are gone |
 | Prepaid mailbox blocks your firm bought for clients | The blocks are deleted with the partner account, so none carries over to a client |
 

@@ -245,8 +245,9 @@ update alike.
 
 A [product update](#product-updates) can reach partner staff the same way. The
 partner has its own switch for it on Partner staff in the console, which covers
-its Owners and Admins and nobody else, and each person can still stop them for
-their own address from the link at the bottom of one.
+its Owners and Admins and nobody else. Tophhie Cloud can also turn it off at the
+partner's request. Each person can still stop them for their own address from
+the link at the bottom of one.
 
 | Message | Sent when |
 | --- | --- |

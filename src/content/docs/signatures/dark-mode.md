@@ -125,7 +125,9 @@ if it carries light text.
 
 The [HTML editor](/signatures/html-editor/) has no equivalent. The same rules
 apply to what you write there, but Sigil cannot reason about hand-written markup
-the way it can about a design it built.
+the way it can about a design it built. It has no Dark mode preview either, so
+check hand-written markup by sending yourself a
+[test email](/admin/test-email/) and opening it with Outlook in dark mode.
 
 ## Images are never touched
 

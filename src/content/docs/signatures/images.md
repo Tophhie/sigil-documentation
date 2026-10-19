@@ -142,7 +142,9 @@ the file itself rather than trusting its extension, so a GIF renamed to `.png` i
 refused.
 
 SVG is not supported. Outlook does not render it, and a signature containing one
-will show nothing where the image should be.
+will show nothing where the image should be. Uploading an SVG to the image
+library is refused with "SVG is not supported in mail signatures; use PNG or
+JPG".
 
 PNG is the usual choice for logos, because it keeps edges crisp and supports
 transparency. JPG suits photographs, such as a headshot.

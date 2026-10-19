@@ -123,7 +123,7 @@ They lose access to every client immediately. You cannot remove yourself, and
 a partner must keep at least one Owner.
 
 The same page holds the partner's product update switch, which only Owners can
-change. With it on, which is the default, the partner's Owners and Admins receive the occasional round-up of
+change in the console. With it on, which is the default, the partner's Owners and Admins receive the occasional round-up of
 what has changed in Sigil, and turning it off stops them for all partner staff.
 It does not change what a client's own administrators receive, since they
 decide in their own [settings](/admin/settings/#product-update-emails), and
@@ -136,6 +136,39 @@ the bottom of one. See
    owners and admins on or off.
 
 The change is saved as soon as the switch moves.
+
+Tophhie Cloud can also turn the switch off for you, if you would rather ask than
+find it. The change is recorded in your partner event log against the person at
+Tophhie Cloud who made it.
+
+## When nobody can manage the staff list
+
+Two situations lock a partner out of its own staff list, and neither can be fixed
+from the console:
+
+- Nobody holds a partner role at all. The first administrator of your own tenant
+  to sign in normally becomes the Owner, so this only happens when that sign-in
+  never came.
+- Your only Owner has left the firm. The console will not remove or demote the
+  last Owner, so the role stays with an address nobody reads. That address is
+  the one asked to accept a revised
+  [partner agreement](/partners/agreement/), and it receives payment and
+  dormancy notices.
+
+In either case Tophhie Cloud can seat somebody on your behalf.
+
+1. Contact Tophhie Cloud through `portal.usesigil.app/support`.
+2. Give the email address of the person to add, which must be a mailbox in your
+   own organisation since that is where they sign in, and the role they should
+   have.
+3. If the Owner who left should go, say so. Tophhie Cloud adds the new Owner
+   first and removes the old one second, because the last-Owner rule applies to
+   it as well.
+
+Every change made this way is written to your partner event log, naming the
+person at Tophhie Cloud who made it, so an Owner nobody at your firm remembers
+adding has a recorded origin. Once an Owner is back, run the staff list from the
+console as usual.
 
 ## Partner staff and their own tenant
 
