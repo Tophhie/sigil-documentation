@@ -85,6 +85,12 @@ Outlook on the web normally takes Microsoft's copy of `MicrosoftAjax.js` from
 Sigil's. So a network that blocks `ajax.aspnetcdn.com` can see the add-in work in
 the browser and fail in the other Outlook clients.
 
+Office.js also opens a hidden frame to
+`telemetryservice.firstpartyapps.oaspapps.com` to send Microsoft its own usage
+telemetry. That host is in Microsoft's published network requirements for
+Office, and Sigil sends nothing through it, so it needs no entry of its own
+beyond what Office already asks for.
+
 Sign-in goes through `login.microsoftonline.com`, the same Microsoft sign-in
 service every Microsoft 365 app uses, so it is already allowed wherever Outlook
 works.

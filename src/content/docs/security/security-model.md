@@ -269,6 +269,44 @@ for images, to find out whether any template still points at an image host that
 is not Sigil's own. API responses carry only the framing directive, since the
 rest of the policy only means something on a page.
 
+### The add-in's policy
+
+The add-in has two pages of its own: the "My signature" pane, and the hidden page
+Outlook runs to add a signature automatically when someone starts an email. Both
+have enforced a full content security policy since 20 October 2026. Before that
+the policy ran for six weeks in report-only mode, from 7 September, while it was
+exercised from Outlook on the web, Windows, Mac, iOS and Android. Report-only
+blocks nothing and only says what it would have blocked, which is how a policy
+gets proven inside other people's Outlook before it can break a signature.
+
+| Directive | What it allows |
+| --- | --- |
+| Scripts | Sigil's own origin, Microsoft's Office.js host `appsforoffice.microsoft.com`, and `ajax.aspnetcdn.com`, which the Office.js runtime fetches part of itself from |
+| Styles | Sigil's own origin, plus inline styles, which the signature preview relies on |
+| Images | Sigil's own origin, images embedded in the signature, and any `https` address, so a template that points at an image on your own website still previews in the pane |
+| Fonts | Sigil's own origin |
+| Connections | Sigil's signature service at `portal.usesigil.app`, and Microsoft's sign-in service |
+| Frames | Sigil's own origin, Microsoft's sign-in service, and a Microsoft telemetry host described below |
+| Form posts | Sigil's own origin and Microsoft's sign-in service |
+| Embedding | Outlook on the web and the other Microsoft 365 hosts, which is where Outlook runs both pages |
+| `<base>` and `<object>` | Nothing at all |
+
+The policy allows `unsafe-eval` for scripts, which the portal's policy does not.
+That is Microsoft's requirement rather than a gap: the Office.js runtime builds
+code from strings as it starts, and the report-only weeks showed it doing so on
+both pages. Blocking it would stop the add-in loading. The same weeks turned up
+the other two Microsoft entries. One is the second script host. The other is
+`telemetryservice.firstpartyapps.oaspapps.com`, a hidden frame Office.js opens to
+send Microsoft its own usage telemetry. Nothing of Sigil's runs in that frame,
+and a framed page cannot read the pane around it.
+
+Violations on either page are still reported to Sigil. On an enforced policy a
+report means something was blocked in somebody's Outlook, and that would
+otherwise show only in a browser console nobody has open. A stricter candidate
+runs alongside in report-only mode, the same policy with images limited to Sigil
+and embedded images, to learn whether any real template points at an outside
+image host.
+
 ## The link domain
 
 Tracked links are served from `e-clk.usesigil.app`, which answers `/r/` redirects

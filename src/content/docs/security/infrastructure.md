@@ -77,7 +77,9 @@ origin, and it is the first. Nothing Sigil wrote points at `ajax.aspnetcdn.com`:
 the Office.js runtime fetches `MicrosoftAjax.js` from there itself, always on
 Mac, iOS and Android, and on Windows when the Outlook build asks for it. Outlook
 on the web takes its copy from `appsforoffice.microsoft.com` and never reaches
-the second host at all. See
+the second host at all. The add-in's
+[content security policy](/security/security-model/#the-add-ins-policy) names both
+hosts, so a script from anywhere else would be refused. See
 [what the add-in needs to reach](/deploy/requirements/) for what a network that
 blocks it would see.
 
