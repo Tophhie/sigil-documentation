@@ -132,7 +132,8 @@ no reply template is configured, the new-message template is served instead.
 The [banner](/targeting/banners/) is whichever campaign window is currently open,
 unless the chosen template has campaign banners switched off.
 The [footer](/targeting/footers/) is the one matching the sending email domain,
-or the default if there is one.
+or the default if there is one, unless the chosen template has the
+[compliance footer switched off](/targeting/footers/#keeping-the-footer-off-a-signature).
 
 ## Why changes are fast
 

@@ -52,7 +52,7 @@ manual process.
 | --- | --- |
 | IT and M365 admins | Admin-consent onboarding, one Marketplace add-in to deploy, Entra-native auth, adoption telemetry |
 | Marketing | A drag-and-drop designer, org-wide templates, time-boxed banners, tracked links |
-| Legal and compliance | Footers appended at render time, per email domain, that no template can omit |
+| Legal and compliance | Footers appended at render time, per email domain, that a template leaves out only when the footer's owner says so |
 | Everyone else | A correct signature with no effort, and an optional pane to apply it by hand |
 
 Organisations not on Microsoft 365, such as those on Google Workspace, are not a

@@ -17,7 +17,10 @@ The condition is either a directory attribute equalling one of a set of values,
 or membership of an Entra group.
 
 The outcome is a template per role: one for new messages and one for replies and
-forwards.
+forwards. Whether that signature carries campaign banners and the compliance
+footer is set on the template itself, not on the rule. See
+[keeping banners off a signature](/targeting/banners/#keeping-banners-off-a-signature)
+and [keeping the footer off a signature](/targeting/footers/#keeping-the-footer-off-a-signature).
 
 ## Creating a rule
 
@@ -35,7 +38,8 @@ that includes Assignment rules.
    assign. Leaving one at No change lets that role fall through to the rules
    below, and at least one of the two must be set. Replies are the exception
    when it comes to the organisation default: see
-   [order matters](#order-matters).
+   [order matters](#order-matters). A template that has its compliance footer
+   switched off is listed with "(footer off)" after its name.
 7. Choose Add rule.
 
 The rule is added at the bottom of the list and saved straight away. The

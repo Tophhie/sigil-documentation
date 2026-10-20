@@ -139,7 +139,11 @@ A blank canvas left empty is a signature that renders nothing. Occasionally that
 is the point: assigned to a mailbox, it lets the mailbox send without a signature
 while it stays served and on the seat count. A blank canvas is created with
 [campaign banners](/targeting/banners/#keeping-banners-off-a-signature) switched
-off, so it really does send nothing while a campaign is running.
+off, so it really does send nothing while a campaign is running. The
+[compliance footer](/targeting/footers/#keeping-the-footer-off-a-signature) is
+another matter: it still applies to a blank canvas until somebody with the
+Compliance footers capability turns it off for that signature, and the New
+template dialog says so.
 
 The [drag-and-drop designer](/signatures/designer/) edits a block tree and
 compiles to email-safe HTML when you publish. It suits people who do not want to
@@ -254,7 +258,9 @@ create a variant for one department without risking the original.
 3. Choose Duplicate.
 4. Enter a Name for the copy and choose Duplicate.
 
-The copy appears in the library as its own entry, with no role assigned.
+The copy appears in the library as its own entry, with no role assigned. It
+keeps the original's campaign banner switch, but starts with the compliance
+footer on even if the original had it off.
 
 Renaming affects the library entry only. Nothing that references the template
 breaks.

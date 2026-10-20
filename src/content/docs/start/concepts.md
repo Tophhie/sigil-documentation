@@ -86,7 +86,9 @@ window closes. A template can be set to never carry one. See
 
 A legal or compliance block appended below every rendered signature at render
 time. Because no template carries it, no template can forget it. There is one
-footer per email domain, plus an optional default. See [footers](/targeting/footers/).
+footer per email domain, plus an optional default. A template can be set to go
+without it, but only through an acknowledged switch held by the footer's owners.
+See [footers](/targeting/footers/).
 
 ## Placeholder
 
@@ -151,7 +153,7 @@ On every compose, Sigil answers three questions and assembles the result:
 | --- | --- |
 | Which template? | Assignment rules, falling back to the `new` or `reply` role |
 | Which banner, if any? | Whichever campaign window is open right now, unless the template keeps banners off |
-| Which footer, if any? | The sending address's email domain, falling back to the default |
+| Which footer, if any? | The sending address's email domain, falling back to the default, unless the template keeps the footer off |
 
 The chosen template is personalised with that person's directory attributes, the
 banner is injected above or below it, and the footer is appended underneath. The

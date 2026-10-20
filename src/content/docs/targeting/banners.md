@@ -180,7 +180,9 @@ A template created from Blank canvas starts with banners off, since the only
 reason to send an empty signature is to send nothing. The New template dialog
 says so. Every other template starts with banners on. Blank templates created
 before October 2026 were not changed and still carry banners until you switch
-them off.
+them off. The compliance footer is a separate switch and starts on for a blank
+template too; see
+[keeping the footer off a signature](/targeting/footers/#keeping-the-footer-off-a-signature).
 
 The switch is copied when a template is duplicated, and an exported template
 carries it into the organisation it is imported into.

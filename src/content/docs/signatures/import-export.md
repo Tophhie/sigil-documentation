@@ -91,7 +91,10 @@ identity and belong to the organisation rather than to any one template.
 [Banners](/targeting/banners/) and [footers](/targeting/footers/), which are
 separate objects applied at render time. The template's own switch for keeping
 campaign banners off does travel, so a template exported with banners off is
-imported with them off.
+imported with them off. The compliance footer switch does not: the export
+records it, but an imported template always arrives with the footer on, since
+turning it off needs an acknowledgement from somebody who owns the footer. See
+[keeping the footer off a signature](/targeting/footers/#keeping-the-footer-off-a-signature).
 
 Version history. The imported template starts fresh.
 

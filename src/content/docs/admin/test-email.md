@@ -14,8 +14,9 @@ actually renders it.
 From the portal, send a rendered signature to an inbox. The mail arrives
 containing the signature exactly as a recipient would receive it, including
 inline images, the [banner](/targeting/banners/) that is live if a window is
-open, and the applicable [footer](/targeting/footers/). You can ask for a
-different banner, or none.
+open, and the applicable [footer](/targeting/footers/), unless the template
+[keeps the footer off](/targeting/footers/#keeping-the-footer-off-a-signature).
+You can ask for a different banner, or none, but not for a different footer.
 
 You need the Admin or Editor role, or a custom role that can reach Templates, images and drafts.
 

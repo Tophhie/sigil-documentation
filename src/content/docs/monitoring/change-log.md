@@ -33,6 +33,7 @@ organisation.
 | Creating, editing or removing a footer | Yes |
 | Turning link tracking on or off | Yes |
 | Turning campaign banners on or off for a template | Yes |
+| Turning the [compliance footer](/targeting/footers/#keeping-the-footer-off-a-signature) on or off for a template | Yes |
 | Uploading an image | Yes |
 | Deleting an image | Yes |
 | Sending a test email | Yes |
@@ -241,7 +242,7 @@ Three filters narrow it, and they combine.
 By half. Template changes carries the actions that alter what goes out on
 somebody's mail: the whole template lifecycle, publishes and rollbacks, drafts,
 image uploads and deletions, banners, footers, assignment rules, link tracking,
-each template's campaign banner switch, approvals, scheduled publishes and staged rollouts. Assignment rules and banners
+each template's campaign banner and compliance footer switches, approvals, scheduled publishes and staged rollouts. Assignment rules and banners
 are in because they decide which template a mailbox gets and what is injected
 into it. Organisation, access and support carries everything else: role and user
 changes, pausing and resuming delivery, mailbox and group exclusions, API keys,
@@ -296,6 +297,7 @@ change that had replaced half the list.
 | Changing assignment rules | How many rules there are, then which were added, removed and changed by name, and whether the order moved |
 | Assigning a template to a role | Which role, and the template that replaced the one before it |
 | Editing a banner or footer | The name, and each field that moved, as before and after |
+| Turning a template's compliance footer on or off | The template, on or off, and for off, the version of the warning that was acknowledged |
 | Changing a setting | Each setting that moved, as before and after |
 | Changing who has access | The mailbox, the previous role and the new one, and whether it was an invitation. A custom role is named as it was called at the time |
 | Changing custom roles | The role's name and what happened to it. A new role lists the areas it reaches, an edited one shows a rename as old name → new name and the areas added (+) or taken away (-), and a deleted one reads "deleted" |

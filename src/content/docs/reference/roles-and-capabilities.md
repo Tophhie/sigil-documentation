@@ -20,7 +20,7 @@ capabilities it was given.
 | Templates and signatures | Library, editor, drafts, versions, staged rollouts, images, import and export, preview, download, test email | Yes | Yes | No | No | No | No |
 | Assignment rules | Which template each group or person gets, the org-wide role assignments, [pausing delivery](/signatures/pausing-delivery/), and simulating a mailbox against the rules | Yes | No | No | No | No | No |
 | Campaign banners | Scheduled promotional banners | Yes | No | Yes | No | No | No |
-| Compliance footers | Legal and disclaimer footers | Yes | No | No | No | Yes | No |
+| Compliance footers | Legal and disclaimer footers, and [whether a template carries one](/targeting/footers/#keeping-the-footer-off-a-signature) | Yes | No | No | No | Yes | No |
 | Link click analytics | Click tracking and its reports | Yes | No | Yes | Yes | No | No |
 | Monitoring | Activity feed, attribute coverage, audit log | Yes | Yes | No | Yes | Yes | No |
 | Users and roles | Invite users and assign roles | Yes | No | No | No | No | Yes |

@@ -1,12 +1,15 @@
 ---
 title: Compliance footers
-description: A legal block appended below every signature at render time, per email domain, that no template can omit.
+description: A legal block appended below every signature at render time, per email domain, that a template can only leave out through an acknowledged switch.
 sidebar:
   order: 3
 ---
 
 A footer is a block appended below every rendered signature at render time. No
-template carries it, which means no template can forget it.
+template carries it, which means no template can forget it. A template can still
+be set to go out without it, but only by someone who owns the footer, and only
+after they have acknowledged what that means. See
+[keeping the footer off a signature](#keeping-the-footer-off-a-signature).
 
 This is the compliance surface. Where a legal disclaimer is mandatory, putting it
 in a footer rather than in each template removes the possibility of somebody
@@ -178,7 +181,8 @@ writing it again afterwards.
 
 Pausing a domain's footer hands that domain to the default footer, if you have
 one, rather than leaving its signatures with no footer at all. While a default is
-live, there is no way to give one domain no footer.
+live, there is no way to give one domain no footer. The switch on a template,
+described in the next section, works per signature rather than per domain.
 
 Editing a paused footer leaves it paused. Fixing a typo in something that was
 deliberately taken out of circulation must not quietly put it back into every
@@ -199,6 +203,104 @@ To pause or resume a footer:
 3. Choose Pause, or Resume on a footer that is paused.
 
 The Status column changes to Paused, or back to Live.
+
+## Keeping the footer off a signature
+
+Each template has a Compliance footer switch. It is on for every template,
+including a new blank one, and while it is on the template gets whatever footer
+is in force for the sending domain. Turned off, the template never carries a
+footer, from any domain, including footers created later.
+
+The usual reason is a reply signature. A blank reply template that sends no
+signature, with campaign banners already off, would otherwise go out carrying
+the legal block on its own three messages into a thread. The switch is the way
+to stop that without pausing the footer for everyone.
+
+The switch belongs to the template, not to the footer or to an assignment rule.
+A rule that routes a department to a template with the footer off sends that
+department out without it, so there is no setting for this on the rule itself.
+The rule dialog says as much under its template pickers, and lists such a
+template with "(footer off)" after its name.
+
+### Who can turn it off
+
+Turning the footer off removes a legal block, so it is the footer owner's
+decision rather than the template editor's. The switch needs the Compliance
+footers capability in both directions: the Admin role, a
+[custom role](/admin/users-and-roles/#custom-roles) given Compliance footers, or
+a partner's Owner, Admin and Technician staff. The Editor role cannot. An Editor
+sees the menu item greyed out, and hovering over it gives the reason.
+
+The switch lives in the template library, which the Compliance role cannot open,
+so in practice a Compliance user can turn a footer back on, from the Footers
+view, but not off. Somebody who holds both Templates and Compliance footers,
+such as an Admin, does the turning off.
+
+### Turning it off
+
+1. Open Templates in the portal sidebar.
+2. Open the menu at the end of the template's row.
+3. Choose Turn the compliance footer off.
+4. Read the dialog. It names the footer or footers this signature would stop
+   carrying, and says so plainly when no footer is live yet, since the switch
+   also covers footers added later.
+5. Turn on the switch labelled "I understand this signature will be sent
+   without the compliance footer". The button stays disabled until you do.
+6. Choose Turn the footer off.
+
+The dialog's warning reads:
+
+> Messages sent with this signature will go out without the legal footer your
+> organisation adds to every other signature. Sigil adds the footer at the
+> moment a message is composed, so turning it off here is the only way a
+> signature leaves without it. This is recorded in your change log with your
+> name and the time.
+
+The portal confirms with a toast naming the signature, and the row gains a
+Footer off chip in warning colours. Hovering over the chip says who turned the
+footer off and on which day.
+
+The acknowledgement is enforced by Sigil, not only by the dialog. A request
+through the [API](/reference/api/) that turns the footer off without saying it
+has been acknowledged is refused. What gets recorded, on the template and in
+the [change log](/monitoring/change-log/), is who did it, when, and which
+version of the warning they were shown, so that a later rewording can be told
+apart from this one.
+
+### Seeing which signatures go without it
+
+The Footers view has a card headed Signatures without the footer. It lists
+every template with the switch off, the day it was turned off and by whom, and
+a Turn on button for each. When every template carries the footer it says
+"Every signature carries the footer." The card is there because the people who
+own the footer may not be able to open the template library at all.
+
+A template in Recently deleted is left off the card. Restoring it brings it
+back with the footer still off, since it is the same template.
+
+### Turning it back on
+
+Turning the footer back on puts the protection back, so it asks for no
+acknowledgement. It still needs the Compliance footers capability.
+
+1. Open Footers in the portal sidebar.
+2. Find the template in Signatures without the footer.
+3. Choose Turn on.
+
+Choosing Turn the compliance footer on from the template's row menu does the
+same thing.
+
+### How it behaves
+
+| Situation | What happens |
+| --- | --- |
+| Speed | As fast as a publish. The template's cached signatures are thrown away and rebuilt, so the next compose picks it up |
+| Version history | Unchanged. The switch is a property of the template, kept across publishes, drafts and restoring an earlier version |
+| Previews and test emails | All honour it. Unlike a banner, there is no way to name a footer and see it anyway |
+| Designer preview | With Banner & footer on, no footer is shown, and hovering over the switch says "The compliance footer is off for this signature, so none is shown" |
+| Duplicating | The copy starts with the footer on. The acknowledgement was given for the original |
+| Importing | The template arrives with the footer on, whatever the export says. An export records the setting, but an import is not an acknowledgement |
+| Change log | Recorded as "Toggled compliance footer", with the template's name, on or off, and the version of the warning that was acknowledged |
 
 ## Deleting a footer
 
@@ -233,6 +335,8 @@ Admins, the Compliance [role](/admin/users-and-roles/), and any
 Where a partner manages your organisation, its Owner, Admin and Technician staff
 can manage footers too. The Editor role covers
 templates and images but not footers, and the Marketing role reaches neither.
+The same capability decides who can
+[keep the footer off a signature](#keeping-the-footer-off-a-signature).
 
 That split is deliberate: a compliance footer is usually owned by legal or IT
 rather than by whoever is editing the signature design. The Compliance role

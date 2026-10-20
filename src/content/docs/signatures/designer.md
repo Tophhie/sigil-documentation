@@ -531,7 +531,11 @@ are in force for the mailbox you are previewing as, so you see the signature as
 recipients will. Hovering over the switch names them. When nothing is active the
 preview does not change, and the hover says so. When the template has
 [campaign banners switched off](/targeting/banners/#keeping-banners-off-a-signature),
-no banner is shown and the hover says that instead.
+no banner is shown and the hover says that instead. The same goes for a template
+with the
+[compliance footer switched off](/targeting/footers/#keeping-the-footer-off-a-signature):
+no footer is shown, and the hover says "The compliance footer is off for this
+signature, so none is shown".
 
 With the switch on, a Banner date field appears beside the preview's other
 fields. Pick a date and the preview shows the banner that will be running on
