@@ -14,7 +14,7 @@ export default defineConfig({
       description:
         'Documentation for Sigil, the centrally managed email signature platform for Microsoft 365 and Outlook.',
       logo: {
-        src: './src/assets/sigil-mark.png',
+        src: './src/assets/sigil-mark-96.png',
         alt: 'Sigil',
       },
       favicon: '/favicon.ico',
