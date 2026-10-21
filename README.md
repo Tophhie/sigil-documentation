@@ -40,7 +40,12 @@ order.
 
 The mark in `src/assets/sigil-mark.png` and the favicon in `public/` are copied
 from the portal's own assets (`server/assets/` in `outlook-signature-worker`).
-Copy them across again rather than editing them here.
+Copy them across again rather than editing them here. `sigil-mark-96.png` is
+the same mark at 96 px for the site header, which paints it at about 40 px:
+Starlight passes the logo through as it is, and the 512 px original was the
+largest file on every page. Make it again from the original after a copy
+(`sips -Z 96 src/assets/sigil-mark.png --out src/assets/sigil-mark-96.png`);
+the front page's hero keeps the original, which the build resizes itself.
 
 Brand pink is `#E8005A`, and the dark surfaces are the Tophhie Cloud design
 system's `#121212` and `#1C1C1E`. `src/styles/sigil.css` maps those onto
