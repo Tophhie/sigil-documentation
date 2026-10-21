@@ -47,7 +47,8 @@ ends. Once the trial is over, the same group is headed "Your subscription".
 
 ## Working through it
 
-The checklist is for the Admin role.
+The checklist is for the Admin role, and for a partner's Owners and Admins
+managing the organisation.
 
 1. Open Getting started in the portal sidebar.
 2. Find the first step without a tick. Optional ones carry an Optional badge.
@@ -178,9 +179,11 @@ website already publishes. See
 
 ## The panel
 
-The checklist shows automatically until the required steps are done, or until
-you dismiss it. Dismissing it is the one piece of state stored about the
-checklist; everything else is computed.
+The portal opens on the checklist straight after you sign up and grant consent.
+After that it opens on Templates, and the checklist waits under Getting started
+in the sidebar whether or not its steps are done. Dismissing it records that you
+have hidden it and takes you to Templates. That flag is the one piece of state
+stored about the checklist; everything else is computed.
 
 1. Open Getting started in the portal sidebar.
 2. Choose Dismiss.

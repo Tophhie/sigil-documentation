@@ -10,12 +10,12 @@ export default defineConfig({
 
   integrations: [
     starlight({
-      title: 'Sigil',
+      title: 'Sigil by Tophhie Cloud',
       description:
-        'Documentation for Sigil, the centrally managed email signature platform for Microsoft 365 and Outlook.',
+        'Documentation for Sigil by Tophhie Cloud, the centrally managed email signature platform for Microsoft 365 and Outlook.',
       logo: {
         src: './src/assets/sigil-mark-96.png',
-        alt: 'Sigil',
+        alt: 'Sigil by Tophhie Cloud',
       },
       favicon: '/favicon.ico',
       customCss: ['./src/styles/sigil.css'],

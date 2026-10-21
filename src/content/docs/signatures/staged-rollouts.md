@@ -234,6 +234,14 @@ after 30 days at one step is cancelled automatically, and the change log records
 how many it reached. The slice goes back to the current version, as it would
 after Roll back, and nothing is republished.
 
+A rollout also holds still while your organisation is not being served, for
+example while a subscription has lapsed or the organisation is suspended. Nobody
+is applying signatures then, so there is nothing to measure. It does not step,
+promote or roll back, and it picks up on the first check after signatures are
+being served again. The 30 days are counted from the start of the current step,
+not paused, so a rollout held for longer than that is retired on that first
+check.
+
 It also assumes the add-in is deployed and reporting. During the initial
 deployment, before propagation has finished, there is nothing to measure. Get to
 a steady state first. See [planning a rollout](/start/rollout/), which covers
@@ -252,7 +260,9 @@ rather than only the fact of it.
 
 ## Who can do it
 
-Admins and Editors. It requires the same permission as publishing. See
+Anyone holding the templates capability, the same permission as publishing. Of
+the built-in roles that is Admin and Editor, and an Admin can also give it to a
+[custom role](/admin/users-and-roles/#custom-roles). See
 [roles and capabilities](/reference/roles-and-capabilities/).
 
 Where [publish approval](/signatures/approvals/) is switched on, starting and

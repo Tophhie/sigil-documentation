@@ -78,8 +78,9 @@ outstanding, and a prompt sits at the top of every page in the portal for anybod
 who can open Billing. Its button goes straight to the Billing details tab. The
 prompt can be put off for the rest of the browser session until the trial has
 been set to end for want of the details. From then on it names the date and
-stays. Getting started is the one page that leaves the prompt out, because the
-checklist already asks, until that end date has been set. An organisation nobody invoices is not asked
+stays. The prompt never shows on the Billing view itself, where the form is.
+Getting started also leaves it out, because the checklist already asks, until
+that end date has been set. An organisation nobody invoices is not asked
 for any of it.
 
 ## What waits on it
@@ -145,7 +146,8 @@ local one is left alone rather than being cleared.
 
 ## Who can edit it
 
-Admins and the Billing [role](/admin/users-and-roles/), from the Billing view. It
+Admins, the Billing [role](/admin/users-and-roles/), and any custom role given
+the billing capability, from the Billing view. It
 sits behind the billing capability like the rest of that view, so the person who
 owns the finance relationship can correct the details on an invoice without also
 being handed the signature library.
@@ -163,7 +165,8 @@ your partner invoices and, after the partnership ends, your own. See
 
 ## Changing it later
 
-You need the Admin or Billing role. The steps are the same whether you are
+You need a role with the billing capability: Admin, Billing, or a custom role
+given it. The steps are the same whether you are
 completing the pre-filled profile for the first time or correcting it later.
 
 1. Open Billing in the portal sidebar.

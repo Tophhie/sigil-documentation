@@ -57,7 +57,8 @@ Restored versions reach users in seconds, exactly like any other publish.
 Rollbacks are recorded in the [change log](/monitoring/change-log/).
 
 You need the templates capability, and where
-[publish approval](/signatures/approvals/) is on you need to be an Admin.
+[publish approval](/signatures/approvals/) is on you need to be an Admin, or a
+partner Owner or Admin managing your organisation.
 
 1. Open Versions in the portal sidebar, or choose Version history from a
    template's row menu on the Templates page.
@@ -101,7 +102,8 @@ it. An exported bundle is a file you control, with no retention limit.
 Deleting a template moves it to Recently deleted rather than destroying it. It
 keeps its full version history and can be restored for 30 days.
 
-An administrator who is certain can delete it permanently straight away. Anything
+Anyone with the templates capability who is certain can delete it permanently
+straight away. Anything
 left in Recently deleted is purged by a daily sweep once the 30 day window has
 elapsed. The window runs from the most recent deletion, so a template restored and
 deleted again starts a fresh 30 days.
