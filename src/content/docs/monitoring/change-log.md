@@ -341,23 +341,33 @@ carry. An old row reads thinner rather than blank.
 
 ## How much you can see at once
 
-The view fetches each half separately, the most recent 500 entries of each, and
-merges them into one list. That is a display limit rather than a retention one:
-nothing is pruned, and a [tenant export](/security/data-and-privacy/) carries the
-most recent 5,000.
+The view opens with the most recent 100 entries of each half, fetched separately
+and merged into one list. Nothing is pruned, so this is how much is read at a
+time rather than how much is kept.
+
+To go further back:
+
+1. Open the Audit log view.
+2. Below the table, choose Load more. It reads the next 100 older entries of
+   each half that still has some.
+3. Repeat until the entries you want are on screen. The button disappears once
+   both halves have run out.
 
 Fetching the halves separately is what stops a busy week of role changes pushing
 template changes out of view. Each half is narrowed in the database before the
-limit is applied rather than after it, so the 500 template changes are 500
+100 are counted rather than after, so the first page of template changes is 100
 template changes whatever else was happening around them. The API works the same
 way, and this is the one filter that behaves differently there from the ones on
 screen. See the [API reference](/reference/api/).
 
-The filters on screen work on what has already been fetched, so narrowing by who
-or by action is instant and does not reach further back than those entries.
+The filters on screen, the pager and the CSV export all work on what has already
+been loaded. Narrowing by who or by action is instant, but it does not reach
+further back than those entries, so load older entries first if the change you
+are looking for is not there. Reloading the page starts again from the newest
+100.
 
-For a busy organisation it means the portal answers what changed lately, and the
-export is where you go for anything older.
+For a long history in one go, a [tenant export](/security/data-and-privacy/)
+carries the most recent 5,000 entries.
 
 ## Staged rollout entries
 

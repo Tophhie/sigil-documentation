@@ -24,6 +24,18 @@ The pane opens. While it finds out about your signature it says "Checking
 your signature", and then shows a preview labelled with which signature it is:
 new messages, or replies and forwards.
 
+If this device already holds a copy of your signature from an earlier message,
+the preview usually appears straight away. The pane draws the kept copy first,
+then asks Sigil whether it is still current, and replaces it only if something
+has changed. On a slow connection, which is often why somebody opens the pane in
+the first place, you see your signature without waiting for the whole of it to
+download again. See
+[how your signature works](/users/how-your-signature-works/).
+
+A kept copy that records who it was fetched for waits a moment longer, until the
+pane knows who is signed in. On a computer that two people share, that is what
+stops one of them opening the pane and seeing the other's details.
+
 ## What it does
 
 It shows you a preview of the signature Sigil would give this message, with
@@ -91,6 +103,13 @@ does while a signature is still being set up.
 
 The add-in cannot tell the three apart, because Sigil declines them all the same
 way. Your IT team can see which it is.
+
+When Sigil answers that there is no signature for this mailbox, or that it is not
+switched on, or that the subscription is not active, the pane also removes any
+kept copy it had drawn and deletes it from the device. Showing it again on the
+next open would only show a signature already known to be wrong. A pane that
+needs you to sign in, or that cannot reach Sigil, leaves a kept copy on screen,
+because that copy is still the last signature you had.
 
 The pane also keeps a subscription problem separate from a connection problem. A
 lapsed subscription says so rather than reading as a network fault you could fix

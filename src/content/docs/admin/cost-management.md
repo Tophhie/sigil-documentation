@@ -449,6 +449,7 @@ are back in.
 | The signature stops | Immediately. The next compose is refused |
 | The signature comes back | At the next compose, or up to ten minutes later for somebody who was composing while excluded |
 | The seat count changes | At the next daily seat sync |
+| The Billing view's seat figure | After the next nightly count. This view shows the change at once, so the two disagree until then |
 | The price changes | On your next invoice |
 
 Seat changes never produce a mid-cycle invoice or a credit, so excluding twenty

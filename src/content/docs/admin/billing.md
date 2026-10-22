@@ -336,6 +336,32 @@ authoritative rates are the ones held in Stripe.
 
 Where a discount has been agreed, the estimate line shows it too.
 
+### When the seat figure was counted
+
+The seat figure on the Billing view is not counted when you open the page. It
+comes from the count Sigil takes of your directory each night, the same count
+the daily seat sync sends to Stripe, so the page and the invoice are working
+from one number. The page's own description says seats are "counted nightly".
+
+Two things can stand in for it:
+
+| Situation | What the page shows |
+| --- | --- |
+| Tophhie Cloud corrected your seat count during the day, or a cancelled subscription was reactivated | That newer count, because it is more recent than the night's |
+| No count from the last 26 hours, for example your first day, or a night when Microsoft Graph could not be read | A count taken there and then from your directory, as the page always used to |
+
+Next to the figure, "synced" and a date say when the count last reached your
+subscription. A partner-managed client's sentence ends ", counted" followed by
+the date of the count it is quoting.
+
+The practical effect is that a change made today shows on the Billing view
+tomorrow. A leaver, a new licence or a mailbox you have just
+[excluded](/admin/cost-management/) is reflected after the next nightly count,
+not the moment you reload. The Cost management view still reads your directory
+when you open it, so it shows the change straight away, and the two can
+disagree until the night has passed. That is expected, and the invoice follows
+the nightly figure either way.
+
 ### The arrangement it names
 
 The view leads with the commercial arrangement your organisation is actually on,

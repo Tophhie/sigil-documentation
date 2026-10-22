@@ -208,8 +208,13 @@ is keyed by the signed-in person, the sending address and the signature type, so
 a shared mailbox's copy is never served to the wrong person and never mixed with
 their own.
 
-Entries expire 45 days after that address last composed, and every message
-renews the one it used. An entry above 1 MB is not written at all. Where the
+Entries expire 45 days after they were last written. A message that uses an
+entry rewrites it once it is more than a day old, which renews it, so in
+practice an entry lasts between 44 and 45 days after that address last composed.
+A signature that has changed, or a copy fetched for a different person, is
+written at once. An entry above 1 MB is not written at all. The add-in also
+deletes an entry when Sigil answers that the mailbox has no signature, is not
+switched on, or has no active subscription. Where the
 storage is missing or refused, which third-party storage blocking in an embedded
 frame can cause, there is no copy and nothing else changes: the signature is
 fetched as it always was.

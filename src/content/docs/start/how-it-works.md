@@ -45,8 +45,9 @@ mailbox and reconciles afterwards.
 | The mailbox is excluded, paused, or the subscription has lapsed | The kept copy is taken back out, leaving nothing in its place |
 | No answer at all | The kept copy stands, and the message goes out with it |
 
-The copy is held on the person's own device for 45 days after that address last
-composed, renewed by every message. Where the device has no storage available to
+The copy is held on the person's own device for 45 days after it was last
+written. A message that uses it rewrites it once it is a day old, so it lasts
+about 45 days after that address last composed. Where the device has no storage available to
 the add-in, there is no copy and the signature is simply fetched as before.
 
 Most of the time the fresh answer is the first row of that table, so the

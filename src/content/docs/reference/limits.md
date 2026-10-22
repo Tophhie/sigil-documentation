@@ -91,7 +91,7 @@ See [assignment rules](/targeting/assignment-rules/).
 | Daily click totals per tracked link | For as long as your organisation uses Sigil |
 | Per-click records behind the analytics splits | 90 days, then purged by a nightly sweep |
 | Notes of Microsoft Graph asking Sigil to slow down | 30 days, then purged by a nightly sweep |
-| Signature copy kept on a person's device | 45 days from that address's last compose, renewed by each one |
+| Signature copy kept on a person's device | 45 days from when it was last written. A compose renews it once it is more than a day old |
 | A refusal noted on a person's device | Ten minutes from the refused compose |
 | Operator audit log | Indefinite |
 | Onboarding attempt records | Indefinite, and kept after a deprovision |
@@ -109,7 +109,7 @@ and therefore only cover the last 90 days. See
 
 | Item | Value |
 | --- | --- |
-| Entries in the portal's Audit log view | Most recent 500 of each half, paged |
+| Entries in the portal's Audit log view | Most recent 100 of each half on opening, then 100 more of each per Load more, with no upper limit |
 | Entries a single API request returns | Most recent 100 by default, and at most 500 when the request asks for more |
 | Entries in a tenant export | Most recent 5,000 |
 
@@ -355,6 +355,7 @@ See [API keys](/admin/api-keys/).
 | Invoices listed in the portal | The most recent 24 |
 | Purchase order reference | 140 characters |
 | Seat sync | Daily, with no mid-cycle proration |
+| Seat figure on the Billing view | Last night's count, or a newer daytime correction. Counted live only when there is none from the last 26 hours |
 | Exclusion suggestion window | 90 days without a successful apply |
 | Exclusion note | 200 characters |
 

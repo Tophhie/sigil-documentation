@@ -341,7 +341,7 @@ administrators a re-consent link.
 
 | Data | Retention |
 | --- | --- |
-| Directory attributes read from Microsoft Graph | Never stored as a record of their own. Held inside a rendered signature for at most a day (refreshed hourly while in use), in a lookup cache for seven days after it was last read from Microsoft 365 (fresh for fifteen minutes, then refreshed in the background), which a nightly pass keeps topping up for about a week after the mailbox last composed, so up to about two weeks in all, and in a photo cache for up to seven days (fresh for a day, then refreshed in the background). On the device, the add-in keeps the last signature it applied for up to 45 days after the mailbox last composed |
+| Directory attributes read from Microsoft Graph | Never stored as a record of their own. Held inside a rendered signature for at most a day (refreshed hourly while in use), in a lookup cache for seven days after it was last read from Microsoft 365 (fresh for fifteen minutes, then refreshed in the background), which a nightly pass keeps topping up for about a week after the mailbox last composed, so up to about two weeks in all, and in a photo cache for up to seven days (fresh for a day, then refreshed in the background). On the device, the add-in keeps the last signature it applied for about 45 days after the mailbox last composed |
 | Template version history | Last 10 published bodies per template |
 | Preview pictures of a version, for [signature previews](/signatures/previews/) | As long as the version they show. They depict a sample person rather than anybody in your organisation |
 | Deleted templates | 30 days in Recently deleted, then purged by a daily sweep |

@@ -130,6 +130,9 @@ to pull in.
 
 It completes when Sigil's application registration can actually read your
 directory, which means it also un-ticks itself if that consent is later revoked.
+A successful check is remembered for five minutes, so a revoked consent can take
+that long to show here. A failed one is not remembered, so the step ticks as soon
+as consent is granted.
 A Microsoft 365 administrator grants it once. See
 [connect your organisation](/deploy/connect-your-organisation/).
 

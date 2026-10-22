@@ -51,9 +51,9 @@ excluded it, paused signatures or let its subscription lapse, the kept copy is
 taken back out of the message instead of being left standing.
 
 The copy is your own signature on your own device, which is the same thing
-Outlook keeps for a signature you configured yourself. It is held for 45 days
-after the last message you wrote from that address, and every message Sigil
-answers renews it.
+Outlook keeps for a signature you configured yourself. It is held for about 45 days
+after the last message you wrote from that address. Writing a message renews it,
+at most once a day.
 
 Copies are kept per signed-in account, so colleagues who share a computer under
 their own accounts never see each other's. The copy also records who it was
