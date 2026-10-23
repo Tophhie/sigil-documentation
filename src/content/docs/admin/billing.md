@@ -575,6 +575,68 @@ The company details that appear on the invoice are held separately and pushed to
 Stripe whenever you save them, and an edit made in the Stripe customer portal is
 mirrored back here. See [billing profile](/admin/billing-profile/).
 
+## Changing your renewal day
+
+Your subscription renews on the day of the month it started, which is the day
+your trial ended or, without a trial, the day it was created. If another day
+suits your cashflow better, such as the 1st or the day after payroll, Tophhie
+Cloud can move it for you:
+
+1. Email support@usesigil.app and name the day of the month you want. Any day
+   from the 1st to the 28th can be chosen. The 29th, 30th and 31st are not
+   offered, because a month without that day would push the renewal earlier and
+   it would drift from then on.
+2. Support schedules the move for the next time that day comes round, at least
+   two days away, so there is time to change your mind.
+3. Every billing contact is emailed "Your Sigil renewal date is moving to the
+   1st", or whichever day you chose. That is your administrators, everyone with
+   the Billing role, and the invoice email on your
+   [billing profile](/admin/billing-profile/), because the person who pays the
+   invoice is not always the person who asked.
+4. Until the day, the subscription panel on the Billing view reads, for example,
+   "Next invoice 1 Nov 2026 · renewal date moving to the 1st" in place of the
+   usual renewal date, since the move's invoice comes first.
+
+On the day, you get one invoice outside your usual cycle. It credits the unused
+days of the month you have already paid for and charges a new month from that
+date, so overall you pay for exactly the days in between. VAT is worked out on
+each line, credits included, so you are not charged VAT twice on days you had
+already paid it for. From then on you are invoiced on your new day each month.
+
+This is the one time a direct subscription prorates its seats. Seat changes
+still never do, as [what counts as a seat](#what-counts-as-a-seat) explains.
+
+The credit is worked out at today's seat count rather than the count on your
+last invoice, because Stripe credits unused time at the subscription's current
+quantity. If your organisation has grown since the last renewal, that difference
+is in your favour. The email does not quote an amount for the same reason: the
+count can still change before the day.
+
+To stop a move, email support@usesigil.app before the day. The email names that
+date. Asking for a different day replaces the move already scheduled, since
+there is only ever one waiting.
+
+A move cannot be scheduled:
+
+| Situation | Why |
+| --- | --- |
+| During the trial | The renewal day is set when the trial ends. Ask once the subscription has started |
+| While a payment is overdue, or after the subscription has ended | There is no regular renewal to move |
+| While a cancellation is scheduled | The subscription ends at the close of the period, so it does not renew |
+| On a comped or NFR arrangement | There is no paid subscription to move |
+| When your organisation is managed by a partner | Your provider's invoice date applies. See [managed by a partner](#managed-by-a-partner) |
+
+If you hold [prepaid mailboxes](#prepaid-mailboxes), say so when you ask. A block
+normally starts on your renewal day, and support checks whether it needs lining
+up with the new one.
+
+A move runs on its day or not at all. If it cannot run then, nothing about your
+subscription changes, and support arranges a new date with you. Running it a day
+late would leave you renewing on the wrong day every month after.
+
+Scheduling a move, and cancelling one, both appear in your
+[change log](/monitoring/change-log/#actions-taken-by-tophhie-cloud-support).
+
 ## Cancelling
 
 Cancel from the Billing view, behind a confirmation that spells out what happens

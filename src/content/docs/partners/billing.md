@@ -52,8 +52,9 @@ commitment in the [partner agreement](/partners/service-level/#no-minimums)
 rather than a current concession.
 
 That is a different model from a direct tenant, which carries a licensed seat
-quantity that prorates when it changes. A partner has no quantity, so there is no
-proration and no mid-cycle invoice. Clients joining and leaving during a month
+quantity billed in advance. A partner has no quantity, so there is no proration
+and no mid-cycle invoice, apart from the one shortened invoice a
+[change of invoice date](#changing-your-invoice-date) raises. Clients joining and leaving during a month
 show up in the month's average for the days they were with you, rather than as
 adjustments.
 
@@ -139,7 +140,8 @@ stands.
 | Seats in use | Today's billable mailboxes across every client |
 | Average this period | The average so far, to two decimal places, with how many days have been measured. It shows a dash until the first night of the period has been measured. Where a [prepaid block](#prepaid-mailboxes-for-a-client) applies, this is the average after the block, and the average as measured is shown beside it, as in "34.20 measured, before prepaid" |
 | Prepaid mailboxes | Only shown while one of your clients has a prepaid block. The prepaid mailboxes across all your clients today, "netted off your clients' usage" |
-| This month, estimated | The average so far at your rate, less your partner discount. Before your account moves to the average, it is today's count instead |
+| This month, estimated | The average so far at your rate, less your partner discount. Before your account moves to the average, it is today's count instead. While a [change of invoice date](#changing-your-invoice-date) is cutting the period short, it is scaled to the days that invoice covers and reads, for example, "for 9 of 31 days" |
+| Next invoice | The date your next invoice is raised, with the day of the month invoices fall on, as in "on the 1st of each month". While a change of invoice date is waiting, it shows that change's day instead, with "invoice date moving to the 1st" |
 
 The estimate moves as the month goes on, and comes close to the invoice's seat
 charge once the period's last day is measured. It leaves out VAT, credits and
@@ -159,6 +161,51 @@ done both, so the answer is "Nothing to report (already-reported-today)." and th
 figures stay as they are. Either way it never changes a day that is already
 counted. It can be used once every ten minutes; sooner than that, it answers
 "Seats were synced in the last ten minutes. Try again shortly."
+
+### Changing your invoice date
+
+Your invoices are raised on the day of the month your partner subscription was
+set up. The Next invoice figure on Partner billing shows which day that is. If a
+different day suits your cashflow, Tophhie Cloud can move it:
+
+1. Email support@usesigil.app and name the day of the month you want, from the
+   1st to the 28th. Later days are not offered, because a month without that day
+   would move the invoice earlier and it would drift from then on.
+2. Support schedules the change for the next time that day comes round, at least
+   two days away.
+3. Your billing contacts are emailed "Your Sigil invoice date is moving to the
+   1st", or whichever day you chose. That is the billing email on your
+   [invoice details](#your-invoice-details) and every Owner and Billing member of
+   partner staff.
+4. Until the day, the Next invoice figure shows that day and reads "invoice date
+   moving to the 1st", and the estimate beside it is scaled to the days that
+   invoice will cover.
+
+You are billed in arrears, so the change does not add a charge. The invoice
+raised on the day covers the current period from its start to the day before,
+which is fewer days than usual, and charges your average for those days only.
+The meter on its own would bill a full month for any period, however short, so
+Sigil scales the average down first: the period's average, times the days the
+invoice covers, divided by the days the period would have had. The invoice
+footer prints that sum. From then on your invoices fall on the new day.
+
+To stop a change, email support@usesigil.app before the day. Asking for a
+different day replaces the one already scheduled.
+
+A change cannot be scheduled while a payment is overdue or after the
+subscription has ended, or before your account has
+[moved to the average](#when-the-average-starts), since there is no average yet
+to scale.
+
+On the day itself, Refresh seats answers "Nothing to report
+(renewal-move-in-flight)." until the change has finished. That is deliberate. A
+fresh report at that point would replace the scaled figure with the full
+period's average, and the short invoice would charge a whole month.
+
+If the change cannot finish before the night's usage report, it is abandoned and
+nothing about your subscription changes. The ordinary average goes back on the
+meter straight away, so an abandoned change costs nothing, and support arranges
+a new date with you.
 
 ## Prepaid mailboxes for a client
 
@@ -481,7 +528,12 @@ The footer, on an invoice billed on the average, reads in this order:
    mailboxes.
 5. The average for branded link domains, when any client had one live during the
    period. It is a single figure, not split by client.
-6. A link back to the usage report with that invoice's period already selected,
+6. On the invoice a [change of invoice date](#changing-your-invoice-date) cut
+   short, a sentence giving the working, such as "Your invoice date moved to the
+   1st of the month, so this invoice covers 9 of the 31 days in the period. You
+   are charged the average for those days only: 35.467 × 9 ÷ 31 = 10.297." The
+   last figure is the one Stripe printed as the seat line's quantity.
+7. A link back to the usage report with that invoice's period already selected,
    which is the day-by-day record behind every figure.
 
 Every average is to the same three places as the seat line, so the footer's
@@ -588,6 +640,14 @@ meter has something on it. There is no trial to run out here, because a partner
 is invoiced in arrears: the moment a client's seats are being counted an invoice
 is accruing, and with no card that invoice fails. That warning does not appear on
 invoice terms, where no card is expected.
+
+The seats it counts are the ones you would actually be billed for, after any
+[prepaid blocks](#prepaid-mailboxes-for-a-client), so a partner whose clients
+all sit inside blocks it has paid for owes nothing and is not told to add a card.
+A branded link domain is the exception, because no block covers the add-on. If
+your seats are all prepaid but a client has a live domain, the warning reads
+"Your clients' seats are prepaid, but you have 1 billable branded link domain and
+no card on file", with your own count.
 
 The warning goes to partner staff who can act on billing, and can be put off for
 the rest of the browser session. It takes precedence over anything the console

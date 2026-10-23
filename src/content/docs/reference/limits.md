@@ -355,6 +355,8 @@ See [API keys](/admin/api-keys/).
 | Invoices listed in the portal | The most recent 24 |
 | Purchase order reference | 140 characters |
 | Seat sync | Daily, with no mid-cycle proration |
+| Renewal or invoice day | Any day from the 1st to the 28th, moved by Tophhie Cloud on request. See [changing your renewal day](/admin/billing/#changing-your-renewal-day) |
+| Notice before a renewal day move | At least 2 days |
 | Seat figure on the Billing view | Last night's count, or a newer daytime correction. Counted live only when there is none from the last 26 hours |
 | Exclusion suggestion window | 90 days without a successful apply |
 | Exclusion note | 200 characters |
