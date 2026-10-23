@@ -127,6 +127,12 @@ means the request produced no answer at all, which is what a dropped connection
 looks like and also what a filter or firewall blocking the request looks like
 from inside Outlook.
 
+A filter that answers with a redirect, to a block page or a proxy sign-in page,
+also shows up as `unreachable`. Sigil never redirects the signature request
+itself, so the add-in treats a redirect as something in the way and refuses to
+follow it. That keeps the person's sign-in token from being passed on to
+whatever the redirect pointed at.
+
 A run of `unreachable` confined to one office, one VPN or one network is a
 filtering problem rather than a Sigil problem. Where the host is blocked
 outright, nothing is reported at all and the mailboxes surface on the
