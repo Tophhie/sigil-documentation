@@ -273,11 +273,11 @@ User profile fields get a second layer, because they are the only values here a
 colleague types rather than an administrator controls. What each field accepts is
 checked when it is saved rather than when it is rendered.
 
-Part of that check applies to every field regardless of its type: a value that
-looks like a link has to be an ordinary `http` or `https` one. A link target that
-is entirely one placeholder cannot be checked at render time, since Sigil cannot
-know the value in advance, so a text field is held to the same rule as a Link
-field. See [profile fields](/admin/profile-fields/#one-check-applies-to-every-type).
+Part of that check applies to every field regardless of its type: no value may
+start `javascript:`, `data:` or `vbscript:`. A link target that is entirely one
+placeholder cannot be checked at render time, since Sigil cannot know the value in
+advance, so a text field refuses those schemes just as a Link field does. Only the
+Link type goes further and insists on an ordinary `http` or `https` address. See [profile fields](/admin/profile-fields/#one-check-applies-to-every-type).
 
 Any placeholder left unresolved is stripped. A literal `{{jobTitle}}` can never
 reach a recipient, even if you mistype it.

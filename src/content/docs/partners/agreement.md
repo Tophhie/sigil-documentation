@@ -40,12 +40,12 @@ sign in and read the console, but these are refused until they have:
 - inviting a client
 - requesting a transfer of an existing tenant
 - releasing a client
-- enabling an [add-on](/partners/billing/#add-ons-on-a-client) for one
+- turning an [add-on](/partners/billing/#add-ons-on-a-client) on or off for one
 - working inside a client with [Manage](/partners/clients/#working-inside-a-client)
 
 Inviting, transferring, releasing and working inside a client all handle another
 organisation's data along a sub-processor chain that has to be agreed first. An
-add-on puts a metered charge on your own invoice, and nobody should be able to do
+add-on changes what goes on your own invoice, and nobody should be able to do
 that under terms that never mentioned it. Manage is refused with "Accept the
 partner agreement before managing clients."
 

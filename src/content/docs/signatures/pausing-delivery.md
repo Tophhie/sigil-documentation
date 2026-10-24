@@ -122,9 +122,10 @@ the whole organisation and none of it is a fault.
 `GET /api/admin/templates` reports the current state as `signaturesPaused`. An
 [API key](/admin/api-keys/) can reach both, but they need different capabilities.
 The write needs the assignment rules capability and a key that is not marked
-read-only. The read needs the templates capability, so a key that holds only
-assignment rules can pause and resume but cannot see which state it left things
-in.
+read-only. The read needs the templates capability. A key that holds only
+assignment rules can still pause and resume, and the reply to each write gives
+the state now in force, but it cannot check the current state without sending a
+write.
 
 Being reachable by a key is deliberate. Cutting delivery over during a mail
 migration, or holding it while a rollout script runs, is the kind of step that

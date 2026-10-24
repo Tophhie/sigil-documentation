@@ -15,7 +15,9 @@ the things generic rich-text editors mangle. Visual authoring belongs in the
 [designer](/signatures/designer/), whose documents compile to that markup for
 you.
 
-Editing needs the admin or editor role and a desktop browser.
+Editing needs a desktop browser and a role with access to templates: Admin or
+Editor, a managing partner's Owner, Admin or Technician, or a
+[custom role](/admin/users-and-roles/#custom-roles) given templates.
 
 1. Open Templates in the portal sidebar.
 2. Choose the template's name, or Edit at the end of its row.
@@ -136,9 +138,15 @@ and come back to it without anything reaching users. See
 
 ## How it loads
 
-The editor is bundled into the portal itself rather than fetched from a content
-delivery network at the moment you open it. There is no second load that can
-fail on its own: if the portal loads, the editor loads with it.
+The editor is part of the portal's own build rather than fetched from a content
+delivery network. The portal downloads it the first time you open an HTML
+template, after the template, its preview and the publish controls have
+appeared, so those are usable a moment before the editor is. A template built in
+the designer never downloads it at all.
+
+Because it is a separate download from the portal, a connection that drops at
+that moment can leave the editor area empty while the rest of the page works.
+Reloading the page fetches it again.
 
 An earlier version of the portal did pull the editor from a CDN and kept a plain
 text area as a fallback for when that failed. Neither the CDN fetch nor the

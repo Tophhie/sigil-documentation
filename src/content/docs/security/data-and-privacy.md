@@ -419,7 +419,7 @@ names are about identifiable people. An export missing either is not merely
 thinner, it is wrong about what your organisation holds.
 
 It also carries the support notes Tophhie Cloud staff have written against your
-organisation. Those notes are written in the operator console rather than in your
+organisation. Support writes those notes in its own tools rather than in your
 portal, so you never see them day to day, but they are records about you and the
 export does not hold them back.
 

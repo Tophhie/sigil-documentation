@@ -168,7 +168,8 @@ applied one.
 2. Under Signature adoption, read how many mailboxes have applied their
    signature at least once and how many never have.
 3. Under By mailbox, find each pilot mailbox and check its Outcome.
-4. Choose Export mailboxes (CSV) for the never-applied mailboxes as a list.
+4. Choose Export mailboxes (CSV) to download every mailbox with a Signature
+   applied column of Yes or No. Filter it for No to list the ones that never have.
 
 Send yourself a [test email](/admin/test-email/) to see the rendered signature in
 a real client.
@@ -187,7 +188,8 @@ tenant state down to a single mailbox.
 ## 6. Invite colleagues and add a card
 
 Under Users and roles, invite the people who need portal access and give each a
-role. There are six, and most people need a narrow one: Marketing reaches banners
+role. There are six built-in roles, and an Admin can also define custom ones,
+but most people need a narrow one: Marketing reaches banners
 and link analytics, Compliance reaches the legal footer, Viewer reads without
 changing anything. See [users and roles](/admin/users-and-roles/).
 

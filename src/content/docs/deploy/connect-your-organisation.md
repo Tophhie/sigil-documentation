@@ -150,12 +150,13 @@ per tenant in Sigil, decides what you can do.
 | You sign in with no role assigned | You are told to request access from an administrator |
 | Your organisation never granted consent | You get a second step offering to approve Sigil, which starts consent |
 | Your organisation was removed and is awaiting deletion | You are told to contact support, because only an operator can restore it |
-| Your organisation is suspended | You are told access is suspended |
+| Your organisation is suspended | You see "Couldn't load your account", with a message saying your organisation's access is suspended |
 
 Reaching the portal before anyone has granted consent is the ordinary order of
 events for an administrator who was forwarded a link, so that case offers the
-consent step rather than an error. The other three cannot be resolved by the
-person reading them, and say so instead of offering a button that would not work.
+consent step rather than an error. No role and removal cannot be resolved by the
+person reading them, and say so without offering a button. A suspension shows a
+Reload button, but reloading will not lift it. Contact support instead.
 
 That step is presented as step two of two, with your sign-in ticked off above it
 and the account you signed in with named, because the alternative reads as the
@@ -320,7 +321,12 @@ that cancels billing and purges every record, asset and cached entry belonging t
 your organisation. Two records are deliberately kept, and
 [data and privacy](/security/data-and-privacy/) says which and why.
 
-Coming back afterwards is a new signup rather than a restoration. Granting
+Coming back after the purge is a new signup rather than a restoration. Granting
 consent again provisions a fresh organisation, with a fresh trial and no
-templates, rules or history from before. There is no waiting period, so this
-works on the same day as the deprovision.
+templates, rules or history from before.
+
+A deprovision normally waits out a grace window of 30 days before the purge runs.
+During that window your organisation is still on record as awaiting deletion, so
+granting consent again does not start a new signup, as described
+[above](#what-re-consenting-cannot-fix). If you want to come back sooner, ask support
+to purge straight away, or to restore the organisation instead.
