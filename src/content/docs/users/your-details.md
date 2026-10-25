@@ -127,7 +127,9 @@ If your organisation changes what a field may hold after you filled it in, an
 answer that no longer fits is removed rather than left in your signature. That
 happens when a field's type changes altogether, and when an option you chose is
 taken off a list. Pick again from the new list the next time you visit. A field
-that only had its label, help text or length changed keeps your answer.
+that only had its label, help text or length changed keeps your answer. If the
+length limit was shortened below what you entered, saving is refused with "Must
+be N characters or fewer." until you shorten it.
 
 Leaving a field empty is fine. Your signature closes up around anything you have
 not filled in, so an empty field leaves no gap, no stray comma and no empty

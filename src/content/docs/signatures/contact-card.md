@@ -38,7 +38,7 @@ placeholder resolves to nothing, and the section removes the button rather than
 leaving a link that goes nowhere.
 
 The template preview, in the designer and in the HTML editor, never has a card
-link to show, even with Render as set to a real mailbox. A button wrapped in the
+link to show, even when it is set to render as a real mailbox. A button wrapped in the
 section, or carrying the Show when rule below, is therefore hidden in every
 preview. That is expected. Download the signature from Templates or send a
 [test email](/admin/test-email/) to see the button as recipients will.
@@ -134,7 +134,9 @@ fetch the same card.
 
 The one thing that ends a link early is the person leaving. The card is looked
 up in your directory when it is fetched, so once the address no longer resolves
-to anybody, the link comes back as not found.
+to anybody, the link comes back as not found. A card can be held in a cache for
+up to a day, so someone who fetched it shortly before the person left may still
+get it until that day is up.
 
 That is deliberate. A business card does not expire, and a dead link in an old
 email is worse than a live one. It also keeps rendered signatures cacheable,

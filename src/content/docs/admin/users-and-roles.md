@@ -190,7 +190,7 @@ custom role can be given them, whatever areas it reaches:
 
 - Creating, changing or removing an Admin.
 - Accepting the [data processing agreement](/admin/billing/#accepting-the-data-processing-agreement).
-- Creating or revoking [API keys](/admin/api-keys/).
+- Viewing, creating or revoking [API keys](/admin/api-keys/).
 - Defining custom roles.
 - Rejecting a submitted draft, and publishing while
   [publish approval](/signatures/approvals/) is switched on.

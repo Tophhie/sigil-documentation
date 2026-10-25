@@ -153,6 +153,7 @@ The link is single-use and lasts 30 days unless Tophhie Cloud set a different
 expiry when sending it. An expired or used link opens a page headed "This
 invitation isn't available", with a button to ask for a fresh link from
 partners@usesigil.app. The link is also honoured only for an organisation
-Microsoft confirms has granted consent, so a link followed for a tenant that has
-not consented provisions an ordinary customer rather than a partner, and leaves
-the link unused so it can be sent again.
+Microsoft confirms has granted consent. If Microsoft says it has not, a new
+organisation is stopped before anything is created and asked to try again, and
+one that already uses Sigil carries on as an ordinary customer. Either way the
+link is left unused so it can be sent again.

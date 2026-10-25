@@ -44,6 +44,14 @@ Templates opt in per template.
 The portal confirms with "Link tracking on." and the template's row gains a Link
 tracking chip. Turning it on rewrites the template's static links at render time.
 
+Switching tracking on or off needs the Admin or Editor role, or a custom role
+given Templates. Marketing and Viewer can read the results but cannot change
+the setting. The change is recorded in the change log and applies from the next
+message composed.
+
+Previews never carry tracked links. A template or banner preview shows the real
+destination, so clicking a link in a preview is never counted.
+
 ## Links that are never rewritten
 
 Any link containing a placeholder is left alone.
@@ -162,7 +170,8 @@ the whole picture.
 Last is a weekday by hour grid of when clicks arrive, in UTC, and the table of
 every tracked link with a 30-day trend line on each row. Any row opens that
 link's own page, which is the same set of charts narrowed to one link plus its
-all-time total.
+all-time total. The table's Last 30 days and Total columns are fixed, and do not
+change with the window chosen above.
 
 ### Choosing a window and showing filtered hits
 

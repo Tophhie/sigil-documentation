@@ -31,6 +31,12 @@ See [ask the documentation](/admin/ask-the-documentation/).
 An ordered predicate that picks a template for a person by directory attribute or
 Entra group membership. See [assignment rules](/targeting/assignment-rules/).
 
+**Attribute coverage**
+A check of what share of your mailboxes have a value for each directory attribute
+a placeholder can use, so a design is not built around a field much of the
+directory leaves empty. See
+[attribute coverage](/monitoring/attribute-coverage/).
+
 **Banner**
 A time-boxed campaign image injected above or below the signature. See
 [banners](/targeting/banners/).
@@ -40,19 +46,31 @@ A hostname belonging to the customer, pointed at Sigil by a CNAME, which serves
 that organisation's tracked links in place of the shared one. It resolves that
 organisation's links and no other's.
 
-**Conditional section**
-Markup of the form `{{#field}}...{{/field}}` that disappears when the underlying
-attribute is empty.
-
 **Capability**
 The unit of permission each server route actually checks. A portal role is a
 named set of them. See
 [roles and capabilities](/reference/roles-and-capabilities/).
 
+**Change log**
+The append-only record of who changed what about an organisation, and when,
+including anything Tophhie Cloud support did. Opened from Audit log in the
+portal sidebar. See [change log](/monitoring/change-log/).
+
+**Conditional section**
+Markup of the form `{{#field}}...{{/field}}` that shows its contents only when
+its condition holds. A condition can be one field, or several combined with `|`
+(or), `&` (and), `!` (not) and brackets. See
+[conditional sections](/signatures/placeholders/#conditional-sections).
+
 **Contact card**
 A vCard built from the sender's own directory record, offered either as a QR code
 or as a signed download link in the signature. See
 [the contact card link](/signatures/contact-card/).
+
+**Custom role**
+A portal role an Admin defines, made of a name and the capabilities it reaches.
+It is given to people like a built-in role. See
+[custom roles](/admin/users-and-roles/#custom-roles).
 
 **Direct tenant**
 A tenant that signed up itself and pays for itself, as opposed to one managed by
@@ -61,10 +79,11 @@ a partner.
 **Draft**
 A template's unpublished working copy. One per template.
 
-**Health digest**
-A regular email to a tenant's administrators summarising coverage, apply failures
-and anything waiting on a decision. Weekly by default. See
-[the health digest](/monitoring/health-digest/).
+**Excluded mailbox**
+A mailbox the organisation has switched off in cost management. It receives no
+signature on any path, and it does not count towards the seats. One decision does
+both, and there is no way to have one without the other. See
+[cost management](/admin/cost-management/).
 
 **Failure rate**
 The share of attempts to apply a given version that Outlook did not accept. The
@@ -80,6 +99,17 @@ headline figures, but shown rather than hidden so the filter can be checked. See
 A legal or compliance block appended below every signature at render time. See
 [footers](/targeting/footers/).
 
+**Health digest**
+A regular email to a tenant's administrators summarising coverage, apply failures
+and anything waiting on a decision. Weekly by default. See
+[the health digest](/monitoring/health-digest/).
+
+**Inclusion mode**
+The setting that turns the cost management list around, so that the mailboxes on
+it are the only ones with Sigil rather than the only ones without. One mode
+applies to the whole organisation, and it can only be changed while the list is
+empty. See [cost management](/admin/cost-management/#which-way-round-the-list-reads).
+
 **Integrated apps**
 The area of the Microsoft 365 admin centre where an administrator deploys the
 add-in.
@@ -90,14 +120,14 @@ number of days rather than charged to a card. Agreed with Tophhie Cloud rather
 than chosen in the portal. See
 [invoices and credits](/admin/invoices-and-credits/).
 
-**Managed client**
-A tenant linked to a partner, configured and billed through that partner.
-
 **Mailbox-day**
 One billable mailbox counted on one day. A partner's monthly charge is its
 mailbox-days for the period divided by the days measured, which is the average
 the invoice charges. See
 [partner billing](/partners/billing/#how-the-average-is-worked-out).
+
+**Managed client**
+A tenant linked to a partner, configured and billed through that partner.
 
 **NAA**
 Nested app authentication, the mechanism by which the add-in acquires an Entra
@@ -112,9 +142,20 @@ by cross-referencing the directory against telemetry. See
 A managed service provider running Sigil for a client base. Not a tenant. See
 [the partner programme](/partners/overview/).
 
+**Paused delivery**
+An organisation-wide switch that stops mailboxes receiving a signature while
+leaving every admin surface working. It changes nothing about seats or the
+subscription. See [pausing delivery](/signatures/pausing-delivery/).
+
 **Placeholder**
 A token such as `{{jobTitle}}` replaced with directory data at render time. See
 [placeholders](/signatures/placeholders/).
+
+**Prepaid mailboxes**
+A block of mailboxes paid for up front for a fixed term. While it runs, only
+mailboxes above the block are billed monthly. See
+[billing](/admin/billing/#prepaid-mailboxes), or for a partner,
+[prepaid mailboxes for a client](/partners/billing/#prepaid-mailboxes-for-a-client).
 
 **Profile field**
 A custom field an organisation defines and its own staff fill in, reached in a
@@ -124,29 +165,14 @@ enters. See [profile fields](/admin/profile-fields/).
 
 **Profile page**
 The page at `portal.usesigil.app/me` where anybody in an organisation fills in
-their own profile fields. Needs no portal role and grants none. See
+their own profile fields, once an administrator has switched on profile editing
+in Settings. Needs no portal role and grants none. See
 [filling in your own details](/users/your-details/).
-
-**Prepaid mailboxes**
-A block of mailboxes paid for up front for a fixed term. While it runs, only
-mailboxes above the block are billed monthly. See
-[billing](/admin/billing/#prepaid-mailboxes), or for a partner,
-[prepaid mailboxes for a client](/partners/billing/#prepaid-mailboxes-for-a-client).
-
-**Paused delivery**
-An organisation-wide switch that stops mailboxes receiving a signature while
-leaving every admin surface working. It changes nothing about seats or the
-subscription. See [pausing delivery](/signatures/pausing-delivery/).
 
 **Publish approval**
 An optional per-tenant switch requiring an admin to put any body live. Editors
 submit drafts for review instead. See
 [publish approval](/signatures/approvals/).
-
-**Rollout**
-A publish served to a percentage of mailboxes first, promoted or withdrawn on the
-evidence of the add-in's apply results. See
-[staged rollouts](/signatures/staged-rollouts/).
 
 **Role**
 Two meanings, distinguished by context. A signature role is the slot a template
@@ -154,27 +180,15 @@ fills: `new` or `reply`. A portal role is a permission level: Admin, Editor,
 Marketing, Viewer, Compliance, Billing, or a custom role your organisation
 defined.
 
-**Custom role**
-A portal role an Admin defines, made of a name and the capabilities it reaches.
-It is given to people like a built-in role. See
-[custom roles](/admin/users-and-roles/#custom-roles).
+**Rollout**
+A publish served to a percentage of mailboxes first, promoted or withdrawn on the
+evidence of the add-in's apply results. See
+[staged rollouts](/signatures/staged-rollouts/).
 
 **Scheduled publish**
 A template body booked to go live at a chosen instant. The body is captured when
 the schedule is made rather than read when it fires. See
 [scheduled publishing](/signatures/scheduled-publishing/).
-
-**Excluded mailbox**
-A mailbox the organisation has switched off in cost management. It receives no
-signature on any path, and it does not count towards the seats. One decision does
-both, and there is no way to have one without the other. See
-[cost management](/admin/cost-management/).
-
-**Inclusion mode**
-The setting that turns the cost management list around, so that the mailboxes on
-it are the only ones with Sigil rather than the only ones without. One mode
-applies to the whole organisation, and it can only be changed while the list is
-empty. See [cost management](/admin/cost-management/#which-way-round-the-list-reads).
 
 **Seat**
 A licensed member mailbox. Unlicensed mailboxes, which normally
@@ -183,18 +197,18 @@ are accounts invited in from outside the organisation, disabled accounts, and
 mailboxes the organisation has kept out of Sigil in cost management, whether
 individually, through an Entra group, or by never including them.
 
-**Service credit**
-An amount credited to an account because a month fell short of an uptime
-commitment. Recorded with the month it settles, and applied to a following
-invoice rather than paid out. See
-[support and service level](/partners/service-level/).
-
 **Sender**
 Whoever pressed Send, as opposed to the mailbox a message goes out from. The two
 are the same account on an ordinary send and differ on a shared or delegated
 mailbox, which is the case the `{{sender.…}}` placeholders and the
 `{{onBehalfOf}}` condition exist for. See
 [sending on behalf of a mailbox](/signatures/sending-on-behalf/).
+
+**Service credit**
+An amount credited to an account because a month fell short of an uptime
+commitment. Recorded with the month it settles, and applied to a following
+invoice rather than paid out. See
+[support and service level](/partners/service-level/).
 
 **Staff profile details**
 The capability covering what a named colleague entered in their own profile
@@ -215,4 +229,3 @@ A redirect under `e-clk.usesigil.app/r/<slug>` that counts clicks without
 identifying the clicker, or under the organisation's own hostname where it holds
 the [branded link domain](/monitoring/branded-link-domain/) add-on. See
 [link clicks](/monitoring/link-clicks/).
-

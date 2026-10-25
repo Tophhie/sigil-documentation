@@ -77,7 +77,7 @@ Clients view until it is used, with Copy link beside it.
 
 The client administrator follows it and grants admin consent for their own
 tenant. The tenant provisions itself as it would for any direct customer, on the
-ordinary trial and billed to nobody yet, and the invitation is consumed.
+ordinary trial in its own name, and the invitation is consumed.
 
 Consent does not link the tenant to you on its own. It raises a management
 request in your name, which an Admin at the client answers in their own portal
@@ -93,7 +93,11 @@ invited to manage produces nothing but a request it can refuse.
 4. They choose Approve.
 
 Until they do, the request is listed under Pending invites & transfers as
-awaiting their approval, and you have no access to the tenant.
+awaiting their approval, and you have no access to the tenant. Unlike a
+transfer, no email goes to the client's admins about it, so they see the card
+only when they sign in. Like a transfer, it lapses after 14 days unanswered.
+An invitation sent by a suspended partner is not honoured: the client is
+provisioned as a direct customer and no request is raised.
 
 A pending invitation can be revoked before it is used.
 
@@ -122,9 +126,9 @@ to a check that could not reach Microsoft, and the request still needs their
 Admin's approval before anything changes hands.
 
 The same fallback covers an invitation that fails for any other reason, such as
-one that has expired or was already used. The client is provisioned as an
-ordinary direct customer on a full trial rather than being left with no billing
-arrangement at all, and you can [request a
+one that has expired or was already used. The client is provisioned exactly as
+an invited one would be, a direct customer on the ordinary trial, only without a
+management request in your name, and you can [request a
 transfer](#taking-over-an-existing-tenant) afterwards. It is the safe way round:
 the client's signatures work either way, and only who pays is left to settle.
 
@@ -132,7 +136,9 @@ the client's signatures work either way, and only who pays is left to settle.
 
 Open a client and choose Manage. The portal switches into that client's context.
 
-Owners, Admins and Technicians can, for the clients in their scope.
+Owners, Admins and Technicians can, for the clients in their scope. The Clients
+list itself shows every client your firm manages, including any outside your own
+scope. Manage is where scope is checked.
 
 1. Open Clients in the portal sidebar.
 2. Choose Manage on the client's row.
@@ -143,6 +149,10 @@ which an Owner fixes on the [agreement](/partners/agreement/) card. "You aren't
 assigned to this client." means your [scope](/partners/roles/#client-scoping)
 does not include it. "This client's access is suspended." means the client
 organisation is suspended, and nobody can work inside it until that is lifted.
+
+A Technician still sees Add a client, Request a transfer and Release client in
+the portal, but choosing them is refused with "You don't have access to this
+area." Those actions sit with Owners and Admins.
 
 The portal opens the client's Templates view. A banner at the top reads
 Managing, followed by the client's name, and says that changes are recorded

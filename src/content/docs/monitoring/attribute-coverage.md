@@ -65,7 +65,7 @@ one person or a systemic gap.
 
 The audit walks every mailbox in the directory, so it runs when you ask rather
 than when the page opens. You need the Admin, Editor, Viewer or Compliance
-role.
+role, a custom role given Monitoring, or a partner role inside a managed client.
 
 1. Open Attribute coverage in the portal sidebar, under Directory.
 2. Choose Run audit. The button reads Running while the directory is walked.
@@ -166,6 +166,7 @@ it covers every attribute rather than only the ones in use.
 
 ## Who can run it
 
-Admins, Editors, Viewers and the Compliance role, which all hold monitoring. The
-Marketing and Billing roles do not reach it. See
+Admins, Editors, Viewers and the Compliance role, which all hold monitoring, and
+any custom role given it. Partner Owner, Admin and Technician staff can run it
+inside a managed client. The Marketing and Billing roles do not reach it. See
 [users and roles](/admin/users-and-roles/).

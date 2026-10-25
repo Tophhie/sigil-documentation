@@ -84,7 +84,8 @@ Sigil reads your organisation's record to name your tenant and to pre-fill the
 billing profile from your registered address. It reads it again when your
 billing details are set up or refreshed, and at sign-in only if your tenant has
 no name or no billing profile on record yet. It is also the quick check that
-Sigil can still reach your directory. That check runs every time the Getting started page loads, when
+Sigil can still reach your directory. That check runs when the Getting started page loads (a successful answer is
+remembered for five minutes, so a lapse shows within that window), when
 Tophhie Cloud support looks at your organisation's health, and in the nightly
 seat count if reading your directory fails, to tell a withdrawn consent apart
 from a passing fault.
@@ -93,7 +94,7 @@ None of this is on the signature path. Composing a message never reads it.
 
 ## GroupMember.Read.All
 
-Three things use it.
+Four things use it.
 
 Group mailboxes. When somebody sends as a Microsoft 365 group, a distribution
 list or a mail-enabled security group, the From address belongs to a group rather
@@ -109,6 +110,11 @@ attributes do not touch it.
 have excluded, and searches your groups for the picker. It also lists your
 mail-enabled groups, so a group's address on your list is recognised as a group
 mailbox rather than flagged as missing from the directory.
+
+The mailbox search in the portal's preview, simulator, download and test email
+boxes also lists matching mail-enabled groups, so a group mailbox can be
+previewed. For an organisation that consented before this permission was
+requested, the search simply shows people only.
 
 It is requested at consent time regardless, because asking for it later would
 mean a second consent round trip at the moment an administrator is trying to

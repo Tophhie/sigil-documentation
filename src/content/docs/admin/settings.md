@@ -146,7 +146,7 @@ not your organisation holds the add-on: without it, the card explains what the
 feature does and points at Billing, rather than offering a button that would be
 refused.
 
-With the add-on, and the Admin role, claiming a hostname goes like this.
+With the add-on, and the Admin role or a custom role given Settings, claiming a hostname goes like this.
 
 1. Open Settings in the portal sidebar.
 2. In the Link domain card, choose Add a link domain.
@@ -156,7 +156,14 @@ With the add-on, and the Admin role, claiming a hostname goes like this.
 
 The card then shows the hostname with a badge saying where it has got to,
 Waiting for DNS to begin with, repeats the record to create, and offers Check
-again. Once the certificate is issued the badge reads Live.
+again. Once the record is found the badge reads Setting up… while the
+certificate is issued, and then Live.
+
+If no certificate can be issued the badge reads Not working, and links keep
+coming from the shared address in the meantime. The card shows the reason
+given, and says the usual causes are a CNAME that does not exist yet or points
+somewhere else, or a CAA record on your domain that does not allow the
+certificate authority. Fix the record and choose Check again.
 
 To remove it:
 
@@ -182,6 +189,10 @@ The settings capability. Of the built-in roles only Admin holds it. Editors,
 Marketing, Viewers, the Compliance role and the Billing role do not reach this
 page. An Admin can give the capability to a [custom role](/admin/users-and-roles/#custom-roles), and anyone holding
 that role can then change these settings, publish approval included.
+
+An [API key](/admin/api-keys/) can read these settings but never change them,
+since a key that could switch publish approval off would get round the review
+it exists for.
 
 In a [partner-managed](/partners/overview/) organisation, a partner Owner or
 Admin can change these for a client. A partner Technician cannot. Turning a

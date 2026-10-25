@@ -93,7 +93,8 @@ requests arriving and apply outcomes succeeding.
    Applied, and the Add-in column should show the add-in's manifest
    version.
 3. Ask anybody missing from the table to start a new message and choose My
-   signature on the ribbon. The pane says why nothing was applied.
+   signature on the ribbon, on a computer. Outlook on a phone has no My
+   signature button. The pane says why nothing was applied.
 
 ## Go tenant-wide
 
@@ -175,7 +176,7 @@ and the code cannot see that it is missing.
 So the add-in reports which manifest it was installed from, on the same beacon
 that reports whether the signature applied, and
 [Activity](/monitoring/activity/) shows you the answer. When any mailbox that
-has composed in the last 30 days is on an older manifest than the one Sigil is
+has applied a signature in the last 30 days is on an older manifest than the one Sigil is
 serving, the view carries a notice naming the manifest version Sigil now serves
 and how many mailboxes are behind, with an Update button that opens the steps
 and the manifest link to re-upload.
@@ -194,7 +195,7 @@ way rather than left blank, because blank invites the wrong reading.
 
 The notice never appears while Sigil cannot read its own served manifest, so it
 will not tell you to update towards a version nobody can name. It also counts
-only mailboxes that have actually composed in the last 30 days, so somebody who
+only mailboxes that have actually applied a signature in the last 30 days, so somebody who
 left in March does not hold your organisation at "behind" for ever.
 
 Until you update, those mailboxes keep working exactly as they did. They simply
@@ -205,6 +206,11 @@ do not get whatever the newer manifest declares.
    manifest Sigil now serves and how many mailboxes are on an older one. Choose
    Update to open the steps, with a Copy button for the manifest link.
 3. In the By mailbox table, read the Add-in column for each mailbox.
+
+If you deployed from the Marketplace you may still see this notice for a while
+after a new version is released, because Microsoft rolls it out over time. The
+Update steps are for a custom app, so there is nothing for you to re-upload.
+Watch the Add-in column instead, and the notice clears as mailboxes move on.
 
 ## Updating the add-in
 

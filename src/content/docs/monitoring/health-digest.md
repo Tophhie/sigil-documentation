@@ -28,6 +28,13 @@ them.
 
 Empty sections are left out rather than printed as zeroes.
 
+Two sections do not follow the digest's own schedule. Apply failures are counted
+since your organisation started using Sigil, not since the last digest, so once
+any attempt has failed, that section and the attention-needed subject line
+appear in every digest. Published this week always covers the last seven days,
+even on a monthly digest, so earlier publishes in the month are in the
+[change log](/monitoring/change-log/) instead.
+
 ## Pictures of what was published
 
 With [signature previews](/signatures/previews/), each line under Published this week carries a picture of the
@@ -138,8 +145,8 @@ tells you it would be held back. See below for when that applies.
 
 ### Previewing or sending a test
 
-You need the Admin role, or a partner Owner or Admin role inside a managed
-client.
+You need the Admin role, a custom role given Settings, or a partner Owner or
+Admin role inside a managed client.
 
 1. Open Settings in the portal sidebar, under Organisation.
 2. On the Health digest card, choose Preview. The subject line and the rendered
@@ -155,7 +162,7 @@ when the next one goes out.
 | Setting | Behaviour |
 | --- | --- |
 | Weekly | The default |
-| Monthly | For organisations where weekly is more than they want |
+| Monthly | One every 30 days, for organisations where weekly is more than they want |
 | Off | No digest at all |
 
 Change it in [settings](/admin/settings/). Every digest carries a link to that
@@ -167,8 +174,8 @@ every send.
 
 ### Changing the frequency or switching it off
 
-You need the Admin role, or a partner Owner or Admin role inside a managed
-client.
+You need the Admin role, a custom role given Settings, or a partner Owner or
+Admin role inside a managed client.
 
 1. Open Settings in the portal sidebar, under Organisation.
 2. On the Health digest card, choose Weekly, Monthly or Off.
@@ -189,6 +196,11 @@ An organisation with no administrators yet, which happens partway through
 onboarding, is not sent one and is not marked as having received one. It gets its
 first digest once somebody is there to read it.
 
+Partner staff never receive a client's digest, because only the client's own
+Admins are on the list. A managed client with no Admin of its own is not sent
+one. Partner staff can still use Preview or Send me one from the client's
+Settings.
+
 Organisations that are not being served are not sent digests either. That covers
 a suspension, a deletion grace window, and every billing reason signatures have
 stopped: a cancelled subscription, a trial that ended without a card, dunning
@@ -202,11 +214,12 @@ then and stops with them.
 ## When it does not arrive
 
 A brand new organisation with no directory read and no activity at all is skipped
-until there is something to say. A mail full of zeroes reads like a fault.
+for that period and looked at again at the next one. A mail full of zeroes reads like a fault.
 
 If the directory could not be read on the day a digest was built, the digest is
-still sent but omits the coverage section rather than reporting 0%, which would
-be alarming and wrong.
+still sent, and says the directory could not be read. It leaves out the coverage
+figure, the list of mailboxes that never applied a signature and the directory
+gaps, rather than reporting 0%, which would be alarming and wrong.
 
 Every organisation due a digest is sent one on the same run. Sigil used to work
 through the list in batches, so a busy day could push a digest to the following

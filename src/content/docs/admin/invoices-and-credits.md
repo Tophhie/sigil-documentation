@@ -33,7 +33,8 @@ that payment fails.
 Invoice terms are agreed with Tophhie Cloud rather than switched on in the
 portal. There is no setting for it, because extending credit is a commercial
 decision rather than a preference. Ask support, and terms are put in place on
-your account.
+your account. Terms apply to invoices raised after they are agreed. An invoice
+already open at that point is still collected the way it was raised.
 
 ## Paying on invoice terms
 
@@ -68,10 +69,14 @@ invoice number as the payment reference on a bank transfer. See
 That last part is worth stating plainly, because it changes several things at
 once. Every prompt in Sigil that would otherwise mention a card reads how your
 account is collected before it says anything: the trial reminders, the overdue
-notices, the warnings at the top of the portal, the cancellation and
-reactivation confirmations, and the Add payment method button, which is not
-shown at all. An accounts team on terms is never sent looking for a card that does not
-exist.
+emails, the notices on the Billing view, the cancellation and reactivation
+confirmations, and the Add payment method button, which is not shown at all.
+
+One prompt does not yet make that check. Once an invoice is past its due date,
+the warning at the top of the portal reads "Your last payment failed" and asks
+you to update your card or pay the open invoice, with a Fix payment button. On
+terms there is no card to update, so pay the open invoice. The notice on the
+Billing view itself gives the right wording.
 
 The Billing view says which arrangement you are on where it would otherwise show
 the card, as "Invoice · net 30" or whatever term was agreed.
@@ -100,7 +105,8 @@ emailed straight away on your usual terms instead of being charged to a card.
 
 The Billing view lists your invoices, newest first, up to the last two dozen.
 Each row carries the invoice number and date, the period it covers, the total,
-its status, and its due date.
+its status, and its due date. An invoice collected from a card has no due date,
+so that column reads "charged to card" instead.
 
 | Status | What it means |
 | --- | --- |
@@ -121,7 +127,7 @@ Pay button, which pays it by card in a form on the page.
 
 ### Downloading an invoice
 
-You need the Admin or Billing role.
+You need the Admin or Billing role, or a custom role given Billing.
 
 1. Open Billing in the portal sidebar.
 2. Open the Documents tab.
@@ -132,7 +138,7 @@ Choose View instead to open the invoice's hosted page on Stripe in a new tab.
 
 ### Paying an open invoice by card
 
-You need the Admin or Billing role.
+You need the Admin or Billing role, or a custom role given Billing.
 
 1. Open Billing in the portal sidebar.
 2. Open the Documents tab.
