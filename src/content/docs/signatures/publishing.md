@@ -171,7 +171,9 @@ Publishing is recorded in the [change log](/monitoring/change-log/) with who did
 it and when.
 
 You need the templates capability, and where
-[publish approval](/signatures/approvals/) is on you need to be an Admin.
+[publish approval](/signatures/approvals/) is on you need to be an Admin, or a
+partner's Owner or Admin in an organisation they manage. A custom role never
+qualifies, whatever it includes.
 
 1. Open the template in its editor from Templates.
 2. Choose Publish.
@@ -193,7 +195,7 @@ A [designer](/signatures/designer/) template is also validated on publish. If a
 block is misconfigured, the error names the block and the problem.
 
 Where [publish approval](/signatures/approvals/) is switched on, a publish by
-anybody but an admin is refused with a message saying so. Editors save a draft
+anybody but an admin (or a managing partner's Owner or Admin) is refused with a message saying so. Editors save a draft
 and submit it for review instead.
 
 ## Publishing to nobody at all

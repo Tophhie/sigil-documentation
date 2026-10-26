@@ -56,7 +56,10 @@ carries on working, so you can deploy and test the add-in without anyone getting
 a half-finished signature. See
 [pausing delivery](/signatures/pausing-delivery/).
 
-Only an Admin can pause and resume.
+Among the built-in roles, only an Admin can pause and resume. A custom role
+that includes assignment rules can too, as can a partner's Owners, Admins and
+Technicians when your organisation is managed by a
+[partner](/partners/overview/).
 
 1. Open Templates in the portal sidebar.
 2. In the In use card, choose Pause.
@@ -148,7 +151,7 @@ Invite them under [users and roles](/admin/users-and-roles/). Each role is narro
 on purpose: Marketing reaches banners and link clicks only, Compliance reaches
 the footer, Viewer reads and changes nothing.
 
-Assignment rules are Admin-only, because a rule decides who receives which
+Among the built-in roles, assignment rules are Admin-only, because a rule decides who receives which
 signature and so reaches the whole organisation. Two other areas are also held
 by Admin alone among the built-in roles: organisation-wide settings (publish approval, the health digest,
 profile editing) and correcting the profile details colleagues entered about

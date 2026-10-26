@@ -24,7 +24,8 @@ schedule.
 ## Creating one
 
 API keys are in the portal, under the same group as billing and settings. Only
-the Admin role reaches them.
+the Admin role reaches them, along with a partner's Owners and Admins in an
+organisation they manage (see [below](#keys-created-by-your-it-provider)).
 
 That is deliberately the role rather than a capability. Minting a credential is
 an access-management act rather than an area of the product, and the users
@@ -118,9 +119,9 @@ that has not been decided either way.
 
 A call to something not on the list answers 404 rather than 403. The endpoint
 genuinely does not exist for keys, and a 403 would confirm to a leaked key which
-routes are real. The one exception is key management itself and the partner
-console's addresses, which answer 403 with "Not available to API keys." to a
-valid key.
+routes are real. A few addresses are refused outright instead, key management
+itself and the partner console's among them. Those answer 403 with "Not
+available to API keys." to a valid key.
 
 The list narrows and never widens. A request that gets through it still faces the
 same access check a person's request faces, so nothing here can grant a key

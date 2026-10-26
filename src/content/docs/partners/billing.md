@@ -245,6 +245,13 @@ A period still billed on its final day's count, from before
 [the move to the average](#when-the-average-starts), takes each client's block
 off that day's count in the same way.
 
+When the block is recorded, your billing email and every Owner and Billing
+member of partner staff are emailed "Prepaid mailboxes added for" followed by
+the client's name, with the number of mailboxes and the days it runs from and
+to. If Tophhie Cloud ends a block early, the same people are emailed that it has
+ended and the day it stopped applying. The email goes to whoever paid for the
+block, so a block ended after the client has moved on still reaches you.
+
 A client with a block shows a badge such as "50 prepaid" beside its name in the
 client list on the Partner billing page.
 

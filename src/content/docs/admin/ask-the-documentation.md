@@ -94,8 +94,8 @@ anybody's directory record.
 
 ## Answers can be wrong
 
-The panel says so under every answer, every time, rather than once. The line
-reads "Answers are written by an AI model from the documentation and can be wrong.
+The panel says so in a line that stays under the question box for as long as it
+is open, rather than a notice you dismiss once. The line reads "Answers are written by an AI model from the documentation and can be wrong.
 Check the page it links before you act on one, and leave people's details out of
 your question."
 

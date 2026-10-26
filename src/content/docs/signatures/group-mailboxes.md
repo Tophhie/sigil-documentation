@@ -96,7 +96,9 @@ organisation to a template of your choosing, and covers groups created next
 month without anybody touching Sigil. An email-address rule works too, for one
 group at a time.
 
-You need the Admin role.
+You need access to assignment rules. Among the built-in roles that is Admin
+only; a custom role that includes assignment rules works too, as do a
+partner's Owners, Admins and Technicians in an organisation they manage.
 
 1. Open Rules in the portal sidebar.
 2. Choose Add rule.

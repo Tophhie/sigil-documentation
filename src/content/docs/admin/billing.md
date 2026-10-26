@@ -122,6 +122,14 @@ mailboxes, 50 prepaid: 4 × £0.70 / month, excluding VAT", so the estimate adds
 up. Adding a block, or ending one early, also appears in your
 [change log](/monitoring/change-log/).
 
+Your billing contacts are emailed when Tophhie Cloud records a block, with the
+subject "Prepaid mailboxes added to your plan". It gives the number of
+mailboxes and the days the block runs from and to. If a block is ended early,
+they are emailed "Prepaid mailboxes on your plan have ended", naming the day it
+stopped applying, or saying it never applied if it was ended before its first
+day. Neither email gives an amount or a reference. Both have a View billing
+button.
+
 Thirty days before a block ends, your billing contacts are emailed once,
 "Your prepaid mailboxes end on" followed by the date. Nothing stops when it
 ends. From the next day every mailbox is billed monthly again at your usual
