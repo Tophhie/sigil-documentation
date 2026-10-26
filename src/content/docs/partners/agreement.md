@@ -150,6 +150,14 @@ left uninformed because the chain between you stalled. See [if there is a
 personal data breach](/security/compliance/#if-there-is-a-personal-data-breach)
 for what the notice has to contain.
 
+The notice arrives by email with the subject "Personal data breach notice from
+Sigil", addressed to your billing email and your Owner and Billing staff.
+Tophhie Cloud records the first notice and the particulars that follow under one
+reference. Which clients a breach affects is a judgement a person makes, so a
+client is told only when Tophhie Cloud names it. If the notice reaches nobody at
+your firm, Tophhie Cloud is told so at once and sends it to the affected clients
+directly. A client's copy names you and says you have been told as well.
+
 ## Using the Sigil name
 
 While you are a partner you may describe yourself as a Sigil partner and use the

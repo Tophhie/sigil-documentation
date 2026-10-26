@@ -401,7 +401,10 @@ in a template or a banner, and the clicks hold no identity to return. Booked
 flight are out because they are machinery rather than record, and whatever they
 publish lands in the change log. The notes of Graph asking Sigil to slow down are out
 because they are Tophhie Cloud's operational record, holding no personal data and
-nothing you wrote. Your [API keys](/admin/api-keys/) are out
+nothing you wrote. Tophhie Cloud's record of the notices it was required to send
+you is out because each of those is an email your own administrators received,
+a breach notice is in the change log the file already carries, and the record
+names Tophhie Cloud staff. Your [API keys](/admin/api-keys/) are out
 because a document that leaves the platform must not enumerate live credentials.
 Ask support if you need any of them for a compliance exercise.
 
@@ -531,6 +534,18 @@ back to.
 Where a deprovision is scheduled rather than immediate, the purge checks that the
 deletion is still scheduled before it destroys anything. An organisation restored
 during its grace window is safe even if a purge had already been queued for it.
+
+You are told by email at each step. Your administrators, everyone with the
+Billing role and the billing email on your billing profile receive:
+
+1. "Your Sigil data will be deleted on" a named day, when the deletion is
+   scheduled. Replying before that day is how to stop it.
+2. "Your Sigil account has been restored", if it is called off.
+3. "Your Sigil data is being deleted", as the purge starts.
+
+The third is sent after billing has stopped and before the records go, because
+afterwards there is nobody on record to send it to. It is sent once and never
+retried, so a mailbox that cannot be reached does not hold up the deletion.
 
 Everything above describes the live systems. Backups are the one place a purge
 does not reach: a backup holding your data is overwritten on its normal cycle

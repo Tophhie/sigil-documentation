@@ -36,6 +36,12 @@ Exemptions are set by Tophhie Cloud rather than in the partner console, so ask
 support for one. They lift by themselves on the date agreed rather than needing
 anybody to remember.
 
+Because the bill that grows is yours, the emails about it come to you rather
+than to the client: one a week before the date, naming the client and the day,
+and another when the exemption ends. They go to your Owner and Billing staff and
+your billing email. The second also arrives if Tophhie Cloud lifts an exemption
+early. See [emails Sigil sends](/admin/emails-sigil-sends/#to-a-partners-own-staff).
+
 Beyond that the list is deliberately narrow. It tells you whether a client is
 set up and how large they are, and nothing about their add-in activity or open
 exceptions. A client whose signatures have stopped for some reason other than

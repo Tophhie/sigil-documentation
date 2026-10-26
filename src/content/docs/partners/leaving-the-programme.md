@@ -167,6 +167,55 @@ like, with no notice period and no reason. The asymmetry is deliberate, and the
 agreement says why: you have clients depending on the arrangement and Tophhie
 Cloud does not, so the side that needs time to unwind it is yours.
 
+## How you are told
+
+The promises to tell you first are kept by the console rather than left to
+whoever is using it. Tophhie Cloud cannot suspend or remove a partner without a
+notice of the right kind having been sent and its date having arrived, so the
+order of events is fixed.
+
+Every message below goes to the billing email on your invoice details and to
+every Owner and Billing member of your partner staff, the same people who
+receive your payment notices. Each reply reaches `support@usesigil.app`.
+
+1. A notice arrives first, giving the reason and the day it takes effect. A
+   suspension or removal notice can name tomorrow at the earliest. A clause 10.2
+   notice names a day at least 90 days away.
+2. If Tophhie Cloud changes its mind, a second message says the notice has been
+   withdrawn and that nothing changes.
+3. On or after the day named, the change can be made, and a further message says
+   it has taken effect: your partner account is suspended, with the reason, or
+   your firm is no longer a partner.
+4. If a suspension is lifted, a message says the account is active again and
+   your clients' signatures are working.
+
+| Notice | Subject line |
+| --- | --- |
+| Suspension (clause 8) | Your Sigil partner account will be suspended on a named day |
+| Removal (clause 9.3) | We plan to remove your firm from the Sigil partner programme |
+| End of the partnership (clause 10.2) | Notice that your Sigil partnership ends on a named day |
+
+Each notice can be relied on once. It is used up by the suspension or removal it
+announced, so one notice cannot stand behind a second action months later.
+
+A few grounds cannot wait for a notice period: you asked to be suspended,
+misuse under clause 9.1, insolvency, or a compromised account. On those the
+change can be made at once, but the message telling you still goes before it is
+made. The one case where nothing is sent is where Tophhie Cloud is legally
+unable to tell you, and the console makes the operator write down why.
+
+On insolvency each client's administrators are told as well, as clause 7.3
+says. Their message says your partner account has been suspended and their
+signatures have stopped, and offers to move them to billing in their own name.
+It does not give the reason, because a client is owed the fact that its service
+stopped and the way back, not Tophhie Cloud's view of its provider.
+
+A removal for six months without a client relies on the 30-day notice described
+above rather than on a further one, and leaving voluntarily needs no notice at
+all. Either way the removal message still arrives as it takes effect. It says
+nothing has been deleted and, if your own tenant has moved onto standard
+billing, carries an Add a payment method button.
+
 ## What removal changes
 
 Removal ends the partner agreement and returns your organisation to being an
@@ -227,6 +276,13 @@ They are kept there rather than in the partner's own event log because that log
 is deleted along with the partner. Which clause was relied on is the first
 question if a decision is ever challenged, so it has to survive the thing it is
 about.
+
+The record of each notice you were sent survives for the same reason. It holds
+what the notice was, the day it named, and the addresses it went to. When the
+partner account is removed, those records move to your own organisation rather
+than going with the partner, since a removal notice matters most after the
+removal it announced. They are deleted when your organisation itself is, as the
+privacy policy's retention table says.
 
 ## Related pages
 

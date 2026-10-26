@@ -90,8 +90,9 @@ next invoice would be zero. See
 ### Has admin consent lapsed?
 
 If consent has been withdrawn or the enterprise application removed, Sigil can no
-longer read your directory and cannot personalise anything. Re-visit
-`/admin/consent` and grant consent again. See
+longer read your directory and cannot personalise anything. Your administrators
+will usually have had an email headed "Action needed: reconnect Sigil" after
+Sigil's next nightly check. Re-visit `/admin/consent` and grant consent again. See
 [connect your organisation](/deploy/connect-your-organisation/).
 
 1. Open Getting started in the portal sidebar.

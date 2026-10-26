@@ -222,6 +222,11 @@ service without penalty and get a pro-rata refund of anything prepaid. That is a
 term of the agreement rather than a courtesy, which is the point of writing it
 down.
 
+The notice reaches your administrators as an announcement from Tophhie Cloud,
+whatever their product update setting, and the 30 days are enforced when it is
+sent: a sub-processor change with less than that to run is refused. See
+[emails Sigil sends](/admin/emails-sigil-sends/#to-your-administrators-and-users).
+
 ## If there is a personal data breach
 
 The agreement commits Tophhie Cloud to telling you about a personal data breach
@@ -241,6 +246,20 @@ clock starts when you are told, so a processor that took the full seventy-two
 would leave you none. Sigil is a processor here and the obligation to notify a
 regulator or the people affected stays with your organisation, which is the
 reason the notice is written to be usable as the basis for that decision.
+
+The notice is an email to every administrator of your organisation, with the
+subject "Personal data breach notice from Sigil". It comes from the usual
+[sending address](/admin/emails-sigil-sends/#where-they-come-from), and the text
+of it is written by a person at Tophhie Cloud, stating what is known at the
+time. Questions go to `privacy@usesigil.app`, or by replying to it. Tophhie
+Cloud records a first notice and the particulars that follow it under one
+reference, so the phases stay together in its own record.
+
+Each one also leaves an entry in your
+[change log](/monitoring/change-log/#actions-taken-by-tophhie-cloud-support)
+reading "Sent your admins a data breach notice", and Tophhie Cloud keeps its own
+record of the date and the addresses it went to. That gives your organisation
+evidence of when it was told, which is when your own 72 hours started.
 
 Where your organisation is managed by an IT provider in the [partner
 programme](/partners/agreement/#breach-notification-reaches-you-sooner), the same
@@ -346,6 +365,7 @@ administrators a re-consent link.
 | Preview pictures of a version, for [signature previews](/signatures/previews/) | As long as the version they show. They depict a sample person rather than anybody in your organisation |
 | Deleted templates | 30 days in Recently deleted, then purged by a daily sweep |
 | Change log | For as long as your organisation uses Sigil |
+| Record of the notices the agreements require Tophhie Cloud to send you, such as a breach notice or notice of a change to an agreement | For as long as your organisation uses Sigil. Holds what was sent, when, and to which addresses |
 | Operator audit log | Indefinite |
 | Tophhie Cloud's own tenant, subscription and billing records | For as long as your organisation uses Sigil, then for as long as tax and accounting law requires the financial records to be kept |
 | Individual signature requests and apply outcomes | 90 days, then purged by a nightly sweep |

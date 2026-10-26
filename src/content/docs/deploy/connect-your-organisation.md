@@ -279,10 +279,13 @@ enterprise applications in Entra. When that happens Sigil can no longer read
 your directory, and signatures break quietly: the template is still there, but
 there is no data to personalise it with.
 
-Sigil's operators run a daily scan that flags tenants whose directory access has
-lapsed, and can email your administrators a re-consent link. If you suspect this
-has happened, re-visiting `/admin/consent` and granting consent again restores
-it.
+A nightly scan checks whether Sigil can still read each organisation's
+directory. The first night it is refused, every administrator is emailed
+"Action needed: reconnect Sigil" with a Reconnect Sigil button. That happens
+once per lapse rather than every night, and a night when Microsoft does not
+answer at all sends nothing. Tophhie Cloud support can send the same link again
+by hand. If you suspect this has happened, re-visiting `/admin/consent` and
+granting consent again restores it, without waiting for the email.
 
 To grant consent again from the portal:
 

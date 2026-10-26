@@ -16,6 +16,16 @@ name "Sigil by Tophhie Cloud".
 Nothing else sends on Sigil's behalf. A message that claims to be from Sigil and
 comes from any other address is not.
 
+Nobody reads that sending address, so the notices about your account and the
+messages support writes to you carry a reply address of `support@usesigil.app`.
+Choosing Reply in your mail client reaches a person. The breach notice described
+below points you at `privacy@usesigil.app` instead, in its own text.
+
+Every message ends with the same footer: Tophhie Cloud Ltd, its company number
+(17393069, registered in England and Wales), its registered office, and a link to
+Sigil's privacy policy at `portal.usesigil.app/privacy`. A message whose footer
+names anything else did not come from Sigil.
+
 Stripe sends billing mail of its own as well: the invoice itself, receipts, and
 its own payment failure notices, under Stripe's own sender, because Stripe is
 what raises the invoice and holds the card. See [billing](/admin/billing/).
@@ -36,7 +46,7 @@ organisation who can actually act on it.
 | A signature is waiting for your approval | An editor submits a draft for review. Goes to every administrator except the person who submitted it, and carries a [picture of the proposed signature](/signatures/previews/) |
 | Sigil health digest | Weekly by default, to every administrator. Coverage, apply failures and anything waiting on a decision |
 | Sigil health digest, on request | An administrator presses "Send me one" in [settings](/admin/settings/). Goes to that administrator only |
-| Action needed: reconnect Sigil | Admin consent has lapsed and signatures have stopped updating. Sent to every administrator |
+| Action needed: reconnect Sigil, followed by your organisation's name | Sigil has lost permission to read your directory, so signatures may have stopped updating. Sent to every administrator, once each time it happens. Carries a Reconnect Sigil button |
 | Your Sigil trial ends soon | Three days before the trial ends, and again the day before. The wording depends on whether a card is on file and whether your billing details are complete. Not sent for a trial already set to end |
 | Add your billing details before your Sigil trial ends | A trial about to convert still has incomplete billing details, so it has been set to end on its trial date. Names the date and what happens either way |
 | Your Sigil payment failed, or your Sigil invoice is overdue | A payment has failed, or an invoice has gone past its due date. Names the day signatures stop |
@@ -45,6 +55,16 @@ organisation who can actually act on it.
 | Prepaid mailboxes on your plan have ended | Tophhie Cloud has ended a prepaid block early. Names the day it stopped applying, and says mailboxes are billed monthly at your usual rate from then |
 | Your prepaid mailboxes end on a named day | Thirty days before a [prepaid block](/admin/billing/#prepaid-mailboxes) ends, once per block. Says that mailboxes are billed monthly at your usual rate after that |
 | Your Sigil renewal date is moving to a named day | A [renewal day move](/admin/billing/#changing-your-renewal-day) has been scheduled. Goes to your administrators, everyone with the Billing role and the invoice email on your billing profile. Names the day it happens, says that day's invoice falls outside the usual cycle, and how to stop it |
+| Your exemption from Sigil billing ends on a named day | A week before an agreed exemption from billing runs out. Asks you to check the Billing page has a payment method. See [account changes](#when-tophhie-cloud-changes-your-account) |
+| Your Sigil account is no longer exempt from billing | An exemption from billing has ended, on its agreed date or because Tophhie Cloud lifted it. Mailboxes are billed monthly from then |
+| Your Sigil account is suspended | Tophhie Cloud has suspended your organisation, and signatures have stopped. Goes to your administrators |
+| Your Sigil account is active again, or The suspension on your Sigil account has been lifted | A suspension has been lifted. The second wording is used when your subscription is not active, so signatures do not start again until it is. Goes to your administrators |
+| Your Sigil subscription has been cancelled | Tophhie Cloud has cancelled your subscription. Says the day signatures stop, or that they have stopped already, and that nothing is deleted |
+| Your Sigil subscription is active again | Tophhie Cloud has reactivated a cancelled subscription |
+| Your Sigil data will be deleted on a named day | Your organisation has been scheduled for deletion. Gives the date and asks you to reply before then if it is a mistake |
+| Your Sigil account has been restored | A scheduled deletion has been called off. Says whether signatures are working again or wait on the subscription being reactivated |
+| Your Sigil data is being deleted | The deletion has started. The last message Sigil sends your organisation |
+| Personal data breach notice from Sigil | A personal data breach affects your organisation's data. Goes to your administrators. See [if there is a personal data breach](/security/compliance/#if-there-is-a-personal-data-breach) |
 | A message from Tophhie Cloud | Support needs to tell your administrators something specific about your organisation |
 | An announcement from Tophhie Cloud | Something applies to every customer rather than to you in particular, such as an add-in manifest worth taking or a change to a published policy. A service notice, sent whatever your email preferences |
 | A product update from Tophhie Cloud | Occasionally, when enough has changed in the service to be worth a round-up. Nobody has to act on one, so it honours the [product update setting](/admin/settings/#product-update-emails) and each person's own opt-out. See [product updates](#product-updates) |
@@ -58,10 +78,15 @@ An administrator can also send themselves a copy on demand. That one goes to the
 person who pressed the button and to nobody else, and it does not move the
 schedule, so the real digest still arrives when it was going to.
 
-The reconnect prompt is sent by Tophhie Cloud support rather than fired
-automatically. A nightly scan across the fleet flags organisations whose Graph
-consent has stopped working, and somebody looks before your administrators are
-mailed, so a transient Graph outage does not become a fleet-wide alarm.
+The reconnect prompt comes from the nightly scan that checks whether Sigil can
+still read each organisation's directory. It is sent once when that changes from
+working to refused, not every night the problem lasts, so a lapse that goes
+unfixed for a week produces one message rather than seven. If consent comes back
+and later lapses again, that is a new lapse and sends again. A night when
+Microsoft does not answer at all is not treated as a refusal, so a Graph outage
+sends nothing. Tophhie Cloud support can also resend the same prompt by hand,
+and that copy is recorded in your
+[change log](/monitoring/change-log/#actions-taken-by-tophhie-cloud-support).
 
 The role email goes out only when somebody is added, not when an existing user's
 role is changed. Changing a role takes effect on their next request and needs no
@@ -89,6 +114,51 @@ processing agreement being the obvious one, goes to every organisation still on
 the platform. An announcement is a service notice and has no unsubscribe link:
 it is how you hear about a manifest you need to take or a policy that has
 changed, which is part of running the service rather than news about it.
+
+An announcement about a change to one of the published agreements (the data
+processing agreement, its list of sub-processors, the terms of use, the privacy
+policy or the partner agreement) is also a legal notice. Tophhie Cloud records
+it against your organisation with the version it introduces, the day that
+version takes effect, and the addresses it was sent to, so that having told you
+is something that can be shown rather than asserted. It is always a service
+notice, so it reaches administrators who have opted out of product updates. A change of sub-processor
+cannot be announced with less than 30 days to run, which is the notice the
+[data processing agreement](/security/compliance/#sub-processors-and-where-data-is-stored)
+promises. The revised document itself goes live on or after the date in the
+notice, not before.
+
+### When Tophhie Cloud changes your account
+
+A handful of the messages above exist because something about your account
+changed without anybody at your organisation doing it: Tophhie Cloud suspended
+or cancelled it, scheduled it for deletion or restored it, or an exemption from
+billing came to an end. Each of those used to happen silently, with an entry in
+the change log and nothing else, and signatures stopping was how most people
+found out.
+
+They are sent when Tophhie Cloud acts, not when you do. Cancelling your own
+subscription from the Billing page shows you the outcome on screen and sends
+none of these.
+
+Who receives each one depends on what it is about:
+
+| Message | Goes to |
+| --- | --- |
+| Reconnect Sigil, account suspended, account active again or suspension lifted | Your administrators, since they are the people who can act in the portal |
+| Subscription cancelled or active again, data to be deleted, account restored, data being deleted | Your administrators, everyone with the Billing role, and the billing email on your [billing profile](/admin/billing-profile/) |
+| Exemption ending, or ended | Whoever pays. For a direct customer that is the same group as the row above. For a partner-managed client it is the partner, not you, because the bill that grows is theirs |
+
+The exemption warning goes out in the morning, a week before the agreed end
+date, and once for that date. If the date is moved, the warning is armed again
+for the new one. A warning that reached nobody, because nobody was on record to
+send it to, is tried again the next morning.
+
+The deletion messages follow the timetable in
+[deleting your data](/security/data-and-privacy/#deleting-your-data). The first
+gives the day the data goes, which is the end of the grace window during which a
+deletion can still be called off. The last is sent as the deletion starts rather
+than after it ends, because once it ends there is nobody left on record to tell.
+It says that backups are overwritten on their normal cycle, within 90 days.
 
 ### Product updates
 
@@ -205,6 +275,9 @@ payment reminder is not their most relevant news.
 | Your provider has asked to manage your account | An MSP requests a transfer of your existing tenant. Approve or decline it yourself in the portal |
 | Your provider has released your account | Your MSP has ended the relationship. Billing returns to you |
 | Action needed: your email signatures are at risk | Your MSP's payment has been failing long enough that your signatures have a stop date |
+| A named provider now manages your Sigil account | Tophhie Cloud has put your organisation under a partner's management. Says your own subscription has been cancelled and the provider is billed from now on, or that you stay exempt from billing if you were. Also goes to everyone with the Billing role and your billing email |
+| Your Sigil signatures have stopped | Your provider's partner account has been suspended because it can no longer trade, so your signatures have stopped. Says your templates and settings are kept and how to move to billing in your own name. It does not give the provider's circumstances |
+| Personal data breach notice from Sigil | A breach affects your organisation's data and your provider asked Tophhie Cloud to tell you directly, or could not be reached. Names your provider and says they have been told as well |
 
 These go to every administrator of the managed organisation rather than to the
 partner, and they exist because each one is something a client must not learn
@@ -226,12 +299,14 @@ before anybody follows it.
 
 ## To a partner's own staff
 
-Sigil sends partner staff almost nothing. An MSP joining the partner programme is
-given a signup link to follow rather than being mailed one, and after that
-partner staff learn about their client base from the console rather than from
-their inbox.
+Sigil sends partner staff little about their day-to-day work. An MSP joining the
+partner programme is given a signup link to follow rather than being mailed one,
+and after that partner staff learn about their client base from the console
+rather than from their inbox. What does arrive is about billing, about a client
+moving in or out by Tophhie Cloud's hand, and the notices the partner agreement
+promises, listed in the table below.
 
-The one addition is the announcement described above, which can be addressed to
+The announcement described above is the other one, which can be addressed to
 a partner's Owners and Admins as well as to each client's own administrators. It
 exists because a managed client is allowed to have no administrators at all, its
 provider being the one who runs it, so a notice that needs somebody to act would
@@ -260,6 +335,19 @@ the link at the bottom of one.
 | Prepaid mailboxes for a client end on a named day | Thirty days before a [prepaid block](/partners/billing/#prepaid-mailboxes-for-a-client) you paid for ends, once per block. Names the client, and says its mailboxes are billed at your usual rate after that. Goes to the same people as the payment failure notice |
 | Your Sigil invoice date is moving to a named day | A [change of invoice date](/partners/billing/#changing-your-invoice-date) has been scheduled. Says that day's invoice covers fewer days than usual, and how to stop it. Goes to the same people as the payment failure notice |
 | Your Sigil partnership is at risk | The partnership has gone six consecutive months without an active client. Written to the partner's Owners, and it starts the 30 days the agreement gives them to respond |
+| A named client is now one of your Sigil clients | Tophhie Cloud has put an organisation under your management. Says whether its mailboxes count towards your bill from today or it is exempt |
+| A named client stops being exempt from billing on a named day | A week before a client's exemption from billing runs out. From then its mailboxes count towards your bill |
+| A named client is no longer exempt from billing | A client's exemption has ended, on its date or because Tophhie Cloud lifted it |
+| A named client is no longer managed by your firm | Tophhie Cloud has returned a client to billing in its own name, as clause 7.2 of the agreement allows. Your access to it has ended, and its usage up to today stays on your bill |
+| Your Sigil partner account will be suspended on a named day | Notice of a planned suspension, with the reason. See [how you are told](/partners/leaving-the-programme/#how-you-are-told) |
+| We plan to remove your firm from the Sigil partner programme | Notice of a planned removal, with the reason and the day |
+| Notice that your Sigil partnership ends on a named day | The 90 days' written notice of clause 10.2 |
+| The notice we sent you has been withdrawn | A notice above no longer stands. Nothing changes |
+| Your Sigil partner account is suspended | The suspension has taken effect, with the reason |
+| Your Sigil partner account is active again | A suspension has been lifted |
+| Your firm is no longer a Sigil partner | A removal, or the end of a partnership, has taken effect |
+| Personal data breach notice from Sigil | A personal data breach affects organisations you manage. See [breach notification](/partners/agreement/#breach-notification-reaches-you-sooner) |
+| A message from Tophhie Cloud, under a subject its author chose | Somebody at Tophhie Cloud needs to tell the partner something specific. Not a contractual notice |
 
 The partnership-at-risk notice exists because the partner agreement promises it.
 Removal for going six months without a client cannot happen until the notice has
@@ -271,6 +359,11 @@ The payment failure notice goes to the billing email on the partner's invoice
 details, if one is set, and to every Owner and Billing member of partner staff.
 It is sent once when the failure starts rather than on each retry, so a card that
 declines three times produces one message and one stop date.
+
+Every other message in that table goes to the same people. The suspension,
+removal and end-of-partnership notices, and the breach notice, are also written
+to a record Tophhie Cloud keeps of each notice the agreement required it to
+give, with the date and the addresses it went to.
 
 Stripe sends its own dunning mail as well, from the first failure. Sigil's notice
 exists because that one depends on the Stripe customer record carrying an

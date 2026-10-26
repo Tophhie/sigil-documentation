@@ -676,7 +676,10 @@ What ends is your access to it.
 This is a decision taken client by client rather than a job that sweeps through
 your book of business, so a partner who is a day late does not lose everyone.
 Tophhie Cloud is not obliged to return any particular client or to do it at any
-particular time, and will tell you which clients have been returned.
+particular time, and will tell you which clients have been returned. Each
+returned client produces its own email to your Owner and Billing staff and your
+billing email, with a subject naming the client, saying your access to it has
+ended and that its usage up to that day stays on your bill.
 
 Bringing the account up to date before a client has been returned restores
 everything, with nothing lost. That is the part that rewards acting early: the
@@ -698,7 +701,10 @@ returned to billing in their own name straight away, without the grace period in
 7.1.
 
 You, or whoever is then acting for you, are told, and so are each client's
-administrators. The clause is not a judgement about your business. Those
+administrators. The client's message says its signatures have stopped because
+your partner account was suspended, and offers billing in its own name. It does
+not say why. See [how you are told](/partners/leaving-the-programme/#how-you-are-told).
+The clause is not a judgement about your business. Those
 organisations' signatures depend on a billing relationship that has stopped
 working, and they are not party to it.
 

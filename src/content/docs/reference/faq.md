@@ -290,7 +290,9 @@ there rather than copying it somewhere else. See
 You are told within 48 hours of Tophhie Cloud becoming aware of one, and the
 notice describes the nature of the breach, roughly how many people and records
 are involved, the likely consequences and what is being done. Where the whole
-picture is not known yet, it is sent in phases rather than held back.
+picture is not known yet, it is sent in phases rather than held back. It arrives
+as an email to every administrator, with the subject "Personal data breach
+notice from Sigil", and leaves an entry in your change log.
 
 Deciding whether to notify a regulator or the people affected stays with your
 organisation, because you are the controller. The 48 hours is shorter than the 72
