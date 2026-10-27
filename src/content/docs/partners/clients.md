@@ -102,6 +102,8 @@ Until they do, the request is listed under Pending invites & transfers as
 awaiting their approval, and you have no access to the tenant. Unlike a
 transfer, no email goes to the client's admins about it, so they see the card
 only when they sign in. Like a transfer, it lapses after 14 days unanswered.
+Your firm is emailed when they consent, so you know to chase the approval. See
+[what your firm is told](#what-your-firm-is-told).
 An invitation sent by a suspended partner is not honoured: the client is
 provisioned as a direct customer and no request is raised.
 
@@ -269,7 +271,8 @@ approval.
 
 Their administrators are emailed the request and approve or decline it in their
 own portal. The request expires after 14 days if nobody answers, and an
-organisation can only have one pending at a time.
+organisation can only have one pending at a time. A request that expired
+unanswered no longer counts, so you can send a fresh one straight away.
 
 On their side, only an Admin at the organisation can answer, and a partner
 cannot answer on their behalf.
@@ -291,6 +294,32 @@ The request itself is used up by the approval, though. It leaves your pending
 list and cannot be approved a second time, so finishing the move is Tophhie
 Cloud's job rather than something the client can retry. Ask support if a client
 tells you they saw this message.
+
+On approval, the client's own administrators, everyone with its Billing role
+and its billing email are told that your firm now manages the account, and that
+its own subscription has stopped because you are billed from now on. The admin
+who approves is rarely the person who pays, so this is how the client's finance
+contact learns that its invoices have ended.
+
+### What your firm is told
+
+Your firm is emailed at each point where a client acts or a request runs out,
+so the Pending invites & transfers list is not the only way to find out. Each
+email goes to your Owners and Admins, and to the member of staff who sent the
+request or invitation if they are neither.
+
+| Email | Sent when |
+| --- | --- |
+| A named client has set up Sigil from your invitation | The client has granted consent. Says its administrator still has to approve your request, and that the request stays open for 14 days |
+| A named client is now one of your Sigil clients | An administrator at the client approved your request. Names them, and says whether its mailboxes count towards your bill from today or it is exempt |
+| A named client declined your request to manage its Sigil account | An administrator at the client declined. Nothing changes on either side, and you can ask again |
+| Your request to manage a named client on Sigil has expired | A transfer request went 14 days unanswered |
+| Your Sigil invitation to a named client has expired | An invitation went unused until it expired. Send a new one if they still want to join |
+| A named client no longer has you managing its Sigil account | An administrator at the client removed your firm. Names them, and says your staff have lost access and its mailboxes no longer count towards your bill |
+
+The two expiry emails come from a morning check, and only for requests and
+invitations that ran out in the past week. Anything that ran out longer ago
+than that is not reported, so you never receive a backlog of old news.
 
 ### Taking back a client you previously managed
 

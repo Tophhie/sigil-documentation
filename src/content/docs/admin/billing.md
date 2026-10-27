@@ -577,6 +577,14 @@ Cancelling and later reactivating does not restart the term. Only the months
 still outstanding carry onto the new subscription, rounded up to the next whole
 month.
 
+Whoever pays is emailed when Tophhie Cloud sets, changes or removes a discount,
+with the new percentage and when it ends. The reason recorded for it is kept for
+Tophhie Cloud's own records and is not in the email. A week before an agreed
+term runs out, the same people are reminded of the date, so the change in price
+is not first noticed on the invoice. The reminder is skipped where the
+subscription ends before the discount does. See
+[emails Sigil sends](/admin/emails-sigil-sends/#when-tophhie-cloud-changes-your-account).
+
 ## Billing profile
 
 The company details that appear on the invoice are held separately and pushed to
@@ -661,6 +669,17 @@ next. You need the Admin or Billing role.
 A message confirms the cancellation and the date signatures continue until.
 The subscription panel then reads "cancellation scheduled" next to the end
 date, and the Cancel subscription button is replaced by Keep subscription.
+
+Everybody who receives your billing emails is told as well, because the person
+who cancels is often not the person who pays. That is your administrators,
+everyone with the Billing role and the billing email on your
+[billing profile](/admin/billing-profile/). The email, "Your Sigil subscription
+has been cancelled", names who cancelled it and the day signatures stop, and
+says nothing is deleted. A week before that day the same people are reminded,
+with a button to the Billing page where the subscription can be kept. A
+cancellation made within the last week before its end date is not reminded
+again, since the first email arrived only days earlier. Reactivating sends
+the same people "Your Sigil subscription is active again", naming who did it.
 
 Cancelling does not stop service on the spot. Direct organisations are invoiced
 per seat monthly in advance, so the month you have already paid for runs out

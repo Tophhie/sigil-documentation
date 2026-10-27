@@ -102,9 +102,19 @@ is no separate password to set and no account to activate.
 Somebody added for the first time is emailed their portal link and told which
 role they have been given. For a custom role, the email uses the role's name and
 lists the areas it reaches, as in "As Communications, you can work in signature
-templates and compliance footers". Changing an existing user's role sends nothing, since
+templates and compliance footers". Changing an existing user's role sends them nothing, since
 it takes effect on their next request. See
 [emails Sigil sends](/admin/emails-sigil-sends/).
+
+Administrator access is the exception, because an Admin controls everything,
+users and billing included. When anybody is made an Admin, moved from Admin to
+another role, or removed while an Admin, every other administrator is emailed.
+The message names the person, who made the change and, for a move, the role they
+now hold, and asks anybody who did not expect it to check Users and roles and
+the [change log](/monitoring/change-log/). The person who made the change is not
+sent a copy, and neither is a brand new Admin, whose own invitation already
+tells them. Somebody promoted from another role is among the administrators
+after the change, so they receive it too.
 
 ### Addresses that cannot be invited
 

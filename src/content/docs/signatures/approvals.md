@@ -119,6 +119,19 @@ A message confirms it is approved and published.
 The author sees the note in the editor, marked as sent back by you, the next
 time they open the template.
 
+### The author hears the outcome
+
+Whoever submitted the draft is emailed when it is decided, so they do not have
+to keep opening the template to find out.
+
+| Outcome | The email |
+| --- | --- |
+| Approved and published | "Your changes to" the template's name "are live". Names who approved it |
+| Sent back | "Your changes to" the template's name "were sent back". Names who sent it back, quotes your note in full, and says the draft is kept so they can change it and submit again |
+
+An approver who reviews their own draft is not sent either one, since they
+already know.
+
 ## The approvers hear about it
 
 Submitting a draft emails every other user with the Admin role in the

@@ -109,7 +109,13 @@ needs their email address and a role.
 6. Choose Save.
 
 They appear in the list with their role and, under Client access, either the
-clients named or All clients. To change somebody's role or scope, add them
+clients named or All clients.
+
+Somebody new to the list is emailed a welcome, "You've been added to" your
+partner's name "on Sigil". It names you as the person who added them, gives
+their role with a line on what it covers, and tells them to sign in with their
+Microsoft work account. Changing an existing member's role or scope sends
+nothing. To change somebody's role or scope, add them
 again with the same email address: the form is titled Add or update staff,
 and saving replaces what was there. You cannot change your own role.
 

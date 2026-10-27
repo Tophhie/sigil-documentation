@@ -404,7 +404,9 @@ because they are Tophhie Cloud's operational record, holding no personal data an
 nothing you wrote. Tophhie Cloud's record of the notices it was required to send
 you is out because each of those is an email your own administrators received,
 a breach notice is in the change log the file already carries, and the record
-names Tophhie Cloud staff. Your [API keys](/admin/api-keys/) are out
+names Tophhie Cloud staff. Its record of the other emails it sent your
+organisation, with their copies, is out for the same first reason: every one of
+them went to your own people, who hold the original. Your [API keys](/admin/api-keys/) are out
 because a document that leaves the platform must not enumerate live credentials.
 Ask support if you need any of them for a compliance exercise.
 

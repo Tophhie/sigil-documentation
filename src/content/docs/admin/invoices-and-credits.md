@@ -36,6 +36,13 @@ decision rather than a preference. Ask support, and terms are put in place on
 your account. Terms apply to invoices raised after they are agreed. An invoice
 already open at that point is still collected the way it was raised.
 
+When collection changes in either direction, or the number of days you have to
+pay changes, your administrators, everyone with the Billing role and the
+billing email on your [billing profile](/admin/billing-profile/) are emailed
+"How you pay for Sigil has changed". It gives the new number of days on terms,
+or, on a move back to card, asks you to check the Billing page has a payment
+method. Saving the same terms again sends nothing.
+
 ## Paying on invoice terms
 
 Terms are counted in days from the date the invoice is issued. Thirty days is
@@ -262,7 +269,13 @@ before the invoice that consumes it arrives.
 
 Credits are issued by Tophhie Cloud rather than requested in the portal. A
 direct organisation has no uptime commitment behind it, so a credit to one is a
-concession rather than an entitlement, and the category says which. See
+concession rather than an entitlement, and the category says which.
+
+Each credit is emailed to the same people as the other billing emails, with its
+amount. An account credit says it comes off your next invoices until it runs
+out. A credit note says it reduces an open invoice or, if that invoice is paid,
+goes onto your account. The reason Tophhie Cloud recorded is shown in the
+credits list rather than in the email. See
 [the availability commitment](/security/infrastructure/#availability-commitment).
 
 ## When an invoice goes unpaid

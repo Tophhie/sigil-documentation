@@ -263,6 +263,14 @@ revocation.
 
 Both keys stay on the list afterwards, the old one marked as revoked.
 
+A key with an expiry date gives you a week's warning. Seven days before it
+stops, your administrators and the person who created the key are emailed its
+name, the first few characters of it and the day it expires, with a button to
+the API keys page. The warning is sent once for each expiry date, in the
+morning, and not at all for a key that has already been revoked. A key with no
+expiry date never sends one. See
+[emails Sigil sends](/admin/emails-sigil-sends/#reminders).
+
 ## Revoking
 
 Revoke stops the key immediately and cannot be undone. Anything using it starts

@@ -329,6 +329,12 @@ A margin can run open-ended or for an agreed number of months, up to five years.
 Where there is an end date, the Partner billing page prints it beside the
 percentage, so the date your rate changes is visible well before it arrives.
 
+Your billing email and your Owner and Billing staff are emailed whenever
+Tophhie Cloud sets, changes or removes the margin, and again a week before an
+agreed term ends. The same people hear when your invoices move between card and
+invoice terms, and when a credit is added to your account. See
+[emails Sigil sends](/admin/emails-sigil-sends/#to-a-partners-own-staff).
+
 A term is counted in whole months from the day the margin is attached, which is
 how a repeating discount is counted on the subscription itself. A margin cannot
 therefore be set to run until a particular calendar date, and cancelling and
