@@ -268,11 +268,12 @@ a single mailbox can be exported for a subject access request. See
 ## Where is our data held, and who else processes it?
 
 In the United Kingdom or the European Economic Area at rest. The databases, your
-uploaded images and the nightly backups all sit in storage created in Cloudflare's
-EU jurisdiction. The caches in front of them are global, because that is what
-makes a signature arrive without a wait: a rendered signature and the directory
-details behind it are cached on Cloudflare's network, can sit outside the UK and
-EEA while they live, and expire on their own. The data processing agreement says
+uploaded images, the nightly backups and the caches all sit in storage created in
+Cloudflare's EU jurisdiction. When a cached signature is read, though, Cloudflare
+keeps a short-lived copy near the reader, because that is what makes a signature
+arrive without a wait. Those read copies of a rendered signature and the
+directory details behind it can sit outside the UK and EEA while they live, and
+expire on their own. The data processing agreement says
 so in its own words rather than leaving it to be inferred.
 
 Three sub-processors are involved: Microsoft for identity and directory data,

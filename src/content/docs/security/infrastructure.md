@@ -11,9 +11,10 @@ the Microsoft directories it reads from. A fixed region keeps the database and
 directory calls behind every compose short and predictable.
 
 The stores that hold your data are created in Cloudflare's EU jurisdiction, which
-is a limit Cloudflare enforces rather than a location it prefers. The caches in
-front of them use Cloudflare's global key-value store, so they are not confined to
-the EU in the same way. See
+is a limit Cloudflare enforces rather than a location it prefers. Since 27
+October 2026 that includes the caches in front of them. What can still leave the
+EU is the short-lived read copy Cloudflare keeps close to whoever reads a cached
+entry, which is what lets a signature arrive quickly wherever it is composed. See
 [where data lives](/security/data-and-privacy/#where-data-lives).
 
 ## Components
@@ -24,7 +25,7 @@ the EU in the same way. See
 | Cloudflare D1 | The shared database: organisation records, billing state, API key hashes, tracked link destinations, portal sign-ins, the names shown against portal users and partner records, which Sigil has to read before it knows which organisation a request belongs to. In Cloudflare's EU jurisdiction |
 | Cloudflare Durable Objects | Each organisation's own database, holding its templates, configuration, telemetry and change log. Also the portal's live updates: the open connections, and the list of recent changes a page catches up from. All in Cloudflare's EU jurisdiction |
 | Cloudflare R2 | Uploaded images, preview pictures and nightly database backups, all in Cloudflare's EU jurisdiction |
-| Cloudflare KV | Rendered signature cache, directory lookups, profile photos and per-mailbox rule resolution, cached on the global network and expiring on their own |
+| Cloudflare KV | Rendered signature cache, directory lookups, profile photos and per-mailbox rule resolution. Stored in Cloudflare's EU jurisdiction, with read copies cached on the global network, and all expiring on their own |
 | Cloudflare's headless browser | Rendering the [signature previews](/signatures/previews/) shown in the portal and in Sigil's emails |
 | Cloudflare Email | Invitations, test emails, approval requests, the health digest, billing and trial notices, product updates and service notices |
 | Cloudflare AI Search | Answering questions typed into [Ask the documentation](/admin/ask-the-documentation/). Nothing is kept |

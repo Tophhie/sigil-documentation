@@ -164,6 +164,7 @@ Entries read in plain language rather than as internal lever names:
 | Exported one mailbox's data for a subject access request | A per-mailbox export was taken. See [subject access requests](/security/compliance/#subject-access-requests) |
 | Set up your organisation | Your tenant was provisioned |
 | Changed your organisation's settings | An organisation-wide setting was changed |
+| Changed your organisation's add-ons | A paid add-on, such as the [branded link domain](/monitoring/branded-link-domain/), was granted or withdrawn. The entry names the add-on and says whether it is billed. Withdrawing the link domain add-on also removes your branded domain |
 | Changed a user's role, or Removed a user | Portal access was changed |
 | Refreshed your organisation name from Microsoft | The name shown in the portal was re-read from your directory |
 | Re-linked your billing, or Updated your invoice details | A billing record was repaired or corrected |

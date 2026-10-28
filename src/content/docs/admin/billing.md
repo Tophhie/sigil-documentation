@@ -575,7 +575,9 @@ uses part of the first month before anything is charged.
 
 Cancelling and later reactivating does not restart the term. Only the months
 still outstanding carry onto the new subscription, rounded up to the next whole
-month.
+month. The discount is on the new subscription from the moment it is created, so
+the first invoice, which reactivating raises straight away, is already
+discounted.
 
 Whoever pays is emailed when Tophhie Cloud sets, changes or removes a discount,
 with the new percentage and when it ends. The reason recorded for it is kept for
@@ -721,6 +723,13 @@ Once the subscription has ended, and your billing details are complete:
 
 A message confirms that billing and signatures have resumed.
 
+If Stripe refuses to start the new subscription, the portal says why instead of
+showing a general error, and nothing is charged. The usual cause is a card
+account with no payment method on file, which reads "There's no payment method
+to charge yet. Add a card, then try again." Add the card and choose Reactivate
+subscription again. Sigil does not replay the earlier refusal, so the retry
+succeeds once the card is saved.
+
 ### The card is released when it ends
 
 Once the cancellation completes, the saved card is detached from your record.
@@ -731,9 +740,9 @@ The exception is an invoice still open with an amount owed. That card stays as
 the means of settling it, and is released as soon as the invoice clears.
 
 The consequence is worth knowing before you cancel: reactivating later means
-adding a card again. Reactivating with no card on file leaves the first invoice
-unpayable, which the Billing view warns about rather than letting you find out
-from a failed payment.
+adding a card again. The Billing view says so beside the Reactivate button, and
+a reactivation tried with no card on file is refused with a message saying to
+add one, rather than leaving you to find out from a failed payment.
 
 None of this applies on
 [invoice terms](/admin/invoices-and-credits/#paying-on-invoice-terms). There is

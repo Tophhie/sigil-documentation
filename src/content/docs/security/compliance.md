@@ -194,16 +194,16 @@ agreement names all three rather than reserving the right to add more quietly.
 | Stripe | Subscription billing and card processing | UK, EU and US |
 
 Your directory data and the content you author are stored in the United Kingdom
-or the European Economic Area. The databases, the uploaded images and the nightly
-database backups all sit in storage created in Cloudflare's EU jurisdiction, which
-Cloudflare enforces as a limit on where the data may be kept rather than treating
-as a preference.
+or the European Economic Area. The databases, the uploaded images, the nightly
+database backups and the caches all sit in storage created in Cloudflare's EU
+jurisdiction, which Cloudflare enforces as a limit on where the data may be kept
+rather than treating as a preference. The caches joined them on 27 October 2026.
 
-Caching is the exception the agreement names in its own words. To serve a
-signature quickly wherever the person composing it happens to be, Cloudflare holds
-short-lived copies of rendered signatures, and of the directory details they are
-built from, on its global network, so those copies can sit outside the UK and EEA
-for as long as they live. They expire on their own and are never the record: the
+Read copies of cached entries are the exception the agreement names in its own
+words. To serve a signature quickly wherever the person composing it happens to
+be, Cloudflare keeps short-lived copies of rendered signatures, and of the
+directory details they are built from, near whoever reads them on its global
+network, so those copies can sit outside the UK and EEA for as long as they live. They expire on their own and are never the record: the
 record is in the EU, and the caches are rebuilt from it. Retention for each is in
 the table below.
 
