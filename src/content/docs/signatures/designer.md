@@ -42,6 +42,7 @@ A design is a tree of blocks on a canvas.
 | Divider | A horizontal rule |
 | Spacer | Vertical space |
 | HTML | An escape hatch for markup the blocks do not cover |
+| Rating strip | Reserves a spot for a satisfaction survey add-on that is not yet available. It adds nothing to a signature |
 
 Rows are how you get side-by-side layouts, such as a logo on the left and contact
 details on the right. Columns can be sized as a percentage of the row or at a
@@ -50,6 +51,11 @@ fixed pixel width, and columns you do not size share what is left.
 The QR code and Photo blocks behave differently from the rest, because the image
 each one produces depends on who is sending. See
 [per-user images](/signatures/per-user-images/).
+
+The Rating strip tile is on the rail for every organisation, but the add-on it
+belongs to is not on sale yet. A design can hold the block safely. When the
+signature is built, Sigil removes it and leaves nothing in its place, so the
+people who receive the email never see it.
 
 ### Adding a block
 
