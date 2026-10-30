@@ -70,7 +70,10 @@ basis for that processing is your organisation's job, not Sigil's.
 Tophhie Cloud is the controller for a narrower set of records it holds in its own
 right, and the published privacy policy states the basis for each: your tenant,
 subscription and billing records, on the contract with you and on the tax and
-accounting law that governs the financial part of it; portal access records, on
+accounting law that governs the financial part of it; the account record in its
+customer relationship management system, with the work email address of the
+admin who signed you up, on that contract and on the legitimate interest in
+managing its relationships with customers and partners; portal access records, on
 that same contract and on the legitimate interest in keeping the portal secure
 and giving your administrators an audit trail; and the sign-up diagnostics, on the
 legitimate interest in telling a real administrator apart from the crawlers that
@@ -368,7 +371,7 @@ administrators a re-consent link.
 | Record of the notices the agreements require Tophhie Cloud to send you, such as a breach notice or notice of a change to an agreement | For as long as your organisation uses Sigil. Holds what was sent, when, and to which addresses |
 | Record of the emails Sigil sends about your organisation's account | For as long as your organisation uses Sigil. Holds what each email was, when it was sent, to which addresses, and whether it was delivered. A copy of the email itself is kept for 90 days, so support can see what you were sent when you ask about it, and is then removed |
 | Operator audit log | Indefinite |
-| Tophhie Cloud's own tenant, subscription and billing records | For as long as your organisation uses Sigil, then for as long as tax and accounting law requires the financial records to be kept |
+| Tophhie Cloud's own tenant, subscription and billing records, including the account record in its customer relationship management system | For as long as your organisation is a customer, then for up to six years afterwards for accounting and tax |
 | Individual signature requests and apply outcomes | 90 days, then purged by a nightly sweep |
 | Per-mailbox activity rollup and daily apply totals | For as long as your organisation uses Sigil |
 | Daily click totals per tracked link | For as long as your organisation uses Sigil |

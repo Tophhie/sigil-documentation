@@ -342,6 +342,33 @@ A [staged rollout](/signatures/staged-rollouts/) produces the same symptom for
 most of the organisation, and legitimately so: the live template does not change
 until the rollout promotes.
 
+### A link bigger than the text around it
+
+There are two causes, and both are fixed in the designer.
+
+The first is Outlook itself. Outlook on Windows styles a link with its own
+hyperlink style, and did not always take the size from the text block around it.
+A link in an 11pt block could then come out at the mailbox's default size, which
+is 12pt Aptos on current versions of Office, while the rest of the line stayed at
+11pt. Since 29 October 2026 the designer writes the block's size onto every piece
+of text, links included, so Outlook has nothing to fill in. A designer template
+is built into HTML when it is published, so one published before that date keeps
+the old markup until you publish it again.
+
+The second is a paste. Text pasted into a block before 30 October 2026 could
+bring a size of its own from wherever it was copied, and the inspector does not
+show it. Pasting now brings in the words only, but a template saved earlier may
+still carry one.
+
+To fix either:
+
+1. Open the template in the designer.
+2. Highlight the link, choose the eraser on the text toolbar, and check that the
+   link now matches the text beside it.
+3. Publish the template.
+
+See [text formatting](/signatures/designer/#text-formatting).
+
 ### Broken images
 
 Images must be attached inline as `cid:` references. A hosted `<img>` pointing at

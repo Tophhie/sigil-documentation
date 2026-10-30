@@ -413,12 +413,15 @@ because a document that leaves the platform must not enumerate live credentials.
 Ask support if you need any of them for a compliance exercise.
 
 The file carries a schema version, which is what tells two exports apart when the
-contents differ. Version 7 is the current one. Version 3 was where the profile
+contents differ. Version 8 is the current one. Version 3 was where the profile
 fields and their values arrived, 4 added the settings, the billing profile and
 the cost management list, 5 added the names, 6 added the custom roles your
 admins have defined, and 7 added a `csat` section. That section holds the
 settings for an add-on that is not on sale yet, so for now every organisation's
-file carries its defaults there and nothing you chose.
+file carries its defaults there and nothing you chose. Version 8 added an
+`addonTrials` list, the free add-on trials your organisation has taken, running
+or ended, with how each one ended. No add-on on sale today offers a trial, so for
+now the list is empty.
 
 Each of those bumps mattered for the same reason. Two exports that differ in what
 they hold must not look alike, because only the later one is complete, and the
@@ -520,9 +523,29 @@ what Sigil holds on your organisation's behalf, and the record that you were a
 customer is a different thing: the organisation's name, its domain and billing
 country, the terms and dates of the subscription, and the invoices and payment
 references held with Stripe. Tophhie Cloud holds those as a controller in its own
-right, and the privacy policy keeps them for as long as tax and accounting law
-requires. The customer record names an organisation rather than a person. An
-invoice carries the billing details you gave for it.
+right. An invoice carries the billing details you gave for it.
+
+Tophhie Cloud also keeps an account record of your organisation in its customer
+relationship management system, HubSpot, held in HubSpot's EU data centre. It
+holds the organisation's name, domain and country, the terms of its subscription
+(status, seats, price, discount, how it is billed and the key dates), its Stripe
+references, whether its latest invoice was paid, and, for a partner, which
+organisations it manages. It also holds
+one contact: the work email address of the admin who signed your organisation
+up, or your billing email if that admin is not known. Sigil holds no name for
+that admin, so none is sent. Directory attributes, mailboxes, templates, usage
+telemetry and portal activity never go into it. HubSpot is not a sub-processor,
+because it holds none of the data Sigil processes for you, which is why the
+[sub-processor list](/security/compliance/#sub-processors-and-where-data-is-stored)
+does not change.
+
+The purge does not delete that record, because it is a record of Tophhie Cloud's
+own customer. The privacy policy keeps account and billing records for as long as
+you are a customer and for up to six years afterwards, and a nightly sweep
+enforces it. Once an organisation has been cancelled for close to six years, the
+sweep deletes its contact permanently, then its deals and its company record. A
+partner whose own subscription has ended is kept while it still manages a client,
+and goes once it has none.
 
 A [branded link domain](/monitoring/branded-link-domain/) is released as part of
 the purge, so a hostname pointed at Sigil is not left being answered on behalf of

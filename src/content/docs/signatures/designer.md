@@ -196,7 +196,32 @@ control saying vertical alignment needs a minimum height to work within.
 
 Selecting a text block brings up a formatting toolbar inside the block itself, so
 the controls sit where you are already looking rather than at the top of the
-stage. It covers bold, italic, underline, colour, links and inserting a field.
+stage. It covers bold, italic, underline, colour, links, inserting a field and
+clearing formatting.
+
+Pasting into a text block brings in the words only. Text copied from a web page,
+Word or an email carries the fonts, sizes and colours of wherever it came from,
+and those used to ride in with it unseen. A web address copied from a page set
+at 16 pixels would keep that size inside an 11pt block, so it went out at 12pt in
+every message while the inspector still said 11pt. Pasted text now takes the
+formatting of the block it lands in, the same as text you type.
+
+The eraser on the toolbar removes formatting from part of a block. Its tooltip
+reads "Clear formatting on the highlighted text". It takes away bold, italic,
+underline, colour and any size of its own, so the text follows the block's
+settings again. A link and any [visibility rule](#conditions-on-labels-and-separators)
+on that text are kept, because those are content rather than styling.
+
+1. Highlight the text inside the block.
+2. Choose the eraser on the text toolbar.
+
+Choosing the eraser with nothing highlighted shows "Highlight the text you want
+to clear first." rather than clearing the whole block.
+
+The eraser is the way to fix a template saved before pasting changed. Text pasted
+into it then may still carry a size of its own, which nothing else in the
+designer shows. If one link or line comes out bigger than the text around it,
+highlight it, clear its formatting, and publish.
 
 Adding a link opens a dialog rather than a browser prompt, and the dialog says so
 when nothing is selected. Linking needs selected text to attach itself to, so
