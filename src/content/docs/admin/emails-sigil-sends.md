@@ -21,10 +21,23 @@ messages support writes to you carry a reply address of `support@usesigil.app`.
 Choosing Reply in your mail client reaches a person. The breach notice described
 below points you at `privacy@usesigil.app` instead, in its own text.
 
-Every message ends with the same footer: Tophhie Cloud Ltd, its company number
-(17393069, registered in England and Wales), its registered office, and a link to
-Sigil's privacy policy at `portal.usesigil.app/privacy`. A message whose footer
-names anything else did not come from Sigil.
+Every message uses the same layout. It is a white card with a thin pink strip
+along the top, on a pale lavender background. Inside the card is the Sigil mark
+with "Sigil" and "by Tophhie Cloud" beside it, then a fine line and the message
+itself. Where the message has a button, the link it opens is also printed
+underneath it in full, after "Or paste this address into your browser". That way
+you can read where it goes before you click. Mail apps that support dark mode show
+the same layout in the portal's dark colours.
+
+The footer sits below the card and is the same on every message: Tophhie Cloud
+Ltd, its company number (17393069, registered in England and Wales), its
+registered office, a link to Sigil's privacy policy at
+`portal.usesigil.app/privacy`, and a link to `tophhie.cloud`. A message whose
+footer names anything else did not come from Sigil.
+
+The only image in a message is the Sigil mark, and it is loaded from the portal.
+No font or image comes from anybody else, so opening one of these messages does
+not tell a third party that you read it.
 
 Stripe sends billing mail of its own as well: the invoice itself, receipts, and
 its own payment failure notices, under Stripe's own sender, because Stripe is

@@ -532,8 +532,10 @@ holds the organisation's name, domain and country, the terms of its subscription
 references, whether its latest invoice was paid, and, for a partner, which
 organisations it manages. It also holds
 one contact: the work email address of the admin who signed your organisation
-up, or your billing email if that admin is not known. Sigil holds no name for
-that admin, so none is sent. Directory attributes, mailboxes, templates, usage
+up. Your billing email is used instead when that admin is not known, or when the
+address belongs to Tophhie Cloud, which happens when Tophhie Cloud staff set an
+organisation up on someone else's behalf. With neither, no contact is sent. Sigil
+holds no name for that admin, so none is sent. Directory attributes, mailboxes, templates, usage
 telemetry and portal activity never go into it. HubSpot is not a sub-processor,
 because it holds none of the data Sigil processes for you, which is why the
 [sub-processor list](/security/compliance/#sub-processors-and-where-data-is-stored)

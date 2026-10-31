@@ -71,8 +71,8 @@ Tophhie Cloud is the controller for a narrower set of records it holds in its ow
 right, and the published privacy policy states the basis for each: your tenant,
 subscription and billing records, on the contract with you and on the tax and
 accounting law that governs the financial part of it; the account record in its
-customer relationship management system, with the work email address of the
-admin who signed you up, on that contract and on the legitimate interest in
+customer relationship management system, with one contact address (normally the
+admin who signed you up, otherwise your billing email), on that contract and on the legitimate interest in
 managing its relationships with customers and partners; portal access records, on
 that same contract and on the legitimate interest in keeping the portal secure
 and giving your administrators an audit trail; and the sign-up diagnostics, on the
