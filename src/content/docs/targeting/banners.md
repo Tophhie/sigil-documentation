@@ -35,8 +35,8 @@ sees something rather than nothing.
 You need a role with campaign banners (Admin, Marketing, or a custom role given
 it), and the image must already be uploaded under Images. The Image list is read
 from Images, which needs the templates capability that the Admin and Editor roles
-hold, so somebody with the Marketing role alone sees an empty list and
-cannot create a banner. Give them the Editor role as well, or have an Admin
+hold, so somebody with the Marketing role alone sees a permissions error, then an
+Image list that reads "No images uploaded yet", and cannot create a banner. Give them the Editor role as well, or have an Admin
 create it. Once it exists they can preview it, test it, and edit everything
 about it except the image.
 

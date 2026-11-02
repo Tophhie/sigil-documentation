@@ -31,7 +31,8 @@ displays immediately.
 Upload images in the Images view of the portal. Each one is stored against your
 organisation and is available to any template in your library.
 
-Uploading needs the admin or editor role.
+Uploading needs the templates capability, which the Admin and Editor roles hold
+and a [custom role](/admin/users-and-roles/#custom-roles) can be given.
 
 1. Open Images in the portal sidebar.
 2. Choose Upload image.

@@ -63,7 +63,10 @@ role assignment.
 
 The Templates view lists the library, shows which template is active for new
 messages and which covers replies, and is where you create, assign, duplicate,
-rename, download or delete a template.
+rename, download or delete a template. Its buttons also
+[send a test](/admin/test-email/) and [import](/signatures/import-export/) a
+template, and each template's menu offers Export and
+[Version history](/signatures/versions/).
 
 Selecting a template opens the Editor for it. A designer template opens in the
 [designer](/signatures/designer/) and an HTML one in the
@@ -92,6 +95,16 @@ to open it to find out.
 
 The rollout badge leads, because a rollout is the only state in which people in
 the same organisation are receiving different signatures.
+
+A second set of small labels sits under Last published, beside the name of the
+person who last changed the template. Each one appears only when the template is
+in its less usual state:
+
+| Label | What it means |
+| --- | --- |
+| Link tracking | [Link click tracking](/monitoring/link-clicks/) is on for this template |
+| Banners off | [Campaign banners](/targeting/banners/) are switched off for this template |
+| Footer off | The [compliance footer](/targeting/footers/) has been removed from this template. It is shown as a warning, because removing it needs an acknowledgement |
 
 The Draft badge is a yes or no rather than a preview. The library deliberately
 never loads template bodies, since that would mean pulling a full signature per
@@ -125,8 +138,9 @@ phone the portal says so rather than opening the dialog.
 4. Under Start from, pick Starter signature, Blank canvas or HTML editor.
 5. Choose Create in designer, or Create in HTML editor for the HTML choice.
 
-The template opens in the editor you chose. Nobody receives it until you
-publish it and assign it a role. From your website has a longer flow, described
+The template opens in the editor you chose. It is saved as a published version
+straight away, with no draft step, but nobody receives it until it is assigned a
+role or named by an [assignment rule](/targeting/assignment-rules/). From your website has a longer flow, described
 [below](#starting-from-your-website).
 
 The starter and the default markup are meant to be edited or cleared rather than
@@ -328,9 +342,9 @@ of their own aliases, gets the ordinary send.
 New tenants are seeded with a ready-made design rather than a blank page. It is
 editable like any other template, and replacing it is expected.
 
-The Getting started checklist treats "publish a signature" as complete when the
-active template is no longer the seed, so swapping it out is what marks that step
-done.
+The Getting started checklist marks its "Customise your signature" step done
+once the active template is no longer the untouched seed. Editing and publishing
+the starter completes it, and so does making a different template active.
 
 ### Two things in it are placeholders
 

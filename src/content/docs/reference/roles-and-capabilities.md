@@ -110,7 +110,12 @@ itself rather than to a capability: managing Admins, accepting the data
 processing agreement, creating API keys, defining custom roles, rejecting a
 submitted draft, the getting started checklist, and publishing while
 [publish approval](/signatures/approvals/) is switched on. Those stay with
-Admins, and with a partner's Owners and Admins working inside a managed client.
+Admins, and with a partner's Owners and Admins working inside a managed client,
+with one exception. Only the client's own Admin can accept its data processing
+agreement. The client is the controller and the partner is its processor, so a
+partner has no standing to accept on the client's behalf, and Sigil refuses with
+"A partner can't accept a client's DPA. The client's own administrator must
+accept it."
 
 A person still holds exactly one role. Somebody who needs the access of two is
 given a custom role that combines them. An organisation can define up to 20.

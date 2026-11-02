@@ -290,7 +290,9 @@ risk.
 
 The same capability covers the org-wide `new` and `reply` role assignments, for
 the same reason. It also covers the simulator, which reads one person's
-directory attributes back to you.
+directory attributes back to you, and
+[pausing signature delivery](/signatures/pausing-delivery/) for the whole
+organisation.
 
 ## How many rules
 
