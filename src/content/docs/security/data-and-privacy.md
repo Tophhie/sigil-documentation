@@ -320,24 +320,28 @@ in a KV cache. Billing is handled by Stripe. See
 [infrastructure](/security/infrastructure/).
 
 Data at rest sits in the United Kingdom or the European Economic Area. The
-databases, the uploaded images, the nightly database backups, the list of
-recent changes behind live updates and the caches are all held in storage created
-in Cloudflare's EU jurisdiction. That is a restriction Cloudflare
+databases, the uploaded images, the nightly database backups and the list of
+recent changes behind live updates are all held in storage created in
+Cloudflare's EU jurisdiction. That is a restriction Cloudflare
 enforces on where the data may be kept, rather than a preferred location it is
 free to ignore, and the read copies the database keeps for speed are only made
-inside the same jurisdiction. The caches moved into the EU jurisdiction on 27
-October 2026. Before then they were held on Cloudflare's global store.
+inside the same jurisdiction.
 
-Read copies of cached entries are the exception, and the data processing
-agreement says so in its own words rather than leaving it to be inferred. When a
-rendered signature, or the directory details behind it, is read, Cloudflare keeps
-a copy near the reader on its global network so that the first message of
-somebody's day is not held up by a lookup. Those short-lived copies can sit
-outside the UK and EEA while they live. They expire on
+The caches are the exception, and the data processing agreement says so in its
+own words rather than leaving it to be inferred. A rendered signature and the
+directory details behind it are cached on Cloudflare's global network so that the
+first message of somebody's day is not held up by a lookup, which means those
+short-lived copies can sit outside the UK and EEA while they live. They expire on
 their own, they are rebuilt from the record rather than being it, and the record
 stays in the EU. How long each one lives is in
 [what Sigil stores](#what-sigil-stores) and in the
 [retention table](/security/compliance/#retention).
+
+The caches spent one week in the EU jurisdiction, from 27 October to 2 November
+2026, and were moved back to the global store because reading and writing them
+there took several times longer, which slowed down signatures that were not
+already cached. Nothing in the data processing agreement changed either way: it
+was written for the caches being global, and still describes them that way.
 
 For the full list of who processes what, where each one holds it, and the notice
 you get before that list changes, see
