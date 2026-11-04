@@ -358,9 +358,17 @@ are never billed under both at once, and two independently editable copies only
 ever drifted apart.
 
 It can be edited from your Partner billing page or from your own tenant's Billing
-view, and either way it is pushed to both Stripe customers, so the two can never
-disagree about who you are. Operators can also correct it on your behalf, which is
-what unsticks an invoice that has nowhere to go.
+view, and either way Stripe receives the same details. Operators can also correct
+it on your behalf, which is what unsticks an invoice that has nowhere to go.
+
+Your partner account and your own organisation share one Stripe customer record.
+You are one legal entity, so there is one card, one credit balance and one
+invoice history, and your billing details are pushed to that one record. A
+partner set up before November 2026 may still have two records, one for each,
+in which case every save goes to both. Tophhie Cloud merges those one at a time.
+You do not need to do anything, though support may ask you to settle an open
+invoice or add a card on Partner billing first, because money and cards cannot
+move between Stripe records.
 
 The details are held in Sigil and pushed to Stripe when you save them. If the push
 fails, you are told so explicitly rather than being shown a success message while

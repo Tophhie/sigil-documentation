@@ -21,13 +21,14 @@ messages support writes to you carry a reply address of `support@usesigil.app`.
 Choosing Reply in your mail client reaches a person. The breach notice described
 below points you at `privacy@usesigil.app` instead, in its own text.
 
-Every message uses the same layout. It is a white card with a thin pink strip
-along the top, on a pale lavender background. Inside the card is the Sigil mark
+Every message uses the same layout. It is an off-white card with a thin pink
+strip along the top, on a pale plum background. Inside the card is the Sigil mark
 with "Sigil" and "by Tophhie Cloud" beside it, then a fine line and the message
 itself. Where the message has a button, the link it opens is also printed
 underneath it in full, after "Or paste this address into your browser". That way
-you can read where it goes before you click. Mail apps that support dark mode show
-the same layout in the portal's dark colours.
+you can read where it goes before you click. The colours are the portal's own, so
+a message looks like the page its button opens. Mail apps that support dark mode
+show the same layout in the portal's dark colours.
 
 The footer sits below the card and is the same on every message: Tophhie Cloud
 Ltd, its company number (17393069, registered in England and Wales), its
