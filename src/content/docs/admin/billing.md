@@ -615,20 +615,24 @@ Cloud can move it for you:
    "Next invoice 1 Nov 2026 · renewal date moving to the 1st" in place of the
    usual renewal date, since the move's invoice comes first.
 
-On the day, you get one invoice outside your usual cycle. It credits the unused
-days of the month you have already paid for and charges a new month from that
-date, so overall you pay for exactly the days in between. VAT is worked out on
-each line, credits included, so you are not charged VAT twice on days you had
-already paid it for. From then on you are invoiced on your new day each month.
+On the day, you get one invoice outside your usual cycle. It charges for the
+days between your current renewal date and the new one, so overall you pay for
+exactly the days in between. From then on you are invoiced on your new day each
+month.
+
+A subscription that Stripe has not yet moved to its newer way of billing shows
+the same amount in a different shape: a credit for the unused days of the month
+you have already paid for, and a charge for a new month from the new date. Sigil
+moves subscriptions across overnight, so you are unlikely to see this. In
+either shape VAT is worked out on each line, credits included, so you are never
+charged VAT twice on the same days.
 
 This is the one time a direct subscription prorates its seats. Seat changes
 still never do, as [what counts as a seat](#what-counts-as-a-seat) explains.
 
-The credit is worked out at today's seat count rather than the count on your
-last invoice, because Stripe credits unused time at the subscription's current
-quantity. If your organisation has grown since the last renewal, that difference
-is in your favour. The email does not quote an amount for the same reason: the
-count can still change before the day.
+The amount is worked out at your seat count on the day of the move rather than
+the count on your last invoice. The email does not quote an amount for that
+reason: the count can still change before the day.
 
 To stop a move, email support@usesigil.app before the day. The email names that
 date. Asking for a different day replaces the move already scheduled, since

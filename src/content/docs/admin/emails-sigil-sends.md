@@ -21,14 +21,18 @@ messages support writes to you carry a reply address of `support@usesigil.app`.
 Choosing Reply in your mail client reaches a person. The breach notice described
 below points you at `privacy@usesigil.app` instead, in its own text.
 
-Every message uses the same layout. It is an off-white card with a thin pink
-strip along the top, on a pale plum background. Inside the card is the Sigil mark
-with "Sigil" and "by Tophhie Cloud" beside it, then a fine line and the message
-itself. Where the message has a button, the link it opens is also printed
-underneath it in full, after "Or paste this address into your browser". That way
-you can read where it goes before you click. The colours are the portal's own, so
-a message looks like the page its button opens. Mail apps that support dark mode
-show the same layout in the portal's dark colours.
+Every message uses the same layout. It is a white card with a thin pink strip
+along the top, sitting on your mail app's own background. Inside the card is the
+Sigil mark with "Sigil" and "by Tophhie Cloud" beside it, then a fine line and
+the message itself. Where the message has a button, the link it opens is also
+printed underneath it in full, after "Or paste this address into your browser".
+That way you can read where it goes before you click. The text colours are the
+portal's own, so a message looks like the page its button opens.
+
+Mail apps that support dark mode show the card in black with grey text. The card
+is plain white or plain black rather than tinted, because several mail apps
+recolour backgrounds themselves in dark mode, and a tinted card came out a
+grey-purple that the text could not be read against.
 
 The footer sits below the card and is the same on every message: Tophhie Cloud
 Ltd, its company number (17393069, registered in England and Wales), its
@@ -153,6 +157,15 @@ processing agreement being the obvious one, goes to every organisation still on
 the platform. An announcement is a service notice and has no unsubscribe link:
 it is how you hear about a manifest you need to take or a policy that has
 changed, which is part of running the service rather than news about it.
+
+An announcement can also be aimed at only the organisations it concerns. Tophhie
+Cloud can narrow it to those with a recently active mailbox on an add-in older
+than a given version, those on a particular plan or holding a particular add-on,
+or the clients of one partner. Narrowing only ever takes organisations out of
+the audience above, never adds any. An announcement can also be written ahead
+and scheduled for up to 30 days later. It goes out within 15 minutes of the time
+chosen, and who receives it is worked out when it is sent, so an organisation
+that joins or leaves in the meantime is treated as it stands on the day.
 
 An announcement about a change to one of the published agreements (the data
 processing agreement, its list of sub-processors, the terms of use, the privacy
