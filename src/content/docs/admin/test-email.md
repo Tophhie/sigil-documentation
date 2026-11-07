@@ -77,6 +77,12 @@ as it is for any mail. A refusal comes back as a send error in the portal rather
 than disappearing quietly, so if a test does not arrive and no error was shown,
 check the junk folder before assuming the send failed.
 
+One refusal is worth knowing by its wording. "Send failed: Cannot send emails to
+this recipient. This email address has been suppressed" means the mail platform
+has stopped sending to that address after repeated bounces or a spam report.
+Every Sigil message to it will fail, not only tests. See
+[if one address stops getting Sigil's mail](/admin/emails-sigil-sends/#if-one-address-stops-getting-sigils-mail).
+
 The check does not make the endpoint safe for an [API key](/admin/api-keys/),
 which is still refused it. A credential that can mail a rendered signature
 unattended, to anybody in your organisation, is a different thing from an

@@ -488,6 +488,37 @@ not reports on how Sigil is running; they are notice that signatures are going
 to stop on a particular day unless somebody acts, which is the one thing nobody
 should first learn about by noticing.
 
+## If one address stops getting Sigil's mail
+
+Sigil sends each message to each address separately, so one address that cannot
+receive mail never stops the others getting theirs.
+
+An address can end up on the mail platform's suppression list. That happens
+after its messages bounced repeatedly, for example because the mailbox was full,
+disabled or rejecting outside mail, or after somebody using it marked a Sigil
+message as spam. From then on the platform refuses every send to that address,
+and Sigil records the refusal in its own log of what it sent. Everyone else on
+the same notice still receives it.
+
+You find out in one of two ways. Either a person tells you they stopped
+receiving Sigil's notices while their colleagues did not, or a
+[test email](/admin/test-email/) to that address fails with a message that
+begins "Send failed: Cannot send emails to this recipient".
+
+To get the address receiving again:
+
+1. Check the mailbox itself. Make sure it is active, has space, and accepts mail
+   from outside your organisation.
+2. If anyone using it has a rule or a junk setting that marks Sigil's mail as
+   spam, remove it, and allow `signatures@usesigil.app` as a safe sender.
+3. Write to `support@usesigil.app` with the address and roughly when it stopped
+   receiving mail. Support can see the refused sends in Sigil's log and take it
+   from there.
+
+Choosing a different address for the role is quicker if the mailbox is no longer
+in use. The notices go to whoever holds the role in the portal, so changing the
+person, or the billing contact, changes who receives them.
+
 ## Mail flow and anti-phishing
 
 The messages above land in administrator inboxes and mention granting consent,
