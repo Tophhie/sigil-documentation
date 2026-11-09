@@ -248,7 +248,7 @@ See [scheduled publishing](/signatures/scheduled-publishing/).
 | Rejection note | Required, and kept up to 1,000 characters |
 | Approving your own submission | Permitted, and recorded as such |
 | Profile editing | Off by default, per organisation |
-| Health digest | Weekly by default. Weekly, monthly or off |
+| Health digest | Weekly by default. Weekly, monthly (every 30 days) or off. Sent from one daily run at 08:13 UTC |
 
 See [publish approval](/signatures/approvals/) and
 [the health digest](/monitoring/health-digest/).

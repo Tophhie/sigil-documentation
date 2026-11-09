@@ -168,6 +168,30 @@ when the next one goes out.
 Change it in [settings](/admin/settings/). Every digest carries a link to that
 page, so turning it down or off never means hunting for the switch.
 
+### Which day it arrives
+
+Digests go out once a day, from a single run at 08:13 UTC. That is 08:13 in the
+UK in winter and 09:13 in summer. The time is the same for every organisation.
+
+The day is not a calendar rule. Your organisation is due its next digest when
+seven days (weekly) or 30 days (monthly) have passed since the last one was sent.
+So the day depends on when your first digest went out, which is usually the first
+morning after the organisation had an admin and some activity. In practice:
+
+- A weekly digest stays on the same weekday, unless a send is missed and caught
+  up the next morning. From then on it arrives on the new day.
+- A monthly digest moves a day or two earlier each month, because 30 days is
+  shorter than most calendar months. One that starts on the 15th arrives on the
+  15th, then around the 14th, then the 13th.
+
+The count always runs from the last digest sent. Switching between weekly and
+monthly does not restart it, and nor does switching the digest off and back on.
+If more than a period has already passed, the next digest goes out the following
+morning.
+
+You cannot choose the day or the time yet. Preview and Send me one show you the
+current digest whenever you want it, without waiting for the next scheduled one.
+
 It defaults to on because a digest nobody discovers is a digest nobody reads. It
 is a service email about your own organisation, with an off switch linked from
 every send.
