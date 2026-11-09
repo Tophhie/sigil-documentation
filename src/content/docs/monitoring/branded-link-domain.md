@@ -49,8 +49,9 @@ Sigil asks for a subdomain rather than a bare domain on purpose. Pointing
 not every DNS provider offers, and it would take your website with it.
 
 A few hostnames are refused before anything is created: anything under
-`usesigil.app`, a wildcard, a bare domain, and any hostname another organisation
-has already claimed.
+`usesigil.app`, `tophhie.cloud` or `tophhie.co.uk` (Tophhie Cloud's own
+domains), a wildcard, a bare domain, and any hostname another organisation has
+already claimed.
 
 ## Setting it up
 

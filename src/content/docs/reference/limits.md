@@ -59,6 +59,8 @@ refused whole, before any of its images are stored. See
 | Spacer height | 1 to 200 pixels |
 | Border width | 1 to 20 pixels |
 | Block minimum height | 1 to 600 pixels |
+| Show when rule nesting | 3 levels |
+| Fields one Show when rule can name | 20, repeats included |
 
 A design that breaks one of these is rejected at publish with a message naming
 the block at fault. See [the designer](/signatures/designer/).
@@ -74,7 +76,7 @@ below the maximum.
 | Rules per organisation | 100 |
 | Attributes a rule can match on | 11 |
 | Values in one attribute rule | No limit, comma separated |
-| How a group is named | Its Entra object id, typed or pasted, not checked when saved |
+| How a group is named | Its Entra object id, picked by searching for the group's name or pasted, not checked when saved |
 | Roles a rule must set | At least one of new messages and replies |
 
 See [assignment rules](/targeting/assignment-rules/).
@@ -136,7 +138,7 @@ fetched, and does not reach further back. See the
 | --- | --- |
 | Domains per organisation | One |
 | Hostname | A subdomain, not a bare domain. At most 253 characters, each label at most 63 |
-| Hostnames refused outright | Anything under `usesigil.app`, wildcards, and any hostname another organisation has claimed |
+| Hostnames refused outright | Anything under `usesigil.app`, `tophhie.cloud` or `tophhie.co.uk`, wildcards, and any hostname another organisation has claimed |
 | Time from the CNAME appearing to the domain going live | Usually a few minutes |
 | How often the certificate's state is re-read | Nightly, and on demand from the Settings card |
 | Re-checking on demand | Not rate limited. Claiming and releasing are |

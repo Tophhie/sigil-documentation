@@ -32,7 +32,8 @@ is disabled in both editors and says a rollout is already in progress, so a
 second cannot be started until the first has promoted or been rolled back.
 
 You need the templates capability, and where
-[publish approval](/signatures/approvals/) is on you need to be an Admin.
+[publish approval](/signatures/approvals/) is on you need to be an Admin, or a
+partner Owner or Admin managing your organisation.
 
 1. Open the template in its editor from Templates.
 2. Choose Save draft if you want the body kept whichever way the rollout ends.
@@ -262,10 +263,12 @@ rather than only the fact of it.
 
 Anyone holding the templates capability, the same permission as publishing. Of
 the built-in roles that is Admin and Editor, and an Admin can also give it to a
-[custom role](/admin/users-and-roles/#custom-roles). See
+[custom role](/admin/users-and-roles/#custom-roles). Inside a managed client,
+partner Owners, Admins and Technicians hold it too. See
 [roles and capabilities](/reference/roles-and-capabilities/).
 
 Where [publish approval](/signatures/approvals/) is switched on, starting and
-promoting a rollout need an admin. Abandoning one does not, and deliberately so:
+promoting a rollout need an Admin, or a partner Owner or Admin managing your
+organisation. A custom role cannot do either, whatever capabilities it holds. Abandoning one does not, and deliberately so:
 whoever spots a problem has to be able to stop it, and stopping a rollout
 returns users to the body that was already approved.

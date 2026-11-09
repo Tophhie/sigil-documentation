@@ -86,17 +86,19 @@ coverage across your pilot."
 ## Required and optional steps
 
 The required steps are the ones without which signatures do not reach anybody,
-or stop reaching them when the trial ends. The panel stays open until all of
-them are done, billing included, even though the progress line has stopped
-counting at the first group.
+or stop reaching them when the trial ends. Optional steps carry an Optional
+badge; required ones carry none. Nothing else changes with the flag: the
+checklist does not close itself when the required steps are done, and it does
+not stay in your way until they are. It sits under Getting started in the
+sidebar either way, and [dismissing it](#the-panel) is always up to you.
 
 The optional steps are prompts rather than gates. They matter, but an
-organisation whose signatures are working correctly should not be nagged by a
-permanently open checklist because of them.
+organisation whose signatures are working correctly can leave them undone
+without anything being held up.
 
 The data processing agreement is deliberately in the optional group for that
-reason. It is how you evidence Article 28, so it belongs on the list, but an
-unsigned document holding the checklist open for a tenant whose signatures work
+reason. It is how you evidence Article 28, so it belongs on the list, but
+marking an unsigned document as required for a tenant whose signatures work
 would be the wrong trade. See [compliance](/security/compliance/). The step's
 button opens the DPA tab of the Billing view, where acceptance is recorded.
 
@@ -108,8 +110,8 @@ Some organisations do not see the billing group at all:
   client is not asked for billing details or a card. See
   [partner billing](/partners/billing/).
 
-For both, the two billing steps are excused rather than done, so they neither
-appear nor hold the panel open.
+For both, the two billing steps are excused rather than done, so they do not
+appear at all.
 
 An organisation on [invoice terms](/admin/invoices-and-credits/) is a different
 case again. The payment step asks whether Sigil can collect what you owe rather

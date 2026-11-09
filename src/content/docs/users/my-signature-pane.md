@@ -34,7 +34,9 @@ download again. See
 
 A kept copy that records who it was fetched for waits a moment longer, until the
 pane knows who is signed in. On a computer that two people share, that is what
-stops one of them opening the pane and seeing the other's details.
+stops one of them opening the pane and seeing the other's details. If the pane
+then needs you to sign in, it never draws that copy: you see the sign-in prompt
+on its own until you do.
 
 ## What it does
 
@@ -108,8 +110,11 @@ When Sigil answers that there is no signature for this mailbox, or that it is no
 switched on, or that the subscription is not active, the pane also removes any
 kept copy it had drawn and deletes it from the device. Showing it again on the
 next open would only show a signature already known to be wrong. A pane that
-needs you to sign in, or that cannot reach Sigil, leaves a kept copy on screen,
-because that copy is still the last signature you had.
+cannot reach Sigil leaves a kept copy on screen, because that copy is still the
+last signature you had. A pane that needs you to sign in shows a kept copy only
+if it is an old one that does not record who it was fetched for. Any copy saved
+recently does record that, so in practice the pane waits for you to sign in
+before it shows anything.
 
 The pane also keeps a subscription problem separate from a connection problem. A
 lapsed subscription says so rather than reading as a network fault you could fix

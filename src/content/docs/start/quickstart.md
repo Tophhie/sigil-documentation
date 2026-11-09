@@ -161,8 +161,9 @@ Full detail: [deploy the add-in](/deploy/deploy-the-add-in/).
 ## 5. Check it is working
 
 Open Activity in the portal. It shows every signature request and every apply
-outcome, per mailbox, plus a list of mailboxes that have never successfully
-applied one.
+outcome, per mailbox, plus a count of mailboxes that have never successfully
+applied one. The names behind that count are in a CSV you can download from the
+same card.
 
 1. Open Activity in the portal sidebar.
 2. Under Signature adoption, read how many mailboxes have applied their

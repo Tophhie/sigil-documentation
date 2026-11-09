@@ -97,8 +97,8 @@ So the list has a mode, set on the Cost management page.
 | Exclusion, the default | The mailboxes that do not have Sigil | Served a signature, and billed |
 | Inclusion | The only mailboxes that have Sigil | Not served, and not billed |
 
-To change it, the list must be empty. You need the Admin or Billing role, or
-partner Owner or Admin inside a managed client.
+To change it, the list must be empty. You need the Admin or Billing role, a custom role given the costs capability,
+or partner Owner or Admin inside a managed client.
 
 1. Open Cost management in the portal sidebar.
 2. On the card headed Exclusion mode or Inclusion mode, choose Switch to
@@ -281,8 +281,8 @@ An address typed rather than picked is resolved to the mailbox behind it first,
 so pasting somebody's alias out of a ticket works. See
 [you can type an alias](#you-can-type-an-alias).
 
-You need the Admin or Billing role, or partner Owner or Admin inside a managed
-client.
+You need the Admin or Billing role, a custom role given the costs capability,
+or partner Owner or Admin inside a managed client.
 
 1. Open Cost management in the portal sidebar.
 2. Choose Exclude a mailbox. In inclusion mode the button reads Include a
@@ -422,8 +422,8 @@ below.
 
 ## Putting a mailbox back
 
-You need the Admin or Billing role, or partner Owner or Admin inside a managed
-client.
+You need the Admin or Billing role, a custom role given the costs capability,
+or partner Owner or Admin inside a managed client.
 
 1. Open Cost management in the portal sidebar.
 2. In the list at the bottom of the page, find the mailbox and choose Put
@@ -573,8 +573,9 @@ organisation did anything that day.
 
 ## Who can use it
 
-The Admin and Billing roles, from Cost management in the portal. Editors,
-Marketing, Viewers and the Compliance role do not reach it.
+The Admin and Billing roles, from Cost management in the portal, and any
+[custom role](/admin/users-and-roles/#custom-roles) given the costs
+capability. Editors, Marketing, Viewers and the Compliance role do not reach it.
 
 Inside a managed client, partner Owners and Admins reach it. A partner Technician
 does not, because switching off a mailbox's signature is an account decision
