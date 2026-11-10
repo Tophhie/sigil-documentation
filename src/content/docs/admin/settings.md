@@ -98,15 +98,20 @@ It saves as soon as the switch moves.
 An email to every administrator summarising coverage, apply failures, directory
 gaps and anything waiting on a decision.
 
-Weekly, monthly and off are the three choices. Monthly means every 30 days
-rather than once per calendar month. See
-[the health digest](/monitoring/health-digest/) for what it contains and why it
-defaults to on.
+Weekly, monthly and off are the three choices, and you choose the day it
+arrives: a weekday for weekly (Monday by default), or a date from the 1st to the
+28th for monthly (the 1st by default). See
+[the health digest](/monitoring/health-digest/) for what it contains, how a
+change of day is handled, and why it defaults to on.
 
 1. Open Settings in the portal sidebar.
 2. In the Health digest card, choose Weekly, Monthly or Off.
+3. Pick the day of the week, or the date of the month, from the list under your
+   choice.
 
-It saves as soon as you choose, and the card says when the last one was sent.
+Each choice saves as soon as you make it. The card's header shows when the last
+digest was sent and when the next one is due, and the next date updates as soon
+as you change the day.
 
 Two buttons sit beside the setting.
 

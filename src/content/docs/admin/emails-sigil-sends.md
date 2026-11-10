@@ -67,7 +67,7 @@ organisation who can actually act on it.
 | Your changes to a named template are live, or were sent back | A draft somebody submitted is approved or sent back. Goes to the person who submitted it, and quotes the reviewer's note when it is sent back. See [approvals](/signatures/approvals/#the-author-hears-the-outcome) |
 | A Sigil API key for your organisation expires on a named day | A week before an [API key](/admin/api-keys/) with an expiry date stops working. Goes to your administrators and the person who created the key |
 | Your Sigil data has been restored to an earlier point | Tophhie Cloud has restored your organisation's Sigil data to its last nightly checkpoint. Says that changes made since then are gone and need making again. Goes to your administrators |
-| Sigil health digest | Weekly by default, to every administrator. Coverage, apply failures and anything waiting on a decision |
+| Sigil health digest | Weekly on a Monday by default, or on the weekday or date your admins choose, to every administrator. Coverage, apply failures and anything waiting on a decision |
 | Sigil health digest, on request | An administrator presses "Send me one" in [settings](/admin/settings/). Goes to that administrator only |
 | Action needed: reconnect Sigil, followed by your organisation's name | Sigil has lost permission to read your directory, so signatures may have stopped updating. Sent to every administrator, once each time it happens. Carries a Reconnect Sigil button |
 | Your Sigil trial ends soon | Three days before the trial ends, and again the day before. The wording depends on whether a card is on file and whether your billing details are complete. Not sent for a trial already set to end |
@@ -102,7 +102,7 @@ organisation who can actually act on it.
 The [health digest](/monitoring/health-digest/) is the only one of these that
 arrives on a schedule rather than in response to something. It reports rather
 than alerts, so a healthy organisation still gets one, and it carries a link to
-[settings](/admin/settings/) where you can change it to monthly or turn it off.
+[settings](/admin/settings/) where you can change the day, change it to monthly or turn it off.
 
 An administrator can also send themselves a copy on demand. That one goes to the
 person who pressed the button and to nobody else, and it does not move the

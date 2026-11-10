@@ -248,7 +248,9 @@ See [scheduled publishing](/signatures/scheduled-publishing/).
 | Rejection note | Required, and kept up to 1,000 characters |
 | Approving your own submission | Permitted, and recorded as such |
 | Profile editing | Off by default, per organisation |
-| Health digest | Weekly by default. Weekly, monthly (every 30 days) or off. Sent from one daily run at 08:13 UTC |
+| Health digest | Weekly on a Monday by default. Weekly on any weekday, monthly on any date from the 1st to the 28th, or off. Sent from one daily run at 08:13 UTC |
+| Gap after a digest before the next can go out | 3 days for weekly, 14 days for monthly |
+| Health digest reporting period | Since the last digest; 7 days for a first digest; at most 35 days |
 
 See [publish approval](/signatures/approvals/) and
 [the health digest](/monitoring/health-digest/).

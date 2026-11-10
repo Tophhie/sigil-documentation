@@ -24,7 +24,7 @@ about them changes what your users receive.
 | [Template library](/signatures/templates/) | A thumbnail after each template's name, showing the top-left corner of the live signature |
 | [Version history](/signatures/versions/) | The live version in full above the table, and a thumbnail on every archived version |
 | Approval request email | The proposed signature, and the live one above it, inline in the mail an admin gets when a draft is submitted |
-| [Health digest](/monitoring/health-digest/) | A picture under each line of Published this week, up to four pictures in all |
+| [Health digest](/monitoring/health-digest/) | A picture under each line of the published section, up to four pictures in all |
 
 A thumbnail is a way in rather than the picture itself. Clicking one opens the
 render at full size, with a note saying what it is a render of.

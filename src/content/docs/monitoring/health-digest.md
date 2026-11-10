@@ -22,7 +22,7 @@ them.
 | Directory gaps | Attributes your default new-message and reply templates reference that a meaningful share of mailboxes do not have |
 | Banners closing | Any [campaign banner](/targeting/banners/) whose window ends within a week, unless it is paused |
 | Waiting on approval | Drafts submitted for review and not yet decided |
-| Published this week | Every template published in the last seven days, with the date and who published it |
+| Published since your last digest | Every template published since the last digest went out, with the date and who published it |
 | Booked publishes | Any [scheduled publish](/signatures/scheduled-publishing/) not yet fired |
 | Running rollouts | Any [staged rollout](/signatures/staged-rollouts/) in flight, and what percentage it is at |
 
@@ -31,13 +31,25 @@ Empty sections are left out rather than printed as zeroes.
 Two sections do not follow the digest's own schedule. Apply failures are counted
 since your organisation started using Sigil, not since the last digest, so once
 any attempt has failed, that section and the attention-needed subject line
-appear in every digest. Published this week always covers the last seven days,
-even on a monthly digest, so earlier publishes in the month are in the
-[change log](/monitoring/change-log/) instead.
+appear in every digest.
+
+The published section covers the time since the last digest went out, from the
+moment it was sent, so each publish appears in exactly one digest whether yours
+is weekly or monthly. The heading says which period it covers:
+
+| Situation | Period covered | Heading |
+| --- | --- | --- |
+| A digest has gone out before | Since that digest was sent | Published since your last digest |
+| Your organisation's first digest | The last 7 days | Published in the last 7 days |
+| More than 35 days since the last one, for example after the digest was off | The last 35 days | Published in the last 35 days |
+
+The 35-day cap stops a digest switched back on after a long break from carrying
+months of history. Anything older is in the
+[change log](/monitoring/change-log/).
 
 ## Pictures of what was published
 
-With [signature previews](/signatures/previews/), each line under Published this week carries a picture of the
+With [signature previews](/signatures/previews/), each line in the published section carries a picture of the
 signature that went live, so the digest answers what changed rather than only
 that something did.
 
@@ -161,52 +173,91 @@ when the next one goes out.
 
 | Setting | Behaviour |
 | --- | --- |
-| Weekly | The default |
-| Monthly | One every 30 days, for organisations where weekly is more than they want |
+| Weekly | The default. One a week, on the weekday you choose (Monday unless you change it) |
+| Monthly | One a month, on the date you choose from the 1st to the 28th (the 1st unless you change it) |
 | Off | No digest at all |
 
 Change it in [settings](/admin/settings/). Every digest carries a link to that
-page, so turning it down or off never means hunting for the switch.
+page, so changing the day, turning it down or switching it off never means
+hunting for the switch.
 
 ### Which day it arrives
 
+You choose the day. Weekly and monthly each keep their own choice, so switching
+from a Friday weekly digest to monthly and back again still gets you Fridays.
+
+The 29th to the 31st are not offered for monthly, because some months do not
+have them. A date from the 1st to the 28th exists in every month, February
+included.
+
+Organisations that already had a digest before the day could be chosen were
+given the weekday and date their last one arrived on, so nothing moved for them.
+A monthly digest used to arrive every 30 days and drift a day or two earlier
+each month. It now stays on its date.
+
 Digests go out once a day, from a single run at 08:13 UTC. That is 08:13 in the
-UK in winter and 09:13 in summer. The time is the same for every organisation.
+UK in winter and 09:13 in summer. The time is the same for every organisation and
+cannot be changed. The day is a UTC date, which is the same date as yours at that
+hour almost everywhere. Only far west of the UK, in Alaska and Hawaii, does a
+Monday digest land on Sunday evening.
 
-The day is not a calendar rule. Your organisation is due its next digest when
-seven days (weekly) or 30 days (monthly) have passed since the last one was sent.
-So the day depends on when your first digest went out, which is usually the first
-morning after the organisation had an admin and some activity. In practice:
+The Health digest card shows two dates in its header: when the last digest was
+sent (or Not sent yet), and when the next one is due. Hover over either for the
+full date. The next date changes as soon as you pick a new day, so you can see
+straight away what your choice did.
 
-- A weekly digest stays on the same weekday, unless a send is missed and caught
-  up the next morning. From then on it arrives on the new day.
-- A monthly digest moves a day or two earlier each month, because 30 days is
-  shorter than most calendar months. One that starts on the 15th arrives on the
-  15th, then around the 14th, then the 13th.
+### What happens when you change the day
 
-The count always runs from the last digest sent. Switching between weekly and
-monthly does not restart it, and nor does switching the digest off and back on.
-If more than a period has already passed, the next digest goes out the following
-morning.
+A change of day never sends two digests close together. There is a minimum gap
+after each digest: 3 days for weekly and 14 days for monthly. If the new day
+falls inside that gap, the digest waits for the next one.
 
-You cannot choose the day or the time yet. Preview and Send me one show you the
-current digest whenever you want it, without waiting for the next scheduled one.
+| Example | When the next digest goes out |
+| --- | --- |
+| Weekly, sent on Monday, you switch to Friday | This Friday, four days later |
+| Weekly, sent on Monday, you switch to Tuesday | Next week's Tuesday, because tomorrow is only a day later |
+| Monthly, sent on the 1st, you switch to the 20th | The 20th of this month |
+| Monthly, sent on the 1st, you switch to the 10th | The 10th of next month, because 9 days is too soon |
+
+Switching the digest off and on again, or between weekly and monthly, follows the
+same rule. It is measured from the last digest that was actually sent.
+
+### When a send is missed
+
+If a digest could not go out on its day, for example during an incident, it is
+sent the following morning instead. The one after that is back on your chosen
+day, so a missed send does not move your schedule.
+
+The catch-up only covers the day after. An organisation whose signatures were
+stopped for a few weeks, for example over billing, is not sent a digest midweek
+when service resumes. It waits for its next chosen day.
+
+A new organisation's first digest arrives on the first chosen day after it is
+ready for one, which is a Monday unless an admin has picked another day. An
+organisation that signs up on a Tuesday gets its first digest the following
+Monday.
 
 It defaults to on because a digest nobody discovers is a digest nobody reads. It
 is a service email about your own organisation, with an off switch linked from
 every send.
 
-### Changing the frequency or switching it off
+### Changing the frequency, the day, or switching it off
 
 You need the Admin role, a custom role given Settings, or a partner Owner or
 Admin role inside a managed client.
 
 1. Open Settings in the portal sidebar, under Organisation.
 2. On the Health digest card, choose Weekly, Monthly or Off.
+3. For Weekly, pick a day of the week from the list that appears under it. For
+   Monthly, pick a date from the 1st to the 28th.
+4. Check the Next date in the card's header. It shows when the next digest will
+   go out under your new choice.
 
-The choice saves as soon as you make it and a message confirms it. The card
-also shows when the last digest was sent. Switching it back on later is the
-same choice in reverse.
+Each choice saves as soon as you make it and a message confirms it. The line
+under the option reads back what you chose, such as "A summary every Monday."
+Switching the digest back on later is the same choice in reverse, and it
+remembers the day you picked before. Day changes are recorded in the
+[change log](/monitoring/change-log/) with the other settings.
 
 ## Who receives it
 
