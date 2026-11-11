@@ -290,6 +290,13 @@ billed in its own name and to ask Tophhie Cloud to finish the link. That is
 deliberate. A tenant that moved onto partner billing while its own subscription
 was still running would be invoiced twice with no way to unpick it.
 
+A client that paid by card has usually paid for the current month in advance,
+and from the approval your bill covers it instead. On most subscriptions the
+days left in that month come back as a credit on the client's own account, which
+Tophhie Cloud refunds. On some older subscriptions Stripe cannot work that credit
+out correctly, so Tophhie Cloud raises it by hand against the invoice the client
+paid. Either way the client is not charged twice for the same days.
+
 The request itself is used up by the approval, though. It leaves your pending
 list and cannot be approved a second time, so finishing the move is Tophhie
 Cloud's job rather than something the client can retry. Ask support if a client
@@ -351,10 +358,20 @@ managing a client, releasing one needs the current
 for an Owner, Release is refused with "Accept the partner agreement before
 managing clients." until they accept it.
 
-1. Open Clients in the portal sidebar.
-2. Open the Client actions menu on the client's row.
-3. Choose Release client.
-4. Choose Release in the confirmation.
+A client needs at least one Admin of its own before it can be released. Once
+released, an organisation with nobody in it makes the first person who signs in
+its Admin, and that could be anybody there. Release is refused with "Add an admin
+for this client before releasing it, so someone there can take it over." until
+somebody is.
+
+1. If the client has no Admin of its own, ask Tophhie Cloud support to grant one
+   to the person who will take it over. The client's Users & roles page does not
+   offer your staff the Admin role, so this is the one step you cannot do
+   yourself.
+2. Open Clients in the portal sidebar.
+3. Open the Client actions menu on the client's row.
+4. Choose Release client.
+5. Choose Release in the confirmation.
 
 The confirmation says you lose access immediately, that billing returns to
 them, and that they need to add a payment method to keep signatures running.
@@ -368,7 +385,8 @@ exists for the case where you cannot: a partner whose staff are locked out canno
 release anybody, and their clients would otherwise be stranded under a
 partnership that is ending. The client sees no difference either way, because it
 is the same release, with the same return to direct billing, the same grace
-period and the same email to their administrators. See
+period and the same email to their administrators. It is refused the same way
+for a client with no Admin, until one is granted. See
 [leaving the programme](/partners/leaving-the-programme/).
 
 ## A client can end it too

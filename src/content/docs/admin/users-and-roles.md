@@ -21,7 +21,7 @@ Your role decides what you can do.
 | Marketing | Campaign banners and link click analytics only |
 | Viewer | Reads activity, attribute coverage, the change log and link clicks. Changes nothing |
 | Compliance | Compliance footers, plus the same read-only monitoring a Viewer gets |
-| Billing | The subscription, the billing profile, cost management, and inviting colleagues |
+| Billing | The subscription, the billing profile, cost management, adding other Billing users and removing access |
 
 Each one is narrow on purpose, so the person who needs one part of Sigil does not
 have to be given all of it.
@@ -41,7 +41,11 @@ usually owned by legal rather than by whoever is editing the design.
 
 Billing is the account owner who pays for Sigil without editing signatures. It
 carries user management alongside the subscription, because the person holding
-the account is normally the person deciding who has access to it.
+the account is normally the person deciding who has access to it. That is
+narrower than it sounds: a Billing user can add other Billing users and remove
+anybody who is not an Admin, but cannot give anybody a wider role such as
+Editor. An Admin hands those out. See
+[giving a role that holds more than yours](#giving-a-role-that-holds-more-than-yours).
 
 It also carries [cost management](/admin/cost-management/), which is the one
 thing a Billing role does that changes what a colleague's mail looks like:
@@ -58,6 +62,28 @@ words in a colleague's signature.
 Only an Admin can create, change or remove another Admin. Somebody with the
 Billing role can manage ordinary colleagues but cannot promote anybody to Admin,
 including themselves through a second account.
+
+### Giving a role that holds more than yours
+
+Apart from an Admin, nobody can give a role, or change somebody's role, when that
+role reaches an area of the portal their own role does not. A Billing user can
+give the Billing role, or a custom role made only of billing, cost management and
+users, but not Editor, Viewer or Marketing, because each of those reaches
+something Billing does not. The same rule applies to anybody whose custom role
+includes users.
+
+It also covers changing a role. Somebody whose current role holds more than
+yours keeps it: their Role drop-down is disabled for you, so you can neither
+demote them nor move them sideways.
+
+The reason is that holding users would otherwise be every capability by proxy.
+Without the rule, a Billing user could invite a second account of their own as an
+Editor and publish templates through it.
+
+The Role drop-down only offers roles you are allowed to give, so in the portal
+you will not meet the refusal. A request made some other way is refused with
+"You can only give or change a role that holds no more than your own." If
+somebody needs a wider role, ask an Admin to give it.
 
 If an [IT provider](/partners/overview/) manages your organisation, its Owners
 and Admins count as Admins here while they work inside your tenant. They can
@@ -83,14 +109,16 @@ If none of the six fits somebody, an Admin can define a role of their own. See
 Invite from Users and roles. You need their email address and a role. You
 also need a role that reaches Users and roles yourself, which is Admin, Billing,
 or a [custom role](#custom-roles) given that area. Only an Admin is offered Admin
-as a role to give.
+as a role to give, and anybody else is offered only the roles that hold
+[no more than their own](#giving-a-role-that-holds-more-than-yours).
 
 1. Open Users & roles in the portal sidebar.
 2. Choose Invite user.
 3. Under Email address, start typing their name or address and pick them from
    the directory suggestions, or type the address in full.
-4. Pick a Role. Editor is selected to begin with. Any custom roles are listed
-   after the six built-in ones.
+4. Pick a Role. Editor is selected to begin with when you are allowed to give
+   it, and otherwise the first role you can give, which for a Billing user is
+   Billing. Any custom roles are listed after the six built-in ones.
 5. Choose Add user.
 
 The dialog closes, the portal confirms that they get access next time they sign
@@ -182,7 +210,7 @@ the same way.
 | | |
 | --- | --- |
 | Who can define, edit or delete one | An Admin, or a partner Owner or Admin working inside your organisation |
-| Who can give one to a colleague | Anybody who can manage users, which includes the Billing role |
+| Who can give one to a colleague | An Admin, or anybody who can manage users when the role holds no more than their own |
 | How many | Up to 20 per organisation |
 | Name | Required, up to 40 characters, and different from your other custom roles |
 | Description | Optional, up to 200 characters. A note for the next Admin about who the role is for |

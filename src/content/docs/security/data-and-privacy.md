@@ -569,6 +569,9 @@ back to.
 Where a deprovision is scheduled rather than immediate, the purge checks that the
 deletion is still scheduled before it destroys anything. An organisation restored
 during its grace window is safe even if a purge had already been queued for it.
+Once the purge has actually started, though, the organisation can no longer be
+restored, because some of its data may already be gone. Ask before the named day
+if you want to stay.
 
 You are told by email at each step. Your administrators, everyone with the
 Billing role and the billing email on your billing profile receive:

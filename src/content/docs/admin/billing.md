@@ -179,6 +179,14 @@ notices. Sigil allows 21 days from the first failure, measured from the failure
 itself rather than from each retry, and signatures stop at the end of that window
 if the invoice is still unpaid.
 
+The one failure with no window is a trial's own first charge. When the payment
+that should start a subscription at the end of a trial fails, signatures stop at
+once, and start again as soon as that payment goes through. Nothing has been paid
+yet, so three weeks of grace would be three free weeks on top of the trial. The
+email says so: it reads that the free trial has ended and signatures are paused,
+rather than that nothing has stopped, and the reminder a week before the end of
+the window is not sent, because there is no window.
+
 On invoice terms the same 21 days apply, counted from the invoice's due date
 rather than from a failed payment, since that is the first moment anything is
 late. Net 30 therefore allows up to 51 days from the invoice being issued.

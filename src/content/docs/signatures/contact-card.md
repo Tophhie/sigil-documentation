@@ -77,11 +77,46 @@ To add it in the HTML editor:
 | Fax | `faxNumber` |
 | Work address | Street, city, state, postal code and country |
 
+That is the most a card can hold. Each card carries the name and email address,
+and beyond those only the fields the signature itself prints. A template that
+shows an office number and no mobile gives out no mobile through its contact card
+either, so the card never tells a recipient anything the signature did not.
+
+| Card field | Included when the signature uses |
+| --- | --- |
+| Name and email | Always |
+| Organisation | `{{companyName}}` |
+| Title | `{{jobTitle}}` |
+| Work phone | `{{businessPhone}}` |
+| Mobile | `{{mobilePhone}}` |
+| Fax | `{{fax}}` |
+| Work address | Each part separately: `{{streetAddress}}`, `{{city}}`, `{{state}}`, `{{postalCode}}`, `{{country}}` |
+
+A field counts wherever the template names it, including as the condition of a
+[conditional section](/signatures/placeholders/#conditional-sections), so a
+mobile printed only for people who have one still reaches the card for those
+people.
+
 Empty attributes are left out of the card rather than written as blanks, so a
 person with no fax number has no fax line.
 
-This is the set the QR code carries, which is the point: one function builds
-both.
+The QR code follows the same rule, read from the design it sits in, which is the
+point: one function builds both.
+
+Links in mail sent before 10 November 2026 carry no list of fields, because
+cards then held everything whatever the signature showed. Nobody can say now
+what those signatures printed, so those links are answered with the name, email,
+organisation, title and work phone only, and no longer give out a mobile, fax or
+street address.
+
+To put a field on the card, put it in the signature:
+
+1. Open Templates in the portal sidebar and open the template.
+2. Add the field where recipients should see it, for example `{{mobilePhone}}`
+   in a text block.
+3. Choose Save draft or Publish.
+
+Mail composed after it is published carries a link that includes the field.
 
 The difference is when each is built. A QR code is drawn as the message is
 composed, so it carries the address the message is sent from, alias included.

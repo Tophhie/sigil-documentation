@@ -23,7 +23,7 @@ capabilities it was given.
 | Compliance footers | Legal and disclaimer footers, and [whether a template carries one](/targeting/footers/#keeping-the-footer-off-a-signature) | Yes | No | No | No | Yes | No |
 | Link click analytics | Click tracking and its reports | Yes | No | Yes | Yes | No | No |
 | Monitoring | Activity feed, attribute coverage, audit log | Yes | Yes | No | Yes | Yes | No |
-| Users and roles | Invite users and assign roles | Yes | No | No | No | No | Yes |
+| Users and roles | Invite and remove users, and give roles that hold no more than your own | Yes | No | No | No | No | Yes |
 | Billing | Plan, seats, subscription, billing profile and [add-ons](/admin/billing/#add-ons) | Yes | No | No | No | No | Yes |
 | Cost management | Which mailboxes and Entra groups have Sigil, which way round that list reads, and the suggestions behind it | Yes | No | No | No | No | Yes |
 | Settings | The organisation-wide switches (publish approval, profile editing, the health digest and product update emails), which [profile fields](/admin/profile-fields/) exist, and the [branded link domain](/monitoring/branded-link-domain/) | Yes | No | No | No | No | No |
@@ -71,7 +71,11 @@ the [change log](/monitoring/change-log/).
 
 Only an Admin can create, change or remove another Admin. A Billing role holds
 the users capability and can manage ordinary colleagues, but cannot promote
-anybody to Admin, including a second account of their own.
+anybody to Admin, including a second account of their own. Nor can anybody but
+an Admin give or change a role that reaches further than their own, so a Billing
+user adds Billing users and removes access, and an Admin gives out the wider
+roles. See
+[giving a role that holds more than yours](/admin/users-and-roles/#giving-a-role-that-holds-more-than-yours).
 
 A valid sign-in with no role assigned is authenticated but authorised for
 nothing, and is told to request access. A sign-in from an organisation that never
