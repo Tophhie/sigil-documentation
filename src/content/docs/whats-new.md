@@ -1,8 +1,6 @@
 ---
 title: What's new
 description: Recent changes to Sigil that admins, partners and mailbox users can see, newest first.
-sidebar:
-  order: 6
 ---
 
 <!-- last-portal-commit: 1477ab8 -->
