@@ -58,6 +58,7 @@ export default defineConfig({
       tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 3 },
       lastUpdated: true,
       sidebar: [
+        { label: "What's new", link: '/whats-new/' },
         { label: 'Start here', items: [{ autogenerate: { directory: 'start' } }] },
         { label: 'Deployment', items: [{ autogenerate: { directory: 'deploy' } }] },
         {
