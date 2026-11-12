@@ -370,6 +370,12 @@ discarding or submitting a draft, none of which reach a user.
 | `POST /api/admin/templates/:id/rollout/rollback` | Admin token | Abandon the rollout |
 | `GET /api/admin/rollouts` | Admin token | Every rollout currently in flight, as light summaries |
 
+The evaluator that runs every 15 minutes can end a rollout at the same moment
+you call promote or rollback, and only one of the two ends it. If the evaluator
+promoted it first, promote answers 409 with `code: "already_promoted"`. If the
+rollout had already ended any other way, both routes answer 404. Neither response
+means your call did anything, so read the rollout again before acting on it.
+
 The listing route returns the template id, the percentage, who started it and
 when, and deliberately not the bodies. A rollout carries a whole canary signature
 and its design document, and the library only needs to know which templates are

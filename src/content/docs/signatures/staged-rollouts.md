@@ -177,6 +177,21 @@ seconds.
 
 A message confirms everyone is on the current signature.
 
+### If the evaluator decides first
+
+The evaluator keeps running while you have the panel open, so it can promote or
+roll back the rollout after the panel loaded and before you confirm. Only one of
+you ends it, and the portal tells you when it was not
+you.
+
+| What you chose | What you see | What happened |
+| --- | --- | --- |
+| Promote | This rollout has already been promoted. | The evaluator promoted it first. Everyone already has the new version |
+| Promote or Roll back | No rollout in progress for this template | The rollout had already ended, by the evaluator or a colleague. Your choice changed nothing |
+
+In either case, reload the template. The rollout panel will be gone, and the
+[change log](/monitoring/change-log/) shows who ended the rollout and why.
+
 ## Promotion
 
 Promoting writes the new body to the template and archives the outgoing body

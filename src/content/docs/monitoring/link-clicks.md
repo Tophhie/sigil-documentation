@@ -64,6 +64,22 @@ record of one individual's behaviour.
 Leaving them alone is what keeps the analytics aggregate by construction rather
 than by policy.
 
+## Links with more than one query parameter
+
+A template link is stored the way it is written in the template's HTML, where
+the `&` between query parameters is written `&amp;`. The redirect turns `&amp;`
+back into `&` before it sends the recipient on, so a link such as
+`https://example.com/offer?x=1&y=2` arrives with both parameters intact.
+
+Before 10 November 2026 the redirect passed the stored text through unchanged,
+and the destination saw `x=1` followed by a parameter called `amp;y`. The repair
+happens when someone clicks rather than when the template is saved, so links in
+mail sent before that date work again and no slug changed. You do not need to
+republish anything.
+
+Banner links were never affected. A banner link is typed in as a plain URL, so
+it never carried `&amp;` in the first place.
+
 ## What is recorded
 
 Six things per click, and no more.
