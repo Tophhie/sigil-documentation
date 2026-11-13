@@ -116,12 +116,23 @@ Anything a Tophhie Cloud operator does to your organisation is written to your
 own change log. The actor reads "Sigil operator" and carries a "Sigil support"
 badge, rather than naming the individual who did it.
 
+Beside the label is a short reference for that operator, such as
+`Sigil operator · OP-7K3F`. Each operator has one reference, and it is the same
+on every entry and in every organisation's log, so you can tell whether three
+support actions were one person's or three people's. It is random rather than
+worked out from the person's address, so it does not reveal who they are. Only
+Tophhie Cloud can match it to a person. An operator keeps their reference if
+their address changes, and it stays valid after they leave, so an old entry can
+still be traced.
+
 The individual is still recorded, in Tophhie Cloud's own copy of the entry. Your
 copy does not carry them. The substitution happens on the server, so the
 operator's address is absent from the API response and from a
 [tenant export](/security/data-and-privacy/) as well as from the screen. It used
 to be done only in the portal, which meant the address was still readable by
-anyone who fetched the log directly.
+anyone who fetched the log directly. The reference is in all three places: as
+`actor_ref` in the API and the export, and in the Actor column of the portal's
+CSV download.
 
 That is a deliberate narrowing rather than a hole in the record. Attributing the
 act to a named person is what an audit needs, and Tophhie Cloud holds that
@@ -203,6 +214,20 @@ organisation, when it happened, and what it changed. Tophhie Cloud's copy holds
 the same entries and sometimes an internal note beside a commercial one, the
 kind of note written for our own records rather than about you. Nothing is held
 back from your copy that would change what you can see was done.
+
+
+### Asking support about an action
+
+1. In the portal, open **Audit log** and find the entry with the "Sigil
+   support" badge.
+2. Note the reference after "Sigil operator", for example `OP-7K3F`, and the
+   date of the entry.
+3. Contact support and quote both. Support can find every action that operator
+   took from the reference alone.
+
+If the reference cannot be looked up when the log loads, the entry reads
+"Sigil operator" on its own, as it did before references existed. Nothing else
+about the entry changes.
 
 ## Cost management entries
 

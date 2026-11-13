@@ -317,6 +317,11 @@ badged as support and reading "Sigil operator" rather than naming the member of
 staff. The individual is recorded in Tophhie Cloud's own copy, which is what an
 investigation would read.
 
+Each entry also carries a reference for the operator, such as `OP-7K3F`. It is
+the same for one person on every entry, so you can see which actions were the
+same person's, and you can quote it to support when asking about one. See
+[asking support about an action](/monitoring/change-log/#asking-support-about-an-action).
+
 That covers being looked at as well as being changed. A read-only support session
 is recorded as "Viewed your portal (read-only support session)", so the answer
 to "has anyone at Sigil been in our tenant" comes from your records rather than

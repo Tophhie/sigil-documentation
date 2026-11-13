@@ -31,8 +31,8 @@ view shows all of it, filterable by half, by who and by action, with each entry
 opening into what it changed.
 
 It also covers what Tophhie Cloud staff did on your organisation. Those entries
-are badged as support and read "Sigil operator" rather than naming the member of
-staff, so the log answers whether Sigil touched your data without your having to
+are badged as support and read "Sigil operator" with a short reference such as
+`OP-7K3F` rather than naming the member of staff, so the log answers whether Sigil touched your data without your having to
 ask. See [actions taken by Tophhie Cloud
 support](/monitoring/change-log/#actions-taken-by-tophhie-cloud-support).
 

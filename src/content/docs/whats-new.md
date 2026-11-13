@@ -3,8 +3,9 @@ title: What's new
 description: Recent changes to Sigil that admins, partners and mailbox users can see, newest first.
 ---
 
-<!-- last-portal-commit: 1477ab8 -->
+<!-- last-portal-commit: 907534d -->
 <!-- last-addin-commit: a648039 -->
+<!-- last-flag-check: 2026-11-13T09:09:15Z -->
 
 This page lists changes to Sigil that you can see or need to know about, newest
 first. Each entry is dated by the day the change reached Sigil and links to the
@@ -20,6 +21,11 @@ are available to every organisation.
   management requests and their answers, and a mailbox's signature download now
   each leave an entry. For invoice details, the entry names the fields that
   changed, not their values. See [Change log](/monitoring/change-log/).
+- **Support actions carry an operator reference.** Entries made by Tophhie Cloud
+  support now read "Sigil operator" with a short reference such as `OP-7K3F`.
+  The same person always has the same reference, so you can tell their actions
+  apart and quote one to support without being told who they are. See
+  [Actions taken by Tophhie Cloud support](/monitoring/change-log/#actions-taken-by-tophhie-cloud-support).
 
 ### 10 November
 
