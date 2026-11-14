@@ -279,8 +279,16 @@ enterprise applications in Entra. When that happens Sigil can no longer read
 your directory, and signatures break quietly: the template is still there, but
 there is no data to personalise it with.
 
+Three things in Entra cut Sigil off in the same way:
+
+| | |
+| --- | --- |
+| Consent withdrawn | Sigil's permissions are removed from the enterprise application |
+| Enterprise application deleted | Sigil no longer exists in your directory at all |
+| Enterprise application disabled | Enabled for users to sign in? is set to No on its Properties page. Microsoft then issues Sigil no access tokens, even though the application and its consent are still there |
+
 A nightly scan checks whether Sigil can still read each organisation's
-directory. The first night it is refused, every administrator is emailed
+directory, and treats all three the same. The first night it is refused, every administrator is emailed
 "Action needed: reconnect Sigil" with a Reconnect Sigil button. That happens
 once per lapse rather than every night, and a night when Microsoft does not
 answer at all sends nothing. Tophhie Cloud support can send the same link again
@@ -298,6 +306,21 @@ To grant consent again from the portal:
 Opening `https://portal.usesigil.app/admin/consent` directly does the same
 thing. Nothing else about your organisation changes, and the next section says
 what re-consenting cannot fix.
+
+### If the enterprise application was disabled
+
+Granting consent again does not switch a disabled application back on. Microsoft
+keeps the setting separate from consent, so turn it back on in Entra instead:
+
+1. In the Microsoft Entra admin center, open Enterprise apps, then All
+   applications.
+2. Search for Sigil and open it.
+3. Select Properties.
+4. Set Enabled for users to sign in? to Yes.
+5. Select Save.
+
+This needs a Cloud Application Administrator or Application Administrator in
+your organisation. Sigil reads your directory again on its next attempt.
 
 ## What re-consenting cannot fix
 

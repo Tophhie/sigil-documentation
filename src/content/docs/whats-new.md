@@ -3,9 +3,9 @@ title: What's new
 description: Recent changes to Sigil that admins, partners and mailbox users can see, newest first.
 ---
 
-<!-- last-portal-commit: 907534d -->
+<!-- last-portal-commit: 97c1062 -->
 <!-- last-addin-commit: a648039 -->
-<!-- last-flag-check: 2026-11-13T09:09:15Z -->
+<!-- last-flag-check: 2026-11-14T09:30:00Z -->
 
 This page lists changes to Sigil that you can see or need to know about, newest
 first. Each entry is dated by the day the change reached Sigil and links to the
@@ -13,6 +13,15 @@ page that covers it in full. Features still in testing are left off until they
 are available to every organisation.
 
 ## November 2026
+
+### 14 November
+
+- **A disabled Sigil app now sends the reconnect email.** If an admin turns off
+  Sigil's enterprise application in Entra, or deletes it, the nightly check now
+  treats it like withdrawn consent and emails your administrators "Action
+  needed: reconnect Sigil". A disabled application needs switching back on in
+  Entra, which granting consent again does not do. See
+  [Consent has lapsed](/deploy/connect-your-organisation/#consent-has-lapsed).
 
 ### 12 November
 

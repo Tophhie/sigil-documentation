@@ -89,15 +89,21 @@ next invoice would be zero. See
 
 ### Has admin consent lapsed?
 
-If consent has been withdrawn or the enterprise application removed, Sigil can no
-longer read your directory and cannot personalise anything. Your administrators
-will usually have had an email headed "Action needed: reconnect Sigil" after
-Sigil's next nightly check. Re-visit `/admin/consent` and grant consent again. See
-[connect your organisation](/deploy/connect-your-organisation/).
+If consent has been withdrawn, or the enterprise application removed or
+disabled, Sigil can no longer read your directory and cannot personalise
+anything. Your administrators will usually have had an email headed "Action
+needed: reconnect Sigil" after Sigil's next nightly check. Re-visit
+`/admin/consent` and grant consent again. See
+[connect your organisation](/deploy/connect-your-organisation/#consent-has-lapsed).
 
 1. Open Getting started in the portal sidebar.
 2. If the Connect Microsoft 365 step is unticked, choose Grant admin consent.
 3. Approve on Microsoft's screen. You are returned to the portal.
+
+If someone disabled the application rather than removing it, granting consent
+again is not enough. Set Enabled for users to sign in? back to Yes on its
+Properties page in Entra, as
+[described here](/deploy/connect-your-organisation/#if-the-enterprise-application-was-disabled).
 
 ### Was the add-in ever actually deployed?
 
