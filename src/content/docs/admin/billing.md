@@ -378,6 +378,11 @@ when you open it, so it shows the change straight away, and the two can
 disagree until the night has passed. That is expected, and the invoice follows
 the nightly figure either way.
 
+Under the seat figure, See which mailboxes these are opens the
+[Billed mailboxes](/admin/cost-management/#seeing-who-is-billed) tab of Cost
+management, which lists them by name. It reads your directory live too, so it
+can be a day ahead of the figure above it.
+
 ### The arrangement it names
 
 The view leads with the commercial arrangement your organisation is actually on,

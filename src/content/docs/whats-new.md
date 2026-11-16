@@ -3,9 +3,9 @@ title: What's new
 description: Recent changes to Sigil that admins, partners and mailbox users can see, newest first.
 ---
 
-<!-- last-portal-commit: 29e379e -->
+<!-- last-portal-commit: 4daca83 -->
 <!-- last-addin-commit: a648039 -->
-<!-- last-flag-check: 2026-11-16T09:05:00Z -->
+<!-- last-flag-check: 2026-11-16T09:40:00Z -->
 
 This page lists changes to Sigil that you can see or need to know about, newest
 first. Each entry is dated by the day the change reached Sigil and links to the
@@ -13,6 +13,16 @@ page that covers it in full. Features still in testing are left off until they
 are available to every organisation.
 
 ## November 2026
+
+### 16 November
+
+- **See which mailboxes you are billed for.** Cost management has a new Billed
+  mailboxes tab that lists every mailbox counting towards your seats, by name,
+  with a filter and a CSV download. The Billing view links to it from the seat
+  figure. See [Seeing who is billed](/admin/cost-management/#seeing-who-is-billed).
+- **Cost management is split into tabs.** The page now has Excluded mailboxes,
+  Groups, Billed mailboxes and Mode tabs, and a tab that needs attention carries
+  a ! marker. See [The page's tabs](/admin/cost-management/#the-pages-tabs).
 
 ### 14 November
 

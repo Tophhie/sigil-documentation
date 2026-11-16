@@ -523,6 +523,7 @@ telemetry.
 | `PUT /api/admin/exclusions/mode` | Admin token, cost management capability | Switch between exclusion mode and inclusion mode. Refused while anything is on the list |
 | `POST /api/admin/exclusions` | Admin token, cost management capability | Put one mailbox or many on the list, with an optional note. In exclusion mode that excludes them, in inclusion mode it includes them |
 | `DELETE /api/admin/exclusions/:email` | Admin token, cost management capability | Take one off the list |
+| `GET /api/admin/billing/mailboxes` | Admin token, cost management capability | Every mailbox that counts as a seat right now, with name, job title and department, sorted by address. Read live from the directory, so it can run ahead of the nightly count the bill uses. Answers 502 rather than an empty list when the directory cannot be read |
 | `GET /api/admin/exclusions/suggested` | Admin token, cost management capability | Billable mailboxes that have never applied a signature, and what excluding them would save. Refused in inclusion mode, where the question has no counterpart |
 | `POST /api/admin/exclusions/groups` | Admin token, cost management capability | Put an Entra group's members on the list. The group is confirmed against the directory, and its membership resolved, before the call returns |
 | `DELETE /api/admin/exclusions/groups/:id` | Admin token, cost management capability | Take a group off the list, and report which addresses that released |

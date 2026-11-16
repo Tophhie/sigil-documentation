@@ -23,6 +23,27 @@ Sigil. In inclusion mode it is the only ones that do. Most of this page is
 written in the exclusion-mode direction, because that is what most organisations
 use, and the section on modes says which parts read the other way round.
 
+## The page's tabs
+
+Cost management is split into four tabs.
+
+| Tab | What it holds |
+| --- | --- |
+| Excluded mailboxes | The headline figures, any suggestions you asked for, and the mailboxes you listed one by one. It reads Included mailboxes in inclusion mode |
+| Groups | The Entra groups on the list, with their member counts and last refresh |
+| Billed mailboxes | Every mailbox that counts towards your seats, by name. See [seeing who is billed](#seeing-who-is-billed) |
+| Mode | Which way round the list reads, and the switch between the two |
+
+The Suggest mailboxes and Exclude a mailbox buttons sit at the top of the page
+on the first two tabs, since they act on the list. A tab that needs your
+attention carries a ! marker: the first tab when a listed mailbox is no longer
+in your directory, and Groups when a group could not be refreshed. The open tab
+is part of the page address, so a link can land on any of them.
+
+The inclusion-mode warning described under
+[an empty inclusion list means nobody](#an-empty-inclusion-list-means-nobody)
+shows on every tab.
+
 ## One switch, both effects
 
 Keeping a mailbox out of Sigil does two things at once, and there is no way to do
@@ -100,7 +121,7 @@ So the list has a mode, set on the Cost management page.
 To change it, the list must be empty. You need the Admin or Billing role, a custom role given the costs capability,
 or partner Owner or Admin inside a managed client.
 
-1. Open Cost management in the portal sidebar.
+1. Open Cost management in the portal sidebar, then the Mode tab.
 2. On the card headed Exclusion mode or Inclusion mode, choose Switch to
    inclusion mode or Switch to exclusion mode. The button is disabled while
    anything is listed, with the reason beside it.
@@ -133,8 +154,7 @@ inclusion list means nobody at your organisation is served a signature and your
 seat quantity is zero.
 
 That is a real state rather than an error. The confirmation says so before you
-click it, and the page carries a warning above the figures for as long as it
-lasts. Zero seats reaches your next invoice like any other seat change, so an
+click it, and every tab of the page carries a warning for as long as it lasts. Zero seats reaches your next invoice like any other seat change, so an
 organisation that switches over and then forgets to add anybody has an active
 subscription serving nothing.
 
@@ -170,7 +190,8 @@ strength of a failed network call.
 
 ### What the figures say
 
-The headline figures on the page are written for the mode you are in.
+The headline figures, on the Excluded mailboxes tab, are written for the mode
+you are in.
 
 | Mode | Figures |
 | --- | --- |
@@ -260,14 +281,16 @@ the page.
 ### Using the suggestions
 
 1. Open Cost management in the portal sidebar.
-2. Choose Suggest mailboxes. The button is only offered in exclusion mode.
-3. A panel headed Never applied a signature lists the mailboxes, each with the
-   reason it is there, and the saving the whole list represents.
+2. Choose Suggest mailboxes at the top of the page. The button is only offered
+   in exclusion mode, on the Excluded mailboxes and Groups tabs.
+3. The page opens the Excluded mailboxes tab, where a panel headed Never
+   applied a signature lists the mailboxes, each with the reason it is there,
+   and the saving the whole list represents.
 4. Choose Exclude on a row to exclude that mailbox, or Exclude all followed by
    the count to exclude every mailbox listed. Excluding them all asks you to
    confirm with Exclude all.
 
-Each mailbox excluded this way joins the list below with the note "No
+Each mailbox excluded this way joins the list on the same tab with the note "No
 signature applied in the last quarter", and can be put back like any other.
 
 ## Excluding a mailbox by hand
@@ -285,8 +308,8 @@ You need the Admin or Billing role, a custom role given the costs capability,
 or partner Owner or Admin inside a managed client.
 
 1. Open Cost management in the portal sidebar.
-2. Choose Exclude a mailbox. In inclusion mode the button reads Include a
-   mailbox.
+2. Choose Exclude a mailbox at the top of the page. In inclusion mode the
+   button reads Include a mailbox.
 3. In Mailbox, start typing a name or address and pick the mailbox from the
    suggestions, or type or paste an address.
 4. Add a Note if you want one.
@@ -294,8 +317,8 @@ or partner Owner or Admin inside a managed client.
 
 A message names the mailbox that went on the list, and the address you typed
 if that was an alias of it, and says it gets no signature and comes off the
-next invoice. The mailbox appears in the list at the bottom of the page with
-the note, the date and who added it.
+next invoice. The mailbox appears in the list on the Excluded mailboxes tab
+with the note, the date and who added it.
 
 ## Excluding an Entra group
 
@@ -317,8 +340,8 @@ such as devices and service principals, are ignored because they have no mailbox
 to exclude.
 
 1. Open Cost management in the portal sidebar.
-2. Under By Entra group, choose Exclude a group. In inclusion mode the button
-   reads Include a group.
+2. Open the Groups tab and, under By Entra group, choose Exclude a group. In
+   inclusion mode the button reads Include a group.
 3. In Group, start typing the group's name and pick it from the suggestions,
    or paste its object ID.
 4. Add a Note if you want one.
@@ -408,17 +431,61 @@ below.
 
 ## Reviewing the list
 
-1. Open Cost management in the portal sidebar.
-2. Read the headline figures at the top: Excluded, Coming off the bill and,
-   when any row no longer resolves, Not in directory. In inclusion mode they
-   are Included, Billed seats and Kept out, again with Not in directory when
-   any row no longer resolves.
-3. Under By Entra group, each group's row shows how many mailboxes it covers
+1. Open Cost management in the portal sidebar. It opens on the Excluded
+   mailboxes tab, or Included mailboxes in inclusion mode.
+2. Read the headline figures at the top of the tab: Excluded, Coming off the
+   bill and, when any row no longer resolves, Not in directory. In inclusion
+   mode they are Included, Billed seats and Kept out, again with Not in
+   directory when any row no longer resolves.
+3. The table below the figures lists the mailboxes you picked individually,
+   with the note, when each was added and by whom. A row that was never
+   billable says so, and a row whose address no longer resolves is marked as
+   not in the directory.
+4. Open the Groups tab. Each group's row shows how many mailboxes it covers
    and when it was last checked. Choose Refresh to re-read it now.
-4. The table at the bottom lists the mailboxes you picked individually, with
-   the note, when each was added and by whom. A row that was never billable
-   says so, and a row whose address no longer resolves is marked as not in
-   the directory.
+
+## Seeing who is billed
+
+The seat figure on the [Billing view](/admin/billing/) is a bare number. The
+Billed mailboxes tab lists the mailboxes it is made of, so you can check it
+without rebuilding the rule from your directory by hand.
+
+A mailbox is on the list when it is licensed, enabled for sign-in, belongs to
+your organisation and is not kept out by your cost management list. Shared
+mailboxes, disabled accounts and guests are not billed, so they never appear.
+It is the same rule, applied the same way, as the seat count.
+
+You need the Admin or Billing role, a custom role given the costs capability,
+or partner Owner or Admin inside a managed client. A partner sees it because
+the partner is the one carrying a managed client's seats.
+
+1. Open Cost management in the portal sidebar, then the Billed mailboxes tab.
+   On the Billing view, the See which mailboxes these are link under the seat
+   figure goes straight there.
+2. Wait for the list to load. It reads your whole directory, so it is fetched
+   when you first open the tab rather than with the page.
+3. Read the line above the table, which gives the count and when your
+   directory was read.
+4. To find someone, type in Filter by name, address or department. The filter
+   matches job titles too.
+5. To keep a copy, choose Download CSV. The file holds every billed mailbox,
+   whatever the filter says, with name, email, job title and department.
+6. Choose Refresh to read the directory again.
+
+The table shows up to 100 rows at a time. On a larger estate it says how many
+it is leaving out, and the filter or the CSV gets you the rest.
+
+The list is read live from your directory, while the seat figure on the
+Billing view, and on your invoice, comes from the count taken overnight. A
+mailbox licensed or excluded today shows here now and in the seat figure
+tomorrow, and the tab says so. If your organisation is not billed per seat, the
+tab says nothing is charged for these mailboxes, though they still count as
+seats.
+
+When the list is held and you change the cost management list, it is fetched
+again, so the names and the figures beside them never disagree. If your
+directory cannot be read, you see an error rather than an empty list, since an
+empty list would read as nobody being billed.
 
 ## Putting a mailbox back
 
@@ -426,7 +493,7 @@ You need the Admin or Billing role, a custom role given the costs capability,
 or partner Owner or Admin inside a managed client.
 
 1. Open Cost management in the portal sidebar.
-2. In the list at the bottom of the page, find the mailbox and choose Put
+2. In the list on the Excluded mailboxes tab, find the mailbox and choose Put
    back. In inclusion mode the button reads Stop including.
 3. Read the confirmation, which says the mailbox starts receiving signatures
    again and returns to the seat count on your next invoice.
@@ -436,7 +503,7 @@ A "Back in." message confirms it and the row disappears. If one of your listed
 groups also covers the mailbox, it stays excluded through that group even though
 its own row has gone. Take it out of the group in Entra, or remove the group.
 
-To release a whole group, choose Remove on its row under By Entra group and
+To release a whole group, choose Remove on its row on the Groups tab and
 confirm with Stop excluding. The confirmation says that anybody covered only
 by that group starts receiving signatures again, and that anybody you also
 excluded individually stays excluded. A message then says how many mailboxes
