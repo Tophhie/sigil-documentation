@@ -3,9 +3,9 @@ title: What's new
 description: Recent changes to Sigil that admins, partners and mailbox users can see, newest first.
 ---
 
-<!-- last-portal-commit: 111db9e -->
+<!-- last-portal-commit: 64cf48d -->
 <!-- last-addin-commit: a648039 -->
-<!-- last-flag-check: 2026-11-17T14:45:00Z -->
+<!-- last-flag-check: 2026-11-17T14:50:00Z -->
 
 This page lists changes to Sigil that you can see or need to know about, newest
 first. Each entry is dated by the day the change reached Sigil and links to the
@@ -16,6 +16,11 @@ are available to every organisation.
 
 ### 17 November
 
+- **One grace period per departure from a partner.** An organisation that
+  leaves a partner again within 30 days of its last grace period starting, or
+  within the grace period's length if that is longer, now keeps the deadline it
+  already had to add a card instead of getting a new grace period.
+  See [The grace period after leaving](/partners/clients/#the-grace-period-after-leaving).
 - **A listed alias now counts its mailbox in.** In inclusion mode, a mailbox
   whose alias is on the list, rather than its primary address, is now billed as
   a seat and appears on the Billed mailboxes tab. Before, sends from that alias

@@ -413,6 +413,19 @@ When it happens, the tenant returns to direct billing with a grace period to add
 a card, and the action is recorded in the partner audit trail. Their seats stop
 counting toward your subscription from that point.
 
+## The grace period after leaving
+
+Whichever way a client leaves, by your release, by Tophhie Cloud's or by
+removing your access itself, it goes back to direct billing on a trial that runs
+for the grace period. Signatures carry on during it, and the client adds a card
+before it ends.
+
+An organisation gets one grace period per departure. If it was given one in the
+last 30 days, or within the length of the grace period if that is longer, and it
+leaves a partner again, it keeps the deadline it already had. The clock does not
+start again, so joining a partner and leaving straight away does not move the
+day the organisation needs a card.
+
 ## Your own tenant
 
 Your MSP's own signatures live in a normal tenant, separate from the partner
