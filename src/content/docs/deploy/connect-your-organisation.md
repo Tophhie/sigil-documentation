@@ -148,6 +148,7 @@ per tenant in Sigil, decides what you can do.
 | --- | --- |
 | You have a role in a connected tenant | You get the portal, scoped to that role |
 | You sign in with no role assigned | You are told to request access from an administrator |
+| You sign in as a guest in that organisation | You see "Couldn't load your account", with the message "Guest accounts can't sign in to Sigil" |
 | Your organisation never granted consent | You get a second step offering to approve Sigil, which starts consent |
 | Your organisation was removed and is awaiting deletion | You are told to contact support, because only an operator can restore it |
 | Your organisation is suspended | You see "Couldn't load your account", with a message saying your organisation's access is suspended |
@@ -157,6 +158,13 @@ events for an administrator who was forwarded a link, so that case offers the
 consent step rather than an error. No role and removal cannot be resolved by the
 person reading them, and say so without offering a button. A suspension shows a
 Reload button, but reloading will not lift it. Contact support instead.
+
+A guest is somebody invited into your organisation from another one. Their
+sign-in names your organisation, but they belong to their own, so Sigil turns
+them away at sign-in whatever role they might otherwise match. This is the same
+rule that stops you [inviting a guest](/admin/users-and-roles/#addresses-that-cannot-be-invited)
+in the first place. Somebody who needs the portal needs a member account in your
+organisation.
 
 That step is presented as step two of two, with your sign-in ticked off above it
 and the account you signed in with named, because the alternative reads as the
@@ -213,13 +221,18 @@ When you are sent back to the portal after a failed attempt:
 
 One outcome is worth recognising because it looks like a failure and is not.
 Before setting up an organisation it has never seen, Sigil asks Microsoft whether
-Sigil is actually installed in the directory the redirect named. Microsoft's
+Sigil is actually installed in the directory the redirect named, and whether an
+administrator approved its directory permissions there. Microsoft's
 redirect is unsigned, and the tenant id in it is public, so without that question
 anybody could have an organisation's record created and its trial started before
 the organisation itself ever arrived.
 
-If Microsoft answers definitely that Sigil is not in that directory, and still
-says so when asked again a couple of seconds later, nothing is created and you
+Two answers count as a definite no. One is that Sigil is not in that directory
+at all. The other is that Sigil is there but holds none of the directory
+permissions it asked for, which is what a person's consent to sign in for
+themselves leaves behind, as opposed to an administrator's consent for the whole
+organisation. If Microsoft gives either answer, and still gives it when asked
+again a couple of seconds later, nothing is created and you
 are returned to the portal with a message saying the consent could not be
 verified yet. Opening the consent link again is the whole remedy. If Microsoft
 cannot answer at all, through an outage or a timeout, provisioning goes ahead as

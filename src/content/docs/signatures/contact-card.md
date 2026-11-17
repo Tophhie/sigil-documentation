@@ -169,9 +169,10 @@ fetch the same card.
 
 The one thing that ends a link early is the person leaving. The card is looked
 up in your directory when it is fetched, so once the address no longer resolves
-to anybody, the link comes back as not found. A card can be held in a cache for
-up to a day, so someone who fetched it shortly before the person left may still
-get it until that day is up.
+to anybody, the link comes back as not found. Nothing between Sigil and the
+recipient keeps a copy of the card. Only the recipient's own browser may hold
+it, for up to an hour, so someone who opened it just before the person left can
+see it again within that hour, and nobody else can.
 
 That is deliberate. A business card does not expire, and a dead link in an old
 email is worse than a live one. It also keeps rendered signatures cacheable,
@@ -179,8 +180,9 @@ because the link does not change between renders.
 
 The card itself is built from the directory when it is fetched rather than when
 the mail was sent, so somebody who changed job title hands out the new title on
-cards downloaded from old mail. The response is cacheable for a day, so a change
-can take that long to reach a recipient who has fetched the card recently.
+cards downloaded from old mail. A recipient who opened the card in the last hour
+may still get the copy their browser kept, so a change can take up to an hour to
+reach them.
 
 Where your organisation has a [branded link domain](/monitoring/branded-link-domain/)
 active, card links are minted on it, and that domain serves your organisation's

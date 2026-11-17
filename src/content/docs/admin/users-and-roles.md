@@ -154,7 +154,7 @@ names the problem:
 | Address | Why it is refused |
 | --- | --- |
 | Not in your Microsoft 365 directory | Only members of your own organisation can produce a sign-in for it |
-| A guest account | A guest signs in to their own organisation, not yours |
+| A guest account | A guest belongs to another organisation, and Sigil refuses guest sign-ins outright |
 | A mailbox with sign-in disabled | Shared, room and equipment mailboxes have nobody to sign in as |
 | An alias | Sign-in presents the primary address instead, so the invitation could never be matched. The message names the address to use instead |
 
