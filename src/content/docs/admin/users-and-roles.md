@@ -167,6 +167,25 @@ An alias is the one refusal that can look wrong, since Sigil resolves aliases
 elsewhere on purpose: a message sent from one gets that alias's signature. That
 is a different question from who signed in, and the two do not have to agree.
 
+### Somebody who already has access under an old address
+
+The same check also looks up who the address belongs to in your directory. If
+that person already holds a role in Sigil under a different address, usually the
+one they had before a rename, the invitation is refused. The message names the
+address they hold access under and tells you to change their role there instead.
+That role moves to the new address the next time they sign in. See
+[when somebody's address changes](#when-somebodys-address-changes).
+
+To give them a different role in that situation:
+
+1. Open Users & roles and find the person under their old address.
+2. Change their role on that row.
+3. Leave the row where it is. Their next sign-in re-points it at the new address.
+
+Sigil can only spot this once the person has signed in at least once, because
+that is when it records who they are in your directory. Somebody renamed before
+their first sign-in has nothing on record to match.
+
 ## Changing or removing access
 
 Change a role from the same view. The change applies on their next request.
@@ -346,9 +365,14 @@ Cost management entries do not follow a rename either, and that has a
 consequence worth knowing. See
 [a renamed mailbox stops being excluded](/admin/cost-management/#a-renamed-mailbox-stops-being-excluded).
 
-If two rows end up claiming one person, which happens when somebody was re-added
-by hand under their new address after the rename, Sigil leaves both alone rather
-than guessing which role should survive. Nobody is locked out by that: the
+Re-adding somebody by hand under their new address while their old row is still
+waiting to move is refused, and the message points you at the row they already
+have. See
+[somebody who already has access under an old address](#somebody-who-already-has-access-under-an-old-address).
+
+If two rows do end up claiming one person, for example because the second was
+added before Sigil had recorded who the first belonged to, Sigil leaves both alone
+rather than guessing which role should survive. Nobody is locked out by that: the
 ordinary lookup on the address they signed in with still answers. Remove the row
 you do not want.
 
