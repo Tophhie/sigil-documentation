@@ -177,6 +177,16 @@ Aliases work in the same direction as the mailbox they belong to. In inclusion
 mode, sending from an alias of a listed mailbox is served, because Sigil resolves
 the mailbox behind the address before deciding.
 
+It works the other way too. If the list holds one of a mailbox's aliases rather
+than its primary address, that mailbox counts as included. It is billed as a
+seat, it appears on the [Billed mailboxes](#seeing-who-is-billed) tab and it
+stays in the [reports](#where-excluded-mailboxes-stop-appearing). This mostly
+happens when an address went on the list before any mailbox claimed it, or when
+a listed mailbox was renamed and kept its old address as an alias. Sends from
+the listed alias are served. Sends from the mailbox's other addresses are not,
+because none of them is on the list. To give the whole mailbox a signature, add
+it again under its primary address.
+
 There are no [suggestions](#suggested-exclusions) in inclusion mode. "These
 billed mailboxes never use Sigil" has no counterpart when everyone unlisted is
 already unbilled, so the button is not offered rather than returning an empty
@@ -603,8 +613,11 @@ That figure covers two situations, and only one of them costs anything.
 | The mailbox was renamed | It is billed again, under its new address |
 | The mailbox was deleted | Nothing. A deleted mailbox is not in the directory the seat count comes from, so it is not billed either way. The row is merely stale |
 
-In inclusion mode a renamed mailbox costs nothing and loses its signature
-instead, and a deleted one is still merely stale.
+In inclusion mode a renamed mailbox that kept its old address as an alias is
+still billed, because a listed alias counts its mailbox in, but it gets a
+signature only when it sends from the old address. A renamed mailbox that kept
+no alias costs nothing and loses its signature. A deleted one is still merely
+stale.
 
 Nothing repairs these automatically.
 

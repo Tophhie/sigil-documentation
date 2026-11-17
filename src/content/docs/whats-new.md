@@ -3,9 +3,9 @@ title: What's new
 description: Recent changes to Sigil that admins, partners and mailbox users can see, newest first.
 ---
 
-<!-- last-portal-commit: b910e6f -->
+<!-- last-portal-commit: b48214e -->
 <!-- last-addin-commit: a648039 -->
-<!-- last-flag-check: 2026-11-17T14:27:38Z -->
+<!-- last-flag-check: 2026-11-17T14:29:00Z -->
 
 This page lists changes to Sigil that you can see or need to know about, newest
 first. Each entry is dated by the day the change reached Sigil and links to the
@@ -13,6 +13,14 @@ page that covers it in full. Features still in testing are left off until they
 are available to every organisation.
 
 ## November 2026
+
+### 17 November
+
+- **A listed alias now counts its mailbox in.** In inclusion mode, a mailbox
+  whose alias is on the list, rather than its primary address, is now billed as
+  a seat and appears on the Billed mailboxes tab. Before, sends from that alias
+  got a signature but the mailbox was not counted. See
+  [What reads the other way round](/admin/cost-management/#what-reads-the-other-way-round).
 
 ### 16 November
 
