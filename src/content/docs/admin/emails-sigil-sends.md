@@ -410,7 +410,7 @@ the link at the bottom of one.
 
 | Message | Sent when |
 | --- | --- |
-| You've been added to your firm on Sigil | Somebody is added to Partner staff for the first time, by a colleague or by Tophhie Cloud. Names their role and what it covers. Goes to the new member of staff |
+| You've been added to your firm on Sigil | Somebody is added to Partner staff for the first time, by a colleague or by Tophhie Cloud. Names their role and what it covers. Goes to the new member of staff. Not sent again if a colleague removes them and adds them back within seven days |
 | A named client has set up Sigil from your invitation, is now one of your clients, or declined your request | A client acts on your invitation or management request. Goes to your Owners and Admins and whoever sent it. See [what your firm is told](/partners/clients/#what-your-firm-is-told) |
 | Your request or invitation has expired | A transfer request or client invitation ran out unanswered in the past week. Goes to the same people |
 | A named client no longer has you managing its Sigil account | An administrator at the client removed your firm. Goes to your Owners and Admins |

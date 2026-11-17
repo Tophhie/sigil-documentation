@@ -111,13 +111,43 @@ needs their email address and a role.
 They appear in the list with their role and, under Client access, either the
 clients named or All clients.
 
+### Addresses that cannot be added
+
+Staff sign in from your own Microsoft 365 directory, so Sigil looks the address
+up there before adding a new member of staff. It refuses an address that no
+sign-in would ever match, the same way a client refuses one on
+[Users and roles](/admin/users-and-roles/#addresses-that-cannot-be-invited), and
+the message says why:
+
+| Address | What the console says |
+| --- | --- |
+| Not in your Microsoft 365 directory | No user with that email exists in your directory. Staff must be members of your organisation |
+| A guest account | Guests can't sign in as staff. Add a member of your own organisation |
+| A mailbox with sign-in disabled | Shared, room and equipment mailboxes can't be staff. Use the address of a person who signs in |
+| An alias | Sign-in never presents an alias. The message names the primary address to use instead |
+
+If your directory can't be reached at that moment, the console says so and
+nothing is saved. Try again shortly. Adding staff also counts towards the same
+short-term email limit as client invitations, so after several adds in quick
+succession you may be asked to wait a minute.
+
+These checks apply only to somebody new to the list. Changing the role or scope
+of somebody already on it skips them.
+
+### The welcome email
+
 Somebody new to the list is emailed a welcome, "You've been added to" your
 partner's name "on Sigil". It names you as the person who added them, gives
 their role with a line on what it covers, and tells them to sign in with their
 Microsoft work account. Changing an existing member's role or scope sends
-nothing. To change somebody's role or scope, add them
-again with the same email address: the form is titled Add or update staff,
-and saving replaces what was there. You cannot change your own role.
+nothing. If you remove somebody and add them again within seven days, they are
+not sent a second welcome.
+
+### Changing or removing staff
+
+To change somebody's role or scope, add them again with the same email address:
+the form is titled Add or update staff, and saving replaces what was there. You
+cannot change your own role.
 
 To remove somebody:
 
@@ -127,6 +157,8 @@ To remove somebody:
 
 They lose access to every client immediately. You cannot remove yourself, and
 a partner must keep at least one Owner.
+
+### Product update emails
 
 The same page holds the partner's product update switch, which only Owners can
 change in the console. With it on, which is the default, the partner's Owners and Admins receive the occasional round-up of
