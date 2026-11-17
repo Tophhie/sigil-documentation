@@ -41,11 +41,17 @@ saved. Switch it off the same way.
 | Restore an earlier version | Anyone with templates | Admin only |
 | Start or promote a staged rollout | Anyone with templates | Admin only |
 | Schedule a publish for later | Anyone with templates | Admin only |
+| [Replace an image](/signatures/images/#replacing-an-image-while-publish-approval-is-on) people already receive | Anyone with templates | Admin only |
 | Abandon a running rollout | Anyone with templates | Anyone with templates |
 
 Every route that changes what users receive is gated, rather than the publish
 button alone. A gate that covered publishing by itself would be decorative,
 because restoring a version reaches users just as directly.
+
+Switching approval on also applies to work already booked. A scheduled publish
+or a running staged rollout started by someone who is not an Admin is refused
+or cancelled when it next tries to put the new body in front of more people. See
+[scheduled publishing](/signatures/scheduled-publishing/#when-the-person-who-booked-it-can-no-longer-publish).
 
 Abandoning a staged rollout is the deliberate exception and is never gated.
 Whoever notices a problem has to be able to stop it, and stopping a rollout puts

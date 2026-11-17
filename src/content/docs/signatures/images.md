@@ -84,6 +84,22 @@ To replace an image:
 Every template referencing the image picks up the new file on its next
 compose, with nothing to republish.
 
+### Replacing an image while publish approval is on
+
+Because a replacement reaches people without a publish, it counts as publishing
+when [publish approval](/signatures/approvals/) is switched on. Only an Admin (or
+a partner Owner or Admin managing your organisation) can then replace an image
+that people already receive: one used in a template's live body, in the new
+version of a running [staged rollout](/signatures/staged-rollouts/), in an
+enabled [compliance footer](/targeting/footers/), or as a
+[campaign banner](/targeting/banners/). Anyone else is refused with "This
+organisation requires publishing to be approved, and that image is in a signature
+people already receive."
+
+An editor can still upload the new file under a different name, use it in a
+draft and submit the draft for review. An image used only in drafts can be
+replaced by anyone who can upload, because nobody receives it yet.
+
 ## Seeing what you have
 
 The Images view shows a thumbnail of every uploaded image alongside its name and

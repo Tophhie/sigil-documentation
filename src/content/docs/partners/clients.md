@@ -202,6 +202,11 @@ that client ends, whichever side ends it. The client's change log records each
 revocation, so an integration that stops working the day after a release has an
 explanation waiting.
 
+Your keys also stop working while your firm is suspended or has not accepted the
+current [partner agreement](/partners/agreement/). They answer "Invalid API key"
+until you can work inside the client again, and then carry on as before. Nothing
+is revoked.
+
 ## Enabling an add-on for a client
 
 Some features cost extra and are not included in the per-mailbox rate. There is

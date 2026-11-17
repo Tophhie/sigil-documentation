@@ -258,6 +258,20 @@ being served again. The 30 days are counted from the start of the current step,
 not paused, so a rollout held for longer than that is retired on that first
 check.
 
+### When the person who started it can no longer publish
+
+Each time the evaluation is about to step a rollout up or promote it, Sigil checks
+that the person who started it could still do so now. If they have lost the
+templates capability, their IT provider no longer gives them access, the key
+that started it is no longer live, or
+[publish approval](/signatures/approvals/) has been switched on and they are not
+an Admin, the rollout is cancelled instead of advancing. The slice goes back to
+the current version, as it would after Roll back, and nothing is republished.
+The change log records the cancellation against the system, with the reason.
+
+Rolling back and the 30 day retirement only ever reduce who sees the new
+version, so neither depends on who started the rollout.
+
 It also assumes the add-in is deployed and reporting. During the initial
 deployment, before propagation has finished, there is nothing to measure. Get to
 a steady state first. See [planning a rollout](/start/rollout/), which covers
@@ -267,8 +281,9 @@ one.
 ## What is recorded
 
 The [change log](/monitoring/change-log/) records who started the rollout, each
-step up, and how it ended (promoted, rolled back, or retired after 30 days), with
-the reason the evaluation gave. Passes that decide to hold at the current step
+step up, and how it ended (promoted, rolled back, retired after 30 days, or
+cancelled because the person who started it can no longer publish), with the
+reason the evaluation gave. Passes that decide to hold at the current step
 are not logged, and neither is a rollout cancelled because the template was
 published over it. A
 rollback carries its reason, so the log shows the failure rates that caused it

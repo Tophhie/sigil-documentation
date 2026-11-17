@@ -434,6 +434,11 @@ The entry for a schedule firing names the person who booked it rather than the
 system. Somebody decided the publish would happen, and recording it against the
 system would make it look as though it came from nowhere.
 
+A booking refused at firing time, because the person who made it can no longer
+publish, also writes an entry against them, showing "refused" and the time it was
+booked for. See
+[scheduled publishing](/signatures/scheduled-publishing/#when-the-person-who-booked-it-can-no-longer-publish).
+
 ## Append-only
 
 Entries are never edited or removed. Nothing prunes the log, so it is kept for

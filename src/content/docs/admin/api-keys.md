@@ -322,6 +322,12 @@ you can revoke it yourself. It also stops working, and is marked revoked, as soo
 as that provider no longer manages your organisation, whether you moved to
 another provider or left the partner arrangement. See [the partner programme](/partners/overview/).
 
+While the provider is suspended, or has not accepted the current
+[partner agreement](/partners/agreement/), its keys are refused with "Invalid API
+key", just as its staff lose access to your organisation at the same moment. They
+are not revoked. Once the provider is back in good standing the same keys work
+again, with nothing for you to do.
+
 ## What it will not do
 
 There is no key that spans several organisations. A provider managing forty

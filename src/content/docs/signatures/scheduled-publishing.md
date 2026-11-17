@@ -139,14 +139,40 @@ kept rather than removed. It is not retried, because a publish that failed once
 will almost certainly fail again fifteen minutes later.
 
 The portal does not show a failed schedule. The Scheduled badge and the editor's
-banner simply disappear, the live body is unchanged, and no change log entry is
-written for the failure. So if a booked publish has not happened, open the
+banner simply disappear and the live body is unchanged. Most failures write no
+change log entry; the one exception is a booking refused because of who made it,
+described below. So if a booked publish has not happened, open the
 template and check what is live: if the change is not there, book it again or
 publish it by hand. The stored reason can be read over the API, from
 `GET /api/admin/templates/:id/schedule`.
 
 The commonest reason is that the template was deleted between booking the
 schedule and it firing.
+
+### When the person who booked it can no longer publish
+
+Before a booking fires, Sigil checks again that the person who made it could
+still publish it now. A booking made weeks ago reflects their access at the
+time, and that may have changed. It is refused, and nothing is published, when:
+
+- they no longer hold the templates capability in your organisation, for
+  example because they were removed or moved to a role without it
+- they booked it as staff of your IT provider, and that provider no longer
+  manages your organisation, or no longer gives them access to it
+- it was booked with an [API key](/admin/api-keys/), and no key of that name is
+  still live with the templates capability
+- [publish approval](/signatures/approvals/) has been switched on since, and
+  they are not an Admin (or, for provider staff, an Owner or Admin of the
+  provider)
+
+A refused booking is marked failed like any other, and it does write a
+[change log](/monitoring/change-log/) entry: a Scheduled publish entry against
+the person who booked it, with "refused" and the time it was booked for. To put
+the change live, an Admin can open the template and publish it, or book it
+again themselves.
+
+If somebody's sign-in address changes, the bookings they have pending move to
+the new address with them, so a rename on its own does not cause a refusal.
 
 A failed schedule is not retried. A publish that threw once will almost certainly
 throw again fifteen minutes later, and a schedule silently retrying forever is
@@ -155,7 +181,9 @@ worse than one you can see has failed and why.
 ## What is recorded
 
 Booking, cancelling and firing each write a [change log](/monitoring/change-log/)
-entry under the Scheduled publish action. A schedule that fails does not.
+entry under the Scheduled publish action. So does a booking
+[refused because of who made it](#when-the-person-who-booked-it-can-no-longer-publish).
+A schedule that fails for any other reason does not.
 
 A schedule that fires is recorded against the person who booked it rather than
 against the system. A person decided this would happen, and the log should name
