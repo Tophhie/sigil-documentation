@@ -213,10 +213,16 @@ a customer configures, but it is relevant to a security review.
 | Read-only console, overview, health, exceptions | Yes | Yes |
 | Preview, audit, notes, export | Yes | Yes |
 | Read-only impersonation, expiring after 30 minutes | Yes | Yes |
+| Edit session, only while the organisation allows [support access](/admin/settings/#sigil-support-access) | No | Yes |
 | Message a tenant's administrators, resend consent | Yes | Yes |
 | Suspend, reactivate, reprovision, rename | No | Yes |
 | Billing levers such as seat correction and discounts | No | Yes |
 | Deprovision or purge a tenant | No | Yes |
+
+Every session, read-only or edit, needs a stated reason, which the
+organisation can read in its change log. An edit session can change signature
+content only, holds no role in the organisation, and ends at once if the
+organisation switches support access off.
 
 Destructive actions additionally require a fresh interactive re-authentication.
 The last operator cannot be removed or demoted, so the console cannot lock itself

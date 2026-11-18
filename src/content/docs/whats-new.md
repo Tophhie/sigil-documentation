@@ -3,9 +3,9 @@ title: What's new
 description: Recent changes to Sigil that admins, partners and mailbox users can see, newest first.
 ---
 
-<!-- last-portal-commit: fcb68aa -->
-<!-- last-addin-commit: 519d386 -->
-<!-- last-flag-check: 2026-11-18T09:09:53Z -->
+<!-- last-portal-commit: 9526d0a -->
+<!-- last-addin-commit: e8cec95 -->
+<!-- last-flag-check: 2026-11-18T14:41:01Z -->
 
 This page lists changes to Sigil that you can see or need to know about, newest
 first. Each entry is dated by the day the change reached Sigil and links to the
@@ -13,6 +13,18 @@ page that covers it in full. Features still in testing are left off until they
 are available to every organisation.
 
 ## November 2026
+
+### 18 November
+
+- **Let Sigil support make changes for a set time.** Settings has a new Sigil
+  support access switch. An admin can let support change your templates,
+  banners, footers, rules and profile fields for 1 to 24 hours, and switching it
+  off ends their session at once. It is off unless you turn it on. See
+  [Sigil support access](/admin/settings/#sigil-support-access).
+- **See why support is in your portal.** Support now gives a reason every time
+  they open your portal, read-only or not. The reason appears in your change
+  log, and the Settings page lists the support sessions open right now. See
+  [Seeing who is in your portal](/admin/settings/#seeing-who-is-in-your-portal).
 
 ### 17 November
 

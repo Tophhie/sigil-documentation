@@ -171,6 +171,7 @@ Entries read in plain language rather than as internal lever names:
 | What you see | What happened |
 | --- | --- |
 | Viewed your portal (read-only support session) | An operator opened a read-only view of your tenant |
+| Opened a support session with permission to make changes | An operator opened an edit session while your organisation allowed [Sigil support access](/admin/settings/#sigil-support-access) |
 | Exported your organisation's data | A tenant export was taken |
 | Exported one mailbox's data for a subject access request | A per-mailbox export was taken. See [subject access requests](/security/compliance/#subject-access-requests) |
 | Set up your organisation | Your tenant was provisioned |
@@ -215,6 +216,26 @@ the same entries and sometimes an internal note beside a commercial one, the
 kind of note written for our own records rather than about you. Nothing is held
 back from your copy that would change what you can see was done.
 
+
+### Support sessions
+
+Support has to give a reason each time they open your portal, whether to view
+it read-only or to make changes. The entry for the session carries that reason
+after "Reason:", cut short at about 160 characters. The full reason is on the
+Settings page while the session is open. See
+[seeing who is in your portal](/admin/settings/#seeing-who-is-in-your-portal).
+
+An edit session is only possible while one of your admins has switched on
+[Sigil support access](/admin/settings/#sigil-support-access). Each change made
+in it gets its own entry, in the same words as the same change made by one of
+your own people, with "Sigil operator" and the operator's reference as the
+actor. Where the portal names who made something, such as a template version's
+author, it shows the support address with that reference, for example
+`support+op-7k3f@usesigil.app`, and never the operator's own address.
+
+Switching support access on, extending it and switching it off are your own
+admin's actions, so they appear under that admin's name as Changed whether
+Sigil support can make changes.
 
 ### Asking support about an action
 

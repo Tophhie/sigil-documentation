@@ -327,6 +327,14 @@ send the template in the body of the request rather than in its address. Without
 it an operator looking at a reported rendering fault would see an empty preview
 pane, which is the one thing they opened the session for.
 
+An operator can open an edit session only while the organisation has switched on
+[Sigil support access](/admin/settings/#sigil-support-access), which lasts 1 to
+24 hours and is the organisation's own choice. Writes in that session are limited
+to signature content. Users, roles, API keys, billing, settings and the switch
+itself stay out of reach, and the server re-checks the switch on every request.
+Every session, of either kind, requires a stated reason that is copied into the
+organisation's change log.
+
 In the console, a destructive action asks for a fresh interactive sign-in first.
 On the server, every destructive action is refused to anyone without the
 operator tier.

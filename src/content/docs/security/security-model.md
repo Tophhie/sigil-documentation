@@ -343,6 +343,12 @@ impersonation session that expires on the server after 30 minutes. Destructive
 operator actions require a fresh interactive re-authentication in the moment, and
 every operator action is written to an audit log retained indefinitely.
 
+Support can make changes only when your organisation has switched on
+[Sigil support access](/admin/settings/#sigil-support-access), for up to 24 hours
+at a time. An edit session is limited to signature content, holds no role in your
+organisation, and ends as soon as an admin switches access off. Every session,
+read-only or edit, records the reason support gave for opening it.
+
 Anything done to your organisation is also written to your own
 [change log](/monitoring/change-log/), badged as support. The read-only session
 above is one of the things recorded there, so being viewed is visible to you and

@@ -8,7 +8,7 @@ sidebar:
 Settings holds the choices you make about how your own organisation behaves, as
 opposed to the things Sigil sets for you.
 
-There are four.
+There are five.
 
 | Setting | Default | What it changes |
 | --- | --- | --- |
@@ -16,6 +16,7 @@ There are four.
 | Profile editing | Off | Whether colleagues can fill in their own custom signature details |
 | Product update emails | On | Whether your admins receive occasional round-ups of what has changed in Sigil |
 | Health digest | Weekly | How often Sigil emails your admins a summary of signature health |
+| Sigil support access | Off | Whether Sigil support can change your signature content while helping you, and for how long |
 
 ## Require approval to publish
 
@@ -139,13 +140,68 @@ Preview turns into Hide preview while the digest is open. After a send, the
 portal confirms the address it went to and that this does not change when the
 next one goes out.
 
+## Sigil support access
+
+Sigil support can always look at your portal read-only to answer a question.
+This switch lets them make changes too, for a time you choose, so they can fix
+something for you instead of talking you through it.
+
+It is off by default. Turning it on hands someone outside your organisation the
+power to change what your colleagues' mail looks like, so nobody should get
+that without asking for it.
+
+While it is on, support can change your templates, banners, footers, rules and
+profile fields. They cannot change users, roles, API keys, billing, these
+settings or the switch itself, and they cannot send test emails. They also hold
+no role in your organisation, so if
+[publish approval](/signatures/approvals/) is on, what they change waits as a
+draft for one of your admins to approve, like anyone else's.
+
+The longest you can allow is 24 hours. The switch then turns itself off.
+
+You need the Admin role to change it. In a
+[partner-managed](/partners/overview/) organisation, a partner Owner or Admin
+can change it too. Support can never change it, and nor can an
+[API key](/admin/api-keys/).
+
+To turn it on:
+
+1. Open Settings in the portal sidebar.
+2. In the Sigil support access card, choose how long from the list: 1, 4, 8 or
+   24 hours. It starts at 4.
+3. Turn on Allow Sigil support to make changes.
+4. Sign in again when the portal asks you to.
+
+The portal confirms with "Sigil support can make changes for the next" and the
+time you chose. The card then says when access ends and which admin switched it
+on.
+
+To give support longer, pick a new time from the list and choose Reset the time.
+The clock restarts from now rather than adding to what was left.
+
+To turn it off, turn off Allow Sigil support to make changes. You are not asked
+to sign in again for this. Any edit session support has open ends straight
+away, and their next change is refused.
+
+### Seeing who is in your portal
+
+Under Open now, the card lists every support session open on your organisation,
+read-only ones included. Each line gives the operator's reference, such as
+`OP-7K3F`, whether they are viewing read-only or making changes, when the
+session ends, and the reason they gave for opening it.
+
+Support has to give a reason for every session, read-only or not, and you can
+read it here and in your [change log](/monitoring/change-log/#support-sessions).
+A session lasts 30 minutes at most, and an edit session never outlasts your
+switch.
+
 ## The Link domain card
 
 Settings also carries the card for a
 [branded link domain](/monitoring/branded-link-domain/), which is where the
 hostname is claimed, watched while its certificate issues, and removed.
 
-It is not one of the four switches above and has no default, because it is a paid
+It is not one of the five settings above and has no default, because it is a paid
 add-on rather than a choice about behaviour. The card is on the page whether or
 not your organisation holds the add-on: without it, the card explains what the
 feature does and points at Billing, rather than offering a button that would be
@@ -195,6 +251,11 @@ Marketing, Viewers, the Compliance role and the Billing role do not reach this
 page. An Admin can give the capability to a [custom role](/admin/users-and-roles/#custom-roles), and anyone holding
 that role can then change these settings, publish approval included.
 
+Sigil support access is the exception. Only an Admin can change it, or a
+partner Owner or Admin for a client. Someone holding Settings through a custom
+role sees the card and its open sessions, with the note "Only an admin can
+change this."
+
 An [API key](/admin/api-keys/) can read these settings but never change them,
 since a key that could switch publish approval off would get round the review
 it exists for.
@@ -216,6 +277,11 @@ building.
 
 A link domain added or removed is recorded under its own action rather than under
 settings, naming the hostname.
+
+Sigil support access is recorded under its own action too, Changed whether Sigil
+support can make changes, with the admin who did it. The entry says whether
+access was switched on, extended or switched off, for how many hours and until
+when, and how many edit sessions switching it off ended.
 
 Somebody opting their own address out of product updates is not in your change
 log. It is a choice about their own inbox rather than a change to your

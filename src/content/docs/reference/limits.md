@@ -391,4 +391,7 @@ sequentially.
 | Item | Value |
 | --- | --- |
 | Read-only impersonation session | 30 minutes, expiring on the server |
+| Support edit session | 30 minutes, and never past the organisation's support access window |
+| Sigil support access | 1 to 24 hours, then it switches itself off |
+| Reason for a support session | 10 to 500 characters |
 | Destructive operator actions | Require fresh interactive re-authentication |
