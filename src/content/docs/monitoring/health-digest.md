@@ -138,7 +138,7 @@ sends at all.
 | Preview | Renders the digest your organisation would get right now, in the page. Nothing is sent |
 | Send me one | Mails it to you alone, so you can see it land in a real inbox |
 
-Both live in [settings](/admin/settings/), next to the frequency.
+Both live on the Emails tab of [settings](/admin/settings/), next to the frequency.
 
 Neither moves the schedule. Previewing or testing today does not delay the real
 digest, so there is no cost to pressing either.
@@ -160,7 +160,8 @@ tells you it would be held back. See below for when that applies.
 You need the Admin role, a custom role given Settings, or a partner Owner or
 Admin role inside a managed client.
 
-1. Open Settings in the portal sidebar, under Organisation.
+1. Open Settings in the portal sidebar, under Organisation, and choose the
+   Emails tab.
 2. On the Health digest card, choose Preview. The subject line and the rendered
    digest appear beneath the frequency options.
 3. Choose Hide preview to close it.
@@ -177,8 +178,8 @@ when the next one goes out.
 | Monthly | One a month, on the date you choose from the 1st to the 28th (the 1st unless you change it) |
 | Off | No digest at all |
 
-Change it in [settings](/admin/settings/). Every digest carries a link to that
-page, so changing the day, turning it down or switching it off never means
+Change it on the Emails tab of [settings](/admin/settings/). Every digest
+carries a link that opens that tab, so changing the day, turning it down or switching it off never means
 hunting for the switch.
 
 ### Which day it arrives
@@ -246,7 +247,8 @@ every send.
 You need the Admin role, a custom role given Settings, or a partner Owner or
 Admin role inside a managed client.
 
-1. Open Settings in the portal sidebar, under Organisation.
+1. Open Settings in the portal sidebar, under Organisation, and choose the
+   Emails tab.
 2. On the Health digest card, choose Weekly, Monthly or Off.
 3. For Weekly, pick a day of the week from the list that appears under it. For
    Monthly, pick a date from the 1st to the 28th.

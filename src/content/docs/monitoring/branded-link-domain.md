@@ -55,7 +55,7 @@ already claimed.
 
 ## Setting it up
 
-Settings, then the Link domain card.
+Settings, then the Link domain tab.
 
 Adding a domain opens a dialog that shows you the CNAME record to create before
 it asks you to confirm. That order is deliberate: the certificate authority
@@ -69,7 +69,7 @@ providers accept that; the ones that want only the label in front of your domain
 say so on their own form.
 
 Once you confirm, Sigil claims the hostname and orders a certificate for it. The
-card on Settings is where you come back to watch that happen. It updates itself
+card on the Link domain tab of Settings is where you come back to watch that happen. It updates itself
 when the domain's status changes, so there is no need to reload the page.
 
 ### Adding the domain
@@ -78,7 +78,8 @@ The add-on must already be on your subscription, and you need the Admin role,
 a [custom role](/admin/users-and-roles/#custom-roles) that reaches Tenant
 settings, or a partner Owner or Admin role inside a managed client.
 
-1. Open Settings in the portal sidebar, under Organisation.
+1. Open Settings in the portal sidebar, under Organisation, and choose the
+   Link domain tab.
 2. On the Link domain card, choose Add a link domain, at the top right of the
    card beside its title.
 3. Under Hostname, enter the subdomain, such as links.example.com. The record
@@ -92,7 +93,8 @@ already live. The card then shows a badge for the state it is in.
 
 ### Checking it has gone live
 
-1. Open Settings in the portal sidebar, under Organisation.
+1. Open Settings in the portal sidebar, under Organisation, and choose the
+   Link domain tab.
 2. Read the badge on the Link domain card. While it reads Waiting for DNS or
    Setting up, the card repeats the CNAME record and says which stage it is at.
 3. Once your record is in place, choose Check again, beside the badge at the top
@@ -158,7 +160,8 @@ minted on. The exception is removal, described below.
 Remove is at the top right of the Link domain card, beside the badge, behind a
 confirmation.
 
-1. Open Settings in the portal sidebar, under Organisation.
+1. Open Settings in the portal sidebar, under Organisation, and choose the
+   Link domain tab.
 2. On the Link domain card, choose Remove. While the domain is still pending,
    the same button reads Cancel.
 3. In the confirmation, which says that links already in sent mail stop working

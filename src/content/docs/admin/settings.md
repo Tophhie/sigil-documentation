@@ -18,6 +18,20 @@ There are five.
 | Health digest | Weekly | How often Sigil emails your admins a summary of signature health |
 | Sigil support access | Off | Whether Sigil support can change your signature content while helping you, and for how long |
 
+Settings is split into tabs along the top of the page, the same way Billing is:
+
+| Tab | What is on it |
+| --- | --- |
+| General | Require approval to publish, and profile editing |
+| Emails | Product update emails, and the health digest |
+| Link domain | The [branded link domain](#the-link-domain-tab) card |
+| Support access | Sigil support access, and the support sessions open now |
+
+The tab you are on is part of the page address, so reloading keeps you there
+and a link can open a tab directly. The link in every health digest opens the
+Emails tab. If your link domain has stopped working, the Link domain tab shows
+a `!` marker so you can see it from any other tab.
+
 ## Require approval to publish
 
 With this on, anybody holding the templates capability still edits, previews and
@@ -32,7 +46,7 @@ gated and what deliberately is not.
 
 You need the Admin role to change it.
 
-1. Open Settings in the portal sidebar.
+1. Open Settings in the portal sidebar and choose the General tab.
 2. In the Publish approval card, turn on Require an admin to approve every
    signature change.
 
@@ -56,7 +70,7 @@ remove the values.
 Which fields exist is a separate page. See
 [profile fields](/admin/profile-fields/).
 
-1. Open Settings in the portal sidebar.
+1. Open Settings in the portal sidebar and choose the General tab.
 2. In the Profile editing card, turn on Let colleagues fill in their own
    signature details.
 
@@ -88,7 +102,7 @@ and switching this setting back on never overrides somebody who asked to stop.
 
 To stop them for your organisation:
 
-1. Open Settings in the portal sidebar.
+1. Open Settings in the portal sidebar and choose the Emails tab.
 2. In the Product update emails card, turn off Send product update emails to
    our admins.
 
@@ -105,7 +119,7 @@ arrives: a weekday for weekly (Monday by default), or a date from the 1st to the
 [the health digest](/monitoring/health-digest/) for what it contains, how a
 change of day is handled, and why it defaults to on.
 
-1. Open Settings in the portal sidebar.
+1. Open Settings in the portal sidebar and choose the Emails tab.
 2. In the Health digest card, choose Weekly, Monthly or Off.
 3. Pick the day of the week, or the date of the month, from the list under your
    choice.
@@ -130,7 +144,7 @@ thinking about it.
 
 To try it:
 
-1. Open Settings in the portal sidebar.
+1. Open Settings in the portal sidebar and choose the Emails tab.
 2. In the Health digest card, choose Preview.
 3. Read the digest that renders under the frequency options, with its subject
    line above it.
@@ -166,9 +180,9 @@ can change it too. Support can never change it, and nor can an
 
 To turn it on:
 
-1. Open Settings in the portal sidebar.
-2. In the Sigil support access card, choose how long from the list: 1, 4, 8 or
-   24 hours. It starts at 4.
+1. Open Settings in the portal sidebar and choose the Support access tab.
+2. Under the switch, beside Switch on for, choose how long from the list: 1, 4,
+   8 or 24 hours. It starts at 4.
 3. Turn on Allow Sigil support to make changes.
 4. Sign in again when the portal asks you to.
 
@@ -176,7 +190,8 @@ The portal confirms with "Sigil support can make changes for the next" and the
 time you chose. The card then says when access ends and which admin switched it
 on.
 
-To give support longer, pick a new time from the list and choose Reset the time.
+To give support longer, pick a new time from the list under the switch, such as
+8 hours from now, and choose Reset the time.
 The clock restarts from now rather than adding to what was left.
 
 To turn it off, turn off Allow Sigil support to make changes. You are not asked
@@ -195,21 +210,21 @@ read it here and in your [change log](/monitoring/change-log/#support-sessions).
 A session lasts 30 minutes at most, and an edit session never outlasts your
 switch.
 
-## The Link domain card
+## The Link domain tab
 
-Settings also carries the card for a
+Settings also has a Link domain tab, which holds the card for a
 [branded link domain](/monitoring/branded-link-domain/), which is where the
 hostname is claimed, watched while its certificate issues, and removed.
 
 It is not one of the five settings above and has no default, because it is a paid
-add-on rather than a choice about behaviour. The card is on the page whether or
+add-on rather than a choice about behaviour. The tab is there whether or
 not your organisation holds the add-on: without it, the card explains what the
 feature does and points at Billing, rather than offering a button that would be
 refused.
 
 With the add-on, and the Admin role or a custom role given Settings, claiming a hostname goes like this.
 
-1. Open Settings in the portal sidebar.
+1. Open Settings in the portal sidebar and choose the Link domain tab.
 2. In the Link domain card, choose Add a link domain.
 3. Enter the Hostname, such as `links.yourdomain.com`.
 4. Create the CNAME record the dialog shows at your DNS provider.
@@ -228,7 +243,7 @@ certificate authority. Fix the record and choose Check again.
 
 To remove it:
 
-1. Open Settings in the portal sidebar.
+1. Open Settings in the portal sidebar and choose the Link domain tab.
 2. In the Link domain card, choose Remove. While the domain is still waiting for
    DNS or being set up, the same button reads Cancel.
 3. Choose Remove in the confirmation dialog.

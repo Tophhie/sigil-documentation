@@ -22,7 +22,7 @@ organisation. It needs the settings capability. Of the built-in roles only Admin
 though an Admin can also give it to a [custom role](/admin/users-and-roles/#custom-roles). See
 [roles and capabilities](/reference/roles-and-capabilities/).
 
-1. Open Settings in the portal sidebar.
+1. Open Settings in the portal sidebar and choose the General tab.
 2. In the Publish approval card, switch on Require an admin to approve every
    signature change.
 

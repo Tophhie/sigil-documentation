@@ -3,9 +3,9 @@ title: What's new
 description: Recent changes to Sigil that admins, partners and mailbox users can see, newest first.
 ---
 
-<!-- last-portal-commit: 9526d0a -->
+<!-- last-portal-commit: be4dd2c -->
 <!-- last-addin-commit: e8cec95 -->
-<!-- last-flag-check: 2026-11-18T14:41:01Z -->
+<!-- last-flag-check: 2026-11-18T14:54:32Z -->
 
 This page lists changes to Sigil that you can see or need to know about, newest
 first. Each entry is dated by the day the change reached Sigil and links to the
@@ -16,6 +16,10 @@ are available to every organisation.
 
 ### 18 November
 
+- **Settings is now split into tabs.** Settings has General, Emails, Link
+  domain and Support access tabs, laid out like Billing. The tab is part of the
+  page address, and the link in the health digest now opens the Emails tab. See
+  [Settings](/admin/settings/).
 - **Let Sigil support make changes for a set time.** Settings has a new Sigil
   support access switch. An admin can let support change your templates,
   banners, footers, rules and profile fields for 1 to 24 hours, and switching it
