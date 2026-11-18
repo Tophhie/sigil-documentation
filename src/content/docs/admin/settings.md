@@ -210,6 +210,11 @@ read it here and in your [change log](/monitoring/change-log/#support-sessions).
 A session lasts 30 minutes at most, and an edit session never outlasts your
 switch.
 
+Support also shows up in the template editor when they are making changes. If
+someone in an edit session opens a template you have open, the line under its
+name reads "Sigil support is also editing this template." A read-only session
+never appears there, because support is only looking.
+
 ## The Link domain tab
 
 Settings also has a Link domain tab, which holds the card for a

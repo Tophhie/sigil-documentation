@@ -63,6 +63,10 @@ the template's name says so, such as "Sam Patel is also editing this
 template." It names everyone else who has it open, in either editor, and
 disappears when they close it or move to another template.
 
+Sigil support appears there as "Sigil support" while they are
+[making changes for you](/admin/settings/#sigil-support-access). When they are
+only looking, read-only, they are not listed.
+
 If a colleague saves a draft or publishes while you are working, a banner
 appears above the HTML editor, such as "Draft saved by Sam Patel just now.
 Reload to see it." The designer shows the same words as a message, naming the
