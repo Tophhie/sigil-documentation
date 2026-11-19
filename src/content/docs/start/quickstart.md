@@ -166,10 +166,10 @@ applied one. The names behind that count are in a CSV you can download from the
 same card.
 
 1. Open Activity in the portal sidebar.
-2. Under Signature adoption, read how many mailboxes have applied their
+2. On the Overview tab, under Signature adoption, read how many mailboxes have applied their
    signature at least once and how many never have.
-3. Under By mailbox, find each pilot mailbox and check its Outcome.
-4. Choose Export mailboxes (CSV) to download every mailbox with a Signature
+3. Choose the Mailboxes tab and find each pilot mailbox and check its Outcome.
+4. Back on the Overview tab, choose Export mailboxes (CSV) to download every mailbox with a Signature
    applied column of Yes or No. Filter it for No to list the ones that never have.
 
 Send yourself a [test email](/admin/test-email/) to see the rendered signature in

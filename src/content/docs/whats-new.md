@@ -3,9 +3,9 @@ title: What's new
 description: Recent changes to Sigil that admins, partners and mailbox users can see, newest first.
 ---
 
-<!-- last-portal-commit: 63f13a7 -->
+<!-- last-portal-commit: 7bc82da -->
 <!-- last-addin-commit: e942a93 -->
-<!-- last-flag-check: 2026-11-19T14:55:19Z -->
+<!-- last-flag-check: 2026-11-19T15:23:18Z -->
 
 This page lists changes to Sigil that you can see or need to know about, newest
 first. Each entry is dated by the day the change reached Sigil and links to the
@@ -16,6 +16,11 @@ are available to every organisation.
 
 ### 19 November
 
+- **Activity is now split into tabs.** Activity has Overview, Mailboxes and
+  Signature log tabs. Each row in the By
+  mailbox table has a Log button that opens the Signature log tab already
+  searched for that mailbox. See
+  [What the view shows](/monitoring/activity/#what-the-view-shows).
 - **Previewing as a person waits for a whole address.** In the HTML editor, the
   preview now re-renders once the address box holds a whole address, typed in
   full or picked from the suggestions. A half-typed name no longer brings up a

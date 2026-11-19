@@ -152,7 +152,7 @@ parameter in it for a content rule to object to. See
 To read the reasons for one network or office:
 
 1. Open Activity in the portal sidebar.
-2. In the Signature log, enter an affected address under Mailbox, set Source
+2. Choose the Signature log tab, enter an affected address under Mailbox, set Source
    to Add-in (apply), and choose Search.
 3. Read the badge on each failed row. It names the reason, `server-error` or
    `unreachable`.
@@ -167,7 +167,7 @@ usually the fastest route to the pattern: one department, one office, one client
 platform.
 
 1. Open Activity in the portal sidebar.
-2. Read the Signature adoption card. It says how many mailboxes have applied
+2. On the Overview tab, read the Signature adoption card. It says how many mailboxes have applied
    their signature at least once and how many never have.
 3. Choose Export mailboxes (CSV). The file lists every mailbox with Yes or No
    under Signature applied.
@@ -198,7 +198,7 @@ Ask the person to do this in Outlook on Windows, Mac or the web:
    and apply and complete the Microsoft sign-in.
 4. The pane says "Signature applied." and shows a preview of the signature.
 
-Their mailbox then appears in the By mailbox table in Activity, with Manual in
+Their mailbox then appears in the By mailbox table on Activity's Mailboxes tab, with Manual in
 the How column for that apply.
 
 ### Is the add-in assigned to them?
@@ -232,10 +232,10 @@ is on
 [sending on behalf of a mailbox](/signatures/sending-on-behalf/#where-the-add-in-runs-in-a-shared-mailbox).
 
 1. Open Activity in the portal sidebar.
-2. Find the person's mailbox in the By mailbox table and read the Add-in
-   column. It shows the manifest version, or `pre-1.5` for one older than the
+2. Choose the Mailboxes tab, find the person's mailbox in the By mailbox
+   table and read the Add-in column. It shows the manifest version, or `pre-1.5` for one older than the
    version stamp.
-3. If a notice at the top of the page says mailboxes are still on an older
+3. If a notice at the top of the tab says mailboxes are still on an older
    version and you uploaded Sigil as a custom app, choose Update and follow the
    steps in the dialog. A Marketplace deployment is updated by Microsoft, so
    allow its rollout to reach those mailboxes instead. See
@@ -287,7 +287,10 @@ If the pane says "Sigil isn't switched on for your organisation yet":
 Then confirm what Sigil recorded for that mailbox:
 
 1. Open Activity in the portal sidebar.
-2. In the Signature log, enter the address under Mailbox and choose Search.
+2. Choose the Mailboxes tab and choose Log beside the address. This opens the
+   Signature log tab already searched for that mailbox. You can also open the
+   Signature log tab yourself, enter the address under Mailbox and choose
+   Search.
 3. Read the newest rows. An add-in row is badged Applied or with the reason it
    failed; a server row is badged Fetched when the signature was served.
 

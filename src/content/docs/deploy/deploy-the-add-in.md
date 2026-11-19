@@ -89,8 +89,8 @@ Then look at [Activity](/monitoring/activity/). You want to see signature
 requests arriving and apply outcomes succeeding.
 
 1. Open Activity in the portal sidebar.
-2. In the By mailbox table, find each pilot's mailbox. Outcome should read
-   Applied, and the Add-in column should show the add-in's manifest
+2. Choose the Mailboxes tab and find each pilot's mailbox in the By mailbox
+   table. Outcome should read Applied, and the Add-in column should show the add-in's manifest
    version.
 3. Ask anybody missing from the table to start a new message and choose My
    signature on the ribbon, on a computer. Outlook on a phone has no My
@@ -111,7 +111,7 @@ signature applied rather than only reporting on the ones that have.
    intend to cover, or to Entire organisation.
 3. Allow 6 to 72 hours.
 4. Open Activity in the portal sidebar and watch the Never applied count in
-   the Signature adoption card. Export mailboxes (CSV) lists which they are.
+   the Signature adoption card on the Overview tab. Export mailboxes (CSV) lists which they are.
 
 ## What needs a redeploy, and what does not
 
@@ -202,10 +202,10 @@ Until you update, those mailboxes keep working exactly as they did. They simply
 do not get whatever the newer manifest declares.
 
 1. Open Activity in the portal sidebar.
-2. If your organisation is behind, a notice at the top of the page says which
+2. If your organisation is behind, a notice above the Overview and Mailboxes tabs says which
    manifest Sigil now serves and how many mailboxes are on an older one. Choose
    Update to open the steps, with a Copy button for the manifest link.
-3. In the By mailbox table, read the Add-in column for each mailbox.
+3. Choose the Mailboxes tab and read the Add-in column for each mailbox.
 
 If you deployed from the Marketplace you may still see this notice for a while
 after a new version is released, because Microsoft rolls it out over time. The

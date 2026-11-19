@@ -92,10 +92,10 @@ you are looking for signature requests arriving, apply outcomes succeeding, and
 nobody stuck in the never-applied list.
 
 1. Open Activity in the portal sidebar.
-2. Under Signature adoption, read how many mailboxes have applied their
+2. On the Overview tab, under Signature adoption, read how many mailboxes have applied their
    signature and how many never have.
-3. Under By mailbox, find each pilot mailbox and check its Outcome.
-4. Choose Export mailboxes (CSV) for a list of every mailbox, with a Signature
+3. Choose the Mailboxes tab and find each pilot mailbox and check its Outcome.
+4. Back on the Overview tab, choose Export mailboxes (CSV) for a list of every mailbox, with a Signature
    applied column reading Yes or No. The never-applied mailboxes are the No
    rows.
 

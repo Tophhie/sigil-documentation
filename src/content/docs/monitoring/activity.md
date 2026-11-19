@@ -28,17 +28,21 @@ they line up.
 
 ## What the view shows
 
-A per-mailbox rollup, so you can see the state of any individual person.
+The view is split into three tabs. Overview opens first.
 
-The signature log: every individual request and outcome, read when you search
-it.
+| Tab | What it holds |
+| --- | --- |
+| Overview | The Signature adoption card: adoption across the whole tenant, the latest activity and the never-applied export, described below |
+| Mailboxes | The By mailbox table, one row per mailbox, with the add-in manifest version each one installed |
+| Signature log | Every individual request and outcome, read when you search it |
 
-Adoption statistics across the whole tenant.
+The open tab is kept in the page address, so a link or a refresh of the browser
+lands on the same tab. Refresh, top right, reloads the Overview and Mailboxes
+tabs. The Signature log has no Refresh button, because choosing Search again is
+how you refresh it.
 
-The never-applied list, described below.
-
-Which add-in manifest version each mailbox installed, and a notice when any of
-them is behind. Described below.
+When any mailbox is behind on the add-in manifest, a notice shows above the
+Overview and Mailboxes tabs. It is described below.
 
 What this view does not carry is the [change log](/monitoring/change-log/), which
 has a view of its own beside this one, called Audit log in the sidebar. It used to sit here as two cards at the
@@ -54,8 +58,8 @@ what an administrator did on Monday.
 You need the Admin, Editor, Viewer or Compliance role.
 
 1. Open Activity in the portal sidebar, under Monitoring.
-2. In the By mailbox table, find the person's address. Rows are most recent
-   first.
+2. Choose the Mailboxes tab and find the person's address in the By mailbox
+   table. Rows are most recent first.
 3. Read the Outcome column. A badge shows the result of the last apply the
    add-in reported. Fetched only means a signature was requested for that
    mailbox but no apply was ever reported, such as a mailbox that has only
@@ -66,8 +70,10 @@ You need the Admin, Editor, Viewer or Compliance role.
 4. Read the Applied / failed column for the running counts, and the How column
    for whether the last apply was automatic or manual.
 
-For the full history of one mailbox, scroll to the Signature log card, enter
-the address under Mailbox and choose Search. Events are newest first, with Prev
+For the full history of one mailbox, choose Log at the end of its row. That
+opens the Signature log tab and searches it for that address straight away.
+Any outcome, source or date filters left over from an earlier search are
+cleared, so they cannot hide the rows you asked for. Events are newest first, with Prev
 and Next to page through them. A search returns the newest 100 events that
 match, although the card's own heading says 500. To reach further back than
 that, set From and To to an earlier range and search again.
@@ -78,7 +84,7 @@ The raw log is only read when you search it, so opening the view does not
 scan the whole history.
 
 1. Open Activity in the portal sidebar, under Monitoring.
-2. Scroll to the Signature log card.
+2. Choose the Signature log tab.
 3. Set any of the filters, or none. Mailbox takes an address. Outcome offers
    Any, Applied / fetched OK, Failed to apply, Not found, Unauthorized,
    Billing inactive, Signatures paused, Mailbox excluded and Error. Source
@@ -123,7 +129,7 @@ rest of the telemetry still renders without it.
 ### Reading the list
 
 1. Open Activity in the portal sidebar, under Monitoring.
-2. Read the Signature adoption card at the top. It shows what percentage of
+2. On the Overview tab, read the Signature adoption card. It shows what percentage of
    your mailboxes have applied a signature at least once, with Applied and
    Never applied counts beneath, and the five most recent mailboxes under
    Latest activity.
@@ -147,8 +153,8 @@ and the running code cannot see that it is missing.
 
 So every apply reports the manifest version behind it, and the per-mailbox table
 carries it in an Add-in column. When any mailbox that has composed in the last
-30 days is on an older manifest than the one Sigil serves, the view opens with a
-notice naming the manifest version Sigil now serves and how many of the
+30 days is on an older manifest than the one Sigil serves, the Overview and
+Mailboxes tabs show a notice naming the manifest version Sigil now serves and how many of the
 mailboxes active in the last 30 days are still on an older one.
 
 The notice opens the steps rather than only naming the problem. It walks through
@@ -177,7 +183,7 @@ of your Microsoft 365 tenant. The notice itself shows to anybody who can open
 Activity, so a Viewer may be the one who spots it and passes it on.
 
 1. Open Activity in the portal sidebar, under Monitoring. The notice at the top
-   names the manifest Sigil now serves and how many mailboxes are on an older
+   of the Overview tab names the manifest Sigil now serves and how many mailboxes are on an older
    one.
 2. Choose Update. A dialog called Update the add-in opens with the steps.
 3. Choose Open Integrated apps. In the Microsoft 365 admin centre, open Sigil by
@@ -193,7 +199,7 @@ Activity, so a Viewer may be the one who spots it and passes it on.
 
 The dialog asks you to allow Microsoft's usual 6 to 72 hours for the update to
 propagate before treating a mailbox that has not moved as a fault. The Add-in
-column shows each mailbox's version as it comes through.
+column on the Mailboxes tab shows each mailbox's version as it comes through.
 
 ## What the numbers will not tell you
 
