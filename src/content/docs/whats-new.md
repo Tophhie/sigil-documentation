@@ -3,9 +3,9 @@ title: What's new
 description: Recent changes to Sigil that admins, partners and mailbox users can see, newest first.
 ---
 
-<!-- last-portal-commit: 617a787 -->
+<!-- last-portal-commit: 63f13a7 -->
 <!-- last-addin-commit: e942a93 -->
-<!-- last-flag-check: 2026-11-19T14:00:44Z -->
+<!-- last-flag-check: 2026-11-19T14:55:19Z -->
 
 This page lists changes to Sigil that you can see or need to know about, newest
 first. Each entry is dated by the day the change reached Sigil and links to the
@@ -13,6 +13,14 @@ page that covers it in full. Features still in testing are left off until they
 are available to every organisation.
 
 ## November 2026
+
+### 19 November
+
+- **Previewing as a person waits for a whole address.** In the HTML editor, the
+  preview now re-renders once the address box holds a whole address, typed in
+  full or picked from the suggestions. A half-typed name no longer brings up a
+  "No such user" error while you type. See
+  [Previewing as a particular person](/signatures/previews/#previewing-as-a-particular-person).
 
 ### 18 November
 

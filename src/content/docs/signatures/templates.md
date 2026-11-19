@@ -307,8 +307,10 @@ without publishing. It is the fastest way to check that a conditional section
 collapses the way you expect.
 
 The address box above the preview swaps the sample data for a real mailbox.
-Start typing a name and it completes from your directory. Clear it to go back to
-sample data.
+Start typing a name and it completes from your directory. In the HTML editor
+the preview changes once the box holds a whole address, either typed in full or
+filled in by picking a suggestion, and not while you are still typing. Clear it
+to go back to sample data.
 
 The sample person is invented, and so is everything beside them. The telephone
 numbers come from the ranges Ofcom reserves for drama, which connect to nobody,
