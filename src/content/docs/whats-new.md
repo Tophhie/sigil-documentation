@@ -3,9 +3,9 @@ title: What's new
 description: Recent changes to Sigil that admins, partners and mailbox users can see, newest first.
 ---
 
-<!-- last-portal-commit: ab6e302 -->
+<!-- last-portal-commit: d663e7f -->
 <!-- last-addin-commit: e942a93 -->
-<!-- last-flag-check: 2026-11-19T16:44:38Z -->
+<!-- last-flag-check: 2026-11-19T17:06:51Z -->
 
 This page lists changes to Sigil that you can see or need to know about, newest
 first. Each entry is dated by the day the change reached Sigil and links to the
@@ -16,6 +16,11 @@ are available to every organisation.
 
 ### 19 November
 
+- **The signature log shows more on each row.** Each row now names the
+  template the signature came from, whether it was the new message or reply
+  signature, and the Outlook it ran in. An arrow at the end of a row opens the
+  rest of the event, including the HTTP status, duration and request ID. See
+  [Reading a signature log row](/monitoring/activity/#reading-a-signature-log-row).
 - **Activity is now split into tabs.** Activity has Overview, Mailboxes and
   Signature log tabs. Each row in the By
   mailbox table has a Log button that opens the Signature log tab already

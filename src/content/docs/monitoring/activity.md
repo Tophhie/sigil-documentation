@@ -92,9 +92,38 @@ scan the whole history.
    and a date covers the whole of that UTC day.
 4. Choose Search.
 
-Each row shows when, the mailbox, and the event: an outcome badge for an add-in
-report, or Fetched for a served request, with how it was triggered beside it.
 If nothing matches, the table says so.
+
+### Reading a signature log row
+
+Each row has five columns:
+
+| Column | What it shows |
+| --- | --- |
+| When | The time of the event |
+| Mailbox | The mailbox whose signature was served. When someone else asked for it, such as a delegate writing from a shared mailbox, a "Requested by" line underneath names them |
+| Template | The template the signature came from, with New message or Reply / forward underneath for the signature that was asked for. If Sigil no longer holds a record of that template version, the column shows the version instead, such as "Version mvs89ysnf63n" |
+| Client | The Outlook the add-in ran in, in plain words such as Outlook on Windows or Outlook on the web. The add-in version is underneath when the add-in reported one. A served request has no client of its own and reads Server |
+| Event | An outcome badge for an add-in report, or Fetched for a served request, with how it was triggered underneath |
+
+To see the rest of an event:
+
+1. Find the row in the signature log.
+2. Choose the arrow at the right-hand end of the row.
+3. Read the detail panel that opens under it. It lists whichever of these the
+   event carries: Source, Signature, How, Template, Template version, Client,
+   Add-in manifest, Requested by, Reason, HTTP status, Cache, Duration and
+   Request ID.
+4. Choose the arrow again to close it.
+
+Client in the panel gives the raw names Outlook reported, which you can also
+see by hovering over the Client column. Add-in manifest reads pre-1.5 for an
+add-in report from a manifest older than 1.5.0.0, which did not report its
+version. Reason appears only when the outcome was not a success. Cache says
+whether a served signature came from the cache.
+
+Request ID ties an add-in report to the served request behind it. Open rows
+stay open as you page through the results and close when you search again.
 
 ## The never-applied list
 
@@ -275,8 +304,9 @@ is what stops a network problem being filed as a Sigil outage.
 
 A `server-error` also carries the HTTP status behind it, recorded on the event
 rather than printed on the badge. It is the half that tells support what
-happened, and it comes back with the event through the API and in a mailbox's
-[data export](/security/data-and-privacy/).
+happened. You can read it in the event's detail panel in the
+[signature log](#reading-a-signature-log-row), and it comes back with the event
+through the API and in a mailbox's [data export](/security/data-and-privacy/).
 
 The distinction is worth holding on to. A recorded 500 is Sigil answering badly
 and worth raising with support. `unreachable` is Sigil not being reached at all,
