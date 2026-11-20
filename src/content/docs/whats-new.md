@@ -5,7 +5,7 @@ description: Recent changes to Sigil that admins, partners and mailbox users can
 
 <!-- last-portal-commit: d663e7f -->
 <!-- last-addin-commit: e942a93 -->
-<!-- last-flag-check: 2026-11-19T17:06:51Z -->
+<!-- last-flag-check: 2026-11-20T09:03:11Z -->
 
 This page lists changes to Sigil that you can see or need to know about, newest
 first. Each entry is dated by the day the change reached Sigil and links to the
